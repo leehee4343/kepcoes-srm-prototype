@@ -1,0 +1,907 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>전자입찰시스템 SRM - 입찰 참여 현황 | KEPCO ES</title>
+  <link rel="stylesheet" href="../../assets/styles/style.css">
+</head>
+<body>
+
+  <header class="top-header">
+    <div class="header-left">
+      <button type="button" class="btn-menu-toggle" id="btnmenutoggle" title="사이드바 메뉴 접기/펼치기">
+        <svg aria-hidden="true" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="SRMDashboardPartner.html" class="brand-logo-wrap" title="전자입찰시스템 SRM 메인">
+        <img src="../../assets/images/logo.png" alt="켑코이에스(주) 로고" class="brand-logo-img">
+      </a>
+      <div class="header-system-badge-group">
+        <span class="system-title">전자입찰시스템(SRM)</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="permission-group">
+        <span class="perm-label">권한 :</span>
+        <button type="button" class="perm-btn" data-role="contract" data-href="../03_대시보드/SRMDashboardContract.html" title="계약담당자 권한으로 전환" aria-pressed="false">계약담당자</button>
+        <button type="button" class="perm-btn" data-role="biz" data-href="../03_대시보드/SRMDashboardBiz.html" title="사업담당자 권한으로 전환" aria-pressed="false">사업담당자</button>
+        <button type="button" class="perm-btn" data-role="admin" data-href="../03_대시보드/SRMDashboardAdmin.html" title="관리자 권한으로 전환" aria-pressed="false">관리자</button>
+        <button type="button" class="perm-btn active" data-role="partner" data-href="SRMDashboardPartner.html" title="협력업체 권한으로 전환" aria-pressed="true" aria-current="true">협력업체</button>
+      </div>
+      <div class="user-profile">
+        <span class="user-name">김큐빗 대리</span>
+        <span class="user-role">[(주)큐비트엑스]</span>
+        <span class="user-divider">|</span>
+        <a href="../01_협력업체창구_로그인전/SRMLogin.html" class="btn-logout" title="로그아웃">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="app-container">
+    <aside class="sidebar" id="sidebar">
+      <nav class="sidebar-nav">
+        <div class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="nav-icon"></span>
+            <span class="nav-text">협력업체 전용 창구</span>
+            <span class="nav-arrow">
+              <svg aria-hidden="true" width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </a>
+          <ul class="submenu">
+              <li class="submenu-item"><a href="SRMDashboardPartner.html">대시보드</a></li>
+              <li class="submenu-item"><a href="SRMPartnerNotice.html">공지사항</a></li>
+              <li class="submenu-item"><a href="SRMPartnerQna.html">질문과 답변</a></li>
+              <li class="submenu-item"><a href="SRMPartnerFileRepo.html">양식 등 자료실</a></li>
+              <li class="submenu-item"><a href="SRMPartnerPreQuote.html">사전 견적 관리</a></li>
+              <li class="submenu-item"><a href="SRMPartnerNegoRequest.html">수의계약 요청 현황</a></li>
+              <li class="submenu-item"><a href="SRMPartnerBidNotice.html">입찰공고 현황</a></li>
+              <li class="submenu-item active"><a href="SRMPartnerBidJoin.html">입찰 참여 현황</a></li>
+              <li class="submenu-item"><a href="SRMPartnerContract.html">계약관리</a></li>
+              <li class="submenu-item"><a href="SRMPartnerInfo.html">협력업체 정보 관리</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="sidebar-bottom-actions">
+        <a href="SRMDashboardPartner.html" class="btn-sidebar-switch" title="사업관리시스템(PMS)으로 이동">
+          <svg aria-hidden="true" width="17" height="17" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+          <span>사업관리시스템(PMS)</span>
+        </a>
+        <button type="button" class="btn-sidebar-manual">
+          <svg aria-hidden="true" width="15" height="15" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="m9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+          <span>온라인 매뉴얼</span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-title-wrap">
+        <div class="page-title-left"><h1 class="page-title">입찰 참여 현황</h1></div>
+        <nav class="breadcrumb" aria-label="현재 위치">
+          <span class="breadcrumb-item">홈</span><span class="breadcrumb-separator">&gt;</span>
+          <span class="breadcrumb-item">협력업체 전용 창구</span><span class="breadcrumb-separator">&gt;</span>
+          <span class="breadcrumb-item current">입찰 참여 현황</span>
+        </nav>
+      </div>
+
+
+      <section class="filter-card">
+        <form id="bidJoinSearchForm">
+          <div class="filter-row hstack gap-12">
+            <span class="filter-label w-80">조회기간(입찰 마감일)</span>
+            <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
+            <div class="quick-date-btns hstack gap-6">
+              <button type="button" class="btn-quick-date" data-range="1d">하루 전</button>
+              <button type="button" class="btn-quick-date" data-range="1w">1주일</button>
+              <button type="button" class="btn-quick-date active" data-range="1m">1개월</button>
+              <button type="button" class="btn-quick-date" data-range="3m">3개월</button>
+              <button type="button" class="btn-quick-date" data-range="6m">6개월</button>
+              <button type="button" class="btn-quick-date" data-range="1y">1년</button>
+            </div>
+          </div>
+          <div class="filter-row hstack gap-12">
+            <span class="filter-label w-80">구분</span>
+            <div class="form-choice-group" role="radiogroup">
+              <label class="form-choice"><input type="radio" name="bidJoinType" checked>전체</label>
+              <label class="form-choice"><input type="radio" name="bidJoinType">공사</label>
+              <label class="form-choice"><input type="radio" name="bidJoinType">용역</label>
+              <label class="form-choice"><input type="radio" name="bidJoinType">물품</label>
+            </div>
+          </div>
+          <div class="filter-row hstack gap-12">
+            <span class="filter-label w-80">계약방법/낙찰자 선정방법</span>
+            <select class="filter-select w-180"><option>계약방법 선택</option></select>
+            <select class="filter-select w-180"><option>낙찰자 선정방법 선택</option></select>
+          </div>
+          <div class="filter-row hstack gap-12">
+            <span class="filter-label w-80">공고 구분</span>
+            <div class="form-choice-group" role="radiogroup">
+              <label class="form-choice"><input type="radio" name="bidJoinKind" checked>전체</label>
+              <label class="form-choice"><input type="radio" name="bidJoinKind">본공고</label>
+              <label class="form-choice"><input type="radio" name="bidJoinKind">재공고</label>
+            </div>
+          </div>
+          <div class="filter-row hstack gap-12">
+            <span class="filter-label w-80">진행상태</span>
+            <select class="filter-select w-180">
+              <option value="all" selected>전체</option>
+              <option>입찰진행중</option><option>입찰마감</option><option>투찰진행중</option><option>투찰마감</option>
+              <option>심사완료</option><option>선정완료</option><option>유찰</option><option>재입찰</option><option>공고취소</option>
+            </select>
+          </div>
+          <div class="filter-row hstack gap-12">
+            <span class="filter-label w-80">키워드 검색</span>
+            <select class="filter-select w-150"><option>공고번호</option><option>입찰 건명</option></select>
+            <input type="text" class="filter-text-input w-380" placeholder="검색어를 입력하세요.">
+          </div>
+          <div class="filter-action-row">
+            <button type="submit" class="btn-filter-search">검색</button>
+            <button type="button" class="btn-filter-reset">초기화</button>
+          </div>
+        </form>
+      </section>
+
+      <div class="table-card">
+        <div class="table-header-action-row">
+          <div class="table-total-count grid-page-summary">1 / 4 (총 1,523개)</div>
+          <div class="table-actions">
+            <select class="select-per-page" title="페이지당 표시 건수">
+              <option value="10" selected>10개씩</option>
+              <option value="20">20개씩</option>
+              <option value="30">30개씩</option>
+              <option value="50">50개씩</option>
+              <option value="100">100개씩</option>
+            </select>
+          </div>
+        </div>
+        <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="입찰 참여 현황 목록" data-total-items="1523" data-total-pages="153">
+          <table class="data-table data-grid-table" aria-label="입찰 참여 현황 목록">
+            <thead>
+              <tr><th class="w-100">공고번호</th><th class="w-80">공고 구분</th><th class="w-90">진행상태</th><th class="w-140">제출상태</th><th class="w-140">결과</th><th class="minw-220">입찰 건명</th><th class="w-130">입찰 마감일시</th><th class="w-60">구분</th><th class="w-100">계약방법</th><th class="w-110">낙찰자 선정방법</th><th class="w-80">사업담당자</th><th class="w-80">계약 담당자</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><a href="#" data-open-modal="bidJoinDetailModal">BD2026-0023</a></td><td>본공고</td><td><span class="badge-info">입찰진행중</span></td><td><span class="badge-tag">작성중(미제출)</span></td><td><span class="badge-success">우선협상대상자 선정</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td>2026.07.31 18:00</td><td>공사</td><td>경쟁입찰(일반)</td><td>최저가</td><td>홍길동</td><td>박승길</td></tr>
+              <tr><td><a href="#" data-open-modal="bidJoinDocSubmittedModal">BD2026-0025</a></td><td>재공고(1차)</td><td><span class="badge-tag">입찰마감</span></td><td><span class="badge-success">입찰 서류 제출 완료</span></td><td><span class="badge-success">우선협상대상자 선정</span></td><td class="text-left">금호동 1601-9 오피스텔 신축공사 중 도장공사</td><td>2026.07.31 18:00</td><td>용역</td><td>경쟁입찰(제한)</td><td>제한적 최저가 입찰</td><td>홍길동</td><td>박승길</td></tr>
+              <tr><td><a href="#" data-open-modal="bidPriceAfterModal">BD2026-0031</a></td><td>재공고(2차)</td><td><span class="badge-info">투찰진행중</span></td><td><span class="badge-success">가격 투찰 완료</span></td><td>탈락</td><td class="text-left">금호동 1601-9 오피스텔 신축공사 중 도장공사</td><td>2026.07.31 18:00</td><td>물품</td><td>경쟁입찰(지명)</td><td>2단계 경쟁입찰(규격/가격 동시)</td><td>홍길동</td><td>박승길</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-pagination-row"><nav class="pagination-controls" aria-label="표 페이지 이동"></nav></div>
+      </div>
+
+    </main>
+  </div>
+
+  <footer class="app-footer">
+    <div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div>
+  </footer>
+
+
+  <!-- 입찰 참여 현황 상세 (입찰공고 정보 탭) -->
+  <div class="modal-backdrop" id="bidJoinDetailModal" role="dialog" aria-modal="true" aria-labelledby="bidJoinDetailTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <h2 class="modal-title" id="bidJoinDetailTitle">입찰 참여 현황 상세</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="공고 요약">
+            <thead><tr><th>공고번호</th><th>공고 구분</th><th>진행상태</th><th>제출상태</th><th>입찰 건명</th><th>입찰마감일시</th><th>구분</th><th>계약방법</th><th>낙찰자 선정방법</th></tr></thead>
+            <tbody><tr><td>BD2026-0023</td><td>본공고</td><td><span class="badge-info">입찰진행중</span></td><td><span class="badge-tag">작성중(미제출)</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중...</td><td>2026.07.31 18:00</td><td>공사</td><td>경쟁입찰(일반)</td><td>제한적 최저가 입찰</td></tr></tbody>
+          </table>
+        </div>
+
+        <div class="detail-tabs-bar">
+          <div class="detail-tab-group" role="tablist" aria-label="입찰 참여 상세 탭">
+            <button type="button" class="detail-tab-btn active" role="tab" aria-selected="true">입찰공고 정보</button>
+            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">입찰 서류 제출</button>
+            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">가격 투찰</button>
+            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">입찰 결과</button>
+            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">수의시담</button>
+          </div>
+        </div>
+
+        <div class="srm-section-heading content-object-gap-top"><div><h2>입찰공고 기본 정보</h2></div></div>
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>공고번호</dt><dd>BD2026-0023</dd></div>
+          <div class="srm-kv-row"><dt>건명</dt><dd>서초동 1601-9 오피스텔 신축공사 중 습식공사</dd></div>
+          <div class="srm-kv-row"><dt>계약방법</dt><dd>경쟁입찰(일반)</dd></div>
+          <div class="srm-kv-row"><dt>낙찰자 선정방법</dt><dd>제한적 최저가 입찰</dd></div>
+          <div class="srm-kv-row"><dt>추정금액</dt><dd>94,490,000원 (구천사백사십구만원 / VAT 포함)</dd></div>
+          <div class="srm-kv-row"><dt>계약기간</dt><dd>2026.07.20 ~ 2027.07.30</dd></div>
+          <div class="srm-kv-row"><dt>납품장소</dt><dd>현장 내</dd></div>
+          <div class="srm-kv-row"><dt>참가자격</dt><dd>도장·습식·방수·석공사업 보유업체</dd></div>
+          <div class="srm-kv-row"><dt>입찰 보증금률</dt><dd>5%</dd></div>
+        </div>
+        <div class="srm-section-heading content-object-gap-top"><div><h2>계약업체 면허</h2></div></div>
+        <div class="srm-table-wrap"><table class="data-table" aria-label="계약업체 면허"><tbody><tr><th class="w-160">전문건설업</th><td class="text-left">도장/습식/방수/석공 사업</td></tr></tbody></table></div>
+
+        <div class="srm-section-heading content-object-gap-top"><div><h2>품목 정보</h2></div></div>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="품목 정보">
+            <thead><tr><th class="col-no">No</th><th>품목코드</th><th>품목명</th><th>규격</th><th>단위</th><th>수량</th><th>납기요청일</th><th>입고장소</th><th>비고</th></tr></thead>
+            <tbody><tr><td>1</td><td>-</td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td class="text-left">품목구성방법이 '지정항목작성'인 경우에 등록됨</td><td>-</td><td>1</td><td>2026.07.31</td><td>현장</td><td class="text-left">품목등록의 비고에 들어간 내용입니다.</td></tr></tbody>
+          </table>
+        </div>
+
+        <div class="srm-section-heading content-object-gap-top"><div><h2>입찰공고 상세정보</h2></div></div>
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>입찰 시작/마감일시</dt><dd>2026.07.31 09시 00분 ~ 2026.08.15 18시 00분</dd></div>
+          <div class="srm-kv-row"><dt>입찰공고 게시기간</dt><dd>2026.07.28 09시 00분 ~ 2026.08.15 18시 00분</dd></div>
+          <div class="srm-kv-row"><dt>현장설명회 일시</dt><dd><span class="srm-inline-badge">현장설명회 없음</span><span class="srm-divider">|</span>2026.08.05 16시 00분 (※ 사정에 의해 변경될 수 있으며, 변경 시 통보 드립니다.)</dd></div>
+          <div class="srm-kv-row"><dt>입찰공고문</dt><dd class="content-bullet-item">등록된 파일명.PDF · 등록된 파일명.PDF</dd></div>
+          <div class="srm-kv-row"><dt>입찰참가신청서</dt><dd class="content-bullet-item">등록된 파일명.PDF</dd></div>
+          <div class="srm-kv-row"><dt>입찰보증금지급각서</dt><dd class="content-bullet-item">등록된 파일명.PDF</dd></div>
+          <div class="srm-kv-row"><dt>시방서, 구매견적서, 과업지시서</dt><dd class="content-bullet-item">등록된 파일명.PDF · 등록된 파일명.PDF · 등록된 파일명.PDF</dd></div>
+          <div class="srm-kv-row"><dt>기타서류</dt><dd class="content-bullet-item">등록된 파일명.PDF · 등록된 파일명.PDF</dd></div>
+        </div>
+        <div class="srm-section-heading content-object-gap-top"><div><h2>가격 투찰기간</h2></div></div>
+        <div class="srm-kv-grid"><div class="srm-kv-row"><dt>가격투찰 기간</dt><dd>※ 낙찰자 선정방법이 '제한적 최저가 입찰', '2단계 경쟁입찰(규격/가격 분리)'인 경우 규격(기술) 심사 결과에 따라 별도의 가격 투찰 기간을 안내해드립니다.</dd></div></div>
+
+        <div class="srm-section-heading content-object-gap-top"><div><h2>심사/평가 관련 정보</h2></div></div>
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>동점자 처리기준</dt><dd>가격</dd></div>
+          <div class="srm-kv-row"><dt>종합평가 비율</dt><dd>기술 : 80% | 가격 : 20%</dd></div>
+          <div class="srm-kv-row"><dt>업체 전달사항</dt><dd>입찰 참여 시 등록해야 하는 서류를 꼼꼼히 읽어보시고 빠짐없이 등록해주세요.</dd></div>
+        </div>
+        <div class="srm-section-heading content-object-gap-top"><div><h2>제안발표 관련 정보</h2></div></div>
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>협상에 의한 계약 여부</dt><dd>협상에 의한 계약</dd></div>
+          <div class="srm-kv-row"><dt>제안발표 여부</dt><dd>제안발표 진행</dd></div>
+          <div class="srm-kv-row"><dt>제안발표 일시</dt><dd>2026.08.31 16시 30분부터 진행</dd></div>
+          <div class="srm-kv-row"><dt>제안발표 장소</dt><dd>전기회관 9층(켑코이에스 대회의실)</dd></div>
+        </div>
+
+        <div class="srm-section-heading content-object-gap-top"><div><h2>심사/평가 항목</h2></div></div>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="심사/평가 항목">
+            <thead><tr><th class="col-no">No</th><th>심사/평가 구분</th><th>심사/평가 항목</th><th>배점</th><th>자가심사 여부</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>계량(정량)</td><td class="text-left">신용평가등급</td><td class="col-num">10.00</td><td><span class="badge-info">필요</span></td></tr>
+              <tr><td>2</td><td>계량(정량)</td><td class="text-left">시공경험(일반공사)</td><td class="col-num">10.00</td><td><span class="badge-info">필요</span></td></tr>
+              <tr><td>3</td><td>비계량(정성)</td><td class="text-left">제안 평가</td><td class="col-num">60.00</td><td><span class="badge-tag">불필요</span></td></tr>
+            </tbody>
+            <tfoot><tr><td colspan="3">총 배점</td><td class="col-num">80.00</td><td></td></tr></tfoot>
+          </table>
+        </div>
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>최저점수(적격여부 판단)</dt><dd>60점</dd></div>
+          <div class="srm-kv-row"><dt>심사기준(배점 및 평가기준 등)</dt><dd><div class="srm-file-item"><span>등록된 파일명.PDF</span><button type="button" class="btn-file-preview">바로보기</button><button type="button" class="btn-file-download">다운로드</button></div></dd></div>
+        </div>
+
+        <div class="srm-section-heading content-object-gap-top"><div><h2>입찰 참여 서류</h2></div></div>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="입찰 참여 서류">
+            <thead><tr><th class="col-no">No</th><th>입찰 참여 서류</th><th>설명</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td class="text-left">입찰참가신청서 날인본</td><td class="text-left">입찰참가신청서는 반드시 날인이 되어 있어야 합니다. (날인이 빠진 경우 미입찰로 처리됩니다.)</td></tr>
+              <tr><td>2</td><td class="text-left">신용평가등급 확인서</td><td class="text-left">신용평가 등급 확인서는 반드시 유효기간 내에 있어야 합니다.</td></tr>
+              <tr><td>3</td><td class="text-left">법인인감 증명서</td><td class="text-left">제출되는 법인인감증명서는 유효기간 내에 있어야 합니다.</td></tr>
+              <tr><td>4</td><td class="text-left">제안서</td><td class="text-left">제안서를 첨부해주세요. (되도록 하나의 PDF 파일로 합쳐서 첨부해주세요.)</td></tr>
+              <tr><td>5</td><td class="text-left">기타</td><td>-</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary modal-close">목록</button>
+        <button type="button" class="btn-primary" data-close-modal data-open-modal="bidJoinLimitNoticeModal2">입찰 서류 제출하기</button>
+        <button type="button" class="btn-primary" data-close-modal data-open-modal="bidPriceLimitNoticeModal2">가격 투찰하기</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="bidJoinLimitNoticeModal2" role="dialog" aria-modal="true" aria-labelledby="bidJoinLimitTitle2" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header"><h2 class="modal-title" id="bidJoinLimitTitle2">입찰 참여 제한 안내</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
+      <div class="modal-body">
+        <div class="notice-box warning" role="alert">
+          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span>
+          <div class="notice-body"><p class="notice-lead">본 입찰은 계약방법이 '경쟁입찰(지명)' 건으로 제한(지명)된 업체만 입찰이 가능합니다.</p><p>입찰 참여가 가능한 업체만 참여할 수 있습니다.</p></div>
+        </div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">닫기</button><button type="button" class="btn-primary" data-close-modal data-open-modal="bidDocSubmitWizardModal">계속</button></div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="bidPriceLimitNoticeModal2" role="dialog" aria-modal="true" aria-labelledby="bidPriceLimitTitle2" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header"><h2 class="modal-title" id="bidPriceLimitTitle2">가격 투찰 제한 안내</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
+      <div class="modal-body">
+        <div class="notice-box warning" role="alert">
+          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span>
+          <div class="notice-body"><p class="notice-lead">가격 투찰을 위해서는 반드시 '입찰 서류'가 먼저 제출되어야 합니다.</p><p>입찰 서류를 제출하신 후 가격을 투찰해주세요.</p></div>
+        </div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">닫기</button></div>
+    </div>
+  </div>
+
+  <!-- 입찰 서류 제출 위저드 (STEP 01~04) -->
+  <div class="modal-backdrop" id="bidDocSubmitWizardModal" role="dialog" aria-modal="true" aria-labelledby="bidDocSubmitWizardTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <h2 class="modal-title" id="bidDocSubmitWizardTitle">입찰 서류 제출</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="공고 요약">
+            <thead><tr><th>공고번호</th><th>공고 구분</th><th>진행상태</th><th>제출상태</th><th>입찰 건명</th><th>입찰마감일시</th><th>구분</th><th>계약방법</th><th>낙찰자 선정방법</th></tr></thead>
+            <tbody><tr><td>BD2026-0023</td><td>본공고</td><td><span class="badge-info">입찰진행중</span></td><td><span class="badge-tag">작성중(미제출)</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중...</td><td>2026.07.31 18:00</td><td>공사</td><td>경쟁입찰(일반)</td><td>제한적 최저가 입찰</td></tr></tbody>
+          </table>
+        </div>
+
+        <div class="detail-tabs-bar">
+          <div class="detail-tab-group" role="tablist" aria-label="입찰 참여 상세 탭">
+            <button type="button" class="detail-tab-btn active" role="tab" aria-selected="true">입찰공고 정보</button>
+            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">입찰 서류 제출</button>
+            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">가격 투찰</button>
+            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">입찰 결과</button>
+            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">수의시담</button>
+          </div>
+        </div>
+
+        <div class="srm-section-heading content-object-gap-top">
+          <div><h2>입찰 담당자 정보</h2></div>
+          <p>※ 본 입찰 참여의 담당자 정보를 '협력업체정보 관리 &gt; 담당자 정보 추가/수정' 기능을 통해 등록 후 사용하세요.</p>
+        </div>
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>담당자 선택 <span class="required" aria-hidden="true">*</span></dt><dd><select class="filter-select w-200"><option>이희성</option></select></dd></div>
+          <div class="srm-kv-row"><dt>이름</dt><dd>이희성</dd></div>
+          <div class="srm-kv-row"><dt>이메일</dt><dd>leehee43@naver.com</dd></div>
+          <div class="srm-kv-row"><dt>핸드폰번호</dt><dd>010-6844-2810</dd></div>
+          <div class="srm-kv-row"><dt>직책</dt><dd>부장</dd></div>
+          <div class="srm-kv-row"><dt>전화번호</dt><dd>02-6959-9855</dd></div>
+        </div>
+
+        <div class="srm-section-heading content-object-gap-top">
+          <div><h2>입찰 참여 서류</h2></div>
+          <p>※ 되도록 각 항목당 하나의 파일로 등록해주세요. (입찰 참여 서류에 등록한 순서대로 나열)</p>
+        </div>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="입찰 참여 서류 첨부">
+            <thead><tr><th class="col-no">No</th><th>입찰 참여 서류</th><th>설명</th><th class="w-120">첨부</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td class="text-left">입찰참가신청서 날인본</td><td class="text-left">입찰참가신청서는 반드시 날인이 되어 있어야 합니다. (날인이 빠진 경우 미입찰로 처리됩니다.)</td><td><button type="button" class="btn-secondary">찾아보기</button></td></tr>
+              <tr><td>2</td><td class="text-left">신용평가등급 확인서</td><td class="text-left">신용평가 등급 확인서는 반드시 유효기간 내에 있어야 합니다.</td><td><button type="button" class="btn-secondary">찾아보기</button></td></tr>
+              <tr><td>3</td><td class="text-left">법인인감 증명서</td><td class="text-left">제출되는 법인인감증명서는 유효기간 내에 있어야 합니다.</td><td><button type="button" class="btn-secondary">찾아보기</button></td></tr>
+              <tr><td>4</td><td class="text-left">제안서</td><td class="text-left">제안서를 첨부해주세요. (되도록 하나의 PDF 파일로 합쳐서 첨부해주세요.)</td><td><button type="button" class="btn-secondary">찾아보기</button></td></tr>
+              <tr><td>5</td><td class="text-left">기타</td><td>-</td><td><button type="button" class="btn-secondary">찾아보기</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="srm-section-heading content-object-gap-top"><div><h2>자가 심사</h2></div></div>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="자가 심사">
+            <thead><tr><th class="col-no">No</th><th>심사/평가 구분</th><th>심사/평가 항목</th><th>자가심사 여부</th><th>배점</th><th class="w-140">평가점수</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>계량(정량)</td><td class="text-left">신용평가등급</td><td><span class="badge-info">필요</span></td><td class="col-num">5.00</td><td><input type="text" class="form-control w-110 inline-control" placeholder="숫자(소수점 가능)"></td></tr>
+              <tr><td>2</td><td>계량(정량)</td><td class="text-left">시공경험(일반공사)</td><td><span class="badge-info">필요</span></td><td class="col-num">10.00</td><td><input type="text" class="form-control w-110 inline-control" placeholder="숫자(소수점 가능)"></td></tr>
+              <tr><td>3</td><td>계량(정량)</td><td class="text-left">영업 기간</td><td><span class="badge-info">필요</span></td><td class="col-num">5.00</td><td><input type="text" class="form-control w-110 inline-control" placeholder="숫자(소수점 가능)"></td></tr>
+            </tbody>
+            <tfoot><tr><td colspan="4">합</td><td class="col-num">20.00</td><td class="col-num">15.42점</td></tr></tfoot>
+          </table>
+        </div>
+
+        <div class="srm-section-heading content-object-gap-top"><div><h2>최종 확인 및 제출</h2></div></div>
+        <div class="notice-box" role="note">
+          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></span>
+          <div class="notice-body"><p>입찰 참여에 등록한 내역을 모두 확인하였습니다. 오른쪽의 '입찰 서류 제출' 버튼을 통해 입찰 서류 제출을 마무리하세요.</p></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary modal-close">목록</button>
+        <button type="button" class="btn-critical-primary" data-close-modal data-open-modal="bidDocSubmitConfirmModal">입찰 서류 제출</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 입찰 서류 제출 확인 -->
+  <div class="modal-backdrop" id="bidDocSubmitConfirmModal" role="alertdialog" aria-modal="true" aria-labelledby="bidDocSubmitConfirmTitle" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header"><h2 class="modal-title" id="bidDocSubmitConfirmTitle">입찰 서류 제출 시 유의사항</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
+      <div class="modal-body">
+        <div class="notice-box warning" role="alert">
+          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span>
+          <div class="notice-body">
+            <p class="notice-lead">입찰 서류를 제출합니다. 입찰 서류 제출 후에는 '입찰 참여 현황' 메뉴를 통해 내역을 확인/관리하실 수 있습니다.</p>
+            <p>입찰 서류를 제출하시겠습니까? (제출 시 제출상태가 '입찰 서류 제출 완료'로 변경되며, 고객통보 MSG-012가 발송됩니다.)</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary modal-close">취소</button>
+        <button type="button" class="btn-critical-primary" data-close-modal data-open-modal="bidDocSubmitDoneModal">입찰 서류 제출</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 입찰 서류 제출 완료 안내 -->
+  <div class="modal-backdrop" id="bidDocSubmitDoneModal" role="alertdialog" aria-modal="true" aria-labelledby="bidDocSubmitDoneTitle" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header"><h2 class="modal-title" id="bidDocSubmitDoneTitle">입찰 서류 제출 완료</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
+      <div class="modal-body">
+        <div class="notice-box success" role="note">
+          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <div class="notice-body">
+            <p class="notice-lead">입찰 서류 제출이 완료되었습니다.</p>
+            <p>만약 '가격 투찰'을 진행하지 않으셨다면, 입찰 마감일 이전에 '가격 투찰'을 반드시 진행하세요. ('가격 투찰'이 누락되면 입찰 참여가 누락됩니다.) '입찰 참여 현황' 메뉴를 통해 진행현황을 확인/관리하실 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn-primary modal-close">'입찰 참여 현황' 바로가기</button></div>
+    </div>
+  </div>
+
+  <!-- 입찰 서류가 이미 제출된 경우의 조회 화면 -->
+  <div class="modal-backdrop" id="bidJoinDocSubmittedModal" role="dialog" aria-modal="true" aria-labelledby="bidJoinDocSubmittedTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <h2 class="modal-title" id="bidJoinDocSubmittedTitle">입찰 서류 제출 내역</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="공고 요약">
+            <thead><tr><th>공고번호</th><th>공고 구분</th><th>진행상태</th><th>제출상태</th><th>입찰 건명</th><th>입찰마감일시</th><th>구분</th><th>계약방법</th><th>낙찰자 선정방법</th></tr></thead>
+            <tbody><tr><td>BD2026-0025</td><td>재공고(1차)</td><td><span class="badge-tag">입찰마감</span></td><td><span class="badge-success">입찰 서류 제출 완료</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중...</td><td>2026.07.31 18:00</td><td>공사</td><td>경쟁입찰(일반)</td><td>제한적 최저가 입찰</td></tr></tbody>
+          </table>
+        </div>
+        <div class="detail-tabs-bar">
+          <div class="detail-tab-group" role="tablist" aria-label="입찰 참여 상세 탭">
+            <button type="button" class="detail-tab-btn active" role="tab" aria-selected="true">입찰공고 정보</button>
+            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">입찰 서류 제출</button>
+            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">가격 투찰</button>
+            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">입찰 결과</button>
+            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">수의시담</button>
+          </div>
+        </div>
+
+        <p class="modal-field-label">※ 입찰 서류 제출은 '가격 투찰'과 다르게 입찰마감일시 전까지는 수정/제출할 수 있습니다.</p>
+
+        <div class="srm-section-heading content-object-gap-top"><div><h2>입찰 담당자 정보</h2></div></div>
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>이름</dt><dd>이희성</dd></div>
+          <div class="srm-kv-row"><dt>이메일</dt><dd>leehee43@naver.com</dd></div>
+          <div class="srm-kv-row"><dt>핸드폰번호</dt><dd>010-6844-2810</dd></div>
+          <div class="srm-kv-row"><dt>직책</dt><dd>이사</dd></div>
+          <div class="srm-kv-row"><dt>전화번호</dt><dd>02-6959-9855</dd></div>
+        </div>
+
+        <div class="srm-section-heading content-object-gap-top"><div><h2>입찰 참여 서류</h2></div></div>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="입찰 참여 서류 내역">
+            <thead><tr><th class="col-no">No</th><th>입찰 참여 서류</th><th>첨부파일</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td class="text-left">입찰참가신청서 날인본</td><td class="text-left content-bullet-item">등록된 파일명.PDF</td></tr>
+              <tr><td>2</td><td class="text-left">신용평가등급 확인서</td><td class="text-left content-bullet-item">등록된 파일명.PDF</td></tr>
+              <tr><td>3</td><td class="text-left">법인인감 증명서</td><td class="text-left content-bullet-item">등록된 파일명.PDF</td></tr>
+              <tr><td>5</td><td class="text-left">기타</td><td class="text-left content-bullet-item">등록된 파일명.PDF</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="srm-section-heading content-object-gap-top"><div><h2>자가 심사</h2></div></div>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="자가 심사 내역">
+            <thead><tr><th class="col-no">No</th><th>심사/평가 구분</th><th>심사/평가 항목</th><th>자가심사 여부</th><th>배점</th><th>평가점수</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>계량(정량)</td><td class="text-left">신용평가등급</td><td><span class="badge-info">필요</span></td><td class="col-num">5.00</td><td class="col-num">4.42점</td></tr>
+              <tr><td>2</td><td>계량(정량)</td><td class="text-left">시공경험(일반공사)</td><td><span class="badge-info">필요</span></td><td class="col-num">10.00</td><td class="col-num">10.00점</td></tr>
+              <tr><td>3</td><td>계량(정량)</td><td class="text-left">영업 기간</td><td><span class="badge-info">필요</span></td><td class="col-num">5.00</td><td class="col-num">5.00점</td></tr>
+            </tbody>
+            <tfoot><tr><td colspan="4">합</td><td class="col-num">20.00</td><td class="col-num">15.42점</td></tr></tfoot>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary modal-close">목록</button>
+        <button type="button" class="btn-delete" data-close-modal data-open-modal="bidDocCancelConfirmModal">입찰 서류 제출 취소</button>
+        <button type="button" class="btn-delete" data-close-modal data-open-modal="bidGiveUpConfirmModal">입찰 포기</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="bidDocCancelConfirmModal" role="alertdialog" aria-modal="true" aria-labelledby="bidDocCancelConfirmTitle" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header"><h2 class="modal-title" id="bidDocCancelConfirmTitle">입찰 서류 제출 취소 시 유의사항</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
+      <div class="modal-body">
+        <div class="notice-box warning" role="alert">
+          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span>
+          <div class="notice-body">
+            <p class="notice-lead">입찰 서류 제출을 취소하면 제출된 서류를 수정할 수 있습니다.</p>
+            <p>단, '입찰 마감 일시' 내에 '입찰 서류 제출'을 완료해야 합니다. 입찰 서류 제출을 취소하시겠습니까?</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">취소</button><button type="button" class="btn-delete modal-close">입찰 서류 제출 취소</button></div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="bidGiveUpConfirmModal" role="alertdialog" aria-modal="true" aria-labelledby="bidGiveUpConfirmTitle" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header"><h2 class="modal-title" id="bidGiveUpConfirmTitle">입찰 포기 시 유의사항</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
+      <div class="modal-body">
+        <div class="notice-box warning" role="alert">
+          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span>
+          <div class="notice-body">
+            <p class="notice-lead">입찰을 포기하면 더 이상 본 입찰공고에 입찰 참여를 할 수 없습니다.</p>
+            <p>입찰을 포기하시겠습니까? (포기 시 제출상태가 '입찰 포기'로 변경되며, 고객통보 MSG-014가 발송됩니다.)</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">취소</button><button type="button" class="btn-delete modal-close">입찰 포기</button></div>
+    </div>
+  </div>
+
+  <!-- 가격 투찰 (투찰 전) -->
+  <div class="modal-backdrop" id="bidPriceBeforeModal" role="dialog" aria-modal="true" aria-labelledby="bidPriceBeforeTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <h2 class="modal-title" id="bidPriceBeforeTitle">가격 투찰</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="공고 요약">
+            <thead><tr><th>공고번호</th><th>공고 구분</th><th>진행상태</th><th>제출상태</th><th>입찰 건명</th><th>입찰마감일시</th><th>구분</th><th>계약방법</th><th>낙찰자 선정방법</th></tr></thead>
+            <tbody><tr><td>BD2026-0023</td><td>본공고</td><td><span class="badge-info">입찰진행중</span></td><td><span class="badge-success">입찰 서류 제출 완료</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중...</td><td>2026.07.31 18:00</td><td>공사</td><td>경쟁입찰(일반)</td><td>제한적 최저가 입찰</td></tr></tbody>
+          </table>
+        </div>
+        <div class="detail-tabs-bar">
+          <div class="detail-tab-group" role="tablist" aria-label="입찰 참여 상세 탭">
+            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">입찰공고 정보</button>
+            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">입찰 서류 제출 현황</button>
+            <button type="button" class="detail-tab-btn active" role="tab" aria-selected="true">가격 투찰</button>
+            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">입찰 결과</button>
+            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">수의시담</button>
+          </div>
+        </div>
+
+        <div class="srm-section-heading content-object-gap-top"><div><h2>가격투찰 참고정보</h2></div><p>가격투찰에 참고하실 수 있도록 낙찰자 선정방식에 따라 예정가, 복수예비 기초금액을 제공합니다</p></div>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="예정가/복수예비 기초금액"><tbody><tr><th class="w-180">예정가</th><td class="text-left">135,000,000원 (일억삼천오백만원 / VAT 포함)</td></tr><tr><th>복수예비 기초금액</th><td class="text-left">258,000,000원 (이억오천팔백만원 / VAT 포함)</td></tr></tbody></table>
+        </div>
+
+        <div class="srm-section-heading content-object-gap-top"><div><h2>가격 투찰</h2></div></div>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="가격 투찰 입력">
+            <thead><tr><th class="col-no">No</th><th>품목코드</th><th>품목명</th><th>규격</th><th>단위</th><th>수량</th><th>단가(원)</th><th>금액(원)</th><th>부가세</th><th>합계금액</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>A0106-001</td><td class="text-left">고효율 인버터</td><td class="text-left">'지정항목작성'인 경우에 등록됨</td><td>EA</td><td>3</td><td><input type="text" class="form-control w-90 inline-control" value="1,000,000"></td><td class="col-num">3,000,000</td><td class="col-num">300,000</td><td class="col-num">3,300,000</td></tr>
+              <tr><td>2</td><td>A0103-001</td><td class="text-left">고효율 공기 압축기</td><td>-</td><td>EA</td><td>2</td><td><input type="text" class="form-control w-90 inline-control" value="3,000,000"></td><td class="col-num">6,000,000</td><td class="col-num">600,000</td><td class="col-num">6,600,000</td></tr>
+            </tbody>
+            <tfoot><tr><td colspan="7">합계</td><td class="col-num">9,000,000</td><td class="col-num">900,000</td><td class="col-num">9,900,000</td></tr></tfoot>
+          </table>
+        </div>
+        <div class="srm-kv-grid content-inner-gap-top"><div class="srm-kv-row"><dt>상세견적서</dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div></div>
+
+        <div class="notice-box content-object-gap-top" role="note">
+          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></span>
+          <div class="notice-body">
+            <p class="notice-lead">본 입찰 건의 가격 투찰 기간이 아닌 경우, 입찰 서류 제출 후 '적격' 업체에 한해 가격 투찰 기간을 안내해드립니다.</p>
+            <p>예비가(낙찰하한가)가 설정된 경우에는 반드시 예비가 추첨을 먼저 진행합니다.</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary modal-close">목록</button>
+        <button type="button" class="btn-critical-primary" data-close-modal data-open-modal="bidPriceDrawModal">가격 투찰하기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 예비가 추첨하기 -->
+  <div class="modal-backdrop" id="bidPriceDrawModal" role="dialog" aria-modal="true" aria-labelledby="bidPriceDrawTitle" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2 class="modal-title" id="bidPriceDrawTitle">예비가 추첨하기</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="notice-box" role="note">
+          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></span>
+          <div class="notice-body">
+            <p class="notice-lead">본 입찰공고는 가격 투찰 시 '예비가 추첨'이 필요합니다.</p>
+            <p>입찰의 공정성을 부여하기 위해 진행되는 업무입니다. 아래의 15개 예비가 중 하나를 선택해주세요.</p>
+          </div>
+        </div>
+        <div class="srm-table-wrap content-inner-gap-top">
+          <table class="data-table" aria-label="예비가 추첨 번호">
+            <tbody>
+              <tr><td><label class="form-choice"><input type="radio" name="drawNo">1</label></td><td><label class="form-choice"><input type="radio" name="drawNo">2</label></td><td><label class="form-choice"><input type="radio" name="drawNo">3</label></td><td><label class="form-choice"><input type="radio" name="drawNo">4</label></td><td><label class="form-choice"><input type="radio" name="drawNo">5</label></td></tr>
+              <tr><td><label class="form-choice"><input type="radio" name="drawNo">6</label></td><td><label class="form-choice"><input type="radio" name="drawNo">7</label></td><td><label class="form-choice"><input type="radio" name="drawNo">8</label></td><td><label class="form-choice"><input type="radio" name="drawNo">9</label></td><td><label class="form-choice"><input type="radio" name="drawNo">10</label></td></tr>
+              <tr><td><label class="form-choice"><input type="radio" name="drawNo">11</label></td><td><label class="form-choice"><input type="radio" name="drawNo">12</label></td><td><label class="form-choice"><input type="radio" name="drawNo">13</label></td><td><label class="form-choice"><input type="radio" name="drawNo">14</label></td><td><label class="form-choice"><input type="radio" name="drawNo">15</label></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary modal-close">취소</button>
+        <button type="button" class="btn-primary" data-close-modal data-open-modal="bidPriceSubmitConfirmModal">예비가 추첨하기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 가격 투찰 확인 -->
+  <div class="modal-backdrop" id="bidPriceSubmitConfirmModal" role="alertdialog" aria-modal="true" aria-labelledby="bidPriceSubmitConfirmTitle" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2 class="modal-title" id="bidPriceSubmitConfirmTitle">가격 투찰 시 유의사항</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="notice-box warning" role="alert">
+          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span>
+          <div class="notice-body">
+            <p class="notice-lead">가격을 투찰하면 더 이상 가격이 수정되지 않습니다. 정확하게 가격이 입력되었는지 다시 한번 확인 부탁드립니다.</p>
+            <p>가격 투찰을 진행하시겠습니까? (투찰 완료 시 제출상태가 '가격 투찰 완료' 또는 '입찰 참여 완료'로 변경되며, 고객통보 MSG-015가 발송됩니다.)</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary modal-close">취소</button>
+        <button type="button" class="btn-critical-primary modal-close">가격 투찰하기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 가격 투찰 완료 후 화면 -->
+  <div class="modal-backdrop" id="bidPriceAfterModal" role="dialog" aria-modal="true" aria-labelledby="bidPriceAfterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <h2 class="modal-title" id="bidPriceAfterTitle">가격 투찰 (투찰 완료)</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="공고 요약">
+            <thead><tr><th>공고번호</th><th>공고 구분</th><th>진행상태</th><th>제출상태</th><th>입찰 건명</th><th>입찰마감일시</th><th>구분</th><th>계약방법</th><th>낙찰자 선정방법</th></tr></thead>
+            <tbody><tr><td>BD2026-0023</td><td>본공고</td><td><span class="badge-info">입찰진행중</span></td><td><span class="badge-success">입찰 참여 완료</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중...</td><td>2026.07.31 18:00</td><td>공사</td><td>경쟁입찰(일반)</td><td>제한적 최저가 입찰</td></tr></tbody>
+          </table>
+        </div>
+        <div class="detail-tabs-bar">
+          <div class="detail-tab-group" role="tablist" aria-label="입찰 참여 상세 탭">
+            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">입찰공고 정보</button>
+            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">입찰 서류 제출 현황</button>
+            <button type="button" class="detail-tab-btn active" role="tab" aria-selected="true">가격 투찰</button>
+            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">입찰 결과</button>
+            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">수의시담</button>
+          </div>
+        </div>
+
+        <div class="notice-box success content-object-gap-top" role="note">
+          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <div class="notice-body">
+            <p class="notice-lead">가격 투찰이 완료되었으며, 입력하신 가격 투찰 정보는 더 이상 수정되지 않습니다.</p>
+            <p>만약 '입찰 서류 제출'을 진행하지 않으셨다면, 입찰 마감일 이전에 반드시 진행하세요. ('입찰 서류 제출'이 누락되면 입찰 참여가 누락됩니다.)</p>
+          </div>
+        </div>
+        <div class="srm-table-wrap content-inner-gap-top">
+          <table class="data-table" aria-label="투찰 내역">
+            <thead><tr><th class="col-no">No</th><th>품목코드</th><th>품목명</th><th>규격</th><th>단위</th><th>수량</th><th>단가(원)</th><th>금액(원)</th><th>부가세</th><th>합계금액</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>A0106-001</td><td class="text-left">고효율 인버터</td><td class="text-left">'지정항목작성'인 경우에 등록됨</td><td>EA</td><td>3</td><td class="col-num">1,000,000</td><td class="col-num">3,000,000</td><td class="col-num">300,000</td><td class="col-num">3,300,000</td></tr>
+              <tr><td>2</td><td>A0103-001</td><td class="text-left">고효율 공기 압축기</td><td>-</td><td>EA</td><td>2</td><td class="col-num">3,000,000</td><td class="col-num">6,000,000</td><td class="col-num">600,000</td><td class="col-num">6,600,000</td></tr>
+            </tbody>
+            <tfoot><tr><td colspan="7">합계</td><td class="col-num">9,000,000</td><td class="col-num">900,000</td><td class="col-num">9,900,000</td></tr></tfoot>
+          </table>
+        </div>
+        <div class="srm-kv-grid content-inner-gap-top"><div class="srm-kv-row"><dt>상세견적서</dt><dd class="content-bullet-item">등록된 파일명.PDF · 등록된 파일명.PDF</dd></div></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary modal-close">목록</button>
+        <button type="button" class="btn-delete" data-close-modal data-open-modal="bidGiveUpConfirmModal">입찰 포기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 입찰 결과 -->
+  <div class="modal-backdrop" id="bidResultModal" role="dialog" aria-modal="true" aria-labelledby="bidResultTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <h2 class="modal-title" id="bidResultTitle">입찰 결과</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="공고 요약">
+            <thead><tr><th>공고번호</th><th>공고 구분</th><th>진행상태</th><th>제출상태</th><th>입찰 건명</th><th>입찰마감일시</th><th>구분</th><th>계약방법</th><th>낙찰자 선정방법</th></tr></thead>
+            <tbody><tr><td>BD2026-0023</td><td>본공고</td><td><span class="badge-success">선정완료</span></td><td><span class="badge-success">입찰 참여 완료</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중...</td><td>2026.07.31 18:00</td><td>공사</td><td>경쟁입찰(일반)</td><td>제한적 최저가 입찰</td></tr></tbody>
+          </table>
+        </div>
+        <div class="detail-tabs-bar">
+          <div class="detail-tab-group" role="tablist" aria-label="입찰 참여 상세 탭">
+            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">입찰공고 정보</button>
+            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">입찰 서류 제출 현황</button>
+            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">가격 투찰</button>
+            <button type="button" class="detail-tab-btn active" role="tab" aria-selected="true">입찰 결과</button>
+            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">수의시담</button>
+          </div>
+        </div>
+
+        <div class="srm-section-heading content-object-gap-top"><div><h2>입찰결과</h2></div></div>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="입찰결과(최저가)">
+            <thead><tr><th>순위</th><th>우선협상대상자</th><th>결과</th><th>업체명</th><th>입찰(견적)금액</th><th>가격 적합 여부</th><th>예정가</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td><span class="badge-info">우선협상대상자</span></td><td><span class="badge-success">낙찰</span></td><td class="text-left">A업체명</td><td class="col-num">90,000,000</td><td>적합</td><td class="col-num">100,000,000</td></tr>
+              <tr><td>2</td><td>-</td><td>탈락</td><td class="text-left">B업체명</td><td class="col-num">90,000,000</td><td>적합</td><td class="col-num">100,000,000</td></tr>
+              <tr><td>3</td><td>-</td><td>탈락</td><td class="text-left">C업체명</td><td class="col-num">96,000,000</td><td>적합</td><td class="col-num">100,000,000</td></tr>
+              <tr><td>-</td><td>-</td><td>탈락</td><td class="text-left">G업체명</td><td class="col-num">110,000,000</td><td>예정가 초과</td><td class="col-num">100,000,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="modal-field-label">※ 낙찰자 선정방법에 따라 표 구성이 달라집니다. 아직 결과가 도출되지 않은 경우 "아직 입찰 결과가 도출되지 않았습니다." 문구가, 유찰된 경우 "본 입찰 건은 유찰되었습니다." 문구가 대신 표시됩니다.</p>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">목록</button></div>
+    </div>
+  </div>
+
+  <!-- 수의시담 - 견적 요청 현황 -->
+  <div class="modal-backdrop" id="negoTalkListModal" role="dialog" aria-modal="true" aria-labelledby="negoTalkListTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <h2 class="modal-title" id="negoTalkListTitle">수의시담 - 수의시담을 위한 견적 요청 현황</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="공고 요약">
+            <thead><tr><th>공고번호</th><th>공고 구분</th><th>진행상태</th><th>제출상태</th><th>입찰 건명</th><th>입찰마감일시</th><th>구분</th><th>계약방법</th><th>낙찰자 선정방법</th></tr></thead>
+            <tbody><tr><td>BD2026-0023</td><td>본공고</td><td><span class="badge-info">수의시담(견적요청)</span></td><td><span class="badge-success">입찰 참여 완료</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중...</td><td>2026.07.31 18:00</td><td>공사</td><td>경쟁입찰(일반)</td><td>제한적 최저가 입찰</td></tr></tbody>
+          </table>
+        </div>
+        <div class="detail-tabs-bar">
+          <div class="detail-tab-group" role="tablist" aria-label="입찰 참여 상세 탭">
+            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">입찰공고 정보</button>
+            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">입찰 서류 제출 현황</button>
+            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">가격 투찰</button>
+            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">입찰 결과</button>
+            <button type="button" class="detail-tab-btn active" role="tab" aria-selected="true">수의시담</button>
+          </div>
+        </div>
+
+        <div class="srm-section-heading content-object-gap-top"><div><h2>수의시담을 위한 견적 요청 현황</h2></div></div>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="수의시담 견적 요청 현황">
+            <thead><tr><th class="w-60">차수</th><th class="w-90">진행상태</th><th class="minw-220">견적 요청 시 전달 사항</th><th class="w-130">견적 마감 일시</th><th class="w-130">견적 제출 일시</th><th class="w-120">수의시담 견적 금액</th><th class="w-100">견적 제출</th></tr></thead>
+            <tbody>
+              <tr><td>3차</td><td><span class="badge-info">요청</span></td><td class="text-left">견적금액이 적합하지 않습니다. 조정된 금액으로 다시 한번 견적 부탁드립니다.</td><td>2026.08.15 18:00</td><td>-</td><td>-</td><td><button type="button" class="btn-task-register" data-close-modal data-open-modal="negoTalkReqInfoModal">견적 제출하기</button></td></tr>
+              <tr><td>2차</td><td><span class="badge-success">제출완료</span></td><td class="text-left">견적금액이 적합하지 않습니다. 조정된 금액으로 다시 한번 견적 부탁드립니다.</td><td>2026.07.31 18:00</td><td>2026.07.30 15:40</td><td class="col-num">180,000,000</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="negoTalkHistoryModal">견적 제출내역</button></td></tr>
+              <tr><td>1차</td><td><span class="badge-success">제출완료</span></td><td class="text-left">단독 응찰로 진행되는 수의시담으로서 입찰금액보다 조정된 금액으로 계약하길 희망합니다.</td><td>2026.07.15 18:00</td><td>2026.07.14 17:20</td><td class="col-num">190,000,000</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="negoTalkHistoryModal">견적 제출내역</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">목록</button></div>
+    </div>
+  </div>
+
+  <!-- 수의시담 - 견적 요청 상세정보 -->
+  <div class="modal-backdrop" id="negoTalkReqInfoModal" role="dialog" aria-modal="true" aria-labelledby="negoTalkReqInfoTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <h2 class="modal-title" id="negoTalkReqInfoTitle">수의시담을 위한 견적 요청 상세정보</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="srm-section-heading"><div><h2>낙찰(업체 선정) 정보</h2></div></div>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="낙찰 정보"><thead><tr><th>순위</th><th>우선협상대상자</th><th>결과</th><th>업체명</th><th>입찰(견적)금액</th></tr></thead><tbody><tr><td>1</td><td><span class="badge-info">우선협상대상자</span></td><td><span class="badge-success">낙찰</span></td><td class="text-left">A업체명</td><td class="col-num">90,000,000</td></tr></tbody></table>
+        </div>
+        <div class="srm-section-heading content-object-gap-top"><div><h2>수의시담을 위한 견적요청 정보</h2></div></div>
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>견적 마감일시</dt><dd>2026.08.15 18:00</dd></div>
+          <div class="srm-kv-row"><dt>견적 요청 시 전달 사항</dt><dd>단독 응찰로 진행되는 수의시담으로서 입찰금액보다 조정된 금액으로 계약하길 희망합니다.</dd></div>
+          <div class="srm-kv-row"><dt>견적 요청 시 전달 자료</dt><dd><div class="srm-file-item"><span>첨부된 파일명.PDF</span><button type="button" class="btn-file-preview">바로보기</button><button type="button" class="btn-file-download">다운로드</button></div></dd></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary modal-close">목록</button>
+        <button type="button" class="btn-critical-primary" data-close-modal data-open-modal="negoTalkSubmitModal">수의시담을 위한 견적 제출</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 수의시담 - 견적 제출 -->
+  <div class="modal-backdrop" id="negoTalkSubmitModal" role="dialog" aria-modal="true" aria-labelledby="negoTalkSubmitTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <h2 class="modal-title" id="negoTalkSubmitTitle">수의시담을 위한 견적 제출</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="notice-box" role="note">
+          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></span>
+          <div class="notice-body"><p class="notice-lead">수의시담 시 참고하실 수 있도록 낙찰자 선정방식에 따라 예정가, 복수예비 기초금액을 제공합니다.</p></div>
+        </div>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="예정가/복수예비 기초금액"><tbody><tr><th class="w-180">예정가</th><td class="text-left">135,000,000원 (일억삼천오백만원 / VAT 포함)</td></tr><tr><th>복수예비 기초금액</th><td class="text-left">258,000,000원 (이억오천팔백만원 / VAT 포함)</td></tr></tbody></table>
+        </div>
+        <div class="srm-section-heading content-object-gap-top"><div><h2>수의시담을 위한 견적 제출</h2></div></div>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="견적 제출 입력">
+            <thead><tr><th class="col-no">No</th><th>품목코드</th><th>품목명</th><th>규격</th><th>단위</th><th>수량</th><th>단가(원)</th><th>금액(원)</th><th>부가세</th><th>합계금액</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>A0106-001</td><td class="text-left">고효율 인버터</td><td class="text-left">'지정항목작성'인 경우에 등록됨</td><td>EA</td><td>3</td><td><input type="text" class="form-control w-90 inline-control" value="1,000,000"></td><td class="col-num">3,000,000</td><td class="col-num">300,000</td><td class="col-num">3,300,000</td></tr>
+              <tr><td>2</td><td>A0103-001</td><td class="text-left">고효율 공기 압축기</td><td>-</td><td>EA</td><td>2</td><td><input type="text" class="form-control w-90 inline-control" value="3,000,000"></td><td class="col-num">6,000,000</td><td class="col-num">600,000</td><td class="col-num">6,600,000</td></tr>
+            </tbody>
+            <tfoot><tr><td colspan="7">합계</td><td class="col-num">9,000,000</td><td class="col-num">900,000</td><td class="col-num">9,900,000</td></tr></tfoot>
+          </table>
+        </div>
+        <div class="srm-kv-grid content-inner-gap-top"><div class="srm-kv-row"><dt>상세견적서</dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary modal-close">목록</button>
+        <button type="button" class="btn-critical-primary" data-close-modal data-open-modal="negoTalkSubmitConfirmModal">수의시담을 위한 견적 제출</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="negoTalkSubmitConfirmModal" role="alertdialog" aria-modal="true" aria-labelledby="negoTalkSubmitConfirmTitle" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2 class="modal-title" id="negoTalkSubmitConfirmTitle">수의시담을 위한 견적 제출 시 유의사항</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="notice-box warning" role="alert">
+          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span>
+          <div class="notice-body">
+            <p class="notice-lead">본 견적을 제출하면 더 이상 수정되지 않습니다. 정확하게 가격이 입력되었는지 다시 한번 확인 부탁드립니다.</p>
+            <p>수의시담을 위한 견적 제출을 진행하시겠습니까? (제출 시 진행상태가 '수의시담(견적제출 완료)'로 변경됩니다.)</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary modal-close">취소</button>
+        <button type="button" class="btn-critical-primary modal-close">견적 제출하기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 수의시담 - 견적 제출 내역 -->
+  <div class="modal-backdrop" id="negoTalkHistoryModal" role="dialog" aria-modal="true" aria-labelledby="negoTalkHistoryTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <h2 class="modal-title" id="negoTalkHistoryTitle">수의시담을 위한 견적 제출 내역</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="srm-section-heading"><div><h2>수의시담을 위한 견적 제출 내역</h2></div></div>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="견적 제출 내역">
+            <thead><tr><th class="col-no">No</th><th>품목코드</th><th>품목명</th><th>규격</th><th>단위</th><th>수량</th><th>단가(원)</th><th>금액(원)</th><th>부가세</th><th>합계금액</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>A0106-001</td><td class="text-left">고효율 인버터</td><td class="text-left">'지정항목작성'인 경우에 등록됨</td><td>EA</td><td>3</td><td class="col-num">1,000,000</td><td class="col-num">3,000,000</td><td class="col-num">300,000</td><td class="col-num">3,300,000</td></tr>
+              <tr><td>2</td><td>A0103-001</td><td class="text-left">고효율 공기 압축기</td><td>-</td><td>EA</td><td>2</td><td class="col-num">3,000,000</td><td class="col-num">6,000,000</td><td class="col-num">600,000</td><td class="col-num">6,600,000</td></tr>
+            </tbody>
+            <tfoot><tr><td colspan="7">합계</td><td class="col-num">9,000,000</td><td class="col-num">900,000</td><td class="col-num">9,900,000</td></tr></tfoot>
+          </table>
+        </div>
+        <div class="srm-kv-grid content-inner-gap-top"><div class="srm-kv-row"><dt>상세견적서</dt><dd class="content-bullet-item">등록된 파일명.PDF · 등록된 파일명.PDF</dd></div></div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">목록</button></div>
+    </div>
+  </div>
+
+  <script src="../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>전자입찰시스템 SRM - 협력업체 신청 | KEPCO ES</title>
+  <link rel="stylesheet" href="../../assets/styles/style.css">
+</head>
+<body class="partner-reg-page">
+
+  <main class="partner-reg-card">
+    <!-- 헤더 -->
+    <div class="partner-reg-header">
+      <h1 class="page-title">협력업체 신청</h1>
+      <div class="page-header-right">
+        <nav class="breadcrumb" aria-label="현재 위치">
+          <span class="breadcrumb-item">홈</span>
+          <span class="breadcrumb-separator">&gt;</span>
+          <span class="breadcrumb-item">전자입찰시스템 SRM</span>
+          <span class="breadcrumb-separator">&gt;</span>
+          <span class="breadcrumb-item current">협력업체 신청</span>
+        </nav>
+        <a href="SRMLogin.html" class="btn-close-popup" title="로그인 화면으로 돌아가기" aria-label="로그인 화면으로 돌아가기">&times;</a>
+      </div>
+    </div>
+
+    <!-- 5단계 상단 스텝퍼 ([참고]협력업체 신청(팝업).pdf 명세) -->
+    <div class="wizard-stepper" id="wizardStepper">
+      <div class="wizard-step-box active" data-step="1" role="button" tabindex="0" aria-current="step">
+        <span class="wizard-step-dot" aria-hidden="true">1</span>
+        <div class="wizard-step-num">STEP 01</div>
+        <div class="wizard-step-title">약관 및 개인정보 수집 동의</div>
+      </div>
+      <div class="wizard-step-box" data-step="2" role="button" tabindex="0">
+        <span class="wizard-step-dot" aria-hidden="true">2</span>
+        <div class="wizard-step-num">STEP 02</div>
+        <div class="wizard-step-title">기본정보 입력</div>
+      </div>
+      <div class="wizard-step-box" data-step="3" role="button" tabindex="0">
+        <span class="wizard-step-dot" aria-hidden="true">3</span>
+        <div class="wizard-step-num">STEP 03</div>
+        <div class="wizard-step-title">담당자정보 입력</div>
+      </div>
+      <div class="wizard-step-box" data-step="4" role="button" tabindex="0">
+        <span class="wizard-step-dot" aria-hidden="true">4</span>
+        <div class="wizard-step-num">STEP 04</div>
+        <div class="wizard-step-title">신청정보 확인 및 제출</div>
+      </div>
+      <div class="wizard-step-box" data-step="5" role="button" tabindex="0">
+        <span class="wizard-step-dot" aria-hidden="true">5</span>
+        <div class="wizard-step-num">STEP 05</div>
+        <div class="wizard-step-title">협력업체 신청 완료</div>
+      </div>
+    </div>
+
+    <!-- 본문 영역 -->
+    <div class="partner-reg-body">
+      <!-- 상단 공통 안내문 -->
+      <div class="notice-box info" role="note">
+        <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 10v4h4l5 4V6L7 10H3Z"/><path d="M16 9a4 4 0 0 1 0 6"/><path d="M19 6a8 8 0 0 1 0 12"/></svg></span>
+        <div class="notice-body">
+          <p class="notice-lead">켑코이에스의 발주 사업에 참여하기 위해서는 반드시 협력업체로 등록되어야 합니다.</p>
+          <p>아래의 단계에 따라 정보를 입력해 주세요. 모든 정보가 입력되면, 켑코이에스 관리자의 승인을 통해 협력업체로 등록이 완료됩니다.</p>
+          <p class="notice-note">승인에 걸리는 시간은 영업일 기준 약 3일이며, 문의사항은 02-6959-4561로 연락 부탁드립니다.</p>
+        </div>
+      </div>
+
+      <!-- ==============================================================
+           step 01: 약관 및 개인정보 수집 동의 (page 1)
+           ============================================================== -->
+      <div class="wizard-panel active" id="panelStep1">
+        <h2 class="partner-panel-title">이용약관 동의</h2>
+        <div class="terms-box">
+          제1조 (목적)<br>
+          본 약관은 켑코이에스주식회사(이하 "회사")가 운영하는 전자입찰시스템(SRM)의 협력업체 등록 및 이용과 관련하여 회사와 협력업체 간의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다.<br><br>
+          제2조 (용어의 정의)<br>
+          1. "협력업체"라 함은 회사의 SRM 시스템에 소정의 정보를 등록하고 승인을 받은 기업을 말합니다.<br>
+          2. "전자입찰"이라 함은 정보통신망을 이용하여 공고, 투찰, 개찰, 낙찰 등의 절차를 전산으로 처리하는 행위를 말합니다.<br><br>
+          제3조 (약관의 효력 및 변경)<br>
+          본 약관은 협력업체 신청 시 동의함으로써 효력이 발생하며, 관련 법령을 위배하지 않는 범위 내에서 개정될 수 있습니다.
+        </div>
+        <label class="partner-check spaced">
+          <input type="checkbox" id="chkTerms">
+          <span>이용약관을 읽어 보았으며 동의합니다. <span class="req">*</span></span>
+        </label>
+
+        <h2 class="partner-panel-title">개인정보 수집 및 이용 동의</h2>
+        <div class="terms-box">
+          1. 수집하는 개인정보 항목: 대표자명, 담당자 이름, 연락처(핸드폰, 전화번호), 이메일, 사업자등록번호, 주소 등<br>
+          2. 개인정보의 수집 및 이용목적: 협력업체 가입 심사, 입찰 공고 안내, 전자계약 체결 및 세금계산서 발행 등 거래 관리<br>
+          3. 개인정보의 보유 및 이용기간: 협력업체 탈퇴 시까지 또는 관련 법령에 따른 의무 보존 기간(5년)<br>
+          4. 동의 거부 권리 및 불이익: 협력업체 등록을 위한 필수 정보이므로 미동의 시 협력업체 신청이 불가합니다.
+        </div>
+        <label class="partner-check">
+          <input type="checkbox" id="chkPrivacy">
+          <span>개인정보 수집 및 이용 관련 내용을 읽어 보았으며 동의합니다. <span class="req">*</span></span>
+        </label>
+
+        <div class="partner-actions-row end">
+          <button type="button" class="btn-wizard-next" id="btnNextToStep2">
+            <span>다음 단계 →</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ==============================================================
+           step 02: 기본 정보 입력 & 증빙서류 (page 2 & 3)
+           ============================================================== -->
+      <div class="wizard-panel" id="panelStep2">
+        <h2 class="partner-panel-title divided">
+          기본 정보 입력
+        </h2>
+        <div class="form-grid-2">
+          <!-- 사업자등록번호 -->
+          <div class="form-group-full">
+            <label class="partner-input-lbl">사업자등록번호<span class="req">*</span> <span class="partner-input-hint">※사업자등록번호는 로그인 시 아이디로 사용됩니다.</span></label>
+            <div class="partner-input-row">
+              <input type="text" class="partner-input fit-360" id="regBizNo" placeholder="예: 135-82-77202 (숫자만 입력)" value="135-82-77202">
+              <button type="button" id="btnCheckBizNo" class="btn-secondary w-100">중복 확인</button>
+            </div>
+            <div id="biznocheckmsg" class="partner-field-msg success">✓ 사용 가능한 사업자등록번호입니다.</div>
+          </div>
+
+          <!-- 비밀번호 -->
+          <div>
+            <label class="partner-input-lbl">비밀번호<span class="req">*</span> <span class="partner-input-hint">(영문/숫자/특수기호 8~20자)</span></label>
+            <input type="password" class="partner-input" id="regpw" value="kepcoes1234!">
+          </div>
+
+          <!-- 비밀번호 확인 -->
+          <div>
+            <label class="partner-input-lbl">비밀번호 확인<span class="req">*</span></label>
+            <input type="password" class="partner-input" id="regpwconfirm" value="kepcoes1234!">
+          </div>
+
+          <!-- 회사명 -->
+          <div>
+            <label class="partner-input-lbl">회사명<span class="req">*</span></label>
+            <input type="text" class="partner-input" id="regCompanyName" placeholder="예) 켑코이에스" value="(주)큐비트엑스">
+          </div>
+
+          <!-- 대표자명 -->
+          <div>
+            <label class="partner-input-lbl">대표자명<span class="req">*</span></label>
+            <input type="text" class="partner-input" id="regCeoName" placeholder="예) 홍길동" value="이홍태, 윤지병">
+          </div>
+
+          <!-- 전화번호 -->
+          <div class="form-group-full">
+            <label class="partner-input-lbl">전화번호<span class="req">*</span></label>
+            <div class="partner-input-row">
+              <select class="partner-input w-80" id="regTel1">
+                <option value="02" selected>02</option>
+                <option value="031">031</option>
+                <option value="032">032</option>
+                <option value="042">042</option>
+                <option value="051">051</option>
+                <option value="070">070</option>
+              </select>
+              <input type="text" class="partner-input w-160" id="regTel2" value="833-1650" placeholder="중간-끝자리">
+            </div>
+          </div>
+
+          <!-- 업종 / 업태 -->
+          <div>
+            <label class="partner-input-lbl">업종<span class="req">*</span></label>
+            <input type="text" class="partner-input" id="regSector" placeholder="예) IT인프라, 전기공사" value="IT인프라">
+          </div>
+          <div>
+            <label class="partner-input-lbl">업태<span class="req">*</span></label>
+            <input type="text" class="partner-input" id="regBizType" placeholder="예) 소프트웨어 개발, 제조" value="소프트웨어 개발">
+          </div>
+
+          <!-- 주소 -->
+          <div class="form-group-full">
+            <label class="partner-input-lbl">주소<span class="req">*</span></label>
+            <div class="partner-input-row stacked">
+              <input type="text" class="partner-input w-120" id="regPostCode" value="12654" readonly>
+              <button type="button" class="btn-secondary btn-address-search">우편번호 검색</button>
+            </div>
+            <input type="text" class="partner-input partner-input-gap" id="regBaseAddr" value="경기도 고양시 일산서구 강선로 118 강선마을아파트">
+            <input type="text" class="partner-input" id="regDetailAddr" value="제208동 1202호" placeholder="상세 주소를 입력하세요">
+          </div>
+        </div>
+
+        <!-- 관련 증빙서류 제출 (page 3) -->
+        <h2 class="partner-panel-title divided section-gap">
+          관련 증빙서류 제출
+          <span class="partner-input-hint">※ 첨부 파일은 되도록 PDF로 업로드해 주세요.</span>
+        </h2>
+        <div class="form-grid-2">
+          <!-- 사업자등록증 -->
+          <div class="form-group-full">
+            <label class="partner-input-lbl">사업자등록증<span class="req">*</span></label>
+            <div class="partner-input-row">
+              <input type="text" class="partner-input" id="filebizcert" value="사업자등록증_큐비트엑스.pdf" readonly>
+              <button type="button" class="btn-secondary w-85">찾아보기</button>
+            </div>
+          </div>
+
+          <!-- 법인인감증명서 -->
+          <div class="form-group-full">
+            <label class="partner-input-lbl">법인인감증명서<span class="req">*</span></label>
+            <div class="partner-input-row">
+              <input type="text" class="partner-input" id="filesealcert" value="법인인감증명서_최신본.pdf" readonly>
+              <button type="button" class="btn-secondary w-85">찾아보기</button>
+            </div>
+          </div>
+
+          <!-- 면허 등 -->
+          <div class="form-group-full">
+            <label class="partner-input-lbl">면허 등 증빙<span class="req">*</span></label>
+            <div class="partner-input-row">
+              <input type="text" class="partner-input" id="filelicense" value="정보통신공사업_면허수첩.pdf" readonly>
+              <button type="button" class="btn-secondary w-85">찾아보기</button>
+            </div>
+          </div>
+
+          <!-- 신용평가등급 (짧은 선택값) + 확인서 (긴 파일 첨부): 한 행에 짧은 컨트롤은 내용 폭, 파일 첨부는 남은 폭 -->
+          <div class="form-group-full form-row-split">
+            <div>
+              <label class="partner-input-lbl">신용평가등급</label>
+              <select class="partner-input" id="regcreditrating">
+              <option value="AAA">AAA</option>
+              <option value="AA+">AA+</option>
+              <option value="AA">AA</option>
+              <option value="A+">A+</option>
+              <option value="A">A</option>
+              <option value="BBB+">BBB+</option>
+              <option value="BBB">BBB</option>
+              <option value="BB+" selected>BB+</option>
+              <option value="BB">BB</option>
+              <option value="B+">B+</option>
+              <option value="B">B</option>
+              <option value="CCC">CCC</option>
+            </select>
+            </div>
+            <div>
+              <label class="partner-input-lbl">신용평가등급 확인서</label>
+              <div class="partner-input-row">
+                <input type="text" class="partner-input" id="filecreditcert" value="기업신용평가등급확인서_나이스.pdf" readonly>
+                <button type="button" class="btn-secondary w-85">찾아보기</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="partner-actions-row">
+          <button type="button" class="btn-wizard-prev" id="btnPrevToStep1">← 이전 단계</button>
+          <button type="button" class="btn-wizard-next" id="btnNextToStep3">다음 단계 →</button>
+        </div>
+      </div>
+
+      <!-- ==============================================================
+           step 03: 담당자 정보 입력 (page 4)
+           ============================================================== -->
+      <div class="wizard-panel" id="panelStep3">
+        <h2 class="partner-panel-title divided">
+          담당자 정보 입력
+        </h2>
+        <div class="form-grid-2">
+          <!-- 이름 -->
+          <div>
+            <label class="partner-input-lbl">이름<span class="req">*</span></label>
+            <input type="text" class="partner-input" id="regManagerName" placeholder="예) 홍길동" value="이희성">
+          </div>
+
+          <!-- 직책 -->
+          <div>
+            <label class="partner-input-lbl">직책<span class="req">*</span></label>
+            <input type="text" class="partner-input" id="regManagerPosition" placeholder="예) 이사, 부장, 대리" value="부장">
+          </div>
+
+          <!-- 이메일 -->
+          <div class="form-group-full">
+            <label class="partner-input-lbl">이메일<span class="req">*</span></label>
+            <div class="partner-input-row">
+              <input type="text" class="partner-input w-160" id="regEmailId" value="leehee43">
+              <span>@</span>
+              <input type="text" class="partner-input w-160" id="regEmailDomain" value="naver.com">
+              <select class="partner-input w-140" id="selEmailDomain">
+                <option value="direct">직접 입력</option>
+                <option value="naver.com" selected>naver.com</option>
+                <option value="google.com">google.com</option>
+                <option value="hanmail.net">hanmail.net</option>
+                <option value="daum.net">daum.net</option>
+                <option value="nate.com">nate.com</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- 핸드폰 번호 -->
+          <div>
+            <label class="partner-input-lbl">핸드폰 번호<span class="req">*</span></label>
+            <div class="partner-input-row">
+              <select class="partner-input w-80" id="regMobile1">
+                <option value="010" selected>010</option>
+                <option value="011">011</option>
+                <option value="016">016</option>
+              </select>
+              <input type="text" class="partner-input" id="regMobile2" value="6844-2810" placeholder="중간-뒷자리">
+            </div>
+          </div>
+
+          <!-- 유선 전화번호 -->
+          <div>
+            <label class="partner-input-lbl">유선 전화번호<span class="req">*</span></label>
+            <div class="partner-input-row">
+              <select class="partner-input w-80" id="regMgrTel1">
+                <option value="02" selected>02</option>
+                <option value="031">031</option>
+                <option value="032">032</option>
+              </select>
+              <input type="text" class="partner-input" id="regMgrTel2" value="6959-9857" placeholder="국번-뒷자리">
+            </div>
+          </div>
+
+          <!-- 담당 업무 -->
+          <div class="form-group-full">
+            <label class="partner-input-lbl">담당 업무<span class="req">*</span></label>
+            <input type="text" class="partner-input" id="regManagerTask" placeholder="예) 영업, 기획, PM" value="PM 및 사업기획">
+          </div>
+        </div>
+
+        <div class="partner-actions-row">
+          <button type="button" class="btn-wizard-prev" id="btnPrevToStep2">← 이전 단계</button>
+          <button type="button" class="btn-wizard-next" id="btnNextToStep4">다음 단계 →</button>
+        </div>
+      </div>
+
+      <!-- ==============================================================
+           step 04: 신청 정보 확인 및 제출 (page 5 & 6)
+           ============================================================== -->
+      <div class="wizard-panel" id="panelStep4">
+        <h2 class="partner-panel-title compact">
+          신청 정보 확인 및 제출
+        </h2>
+        <p class="partner-panel-desc">
+          입력하신 내용을 확인해 주세요. 수정할 사항이 있는 경우 이전 단계로 이동하여 수정할 수 있습니다.<br>
+          모든 정보를 확인한 후 최종 제출하면 협력업체 신청이 완료됩니다.
+        </p>
+
+        <div class="partner-review-sections">
+          <!-- 1. 기본 정보 요약 -->
+          <section class="partner-review-card">
+            <h3>기업 기본 정보</h3>
+            <div class="partner-review-grid">
+              <div><span>사업자등록번호</span><strong id="sumBizNo">135-82-77202</strong></div>
+              <div><span>회사명</span><strong id="sumCompany">(주)큐비트엑스</strong></div>
+              <div><span>대표자명</span><strong id="sumCeo">이홍태, 윤지병</strong></div>
+              <div><span>전화번호</span><strong id="sumTel">02-833-1650</strong></div>
+              <div class="wide"><span>업종 / 업태</span><strong id="sumSector">IT인프라 / 소프트웨어 개발</strong></div>
+              <div class="wide"><span>주소</span><strong id="sumAddr" title="(12654) 경기도 고양시 일산서구 강선로 118">(12654) 경기도 고양시 일산서구 강선로 118</strong></div>
+            </div>
+          </section>
+
+          <!-- 2. 증빙서류 요약 -->
+          <section class="partner-review-card">
+            <h3>관련 증빙서류 &amp; 신용평가</h3>
+            <div class="partner-review-grid">
+              <div class="wide"><span>사업자등록증</span><strong>사업자등록증_큐비트엑스.pdf</strong></div>
+              <div class="wide"><span>법인인감증명서</span><strong>법인인감증명서_최신본.pdf</strong></div>
+              <div class="wide"><span>면허 등 증빙</span><strong>정보통신공사업_면허수첩.pdf</strong></div>
+              <div class="wide"><span>신용평가등급</span><strong>BB+ (기업신용평가등급확인서_나이스.pdf)</strong></div>
+            </div>
+          </section>
+
+          <!-- 3. 담당자 정보 요약 -->
+          <section class="partner-review-card">
+            <h3>담당자 정보</h3>
+            <div class="partner-review-grid">
+              <div><span>담당자명</span><strong id="sumMgrName">이희성 (부장)</strong></div>
+              <div><span>이메일</span><strong id="sumMgrEmail">leehee43@naver.com</strong></div>
+              <div><span>핸드폰 번호</span><strong id="sumMgrMobile">010-6844-2810</strong></div>
+              <div><span>유선 전화</span><strong id="sumMgrTel">02-6959-9857</strong></div>
+              <div class="wide"><span>담당 업무</span><strong id="sumMgrTask">PM 및 사업기획</strong></div>
+            </div>
+          </section>
+        </div>
+
+        <div class="partner-actions-row">
+          <button type="button" class="btn-wizard-prev" id="btnPrevToStep3">← 이전 단계</button>
+          <button type="button" class="btn-wizard-next btn-critical-primary" id="btnFinalSubmit">
+            <span>최종 제출 완료</span>
+            <svg aria-hidden="true" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- ==============================================================
+           step 05: 협력업체 신청 완료 (page 7)
+           ============================================================== -->
+      <div class="wizard-panel" id="panelStep5">
+        <div class="partner-complete">
+          <div class="partner-complete-icon">
+            <svg aria-hidden="true" width="38" height="38" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <h2 class="partner-complete-title">협력업체 신청이 완료되었습니다.</h2>
+          <p class="partner-complete-desc">
+            입력하신 협력업체 정보와 제출 서류가 정상적으로 등록되었습니다.<br>
+            등록된 내용은 켑코이에스 담당자 검토 후 승인 여부가 결정되며,<br>
+            <strong>검토 결과는 신청하신 이메일 또는 SMS</strong>를 통해 안내됩니다.
+          </p>
+
+          <div class="partner-complete-actions">
+            <a href="SRMLogin.html" class="btn-wizard-next">
+              로그인 화면으로 이동
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+
+  <script src="../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

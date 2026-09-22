@@ -1,8 +1,8 @@
 # 📘 KEPCO ES 통합 디자인 / UI / UX 가이드라인 (Design System)
 
 > **프로젝트**: 켑코이에스(주) 사업관리시스템 (PMS) & 전자입찰시스템 (SRM)  
-> **버전**: v2.31  
-> **최종 수정일**: 2026-09-20  
+> **버전**: v2.32
+> **최종 수정일**: 2026-09-22
 > **목적**: PMS 및 SRM 전체 화면의 시각적 완성도, 일관성, 접근성 및 사용자 경험(UX) 표준을 정의하고 협업 기준을 제공하는 단일 진실 공급원(Single Source of Truth).
 
 ### 이 문서의 사용법
@@ -43,7 +43,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>사업관리시스템 PMS - 화면명 | KEPCO ES</title>   <!-- SRM: 전자입찰시스템 SRM - 화면명 | KEPCO ES -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="assets/styles/style.css">
 </head>
 <body>
   <header class="top-header"><!-- CI · 메뉴 토글 · 시스템명 / 권한 · 사용자 (4.1) --></header>
@@ -55,11 +55,11 @@
     </main>
   </div>
   <footer class="app-footer">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</footer>
-  <script src="js/dashboard.js"></script>
+  <script src="assets/scripts/dashboard.js"></script>
 </body>
 </html>
 ```
-- 스크립트는 `js/dashboard.js` 하나이며 화면 진입 시 `DOMContentLoaded`에서 해당 화면·컴포넌트의 `init*` 함수가 자동 실행됩니다(12.2). 새 화면 전용 스크립트 파일이나 `<script>` 인라인 블록을 만들지 않고, 필요하면 `dashboard.js`에 `init*` 함수를 추가합니다.
+- 스크립트는 `assets/scripts/dashboard.js` 하나이며 화면 진입 시 `DOMContentLoaded`에서 해당 화면·컴포넌트의 `init*` 함수가 자동 실행됩니다(12.2). 새 화면 전용 스크립트 파일이나 `<script>` 인라인 블록을 만들지 않고, 필요하면 `dashboard.js`에 `init*` 함수를 추가합니다.
 - 모달은 `</body>` 직전(스크립트 앞)에 두고, 팝업 화면은 헤더·사이드바·푸터를 두지 않습니다(6.3, E11).
 
 ---
@@ -75,7 +75,7 @@
 4. **마이크로 인터랙션과 실시간 피드백 (Responsive Feedback)**
    - 버튼 호버, 탭 전환, 다운로드, 되돌리기/승인 등의 모든 사용자 행위에 대해 부드러운 애니메이션과 토스트/모달 피드백을 제공합니다.
 5. **공통 컴포넌트 우선 (Reuse First)**
-   - 새 화면에서 화면 전용 클래스나 인라인 `style` 속성을 만들기 전에 이 문서의 컴포넌트와 `css/style.css`의 공통 클래스를 재사용합니다. 공통 규격으로 표현할 수 없을 때만 이 문서를 먼저 개정합니다.
+   - 새 화면에서 화면 전용 클래스나 인라인 `style` 속성을 만들기 전에 이 문서의 컴포넌트와 `assets/styles/style.css`의 공통 클래스를 재사용합니다. 공통 규격으로 표현할 수 없을 때만 이 문서를 먼저 개정합니다.
 
 ---
 
@@ -179,7 +179,7 @@
 font-family: 'Pretendard';
 ```
 - 제목, 본문, 버튼, 입력 필드, 표, 숫자, 코드 표기를 포함한 **모든 UI에 단일 폰트 `Pretendard`**만 사용하며 다른 폰트나 fallback을 지정하지 않습니다.
-- **로딩 방식**: 현재 `css/style.css`는 정적 `pretendard.css`를 CDN(jsdelivr)에서 `@import`합니다. 정적 폰트는 `100` 단위 굵기(100~900)만 제공합니다. 배포 환경이 외부망 접근이 제한된 폐쇄망이면 폰트 파일을 `assets/fonts/`에 포함하는 **셀프 호스팅**으로 전환해야 합니다(10장 참조).
+- **로딩 방식**: 현재 `assets/styles/style.css`는 정적 `pretendard.css`를 CDN(jsdelivr)에서 `@import`합니다. 정적 폰트는 `100` 단위 굵기(100~900)만 제공합니다. 배포 환경이 외부망 접근이 제한된 폐쇄망이면 폰트 파일을 `assets/fonts/`에 포함하는 **셀프 호스팅**으로 전환해야 합니다(10장 참조).
 
 ### 3.2 폰트 스케일 및 위계 (Scale Hierarchy)
 > **최소 글꼴 규칙**: 모든 화면과 상태에서 글꼴 크기는 `13px` 이상이어야 합니다. 캡션, 배지, 차트 라벨, 스텝 번호, 보조 문구에도 `13px` 미만의 글꼴을 사용하지 않습니다.
@@ -237,7 +237,7 @@ font-family: 'Pretendard';
 
 ### 4.1 상단 글로벌 헤더 (Top Header)
 - **높이**: 56px 고정 (`--header-height: 56px`)
-- **좌측 영역**: 켑코이에스 공식 로고 (`assets/logo.png`) + 사이드바 접기/펼치기 토글 버튼 + 텍스트형 시스템 타이틀 (`사업관리시스템(PMS)` / `전자입찰시스템(SRM)`)
+- **좌측 영역**: 켑코이에스 공식 로고 (`assets/images/logo.png`) + 사이드바 접기/펼치기 토글 버튼 + 텍스트형 시스템 타이틀 (`사업관리시스템(PMS)` / `전자입찰시스템(SRM)`)
   - CI와 메뉴 토글은 `.header-sidebar-zone`으로 묶고 사이드바와 같은 너비를 사용합니다(펼침 `210px`, 축소 `64px`). 두 영역의 오른쪽 경계가 수직으로 일치해야 합니다.
   - CI 높이는 `25px`(허용 `25px ~ 28px`), `max-width: 100%`로 부모 컨테이너를 벗어나지 않게 합니다.
   - 시스템명은 CI 옆에 배지·캡슐·배경색·테두리·별도 라벨 없이 한 줄 텍스트로만 표시합니다.
@@ -254,7 +254,7 @@ font-family: 'Pretendard';
 ### 4.2 좌측 사이드바 (Sidebar)
 - **너비**: 기본 210px (`--sidebar-width: 210px`), 접힘 상태 64px
 - **메뉴 체계**:
-  - 1Depth: 20px 선형 SVG 아이콘 + 메뉴명 + 아코디언 펼침 화살표. 모든 1차 메뉴는 메뉴명을 직관적으로 설명하는 아이콘을 반드시 표시하며 깨진 경로나 빈 아이콘을 허용하지 않습니다. 아이콘은 블루를 기본으로 의미에 따라 오렌지·그린·레드(정보 블루 `#0284c7` 포함)를 사용하며, 메뉴명→아이콘·색 매핑은 `js/dashboard.js`의 `applySidebarMenuIcons`가 단일 출처입니다. **같은 사이드바 안에서 서로 다른 메뉴가 같은 아이콘을 쓰지 않습니다**(예: `기준정보 관리`는 데이터베이스, `공통관리`는 톱니바퀴, `발주계약 요청`은 문서+플러스, `수의계약 관리`는 연필, `계약관리`는 문서+체크). 새 메뉴를 추가하면 기존 아이콘과 겹치지 않는 아이콘을 매핑에 함께 추가합니다.
+  - 1Depth: 20px 선형 SVG 아이콘 + 메뉴명 + 아코디언 펼침 화살표. 모든 1차 메뉴는 메뉴명을 직관적으로 설명하는 아이콘을 반드시 표시하며 깨진 경로나 빈 아이콘을 허용하지 않습니다. 아이콘은 블루를 기본으로 의미에 따라 오렌지·그린·레드(정보 블루 `#0284c7` 포함)를 사용하며, 메뉴명→아이콘·색 매핑은 `assets/scripts/dashboard.js`의 `applySidebarMenuIcons`가 단일 출처입니다. **같은 사이드바 안에서 서로 다른 메뉴가 같은 아이콘을 쓰지 않습니다**(예: `기준정보 관리`는 데이터베이스, `공통관리`는 톱니바퀴, `발주계약 요청`은 문서+플러스, `수의계약 관리`는 연필, `계약관리`는 문서+체크). 새 메뉴를 추가하면 기존 아이콘과 겹치지 않는 아이콘을 매핑에 함께 추가합니다.
   - 2Depth: 서브메뉴 리스트. 현재 화면의 메뉴 항목은 `<li class="submenu-item active">`로 표시하며 블루 텍스트(`#1976d2`) + 굵기 `700` + 옅은 회색 배경(`#f1f5f9`) + 블릿 불투명 처리로 강조합니다. **인라인 `style` 속성으로 활성 표시를 하지 않고 반드시 `.active` 클래스만 사용합니다.** 화면 진입 시 자신이 속한 1Depth를 펼치고(`open`) 해당 2Depth 항목을 `active`로 표시합니다(상세 화면은 목록 화면의 메뉴 항목을 활성으로 둡니다. 예: `입찰공고 현황` 상세 → `입찰공고 현황` 활성).
   - **메뉴 구성은 메뉴 구조도 전체를 따릅니다**: 사이드바 메뉴는 `docs/menu_excel/`의 메뉴 구조도(PMS·SRM) 1Depth를 **빠짐없이** 포함하며 같은 시스템의 모든 화면에서 동일해야 합니다. 화면마다 메뉴를 줄인 축약본을 쓰지 않고, 현재 화면이 속한 1Depth만 펼침(`open`)·활성으로 표시합니다. SRM 사내 담당자 메뉴는 `대시보드`, `사전 견적 관리`, `발주계약 요청`, `발주계획`, `수의계약 관리`, `입찰관리`, `계약관리`, `협력업체 관리`, `기준정보 관리`, `공통관리` 10개이며(협력업체 권한은 메뉴 구조도 「② 협력업체 전용 창구(로그인 후)」의 2Depth 10개 항목), 새 화면을 만들 때는 기존 SRM 화면(`SRMDashboardContract.html`)의 메뉴 블록을 그대로 가져와 활성 항목만 바꿉니다.
   - **업무 단계는 메뉴가 아니라 탭**: 한 화면 안에서 순서대로 진행되는 업무 단계·상세 구분(예: SRM 입찰 8단계 `발주계획 정보 → … → 계약 요청`)은 2Depth 메뉴 항목으로 나열하지 않고 그 화면의 업무 탐색 탭(5.7)으로만 표현합니다. 메뉴 구조도의 3Depth(기능)에 해당하는 항목이 상세 화면의 탭이 되며, 메뉴에는 2Depth 화면 단위만 둡니다(SRM `입찰관리`: `입찰계획 현황`, `입찰공고 현황` 두 개). 메뉴 항목명은 메뉴 구조도의 이름 그대로 쓰고 `(7-step)`, `(상세)`, `↗` 같은 부가 표기를 붙이지 않습니다.
@@ -578,7 +578,7 @@ font-family: 'Pretendard';
 ```
 
 ### 5.9 알림 · 빈 상태 · 로딩 (신규 표준)
-> 현재 프로토타입 화면은 시연 목적으로 브라우저 `alert()`를 사용하며, 토스트·빈 상태·로딩의 전용 CSS 클래스는 아직 `css/style.css`에 없습니다(10장). 새 화면에서 이 컴포넌트가 필요하면 아래 규격과 마크업으로 **`css/style.css`에 공통 클래스로 먼저 추가**하고 화면 전용 스타일을 만들지 않습니다.
+> 현재 프로토타입 화면은 시연 목적으로 브라우저 `alert()`를 사용하며, 토스트·빈 상태·로딩의 전용 CSS 클래스는 아직 `assets/styles/style.css`에 없습니다(10장). 새 화면에서 이 컴포넌트가 필요하면 아래 규격과 마크업으로 **`assets/styles/style.css`에 공통 클래스로 먼저 추가**하고 화면 전용 스타일을 만들지 않습니다.
 - **토스트(결과 알림)**: 저장·복사·다운로드 시작처럼 되돌릴 필요가 없는 결과는 화면 우측 상단 헤더 아래 `16px` 위치에 표시합니다. 흰 배경, 테두리 `1px solid #e2e8f0`, 라운드 `8px`, `--shadow-md`, 너비 `320px ~ 420px`. 시맨틱 색은 좌측 아이콘과 문구 색으로만 표현하고 측면 컬러 바를 쓰지 않습니다. 성공·정보는 3초 후 자동으로 사라지고, 오류·경고는 사용자가 닫을 때까지 유지합니다. 성공·정보는 `role="status"`, 오류·경고는 `role="alert"`.
 - **확인이 필요한 결정**은 토스트가 아니라 모달(5.8)로 처리합니다.
 - **안내 박스**: 화면에서 사용자에게 안내·주의·오류·완료를 알리는 영역은(5.1의 흰색 배경 원칙에 대한 예외로 옅은 의미색 배경 허용, 9장 E12) 아래 표준 안내 박스(`.notice-box`) 하나를 재사용하며, 화면마다 별도 스타일을 만들거나 인라인 `style`로 꾸미지 않습니다. 상세 규격은 5.9.1을 따릅니다.
@@ -790,7 +790,7 @@ font-family: 'Pretendard';
 - **불필요 요소 배제**:
   - 카드 표면에 물리적 파일명(`.html`), #순번, 뱃지 오버레이 일체 노출 금지 (순수 썸네일 + 화면명 + 열기 버튼 구성).
   - ⚠️ **썸네일 이미지 하단 푸터 노출 금지**: 썸네일 프리뷰 이미지 하단에 푸터 바(현행 짙은 회색, 4.4)가 노출되지 않도록 이미지 자체에서 푸터 영역(하단 22px)을 전면 크롭하여 순수 본문 컨텐츠만 렌더링되도록 유지.
-- 카드 배치는 드래그 또는 `Alt + 방향키`로 이동하고 상단 '배치 저장' 버튼(`.portal-layout-save`: `linear-gradient(135deg, #ff7a00 0%, #ef4444 100%)`)으로 브라우저에 보관합니다(`js/portal.js`). 배치를 되돌리는 '기본 배치로 초기화' 기능은 두지 않습니다.
+- 카드 배치는 드래그 또는 `Alt + 방향키`로 이동하고 상단 '배치 저장' 버튼(`.portal-layout-save`: `linear-gradient(135deg, #ff7a00 0%, #ef4444 100%)`)으로 브라우저에 보관합니다(`assets/scripts/portal.js`). 배치를 되돌리는 '기본 배치로 초기화' 기능은 두지 않습니다.
 
 ### 6.5 대시보드 (`Dashboard.html`, SRM 권한별 대시보드 기준)
 구성: 페이지 타이틀 행 → (SRM) 권한 안내 박스(5.9.1) → 섹션 단위(`.dashboard-section`)의 KPI·요약 카드 → 차트·목록 카드. 대시보드는 여러 카드가 격자로 놓이는 화면이며 다음 원칙을 따릅니다.
@@ -911,7 +911,7 @@ font-family: 'Pretendard';
 - [ ] **마이크로 인터랙션**: 버튼 호버, 팝업 오픈, 탭 클릭 시 자연스러운 피드백이 동작하는가?
 
 **표기·관리 (7·9·11장)**
-- [ ] **화면 골격**: 같은 시스템의 기준 화면에서 복사한 표준 골격(`top-header` > `app-container`(`sidebar` + `main-content`) > `app-footer` > `js/dashboard.js`)을 쓰고, 화면 전용 CSS·JS 파일이나 `<script>` 인라인 블록이 없는가?
+- [ ] **화면 골격**: 같은 시스템의 기준 화면에서 복사한 표준 골격(`top-header` > `app-container`(`sidebar` + `main-content`) > `app-footer` > `assets/scripts/dashboard.js`)을 쓰고, 화면 전용 CSS·JS 파일이나 `<script>` 인라인 블록이 없는가?
 - [ ] **연결**: `index.html` 카드, 사이드바 링크와 `.active`, 브레드크럼이 새 화면과 연결되어 있고 `<title>`이 `시스템 - 화면명 | KEPCO ES` 형식인가?
 - [ ] **표기 규칙**: 날짜·금액·비율·빈 값이 7장 형식을 따르는가?
 - [ ] **인라인 스타일**: 새·수정 화면에 인라인 `style` 속성과 화면 전용 ID 스타일이 없는가?
@@ -948,9 +948,8 @@ font-family: 'Pretendard';
 | 10 | 세부 업무 진행 카드 | 표준 단계 표시·버튼 위계 | 설계서의 카드 사이 화살표 없음 | 화살표(→) 추가 여부 결정 |
 | 11 | 반응형 | 표준 4개 브레이크포인트 | 1450→1440, 768→760으로 통합. 나머지 `600`·`640`·`900`·`1200px`는 지원 범위(1280px 이상) 밖의 기존 호환 쿼리 | 통합(우선순위 낮음) |
 | 12 | 대비 | 2.4 기준 | `#ff7a00`·`#00b894` 텍스트/배지, `#7c8ca0` 안내 문구, Critical 그라데이션 우측 끝(`#10b981`)·Caution 그라데이션 좌측 끝(`#ff7a00`) 위 흰 글씨, 위저드 현재 단계 오렌지 원(`#ff7a00`) 안의 흰 번호(약 2.5~2.6:1) | 결정 필요: 텍스트 진한 톤 도입, 버튼 그라데이션 우측 톤 조정 |
-| 13 | 알림 | 토스트·모달 | 시연용 `alert()` 다수 | 화면 개발 시 대체 |
 | 15 | 마크업 | 표준 구조 사용 | 사이드바 메뉴·헤더가 화면마다 복사되어 아이콘 path 일부가 손상(런타임 JS가 덮어써서 화면에는 영향 없음) | 손상 path 정리 |
-| 17 | 토스트·빈 상태·로딩·툴팁·드롭다운 | 5.9·5.13의 권장 클래스 | `css/style.css`에 전용 클래스 없음(`alert()`·`title`·네이티브 `select`로 대체) | 화면에서 필요해질 때 공통 클래스로 추가 |
+| 17 | 토스트·빈 상태·로딩·툴팁·드롭다운 | 5.9·5.13의 권장 클래스 | `assets/styles/style.css`에 전용 클래스 없음(`alert()`·`title`·네이티브 `select`로 대체) | 화면에서 필요해질 때 공통 클래스로 추가 |
 | 18 | 상세정보(Key-Value) 표 클래스 | 공통 규격 하나(5.3.1) | SRM은 `.srm-kv-grid > .srm-kv-row > dt/dd`(라벨 너비 `230px`, 한 행에 한 쌍), PMS 상세는 `.f-label/.f-val`·`.meta-item-*`로 별도 구현. 가이드의 라벨 너비 `130~150px`와 SRM 구현 `230px`가 다름 | 결정 필요: 공통 클래스명·라벨 너비 확정 후 통합 |
 | 19 | 색 이름·화면 접두 클래스 | 12.3 명명 규칙 | `.srm-*`(예: `.srm-file-item`, `.srm-kv-*`, `.srm-review-*`)처럼 화면 이름이 들어간 공통 컴포넌트 클래스. 색 이름 별칭 `.badge-srm-navy`는 삭제됨 | 새 컴포넌트는 규칙대로 명명하고 기존 클래스는 개편 시 별칭 유지 후 교체 |
 
@@ -969,6 +968,7 @@ font-family: 'Pretendard';
 ### 11.2 변경 이력
 | 버전 | 날짜 | 요지 |
 |---|---|---|
+| v2.32 | 2026-09-22 | SRM 전 화면 정합성 감사: 인라인 스타일·이벤트 제거, 표·모달·안내 박스·필수 표시·장식 SVG 접근성 표준화, 단일 본문 스크롤과 카드·테이블 공통 규격 보정, `alert()`를 표준 토스트로 교체하여 구현 차이 13번 해소. |
 | v2.31 | 2026-09-21 | 입찰계획 현황(`StepWorkflow.html`) 구성 변경: 상단 입찰계획 7단계를 위저드 스텝바에서 표준 업무 탐색 탭으로, `예정가 / 예비가 세부 업무 진행` 6단계를 카드 그리드에서 순서도(액션형 스텝바 `.wizard-stepper.has-actions`)로 교체(5.7). 옛 `.sub-stepper-grid`·`.sub-step-*` 삭제. |
 | v2.30 | 2026-09-21 | **새 화면 `ProjectPromotion.html`(프로젝트 정보 입력, 정보 입력 화면 예시) 추가**: 업무 탭 + 5단계 스텝바 + 입력 카드 + 조회 모달 구성. 입력 화면 폼 규격(`.form-section` · `.form-choice-group` · `.form-lookup` · `.form-hint` · `.form-actions-bar`)과 조회(선택) 모달을 5.5·5.8에 신설, 6.3에 PMS 정보 입력 화면 패턴, 새 화면 만들기 유형표·12.1·12.2 갱신. 조회 모달의 선택 버튼 행 높이 45px 유지 규칙. 프로젝트 폴더 정리: 기획서를 `docs/planning/`으로 이동. 전 화면 정합성 점검: 개별 규칙이 없던 컨트롤(날짜·셀렉트·라디오·체크박스·링크·버튼)에 키보드 포커스 아웃라인 공통 적용(2.4·5.5), 검색 버튼 굵기 400, 표 안 배지·입력·삭제 버튼이 있어도 본문 행 44px 유지, 계산표 합계 행 13px. 전 화면 썸네일 재생성. |
 | v2.29 | 2026-09-21 | 관리자 대시보드의 `시스템 연동 현황` 카드 삭제(6.7). |
@@ -1027,7 +1027,7 @@ font-family: 'Pretendard';
 
 ## 12. 부록 (Appendix)
 
-이 부록은 규칙이 아니라 **색인**입니다. 규칙은 본문(2~7장)이 정의하며, 이 표는 새 화면에서 재사용할 이름을 빨리 찾기 위한 것입니다. 클래스는 모두 `css/style.css`에 있습니다.
+이 부록은 규칙이 아니라 **색인**입니다. 규칙은 본문(2~7장)이 정의하며, 이 표는 새 화면에서 재사용할 이름을 빨리 찾기 위한 것입니다. 클래스는 모두 `assets/styles/style.css`에 있습니다.
 
 ### 12.1 컴포넌트·클래스 색인
 | 영역 | 컴포넌트 | 클래스 | 규격 |
@@ -1064,7 +1064,8 @@ font-family: 'Pretendard';
 | | 위저드 스텝바 | `.wizard-stepper` > `.wizard-step-box`(`.wizard-step-dot`) · 액션형 `.wizard-stepper.has-actions` > `.wizard-step-actions` | 5.7 |
 | 오버레이 | 모달 | `.modal-backdrop`(`.show`, `.modal-top`) > `.modal-dialog`(`.modal-sm/lg/xl`) > `.modal-header`(`.modal-title`, `.modal-close`) · `.modal-body` · `.modal-footer` | 5.8, `initModals()` |
 | 안내 | 안내 박스 | `.notice-box`(`.info/.warning/.danger/.success`) > `.notice-icon` · `.notice-body`(`.notice-lead`, `.notice-note`) | 5.9.1 |
-| 콘텐츠 | 블릿 목록 · 첨부파일 | `.bullet-list` · `.srm-file-list` > `.srm-file-item` | 5.11, 5.12 |
+| 콘텐츠 | 블릿 목록 · 첨부파일 | `.bullet-list` · `.content-bullet-item` · `.srm-file-list` > `.srm-file-item` | 5.11, 5.12 |
+| 안내 | 토스트 알림 | `.toast-stack` > `.toast`(`.info/.success/.warning/.danger`) | 5.9, `showToast()` |
 | KPI | 통계 KPI 카드 | `.kpi-card-metric` · `.kpi-card-title` · `.kpi-donut-box` | 5.10 |
 | 대시보드 | 섹션 | `.dashboard-section` | 6.5 |
 | 팝업 위저드 | 하단 액션 행 | `.partner-actions-row` | 6.3 |
@@ -1072,14 +1073,15 @@ font-family: 'Pretendard';
 | | To-Do 카드 · D-day · 파이프라인 | `.todo-grid`(`.cols-4`~`.cols-9` · `.is-plain`) > `.todo-card`(`.is-empty` `.is-alert` `.span-2`) > `.todo-count`(`.is-text` `.is-long` · `.num`) · `.badge-dday`(`.soon` `.today` `.closed`) · `.pipeline-flow` > `.pipeline-step`(`.is-selected`) | 5.14 |
 | | 캘린더 · 타일 · 타임라인 · 목록 | `.calendar`(`.calendar-day` `.cal-dot.type-*` `.calendar-events` `.calendar-legend`) · `.tally-grid` > `.tally-item` · `.timeline`(`.is-current`) · `.widget-more` | 5.14 |
 | 유틸리티 | 정렬·의미색 | `.text-left/right/center` · `.text-muted/primary/info/success/warning/danger`(흰 배경 대비 4.5:1 진한 톤) · `.unit-text`(단위 13px) · `.card-meta`(제목 옆 기준 정보) | 2.4, 5.1 |
-| | 배치·크기 | `.hstack`(+`.between` `.baseline` `.gap-6/10/12`) · `.grow` · `.w-N`(열·컨트롤 폭) · `.minw-N` · `.h-N` | 5.3, 5.5 |
+| | 배치·크기 | `.hstack`(+`.between` `.baseline` `.gap-6/10/12`) · `.grow` · `.w-N`(열·컨트롤 폭) · `.minw-N` · `.h-N` · `.content-inner-gap-*` · `.content-object-gap-top` | 4.0, 5.3, 5.5 |
 | | 차트 채움색 | `.fill-blue/cyan/sky/teal/emerald/green/orange/amber/red/purple`(2.5 팔레트) | 2.5, E15 |
 
-### 12.2 스크립트 색인 (`js/dashboard.js`)
+### 12.2 스크립트 색인 (`assets/scripts/dashboard.js`)
 모든 `init*` 함수는 `DOMContentLoaded`에서 호출되고, 대상 요소가 없는 화면에서는 아무 일도 하지 않습니다(가드). 새 화면의 인터랙션은 이 파일에 `init*` 함수를 추가하고 `DOMContentLoaded` 목록에 등록합니다.
 
 | 함수 | 역할 | 대상 |
 |---|---|---|
+| `showToast` | 성공·정보·경고·오류 공통 토스트 생성 및 닫기 | 5.9 |
 | `initHeaderCleanup` · `initSidebar` · `initPermissions` | 헤더 정리, 사이드바(아이콘·펼침·활성·시스템 코드), 권한 버튼 | 전 화면 |
 | `initPageManuals` | 타이틀 옆 매뉴얼·인쇄·PDF 버튼(`Esc` 닫기, 출력 모드) | 4.3 |
 | `initNativeFormControls` | 날짜·셀렉트 등 네이티브 컨트롤 보정 | 5.5 |
@@ -1090,7 +1092,7 @@ font-family: 'Pretendard';
 | `init…Page` | 화면 전용 인터랙션: `ProjectRegister`, `SRMLogin`, `ProjectSearch`, `ProjectDetail`, `BusinessSettlement`, `Statistics`, `StepWorkflow`, `PlanPerformance`, `PartnerRegister`, `SrmDetail`, `ProjectPromotion` | 각 화면 |
 | `initDashboardWidgets` | 대시보드 위젯 전환(범위·기간 칩, 캘린더 날짜 선택, 파이프라인 단계 선택, 진행상황 팝업 열기)과 권한 버튼 이동(`data-href`) | 6.7 |
 
-포털 카드 배치는 `js/portal.js`가 담당합니다(6.4).
+포털 카드 배치는 `assets/scripts/portal.js`가 담당합니다(6.4).
 
 ### 12.3 명명 규칙
 - 클래스는 `kebab-case`이며 **역할**을 나타냅니다(`.notice-box`, `.btn-task-done`). 색 이름(`green`, `navy`, `dark`)이나 임시 번호를 넣지 않습니다. 색은 값이 바뀔 수 있어도 역할은 유지되기 때문입니다.

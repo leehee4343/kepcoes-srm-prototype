@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>전자입찰시스템 SRM - 협력업체 관리 | KEPCO ES</title>
+  <link rel="stylesheet" href="../../assets/styles/style.css">
+</head>
+<body>
+
+  <header class="top-header">
+    <div class="header-left">
+      <button type="button" class="btn-menu-toggle" id="btnmenutoggle" title="사이드바 메뉴 접기/펼치기">
+        <svg aria-hidden="true" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="../03_대시보드/SRMDashboardAdmin.html" class="brand-logo-wrap" title="전자입찰시스템 SRM 메인">
+        <img src="../../assets/images/logo.png" alt="켑코이에스(주) 로고" class="brand-logo-img">
+      </a>
+      <div class="header-system-badge-group">
+        <span class="system-title">전자입찰시스템(SRM)</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="permission-group">
+        <span class="perm-label">권한 :</span>
+        <button type="button" class="perm-btn" data-role="contract" data-href="../03_대시보드/SRMDashboardContract.html" title="계약담당자 권한으로 전환" aria-pressed="false">계약담당자</button>
+        <button type="button" class="perm-btn" data-role="biz" data-href="../03_대시보드/SRMDashboardBiz.html" title="사업담당자 권한으로 전환" aria-pressed="false">사업담당자</button>
+        <button type="button" class="perm-btn active" data-role="admin" data-href="../03_대시보드/SRMDashboardAdmin.html" title="관리자 권한으로 전환" aria-pressed="true" aria-current="true">관리자</button>
+        <button type="button" class="perm-btn" data-role="partner" data-href="../02_협력업체창구_로그인후/SRMDashboardPartner.html" title="협력업체 권한으로 전환" aria-pressed="false">협력업체</button>
+      </div>
+      <div class="user-profile">
+        <span class="user-name">홍길동 과장</span>
+        <span class="user-role">[관리자]</span>
+        <span class="user-divider">|</span>
+        <a href="../01_협력업체창구_로그인전/SRMLogin.html" class="btn-logout" title="로그아웃">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="app-container">
+    <aside class="sidebar" id="sidebar">
+      <nav class="sidebar-nav">
+        <div class="nav-item">
+                    <a href="../03_대시보드/SRMDashboardAdmin.html" class="nav-link">
+                      <span class="nav-icon">
+                        <svg aria-hidden="true" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <rect x="3" y="3" width="7" height="9"></rect>
+                          <rect x="14" y="3" width="7" height="5"></rect>
+                          <rect x="14" y="12" width="7" height="9"></rect>
+                          <rect x="3" y="16" width="7" height="5"></rect>
+                        </svg>
+                      </span>
+                      <span class="nav-text">대시보드</span>
+                    </a>
+                  </div>
+
+        <div class="nav-item">
+                    <a href="#" class="nav-link">
+                      <span class="nav-icon">
+                        <svg aria-hidden="true" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="m14 2h6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v8z"></path>
+                          <polyline points="14 2 14 8 20 8"></polyline>
+                          <line x1="16" y1="13" x2="8" y2="13"></line>
+                          <line x1="16" y1="17" x2="8" y2="17"></line>
+                        </svg>
+                      </span>
+                      <span class="nav-text">사전 견적 관리</span>
+                      <span class="nav-arrow">
+                        <svg aria-hidden="true" width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                      </span>
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu-item"><a href="../04_사전견적관리/SRMPreQuoteRequest.html">사전 견적 요청</a></li>
+                      <li class="submenu-item"><a href="../04_사전견적관리/SRMPreQuoteStatus.html">사전 견적 요청 현황</a></li>
+                    </ul>
+                  </div>
+
+        <div class="nav-item">
+                    <a href="#" class="nav-link">
+                      <span class="nav-icon">
+                        <svg aria-hidden="true" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                          <polyline points="2 17 12 22 22 17"></polyline>
+                          <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                      </span>
+                      <span class="nav-text">발주계약 요청</span>
+                      <span class="nav-arrow">
+                        <svg aria-hidden="true" width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                      </span>
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu-item"><a href="../05_발주계약요청/SRMOrderContractRequest.html">발주계약 요청</a></li>
+                      <li class="submenu-item"><a href="../05_발주계약요청/SRMOrderContractStatus.html">발주계약 요청현황</a></li>
+                    </ul>
+                  </div>
+
+        <div class="nav-item">
+                    <a href="#" class="nav-link">
+                      <span class="nav-icon">
+                        <svg aria-hidden="true" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                          <line x1="16" y1="2" x2="16" y2="6"></line>
+                          <line x1="8" y1="2" x2="8" y2="6"></line>
+                          <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                      </span>
+                      <span class="nav-text">발주계획</span>
+                      <span class="nav-arrow">
+                        <svg aria-hidden="true" width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                      </span>
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu-item"><a href="../06_발주계획/SRMOrderPlanIntake.html">발주계약 요청 접수</a></li>
+                      <li class="submenu-item"><a href="../06_발주계획/SRMOrderPlanRegister.html">발주계획 등록</a></li>
+                    </ul>
+                  </div>
+
+        <div class="nav-item">
+                    <a href="#" class="nav-link">
+                      <span class="nav-icon">
+                        <svg aria-hidden="true" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <circle cx="12" cy="12" r="10"></circle>
+                          <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                      </span>
+                      <span class="nav-text">수의계약 관리</span>
+                      <span class="nav-arrow">
+                        <svg aria-hidden="true" width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                      </span>
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu-item"><a href="../07-1_수의계약관리/SRMSoleSourcePlan.html">수의계약 계획 현황</a></li>
+                      <li class="submenu-item"><a href="../07-1_수의계약관리/SRMSoleSourceStatus.html">수의계약 현황</a></li>
+                    </ul>
+                  </div>
+
+        <div class="nav-item">
+                    <a href="#" class="nav-link">
+                      <span class="nav-icon">
+                        <svg aria-hidden="true" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="m12 2l3.09 6.26l22 9.27l-5 4.87 1.18 6.88l12 17.77l-6.18 3.25l7 14.14 2 9.27l6.91-1.01l12 2z"></path>
+                        </svg>
+                      </span>
+                      <span class="nav-text">입찰관리</span>
+                      <span class="nav-arrow">
+                        <svg aria-hidden="true" width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                      </span>
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu-item"><a href="../07-2_입찰관리/StepWorkflow.html">입찰계획 현황</a></li>
+                      <li class="submenu-item"><a href="../07-2_입찰관리/SRMDetail.html">입찰공고 현황</a></li>
+                    </ul>
+                  </div>
+
+        <div class="nav-item">
+                    <a href="#" class="nav-link">
+                      <span class="nav-icon">
+                        <svg aria-hidden="true" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="m22 19a2 2 0 0 1-2 2h4a2 2 0 0 1-2-2v5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                      </span>
+                      <span class="nav-text">계약관리</span>
+                      <span class="nav-arrow">
+                        <svg aria-hidden="true" width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                      </span>
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu-item"><a href="../08_계약관리/SRMContractStatus.html">발주계약 현황</a></li>
+                    </ul>
+                  </div>
+
+        <div class="nav-item active open">
+                    <a href="#" class="nav-link">
+                      <span class="nav-icon">
+                        <svg aria-hidden="true" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="m17 21v-2a4 4 0 0 0-4-4h5a4 4 0 0 0-4 4v2"></path>
+                          <circle cx="9" cy="7" r="4"></circle>
+                          <path d="m23 21v-2a4 4 0 0 0-3-3.87"></path>
+                          <path d="m16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                      </span>
+                      <span class="nav-text">협력업체 관리</span>
+                      <span class="nav-arrow">
+                        <svg aria-hidden="true" width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                      </span>
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu-item"><a href="SRMPartnerApproval.html">신청/변경 요청 처리</a></li>
+                      <li class="submenu-item active"><a href="SRMPartnerManage.html">협력업체 관리</a></li>
+                      <li class="submenu-item"><a href="SRMPartnerQnaManage.html">질문과 답변</a></li>
+                    </ul>
+                  </div>
+
+        <div class="nav-item">
+                    <a href="#" class="nav-link">
+                      <span class="nav-icon">
+                        <svg aria-hidden="true" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <circle cx="12" cy="12" r="3"></circle>
+                          <path d="m19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51v21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09a1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1h3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09a1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33h9a1.65 1.65 0 0 0 1-1.51v3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v9a1.65 1.65 0 0 0 1.51 1h21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                        </svg>
+                      </span>
+                      <span class="nav-text">기준정보 관리</span>
+                      <span class="nav-arrow">
+                        <svg aria-hidden="true" width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                      </span>
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu-item"><a href="../10_기준정보관리/SRMCommonItemManage.html">공통 품목관리</a></li>
+                      <li class="submenu-item"><a href="../10_기준정보관리/SRMSourcingGroupManage.html">소싱그룹 관리</a></li>
+                      <li class="submenu-item"><a href="../10_기준정보관리/SRMCommonEvalManage.html">공통 심사/평가 관리</a></li>
+                      <li class="submenu-item"><a href="../10_기준정보관리/SRMCommonDocManage.html">공통 서류 관리</a></li>
+                      <li class="submenu-item"><a href="../10_기준정보관리/SRMMailContentManage.html">메일/메시지 발송 내용 관리</a></li>
+                      <li class="submenu-item"><a href="../10_기준정보관리/SRMMailSend.html">메일/메시지 발송</a></li>
+                      <li class="submenu-item"><a href="../10_기준정보관리/SRMMailSendStatus.html">메일/메시지 발송 현황 조회</a></li>
+                    </ul>
+                  </div>
+
+        <div class="nav-item">
+                    <a href="#" class="nav-link">
+                      <span class="nav-icon">
+                        <svg aria-hidden="true" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                          <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                          <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                          <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                        </svg>
+                      </span>
+                      <span class="nav-text">공통관리</span>
+                      <span class="nav-arrow">
+                        <svg aria-hidden="true" width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                      </span>
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu-item"><a href="../00_공통관리/SRMAdminManage.html">관리자 관리</a></li>
+                      <li class="submenu-item"><a href="../00_공통관리/SRMPermGroupManage.html">권한그룹 및 메뉴별 권한 관리</a></li>
+                      <li class="submenu-item"><a href="../00_공통관리/SRMSystemPermManage.html">시스템 권한 관리</a></li>
+                      <li class="submenu-item"><a href="../00_공통관리/SRMIpManage.html">접속 아이피(IP) 관리</a></li>
+                      <li class="submenu-item"><a href="../00_공통관리/SRMCodeManage.html">코드관리</a></li>
+                      <li class="submenu-item"><a href="../00_공통관리/SRMLoginStats.html">로그인 현황</a></li>
+                      <li class="submenu-item"><a href="../00_공통관리/SRMMenuAccessStats.html">메뉴별 접속현황</a></li>
+                      <li class="submenu-item"><a href="../00_공통관리/SRMClientManage.html">거래처 관리</a></li>
+                      <li class="submenu-item"><a href="../00_공통관리/SRMNoticeManage.html">공지사항 관리</a></li>
+                      <li class="submenu-item"><a href="../00_공통관리/SRMFileRepoManage.html">양식 등 자료실 관리</a></li>
+                    </ul>
+                  </div>
+      </nav>
+      <div class="sidebar-bottom-actions">
+        <a href="../03_대시보드/SRMDashboardAdmin.html" class="btn-sidebar-switch srm-active-btn" title="사업관리시스템(PMS)으로 이동">
+          <span class="switch-icon">
+            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3L4 7l4 4"></path><path d="M4 7h16"></path><path d="M16 21l4-4-4-4"></path><path d="M20 17H4"></path></svg>
+          </span>
+          <span class="nav-text">사업관리시스템(PMS)</span>
+        </a>
+        <button type="button" class="btn-sidebar-manual"><span class="nav-text">온라인 매뉴얼</span></button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-title-wrap">
+        <div class="page-title-left"><h1 class="page-title">협력업체 관리</h1></div>
+        <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardAdmin.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">협력업체 관리</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">협력업체 관리</span></div>
+      </div>
+
+
+      <section class="filter-card">
+        <form id="partnerMgSearchForm">
+          <div class="filter-row hstack gap-12">
+            <span class="filter-label w-80">조회기간(신청일)</span>
+            <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
+            <div class="quick-date-btns hstack gap-6">
+              <button type="button" class="btn-quick-date" data-range="1d">하루 전</button>
+              <button type="button" class="btn-quick-date" data-range="1w">1주일</button>
+              <button type="button" class="btn-quick-date active" data-range="1m">1개월</button>
+              <button type="button" class="btn-quick-date" data-range="3m">3개월</button>
+              <button type="button" class="btn-quick-date" data-range="6m">6개월</button>
+              <button type="button" class="btn-quick-date" data-range="1y">1년</button>
+            </div>
+          </div>
+          <div class="filter-row hstack gap-12">
+            <span class="filter-label w-80">사용 여부</span>
+            <div class="form-choice-group" role="radiogroup">
+              <label class="form-choice"><input type="radio" name="pmUseYn" checked>전체</label>
+              <label class="form-choice"><input type="radio" name="pmUseYn">사용(Y)</label>
+              <label class="form-choice"><input type="radio" name="pmUseYn">중지(N)</label>
+            </div>
+          </div>
+          <div class="filter-row hstack gap-12">
+            <span class="filter-label w-80">신용평가등급</span>
+            <select class="filter-select w-150"><option>신용평가등급 선택</option></select>
+          </div>
+          <div class="filter-row hstack gap-12">
+            <span class="filter-label w-80">키워드 검색</span>
+            <select class="filter-select w-140"><option>사업자번호</option><option>업체명</option><option>대표자</option><option>담당자</option></select>
+            <input type="text" class="filter-text-input w-380" placeholder="검색어를 입력하세요.">
+          </div>
+          <div class="filter-action-row">
+            <button type="submit" class="btn-filter-search">검색</button>
+            <button type="button" class="btn-filter-reset">초기화</button>
+          </div>
+        </form>
+      </section>
+
+      <div class="table-card">
+        <div class="table-header-action-row">
+          <div class="table-total-count grid-page-summary">1 / 4 (총 1,523개)</div>
+          <div class="table-actions">
+            <select class="select-per-page" title="페이지당 표시 건수">
+              <option value="10" selected>10개씩</option>
+              <option value="20">20개씩</option>
+              <option value="30">30개씩</option>
+              <option value="50">50개씩</option>
+              <option value="100">100개씩</option>
+            </select>
+            <button type="button" class="btn-action-excel"><svg aria-hidden="true" class="icon-excel" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="m8 12 4 6"></path><path d="m12 12-4 6"></path></svg>엑셀 다운로드</button>
+          </div>
+        </div>
+        <p class="modal-field-label content-inner-gap-bottom">승인된 건만 이 목록에서 조회됩니다.</p>
+        <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="협력업체 관리 목록" data-total-items="1523" data-total-pages="153">
+          <table class="data-table data-grid-table" aria-label="협력업체 관리 목록">
+            <thead>
+              <tr><th class="w-55">No</th><th class="w-70">처리상태</th><th class="w-100">사업자번호</th><th class="minw-170">업체명</th><th class="w-70">대표자</th><th class="w-70">담당자</th><th class="w-110">핸드폰번호</th><th class="minw-170">이메일</th><th class="w-90">신용평가등급</th><th class="w-80">사용 여부</th><th class="w-90">신청일</th><th class="w-90">승인일</th><th class="w-70">처리자</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1,542</td><td><span class="badge-success">승인</span></td><td>123-45-67891</td><td class="text-left"><a href="#" data-open-modal="pmDetailModal">삼전디에스</a></td><td>홍길동</td><td>한지훈</td><td>010-1234-5678</td><td>leehee43@naver.com</td><td>-</td><td><span class="badge-info">사용(Y)</span></td><td>2026.06.10</td><td>2026.06.10</td><td>홍길동</td></tr>
+              <tr><td>1,541</td><td><span class="badge-success">승인</span></td><td>123-45-67891</td><td class="text-left"><a href="#" data-open-modal="pmDetailModal">넷퍼시</a></td><td>홍길동</td><td>김미라</td><td>-</td><td>-</td><td>AAA</td><td><span class="badge-tag">중지(N)</span></td><td>2026.06.10</td><td>2026.06.10</td><td>홍길동</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-pagination-row"><nav class="pagination-controls" aria-label="표 페이지 이동"></nav></div>
+      </div>
+
+    </main>
+  </div>
+
+  <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
+
+
+  <!-- 협력업체 상세정보 및 각종 처리 -->
+  <div class="modal-backdrop" id="pmDetailModal" role="dialog" aria-modal="true" aria-labelledby="pmDetailTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <h2 class="modal-title" id="pmDetailTitle">협력업체 상세정보</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="srm-section-heading"><div><h2>최종 처리 상태</h2></div></div>
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>최종 처리 상태</dt><dd><span class="badge-success">승인</span> <span class="badge-tag">신청완료</span> <span class="badge-warning">정보수정 요청</span> <button type="button" class="btn-secondary" data-close-modal data-open-modal="pmStatusManageModal">처리상태 관리</button></dd></div>
+          <div class="srm-kv-row"><dt>신청일시</dt><dd>2026.06.10 15:56</dd></div>
+        </div>
+
+        <p class="modal-field-label content-inner-gap-top">처리 이력</p>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="처리 이력">
+            <thead><tr><th class="col-no">No</th><th>처리 구분</th><th>신청/처리 일시</th><th>처리자</th><th>처리내역(요약)</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>신청완료</td><td>2026.03.03 11:25</td><td>-</td><td>-</td></tr>
+              <tr><td>2</td><td>승인</td><td>2026.03.03 12:26</td><td>박승길</td><td class="text-left">모든 정보가 확인되어 승인되었습니다.</td></tr>
+              <tr><td>3</td><td>정보수정 요청</td><td>2026.03.16 11:25</td><td>-</td><td class="text-left">회사명이 변경되어 정보 변경을 원합니다.</td></tr>
+              <tr><td>4</td><td>승인</td><td>2026.03.16 12:40</td><td>박승길</td><td class="text-left">회사명이 확인되어 승인합니다.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="srm-section-heading content-object-gap-top"><div><h2>협력업체 기본 정보</h2></div></div>
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>사용 여부</dt><dd>사용(Y) | 중지(N)</dd></div>
+          <div class="srm-kv-row"><dt>사업자 번호</dt><dd>135-82-77202</dd></div>
+          <div class="srm-kv-row"><dt>회사명</dt><dd>(주)큐비트엑스</dd></div>
+          <div class="srm-kv-row"><dt>대표자명</dt><dd>이홍태, 윤지병</dd></div>
+          <div class="srm-kv-row"><dt>전화번호</dt><dd>02-833-1650</dd></div>
+          <div class="srm-kv-row"><dt>업종</dt><dd>IT인프라</dd></div>
+          <div class="srm-kv-row"><dt>업태</dt><dd>소프트웨어개발</dd></div>
+          <div class="srm-kv-row"><dt>주소</dt><dd>(12654) 경기도 고양시 일산서구 강선로 118 강선마을아파트 제208동 1202호</dd></div>
+        </div>
+        <div class="srm-detail-actions"><button type="button" class="btn-secondary" data-close-modal data-open-modal="pmEditModal">협력업체 정보 수정</button></div>
+
+        <p class="modal-field-label content-inner-gap-top">관련 증빙서류 제출</p>
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>사업자등록증</dt><dd>이미 등록된 파일명.PDF</dd></div>
+          <div class="srm-kv-row"><dt>법인인감증명서</dt><dd>이미 등록된 파일명.PDF</dd></div>
+          <div class="srm-kv-row"><dt>면허 등</dt><dd>이미 등록된 파일명.PDF</dd></div>
+        </div>
+
+        <p class="modal-field-label content-inner-gap-top">신용평가등급 관련 정보</p>
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>신용평가등급</dt><dd>BB0</dd></div>
+          <div class="srm-kv-row"><dt>신용평가등급 확인서</dt><dd>이미 등록된 파일명.PDF</dd></div>
+        </div>
+
+        <div class="srm-section-heading content-object-gap-top"><div><h2>담당자 정보</h2></div></div>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="담당자 정보">
+            <thead><tr><th class="col-no">No</th><th>담당자 구분</th><th>이름</th><th>직책</th><th>이메일</th><th>핸드폰번호</th><th>전화번호</th><th>담당업무</th><th class="w-160">관리</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>기본 담당자</td><td class="text-left">이희성</td><td>이사</td><td>leehee43@naver.com</td><td>010-6844-2810</td><td>02-6959-9856</td><td class="text-left">사내 입찰/계약 담당자</td><td>
+                <button type="button" class="btn-secondary" data-close-modal data-open-modal="pmPwSendConfirmModal">임시 비밀번호 발송</button>
+                <button type="button" class="btn-secondary" data-close-modal data-open-modal="pmManagerFormModal">수정</button>
+                <button type="button" class="btn-row-del">삭제</button>
+              </td></tr>
+              <tr><td>2</td><td>추가 담당자</td><td class="text-left">박일용</td><td>부장</td><td>-</td><td>-</td><td>-</td><td class="text-left">견적 등 업무 관련 담당자</td><td>
+                <button type="button" class="btn-secondary" data-close-modal data-open-modal="pmManagerFormModal">수정</button>
+                <button type="button" class="btn-row-del">삭제</button>
+              </td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="srm-detail-actions"><button type="button" class="btn-secondary" data-close-modal data-open-modal="pmManagerFormModal">담당자 정보 추가</button></div>
+
+        <div class="srm-section-heading content-object-gap-top"><div><h2>소싱 그룹 설정</h2></div></div>
+        <p class="modal-field-label">'기준 정보 관리 &gt; 소싱 그룹 관리'에 적용된 대/중/소 분류 매핑입니다.</p>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="소싱 그룹 설정">
+            <thead><tr><th class="col-no">No</th><th>대분류</th><th>중분류</th><th>소분류</th><th>등록자</th><th>등록일시</th><th class="w-60">삭제</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td class="text-left">전기</td><td class="text-left">자재</td><td class="text-left">전선/케이블</td><td>박승길</td><td>2026.08.04 15:25</td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+              <tr><td>2</td><td class="text-left">기계</td><td class="text-left">부품</td><td class="text-left">밸브/파이프</td><td>박승길</td><td>2026.05.23 09:35</td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="srm-detail-actions"><button type="button" class="btn-secondary" data-close-modal data-open-modal="pmSourcingAddModal">소싱 그룹 추가하기</button></div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">목록</button></div>
+    </div>
+  </div>
+
+  <!-- 처리상태 관리 -->
+  <div class="modal-backdrop" id="pmStatusManageModal" role="dialog" aria-modal="true" aria-labelledby="pmStatusManageTitle" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header"><h2 class="modal-title" id="pmStatusManageTitle">처리상태 관리</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
+      <div class="modal-body">
+        <p class="modal-field-label">사용 여부가 중지(N)일 경우 협력업체는 승인되었더라도 로그인할 수 없습니다.</p>
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>사용 여부</dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="pmUseYn2" checked>사용(Y)</label><label class="form-choice"><input type="radio" name="pmUseYn2">중지(N)</label></div></dd></div>
+          <div class="srm-kv-row"><dt>사업자 번호</dt><dd>135-82-77202</dd></div>
+          <div class="srm-kv-row"><dt>회사명</dt><dd>(주)큐비트엑스</dd></div>
+          <div class="srm-kv-row"><dt>대표자명</dt><dd>이홍태, 윤지병</dd></div>
+          <div class="srm-kv-row"><dt>처리상태 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="pmStatusPick" checked>승인</label><label class="form-choice"><input type="radio" name="pmStatusPick">신청완료</label><label class="form-choice"><input type="radio" name="pmStatusPick">정보수정 요청</label></div></dd></div>
+          <div class="srm-kv-row"><dt>처리내역(요약)</dt><dd><input type="text" class="form-control" placeholder="50자 이내로 간단한 메모를 입력해 주세요." maxlength="50"></dd></div>
+          <div class="srm-kv-row"><dt>처리자</dt><dd>박승길</dd></div>
+        </div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn-primary" data-close-modal data-open-modal="pmDetailModal">적용</button><button type="button" class="btn-secondary" data-close-modal data-open-modal="pmDetailModal">닫기</button></div>
+    </div>
+  </div>
+
+  <!-- 담당자 정보 추가/수정 -->
+  <div class="modal-backdrop" id="pmManagerFormModal" role="dialog" aria-modal="true" aria-labelledby="pmManagerFormTitle" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header"><h2 class="modal-title" id="pmManagerFormTitle">담당자 정보 수정</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
+      <div class="modal-body">
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>담당자 구분</dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="pmMgrKind" checked>기본 담당자</label><label class="form-choice"><input type="radio" name="pmMgrKind">추가 담당자</label></div></dd></div>
+          <div class="srm-kv-row"><dt>이름 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="이희성"></dd></div>
+          <div class="srm-kv-row"><dt>이메일 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="leehee43"> @ <input type="text" class="form-control" value="naver.com"></dd></div>
+          <div class="srm-kv-row"><dt>핸드폰번호 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control w-70" value="010"> - <input type="text" class="form-control w-70" value="6844"> - <input type="text" class="form-control w-70" value="2810"></dd></div>
+          <div class="srm-kv-row"><dt>직책 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="이사"></dd></div>
+          <div class="srm-kv-row"><dt>담당업무 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="사내 입찰/계약 담당자"></dd></div>
+          <div class="srm-kv-row"><dt>전화번호 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control w-70" value="02"> - <input type="text" class="form-control w-70" value="6959"> - <input type="text" class="form-control w-70" value="9856"></dd></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" data-close-modal data-open-modal="pmDetailModal">취소</button>
+        <button type="button" class="btn-primary" data-close-modal data-open-modal="pmDetailModal">수정</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 임시 비밀번호 발송 시 유의사항 -->
+  <div class="modal-backdrop" id="pmPwSendConfirmModal" role="alertdialog" aria-modal="true" aria-labelledby="pmPwSendConfirmTitle" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header"><h2 class="modal-title" id="pmPwSendConfirmTitle">임시 비밀번호 발송 시 유의사항</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
+      <div class="modal-body">
+        <div class="notice-box warning" role="alert">
+          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span>
+          <div class="notice-body"><p class="notice-lead">본 협력업체의 기본 담당자에게 임시 비밀번호가 발송됩니다. 기존의 비밀번호는 임시 비밀번호로 초기화됩니다.</p><p>진행하시겠습니까?</p></div>
+        </div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn-secondary" data-close-modal data-open-modal="pmDetailModal">닫기</button><button type="button" class="btn-critical-primary" data-close-modal data-open-modal="pmDetailModal">임시 비밀번호 발송</button></div>
+    </div>
+  </div>
+
+  <!-- 협력업체 관리(수정) -->
+  <div class="modal-backdrop" id="pmEditModal" role="dialog" aria-modal="true" aria-labelledby="pmEditTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header"><h2 class="modal-title" id="pmEditTitle">협력업체 관리(수정)</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
+      <div class="modal-body">
+        <p class="modal-field-label">본의 아니게 협력업체의 정보를 수정해 줘야 할 때 사용합니다.</p>
+        <p class="modal-field-label">협력업체 기본 정보</p>
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>사업자 번호 <span class="required" aria-hidden="true">*</span></dt><dd>135-82-77202 <span>※사업자 번호는 로그인 시 아이디로 사용됩니다.</span></dd></div>
+          <div class="srm-kv-row"><dt>회사명 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="(주)큐비트엑스"></dd></div>
+          <div class="srm-kv-row"><dt>대표자명 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="이홍태, 윤지병"></dd></div>
+          <div class="srm-kv-row"><dt>전화번호 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control w-80" value="02"> - <input type="text" class="form-control w-80" value="833"> - <input type="text" class="form-control w-80" value="1650"></dd></div>
+          <div class="srm-kv-row"><dt>업종 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="IT인프라"></dd></div>
+          <div class="srm-kv-row"><dt>업태 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="소프트웨어개발"></dd></div>
+          <div class="srm-kv-row"><dt>주소 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control w-100" placeholder="우편번호"> <button type="button" class="btn-secondary">주소 검색</button><br><input type="text" class="form-control content-inner-gap-top" value="(12654) 경기도 고양시 일산서구 강선로 118"><br><input type="text" class="form-control content-inner-gap-top" value="강선마을아파트 제208동 1202호"></dd></div>
+        </div>
+        <p class="modal-field-label content-inner-gap-top">관련 증빙서류 제출</p>
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>사업자등록증 <span class="required" aria-hidden="true">*</span></dt><dd>이미 등록된 파일명.PDF <button type="button" class="btn-row-del">삭제</button><div class="form-lookup content-inner-gap-top"><input type="text" class="form-control" readonly placeholder="파일을 첨부해 주세요."><button type="button" class="btn-secondary">찾아보기</button></div><p class="modal-field-label content-inner-gap-top">※첨부파일은 PDF로 업로드해 주세요.</p></dd></div>
+          <div class="srm-kv-row"><dt>법인인감증명서 <span class="required" aria-hidden="true">*</span></dt><dd>이미 등록된 파일명.PDF <button type="button" class="btn-row-del">삭제</button><div class="form-lookup content-inner-gap-top"><input type="text" class="form-control" readonly placeholder="파일을 첨부해 주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
+          <div class="srm-kv-row"><dt>면허 등 <span class="required" aria-hidden="true">*</span></dt><dd>이미 등록된 파일명.PDF <button type="button" class="btn-row-del">삭제</button><div class="form-lookup content-inner-gap-top"><input type="text" class="form-control" readonly placeholder="파일을 첨부해 주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
+        </div>
+        <p class="modal-field-label content-inner-gap-top">신용평가등급 관련 정보</p>
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>신용평가등급</dt><dd><select class="filter-select w-200"><option>신용평가등급을 선택해 주세요.</option></select></dd></div>
+          <div class="srm-kv-row"><dt>신용평가등급 확인서</dt><dd>이미 등록된 파일명.PDF <button type="button" class="btn-row-del">삭제</button><div class="form-lookup content-inner-gap-top"><input type="text" class="form-control" readonly placeholder="파일을 첨부해 주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" data-close-modal data-open-modal="pmDetailModal">취소</button>
+        <button type="button" class="btn-primary" data-close-modal data-open-modal="pmDetailModal">저장</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 소싱 그룹 추가하기 -->
+  <div class="modal-backdrop" id="pmSourcingAddModal" role="dialog" aria-modal="true" aria-labelledby="pmSourcingAddTitle" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header"><h2 class="modal-title" id="pmSourcingAddTitle">소싱 그룹 추가하기</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
+      <div class="modal-body">
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>대분류 <span class="required" aria-hidden="true">*</span></dt><dd><select class="filter-select w-280"><option>소싱 그룹 대분류 선택</option></select></dd></div>
+          <div class="srm-kv-row"><dt>중분류 <span class="required" aria-hidden="true">*</span></dt><dd><select class="filter-select w-280"><option>소싱 그룹 중분류 선택</option></select></dd></div>
+          <div class="srm-kv-row"><dt>소분류 <span class="required" aria-hidden="true">*</span></dt><dd><select class="filter-select w-280"><option>소싱 그룹 소분류 선택</option></select></dd></div>
+          <div class="srm-kv-row"><dt>처리자</dt><dd>박승길</dd></div>
+        </div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn-primary" data-close-modal data-open-modal="pmDetailModal">소싱 그룹 추가하기</button><button type="button" class="btn-secondary" data-close-modal data-open-modal="pmDetailModal">닫기</button></div>
+    </div>
+  </div>
+
+  <script src="../../assets/scripts/dashboard.js"></script>
+</body>
+</html>
