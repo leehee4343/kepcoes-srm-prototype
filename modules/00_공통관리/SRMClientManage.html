@@ -30,7 +30,6 @@
         <button type="button" class="perm-btn" data-role="contract" data-href="../03_대시보드/SRMDashboardContract.html" title="계약담당자 권한으로 전환" aria-pressed="false">계약담당자</button>
         <button type="button" class="perm-btn" data-role="biz" data-href="../03_대시보드/SRMDashboardBiz.html" title="사업담당자 권한으로 전환" aria-pressed="false">사업담당자</button>
         <button type="button" class="perm-btn active" data-role="admin" data-href="../03_대시보드/SRMDashboardAdmin.html" title="관리자 권한으로 전환" aria-pressed="true" aria-current="true">관리자</button>
-        <button type="button" class="perm-btn" data-role="partner" data-href="../02_협력업체창구_로그인후/SRMDashboardPartner.html" title="협력업체 권한으로 전환" aria-pressed="false">협력업체</button>
       </div>
       <div class="user-profile">
         <span class="user-name">이희성 부장</span>
@@ -292,13 +291,13 @@
           </div>
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-80">키워드 검색</span>
-            <select class="filter-select w-150" id="selClientKeywordTarget">
+            <span class="description-marker-anchor"><span class="description-target-marker" aria-hidden="true">1</span><select class="filter-select w-150" id="selClientKeywordTarget">
               <option value="all" selected>전체</option>
               <option value="code">거래처 코드</option>
               <option value="name">거래처명</option>
               <option value="bizno">사업자등록번호</option>
               <option value="ceo">대표자명</option>
-            </select>
+            </select></span>
             <input type="text" class="filter-text-input w-380" placeholder="검색어를 입력하세요.">
           </div>
           <div class="filter-action-row">
@@ -363,6 +362,32 @@
         </div>
       </div>
       <div class="modal-footer"><button type="button" class="btn-secondary modal-close">목록</button></div>
+    </div>
+  </div>
+
+  <button type="button" class="description-floating-button" data-description-guide-toggle="clientDescriptionGuide" aria-controls="clientDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
+
+  <div class="modal-backdrop description-guide-backdrop" id="clientDescriptionGuide" role="dialog" aria-modal="false" aria-labelledby="clientDescriptionGuideTitle" aria-hidden="true">
+    <div class="modal-dialog description-modal-dialog">
+      <div class="modal-header">
+        <h2 class="modal-title" id="clientDescriptionGuideTitle">화면설계 Description</h2>
+        <button type="button" class="modal-close" aria-label="닫기">×</button>
+      </div>
+      <div class="modal-body description-modal-body">
+        <section class="description-source-section" aria-labelledby="clientDescriptionGuideSection1">
+          <h3 id="clientDescriptionGuideSection1">검색/조회</h3>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item">
+              <span class="description-mapping-number" aria-hidden="true">1</span>
+              <pre class="description-source-text">거래처 코드, 거래처명, 사업자등록번호, 대표자명ERP의 거래처 정보 연동</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="clientDescriptionGuideSection2">
+          <h3 id="clientDescriptionGuideSection2">상세정보</h3>
+          <pre class="description-source-text">신용등급 : AAA, AA+, AA, AA-, A+, A, A-, BBB+, BBB, BBB-, BB+, BB, BB-, B+, B, B-, CCC, CC</pre>
+        </section>
+      </div>
     </div>
   </div>
 

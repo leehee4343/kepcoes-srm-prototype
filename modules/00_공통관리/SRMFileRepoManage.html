@@ -30,7 +30,6 @@
         <button type="button" class="perm-btn" data-role="contract" data-href="../03_대시보드/SRMDashboardContract.html" title="계약담당자 권한으로 전환" aria-pressed="false">계약담당자</button>
         <button type="button" class="perm-btn" data-role="biz" data-href="../03_대시보드/SRMDashboardBiz.html" title="사업담당자 권한으로 전환" aria-pressed="false">사업담당자</button>
         <button type="button" class="perm-btn active" data-role="admin" data-href="../03_대시보드/SRMDashboardAdmin.html" title="관리자 권한으로 전환" aria-pressed="true" aria-current="true">관리자</button>
-        <button type="button" class="perm-btn" data-role="partner" data-href="../02_협력업체창구_로그인후/SRMDashboardPartner.html" title="협력업체 권한으로 전환" aria-pressed="false">협력업체</button>
       </div>
       <div class="user-profile">
         <span class="user-name">이희성 부장</span>
@@ -287,11 +286,11 @@
           </div>
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-80">키워드 검색</span>
-            <select class="filter-select w-130">
+            <span class="description-marker-anchor"><span class="description-target-marker" aria-hidden="true">1</span><select class="filter-select w-130">
               <option value="all" selected>전체</option>
               <option value="title">제목</option>
               <option value="titlebody">제목+내용</option>
-            </select>
+            </select></span>
             <input type="text" class="filter-text-input w-380" placeholder="검색어를 입력하세요.">
           </div>
           <div class="filter-action-row">
@@ -317,7 +316,7 @@
         </div>
         <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="목록" data-total-items="55" data-total-pages="6">
           <table class="data-table data-grid-table" aria-label="목록">
-            <thead><tr><th class="w-55">No</th><th class="w-90">게시대상</th><th class="w-70">우선노출</th><th class="minw-250">제목</th><th class="w-140">게시기간</th><th class="w-80">작성자</th><th class="w-100">등록일</th><th class="w-70">게시여부</th><th class="w-70">조회수</th></tr></thead>
+            <thead><tr><th class="w-55">No</th><th class="w-90"><span class="description-marker-anchor">게시대상<span class="description-target-marker" aria-hidden="true">2</span></span></th><th class="w-70"><span class="description-marker-anchor">우선노출<span class="description-target-marker" aria-hidden="true">3</span></span></th><th class="minw-250">제목</th><th class="w-140"><span class="description-marker-anchor">게시기간<span class="description-target-marker" aria-hidden="true">4</span></span></th><th class="w-80">작성자</th><th class="w-100">등록일</th><th class="w-70">게시여부</th><th class="w-70">조회수</th></tr></thead>
             <tbody>
               <tr><td>55</td><td>전체</td><td>Y</td><td class="text-left"><a href="#" data-open-modal="filerepoDetailModal">'협력업체 선정 세부기준'이 개정되었습니다.</a></td><td>무관</td><td>이희성</td><td>2026.06.30</td><td><span class="badge-success">게시</span></td><td>10,235</td></tr>
               <tr><td>54</td><td>직원 대상</td><td>Y</td><td class="text-left"><a href="#" data-open-modal="filerepoDetailModal">2026년 하반기 정기 점검 일정 안내</a></td><td>2026.07.01~2026.07.31</td><td>이희성</td><td>2026.06.20</td><td><span class="badge-tag">미게시</span></td><td>842</td></tr>
@@ -383,6 +382,40 @@
         <button type="button" class="btn-secondary modal-close">목록</button>
         <button type="button" class="btn-primary modal-close">등록</button>
         <button type="button" class="btn-primary modal-close">수정</button>
+      </div>
+    </div>
+  </div>
+
+  <button type="button" class="description-floating-button" data-description-guide-toggle="fileRepoDescriptionGuide" aria-controls="fileRepoDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
+
+  <div class="modal-backdrop description-guide-backdrop" id="fileRepoDescriptionGuide" role="dialog" aria-modal="false" aria-labelledby="fileRepoDescriptionGuideTitle" aria-hidden="true">
+    <div class="modal-dialog description-modal-dialog">
+      <div class="modal-header">
+        <h2 class="modal-title" id="fileRepoDescriptionGuideTitle">화면설계 Description</h2>
+        <button type="button" class="modal-close" aria-label="닫기">×</button>
+      </div>
+      <div class="modal-body description-modal-body">
+        <section class="description-source-section" aria-labelledby="fileRepoDescriptionGuideSection1">
+          <h3 id="fileRepoDescriptionGuideSection1">검색/조회</h3>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item">
+              <span class="description-mapping-number" aria-hidden="true">1</span>
+              <pre class="description-source-text">검색 구분 : 전체, 제목, 제목+내용</pre>
+            </div>
+            <div class="description-mapping-item">
+              <span class="description-mapping-number" aria-hidden="true">2</span>
+              <pre class="description-source-text">게시대상(SRM에서만 사용)- 전체 게시 - 내부 직원 대상 게시- 외부 협력업체 대상 게시(협력업체에게도 해당 자료가 보임)</pre>
+            </div>
+            <div class="description-mapping-item">
+              <span class="description-mapping-number" aria-hidden="true">3</span>
+              <pre class="description-source-text">우선노출이 ‘Y’로 설정된 게시물이 가장 위에 올라옴</pre>
+            </div>
+            <div class="description-mapping-item">
+              <span class="description-mapping-number" aria-hidden="true">4</span>
+              <pre class="description-source-text">게시기간 : 무관(계속 게시됨)</pre>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   </div>

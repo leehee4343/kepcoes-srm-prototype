@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initProjectPromotionPage();
   initSrmDetailPage();
   initDataGrids();
+  initDescriptionGuide();
   initModals();
 });
 
@@ -1003,7 +1004,7 @@ function initProjectSearchPage() {
  */
 function initModals() {
   const getModals = () => Array.from(document.querySelectorAll('.modal-backdrop'));
-  const syncBody = () => document.body.classList.toggle('modal-open', getModals().some(m => m.classList.contains('show')));
+  const syncBody = () => document.body.classList.toggle('modal-open', getModals().some(m => m.classList.contains('show') && !m.classList.contains('description-guide-backdrop')));
 
   getModals().forEach(modal => {
     new MutationObserver(() => {
@@ -1022,6 +1023,46 @@ function initModals() {
     const top = opened.sort((a, b) => (Number(getComputedStyle(a).zIndex) || 0) - (Number(getComputedStyle(b).zIndex) || 0)).pop();
     if (top) top.classList.remove('show');
   });
+}
+
+/**
+ * 화면설계 Description 개발자 가이드 (DESIGN_GUIDE 5.15)
+ * - 비차단형 우측 드로어 열기/상태 동기화
+ * - 드로어가 열린 동안에만 화면설계 목적지 번호 표시
+ */
+function initDescriptionGuide() {
+  const guides = Array.from(document.querySelectorAll('.description-guide-backdrop'));
+  const triggers = Array.from(document.querySelectorAll('[data-description-guide-toggle]'));
+  if (!guides.length || !triggers.length) return;
+
+  const sync = () => {
+    const hasOpenGuide = guides.some(guide => guide.classList.contains('show'));
+    document.body.classList.toggle('description-guide-open', hasOpenGuide);
+    guides.forEach(guide => guide.setAttribute('aria-hidden', String(!guide.classList.contains('show'))));
+    triggers.forEach(trigger => {
+      const target = document.getElementById(trigger.dataset.descriptionGuideToggle);
+      trigger.setAttribute('aria-expanded', String(Boolean(target?.classList.contains('show'))));
+    });
+  };
+
+  triggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const target = document.getElementById(trigger.dataset.descriptionGuideToggle);
+      if (!target) return;
+      guides.forEach(guide => {
+        if (guide !== target) guide.classList.remove('show');
+      });
+      target.classList.add('show');
+      target.querySelector('.modal-close')?.focus();
+      sync();
+    });
+  });
+
+  guides.forEach(guide => {
+    new MutationObserver(sync).observe(guide, { attributes: true, attributeFilter: ['class'] });
+  });
+
+  sync();
 }
 
 /**

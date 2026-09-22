@@ -30,7 +30,6 @@
         <button type="button" class="perm-btn" data-role="contract" data-href="../03_대시보드/SRMDashboardContract.html" title="계약담당자 권한으로 전환" aria-pressed="false">계약담당자</button>
         <button type="button" class="perm-btn" data-role="biz" data-href="../03_대시보드/SRMDashboardBiz.html" title="사업담당자 권한으로 전환" aria-pressed="false">사업담당자</button>
         <button type="button" class="perm-btn active" data-role="admin" data-href="../03_대시보드/SRMDashboardAdmin.html" title="관리자 권한으로 전환" aria-pressed="true" aria-current="true">관리자</button>
-        <button type="button" class="perm-btn" data-role="partner" data-href="../02_협력업체창구_로그인후/SRMDashboardPartner.html" title="협력업체 권한으로 전환" aria-pressed="false">협력업체</button>
       </div>
       <div class="user-profile">
         <span class="user-name">이희성 부장</span>
@@ -267,20 +266,20 @@
       </div>
 
 
-      <div class="three-col-panels">
+      <div class="three-col-panels description-marker-container"><span class="description-target-marker marker-top-left" aria-hidden="true">4</span>
         <section class="app-card srm-detail-section">
           <div class="srm-section-heading"><div><h2>대분류 코드</h2></div></div>
           <div class="srm-table-wrap">
             <table class="data-table" aria-label="대분류 코드">
               <thead><tr><th class="col-no">코드</th><th>대분류 코드명</th><th class="w-80">사용 여부</th><th class="w-60">삭제</th></tr></thead>
               <tbody>
-                <tr class="is-selected"><td>001</td><td class="col-left">계약방식</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+              <tr class="is-selected"><td>001</td><td class="col-left">계약방식</td><td><span class="badge-success">사용(Y)</span></td><td><span class="description-marker-anchor"><span class="description-target-marker" aria-hidden="true">2</span><button type="button" class="btn-row-del">삭제</button></span></td></tr>
                 <tr><td>002</td><td class="col-left">낙찰자 선정방법</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
                 <tr><td>003</td><td class="col-left">처리상태</td><td><span class="badge-tag">중지(N)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
               </tbody>
             </table>
           </div>
-          <div class="srm-detail-actions"><button type="button" class="btn-action-new" data-open-modal="codeManageModal">등록</button></div>
+          <div class="srm-detail-actions"><span class="description-marker-anchor"><span class="description-target-marker" aria-hidden="true">3</span><button type="button" class="btn-action-new" data-open-modal="codeManageModal">등록</button></span></div>
         </section>
 
         <section class="app-card srm-detail-section">
@@ -342,6 +341,40 @@
       <div class="modal-footer">
         <button type="button" class="btn-secondary modal-close">취소</button>
         <button type="button" class="btn-primary modal-close">등록</button>
+      </div>
+    </div>
+  </div>
+
+  <button type="button" class="description-floating-button" data-description-guide-toggle="codeDescriptionGuide" aria-controls="codeDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
+
+  <div class="modal-backdrop description-guide-backdrop" id="codeDescriptionGuide" role="dialog" aria-modal="false" aria-labelledby="codeDescriptionGuideTitle" aria-hidden="true">
+    <div class="modal-dialog description-modal-dialog">
+      <div class="modal-header">
+        <h2 class="modal-title" id="codeDescriptionGuideTitle">화면설계 Description</h2>
+        <button type="button" class="modal-close" aria-label="닫기">×</button>
+      </div>
+      <div class="modal-body description-modal-body">
+        <section class="description-source-section" aria-labelledby="codeDescriptionGuideSection1">
+          <h3 id="codeDescriptionGuideSection1">검색/조회</h3>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item">
+              <span class="description-mapping-number" aria-hidden="true">1</span>
+              <pre class="description-source-text">검색 구분 : 코드, 대분류 코드명, 설명</pre>
+            </div>
+            <div class="description-mapping-item">
+              <span class="description-mapping-number" aria-hidden="true">2</span>
+              <pre class="description-source-text">개발 당시에만 사용 : 컨펌 박스 노출코드 삭제 시 시스템에 영향(값 삭제, 정보 유실 등)이 있을 수 있습니다. 시스템 관리자의 점검 후 삭제하세요. 본 코드를 삭제하시겠습니까?</pre>
+            </div>
+            <div class="description-mapping-item">
+              <span class="description-mapping-number" aria-hidden="true">3</span>
+              <pre class="description-source-text">다음 페이지의 ‘코드 관리’ 팝업 호출</pre>
+            </div>
+            <div class="description-mapping-item">
+              <span class="description-mapping-number" aria-hidden="true">4</span>
+              <pre class="description-source-text">만약, 본 시스템에서 코드가 4Depth로 구성되어야 하는 항목이 있다면 [세분류 코드(4Depth)]를 추가해서 개발할 것</pre>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   </div>

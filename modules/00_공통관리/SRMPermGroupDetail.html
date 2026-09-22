@@ -30,7 +30,6 @@
         <button type="button" class="perm-btn" data-role="contract" data-href="../03_대시보드/SRMDashboardContract.html" title="계약담당자 권한으로 전환" aria-pressed="false">계약담당자</button>
         <button type="button" class="perm-btn" data-role="biz" data-href="../03_대시보드/SRMDashboardBiz.html" title="사업담당자 권한으로 전환" aria-pressed="false">사업담당자</button>
         <button type="button" class="perm-btn active" data-role="admin" data-href="../03_대시보드/SRMDashboardAdmin.html" title="관리자 권한으로 전환" aria-pressed="true" aria-current="true">관리자</button>
-        <button type="button" class="perm-btn" data-role="partner" data-href="../02_협력업체창구_로그인후/SRMDashboardPartner.html" title="협력업체 권한으로 전환" aria-pressed="false">협력업체</button>
       </div>
       <div class="user-profile">
         <span class="user-name">이희성 부장</span>
@@ -314,7 +313,7 @@
           <table class="data-table" aria-label="관리자(직원) 매핑 목록">
             <thead><tr><th class="col-no">No</th><th>사원번호</th><th>아이디</th><th>사원명</th><th>부서</th><th>직급</th><th>매핑일</th><th>등록자</th><th class="w-70">삭제</th></tr></thead>
             <tbody>
-              <tr><td>15</td><td>2110004</td><td>simon</td><td>장시형</td><td>기획지원팀</td><td>과장</td><td>2026.06.09</td><td>이희성</td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+              <tr><td>15</td><td>2110004</td><td>simon</td><td>장시형</td><td>기획지원팀</td><td>과장</td><td>2026.06.09</td><td>이희성</td><td><span class="description-marker-anchor"><span class="description-target-marker" aria-hidden="true">1</span><button type="button" class="btn-row-del">삭제</button></span></td></tr>
               <tr><td>14</td><td>2109031</td><td>hansol</td><td>김한솔</td><td>계약관리팀</td><td>대리</td><td>2026.06.05</td><td>이희성</td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
             </tbody>
           </table>
@@ -340,7 +339,7 @@
       <div class="modal-body">
         <p class="modal-field-label">사용 여부가 '사용(Y)'인 관리자만 호출할 수 있습니다.</p>
         <div class="form-lookup">
-          <select class="filter-select w-130">
+          <span class="description-marker-anchor"><span class="description-target-marker" aria-hidden="true">1</span><select class="filter-select w-130">
             <option value="all" selected>전체</option>
             <option value="empno">사원번호</option>
             <option value="id">아이디</option>
@@ -348,7 +347,7 @@
             <option value="dept">부서</option>
             <option value="rank">직급</option>
             <option value="email">이메일</option>
-          </select>
+          </select></span>
           <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
           <button type="button" class="btn-filter-search">검색</button>
         </div>
@@ -368,6 +367,37 @@
       <div class="modal-footer">
         <button type="button" class="btn-secondary modal-close">닫기</button>
         <button type="button" class="btn-primary modal-close">관리자(직원) 추가하기</button>
+      </div>
+    </div>
+  </div>
+
+  <button type="button" class="description-floating-button" data-description-guide-toggle="permGroupDetailDescriptionGuide" aria-controls="permGroupDetailDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
+
+  <div class="modal-backdrop description-guide-backdrop" id="permGroupDetailDescriptionGuide" role="dialog" aria-modal="false" aria-labelledby="permGroupDetailDescriptionGuideTitle" aria-hidden="true">
+    <div class="modal-dialog description-modal-dialog">
+      <div class="modal-header">
+        <h2 class="modal-title" id="permGroupDetailDescriptionGuideTitle">화면설계 Description</h2>
+        <button type="button" class="modal-close" aria-label="닫기">×</button>
+      </div>
+      <div class="modal-body description-modal-body">
+        <section class="description-source-section" aria-labelledby="permGroupDetailDescriptionGuideSection1">
+          <h3 id="permGroupDetailDescriptionGuideSection1">권한그룹 추가하기</h3>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item">
+              <span class="description-mapping-number" aria-hidden="true">1</span>
+              <pre class="description-source-text">삭제 시 컨펌(Confirm) 박스“본 매핑 목록에서 삭제하면, 해당 권한을 잃게 됩니다. 본 권한그룹에서 해당 관리자(직원)를 삭제하시겠습니까?”</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="permGroupDetailDescriptionGuideSection2">
+          <h3 id="permGroupDetailDescriptionGuideSection2">관리자(직원) 추가하기</h3>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item">
+              <span class="description-mapping-number" aria-hidden="true">1</span>
+              <pre class="description-source-text">검색 구분 : 전체, 사원번호, 아이디, 사원명, 부서, 직급, 이메일단, ‘사용 여부’가 ‘사용(Y)’인 관리자만 호출 가능</pre>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   </div>

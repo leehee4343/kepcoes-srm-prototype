@@ -30,7 +30,6 @@
         <button type="button" class="perm-btn" data-role="contract" data-href="../03_대시보드/SRMDashboardContract.html" title="계약담당자 권한으로 전환" aria-pressed="false">계약담당자</button>
         <button type="button" class="perm-btn" data-role="biz" data-href="../03_대시보드/SRMDashboardBiz.html" title="사업담당자 권한으로 전환" aria-pressed="false">사업담당자</button>
         <button type="button" class="perm-btn active" data-role="admin" data-href="../03_대시보드/SRMDashboardAdmin.html" title="관리자 권한으로 전환" aria-pressed="true" aria-current="true">관리자</button>
-        <button type="button" class="perm-btn" data-role="partner" data-href="../02_협력업체창구_로그인후/SRMDashboardPartner.html" title="협력업체 권한으로 전환" aria-pressed="false">협력업체</button>
       </div>
       <div class="user-profile">
         <span class="user-name">이희성 부장</span>
@@ -267,7 +266,7 @@
       </div>
 
 
-      <section class="filter-card">
+      <section class="filter-card description-marker-container"><span class="description-target-marker marker-top-left" aria-hidden="true">1</span>
         <div class="filter-row hstack gap-12">
           <span class="filter-label w-80">기준</span>
           <div class="form-choice-group" role="radiogroup">
@@ -329,6 +328,28 @@
 
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
+
+  <button type="button" class="description-floating-button" data-description-guide-toggle="loginStatsDescriptionGuide" aria-controls="loginStatsDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
+
+  <div class="modal-backdrop description-guide-backdrop" id="loginStatsDescriptionGuide" role="dialog" aria-modal="false" aria-labelledby="loginStatsDescriptionGuideTitle" aria-hidden="true">
+    <div class="modal-dialog description-modal-dialog">
+      <div class="modal-header">
+        <h2 class="modal-title" id="loginStatsDescriptionGuideTitle">화면설계 Description</h2>
+        <button type="button" class="modal-close" aria-label="닫기">×</button>
+      </div>
+      <div class="modal-body description-modal-body">
+        <section class="description-source-section" aria-labelledby="loginStatsDescriptionGuideSection1">
+          <h3 id="loginStatsDescriptionGuideSection1">로그인 현황</h3>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item">
+              <span class="description-mapping-number" aria-hidden="true">1</span>
+              <pre class="description-source-text">페이지 로딩 시 최초 검색 세팅 - 기준 : 월별- 기간(월별) : 당해 연도(예 : 2026.01~현재 연월)기준 선택에 따라 적합한 컨트롤 노출</pre>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
 
   <script src="../../assets/scripts/dashboard.js"></script>
 </body>

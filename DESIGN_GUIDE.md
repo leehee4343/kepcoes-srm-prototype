@@ -1,7 +1,7 @@
 # 📘 KEPCO ES 통합 디자인 / UI / UX 가이드라인 (Design System)
 
 > **프로젝트**: 켑코이에스(주) 사업관리시스템 (PMS) & 전자입찰시스템 (SRM)  
-> **버전**: v2.32
+> **버전**: v2.33
 > **최종 수정일**: 2026-09-22
 > **목적**: PMS 및 SRM 전체 화면의 시각적 완성도, 일관성, 접근성 및 사용자 경험(UX) 표준을 정의하고 협업 기준을 제공하는 단일 진실 공급원(Single Source of Truth).
 
@@ -729,6 +729,38 @@ font-family: 'Pretendard';
 
 **막대·선 차트**: 정적 SVG(`role="img"` + `aria-label`)로 그리며 축·격자선 `#e2e8f0`, 라벨 13px `#58687b`, 데이터 색은 2.5 팔레트입니다(2.5).
 
+### 5.15 화면설계 Description 개발자 가이드 (Developer-only Overlay)
+화면설계 PPTX의 Description과 번호 목적지를 구현 화면에서 대조하기 위한 **개발·검수 전용 기능**입니다. 실제 업무 기능이나 사용자 도움말이 아니며, 운영 UI의 정보 구조·권한·업무 흐름에 포함하지 않습니다.
+
+#### 표시와 동작
+- 화면 오른쪽 아래에 `D` 플로팅 버튼(`.description-floating-button`)을 둡니다. 버튼은 지름 `52px`(`767px` 이하 `48px`), 짙은 회색 `rgba(31, 41, 55, 0.30)`, 흰색 `D`, `z-index: 900`이며 업무 버튼보다 시각적 우선순위가 낮아야 합니다.
+- `D`를 누르면 중앙 모달이 아니라 화면 오른쪽에서 왼쪽으로 들어오는 개발자 드로어를 엽니다. 드로어는 너비 `340px`(최대 `100vw`), 높이 `100vh`, 배경 `#111827`, 본문 박스 `#1f2937`, 왼쪽 모서리만 `14px`입니다.
+- 본문은 항상 위에서부터 배치합니다(`align-content: start`, `grid-auto-rows: max-content`). 내용이 적으면 남는 공간은 아래 여백으로 두며 섹션 높이를 강제로 늘리지 않습니다.
+- 드로어는 상단 `×`와 `Esc`로 닫습니다. 하단 푸터와 `닫기` 버튼은 두지 않습니다. 드로어 바깥의 원래 화면은 목적지 확인과 상세 모달 진입을 위해 조작할 수 있어야 합니다.
+- 개발자 가이드는 인쇄·PDF·콘텐츠 출력 결과와 운영 배포물에서 제외할 수 있어야 하며, 출력 모드에서는 `D`, 드로어, 목적지 번호를 표시하지 않습니다.
+
+#### Description 원문 규칙
+- 기준 자료는 `docs/reference/[참고] 화면설계(...).pptx`의 해당 화면 슬라이드에 있는 **Description 텍스트 상자**입니다. 화면에 맞게 문장을 다듬거나 맞춤법·띄어쓰기·구두점·용어를 고치지 않습니다.
+- Description의 각 항목은 화면설계 번호와 같은 숫자를 **일반 텍스트**(`.description-mapping-number`)로 내용 왼쪽에 나란히 표시합니다. Description 쪽 숫자에는 원·배경색·테두리를 사용하지 않아 목적지 표식과 혼동되지 않게 합니다.
+- 하나의 HTML이 목록·상세·등록 등 여러 설계 슬라이드를 통합하면 드로어에서 슬라이드의 화면명(예: `검색/조회`, `상세정보`)으로 섹션을 나눕니다. 각 섹션의 번호는 원본 슬라이드처럼 `1`부터 다시 시작할 수 있습니다.
+- 원문이 없는 슬라이드에는 내용을 만들지 않습니다. `Description 없음` 같은 대체 문장도 임의로 추가하지 않고, 적용 현황표에 `원문 없음`으로 기록합니다.
+
+#### 목적지 번호 규칙
+- 화면설계의 반투명 붉은 원형 번호는 실제 목적지 요소에 `.description-marker-anchor`와 `.description-target-marker`로 연결합니다. 목적지 번호만 지름 `26px`, 흰 글자, `rgba(220, 38, 38, 0.58)` 배경, 원형으로 표시합니다.
+- 목적지 번호는 Description 드로어가 열린 동안에만 보이고 닫으면 모두 사라져야 합니다. 평상시 업무 화면의 레이아웃과 접근성 트리에 영향을 주지 않도록 `aria-hidden="true"`, `pointer-events: none`을 사용합니다.
+- 번호를 화면 좌표에 고정하지 않고 실제 입력·버튼·표·탭·섹션 요소에 상대 배치합니다. 해상도나 콘텐츠 높이가 바뀌어도 목적지를 따라가야 합니다.
+- 숨겨진 탭·아코디언·상세 모달 안의 목적지는 해당 상태가 열렸을 때 표시합니다. 목적지 확인을 위해 업무 상태를 자동 변경하거나 모달을 강제로 열지 않습니다.
+- Description 번호와 목적지 번호는 **슬라이드·화면 상태 단위**로 일치해야 합니다. 같은 HTML 안에서 번호가 다시 시작되면 섹션 또는 상태 식별자를 함께 관리하여 서로 잘못 연결되지 않게 합니다.
+
+#### 필수 검증
+1. PPTX Description의 각 문단과 HTML의 `.description-source-text`를 Unicode 문자열로 비교하여 길이와 내용이 모두 동일한지 확인합니다.
+2. 슬라이드별 Description 번호 집합과 목적지 번호 집합이 일치하는지 확인합니다. 원문만 있거나 목적지만 있는 번호를 허용하지 않습니다.
+3. `D` 닫힘/열림, 드로어 상단 정렬, 우측 슬라이드 진입, `×`·`Esc` 닫기, 숨겨진 모달·탭 목적지 표시를 확인합니다.
+4. 1920·1440·1280px에서 번호가 목적지와 겹쳐 조작을 가리거나 드로어 밖으로 잘리지 않는지 확인합니다.
+5. 개발자 UI가 해당 화면에만 한 번 존재하고, 중복 `id`, 인라인 스타일·이벤트, 끊어진 모달 대상이 없는지 검사합니다.
+
+전체 화면 적용 순서와 화면별 산출물은 `docs/DESCRIPTION_OVERLAY_ROLLOUT_PLAN.md`를 따릅니다.
+
 ---
 
 ## 6. 화면 패턴 (Screen Patterns)
@@ -903,6 +935,7 @@ font-family: 'Pretendard';
 - [ ] **단계 표시**: 순차 단계를 보여주는 화면이 표준 위저드 스텝바(번호 원·연결선, 현재=오렌지, 완료=블루 체크)를 쓰고 화면 전용 단계 표시를 새로 만들지 않았는가?
 - [ ] **탭·스텝퍼**: 탭은 `role="tablist"/"tab"`과 `aria-selected`를 제공하고 선택 상태가 오렌지(탭·위저드 스텝)로 표시되는가?
 - [ ] **모달**: 표준 3단 구조(`.modal-header/.modal-body/.modal-footer`)와 크기 클래스를 쓰고, 어떤 화면 높이에서도 뷰포트 안에 들어오며(긴 내용은 본문만 스크롤) 닫기(×)·푸터 버튼이 항상 보이는가? 닫기(×/취소)·오버레이 클릭·`Esc`가 모두 동작하고 `role`·`aria-modal`·`aria-labelledby`가 있으며 제목에 `|`·번호 같은 장식이 없는가?
+- [ ] **Description 개발자 가이드**: PPTX 원문이 문자 단위로 일치하고, Description의 일반 숫자와 실제 화면의 붉은 원형 목적지 번호가 슬라이드별로 대응하며, 우측 340px 다크 드로어·상단 정렬·`×`/`Esc` 닫기·출력 제외가 지켜지는가? (5.15)
 - [ ] **안내 박스**: 화면의 안내 영역이 표준 `.notice-box`(아이콘 원 + 핵심 문장 + 부가 안내, 의미색 옅은 배경, 굵기 400)를 쓰고 인라인 스타일이나 화면 전용 안내 스타일이 없는가?
 - [ ] **알림·빈 상태**: 결과 알림은 토스트, 확인은 모달이며 조회 결과 0건 문구가 표시되는가?
 - [ ] **차트 완결성**: 범례가 있는 오브젝트에 그래프가 함께 렌더링되고 접근성 이름과 폴백이 있는가?
@@ -968,6 +1001,7 @@ font-family: 'Pretendard';
 ### 11.2 변경 이력
 | 버전 | 날짜 | 요지 |
 |---|---|---|
+| v2.33 | 2026-09-22 | 화면설계 Description 개발자 가이드(5.15) 신설: 우측 하단 반투명 진회색 `D`, 우측 340px 다크 드로어, PPTX 원문 무수정, Description 일반 숫자와 화면의 반투명 붉은 원형 목적지 번호 매핑, 숨겨진 모달·탭 목적지 및 문자 단위 검증 규칙 확정. 전 화면 적용 계획서를 `docs/DESCRIPTION_OVERLAY_ROLLOUT_PLAN.md`로 분리. |
 | v2.32 | 2026-09-22 | SRM 전 화면 정합성 감사: 인라인 스타일·이벤트 제거, 표·모달·안내 박스·필수 표시·장식 SVG 접근성 표준화, 단일 본문 스크롤과 카드·테이블 공통 규격 보정, `alert()`를 표준 토스트로 교체하여 구현 차이 13번 해소. |
 | v2.31 | 2026-09-21 | 입찰계획 현황(`StepWorkflow.html`) 구성 변경: 상단 입찰계획 7단계를 위저드 스텝바에서 표준 업무 탐색 탭으로, `예정가 / 예비가 세부 업무 진행` 6단계를 카드 그리드에서 순서도(액션형 스텝바 `.wizard-stepper.has-actions`)로 교체(5.7). 옛 `.sub-stepper-grid`·`.sub-step-*` 삭제. |
 | v2.30 | 2026-09-21 | **새 화면 `ProjectPromotion.html`(프로젝트 정보 입력, 정보 입력 화면 예시) 추가**: 업무 탭 + 5단계 스텝바 + 입력 카드 + 조회 모달 구성. 입력 화면 폼 규격(`.form-section` · `.form-choice-group` · `.form-lookup` · `.form-hint` · `.form-actions-bar`)과 조회(선택) 모달을 5.5·5.8에 신설, 6.3에 PMS 정보 입력 화면 패턴, 새 화면 만들기 유형표·12.1·12.2 갱신. 조회 모달의 선택 버튼 행 높이 45px 유지 규칙. 프로젝트 폴더 정리: 기획서를 `docs/planning/`으로 이동. 전 화면 정합성 점검: 개별 규칙이 없던 컨트롤(날짜·셀렉트·라디오·체크박스·링크·버튼)에 키보드 포커스 아웃라인 공통 적용(2.4·5.5), 검색 버튼 굵기 400, 표 안 배지·입력·삭제 버튼이 있어도 본문 행 44px 유지, 계산표 합계 행 13px. 전 화면 썸네일 재생성. |
@@ -1063,6 +1097,8 @@ font-family: 'Pretendard';
 | 탭·단계 | 업무 탐색 탭 | `.detail-tabs-bar` > `.detail-tab-group` > `.detail-tab-btn` | 5.7, `initTabGroup()` |
 | | 위저드 스텝바 | `.wizard-stepper` > `.wizard-step-box`(`.wizard-step-dot`) · 액션형 `.wizard-stepper.has-actions` > `.wizard-step-actions` | 5.7 |
 | 오버레이 | 모달 | `.modal-backdrop`(`.show`, `.modal-top`) > `.modal-dialog`(`.modal-sm/lg/xl`) > `.modal-header`(`.modal-title`, `.modal-close`) · `.modal-body` · `.modal-footer` | 5.8, `initModals()` |
+| 개발자 가이드 | Description 버튼 · 우측 드로어 · 원문 매핑 | `.description-floating-button` · `.description-modal-dialog` · `.description-modal-body` · `.description-source-section` · `.description-mapping-list/item/number` · `.description-source-text` | 5.15 |
+| | 화면설계 목적지 번호 | `.description-marker-anchor` > `.description-target-marker` | 5.15 |
 | 안내 | 안내 박스 | `.notice-box`(`.info/.warning/.danger/.success`) > `.notice-icon` · `.notice-body`(`.notice-lead`, `.notice-note`) | 5.9.1 |
 | 콘텐츠 | 블릿 목록 · 첨부파일 | `.bullet-list` · `.content-bullet-item` · `.srm-file-list` > `.srm-file-item` | 5.11, 5.12 |
 | 안내 | 토스트 알림 | `.toast-stack` > `.toast`(`.info/.success/.warning/.danger`) | 5.9, `showToast()` |
@@ -1088,6 +1124,7 @@ font-family: 'Pretendard';
 | `initDataGrids` | 조회 그리드(정렬·컬럼 이동·리사이즈·페이징) | `.data-grid` |
 | `initTabGroup` | 탭 선택·`aria-selected`·방향키 이동 | `.detail-tab-group` |
 | `initModals` | 모달 열기·닫기 3종(× · 오버레이 · `Esc`) | `.modal-backdrop` |
+| `initDescriptionGuide` | 개발자용 Description 우측 드로어 열기·상태·목적지 번호 동기화 | 5.15 |
 | `renderDonutCharts` · `animateBarCharts` · `animateProgressBars` | 차트·진행 막대 렌더링 | 대시보드·통계 |
 | `init…Page` | 화면 전용 인터랙션: `ProjectRegister`, `SRMLogin`, `ProjectSearch`, `ProjectDetail`, `BusinessSettlement`, `Statistics`, `StepWorkflow`, `PlanPerformance`, `PartnerRegister`, `SrmDetail`, `ProjectPromotion` | 각 화면 |
 | `initDashboardWidgets` | 대시보드 위젯 전환(범위·기간 칩, 캘린더 날짜 선택, 파이프라인 단계 선택, 진행상황 팝업 열기)과 권한 버튼 이동(`data-href`) | 6.7 |
