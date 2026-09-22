@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>전자입찰시스템 SRM - 권한그룹 추가하기 | KEPCO ES</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header class="top-header">
+    <div class="header-left">
+      <button type="button" class="btn-menu-toggle" id="btnmenutoggle" title="사이드바 메뉴 접기/펼치기">
+        <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="../03_대시보드/SRMDashboardAdmin.html" class="brand-logo-wrap" title="전자입찰시스템 SRM 메인">
+        <img src="../assets/logo.png" alt="켑코이에스(주) 로고" class="brand-logo-img">
+      </a>
+      <div class="header-system-badge-group">
+        <span class="system-title">전자입찰시스템(SRM)</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="permission-group">
+        <span class="perm-label">권한 :</span>
+        <button type="button" class="perm-btn" data-role="contract" data-href="../03_대시보드/SRMDashboardContract.html" title="계약담당자 권한으로 전환" aria-pressed="false">계약담당자</button>
+        <button type="button" class="perm-btn" data-role="biz" data-href="../03_대시보드/SRMDashboardBiz.html" title="사업담당자 권한으로 전환" aria-pressed="false">사업담당자</button>
+        <button type="button" class="perm-btn active" data-role="admin" data-href="../03_대시보드/SRMDashboardAdmin.html" title="관리자 권한으로 전환" aria-pressed="true" aria-current="true">관리자</button>
+        <button type="button" class="perm-btn" data-role="partner" data-href="../02_협력업체창구_로그인후/SRMDashboardPartner.html" title="협력업체 권한으로 전환" aria-pressed="false">협력업체</button>
+      </div>
+      <div class="user-profile">
+        <span class="user-name">이희성 부장</span>
+        <span class="user-role">[관리자]</span>
+        <span class="user-divider">|</span>
+        <a href="../01_협력업체창구_로그인전/SRMLogin.html" class="btn-logout" title="로그아웃">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="app-container">
+    <aside class="sidebar" id="sidebar">
+      <nav class="sidebar-nav">
+        <div class="nav-item">
+                    <a href="../03_대시보드/SRMDashboardAdmin.html" class="nav-link">
+                      <span class="nav-icon">
+                        <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <rect x="3" y="3" width="7" height="9"></rect>
+                          <rect x="14" y="3" width="7" height="5"></rect>
+                          <rect x="14" y="12" width="7" height="9"></rect>
+                          <rect x="3" y="16" width="7" height="5"></rect>
+                        </svg>
+                      </span>
+                      <span class="nav-text">대시보드</span>
+                    </a>
+                  </div>
+
+        <div class="nav-item">
+                    <a href="#" class="nav-link">
+                      <span class="nav-icon">
+                        <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="m14 2h6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v8z"></path>
+                          <polyline points="14 2 14 8 20 8"></polyline>
+                          <line x1="16" y1="13" x2="8" y2="13"></line>
+                          <line x1="16" y1="17" x2="8" y2="17"></line>
+                        </svg>
+                      </span>
+                      <span class="nav-text">사전 견적 관리</span>
+                      <span class="nav-arrow">
+                        <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                      </span>
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu-item"><a href="#">사전 견적 요청</a></li>
+                      <li class="submenu-item"><a href="#">사전 견적 요청 현황</a></li>
+                    </ul>
+                  </div>
+
+        <div class="nav-item">
+                    <a href="#" class="nav-link">
+                      <span class="nav-icon">
+                        <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                          <polyline points="2 17 12 22 22 17"></polyline>
+                          <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                      </span>
+                      <span class="nav-text">발주계약 요청</span>
+                      <span class="nav-arrow">
+                        <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                      </span>
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu-item"><a href="#">발주계약 요청</a></li>
+                      <li class="submenu-item"><a href="#">발주계약 요청현황</a></li>
+                    </ul>
+                  </div>
+
+        <div class="nav-item">
+                    <a href="#" class="nav-link">
+                      <span class="nav-icon">
+                        <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                          <line x1="16" y1="2" x2="16" y2="6"></line>
+                          <line x1="8" y1="2" x2="8" y2="6"></line>
+                          <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                      </span>
+                      <span class="nav-text">발주계획</span>
+                      <span class="nav-arrow">
+                        <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                      </span>
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu-item"><a href="#">발주계약 요청 접수</a></li>
+                      <li class="submenu-item"><a href="#">발주계획 등록</a></li>
+                    </ul>
+                  </div>
+
+        <div class="nav-item">
+                    <a href="#" class="nav-link">
+                      <span class="nav-icon">
+                        <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <circle cx="12" cy="12" r="10"></circle>
+                          <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                      </span>
+                      <span class="nav-text">수의계약 관리</span>
+                      <span class="nav-arrow">
+                        <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                      </span>
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu-item"><a href="#">수의계약 계획 현황</a></li>
+                      <li class="submenu-item"><a href="#">수의계약 현황</a></li>
+                    </ul>
+                  </div>
+
+        <div class="nav-item">
+                    <a href="#" class="nav-link">
+                      <span class="nav-icon">
+                        <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="m12 2l3.09 6.26l22 9.27l-5 4.87 1.18 6.88l12 17.77l-6.18 3.25l7 14.14 2 9.27l6.91-1.01l12 2z"></path>
+                        </svg>
+                      </span>
+                      <span class="nav-text">입찰관리</span>
+                      <span class="nav-arrow">
+                        <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                      </span>
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu-item"><a href="../07-2_입찰관리/StepWorkflow.html">입찰계획 현황</a></li>
+                      <li class="submenu-item"><a href="../07-2_입찰관리/SRMDetail.html">입찰공고 현황</a></li>
+                    </ul>
+                  </div>
+
+        <div class="nav-item">
+                    <a href="#" class="nav-link">
+                      <span class="nav-icon">
+                        <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="m22 19a2 2 0 0 1-2 2h4a2 2 0 0 1-2-2v5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                      </span>
+                      <span class="nav-text">계약관리</span>
+                      <span class="nav-arrow">
+                        <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                      </span>
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu-item"><a href="#">발주계약 현황</a></li>
+                      <li class="submenu-item"><a href="#">계약 관련 서류</a></li>
+                    </ul>
+                  </div>
+
+        <div class="nav-item">
+                    <a href="#" class="nav-link">
+                      <span class="nav-icon">
+                        <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="m17 21v-2a4 4 0 0 0-4-4h5a4 4 0 0 0-4 4v2"></path>
+                          <circle cx="9" cy="7" r="4"></circle>
+                          <path d="m23 21v-2a4 4 0 0 0-3-3.87"></path>
+                          <path d="m16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                      </span>
+                      <span class="nav-text">협력업체 관리</span>
+                      <span class="nav-arrow">
+                        <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                      </span>
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu-item"><a href="#">신청/변경 요청 처리</a></li>
+                      <li class="submenu-item"><a href="#">협력업체 관리</a></li>
+                      <li class="submenu-item"><a href="#">질문과 답변</a></li>
+                    </ul>
+                  </div>
+
+        <div class="nav-item">
+                    <a href="#" class="nav-link">
+                      <span class="nav-icon">
+                        <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <circle cx="12" cy="12" r="3"></circle>
+                          <path d="m19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51v21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09a1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1h3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09a1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33h9a1.65 1.65 0 0 0 1-1.51v3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v9a1.65 1.65 0 0 0 1.51 1h21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                        </svg>
+                      </span>
+                      <span class="nav-text">기준정보 관리</span>
+                      <span class="nav-arrow">
+                        <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                      </span>
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu-item"><a href="#">공통 품목관리</a></li>
+                      <li class="submenu-item"><a href="#">소싱그룹 관리</a></li>
+                      <li class="submenu-item"><a href="#">공통 심사/평가 관리</a></li>
+                      <li class="submenu-item"><a href="#">공통 서류 관리</a></li>
+                      <li class="submenu-item"><a href="#">메일/메시지 발송</a></li>
+                    </ul>
+                  </div>
+
+        <div class="nav-item active open">
+                    <a href="#" class="nav-link">
+                      <span class="nav-icon">
+                        <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                          <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                          <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                          <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                        </svg>
+                      </span>
+                      <span class="nav-text">공통관리</span>
+                      <span class="nav-arrow">
+                        <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                      </span>
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu-item"><a href="SRMAdminManage.html">관리자 관리</a></li>
+                      <li class="submenu-item active"><a href="SRMPermGroupManage.html">권한그룹 및 메뉴별 권한 관리</a></li>
+                      <li class="submenu-item"><a href="SRMSystemPermManage.html">시스템 권한 관리</a></li>
+                      <li class="submenu-item"><a href="SRMIpManage.html">접속 아이피(IP) 관리</a></li>
+                      <li class="submenu-item"><a href="SRMCodeManage.html">코드관리</a></li>
+                      <li class="submenu-item"><a href="SRMLoginStats.html">로그인 현황</a></li>
+                      <li class="submenu-item"><a href="SRMMenuAccessStats.html">메뉴별 접속현황</a></li>
+                      <li class="submenu-item"><a href="SRMClientManage.html">거래처 관리</a></li>
+                      <li class="submenu-item"><a href="SRMNoticeManage.html">공지사항 관리</a></li>
+                      <li class="submenu-item"><a href="SRMFileRepoManage.html">양식 등 자료실 관리</a></li>
+                    </ul>
+                  </div>
+      </nav>
+      <div class="sidebar-bottom-actions">
+        <a href="Dashboard.html" class="btn-sidebar-switch srm-active-btn" title="사업관리시스템(PMS)으로 이동">
+          <span class="switch-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3L4 7l4 4"></path><path d="M4 7h16"></path><path d="M16 21l4-4-4-4"></path><path d="M20 17H4"></path></svg>
+          </span>
+          <span class="nav-text">사업관리시스템(PMS)</span>
+        </a>
+        <button type="button" class="btn-sidebar-manual" onclick="alert('온라인 매뉴얼(SRM 전자입찰시스템) 가이드를 호출합니다.');"><span class="nav-text">온라인 매뉴얼</span></button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-title-wrap">
+        <div class="page-title-left"><h1 class="page-title">권한그룹 및 메뉴별 권한 관리</h1></div>
+        <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardAdmin.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">공통관리</span><span class="breadcrumb-separator">&gt;</span><a href="SRMPermGroupManage.html" class="breadcrumb-item">권한그룹 및 메뉴별 권한 관리</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">권한그룹 추가하기</span></div>
+      </div>
+
+      <div class="two-col-panels">
+        <section class="app-card srm-detail-section">
+          <div class="srm-section-heading"><div><h2>권한그룹 정보</h2></div></div>
+          <div class="srm-kv-grid">
+            <div class="srm-kv-row"><dt>권한그룹명 <b>*</b></dt><dd><input type="text" class="form-control" value="권한그룹명 #1" placeholder="30자 이내로 작성해 주세요." maxlength="30"></dd></div>
+            <div class="srm-kv-row"><dt>권한그룹 설명 <b>*</b></dt><dd><input type="text" class="form-control" value="최고관리자(시스템 운영 담당자)를 대상으로 한 모든 권한" placeholder="100자 이내로 간략히 작성해 주세요." maxlength="100"></dd></div>
+            <div class="srm-kv-row"><dt>등록일시</dt><dd>2026.06.09 15:23</dd></div>
+            <div class="srm-kv-row"><dt>등록자</dt><dd>이희성</dd></div>
+            <div class="srm-kv-row"><dt>최종수정일시</dt><dd>2026.06.10 10:45(이희성)</dd></div>
+            <div class="srm-kv-row"><dt>매핑(수)</dt><dd>15명</dd></div>
+          </div>
+        </section>
+
+        <section class="app-card srm-detail-section">
+          <div class="srm-section-heading"><div><h2>메뉴별 권한 부여</h2></div></div>
+          <ul class="perm-menu-tree">
+            <li>
+              <label class="form-choice"><input type="checkbox" checked>대메뉴 #1(1Depth)</label>
+              <ul>
+                <li><label class="form-choice"><input type="checkbox" checked>중메뉴 #1(2Depth)</label></li>
+                <li>
+                  <label class="form-choice"><input type="checkbox" checked>중메뉴 #2(2Depth)</label>
+                  <ul>
+                    <li><label class="form-choice"><input type="checkbox" checked>소메뉴 #1(3Depth)</label></li>
+                    <li><label class="form-choice"><input type="checkbox" checked>소메뉴 #2(3Depth)</label></li>
+                    <li><label class="form-choice"><input type="checkbox" checked>소메뉴 #3(3Depth)</label></li>
+                    <li><label class="form-choice"><input type="checkbox" checked>소메뉴 #4(3Depth)</label></li>
+                  </ul>
+                </li>
+                <li><label class="form-choice"><input type="checkbox" checked>중메뉴 #3(2Depth)</label></li>
+              </ul>
+            </li>
+            <li>
+              <label class="form-choice"><input type="checkbox">대메뉴 #2(1Depth)</label>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <section class="app-card srm-detail-section">
+        <div class="srm-section-heading">
+          <div><h2>관리자(직원) 매핑</h2></div>
+          <button type="button" class="btn-action-new" data-open-modal="adminMappingAddModal">관리자(직원) 추가하기</button>
+        </div>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="관리자(직원) 매핑 목록">
+            <thead><tr><th class="col-no">No</th><th>사원번호</th><th>아이디</th><th>사원명</th><th>부서</th><th>직급</th><th>매핑일</th><th>등록자</th><th class="w-70">삭제</th></tr></thead>
+            <tbody>
+              <tr><td>15</td><td>2110004</td><td>simon</td><td>장시형</td><td>기획지원팀</td><td>과장</td><td>2026.06.09</td><td>이희성</td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+              <tr><td>14</td><td>2109031</td><td>hansol</td><td>김한솔</td><td>계약관리팀</td><td>대리</td><td>2026.06.05</td><td>이희성</td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="srm-detail-actions">
+        <a href="SRMPermGroupManage.html" class="btn-secondary srm-list-button">목록</a>
+        <button type="button" class="btn-critical-primary">등록</button>
+      </div>
+    </main>
+  </div>
+
+  <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
+
+  <!-- 관리자(직원) 추가하기 모달 -->
+  <div class="modal-backdrop" id="adminMappingAddModal" role="dialog" aria-modal="true" aria-labelledby="adminMappingAddModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <h2 class="modal-title" id="adminMappingAddModalTitle">관리자(직원) 추가하기</h2>
+        <button type="button" class="modal-close" aria-label="닫기">×</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-field-label">사용 여부가 '사용(Y)'인 관리자만 호출할 수 있습니다.</p>
+        <div class="form-lookup">
+          <select class="filter-select w-130">
+            <option value="all" selected>전체</option>
+            <option value="empno">사원번호</option>
+            <option value="id">아이디</option>
+            <option value="name">사원명</option>
+            <option value="dept">부서</option>
+            <option value="rank">직급</option>
+            <option value="email">이메일</option>
+          </select>
+          <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
+          <button type="button" class="btn-filter-search">검색</button>
+        </div>
+        <div class="table-scroll-wrapper">
+          <table class="data-table" aria-label="관리자(직원) 조회 목록">
+            <thead><tr><th class="w-40"><input type="checkbox" aria-label="전체 선택"></th><th>사원번호</th><th>아이디</th><th>사원명</th><th>부서</th><th>직급</th><th>이메일</th><th class="w-80">사용 여부</th></tr></thead>
+            <tbody>
+              <tr><td><input type="checkbox"></td><td>2110004</td><td>simon</td><td>장시형</td><td>기획지원팀</td><td>과장</td><td>simon@kepcoes.co.kr</td><td><span class="badge-success">사용(Y)</span></td></tr>
+              <tr><td><input type="checkbox"></td><td>2108017</td><td>yjpark</td><td>박연주</td><td>구매물류팀</td><td>차장</td><td>yjpark@kepcoes.co.kr</td><td><span class="badge-success">사용(Y)</span></td></tr>
+              <tr><td><input type="checkbox"></td><td>2107009</td><td>dhkim</td><td>김동현</td><td>사업개발팀</td><td>사원</td><td>dhkim@kepcoes.co.kr</td><td><span class="badge-success">사용(Y)</span></td></tr>
+              <tr><td><input type="checkbox"></td><td>2105022</td><td>sjlee</td><td>이수진</td><td>재무회계팀</td><td>과장</td><td>sjlee@kepcoes.co.kr</td><td><span class="badge-success">사용(Y)</span></td></tr>
+              <tr><td><input type="checkbox"></td><td>2104015</td><td>mjjung</td><td>정민준</td><td>기획지원팀</td><td>부장</td><td>mjjung@kepcoes.co.kr</td><td><span class="badge-success">사용(Y)</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary modal-close">닫기</button>
+        <button type="button" class="btn-primary modal-close">관리자(직원) 추가하기</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>

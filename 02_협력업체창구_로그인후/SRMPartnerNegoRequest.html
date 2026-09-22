@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>전자입찰시스템 SRM - 수의계약 요청 현황 | KEPCO ES</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header class="top-header">
+    <div class="header-left">
+      <button type="button" class="btn-menu-toggle" id="btnmenutoggle" title="사이드바 메뉴 접기/펼치기">
+        <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="SRMDashboardPartner.html" class="brand-logo-wrap" title="전자입찰시스템 SRM 메인">
+        <img src="../assets/logo.png" alt="켑코이에스(주) 로고" class="brand-logo-img">
+      </a>
+      <div class="header-system-badge-group">
+        <span class="system-title">전자입찰시스템(SRM)</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="permission-group">
+        <span class="perm-label">권한 :</span>
+        <button type="button" class="perm-btn" data-role="contract" data-href="../03_대시보드/SRMDashboardContract.html" title="계약담당자 권한으로 전환" aria-pressed="false">계약담당자</button>
+        <button type="button" class="perm-btn" data-role="biz" data-href="../03_대시보드/SRMDashboardBiz.html" title="사업담당자 권한으로 전환" aria-pressed="false">사업담당자</button>
+        <button type="button" class="perm-btn" data-role="admin" data-href="../03_대시보드/SRMDashboardAdmin.html" title="관리자 권한으로 전환" aria-pressed="false">관리자</button>
+        <button type="button" class="perm-btn active" data-role="partner" data-href="SRMDashboardPartner.html" title="협력업체 권한으로 전환" aria-pressed="true" aria-current="true">협력업체</button>
+      </div>
+      <div class="user-profile">
+        <span class="user-name">김큐빗 대리</span>
+        <span class="user-role">[(주)큐비트엑스]</span>
+        <span class="user-divider">|</span>
+        <a href="../01_협력업체창구_로그인전/SRMLogin.html" class="btn-logout" title="로그아웃">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="app-container">
+    <aside class="sidebar" id="sidebar">
+      <nav class="sidebar-nav">
+        <div class="nav-item open">
+          <a href="#" class="nav-link">
+            <span class="nav-icon"></span>
+            <span class="nav-text">협력업체 전용 창구</span>
+            <span class="nav-arrow">
+              <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </a>
+          <ul class="submenu">
+              <li class="submenu-item"><a href="SRMDashboardPartner.html">대시보드</a></li>
+              <li class="submenu-item"><a href="SRMPartnerNotice.html">공지사항</a></li>
+              <li class="submenu-item"><a href="SRMPartnerQna.html">질문과 답변</a></li>
+              <li class="submenu-item"><a href="SRMPartnerFileRepo.html">양식 등 자료실</a></li>
+              <li class="submenu-item"><a href="SRMPartnerPreQuote.html">사전 견적 관리</a></li>
+              <li class="submenu-item active"><a href="SRMPartnerNegoRequest.html">수의계약 요청 현황</a></li>
+              <li class="submenu-item"><a href="SRMPartnerBidNotice.html">입찰공고 현황</a></li>
+              <li class="submenu-item"><a href="SRMPartnerBidJoin.html">입찰 참여 현황</a></li>
+              <li class="submenu-item"><a href="SRMPartnerContract.html">계약관리</a></li>
+              <li class="submenu-item"><a href="SRMPartnerInfo.html">협력업체 정보 관리</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="sidebar-bottom-actions">
+        <a href="../Dashboard.html" class="btn-sidebar-switch" title="사업관리시스템(PMS)으로 이동">
+          <svg width="17" height="17" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+          <span>사업관리시스템(PMS)</span>
+        </a>
+        <button type="button" class="btn-sidebar-manual" onclick="alert('온라인 매뉴얼(SRM 전자입찰) 시스템 가이드를 호출합니다.');">
+          <svg width="15" height="15" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="m9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+          <span>온라인 매뉴얼</span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-title-wrap">
+        <div class="page-title-left"><h1 class="page-title">수의계약 요청 현황</h1></div>
+        <nav class="breadcrumb" aria-label="현재 위치">
+          <span class="breadcrumb-item">홈</span><span class="breadcrumb-separator">&gt;</span>
+          <span class="breadcrumb-item">협력업체 전용 창구</span><span class="breadcrumb-separator">&gt;</span>
+          <span class="breadcrumb-item current">수의계약 요청 현황</span>
+        </nav>
+      </div>
+
+
+      <section class="filter-card">
+        <form id="negoSearchForm">
+          <div class="filter-row hstack gap-12">
+            <span class="filter-label w-80">조회기간(견적 마감 일시)</span>
+            <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
+            <div class="quick-date-btns hstack gap-6">
+              <button type="button" class="btn-quick-date" data-range="1d">하루 전</button>
+              <button type="button" class="btn-quick-date" data-range="1w">1주일</button>
+              <button type="button" class="btn-quick-date active" data-range="1m">1개월</button>
+              <button type="button" class="btn-quick-date" data-range="3m">3개월</button>
+              <button type="button" class="btn-quick-date" data-range="6m">6개월</button>
+              <button type="button" class="btn-quick-date" data-range="1y">1년</button>
+            </div>
+          </div>
+          <div class="filter-row hstack gap-12">
+            <span class="filter-label w-80">구분</span>
+            <div class="form-choice-group" role="radiogroup">
+              <label class="form-choice"><input type="radio" name="negoType" checked>전체</label>
+              <label class="form-choice"><input type="radio" name="negoType">공사</label>
+              <label class="form-choice"><input type="radio" name="negoType">용역</label>
+              <label class="form-choice"><input type="radio" name="negoType">물품</label>
+            </div>
+          </div>
+          <div class="filter-row hstack gap-12">
+            <span class="filter-label w-80">진행상태</span>
+            <select class="filter-select w-180">
+              <option value="all" selected>전체</option>
+              <option>공고게시중</option>
+              <option>수의계약(견적요청)</option>
+              <option>수의계약(견적제출 완료)</option>
+              <option>가격협의 완료</option>
+              <option>수의계약 취소</option>
+            </select>
+          </div>
+          <div class="filter-row hstack gap-12">
+            <span class="filter-label w-80">키워드 검색</span>
+            <select class="filter-select w-150"><option>수의계약 건명</option></select>
+            <input type="text" class="filter-text-input w-380" placeholder="검색어를 입력하세요.">
+          </div>
+          <div class="filter-action-row">
+            <button type="submit" class="btn-filter-search">검색</button>
+            <button type="button" class="btn-filter-reset">초기화</button>
+          </div>
+        </form>
+      </section>
+
+      <div class="table-card">
+        <div class="table-header-action-row">
+          <div class="table-total-count grid-page-summary">1 / 4 (총 1,523개)</div>
+          <div class="table-actions">
+            <select class="select-per-page" title="페이지당 표시 건수">
+              <option value="10" selected>10개씩</option>
+              <option value="20">20개씩</option>
+              <option value="30">30개씩</option>
+              <option value="50">50개씩</option>
+              <option value="100">100개씩</option>
+            </select>
+          </div>
+        </div>
+        <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="수의계약 요청 현황 목록" data-total-items="1523" data-total-pages="153">
+          <table class="data-table data-grid-table" aria-label="수의계약 요청 현황 목록">
+            <thead>
+              <tr><th class="w-100">공고번호</th><th class="w-80">공고 구분</th><th class="w-130">진행상태</th><th class="minw-250">수의계약 건명</th><th class="w-130">견적 마감 일시</th><th class="w-60">구분</th><th class="w-90">계약방법</th><th class="w-90">낙찰자 선정방법</th><th class="w-80">사업담당자</th><th class="w-80">계약 담당자</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><a href="#" data-open-modal="negoDetailModal">BD2026-0023</a></td><td>본공고</td><td><span class="badge-success">공고게시중</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td>2026.07.31 18:00</td><td>공사</td><td>수의계약</td><td>최저가</td><td>홍길동</td><td>박승길</td></tr>
+              <tr><td><a href="#" data-open-modal="negoDetailModal">BD2026-0018</a></td><td>본공고</td><td><span class="badge-info">수의계약(견적요청)</span></td><td class="text-left">금호동 1601-9 오피스텔 신축공사 중 도장공사</td><td>2026.07.31 18:00</td><td>용역</td><td>수의계약</td><td>최저가</td><td>홍길동</td><td>박승길</td></tr>
+              <tr><td><a href="#" data-open-modal="negoDetailModal">BD2026-0011</a></td><td>본공고</td><td><span class="badge-tag">가격협의 완료</span></td><td class="text-left">본사 노후 배전반 교체공사</td><td>2026.06.20 18:00</td><td>공사</td><td>수의계약</td><td>최저가</td><td>홍길동</td><td>박승길</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-pagination-row"><nav class="pagination-controls" aria-label="표 페이지 이동"></nav></div>
+      </div>
+
+    </main>
+  </div>
+
+  <footer class="app-footer">
+    <div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div>
+  </footer>
+
+
+  <!-- 수의계약 요청 현황 상세 (공고 정보 / 견적 제출 및 확인) -->
+  <div class="modal-backdrop" id="negoDetailModal" role="dialog" aria-modal="true" aria-labelledby="negoDetailModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <h2 class="modal-title" id="negoDetailModalTitle">수의계약 요청 현황 상세</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="공고 요약">
+            <thead><tr><th>공고번호</th><th>공고 구분</th><th>진행상태</th><th>입찰 건명</th><th>견적 마감 일시</th><th>구분</th><th>계약방법</th><th>낙찰자 선정방법</th></tr></thead>
+            <tbody><tr><td>BD2026-0023</td><td>본공고</td><td><span class="badge-success">수의계약(견적요청)</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중...</td><td>2026.07.31 18:00</td><td>공사</td><td>수의계약</td><td>최저가</td></tr></tbody>
+          </table>
+        </div>
+
+        <div class="detail-tabs-bar">
+          <div class="detail-tab-group" role="tablist" aria-label="수의계약 상세 탭">
+            <button type="button" class="detail-tab-btn active" role="tab" aria-selected="true">공고 정보</button>
+            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">견적 제출 및 확인</button>
+          </div>
+        </div>
+
+        <div class="srm-section-heading" style="margin-top:16px;"><div><h2>공고 기본 정보</h2></div></div>
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>공고번호</dt><dd>BD2026-0023</dd></div>
+          <div class="srm-kv-row"><dt>수의계약 건명</dt><dd>서초동 1601-9 오피스텔 신축공사 중 습식공사</dd></div>
+          <div class="srm-kv-row"><dt>계약방법</dt><dd>수의계약</dd></div>
+          <div class="srm-kv-row"><dt>낙찰자 선정방법</dt><dd>최저가</dd></div>
+          <div class="srm-kv-row"><dt>추정금액</dt><dd>94,490,000원 (구천사백사십구만원 / VAT 포함)</dd></div>
+          <div class="srm-kv-row"><dt>계약기간</dt><dd>2026.07.20 ~ 2027.07.30</dd></div>
+          <div class="srm-kv-row"><dt>납품장소</dt><dd>현장 내</dd></div>
+          <div class="srm-kv-row"><dt>근거 / 수의계약 사유</dt><dd>추정가격이 2,000만원 미만으로 수의계약 진행</dd></div>
+          <div class="srm-kv-row"><dt>참가자격</dt><dd>도장·습식·방수·석공사업 보유업체</dd></div>
+        </div>
+
+        <div class="srm-section-heading" style="margin-top:16px;"><div><h2>계약업체 면허</h2></div></div>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="계약업체 면허">
+            <tbody><tr><th style="width:160px;">종합건설업</th><td class="text-left">건축설계 및 시공</td></tr><tr><th>전문건설업</th><td class="text-left">도장/습식/방수/석공 사업</td></tr></tbody>
+          </table>
+        </div>
+
+        <div class="srm-section-heading" style="margin-top:16px;"><div><h2>품목 정보</h2></div></div>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="품목 정보">
+            <thead><tr><th class="col-no">No</th><th>품목코드</th><th>품목명</th><th>규격</th><th>단위</th><th>수량</th><th>납기요청일</th><th>입고장소</th><th>비고</th></tr></thead>
+            <tbody><tr><td>1</td><td>-</td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td class="text-left">품목구성방법이 '지정항목작성'인 경우에 등록됨</td><td>-</td><td>1</td><td>2026.07.31</td><td>현장</td><td class="text-left">품목등록의 비고에 들어간 내용입니다.</td></tr></tbody>
+          </table>
+        </div>
+
+        <div class="srm-section-heading" style="margin-top:16px;"><div><h2>수의계약 계획 상세정보</h2></div></div>
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>수의계약 요청기간</dt><dd>2026.07.31 09시 00분 ~ 2026.08.15 18시 00분</dd></div>
+          <div class="srm-kv-row"><dt>시방서, 구매견적서, 과업지시서</dt><dd>· 등록된 파일명.PDF · 등록된 파일명.PDF</dd></div>
+          <div class="srm-kv-row"><dt>기타서류</dt><dd>· 등록된 파일명.PDF · 등록된 파일명.PDF</dd></div>
+        </div>
+
+        <div class="srm-section-heading" style="margin-top:16px;"><div><h2>수의계약 참여 가능 업체</h2></div></div>
+        <div class="srm-kv-grid"><div class="srm-kv-row"><dt>수의계약 참여 가능 업체</dt><dd>· 큐비트엑스(135-81-77202)</dd></div></div>
+
+        <div class="srm-section-heading" style="margin-top:16px;"><div><h2>수의계약 참여 서류</h2></div></div>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="수의계약 참여 서류">
+            <thead><tr><th class="col-no">No</th><th>수의계약 참여 서류</th><th>설명</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td class="text-left">신용평가등급 확인서</td><td class="text-left">신용평가 등급 확인서는 반드시 유효기간 내에 있어야 합니다.</td></tr>
+              <tr><td>2</td><td class="text-left">법인인감 증명서</td><td class="text-left">제출되는 법인인감증명서는 유효기간 내에 있어야 합니다.</td></tr>
+              <tr><td>3</td><td class="text-left">기타</td><td>-</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="srm-section-heading" style="margin-top:20px;"><div><h2>수의계약을 위한 견적 요청 현황</h2></div></div>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="수의계약을 위한 견적 요청 현황">
+            <thead><tr><th class="w-60">차수</th><th class="w-90">진행상태</th><th class="minw-250">견적 요청 시 전달 사항</th><th class="w-130">견적 마감 일시</th><th class="w-130">견적 제출 일시</th><th class="w-120">수의시담 견적 금액</th><th class="w-100">견적 제출</th></tr></thead>
+            <tbody>
+              <tr><td>3차</td><td><span class="badge-info">견적요청</span></td><td class="text-left">견적금액이 적합하지 않습니다. 조정된 금액으로 다시 한번 제출 부탁드립니다.</td><td>2026.08.15 18:00</td><td>-</td><td>-</td><td><button type="button" class="btn-task-register" data-close-modal data-open-modal="negoQuoteReqInfoModal">견적 제출하기</button></td></tr>
+              <tr><td>2차</td><td><span class="badge-success">견적제출 완료</span></td><td class="text-left">견적금액이 적합하지 않습니다. 조정된 금액으로 다시 한번 제출 부탁드립니다.</td><td>2026.07.31 18:00</td><td>2026.07.30 15:40</td><td class="col-num">180,000,000</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="negoQuoteHistoryModal">견적 제출내역</button></td></tr>
+              <tr><td>1차</td><td><span class="badge-success">견적제출 완료</span></td><td class="text-left">귀사와의 수의계약을 위해 견적서 제출을 요청드립니다.</td><td>2026.07.15 18:00</td><td>2026.07.14 17:20</td><td class="col-num">190,000,000</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="negoQuoteHistoryModal">견적 제출내역</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">목록</button></div>
+    </div>
+  </div>
+
+  <!-- 수의계약을 위한 견적요청 정보 -->
+  <div class="modal-backdrop" id="negoQuoteReqInfoModal" role="dialog" aria-modal="true" aria-labelledby="negoQuoteReqInfoTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <h2 class="modal-title" id="negoQuoteReqInfoTitle">수의계약을 위한 견적요청 정보</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="공고 요약">
+            <thead><tr><th>공고번호</th><th>공고 구분</th><th>진행상태</th><th>입찰 건명</th><th>견적 마감 일시</th><th>구분</th><th>계약방법</th><th>낙찰자 선정방법</th></tr></thead>
+            <tbody><tr><td>BD2026-0023</td><td>본공고</td><td><span class="badge-success">수의계약(견적요청)</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중...</td><td>2026.07.31 18:00</td><td>공사</td><td>수의계약</td><td>최저가</td></tr></tbody>
+          </table>
+        </div>
+
+        <div class="srm-section-heading" style="margin-top:16px;"><div><h2>수의계약을 위한 견적요청 정보</h2></div></div>
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>견적 마감 일시</dt><dd>2026.08.15 18:00</dd></div>
+          <div class="srm-kv-row"><dt>견적 요청 시 전달 사항</dt><dd>귀사와의 수의계약을 위해 견적서 제출을 요청드립니다.</dd></div>
+          <div class="srm-kv-row"><dt>견적 요청 시 전달 자료</dt><dd><div class="srm-file-item"><span>첨부된 파일명.PDF</span><button type="button" class="btn-file-preview">바로보기</button><button type="button" class="btn-file-download">다운로드</button></div></dd></div>
+        </div>
+        <div class="srm-section-heading" style="margin-top:16px;"><div><h2>수의계약 참여 서류</h2></div></div>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="수의계약 참여 서류">
+            <thead><tr><th class="col-no">No</th><th>수의계약 참여 서류</th><th>설명</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td class="text-left">신용평가등급 확인서</td><td class="text-left">신용평가 등급 확인서는 반드시 유효기간 내에 있어야 합니다.</td></tr>
+              <tr><td>2</td><td class="text-left">법인인감 증명서</td><td class="text-left">제출되는 법인인감증명서는 유효기간 내에 있어야 합니다.</td></tr>
+              <tr><td>3</td><td class="text-left">기타</td><td>-</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary modal-close">목록</button>
+        <button type="button" class="btn-critical-primary" data-close-modal data-open-modal="negoQuoteSubmitModal">수의계약을 위한 견적 제출</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 수의계약을 위한 견적 제출 -->
+  <div class="modal-backdrop" id="negoQuoteSubmitModal" role="dialog" aria-modal="true" aria-labelledby="negoQuoteSubmitTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <h2 class="modal-title" id="negoQuoteSubmitTitle">수의계약을 위한 견적 제출</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="공고 요약">
+            <thead><tr><th>공고번호</th><th>공고 구분</th><th>진행상태</th><th>입찰 건명</th><th>견적 마감 일시</th><th>구분</th><th>계약방법</th><th>낙찰자 선정방법</th></tr></thead>
+            <tbody><tr><td>BD2026-0023</td><td>본공고</td><td><span class="badge-success">수의계약(견적요청)</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중...</td><td>2026.07.31 18:00</td><td>공사</td><td>수의계약</td><td>최저가</td></tr></tbody>
+          </table>
+        </div>
+
+        <div class="notice-box" role="note" style="margin-top:16px;">
+          <span class="notice-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></span>
+          <div class="notice-body"><p class="notice-lead">견적 제출 시 참고하실 수 있도록 예정가를 제공합니다.</p></div>
+        </div>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="예정가"><tbody><tr><th style="width:160px;">예정가</th><td class="text-left">19,500,000원 (일천구백오십만원 / VAT 포함)</td></tr></tbody></table>
+        </div>
+
+        <div class="srm-section-heading" style="margin-top:16px;"><div><h2>수의계약을 위한 견적 제출</h2></div></div>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="품목별 견적 입력">
+            <thead><tr><th class="col-no">No</th><th>품목코드</th><th>품목명</th><th>규격</th><th>단위</th><th>수량</th><th>단가(원)</th><th>금액(원)</th><th>부가세</th><th>합계금액</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>A0106-001</td><td class="text-left">고효율 인버터</td><td class="text-left">'지정항목작성'인 경우에 등록됨</td><td>EA</td><td>3</td><td><input type="text" class="form-control" value="1,000,000" style="width:90px;display:inline-block;"></td><td class="col-num">3,000,000</td><td class="col-num">300,000</td><td class="col-num">3,300,000</td></tr>
+              <tr><td>2</td><td>A0103-001</td><td class="text-left">고효율 공기 압축기</td><td>-</td><td>EA</td><td>2</td><td><input type="text" class="form-control" value="3,000,000" style="width:90px;display:inline-block;"></td><td class="col-num">6,000,000</td><td class="col-num">600,000</td><td class="col-num">6,600,000</td></tr>
+            </tbody>
+            <tfoot><tr><td colspan="7">합계</td><td class="col-num">9,000,000</td><td class="col-num">900,000</td><td class="col-num">9,900,000</td></tr></tfoot>
+          </table>
+        </div>
+        <div class="srm-kv-grid" style="margin-top:12px;">
+          <div class="srm-kv-row"><dt>상세견적서</dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
+        </div>
+
+        <div class="srm-section-heading" style="margin-top:16px;">
+          <div><h2>수의계약 참여 서류</h2></div>
+          <p>※ 되도록 각 항목당 하나의 파일로 등록해주세요.</p>
+        </div>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="수의계약 참여 서류 첨부">
+            <thead><tr><th class="col-no">No</th><th>수의계약 참여 서류</th><th>설명</th><th class="w-140">첨부</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td class="text-left">신용평가등급 확인서</td><td class="text-left">신용평가 등급 확인서는 반드시 유효기간 내에 있어야 합니다.</td><td><button type="button" class="btn-secondary">찾아보기</button></td></tr>
+              <tr><td>2</td><td class="text-left">법인인감 증명서</td><td class="text-left">제출되는 법인인감증명서는 유효기간 내에 있어야 합니다.</td><td><button type="button" class="btn-secondary">찾아보기</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary modal-close">목록</button>
+        <button type="button" class="btn-critical-primary" data-close-modal data-open-modal="negoQuoteSubmitConfirmModal">수의계약을 위한 견적 제출</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 견적 제출 확인 -->
+  <div class="modal-backdrop" id="negoQuoteSubmitConfirmModal" role="dialog" aria-modal="true" aria-labelledby="negoQuoteSubmitConfirmTitle" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2 class="modal-title" id="negoQuoteSubmitConfirmTitle">수의계약을 위한 견적 제출 시 유의사항</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="notice-box warning" role="note">
+          <span class="notice-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span>
+          <div class="notice-body">
+            <p class="notice-lead">본 견적을 제출하면 더 이상 수정되지 않습니다. 정확하게 가격이 입력되었는지 다시 한번 확인 부탁드립니다.</p>
+            <p>수의계약을 위한 견적 제출을 진행하시겠습니까? (제출 시 진행상태가 '수의계약(견적제출 완료)'로 변경됩니다.)</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary modal-close">취소</button>
+        <button type="button" class="btn-critical-primary modal-close">견적 제출하기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 수의계약을 위한 견적 제출 내역 -->
+  <div class="modal-backdrop" id="negoQuoteHistoryModal" role="dialog" aria-modal="true" aria-labelledby="negoQuoteHistoryTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <h2 class="modal-title" id="negoQuoteHistoryTitle">수의계약을 위한 견적 제출 내역</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="공고 요약">
+            <thead><tr><th>공고번호</th><th>공고 구분</th><th>진행상태</th><th>입찰 건명</th><th>견적 마감 일시</th><th>구분</th><th>계약방법</th><th>낙찰자 선정방법</th></tr></thead>
+            <tbody><tr><td>BD2026-0023</td><td>본공고</td><td><span class="badge-success">수의계약(견적요청)</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중...</td><td>2026.07.31 18:00</td><td>공사</td><td>수의계약</td><td>최저가</td></tr></tbody>
+          </table>
+        </div>
+
+        <div class="srm-section-heading" style="margin-top:16px;"><div><h2>수의계약을 위한 견적 제출 내역</h2></div></div>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="견적 제출 내역">
+            <thead><tr><th class="col-no">No</th><th>품목코드</th><th>품목명</th><th>규격</th><th>단위</th><th>수량</th><th>단가(원)</th><th>금액(원)</th><th>부가세</th><th>합계금액</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>A0106-001</td><td class="text-left">고효율 인버터</td><td class="text-left">'지정항목작성'인 경우에 등록됨</td><td>EA</td><td>3</td><td class="col-num">1,000,000</td><td class="col-num">3,000,000</td><td class="col-num">300,000</td><td class="col-num">3,300,000</td></tr>
+              <tr><td>2</td><td>A0103-001</td><td class="text-left">고효율 공기 압축기</td><td>-</td><td>EA</td><td>2</td><td class="col-num">3,000,000</td><td class="col-num">6,000,000</td><td class="col-num">600,000</td><td class="col-num">6,600,000</td></tr>
+            </tbody>
+            <tfoot><tr><td colspan="7">합계</td><td class="col-num">9,000,000</td><td class="col-num">900,000</td><td class="col-num">9,900,000</td></tr></tfoot>
+          </table>
+        </div>
+        <div class="srm-kv-grid" style="margin-top:12px;">
+          <div class="srm-kv-row"><dt>상세견적서</dt><dd>· 등록된 파일명.PDF · 등록된 파일명.PDF</dd></div>
+        </div>
+        <div class="srm-section-heading" style="margin-top:16px;"><div><h2>수의계약 참여 서류</h2></div></div>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="수의계약 참여 서류 첨부내역">
+            <thead><tr><th class="col-no">No</th><th>수의계약 참여 서류</th><th>첨부파일</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td class="text-left">신용평가등급 확인서</td><td class="text-left">· 등록된 파일명.PDF</td></tr>
+              <tr><td>2</td><td class="text-left">법인인감 증명서</td><td class="text-left">· 등록된 파일명.PDF</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">목록</button></div>
+    </div>
+  </div>
+
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>
