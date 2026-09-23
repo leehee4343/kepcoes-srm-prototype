@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>협력업체 매핑</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<div class="modal-backdrop" id="ocPartnerMapModal" role="dialog" aria-modal="true" aria-labelledby="ocPartnerMapTitle" aria-hidden="false">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header"><h2 class="modal-title" id="ocPartnerMapTitle">협력업체 매핑</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
+      <div class="modal-body">
+        <div class="filter-row hstack gap-12">
+          <span class="filter-label w-80">조회기간(신청일)</span>
+          <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
+            <div class="quick-date-btns hstack gap-6">
+              <button type="button" class="btn-quick-date" data-range="1d">하루 전</button>
+              <button type="button" class="btn-quick-date" data-range="1w">1주일</button>
+              <button type="button" class="btn-quick-date active" data-range="1m">1개월</button>
+              <button type="button" class="btn-quick-date" data-range="3m">3개월</button>
+              <button type="button" class="btn-quick-date" data-range="6m">6개월</button>
+              <button type="button" class="btn-quick-date" data-range="1y">1년</button>
+            </div>
+        </div>
+        <div class="filter-row hstack gap-12">
+          <span class="filter-label w-80">신용평가등급</span>
+          <select class="filter-select w-150"><option>신용평가등급 선택</option></select>
+        </div>
+        <div class="filter-row hstack gap-12">
+          <span class="filter-label w-80">소싱 그룹</span>
+          <select class="filter-select w-140"><option>대분류 선택</option></select>
+          <select class="filter-select w-140"><option>중분류 선택</option></select>
+          <select class="filter-select w-140"><option>소분류 선택</option></select>
+        </div>
+        <div class="form-lookup content-inner-gap-top">
+          <select class="filter-select w-130"><option>검색 구분</option></select>
+          <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
+          <button type="button" class="btn-filter-search">검색</button>
+        </div>
+        <div class="table-scroll-wrapper content-inner-gap-top">
+          <table class="data-table" aria-label="협력업체 목록">
+            <thead><tr><th>사업자번호</th><th>업체명</th><th>담당자</th><th>휴대폰번호</th><th>이메일</th><th>신청일</th><th class="w-70"></th></tr></thead>
+            <tbody>
+              <tr><td>123-45-67891</td><td class="text-left">삼전디에스</td><td>한지훈</td><td>010-1234-5678</td><td>leehee43@naver.com</td><td>2026.06.10</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="ocManageModal">매핑</button></td></tr>
+              <tr><td>123-45-67891</td><td class="text-left">넷퍼시</td><td>김미라</td><td>-</td><td>-</td><td>2026.06.10</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="ocManageModal">매핑</button></td></tr>
+              <tr><td>123-45-67891</td><td class="text-left">대현건설</td><td>하지영</td><td>-</td><td>-</td><td>2026.06.10</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="ocManageModal">매핑</button></td></tr>
+              <tr><td>123-45-67891</td><td class="text-left">한성건설</td><td>김지연</td><td>-</td><td>-</td><td>2026.06.10</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="ocManageModal">매핑</button></td></tr>
+              <tr><td>123-45-67891</td><td class="text-left">KEB테크놀로지</td><td>박가람</td><td>-</td><td>-</td><td>2026.06.10</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="ocManageModal">매핑</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn-secondary" data-close-modal data-open-modal="ocManageModal">닫기</button></div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

@@ -269,7 +269,7 @@
       <section class="filter-card">
         <form id="ssPlanSearchForm">
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">조회기간(등록일)</span>
+            <span class="filter-label w-130">조회기간(등록일)</span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
             <div class="quick-date-btns hstack gap-6">
               <button type="button" class="btn-quick-date" data-range="1d">하루 전</button>
@@ -281,7 +281,7 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">견적유형</span>
+            <span class="filter-label w-130">견적유형</span>
             <div class="form-choice-group" role="radiogroup">
               <label class="form-choice"><input type="radio" name="ssPlanKind" checked>전체</label>
               <label class="form-choice"><input type="radio" name="ssPlanKind">공사</label>
@@ -290,7 +290,7 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">키워드 검색</span>
+            <span class="filter-label w-130">키워드 검색</span>
             <select class="filter-select w-140"><option>공고 번호</option><option>수의계약 건명</option></select>
             <input type="text" class="filter-text-input w-380" placeholder="검색어를 입력하세요.">
           </div>
@@ -322,8 +322,8 @@
               <tr><th class="w-55">No</th><th class="w-90">공고 번호</th><th class="w-70">공고 구분</th><th class="w-70">진행상태</th><th class="minw-240">수의계약 건명</th><th class="w-60">구분</th><th class="w-90">계약방법</th><th class="w-90">낙찰자 선정방법</th><th class="w-90">등록일</th><th class="w-70">사업담당자</th><th class="w-70">계약담당자</th></tr>
             </thead>
             <tbody>
-              <tr><td>1,542</td><td><a href="#" data-open-modal="ssPlanManageModal">BD2026-0023</a></td><td>본공고</td><td><span class="badge-tag">작성중</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td>공사</td><td>수의계약</td><td>최저가</td><td>2026.06.10</td><td>홍길동</td><td>임꺽정</td></tr>
-              <tr><td>1,541</td><td><a href="#" data-open-modal="ssPlanManageModal">BD2026-0024</a></td><td>본공고</td><td><span class="badge-tag">작성중</span></td><td class="text-left">금호동 1601-9 오피스텔 신축공사 중 도장공사</td><td>용역</td><td>수의계약</td><td>최저가</td><td>-</td><td>-</td><td>-</td></tr>
+              <tr><td>1,542</td><td><a href="#" onclick="window.location.href='SRMSoleSourcePlanManage.html'">BD2026-0023</a></td><td>본공고</td><td><span class="badge-tag">작성중</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td>공사</td><td>수의계약</td><td>최저가</td><td>2026.06.10</td><td>홍길동</td><td>임꺽정</td></tr>
+              <tr><td>1,541</td><td><a href="#" onclick="window.location.href='SRMSoleSourcePlanManage.html'">BD2026-0024</a></td><td>본공고</td><td><span class="badge-tag">작성중</span></td><td class="text-left">금호동 1601-9 오피스텔 신축공사 중 도장공사</td><td>용역</td><td>수의계약</td><td>최저가</td><td>-</td><td>-</td><td>-</td></tr>
             </tbody>
           </table>
         </div>
@@ -337,319 +337,32 @@
 
 
   <!-- 수의계약 계획 등록/설정 (STEP01~05, 각 영역 바로 접근 가능) -->
-  <div class="modal-backdrop" id="ssPlanManageModal" role="dialog" aria-modal="true" aria-labelledby="ssPlanManageTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-header">
-        <h2 class="modal-title" id="ssPlanManageTitle">수의계약 계획 등록/설정</h2>
-        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
-      </div>
-      <div class="modal-body">
-        <p class="modal-field-label">각 단계로 안내되어 있긴 하지만, 각 영역에 바로 접근(클릭)해서 정보 입력이 가능합니다.</p>
 
-        <div class="srm-section-heading content-inner-gap-top"><div><h2>발주계획 정보 확인</h2></div></div>
-        <p class="modal-field-label">전자결재 후 '수의계약 계획'으로 넘어오면 '공고 번호'가 자동 발번됩니다. 발주계획에서 등록한 내용을 그대로 보여주며 수정할 수 없습니다.</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>공고 번호</dt><dd>BD2026-0023</dd></div>
-          <div class="srm-kv-row"><dt>발주계약 요청번호</dt><dd>PR2026-0003</dd></div>
-          <div class="srm-kv-row"><dt>발주계약 품의번호</dt><dd>PPW2026-0029</dd></div>
-          <div class="srm-kv-row"><dt>처리상태</dt><dd><span class="badge-tag">작성중</span></dd></div>
-          <div class="srm-kv-row"><dt>건명</dt><dd>서초동 1601-9 오피스텔 신축공사 중 습식공사</dd></div>
-          <div class="srm-kv-row"><dt>품의일</dt><dd>2026.06.05</dd></div>
-          <div class="srm-kv-row"><dt>요청일</dt><dd>2026.06.01</dd></div>
-          <div class="srm-kv-row"><dt>계약예정일</dt><dd>2026.07.31</dd></div>
-          <div class="srm-kv-row"><dt>구분</dt><dd>공사</dd></div>
-          <div class="srm-kv-row"><dt>수주계약정보</dt><dd class="content-bullet-item">수주계약번호 : 160011612-01-31-C<br>· 수주계약명 : GE-4 에너지효율화(ID Fan VVVF 설치) 사업<br>· 수주계약일 : 2026.12.23<br>· 수주계약업체 : 군장에너지주식회사</dd></div>
-          <div class="srm-kv-row"><dt>사업담당자</dt><dd>홍길동</dd></div>
-          <div class="srm-kv-row"><dt>계약담당자</dt><dd>임꺽정</dd></div>
-        </div>
-        <p class="modal-field-label content-inner-gap-top">발주계획 체크리스트 — 결재 관련 정보</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>결재문서</dt><dd>추진안, 일상감사의견서</dd></div>
-          <div class="srm-kv-row"><dt>결재문서 등록</dt><dd>등록된 파일명 #1.pdf, #2.pdf</dd></div>
-        </div>
-        <p class="modal-field-label content-inner-gap-top">발주계획 세부정보</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>추정금액</dt><dd>94,490,000원 (구천사백사십구만원, VAT 포함)</dd></div>
-          <div class="srm-kv-row"><dt>계약기간</dt><dd>2026.07.20 ~ 2027.07.30</dd></div>
-          <div class="srm-kv-row"><dt>납품장소</dt><dd>현장 내</dd></div>
-          <div class="srm-kv-row"><dt>계약이행 보증금률</dt><dd>10%</dd></div>
-          <div class="srm-kv-row"><dt>하자이행 보증금률</dt><dd>3%</dd></div>
-          <div class="srm-kv-row"><dt>하자이행 기간</dt><dd>2년</dd></div>
-          <div class="srm-kv-row"><dt>계약방법</dt><dd>수의계약</dd></div>
-          <div class="srm-kv-row"><dt>낙찰자 선정방법</dt><dd>최저가</dd></div>
-          <div class="srm-kv-row"><dt>근거 / 수의계약 사유</dt><dd>추정가격이 2,000만원 미만으로 수의계약 진행</dd></div>
-          <div class="srm-kv-row"><dt>계약상대자(수의계약의 경우)</dt><dd class="content-bullet-item">매핑된 협력업체 : (주)큐비트엑스(135-81-77202)</dd></div>
-          <div class="srm-kv-row"><dt>참가자격</dt><dd>도장·습식·방수·석공사업 보유업체</dd></div>
-          <div class="srm-kv-row"><dt>예정/예비가격 결정</dt><dd>예정가</dd></div>
-          <div class="srm-kv-row"><dt>예정가격 결정자</dt><dd>사장</dd></div>
-        </div>
-        <p class="modal-field-label content-inner-gap-top">계약업체 면허 설정</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>종합건설업</dt><dd>건축설계 및 시공</dd></div>
-          <div class="srm-kv-row"><dt>전문건설업</dt><dd>도장/습식/방수/석공 사업</dd></div>
-        </div>
-        <p class="modal-field-label content-inner-gap-top">품목 정보</p>
-        <div class="srm-table-wrap">
-          <table class="data-table" aria-label="품목 정보">
-            <thead><tr><th class="col-no">No</th><th>품목코드</th><th>품목명</th><th>규격</th><th>단위</th><th>수량</th><th>납기요청일</th><th>입고장소</th><th>비고</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>-</td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td class="text-left">품목구성방법이 '지정항목작성'인 경우에 등록됨</td><td>-</td><td>1</td><td>2026.07.31</td><td>현장</td><td class="text-left">품목등록의 비고에 들어간 내용입니다.</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="srm-section-heading content-object-gap-top"><div><h2>수의계약 계획 상세정보</h2></div></div>
-        <p class="modal-field-label">해당 수의계약이 협력업체의 '수의계약 요청 현황'에 표출되는 기간입니다. 수의계약에 참여 가능한 업체는 발주계약요청에서 이미 설정된 '계약상대자(수의계약의 경우)'입니다.</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>수의계약 요청기간 <span class="required" aria-hidden="true">*</span></dt><dd><input type="date" class="filter-date-input"> <select class="filter-select w-90"><option>시간 선택</option></select> <select class="filter-select w-90"><option>분 선택</option></select> ~ <input type="date" class="filter-date-input"> <select class="filter-select w-90"><option>시간 선택</option></select> <select class="filter-select w-90"><option>분 선택</option></select></dd></div>
-        </div>
-        <p class="modal-field-label content-inner-gap-top">발주계획에서 등록된 파일을 제공하며, 필요 시 추가/수정할 수 있습니다.</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>시방서, 구매견적서, 과업지시서 등</dt><dd>등록된 파일명 #1.pdf, #2.pdf <button type="button" class="btn-secondary">추가 등록</button></dd></div>
-          <div class="srm-kv-row"><dt>기타 서류</dt><dd>등록된 파일명 #1.pdf <button type="button" class="btn-secondary">추가 등록</button></dd></div>
-        </div>
-        <p class="modal-field-label content-inner-gap-top">수의계약 참여 가능 업체</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>수의계약 참여 가능 업체</dt><dd class="content-bullet-item">(주)큐비트엑스(135-81-77202)</dd></div>
-        </div>
-        <div class="srm-detail-actions"><button type="button" class="btn-primary">저장</button></div>
-
-        <div class="srm-section-heading content-object-gap-top"><div><h2>예정가</h2></div></div>
-        <p class="modal-field-label">'추정금액(수의계약 전용)'이 아닌 '예정가'로 설정되어 있는 경우에만 본 프로세스를 진행합니다. 예정가 등록 시 입찰 프로세스의 예정가 등록/설정과 동일한 절차로 진행됩니다.</p>
-        <div class="wizard-stepper">
-          <div class="wizard-step-box completed" data-step="1"><span class="wizard-step-dot" aria-hidden="true">✓</span><div class="wizard-step-num">STEP 01</div><div class="wizard-step-title">예정가격 산출기초조서 등록 및 전자결재 요청</div></div>
-          <div class="wizard-step-box completed" data-step="2"><span class="wizard-step-dot" aria-hidden="true">✓</span><div class="wizard-step-num">STEP 02</div><div class="wizard-step-title">예정가격 산출기초조서 전자결재</div></div>
-          <div class="wizard-step-box active" data-step="3" aria-current="step"><span class="wizard-step-dot" aria-hidden="true">3</span><div class="wizard-step-num">STEP 03</div><div class="wizard-step-title">예정가격 등록 요청 전자결재 요청</div></div>
-          <div class="wizard-step-box" data-step="4"><span class="wizard-step-dot" aria-hidden="true">4</span><div class="wizard-step-num">STEP 04</div><div class="wizard-step-title">예정가격 등록 요청 전자결재</div></div>
-          <div class="wizard-step-box" data-step="5"><span class="wizard-step-dot" aria-hidden="true">5</span><div class="wizard-step-num">STEP 05</div><div class="wizard-step-title">예정가격 등록(사장님, 본부장님)</div></div>
-        </div>
-        <div class="srm-detail-actions">
-          <button type="button" class="btn-secondary" data-close-modal data-open-modal="ssBaseCostModal">예정가격 산출기초조서 등록 및 전자결재 요청</button>
-          <button type="button" class="btn-secondary" data-close-modal data-open-modal="ssPriceRequestModal">예정가격 등록 요청</button>
-          <button type="button" class="btn-secondary" data-close-modal data-open-modal="ssPriceRegisterModal">예정가격 등록</button>
-        </div>
-        <div class="srm-table-wrap content-inner-gap-top">
-          <table class="data-table" aria-label="예정가 요약">
-            <thead><tr><th>추정금액</th><th>사정금액</th><th>예정가격</th></tr></thead>
-            <tbody><tr><td class="col-num">26,482,500</td><td class="col-num">26,482,500</td><td class="col-num">26,482,500</td></tr></tbody>
-          </table>
-        </div>
-
-        <div class="srm-section-heading content-object-gap-top"><div><h2>수의계약 참여 서류</h2></div></div>
-        <label class="form-choice"><input type="checkbox" checked> 본 수의계약은 수의계약 시 제출해야 할 참여 서류가 있습니다.</label>
-        <p class="modal-field-label content-inner-gap-top">수의계약 참여 서류 — 수의계약 참여 시 협력업체가 첨부해야 하는 서류 목록을 관리합니다. 등록된 서류 : 총 3건</p>
-        <div class="srm-table-wrap">
-          <table class="data-table" aria-label="수의계약 참여 서류">
-            <thead><tr><th class="col-no">No</th><th>수의계약 참여 서류</th><th>설명</th><th class="w-70">순서</th><th class="w-60">삭제</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td class="text-left">신용평가등급 확인서</td><td class="text-left">신용평가등급 확인서는 반드시 유효기간 내에 있어야 합니다.</td><td>▼</td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-              <tr><td>2</td><td class="text-left">법인인감증명서</td><td class="text-left">제출되는 법인인감증명서는 유효기간 내에 있어야 합니다.</td><td>▲ ▼</td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-              <tr><td>3</td><td class="text-left">기타</td><td>-</td><td>▲</td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="srm-detail-actions">
-          <button type="button" class="btn-secondary" data-close-modal data-open-modal="ssCommonDocModal">공통 수의계약 참여 서류 불러오기</button>
-          <button type="button" class="btn-secondary">순서 적용</button>
-          <button type="button" class="btn-secondary" data-close-modal data-open-modal="ssDocAddModal">수의계약 참여 서류 추가</button>
-          <button type="button" class="btn-primary">저장</button>
-        </div>
-
-        <div class="srm-section-heading content-object-gap-top"><div><h2>최종 점검</h2></div></div>
-        <label class="form-choice"><input type="checkbox"> 수의계약 계획에 등록/설정한 내역을 모두 확인하였습니다.</label>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-secondary modal-close">목록</button>
-        <button type="button" class="btn-critical-primary" data-close-modal data-open-modal="ssFinalConfirmModal">수의계약 계획 최종저장</button>
-      </div>
-    </div>
-  </div>
 
   <!-- 예정가격 산출기초조서 등록 및 전자결재 요청 -->
-  <div class="modal-backdrop" id="ssBaseCostModal" role="dialog" aria-modal="true" aria-labelledby="ssBaseCostTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-header"><h2 class="modal-title" id="ssBaseCostTitle">예정가격 산출기초조서 등록 및 전자결재 요청</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <div class="srm-detail-actions content-inner-gap-bottom"><button type="button" class="btn-secondary">행 추가 +</button></div>
-        <div class="srm-table-wrap">
-          <table class="data-table" aria-label="산출기초조서">
-            <thead><tr><th>구분</th><th>추정가액(A)</th><th>사정가액(B)</th><th>증감액(C=B-A)</th><th>비고</th><th class="w-60">삭제</th></tr></thead>
-            <tbody>
-              <tr><td class="text-left">직접 재료비</td><td class="col-num">31,619,400</td><td class="col-num">31,619,400</td><td class="col-num">0원</td><td><input type="text" class="form-control" placeholder="20자 이내로 간략히 작성해주세요." maxlength="20"></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-              <tr><td class="text-left">직접 노무비</td><td class="col-num">50,137,750</td><td class="col-num">50,137,750</td><td class="col-num">0원</td><td><input type="text" class="form-control" placeholder="20자 이내로 간략히 작성해주세요." maxlength="20"></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-              <tr><td class="text-left">경비</td><td class="col-num">4,342,850</td><td class="col-num">4,342,850</td><td class="col-num">0원</td><td><input type="text" class="form-control" placeholder="20자 이내로 간략히 작성해주세요." maxlength="20"></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-              <tr><td class="text-left">합계(공급가액) <span class="required" aria-hidden="true">*</span></td><td class="col-num">86,100,000</td><td class="col-num">86,100,000</td><td class="col-num">0원</td><td></td><td></td></tr>
-              <tr><td class="text-left">부가세 <span class="required" aria-hidden="true">*</span></td><td class="col-num">8,610,000</td><td class="col-num">8,610,000</td><td class="col-num">0원</td><td></td><td></td></tr>
-              <tr><td class="text-left">총계 <span class="required" aria-hidden="true">*</span></td><td class="col-num">94,710,000</td><td class="col-num">94,710,000</td><td class="col-num">0원</td><td></td><td></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="srm-kv-grid content-inner-gap-top">
-          <div class="srm-kv-row"><dt>비고</dt><dd><textarea class="form-control" rows="2" placeholder="Text Area"></textarea></dd></div>
-          <div class="srm-kv-row"><dt>첨부파일</dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-secondary">저장</button>
-        <button type="button" class="btn-critical-primary" data-close-modal data-open-modal="ssBaseCostConfirmModal">전자결재 요청</button>
-        <button type="button" class="btn-secondary" data-close-modal data-open-modal="ssPlanManageModal">취소</button>
-      </div>
-    </div>
-  </div>
-  <div class="modal-backdrop" id="ssBaseCostConfirmModal" role="alertdialog" aria-modal="true" aria-labelledby="ssBaseCostConfirmTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header"><h2 class="modal-title" id="ssBaseCostConfirmTitle">전자결재 요청 시 유의사항</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <div class="notice-box warning" role="alert">
-          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span>
-          <div class="notice-body"><p class="notice-lead">전자결재 요청을 하면 더 이상 입력하신 예정가격 산출기초조서가 수정되지 않습니다.</p><p>전자결재 요청하시겠습니까?</p></div>
-        </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-secondary" data-close-modal data-open-modal="ssBaseCostModal">취소</button><button type="button" class="btn-critical-primary" data-close-modal data-open-modal="ssPlanManageModal">전자결재 요청</button></div>
-    </div>
-  </div>
+
+
 
   <!-- 예정가격 등록 요청 -->
-  <div class="modal-backdrop" id="ssPriceRequestModal" role="dialog" aria-modal="true" aria-labelledby="ssPriceRequestTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-header"><h2 class="modal-title" id="ssPriceRequestTitle">예정가격 등록 요청</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <div class="srm-table-wrap">
-          <table class="data-table" aria-label="산출기초조서 요약">
-            <thead><tr><th>구분</th><th>추정가액(A)</th><th>사정가액(B)</th><th>증감액(C=B-A)</th><th>비고</th></tr></thead>
-            <tbody>
-              <tr><td class="text-left">합계(공급가액) <span class="required" aria-hidden="true">*</span></td><td class="col-num">86,100,000원</td><td class="col-num">86,100,000원</td><td class="col-num">0원</td><td>-</td></tr>
-              <tr><td class="text-left">부가세 <span class="required" aria-hidden="true">*</span></td><td class="col-num">8,610,000원</td><td class="col-num">8,610,000원</td><td class="col-num">0원</td><td>-</td></tr>
-              <tr><td class="text-left">총계 <span class="required" aria-hidden="true">*</span></td><td class="col-num">94,710,000원</td><td class="col-num">94,710,000원</td><td class="col-num">0원</td><td class="text-left">특이사항이 없어서 사정가액의 변화가 없습니다.</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="srm-kv-grid content-inner-gap-top">
-          <div class="srm-kv-row"><dt>예정가격 결정자 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="ssPriceDecider" checked>사장</label><label class="form-choice"><input type="radio" name="ssPriceDecider">본부장</label></div></dd></div>
-          <div class="srm-kv-row"><dt>비고</dt><dd><textarea class="form-control" rows="2" placeholder="Text Area"></textarea></dd></div>
-          <div class="srm-kv-row"><dt>첨부파일</dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-secondary">저장</button>
-        <button type="button" class="btn-critical-primary" data-close-modal data-open-modal="ssPriceRequestConfirmModal">전자결재 요청</button>
-        <button type="button" class="btn-secondary" data-close-modal data-open-modal="ssPlanManageModal">취소</button>
-      </div>
-    </div>
-  </div>
-  <div class="modal-backdrop" id="ssPriceRequestConfirmModal" role="alertdialog" aria-modal="true" aria-labelledby="ssPriceRequestConfirmTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header"><h2 class="modal-title" id="ssPriceRequestConfirmTitle">전자결재 요청 시 유의사항</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <div class="notice-box warning" role="alert">
-          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span>
-          <div class="notice-body"><p class="notice-lead">전자결재 요청을 하면 더 이상 입력하신 예정가격 등록 요청 정보가 수정되지 않습니다.</p><p>전자결재 요청하시겠습니까?</p></div>
-        </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-secondary" data-close-modal data-open-modal="ssPriceRequestModal">취소</button><button type="button" class="btn-critical-primary" data-close-modal data-open-modal="ssPlanManageModal">전자결재 요청</button></div>
-    </div>
-  </div>
+
+
 
   <!-- 예정가격 등록 -->
-  <div class="modal-backdrop" id="ssPriceRegisterModal" role="dialog" aria-modal="true" aria-labelledby="ssPriceRegisterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-header"><h2 class="modal-title" id="ssPriceRegisterTitle">예정가격 등록</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <div class="srm-table-wrap">
-          <table class="data-table" aria-label="산출기초조서 요약">
-            <thead><tr><th>구분</th><th>추정가액(A)</th><th>사정가액(B)</th><th>증감액(C=B-A)</th><th>비고</th></tr></thead>
-            <tbody>
-              <tr><td class="text-left">합계(공급가액) <span class="required" aria-hidden="true">*</span></td><td class="col-num">86,100,000원</td><td class="col-num">86,100,000원</td><td class="col-num">0원</td><td>-</td></tr>
-              <tr><td class="text-left">부가세 <span class="required" aria-hidden="true">*</span></td><td class="col-num">8,610,000원</td><td class="col-num">8,610,000원</td><td class="col-num">0원</td><td>-</td></tr>
-              <tr><td class="text-left">총계 <span class="required" aria-hidden="true">*</span></td><td class="col-num">94,710,000원</td><td class="col-num">94,710,000원</td><td class="col-num">0원</td><td class="text-left">특이사항이 없어서 사정가액의 변화가 없습니다.</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="srm-kv-grid content-inner-gap-top">
-          <div class="srm-kv-row"><dt>사정금액 -2%</dt><dd>92,815,800원</dd></div>
-          <div class="srm-kv-row"><dt>사정금액 -4%</dt><dd>90,921,600원</dd></div>
-          <div class="srm-kv-row"><dt>예정가격 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="91,800,000"> 원 (VAT 포함)</dd></div>
-        </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-primary" data-close-modal data-open-modal="ssPlanManageModal">저장</button><button type="button" class="btn-secondary" data-close-modal data-open-modal="ssPlanManageModal">취소</button></div>
-    </div>
-  </div>
+
 
   <!-- 공통 수의계약 참여 서류 불러오기 -->
-  <div class="modal-backdrop" id="ssCommonDocModal" role="dialog" aria-modal="true" aria-labelledby="ssCommonDocTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-header"><h2 class="modal-title" id="ssCommonDocTitle">공통 수의계약 참여 서류 불러오기</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <p class="modal-field-label">기준정보 관리 메뉴에서 설정한 '공통 서류 관리'에서 '수의계약 참여 서류' 항목만 불러와서 한 번에 완성하고 조정할 수 있습니다.</p>
-        <div class="form-lookup">
-          <span class="filter-label w-90">서류 명칭</span>
-          <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
-          <button type="button" class="btn-filter-search">검색</button>
-        </div>
-        <div class="table-scroll-wrapper content-inner-gap-top">
-          <table class="data-table" aria-label="공통 서류 목록">
-            <thead><tr><th>서류 명칭</th><th class="w-70">서류(수)</th><th class="w-70">선택</th></tr></thead>
-            <tbody>
-              <tr><td class="text-left">수의계약(공사) 사업에 쓰이는 입찰 서류 목록</td><td>5개</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="ssPlanManageModal">선택</button></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-secondary" data-close-modal data-open-modal="ssPlanManageModal">닫기</button></div>
-    </div>
-  </div>
+
 
   <!-- 수의계약 참여 서류 추가 -->
-  <div class="modal-backdrop" id="ssDocAddModal" role="dialog" aria-modal="true" aria-labelledby="ssDocAddTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header"><h2 class="modal-title" id="ssDocAddTitle">수의계약 참여 서류 추가</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>수의계약 참여 서류 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" placeholder="20자 이내로 간략히 작성해주세요." maxlength="20"></dd></div>
-          <div class="srm-kv-row"><dt>설명</dt><dd><input type="text" class="form-control" placeholder="50자 이내로 간략히 작성해주세요." maxlength="50"></dd></div>
-        </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-primary" data-close-modal data-open-modal="ssPlanManageModal">수의계약 참여 서류 추가</button><button type="button" class="btn-secondary" data-close-modal data-open-modal="ssPlanManageModal">취소</button></div>
-    </div>
-  </div>
+
 
   <!-- 수의계약 계획 최종저장 시 유의사항 -->
-  <div class="modal-backdrop" id="ssFinalConfirmModal" role="alertdialog" aria-modal="true" aria-labelledby="ssFinalConfirmTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header"><h2 class="modal-title" id="ssFinalConfirmTitle">수의계약 계획 최종저장 시 유의사항</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <div class="notice-box warning" role="alert">
-          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span>
-          <div class="notice-body">
-            <p class="notice-lead">수의계약 계획을 최종저장하면 더 이상 입력하신 내역이 수정되지 않습니다.</p>
-            <p>수의계약 계획을 최종저장하시겠습니까?</p>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-secondary modal-close">취소</button>
-        <button type="button" class="btn-critical-primary" data-close-modal data-open-modal="ssPlanDoneModal">수의계약 계획 최종저장</button>
-      </div>
-    </div>
-  </div>
+
 
   <!-- 수의계약 계획 등록 완료 -->
-  <div class="modal-backdrop" id="ssPlanDoneModal" role="alertdialog" aria-modal="true" aria-labelledby="ssPlanDoneTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header"><h2 class="modal-title" id="ssPlanDoneTitle">수의계약 계획 등록 완료</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <div class="notice-box success" role="note">
-          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
-          <div class="notice-body">
-            <p class="notice-lead">수의계약 계획 등록/설정이 완료되고 수의계약 현황 단계로 전개되었습니다.</p>
-            <p>등록된 수의계약 계획은 '수의계약 현황(검색/조회)' 메뉴에서 확인하실 수 있으며, 이후 단계도 해당 메뉴를 통해 진행하실 수 있습니다.</p>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer"><a href="SRMSoleSourceStatus.html" class="btn-primary">'수의계약 현황' 바로가기</a></div>
-    </div>
-  </div>
+
 
   <script src="../../assets/scripts/dashboard.js"></script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMSoleSourcePlan/ssBaseCostModal.html", "popups/SRMSoleSourcePlan/ssBaseCostConfirmModal.html", "popups/SRMSoleSourcePlan/ssPriceRequestModal.html", "popups/SRMSoleSourcePlan/ssPriceRequestConfirmModal.html", "popups/SRMSoleSourcePlan/ssPriceRegisterModal.html", "popups/SRMSoleSourcePlan/ssCommonDocModal.html", "popups/SRMSoleSourcePlan/ssDocAddModal.html", "popups/SRMSoleSourcePlan/ssFinalConfirmModal.html"]</script>
 </body>
 </html>

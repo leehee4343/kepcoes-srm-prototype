@@ -269,7 +269,7 @@
       <section class="filter-card">
         <form id="partnerMgSearchForm">
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">조회기간(신청일)</span>
+            <span class="filter-label w-130">조회기간(신청일)</span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
             <div class="quick-date-btns hstack gap-6">
               <button type="button" class="btn-quick-date" data-range="1d">하루 전</button>
@@ -281,7 +281,7 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">사용 여부</span>
+            <span class="filter-label w-130">사용 여부</span>
             <div class="form-choice-group" role="radiogroup">
               <label class="form-choice"><input type="radio" name="pmUseYn" checked>전체</label>
               <label class="form-choice"><input type="radio" name="pmUseYn">사용(Y)</label>
@@ -289,11 +289,11 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">신용평가등급</span>
+            <span class="filter-label w-130">신용평가등급</span>
             <select class="filter-select w-150"><option>신용평가등급 선택</option></select>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">키워드 검색</span>
+            <span class="filter-label w-130">키워드 검색</span>
             <select class="filter-select w-140"><option>사업자번호</option><option>업체명</option><option>대표자</option><option>담당자</option></select>
             <input type="text" class="filter-text-input w-380" placeholder="검색어를 입력하세요.">
           </div>
@@ -325,8 +325,8 @@
               <tr><th class="w-55">No</th><th class="w-70">처리상태</th><th class="w-100">사업자번호</th><th class="minw-170">업체명</th><th class="w-70">대표자</th><th class="w-70">담당자</th><th class="w-110">핸드폰번호</th><th class="minw-170">이메일</th><th class="w-90">신용평가등급</th><th class="w-80">사용 여부</th><th class="w-90">신청일</th><th class="w-90">승인일</th><th class="w-70">처리자</th></tr>
             </thead>
             <tbody>
-              <tr><td>1,542</td><td><span class="badge-success">승인</span></td><td>123-45-67891</td><td class="text-left"><a href="#" data-open-modal="pmDetailModal">삼전디에스</a></td><td>홍길동</td><td>한지훈</td><td>010-1234-5678</td><td>leehee43@naver.com</td><td>-</td><td><span class="badge-info">사용(Y)</span></td><td>2026.06.10</td><td>2026.06.10</td><td>홍길동</td></tr>
-              <tr><td>1,541</td><td><span class="badge-success">승인</span></td><td>123-45-67891</td><td class="text-left"><a href="#" data-open-modal="pmDetailModal">넷퍼시</a></td><td>홍길동</td><td>김미라</td><td>-</td><td>-</td><td>AAA</td><td><span class="badge-tag">중지(N)</span></td><td>2026.06.10</td><td>2026.06.10</td><td>홍길동</td></tr>
+              <tr><td>1,542</td><td><span class="badge-success">승인</span></td><td>123-45-67891</td><td class="text-left"><a href="#" onclick="window.location.href='SRMPartnerManageDetail.html'">삼전디에스</a></td><td>홍길동</td><td>한지훈</td><td>010-1234-5678</td><td>leehee43@naver.com</td><td>-</td><td><span class="badge-info">사용(Y)</span></td><td>2026.06.10</td><td>2026.06.10</td><td>홍길동</td></tr>
+              <tr><td>1,541</td><td><span class="badge-success">승인</span></td><td>123-45-67891</td><td class="text-left"><a href="#" onclick="window.location.href='SRMPartnerManageDetail.html'">넷퍼시</a></td><td>홍길동</td><td>김미라</td><td>-</td><td>-</td><td>AAA</td><td><span class="badge-tag">중지(N)</span></td><td>2026.06.10</td><td>2026.06.10</td><td>홍길동</td></tr>
             </tbody>
           </table>
         </div>
@@ -340,201 +340,24 @@
 
 
   <!-- 협력업체 상세정보 및 각종 처리 -->
-  <div class="modal-backdrop" id="pmDetailModal" role="dialog" aria-modal="true" aria-labelledby="pmDetailTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-header">
-        <h2 class="modal-title" id="pmDetailTitle">협력업체 상세정보</h2>
-        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div class="srm-section-heading"><div><h2>최종 처리 상태</h2></div></div>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>최종 처리 상태</dt><dd><span class="badge-success">승인</span> <span class="badge-tag">신청완료</span> <span class="badge-warning">정보수정 요청</span> <button type="button" class="btn-secondary" data-close-modal data-open-modal="pmStatusManageModal">처리상태 관리</button></dd></div>
-          <div class="srm-kv-row"><dt>신청일시</dt><dd>2026.06.10 15:56</dd></div>
-        </div>
 
-        <p class="modal-field-label content-inner-gap-top">처리 이력</p>
-        <div class="srm-table-wrap">
-          <table class="data-table" aria-label="처리 이력">
-            <thead><tr><th class="col-no">No</th><th>처리 구분</th><th>신청/처리 일시</th><th>처리자</th><th>처리내역(요약)</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>신청완료</td><td>2026.03.03 11:25</td><td>-</td><td>-</td></tr>
-              <tr><td>2</td><td>승인</td><td>2026.03.03 12:26</td><td>박승길</td><td class="text-left">모든 정보가 확인되어 승인되었습니다.</td></tr>
-              <tr><td>3</td><td>정보수정 요청</td><td>2026.03.16 11:25</td><td>-</td><td class="text-left">회사명이 변경되어 정보 변경을 원합니다.</td></tr>
-              <tr><td>4</td><td>승인</td><td>2026.03.16 12:40</td><td>박승길</td><td class="text-left">회사명이 확인되어 승인합니다.</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="srm-section-heading content-object-gap-top"><div><h2>협력업체 기본 정보</h2></div></div>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>사용 여부</dt><dd>사용(Y) | 중지(N)</dd></div>
-          <div class="srm-kv-row"><dt>사업자 번호</dt><dd>135-82-77202</dd></div>
-          <div class="srm-kv-row"><dt>회사명</dt><dd>(주)큐비트엑스</dd></div>
-          <div class="srm-kv-row"><dt>대표자명</dt><dd>이홍태, 윤지병</dd></div>
-          <div class="srm-kv-row"><dt>전화번호</dt><dd>02-833-1650</dd></div>
-          <div class="srm-kv-row"><dt>업종</dt><dd>IT인프라</dd></div>
-          <div class="srm-kv-row"><dt>업태</dt><dd>소프트웨어개발</dd></div>
-          <div class="srm-kv-row"><dt>주소</dt><dd>(12654) 경기도 고양시 일산서구 강선로 118 강선마을아파트 제208동 1202호</dd></div>
-        </div>
-        <div class="srm-detail-actions"><button type="button" class="btn-secondary" data-close-modal data-open-modal="pmEditModal">협력업체 정보 수정</button></div>
-
-        <p class="modal-field-label content-inner-gap-top">관련 증빙서류 제출</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>사업자등록증</dt><dd>이미 등록된 파일명.PDF</dd></div>
-          <div class="srm-kv-row"><dt>법인인감증명서</dt><dd>이미 등록된 파일명.PDF</dd></div>
-          <div class="srm-kv-row"><dt>면허 등</dt><dd>이미 등록된 파일명.PDF</dd></div>
-        </div>
-
-        <p class="modal-field-label content-inner-gap-top">신용평가등급 관련 정보</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>신용평가등급</dt><dd>BB0</dd></div>
-          <div class="srm-kv-row"><dt>신용평가등급 확인서</dt><dd>이미 등록된 파일명.PDF</dd></div>
-        </div>
-
-        <div class="srm-section-heading content-object-gap-top"><div><h2>담당자 정보</h2></div></div>
-        <div class="srm-table-wrap">
-          <table class="data-table" aria-label="담당자 정보">
-            <thead><tr><th class="col-no">No</th><th>담당자 구분</th><th>이름</th><th>직책</th><th>이메일</th><th>핸드폰번호</th><th>전화번호</th><th>담당업무</th><th class="w-160">관리</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>기본 담당자</td><td class="text-left">이희성</td><td>이사</td><td>leehee43@naver.com</td><td>010-6844-2810</td><td>02-6959-9856</td><td class="text-left">사내 입찰/계약 담당자</td><td>
-                <button type="button" class="btn-secondary" data-close-modal data-open-modal="pmPwSendConfirmModal">임시 비밀번호 발송</button>
-                <button type="button" class="btn-secondary" data-close-modal data-open-modal="pmManagerFormModal">수정</button>
-                <button type="button" class="btn-row-del">삭제</button>
-              </td></tr>
-              <tr><td>2</td><td>추가 담당자</td><td class="text-left">박일용</td><td>부장</td><td>-</td><td>-</td><td>-</td><td class="text-left">견적 등 업무 관련 담당자</td><td>
-                <button type="button" class="btn-secondary" data-close-modal data-open-modal="pmManagerFormModal">수정</button>
-                <button type="button" class="btn-row-del">삭제</button>
-              </td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="srm-detail-actions"><button type="button" class="btn-secondary" data-close-modal data-open-modal="pmManagerFormModal">담당자 정보 추가</button></div>
-
-        <div class="srm-section-heading content-object-gap-top"><div><h2>소싱 그룹 설정</h2></div></div>
-        <p class="modal-field-label">'기준 정보 관리 &gt; 소싱 그룹 관리'에 적용된 대/중/소 분류 매핑입니다.</p>
-        <div class="srm-table-wrap">
-          <table class="data-table" aria-label="소싱 그룹 설정">
-            <thead><tr><th class="col-no">No</th><th>대분류</th><th>중분류</th><th>소분류</th><th>등록자</th><th>등록일시</th><th class="w-60">삭제</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td class="text-left">전기</td><td class="text-left">자재</td><td class="text-left">전선/케이블</td><td>박승길</td><td>2026.08.04 15:25</td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-              <tr><td>2</td><td class="text-left">기계</td><td class="text-left">부품</td><td class="text-left">밸브/파이프</td><td>박승길</td><td>2026.05.23 09:35</td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="srm-detail-actions"><button type="button" class="btn-secondary" data-close-modal data-open-modal="pmSourcingAddModal">소싱 그룹 추가하기</button></div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">목록</button></div>
-    </div>
-  </div>
 
   <!-- 처리상태 관리 -->
-  <div class="modal-backdrop" id="pmStatusManageModal" role="dialog" aria-modal="true" aria-labelledby="pmStatusManageTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header"><h2 class="modal-title" id="pmStatusManageTitle">처리상태 관리</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <p class="modal-field-label">사용 여부가 중지(N)일 경우 협력업체는 승인되었더라도 로그인할 수 없습니다.</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>사용 여부</dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="pmUseYn2" checked>사용(Y)</label><label class="form-choice"><input type="radio" name="pmUseYn2">중지(N)</label></div></dd></div>
-          <div class="srm-kv-row"><dt>사업자 번호</dt><dd>135-82-77202</dd></div>
-          <div class="srm-kv-row"><dt>회사명</dt><dd>(주)큐비트엑스</dd></div>
-          <div class="srm-kv-row"><dt>대표자명</dt><dd>이홍태, 윤지병</dd></div>
-          <div class="srm-kv-row"><dt>처리상태 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="pmStatusPick" checked>승인</label><label class="form-choice"><input type="radio" name="pmStatusPick">신청완료</label><label class="form-choice"><input type="radio" name="pmStatusPick">정보수정 요청</label></div></dd></div>
-          <div class="srm-kv-row"><dt>처리내역(요약)</dt><dd><input type="text" class="form-control" placeholder="50자 이내로 간단한 메모를 입력해 주세요." maxlength="50"></dd></div>
-          <div class="srm-kv-row"><dt>처리자</dt><dd>박승길</dd></div>
-        </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-primary" data-close-modal data-open-modal="pmDetailModal">적용</button><button type="button" class="btn-secondary" data-close-modal data-open-modal="pmDetailModal">닫기</button></div>
-    </div>
-  </div>
+
 
   <!-- 담당자 정보 추가/수정 -->
-  <div class="modal-backdrop" id="pmManagerFormModal" role="dialog" aria-modal="true" aria-labelledby="pmManagerFormTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header"><h2 class="modal-title" id="pmManagerFormTitle">담당자 정보 수정</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>담당자 구분</dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="pmMgrKind" checked>기본 담당자</label><label class="form-choice"><input type="radio" name="pmMgrKind">추가 담당자</label></div></dd></div>
-          <div class="srm-kv-row"><dt>이름 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="이희성"></dd></div>
-          <div class="srm-kv-row"><dt>이메일 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="leehee43"> @ <input type="text" class="form-control" value="naver.com"></dd></div>
-          <div class="srm-kv-row"><dt>핸드폰번호 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control w-70" value="010"> - <input type="text" class="form-control w-70" value="6844"> - <input type="text" class="form-control w-70" value="2810"></dd></div>
-          <div class="srm-kv-row"><dt>직책 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="이사"></dd></div>
-          <div class="srm-kv-row"><dt>담당업무 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="사내 입찰/계약 담당자"></dd></div>
-          <div class="srm-kv-row"><dt>전화번호 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control w-70" value="02"> - <input type="text" class="form-control w-70" value="6959"> - <input type="text" class="form-control w-70" value="9856"></dd></div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-secondary" data-close-modal data-open-modal="pmDetailModal">취소</button>
-        <button type="button" class="btn-primary" data-close-modal data-open-modal="pmDetailModal">수정</button>
-      </div>
-    </div>
-  </div>
+
 
   <!-- 임시 비밀번호 발송 시 유의사항 -->
-  <div class="modal-backdrop" id="pmPwSendConfirmModal" role="alertdialog" aria-modal="true" aria-labelledby="pmPwSendConfirmTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header"><h2 class="modal-title" id="pmPwSendConfirmTitle">임시 비밀번호 발송 시 유의사항</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <div class="notice-box warning" role="alert">
-          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span>
-          <div class="notice-body"><p class="notice-lead">본 협력업체의 기본 담당자에게 임시 비밀번호가 발송됩니다. 기존의 비밀번호는 임시 비밀번호로 초기화됩니다.</p><p>진행하시겠습니까?</p></div>
-        </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-secondary" data-close-modal data-open-modal="pmDetailModal">닫기</button><button type="button" class="btn-critical-primary" data-close-modal data-open-modal="pmDetailModal">임시 비밀번호 발송</button></div>
-    </div>
-  </div>
+
 
   <!-- 협력업체 관리(수정) -->
-  <div class="modal-backdrop" id="pmEditModal" role="dialog" aria-modal="true" aria-labelledby="pmEditTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-header"><h2 class="modal-title" id="pmEditTitle">협력업체 관리(수정)</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <p class="modal-field-label">본의 아니게 협력업체의 정보를 수정해 줘야 할 때 사용합니다.</p>
-        <p class="modal-field-label">협력업체 기본 정보</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>사업자 번호 <span class="required" aria-hidden="true">*</span></dt><dd>135-82-77202 <span>※사업자 번호는 로그인 시 아이디로 사용됩니다.</span></dd></div>
-          <div class="srm-kv-row"><dt>회사명 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="(주)큐비트엑스"></dd></div>
-          <div class="srm-kv-row"><dt>대표자명 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="이홍태, 윤지병"></dd></div>
-          <div class="srm-kv-row"><dt>전화번호 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control w-80" value="02"> - <input type="text" class="form-control w-80" value="833"> - <input type="text" class="form-control w-80" value="1650"></dd></div>
-          <div class="srm-kv-row"><dt>업종 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="IT인프라"></dd></div>
-          <div class="srm-kv-row"><dt>업태 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="소프트웨어개발"></dd></div>
-          <div class="srm-kv-row"><dt>주소 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control w-100" placeholder="우편번호"> <button type="button" class="btn-secondary">주소 검색</button><br><input type="text" class="form-control content-inner-gap-top" value="(12654) 경기도 고양시 일산서구 강선로 118"><br><input type="text" class="form-control content-inner-gap-top" value="강선마을아파트 제208동 1202호"></dd></div>
-        </div>
-        <p class="modal-field-label content-inner-gap-top">관련 증빙서류 제출</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>사업자등록증 <span class="required" aria-hidden="true">*</span></dt><dd>이미 등록된 파일명.PDF <button type="button" class="btn-row-del">삭제</button><div class="form-lookup content-inner-gap-top"><input type="text" class="form-control" readonly placeholder="파일을 첨부해 주세요."><button type="button" class="btn-secondary">찾아보기</button></div><p class="modal-field-label content-inner-gap-top">※첨부파일은 PDF로 업로드해 주세요.</p></dd></div>
-          <div class="srm-kv-row"><dt>법인인감증명서 <span class="required" aria-hidden="true">*</span></dt><dd>이미 등록된 파일명.PDF <button type="button" class="btn-row-del">삭제</button><div class="form-lookup content-inner-gap-top"><input type="text" class="form-control" readonly placeholder="파일을 첨부해 주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
-          <div class="srm-kv-row"><dt>면허 등 <span class="required" aria-hidden="true">*</span></dt><dd>이미 등록된 파일명.PDF <button type="button" class="btn-row-del">삭제</button><div class="form-lookup content-inner-gap-top"><input type="text" class="form-control" readonly placeholder="파일을 첨부해 주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
-        </div>
-        <p class="modal-field-label content-inner-gap-top">신용평가등급 관련 정보</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>신용평가등급</dt><dd><select class="filter-select w-200"><option>신용평가등급을 선택해 주세요.</option></select></dd></div>
-          <div class="srm-kv-row"><dt>신용평가등급 확인서</dt><dd>이미 등록된 파일명.PDF <button type="button" class="btn-row-del">삭제</button><div class="form-lookup content-inner-gap-top"><input type="text" class="form-control" readonly placeholder="파일을 첨부해 주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-secondary" data-close-modal data-open-modal="pmDetailModal">취소</button>
-        <button type="button" class="btn-primary" data-close-modal data-open-modal="pmDetailModal">저장</button>
-      </div>
-    </div>
-  </div>
+
 
   <!-- 소싱 그룹 추가하기 -->
-  <div class="modal-backdrop" id="pmSourcingAddModal" role="dialog" aria-modal="true" aria-labelledby="pmSourcingAddTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header"><h2 class="modal-title" id="pmSourcingAddTitle">소싱 그룹 추가하기</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>대분류 <span class="required" aria-hidden="true">*</span></dt><dd><select class="filter-select w-280"><option>소싱 그룹 대분류 선택</option></select></dd></div>
-          <div class="srm-kv-row"><dt>중분류 <span class="required" aria-hidden="true">*</span></dt><dd><select class="filter-select w-280"><option>소싱 그룹 중분류 선택</option></select></dd></div>
-          <div class="srm-kv-row"><dt>소분류 <span class="required" aria-hidden="true">*</span></dt><dd><select class="filter-select w-280"><option>소싱 그룹 소분류 선택</option></select></dd></div>
-          <div class="srm-kv-row"><dt>처리자</dt><dd>박승길</dd></div>
-        </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-primary" data-close-modal data-open-modal="pmDetailModal">소싱 그룹 추가하기</button><button type="button" class="btn-secondary" data-close-modal data-open-modal="pmDetailModal">닫기</button></div>
-    </div>
-  </div>
+
 
   <script src="../../assets/scripts/dashboard.js"></script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMPartnerManage/pmStatusManageModal.html", "popups/SRMPartnerManage/pmManagerFormModal.html", "popups/SRMPartnerManage/pmPwSendConfirmModal.html", "popups/SRMPartnerManage/pmSourcingAddModal.html"]</script>
 </body>
 </html>

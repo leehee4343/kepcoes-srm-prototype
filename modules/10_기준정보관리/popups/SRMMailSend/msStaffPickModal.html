@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>직원(관리자) 선택</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<div class="modal-backdrop" id="msStaffPickModal" role="dialog" aria-modal="true" aria-labelledby="msStaffPickTitle" aria-hidden="false">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header"><h2 class="modal-title" id="msStaffPickTitle">직원(관리자) 선택</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
+      <div class="modal-body">
+        <div class="filter-row hstack gap-12">
+          <span class="filter-label w-80">조회기간(등록일)</span>
+          <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
+            <div class="quick-date-btns hstack gap-6">
+              <button type="button" class="btn-quick-date" data-range="1d">하루 전</button>
+              <button type="button" class="btn-quick-date" data-range="1w">1주일</button>
+              <button type="button" class="btn-quick-date active" data-range="1m">1개월</button>
+              <button type="button" class="btn-quick-date" data-range="3m">3개월</button>
+              <button type="button" class="btn-quick-date" data-range="6m">6개월</button>
+              <button type="button" class="btn-quick-date" data-range="1y">1년</button>
+            </div>
+        </div>
+        <div class="filter-row hstack gap-12">
+          <span class="filter-label w-80">사용여부</span>
+          <div class="form-choice-group" role="radiogroup">
+            <label class="form-choice"><input type="radio" name="msStaffUse" checked>전체</label>
+            <label class="form-choice"><input type="radio" name="msStaffUse">사용(Y)</label>
+            <label class="form-choice"><input type="radio" name="msStaffUse">중지(N)</label>
+          </div>
+        </div>
+        <div class="form-lookup content-inner-gap-top">
+          <select class="filter-select w-130"><option>검색 구분</option></select>
+          <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
+          <button type="button" class="btn-filter-search">검색</button>
+        </div>
+        <div class="table-scroll-wrapper content-inner-gap-top">
+          <table class="data-table" aria-label="직원(관리자) 목록">
+            <thead><tr><th class="w-40">선택</th><th>사원번호</th><th>아이디</th><th>사원명</th><th>부서</th><th>직급</th><th>이메일</th><th>사용여부</th><th>등록일</th></tr></thead>
+            <tbody>
+              <tr><td><input type="checkbox"></td><td>2110004</td><td>simon</td><td class="text-left">장시형</td><td class="text-left">기획지원팀</td><td>과장</td><td>simon@kepcoes.co.kr</td><td><span class="badge-success">사용(Y)</span></td><td>2026.06.09</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">취소</button><button type="button" class="btn-primary modal-close">선택 추가</button></div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

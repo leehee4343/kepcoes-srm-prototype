@@ -266,10 +266,11 @@
       </div>
 
 
+      <div class="board-view show" id="filerepoListView">
       <section class="filter-card">
         <form id="noticeSearchForm">
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">조회기간(등록일)</span>
+            <span class="filter-label w-130">조회기간(등록일)</span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
             <div class="quick-date-btns hstack gap-6">
               <button type="button" class="btn-quick-date" data-range="1d">하루 전</button>
@@ -281,11 +282,11 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">게시여부</span>
+            <span class="filter-label w-130">게시여부</span>
             <div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="filerepoTarget" checked>전체</label><label class="form-choice"><input type="radio" name="filerepoTarget">게시</label><label class="form-choice"><input type="radio" name="filerepoTarget">미게시</label></div>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">키워드 검색</span>
+            <span class="filter-label w-130">키워드 검색</span>
             <span class="description-marker-anchor"><span class="description-target-marker" aria-hidden="true">1</span><select class="filter-select w-130">
               <option value="all" selected>전체</option>
               <option value="title">제목</option>
@@ -311,35 +312,25 @@
               <option value="50">50개씩</option>
               <option value="100">100개씩</option>
             </select>
-            <button type="button" class="btn-action-new" data-open-modal="filerepoWriteModal">등록</button>
+            <button type="button" class="btn-action-new" data-open-modal="filerepoWriteView">등록</button>
           </div>
         </div>
         <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="목록" data-total-items="55" data-total-pages="6">
           <table class="data-table data-grid-table" aria-label="목록">
             <thead><tr><th class="w-55">No</th><th class="w-90"><span class="description-marker-anchor">게시대상<span class="description-target-marker" aria-hidden="true">2</span></span></th><th class="w-70"><span class="description-marker-anchor">우선노출<span class="description-target-marker" aria-hidden="true">3</span></span></th><th class="minw-250">제목</th><th class="w-140"><span class="description-marker-anchor">게시기간<span class="description-target-marker" aria-hidden="true">4</span></span></th><th class="w-80">작성자</th><th class="w-100">등록일</th><th class="w-70">게시여부</th><th class="w-70">조회수</th></tr></thead>
             <tbody>
-              <tr><td>55</td><td>전체</td><td>Y</td><td class="text-left"><a href="#" data-open-modal="filerepoDetailModal">'협력업체 선정 세부기준'이 개정되었습니다.</a></td><td>무관</td><td>이희성</td><td>2026.06.30</td><td><span class="badge-success">게시</span></td><td>10,235</td></tr>
-              <tr><td>54</td><td>직원 대상</td><td>Y</td><td class="text-left"><a href="#" data-open-modal="filerepoDetailModal">2026년 하반기 정기 점검 일정 안내</a></td><td>2026.07.01~2026.07.31</td><td>이희성</td><td>2026.06.20</td><td><span class="badge-tag">미게시</span></td><td>842</td></tr>
-              <tr><td>53</td><td>협력업체 대상</td><td>-</td><td class="text-left"><a href="#" data-open-modal="filerepoDetailModal">입찰 참여 서류 제출 방법 개선 안내</a></td><td>무관</td><td>이희성</td><td>2026.05.14</td><td><span class="badge-success">게시</span></td><td>3,201</td></tr>
+              <tr><td>55</td><td>전체</td><td>Y</td><td class="text-left"><a href="#" data-open-modal="filerepoDetailView">'협력업체 선정 세부기준'이 개정되었습니다.</a></td><td>무관</td><td>이희성</td><td>2026.06.30</td><td><span class="badge-success">게시</span></td><td>10,235</td></tr>
+              <tr><td>54</td><td>직원 대상</td><td>Y</td><td class="text-left"><a href="#" data-open-modal="filerepoDetailView">2026년 하반기 정기 점검 일정 안내</a></td><td>2026.07.01~2026.07.31</td><td>이희성</td><td>2026.06.20</td><td><span class="badge-tag">미게시</span></td><td>842</td></tr>
+              <tr><td>53</td><td>협력업체 대상</td><td>-</td><td class="text-left"><a href="#" data-open-modal="filerepoDetailView">입찰 참여 서류 제출 방법 개선 안내</a></td><td>무관</td><td>이희성</td><td>2026.05.14</td><td><span class="badge-success">게시</span></td><td>3,201</td></tr>
             </tbody>
           </table>
         </div>
         <div class="table-pagination-row"><nav class="pagination-controls" aria-label="표 페이지 이동"></nav></div>
       </div>
-
-    </main>
-  </div>
-
-  <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
-
-
-  <div class="modal-backdrop" id="filerepoDetailModal" role="dialog" aria-modal="true" aria-labelledby="filerepoDetailModalTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-header">
-        <h2 class="modal-title" id="filerepoDetailModalTitle">상세정보</h2>
-        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
       </div>
-      <div class="modal-body">
+
+      <section class="app-card board-view" id="filerepoDetailView">
+        <div class="srm-section-heading"><div><h2>상세정보</h2></div></div>
         <div class="srm-kv-grid">
           <div class="srm-kv-row"><dt>게시대상</dt><dd>전체</dd></div>
           <div class="srm-kv-row"><dt>우선노출</dt><dd>Y(우선노출)</dd></div>
@@ -355,18 +346,13 @@
           <div class="srm-file-item"><span>첫 번째로 첨부된 파일명.PDF</span><button type="button" class="btn-file-preview">바로보기</button><button type="button" class="btn-file-download">다운로드</button></div>
           <div class="srm-file-item"><span>두 번째로 첨부된 파일명.HWP</span><button type="button" class="btn-file-preview">바로보기</button><button type="button" class="btn-file-download">다운로드</button></div>
         </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">목록</button></div>
-    </div>
-  </div>
+        <div class="srm-detail-actions content-object-gap-top">
+          <button type="button" class="btn-secondary srm-list-button" data-open-modal="filerepoListView">목록</button>
+        </div>
+      </section>
 
-  <div class="modal-backdrop" id="filerepoWriteModal" role="dialog" aria-modal="true" aria-labelledby="filerepoWriteModalTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-header">
-        <h2 class="modal-title" id="filerepoWriteModalTitle">등록</h2>
-        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
-      </div>
-      <div class="modal-body">
+      <section class="app-card board-view" id="filerepoWriteView">
+        <div class="srm-section-heading"><div><h2>등록</h2></div></div>
         <div class="srm-kv-grid">
           <div class="srm-kv-row"><dt>게시대상 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="noticeTargetW">전체</label><label class="form-choice"><input type="radio" name="noticeTargetW">직원 대상</label><label class="form-choice"><input type="radio" name="noticeTargetW">협력업체 대상</label></div></dd></div>
           <div class="srm-kv-row"><dt>우선노출 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="priorityYn">Y(우선노출)</label><label class="form-choice"><input type="radio" name="priorityYn">N(우선노출 안 함)</label></div></dd></div>
@@ -377,49 +363,25 @@
           <div class="srm-kv-row"><dt>내용</dt><dd><textarea class="form-control" rows="6" placeholder="Editor"></textarea></dd></div>
           <div class="srm-kv-row"><dt>첨부파일</dt><dd><div class="srm-file-list"><div class="srm-file-item"><span>첫 번째로 첨부된 파일명.PDF</span><button type="button" class="btn-row-del">삭제</button></div><div class="srm-file-item"><span>두 번째로 첨부된 파일명.HWP</span><button type="button" class="btn-row-del">삭제</button></div></div></dd></div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-secondary modal-close">목록</button>
-        <button type="button" class="btn-primary modal-close">등록</button>
-        <button type="button" class="btn-primary modal-close">수정</button>
-      </div>
-    </div>
+        <div class="srm-detail-actions content-object-gap-top">
+          <button type="button" class="btn-secondary srm-list-button" data-open-modal="filerepoListView">목록</button>
+          <div class="hstack">
+            <button type="button" class="btn-primary" data-open-modal="filerepoListView">등록</button>
+            <button type="button" class="btn-primary" data-open-modal="filerepoListView">수정</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
   </div>
+
+  <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
   <button type="button" class="description-floating-button" data-description-guide-toggle="fileRepoDescriptionGuide" aria-controls="fileRepoDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
-  <div class="modal-backdrop description-guide-backdrop" id="fileRepoDescriptionGuide" role="dialog" aria-modal="false" aria-labelledby="fileRepoDescriptionGuideTitle" aria-hidden="true">
-    <div class="modal-dialog description-modal-dialog">
-      <div class="modal-header">
-        <h2 class="modal-title" id="fileRepoDescriptionGuideTitle">화면설계 Description</h2>
-        <button type="button" class="modal-close" aria-label="닫기">×</button>
-      </div>
-      <div class="modal-body description-modal-body">
-        <section class="description-source-section" aria-labelledby="fileRepoDescriptionGuideSection1">
-          <h3 id="fileRepoDescriptionGuideSection1">검색/조회</h3>
-          <div class="description-mapping-list">
-            <div class="description-mapping-item">
-              <span class="description-mapping-number" aria-hidden="true">1</span>
-              <pre class="description-source-text">검색 구분 : 전체, 제목, 제목+내용</pre>
-            </div>
-            <div class="description-mapping-item">
-              <span class="description-mapping-number" aria-hidden="true">2</span>
-              <pre class="description-source-text">게시대상(SRM에서만 사용)- 전체 게시 - 내부 직원 대상 게시- 외부 협력업체 대상 게시(협력업체에게도 해당 자료가 보임)</pre>
-            </div>
-            <div class="description-mapping-item">
-              <span class="description-mapping-number" aria-hidden="true">3</span>
-              <pre class="description-source-text">우선노출이 ‘Y’로 설정된 게시물이 가장 위에 올라옴</pre>
-            </div>
-            <div class="description-mapping-item">
-              <span class="description-mapping-number" aria-hidden="true">4</span>
-              <pre class="description-source-text">게시기간 : 무관(계속 게시됨)</pre>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-  </div>
+
 
   <script src="../../assets/scripts/dashboard.js"></script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMFileRepoManage/fileRepoDescriptionGuide.html"]</script>
 </body>
 </html>

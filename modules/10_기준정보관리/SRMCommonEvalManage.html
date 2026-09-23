@@ -269,7 +269,7 @@
       <p class="modal-field-label">심사/평가 항목 등록을 편하게 하기 위한 템플릿 관리 기능입니다.</p>
       <section class="filter-card">
         <div class="filter-row hstack gap-12">
-          <span class="filter-label w-80">사용여부</span>
+          <span class="filter-label w-100">사용여부</span>
           <div class="form-choice-group" role="radiogroup">
             <label class="form-choice"><input type="radio" name="ceUseYn" checked>전체</label>
             <label class="form-choice"><input type="radio" name="ceUseYn">사용(Y)</label>
@@ -277,7 +277,7 @@
           </div>
         </div>
         <div class="filter-row hstack gap-12">
-          <span class="filter-label w-80">키워드 검색</span>
+          <span class="filter-label w-100">키워드 검색</span>
           <select class="filter-select w-160"><option>공통 심사/평가 명칭</option><option>등록자</option></select>
           <input type="text" class="filter-text-input w-380" placeholder="검색어를 입력하세요.">
         </div>
@@ -296,7 +296,7 @@
               <option value="20">20개씩</option>
               <option value="30">30개씩</option>
             </select>
-            <button type="button" class="btn-action-new" data-open-modal="ceFormModal">공통 심사/평가 등록</button>
+            <button type="button" class="btn-action-new" onclick="window.location.href='SRMCommonEvalForm.html'">공통 심사/평가 등록</button>
           </div>
         </div>
         <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="공통 심사/평가 관리 목록" data-total-items="55" data-total-pages="6">
@@ -305,8 +305,8 @@
               <tr><th class="w-70">No</th><th class="minw-240">공통 심사/평가 명칭</th><th class="w-100">심사/평가 항목(수)</th><th class="w-80">사용여부</th><th class="w-90">등록일</th><th class="w-70">등록자</th><th class="w-60">수정</th><th class="w-60">삭제</th></tr>
             </thead>
             <tbody>
-              <tr><td>1,524</td><td class="text-left"><a href="#" data-open-modal="ceDetailModal">일반/공통(공사 사업 기준) 사업에 쓰이는 심사/평가</a></td><td>3개</td><td><span class="badge-info">사용(Y)</span></td><td>2026.06.09</td><td>이희성</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="ceFormModal">수정</button></td><td><button type="button" class="btn-delete" data-close-modal data-open-modal="ceDeleteConfirmModal">삭제</button></td></tr>
-              <tr><td>1,523</td><td class="text-left"><a href="#" data-open-modal="ceDetailModal">일반/공통(용역 사업 기준) 사업에 쓰이는 심사/평가</a></td><td>5개</td><td><span class="badge-tag">중지(N)</span></td><td>2026.05.20</td><td>이희성</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="ceFormModal">수정</button></td><td><button type="button" class="btn-delete" data-close-modal data-open-modal="ceDeleteConfirmModal">삭제</button></td></tr>
+              <tr><td>1,524</td><td class="text-left"><a href="#" onclick="window.location.href='SRMCommonEvalDetail.html'">일반/공통(공사 사업 기준) 사업에 쓰이는 심사/평가</a></td><td>3개</td><td><span class="badge-info">사용(Y)</span></td><td>2026.06.09</td><td>이희성</td><td><button type="button" class="btn-secondary" data-close-modal onclick="window.location.href='SRMCommonEvalForm.html'">수정</button></td><td><button type="button" class="btn-delete" data-close-modal data-open-modal="ceDeleteConfirmModal">삭제</button></td></tr>
+              <tr><td>1,523</td><td class="text-left"><a href="#" onclick="window.location.href='SRMCommonEvalDetail.html'">일반/공통(용역 사업 기준) 사업에 쓰이는 심사/평가</a></td><td>5개</td><td><span class="badge-tag">중지(N)</span></td><td>2026.05.20</td><td>이희성</td><td><button type="button" class="btn-secondary" data-close-modal onclick="window.location.href='SRMCommonEvalForm.html'">수정</button></td><td><button type="button" class="btn-delete" data-close-modal data-open-modal="ceDeleteConfirmModal">삭제</button></td></tr>
             </tbody>
           </table>
         </div>
@@ -320,93 +320,18 @@
 
 
   <!-- 공통 심사/평가 등록/수정 -->
-  <div class="modal-backdrop" id="ceFormModal" role="dialog" aria-modal="true" aria-labelledby="ceFormTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header"><h2 class="modal-title" id="ceFormTitle">공통 심사/평가 관리</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>공통 심사/평가 명칭 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" placeholder="20자 이내로 작성해 주세요." maxlength="20"></dd></div>
-          <div class="srm-kv-row"><dt>사용여부 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="ceUse" checked>사용(Y)</label><label class="form-choice"><input type="radio" name="ceUse">중지(N)</label></div></dd></div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-primary modal-close">등록</button>
-        <button type="button" class="btn-primary modal-close">저장</button>
-        <button type="button" class="btn-secondary modal-close">취소</button>
-      </div>
-    </div>
-  </div>
+
 
   <!-- 공통 심사/평가 삭제 확인 -->
-  <div class="modal-backdrop" id="ceDeleteConfirmModal" role="alertdialog" aria-modal="true" aria-labelledby="ceDeleteConfirmTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header"><h2 class="modal-title" id="ceDeleteConfirmTitle">공통 심사/평가 삭제 시 유의사항</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <div class="notice-box warning" role="alert">
-          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span>
-          <div class="notice-body"><p class="notice-lead">공통 심사/평가를 삭제하면, 매핑된 정보들이 훼손될 수 있습니다.</p><p>반드시 최고 관리자(시스템 운영자)만 사용해 주세요. 그래도 진행하시겠습니까?</p></div>
-        </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">취소</button><button type="button" class="btn-delete modal-close">삭제하기</button></div>
-    </div>
-  </div>
+
 
   <!-- 공통 심사/평가 상세 (심사/평가 항목 목록) -->
-  <div class="modal-backdrop" id="ceDetailModal" role="dialog" aria-modal="true" aria-labelledby="ceDetailTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-header">
-        <h2 class="modal-title" id="ceDetailTitle">공통 심사/평가 상세</h2>
-        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>공통 심사/평가 명칭</dt><dd>일반/공통(공사 사업 기준) 사업에 쓰이는 심사/평가</dd></div>
-          <div class="srm-kv-row"><dt>사용여부</dt><dd><span class="badge-info">사용(Y)</span></dd></div>
-          <div class="srm-kv-row"><dt>등록일</dt><dd>2026.06.09</dd></div>
-          <div class="srm-kv-row"><dt>등록자</dt><dd>이희성</dd></div>
-        </div>
-        <p class="modal-field-label content-inner-gap-top">등록된 심사/평가 항목 : 총 3건</p>
-        <div class="srm-table-wrap">
-          <table class="data-table" aria-label="심사/평가 항목">
-            <thead><tr><th class="col-no">No</th><th>심사/평가 구분</th><th>심사/평가 항목</th><th>배점</th><th>자가심사 여부</th><th class="w-70">순서</th><th class="w-60">수정</th><th class="w-60">삭제</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>계량(정량)</td><td class="text-left">신용평가등급</td><td class="col-num">10.00</td><td><span class="badge-info">필요</span></td><td>▼</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="ceItemModal">수정</button></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-              <tr><td>2</td><td>계량(정량)</td><td class="text-left">시공경험(일반공사)</td><td class="col-num">10.00</td><td><span class="badge-info">필요</span></td><td>▲ ▼</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="ceItemModal">수정</button></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-              <tr><td>3</td><td>비계량(정성)</td><td class="text-left">제안 평가</td><td class="col-num">60.00</td><td><span class="badge-tag">불필요</span></td><td>▲</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="ceItemModal">수정</button></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-            </tbody>
-            <tfoot><tr><td colspan="3">총 배점</td><td class="col-num">80.00</td><td colspan="4"></td></tr></tfoot>
-          </table>
-        </div>
-        <div class="srm-detail-actions">
-          <button type="button" class="btn-secondary">순서 적용</button>
-          <button type="button" class="btn-secondary" data-close-modal data-open-modal="ceItemModal">심사/평가 항목 추가</button>
-          <button type="button" class="btn-primary">저장</button>
-        </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">목록</button></div>
-    </div>
-  </div>
+
 
   <!-- 심사/평가 항목 관리 -->
-  <div class="modal-backdrop" id="ceItemModal" role="dialog" aria-modal="true" aria-labelledby="ceItemTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header"><h2 class="modal-title" id="ceItemTitle">심사/평가 항목 관리</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>심사/평가 구분 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="ceItemGubun" checked>계량(정량)</label><label class="form-choice"><input type="radio" name="ceItemGubun">비계량(정성)</label></div></dd></div>
-          <div class="srm-kv-row"><dt>심사/평가 항목 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control"></dd></div>
-          <div class="srm-kv-row"><dt>배점 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" placeholder="숫자로만 입력해 주세요.(소수점 가능)"></dd></div>
-          <div class="srm-kv-row"><dt>자가심사 여부 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="ceSelfEval" checked>불필요</label><label class="form-choice"><input type="radio" name="ceSelfEval">필요</label></div></dd></div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-primary" data-close-modal data-open-modal="ceDetailModal">심사/평가 항목 추가</button>
-        <button type="button" class="btn-primary" data-close-modal data-open-modal="ceDetailModal">수정</button>
-        <button type="button" class="btn-secondary" data-close-modal data-open-modal="ceDetailModal">취소</button>
-      </div>
-    </div>
-  </div>
+
 
   <script src="../../assets/scripts/dashboard.js"></script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMCommonEvalManage/ceDeleteConfirmModal.html", "popups/SRMCommonEvalManage/ceItemModal.html"]</script>
 </body>
 </html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>신청내역 확인 및 처리</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<div class="modal-backdrop" id="apDetailModal" role="dialog" aria-modal="true" aria-labelledby="apDetailTitle" aria-hidden="false">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <h2 class="modal-title" id="apDetailTitle">신청내역 확인 및 처리</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-field-label">기본 정보</p>
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>사업자 번호 <span class="required" aria-hidden="true">*</span></dt><dd>135-82-77202</dd></div>
+          <div class="srm-kv-row"><dt>회사명 <span class="required" aria-hidden="true">*</span></dt><dd>(주)큐비트엑스</dd></div>
+          <div class="srm-kv-row"><dt>대표자명 <span class="required" aria-hidden="true">*</span></dt><dd>이홍태, 윤지병</dd></div>
+          <div class="srm-kv-row"><dt>전화번호 <span class="required" aria-hidden="true">*</span></dt><dd>02-833-1650</dd></div>
+          <div class="srm-kv-row"><dt>업종 <span class="required" aria-hidden="true">*</span></dt><dd>IT인프라</dd></div>
+          <div class="srm-kv-row"><dt>업태 <span class="required" aria-hidden="true">*</span></dt><dd>소프트웨어개발</dd></div>
+          <div class="srm-kv-row"><dt>주소 <span class="required" aria-hidden="true">*</span></dt><dd>(12654) 경기도 고양시 일산서구 강선로 118 강선마을아파트 제208동 1202호</dd></div>
+        </div>
+        <p class="modal-field-label content-inner-gap-top">관련 증빙서류</p>
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>사업자등록증 <span class="required" aria-hidden="true">*</span></dt><dd>이미 등록된 파일명.PDF</dd></div>
+          <div class="srm-kv-row"><dt>법인인감증명서 <span class="required" aria-hidden="true">*</span></dt><dd>이미 등록된 파일명.PDF</dd></div>
+          <div class="srm-kv-row"><dt>면허 등 <span class="required" aria-hidden="true">*</span></dt><dd>이미 등록된 파일명.PDF</dd></div>
+        </div>
+        <p class="modal-field-label content-inner-gap-top">신용평가등급 관련 정보</p>
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>신용평가등급</dt><dd>BB0</dd></div>
+          <div class="srm-kv-row"><dt>신용평가등급 확인서</dt><dd>이미 등록된 파일명.PDF</dd></div>
+        </div>
+        <p class="modal-field-label content-inner-gap-top">담당자 정보</p>
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>이름 <span class="required" aria-hidden="true">*</span></dt><dd>이희성</dd></div>
+          <div class="srm-kv-row"><dt>이메일 <span class="required" aria-hidden="true">*</span></dt><dd>leehee43@naver.com</dd></div>
+          <div class="srm-kv-row"><dt>핸드폰번호 <span class="required" aria-hidden="true">*</span></dt><dd>010-6844-2810</dd></div>
+          <div class="srm-kv-row"><dt>직책 <span class="required" aria-hidden="true">*</span></dt><dd>부장</dd></div>
+          <div class="srm-kv-row"><dt>담당업무 <span class="required" aria-hidden="true">*</span></dt><dd>PM 및 기획</dd></div>
+          <div class="srm-kv-row"><dt>전화번호 <span class="required" aria-hidden="true">*</span></dt><dd>02-6959-9857</dd></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-critical-primary" data-close-modal data-open-modal="apApproveConfirmModal">승인 처리</button>
+        <button type="button" class="btn-delete" data-close-modal data-open-modal="apRejectConfirmModal">거절 처리</button>
+      </div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

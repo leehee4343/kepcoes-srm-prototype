@@ -302,93 +302,16 @@
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
   <!-- 시스템 권한 삭제 확인 모달 -->
-  <div class="modal-backdrop" id="sysPermDeleteModal" role="alertdialog" aria-modal="true" aria-labelledby="sysPermDeleteModalTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header">
-        <h2 class="modal-title" id="sysPermDeleteModalTitle">시스템 권한 삭제</h2>
-        <button type="button" class="modal-close" aria-label="닫기">×</button>
-      </div>
-      <div class="modal-body">
-        <div class="notice-box warning" role="alert">
-          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span>
-          <div class="notice-body">
-            <p class="notice-lead">현재 부여된 해당 관리자(직원)의 시스템 권한이 상실됩니다.</p>
-            <p>진행하시겠습니까?</p>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-secondary modal-close">취소</button>
-        <button type="button" class="btn-delete modal-close">삭제하기</button>
-      </div>
-    </div>
-  </div>
+
 
   <!-- 관리자(직원) 추가하기 모달 -->
-  <div class="modal-backdrop" id="sysPermAddModal" role="dialog" aria-modal="true" aria-labelledby="sysPermAddModalTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-header">
-        <h2 class="modal-title" id="sysPermAddModalTitle">관리자(직원) 추가하기</h2>
-        <button type="button" class="modal-close" aria-label="닫기">×</button>
-      </div>
-      <div class="modal-body">
-        <div class="form-lookup">
-          <select class="filter-select w-130">
-            <option value="all" selected>전체</option>
-            <option value="empno">사원번호</option>
-            <option value="id">아이디</option>
-            <option value="name">사원명</option>
-            <option value="dept">부서</option>
-            <option value="rank">직급</option>
-            <option value="email">이메일</option>
-          </select>
-          <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
-          <button type="button" class="btn-filter-search">검색</button>
-        </div>
-        <div class="table-scroll-wrapper">
-          <table class="data-table" aria-label="관리자(직원) 조회 목록">
-            <thead><tr><th class="w-40"><input type="checkbox" aria-label="전체 선택"></th><th>사원번호</th><th>아이디</th><th>사원명</th><th>부서</th><th>직급</th><th>이메일</th><th class="w-80">사용 여부</th></tr></thead>
-            <tbody>
-              <tr><td><input type="checkbox"></td><td>2108017</td><td>yjpark</td><td>박연주</td><td>구매물류팀</td><td>차장</td><td>yjpark@kepcoes.co.kr</td><td><span class="badge-success">사용(Y)</span></td></tr>
-              <tr><td><input type="checkbox"></td><td>2107009</td><td>dhkim</td><td>김동현</td><td>사업개발팀</td><td>사원</td><td>dhkim@kepcoes.co.kr</td><td><span class="badge-success">사용(Y)</span></td></tr>
-              <tr><td><input type="checkbox"></td><td>2105022</td><td>sjlee</td><td>이수진</td><td>재무회계팀</td><td>과장</td><td>sjlee@kepcoes.co.kr</td><td><span class="badge-success">사용(Y)</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-secondary modal-close">닫기</button>
-        <button type="button" class="btn-primary modal-close">관리자(직원) 추가하기</button>
-      </div>
-    </div>
-  </div>
+
 
   <button type="button" class="description-floating-button" data-description-guide-toggle="systemPermDescriptionGuide" aria-controls="systemPermDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
-  <div class="modal-backdrop description-guide-backdrop" id="systemPermDescriptionGuide" role="dialog" aria-modal="false" aria-labelledby="systemPermDescriptionGuideTitle" aria-hidden="true">
-    <div class="modal-dialog description-modal-dialog">
-      <div class="modal-header">
-        <h2 class="modal-title" id="systemPermDescriptionGuideTitle">화면설계 Description</h2>
-        <button type="button" class="modal-close" aria-label="닫기">×</button>
-      </div>
-      <div class="modal-body description-modal-body">
-        <section class="description-source-section" aria-labelledby="systemPermDescriptionGuideSection1">
-          <h3 id="systemPermDescriptionGuideSection1">시스템 권한 관리</h3>
-          <div class="description-mapping-list">
-            <div class="description-mapping-item">
-              <span class="description-mapping-number" aria-hidden="true">1</span>
-              <pre class="description-source-text">&#32;컨펌(Confirm) 박스 현재 부여된 해당 관리자(직원)의 시스템 권한이 상실됩니다. 진행하시겠습니까?</pre>
-            </div>
-            <div class="description-mapping-item">
-              <span class="description-mapping-number" aria-hidden="true">2</span>
-              <pre class="description-source-text">‘관리자(직원) 추가하기’ 팝업을 호출하여 처리함</pre>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-  </div>
+
 
   <script src="../../assets/scripts/dashboard.js"></script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMSystemPermManage/sysPermDeleteModal.html", "popups/SRMSystemPermManage/sysPermAddModal.html", "popups/SRMSystemPermManage/systemPermDescriptionGuide.html"]</script>
 </body>
 </html>

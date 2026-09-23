@@ -269,7 +269,7 @@
       <section class="filter-card">
         <form id="ipSearchForm">
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">조회기간(등록일)</span>
+            <span class="filter-label w-130">조회기간(등록일)</span>
             <div class="date-range-wrap hstack gap-6">
               <input type="date" class="filter-date-input" id="ipStartDate">
               <span>~</span>
@@ -286,7 +286,7 @@
           </div>
 
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">키워드 검색</span>
+            <span class="filter-label w-130">키워드 검색</span>
             <span class="description-marker-anchor"><span class="description-target-marker" aria-hidden="true">1</span><select class="filter-select w-150" id="selIpKeywordTarget">
               <option value="all" selected>전체</option>
               <option value="ip">아이피(IP)</option>
@@ -394,74 +394,16 @@
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
   <!-- 접속 아이피(IP) 추가하기 모달 -->
-  <div class="modal-backdrop" id="ipAddModal" role="dialog" aria-modal="true" aria-labelledby="ipAddModalTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header">
-        <h2 class="modal-title" id="ipAddModalTitle">접속 아이피(IP) 추가하기</h2>
-        <button type="button" class="modal-close" aria-label="닫기">×</button>
-      </div>
-      <div class="modal-body">
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>아이피(IP) <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" placeholder="예) 211.215.111.2"></dd></div>
-          <div class="srm-kv-row"><dt>아이피(IP) 추가 사유 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" placeholder="100자 이내로 간략히 작성해 주세요." maxlength="100"></dd></div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-secondary modal-close">취소</button>
-        <button type="button" class="btn-primary modal-close">접속 아이피(IP) 추가하기</button>
-      </div>
-    </div>
-  </div>
+
 
   <!-- 접속 아이피(IP) 삭제 확인 모달 -->
-  <div class="modal-backdrop" id="ipDeleteModal" role="alertdialog" aria-modal="true" aria-labelledby="ipDeleteModalTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header">
-        <h2 class="modal-title" id="ipDeleteModalTitle">접속 아이피(IP) 삭제</h2>
-        <button type="button" class="modal-close" aria-label="닫기">×</button>
-      </div>
-      <div class="modal-body">
-        <div class="notice-box warning" role="alert">
-          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span>
-          <div class="notice-body">
-            <p class="notice-lead">본 접속 아이피(IP)를 삭제하면, 본 시스템에 해당 아이피(IP)로 접근이 불가합니다.</p>
-            <p>삭제하시겠습니까?</p>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-secondary modal-close">취소</button>
-        <button type="button" class="btn-delete modal-close">삭제하기</button>
-      </div>
-    </div>
-  </div>
+
 
   <button type="button" class="description-floating-button" data-description-guide-toggle="ipDescriptionGuide" aria-controls="ipDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
-  <div class="modal-backdrop description-guide-backdrop" id="ipDescriptionGuide" role="dialog" aria-modal="false" aria-labelledby="ipDescriptionGuideTitle" aria-hidden="true">
-    <div class="modal-dialog description-modal-dialog">
-      <div class="modal-header">
-        <h2 class="modal-title" id="ipDescriptionGuideTitle">화면설계 Description</h2>
-        <button type="button" class="modal-close" aria-label="닫기">×</button>
-      </div>
-      <div class="modal-body description-modal-body">
-        <section class="description-source-section" aria-labelledby="ipDescriptionGuideSection1">
-          <h3 id="ipDescriptionGuideSection1">접속 아이피(IP) 관리</h3>
-          <div class="description-mapping-list">
-            <div class="description-mapping-item">
-              <span class="description-mapping-number" aria-hidden="true">1</span>
-              <pre class="description-source-text">검색 구분 : 전체, 아이피(IP), 아이피(IP) 추가 사유</pre>
-            </div>
-            <div class="description-mapping-item">
-              <span class="description-mapping-number" aria-hidden="true">2</span>
-              <pre class="description-source-text">컨펌(Confirm) 박스“본 접속 아이피(IP)를 삭제하면, 본 시스템에 해당 아이피(IP)로 접근이 불가합니다. 삭제하시겠습니까?”</pre>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-  </div>
+
 
   <script src="../../assets/scripts/dashboard.js"></script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMIpManage/ipAddModal.html", "popups/SRMIpManage/ipDeleteModal.html", "popups/SRMIpManage/ipDescriptionGuide.html"]</script>
 </body>
 </html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>예정가격 산출기초조서 등록 및 전자결재 요청</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<div class="modal-backdrop" id="modalCalcPrice" role="dialog" aria-modal="true" aria-labelledby="calcModalTitle" aria-hidden="false">
+    <div class="modal-dialog modal-xl">
+    <div class="modal-header">
+      <h2 class="modal-title" id="calcModalTitle">예정가격 산출기초조서 등록 및 전자결재 요청</h2>
+      <button type="button" class="modal-close" id="btnCloseCalcModal" aria-label="닫기">&times;</button>
+    </div>
+      <div class="modal-body">
+        <!-- 공고 요약 -->
+        <div class="calc-notice-bar">
+          <div><strong>공고 번호:</strong> BD2026-0023</div>
+          <div><strong>공고 구분:</strong> 본공고</div>
+          <div><strong>입찰 건명:</strong> 서초동 1601-9 오피스텔...</div>
+          <div><strong>계약방법:</strong> 경쟁입찰(일반)</div>
+          <div><strong>낙찰자 선정방법:</strong> 제한적 최저가 입찰</div>
+          <div><strong>담당자:</strong> 홍길동 / 임꺽정</div>
+        </div>
+
+        <!-- 항목 테이블 툴바 -->
+        <div class="calc-toolbar">
+          <h3 class="modal-section-title">산출기초조서 내역서</h3>
+          <button type="button" class="btn-add-calc-row" id="btnAddCalcRow">
+            <span>행 추가 +</span>
+          </button>
+        </div>
+
+        <table class="data-table" aria-label="예정가격 산출기초조서">
+        <thead>
+          <tr>
+            <th class="w-140">구분</th>
+            <th class="w-150">추정가액 (a)</th>
+            <th class="w-150">사정가액 (b)</th>
+            <th class="w-110">증감액 (c=b-a)</th>
+            <th>비고</th>
+            <th class="w-80">삭제</th>
+          </tr>
+        </thead>
+        <tbody id="tbodyCalcRows">
+          <tr>
+            <td>직접 재료비</td>
+            <td><input type="text" class="calc-num-input calc-est-val" value="31,619,400"></td>
+            <td><input type="text" class="calc-num-input calc-ass-val" value="31,619,400"></td>
+            <td><span class="diff-val">0원</span></td>
+            <td><input type="text" class="filter-input calc-memo-input" placeholder="20자 이내로 간략히 작성해주세요."></td>
+            <td><button type="button" class="btn-row-del">삭제</button></td>
+          </tr>
+          <tr>
+            <td>직접 노무비</td>
+            <td><input type="text" class="calc-num-input calc-est-val" value="50,137,750"></td>
+            <td><input type="text" class="calc-num-input calc-ass-val" value="50,137,750"></td>
+            <td><span class="diff-val">0원</span></td>
+            <td><input type="text" class="filter-input calc-memo-input" placeholder="20자 이내로 간략히 작성해주세요."></td>
+            <td><button type="button" class="btn-row-del">삭제</button></td>
+          </tr>
+          <tr>
+            <td>경비</td>
+            <td><input type="text" class="calc-num-input calc-est-val" value="4,342,850"></td>
+            <td><input type="text" class="calc-num-input calc-ass-val" value="4,342,850"></td>
+            <td><span class="diff-val">0원</span></td>
+            <td><input type="text" class="filter-input calc-memo-input" placeholder="20자 이내로 간략히 작성해주세요."></td>
+            <td><button type="button" class="btn-row-del">삭제</button></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr class="calc-summary-row">
+            <td>합계(공급가액) *</td>
+            <td id="calcSupplyEstimated" class="calc-num">86,100,000 원</td>
+            <td id="calcSupplyAssessed" class="calc-num">86,100,000 원</td>
+            <td>0원</td>
+            <td colspan="2"></td>
+          </tr>
+          <tr class="calc-summary-row">
+            <td>부가세 *</td>
+            <td id="calcVatEstimated" class="calc-num">8,610,000 원</td>
+            <td id="calcVatAssessed" class="calc-num">8,610,000 원</td>
+            <td>0원</td>
+            <td colspan="2"></td>
+          </tr>
+          <tr class="calc-summary-row total-row">
+            <td>총계 *</td>
+            <td id="calcTotalEstimated" class="calc-num">94,710,000 원</td>
+            <td id="calcTotalAssessed" class="calc-num">94,710,000 원</td>
+            <td>0원</td>
+            <td colspan="2"></td>
+          </tr>
+        </tfoot>
+      </table>
+
+        <div class="modal-field">
+          <label class="modal-field-label" for="calcMemo">비고</label>
+          <textarea id="calcMemo" class="filter-input modal-textarea" placeholder="특이사항 및 산출 참고 메모를 입력하세요."></textarea>
+        </div>
+
+        <div class="modal-field">
+          <span class="modal-field-label">첨부파일</span>
+          <div class="file-dropzone">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/></svg>
+            <p>여러 개 파일을 마우스로 끌어오거나, <span class="file-dropzone-link" role="button" tabindex="0">파일을 선택</span>해 주세요.</p>
+            <p class="file-dropzone-note">최대 2000MB 이하의 파일을 등록할 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-filter-reset" id="btnCancelCalc">취소</button>
+        <button type="button" class="btn-action-primary">저장</button>
+        <button type="button" class="btn-critical-primary" id="btnRequestApproval">전자결재 요청 →</button>
+      </div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

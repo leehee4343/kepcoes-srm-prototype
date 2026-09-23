@@ -330,78 +330,13 @@
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
   <!-- 관리자(직원) 추가하기 모달 -->
-  <div class="modal-backdrop" id="adminMappingAddModal" role="dialog" aria-modal="true" aria-labelledby="adminMappingAddModalTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-header">
-        <h2 class="modal-title" id="adminMappingAddModalTitle">관리자(직원) 추가하기</h2>
-        <button type="button" class="modal-close" aria-label="닫기">×</button>
-      </div>
-      <div class="modal-body">
-        <p class="modal-field-label">사용 여부가 '사용(Y)'인 관리자만 호출할 수 있습니다.</p>
-        <div class="form-lookup">
-          <span class="description-marker-anchor"><span class="description-target-marker" aria-hidden="true">1</span><select class="filter-select w-130">
-            <option value="all" selected>전체</option>
-            <option value="empno">사원번호</option>
-            <option value="id">아이디</option>
-            <option value="name">사원명</option>
-            <option value="dept">부서</option>
-            <option value="rank">직급</option>
-            <option value="email">이메일</option>
-          </select></span>
-          <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
-          <button type="button" class="btn-filter-search">검색</button>
-        </div>
-        <div class="table-scroll-wrapper">
-          <table class="data-table" aria-label="관리자(직원) 조회 목록">
-            <thead><tr><th class="w-40"><input type="checkbox" aria-label="전체 선택"></th><th>사원번호</th><th>아이디</th><th>사원명</th><th>부서</th><th>직급</th><th>이메일</th><th class="w-80">사용 여부</th></tr></thead>
-            <tbody>
-              <tr><td><input type="checkbox"></td><td>2110004</td><td>simon</td><td>장시형</td><td>기획지원팀</td><td>과장</td><td>simon@kepcoes.co.kr</td><td><span class="badge-success">사용(Y)</span></td></tr>
-              <tr><td><input type="checkbox"></td><td>2108017</td><td>yjpark</td><td>박연주</td><td>구매물류팀</td><td>차장</td><td>yjpark@kepcoes.co.kr</td><td><span class="badge-success">사용(Y)</span></td></tr>
-              <tr><td><input type="checkbox"></td><td>2107009</td><td>dhkim</td><td>김동현</td><td>사업개발팀</td><td>사원</td><td>dhkim@kepcoes.co.kr</td><td><span class="badge-success">사용(Y)</span></td></tr>
-              <tr><td><input type="checkbox"></td><td>2105022</td><td>sjlee</td><td>이수진</td><td>재무회계팀</td><td>과장</td><td>sjlee@kepcoes.co.kr</td><td><span class="badge-success">사용(Y)</span></td></tr>
-              <tr><td><input type="checkbox"></td><td>2104015</td><td>mjjung</td><td>정민준</td><td>기획지원팀</td><td>부장</td><td>mjjung@kepcoes.co.kr</td><td><span class="badge-success">사용(Y)</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-secondary modal-close">닫기</button>
-        <button type="button" class="btn-primary modal-close">관리자(직원) 추가하기</button>
-      </div>
-    </div>
-  </div>
+
 
   <button type="button" class="description-floating-button" data-description-guide-toggle="permGroupDetailDescriptionGuide" aria-controls="permGroupDetailDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
-  <div class="modal-backdrop description-guide-backdrop" id="permGroupDetailDescriptionGuide" role="dialog" aria-modal="false" aria-labelledby="permGroupDetailDescriptionGuideTitle" aria-hidden="true">
-    <div class="modal-dialog description-modal-dialog">
-      <div class="modal-header">
-        <h2 class="modal-title" id="permGroupDetailDescriptionGuideTitle">화면설계 Description</h2>
-        <button type="button" class="modal-close" aria-label="닫기">×</button>
-      </div>
-      <div class="modal-body description-modal-body">
-        <section class="description-source-section" aria-labelledby="permGroupDetailDescriptionGuideSection1">
-          <h3 id="permGroupDetailDescriptionGuideSection1">권한그룹 추가하기</h3>
-          <div class="description-mapping-list">
-            <div class="description-mapping-item">
-              <span class="description-mapping-number" aria-hidden="true">1</span>
-              <pre class="description-source-text">삭제 시 컨펌(Confirm) 박스“본 매핑 목록에서 삭제하면, 해당 권한을 잃게 됩니다. 본 권한그룹에서 해당 관리자(직원)를 삭제하시겠습니까?”</pre>
-            </div>
-          </div>
-        </section>
-        <section class="description-source-section" aria-labelledby="permGroupDetailDescriptionGuideSection2">
-          <h3 id="permGroupDetailDescriptionGuideSection2">관리자(직원) 추가하기</h3>
-          <div class="description-mapping-list">
-            <div class="description-mapping-item">
-              <span class="description-mapping-number" aria-hidden="true">1</span>
-              <pre class="description-source-text">검색 구분 : 전체, 사원번호, 아이디, 사원명, 부서, 직급, 이메일단, ‘사용 여부’가 ‘사용(Y)’인 관리자만 호출 가능</pre>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-  </div>
+
 
   <script src="../../assets/scripts/dashboard.js"></script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMPermGroupDetail/adminMappingAddModal.html", "popups/SRMPermGroupDetail/permGroupDetailDescriptionGuide.html"]</script>
 </body>
 </html>

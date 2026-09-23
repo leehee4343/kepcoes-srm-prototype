@@ -299,10 +299,11 @@
       </div>
 
 
+      <div class="board-view show" id="dashNoticeListView">
       <section class="filter-card">
         <form id="dashNoticeSearchForm">
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">조회기간(등록일)</span>
+            <span class="filter-label w-130">조회기간(등록일)</span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
             <div class="quick-date-btns hstack gap-6">
               <button type="button" class="btn-quick-date" data-range="1d">하루 전</button>
@@ -314,16 +315,16 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">게시대상</span>
+            <span class="filter-label w-130">게시대상</span>
             <div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="dashNoticeTarget" checked>전체</label><label class="form-choice"><input type="radio" name="dashNoticeTarget">내부</label><label class="form-choice"><input type="radio" name="dashNoticeTarget">외부</label></div>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">키워드 검색</span>
-            <select class="filter-select w-130">
+            <span class="filter-label w-130">키워드 검색</span>
+            <span class="description-marker-anchor"><span class="description-target-marker" aria-hidden="true">1</span><select class="filter-select w-130">
               <option value="all" selected>전체</option>
               <option value="title">제목</option>
               <option value="titlebody">제목+내용</option>
-            </select>
+            </select></span>
             <input type="text" class="filter-text-input w-380" placeholder="검색어를 입력하세요.">
           </div>
           <div class="filter-action-row">
@@ -348,32 +349,20 @@
         </div>
         <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="목록" data-total-items="55" data-total-pages="6">
           <table class="data-table data-grid-table" aria-label="목록">
-            <thead><tr><th class="w-55">No</th><th class="w-90">게시대상</th><th class="w-70">우선노출</th><th class="minw-250">제목</th><th class="w-140">게시기간</th><th class="w-80">작성자</th><th class="w-100">등록일</th><th class="w-70">게시여부</th><th class="w-70">조회수</th></tr></thead>
+            <thead><tr><th class="w-55">No</th><th class="w-90"><span class="description-marker-anchor">게시대상<span class="description-target-marker" aria-hidden="true">2</span></span></th><th class="w-70"><span class="description-marker-anchor">우선노출<span class="description-target-marker" aria-hidden="true">3</span></span></th><th class="minw-250">제목</th><th class="w-140"><span class="description-marker-anchor">게시기간<span class="description-target-marker" aria-hidden="true">4</span></span></th><th class="w-80">작성자</th><th class="w-100">등록일</th><th class="w-70">게시여부</th><th class="w-70">조회수</th></tr></thead>
             <tbody>
-              <tr><td>55</td><td>전체</td><td>Y</td><td class="text-left"><a href="#" data-open-modal="dashNoticeDetailModal">'협력업체 선정 세부기준'이 개정되었습니다.</a></td><td>무관</td><td>이희성</td><td>2026.06.30</td><td><span class="badge-success">게시</span></td><td>10,235</td></tr>
-              <tr><td>54</td><td>직원 대상</td><td>Y</td><td class="text-left"><a href="#" data-open-modal="dashNoticeDetailModal">2026년 하반기 정기 점검 일정 안내</a></td><td>2026.07.01~2026.07.31</td><td>이희성</td><td>2026.06.20</td><td><span class="badge-tag">미게시</span></td><td>842</td></tr>
-              <tr><td>53</td><td>협력업체 대상</td><td>-</td><td class="text-left"><a href="#" data-open-modal="dashNoticeDetailModal">입찰 참여 서류 제출 방법 개선 안내</a></td><td>무관</td><td>이희성</td><td>2026.05.14</td><td><span class="badge-success">게시</span></td><td>3,201</td></tr>
+              <tr><td>55</td><td>전체</td><td>Y</td><td class="text-left"><a href="#" data-open-modal="dashNoticeDetailView">'협력업체 선정 세부기준'이 개정되었습니다.</a></td><td>무관</td><td>이희성</td><td>2026.06.30</td><td><span class="badge-success">게시</span></td><td>10,235</td></tr>
+              <tr><td>54</td><td>직원 대상</td><td>Y</td><td class="text-left"><a href="#" data-open-modal="dashNoticeDetailView">2026년 하반기 정기 점검 일정 안내</a></td><td>2026.07.01~2026.07.31</td><td>이희성</td><td>2026.06.20</td><td><span class="badge-tag">미게시</span></td><td>842</td></tr>
+              <tr><td>53</td><td>협력업체 대상</td><td>-</td><td class="text-left"><a href="#" data-open-modal="dashNoticeDetailView">입찰 참여 서류 제출 방법 개선 안내</a></td><td>무관</td><td>이희성</td><td>2026.05.14</td><td><span class="badge-success">게시</span></td><td>3,201</td></tr>
             </tbody>
           </table>
         </div>
         <div class="table-pagination-row"><nav class="pagination-controls" aria-label="표 페이지 이동"></nav></div>
       </div>
-
-    </main>
-  </div>
-
-  <footer class="app-footer">
-    <div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div>
-  </footer>
-
-
-  <div class="modal-backdrop" id="dashNoticeDetailModal" role="dialog" aria-modal="true" aria-labelledby="dashNoticeDetailModalTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-header">
-        <h2 class="modal-title" id="dashNoticeDetailModalTitle">상세정보</h2>
-        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
       </div>
-      <div class="modal-body">
+
+      <section class="app-card board-view" id="dashNoticeDetailView">
+        <div class="srm-section-heading"><div><h2>상세정보</h2></div></div>
         <div class="srm-kv-grid">
           <div class="srm-kv-row"><dt>게시대상</dt><dd>전체</dd></div>
           <div class="srm-kv-row"><dt>우선노출</dt><dd>Y(우선노출)</dd></div>
@@ -389,11 +378,24 @@
           <div class="srm-file-item"><span>첫 번째로 첨부된 파일명.PDF</span><button type="button" class="btn-file-preview">바로보기</button><button type="button" class="btn-file-download">다운로드</button></div>
           <div class="srm-file-item"><span>두 번째로 첨부된 파일명.HWP</span><button type="button" class="btn-file-preview">바로보기</button><button type="button" class="btn-file-download">다운로드</button></div>
         </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">목록</button></div>
-    </div>
+        <div class="srm-detail-actions content-object-gap-top">
+          <button type="button" class="btn-secondary srm-list-button" data-open-modal="dashNoticeListView">목록</button>
+        </div>
+      </section>
+
+    </main>
   </div>
 
+  <footer class="app-footer">
+    <div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div>
+  </footer>
+
+  <!-- 화면설계 Description 개발자 가이드 (DESIGN_GUIDE 5.15) -->
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
+
+
+
   <script src="../../assets/scripts/dashboard.js"></script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMDashNotice/screenDescriptionGuide.html"]</script>
 </body>
 </html>

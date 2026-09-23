@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>관리자(직원) 추가하기</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<div class="modal-backdrop" id="sysPermAddModal" role="dialog" aria-modal="true" aria-labelledby="sysPermAddModalTitle" aria-hidden="false">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <h2 class="modal-title" id="sysPermAddModalTitle">관리자(직원) 추가하기</h2>
+        <button type="button" class="modal-close" aria-label="닫기">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-lookup">
+          <select class="filter-select w-130">
+            <option value="all" selected>전체</option>
+            <option value="empno">사원번호</option>
+            <option value="id">아이디</option>
+            <option value="name">사원명</option>
+            <option value="dept">부서</option>
+            <option value="rank">직급</option>
+            <option value="email">이메일</option>
+          </select>
+          <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
+          <button type="button" class="btn-filter-search">검색</button>
+        </div>
+        <div class="table-scroll-wrapper">
+          <table class="data-table" aria-label="관리자(직원) 조회 목록">
+            <thead><tr><th class="w-40"><input type="checkbox" aria-label="전체 선택"></th><th>사원번호</th><th>아이디</th><th>사원명</th><th>부서</th><th>직급</th><th>이메일</th><th class="w-80">사용 여부</th></tr></thead>
+            <tbody>
+              <tr><td><input type="checkbox"></td><td>2108017</td><td>yjpark</td><td>박연주</td><td>구매물류팀</td><td>차장</td><td>yjpark@kepcoes.co.kr</td><td><span class="badge-success">사용(Y)</span></td></tr>
+              <tr><td><input type="checkbox"></td><td>2107009</td><td>dhkim</td><td>김동현</td><td>사업개발팀</td><td>사원</td><td>dhkim@kepcoes.co.kr</td><td><span class="badge-success">사용(Y)</span></td></tr>
+              <tr><td><input type="checkbox"></td><td>2105022</td><td>sjlee</td><td>이수진</td><td>재무회계팀</td><td>과장</td><td>sjlee@kepcoes.co.kr</td><td><span class="badge-success">사용(Y)</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary modal-close">닫기</button>
+        <button type="button" class="btn-primary modal-close">관리자(직원) 추가하기</button>
+      </div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

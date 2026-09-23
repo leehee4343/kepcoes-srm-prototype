@@ -269,7 +269,7 @@
       <section class="filter-card">
         <form id="clientSearchForm">
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">조회기간(등록일)</span>
+            <span class="filter-label w-130">조회기간(등록일)</span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
             <div class="quick-date-btns hstack gap-6">
               <button type="button" class="btn-quick-date" data-range="1d">하루 전</button>
@@ -281,7 +281,7 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">휴/폐업 구분</span>
+            <span class="filter-label w-130">휴/폐업 구분</span>
             <div class="form-choice-group" role="radiogroup">
               <label class="form-choice"><input type="radio" name="clientStatus" checked>전체</label>
               <label class="form-choice"><input type="radio" name="clientStatus">정상</label>
@@ -290,7 +290,7 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">키워드 검색</span>
+            <span class="filter-label w-130">키워드 검색</span>
             <span class="description-marker-anchor"><span class="description-target-marker" aria-hidden="true">1</span><select class="filter-select w-150" id="selClientKeywordTarget">
               <option value="all" selected>전체</option>
               <option value="code">거래처 코드</option>
@@ -326,9 +326,9 @@
               <tr><th class="w-55">No</th><th class="w-90">거래처 코드</th><th class="minw-170">거래처명</th><th class="w-125">사업자등록번호</th><th class="w-100">대표자명</th><th class="minw-200">거래 담당자</th><th class="w-90">휴/폐업 구분</th><th class="w-100">등록일</th><th class="w-80">등록자</th><th class="w-140">최종수정</th></tr>
             </thead>
             <tbody>
-              <tr><td>55</td><td>02663</td><td class="text-left"><a href="#" data-open-modal="clientDetailModal">큐비트엑스</a></td><td>349-83-01795</td><td>이홍태, 윤지병</td><td class="text-left">이희성 (leehee43@naver.com, 010-6844-2810)</td><td><span class="badge-success">정상</span></td><td>2026.06.09</td><td>이희성</td><td>2026.06.10(이희성)</td></tr>
-              <tr><td>54</td><td>02701</td><td class="text-left"><a href="#" data-open-modal="clientDetailModal">대성이앤씨(주)</a></td><td>218-81-11234</td><td>박대성</td><td class="text-left">이희성 (leehee43@naver.com, 010-6844-2810)</td><td><span class="badge-success">정상</span></td><td>2026.06.02</td><td>이희성</td><td>-</td></tr>
-              <tr><td>53</td><td>02580</td><td class="text-left"><a href="#" data-open-modal="clientDetailModal">그린솔루션(주)</a></td><td>135-86-22345</td><td>김그린</td><td class="text-left">이희성 (leehee43@naver.com, 010-6844-2810)</td><td><span class="badge-tag">휴업</span></td><td>2026.05.20</td><td>이희성</td><td>2026.05.22(이희성)</td></tr>
+              <tr><td>55</td><td>02663</td><td class="text-left"><a href="#" onclick="window.location.href='SRMClientDetail.html'">큐비트엑스</a></td><td>349-83-01795</td><td>이홍태, 윤지병</td><td class="text-left">이희성 (leehee43@naver.com, 010-6844-2810)</td><td><span class="badge-success">정상</span></td><td>2026.06.09</td><td>이희성</td><td>2026.06.10(이희성)</td></tr>
+              <tr><td>54</td><td>02701</td><td class="text-left"><a href="#" onclick="window.location.href='SRMClientDetail.html'">대성이앤씨(주)</a></td><td>218-81-11234</td><td>박대성</td><td class="text-left">이희성 (leehee43@naver.com, 010-6844-2810)</td><td><span class="badge-success">정상</span></td><td>2026.06.02</td><td>이희성</td><td>-</td></tr>
+              <tr><td>53</td><td>02580</td><td class="text-left"><a href="#" onclick="window.location.href='SRMClientDetail.html'">그린솔루션(주)</a></td><td>135-86-22345</td><td>김그린</td><td class="text-left">이희성 (leehee43@naver.com, 010-6844-2810)</td><td><span class="badge-tag">휴업</span></td><td>2026.05.20</td><td>이희성</td><td>2026.05.22(이희성)</td></tr>
             </tbody>
           </table>
         </div>
@@ -343,54 +343,13 @@
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
 
-  <div class="modal-backdrop" id="clientDetailModal" role="dialog" aria-modal="true" aria-labelledby="clientDetailModalTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-header">
-        <h2 class="modal-title" id="clientDetailModalTitle">거래처 상세정보</h2>
-        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
-      </div>
-      <div class="modal-body">
-        <p class="modal-field-label">※ 거래처 기본정보는 ERP에서 관리됩니다.</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>거래처 코드</dt><dd>02663</dd></div>
-          <div class="srm-kv-row"><dt>거래처명</dt><dd>큐비트엑스</dd></div>
-          <div class="srm-kv-row"><dt>사업자등록번호</dt><dd>349-83-01795</dd></div>
-          <div class="srm-kv-row"><dt>대표자명</dt><dd>이홍태, 윤지병</dd></div>
-          <div class="srm-kv-row"><dt>주소</dt><dd>서울특별시 송파구 중대로 113(대한전기협회 9층)</dd></div>
-          <div class="srm-kv-row"><dt>거래 담당자</dt><dd>이희성 (leehee43@naver.com, 010-6844-2810)</dd></div>
-          <div class="srm-kv-row"><dt>휴/폐업 구분</dt><dd>정상</dd></div>
-        </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">목록</button></div>
-    </div>
-  </div>
+
 
   <button type="button" class="description-floating-button" data-description-guide-toggle="clientDescriptionGuide" aria-controls="clientDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
-  <div class="modal-backdrop description-guide-backdrop" id="clientDescriptionGuide" role="dialog" aria-modal="false" aria-labelledby="clientDescriptionGuideTitle" aria-hidden="true">
-    <div class="modal-dialog description-modal-dialog">
-      <div class="modal-header">
-        <h2 class="modal-title" id="clientDescriptionGuideTitle">화면설계 Description</h2>
-        <button type="button" class="modal-close" aria-label="닫기">×</button>
-      </div>
-      <div class="modal-body description-modal-body">
-        <section class="description-source-section" aria-labelledby="clientDescriptionGuideSection1">
-          <h3 id="clientDescriptionGuideSection1">검색/조회</h3>
-          <div class="description-mapping-list">
-            <div class="description-mapping-item">
-              <span class="description-mapping-number" aria-hidden="true">1</span>
-              <pre class="description-source-text">거래처 코드, 거래처명, 사업자등록번호, 대표자명ERP의 거래처 정보 연동</pre>
-            </div>
-          </div>
-        </section>
-        <section class="description-source-section" aria-labelledby="clientDescriptionGuideSection2">
-          <h3 id="clientDescriptionGuideSection2">상세정보</h3>
-          <pre class="description-source-text">신용등급 : AAA, AA+, AA, AA-, A+, A, A-, BBB+, BBB, BBB-, BB+, BB, BB-, B+, B, B-, CCC, CC</pre>
-        </section>
-      </div>
-    </div>
-  </div>
+
 
   <script src="../../assets/scripts/dashboard.js"></script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMClientManage/clientDescriptionGuide.html"]</script>
 </body>
 </html>

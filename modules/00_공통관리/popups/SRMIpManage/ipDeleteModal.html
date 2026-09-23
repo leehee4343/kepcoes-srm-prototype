@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>접속 아이피(IP) 삭제</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<div class="modal-backdrop" id="ipDeleteModal" role="alertdialog" aria-modal="true" aria-labelledby="ipDeleteModalTitle" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2 class="modal-title" id="ipDeleteModalTitle">접속 아이피(IP) 삭제</h2>
+        <button type="button" class="modal-close" aria-label="닫기">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="notice-box warning" role="alert">
+          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span>
+          <div class="notice-body">
+            <p class="notice-lead">본 접속 아이피(IP)를 삭제하면, 본 시스템에 해당 아이피(IP)로 접근이 불가합니다.</p>
+            <p>삭제하시겠습니까?</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary modal-close">취소</button>
+        <button type="button" class="btn-delete modal-close">삭제하기</button>
+      </div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

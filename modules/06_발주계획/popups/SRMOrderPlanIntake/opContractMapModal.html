@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>계약담당자 매핑</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<div class="modal-backdrop" id="opContractMapModal" role="dialog" aria-modal="true" aria-labelledby="opContractMapTitle" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-header"><h2 class="modal-title" id="opContractMapTitle">계약담당자 매핑</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
+      <div class="modal-body">
+        <div class="form-lookup">
+          <select class="filter-select w-130"><option>검색 구분</option></select>
+          <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
+          <button type="button" class="btn-filter-search">검색</button>
+        </div>
+        <div class="table-scroll-wrapper content-inner-gap-top">
+          <table class="data-table" aria-label="담당자 목록">
+            <thead><tr><th>사원번호</th><th>아이디</th><th>사원명</th><th>부서</th><th>직급</th><th>이메일</th><th class="w-70">선택</th></tr></thead>
+            <tbody>
+              <tr><td>2110004</td><td>simon</td><td class="text-left">홍길동</td><td class="text-left">기획지원팀</td><td>과장</td><td>simon@kepcoes.co.kr</td><td><button type="button" class="btn-secondary modal-close">매핑</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">계약담당자 매핑</button></div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

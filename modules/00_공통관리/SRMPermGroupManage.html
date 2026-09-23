@@ -269,7 +269,7 @@
       <section class="filter-card">
         <form id="permGroupSearchForm">
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">조회기간(등록일)</span>
+            <span class="filter-label w-130">조회기간(등록일)</span>
             <div class="date-range-wrap hstack gap-6">
               <input type="date" class="filter-date-input" id="permStartDate">
               <span>~</span>
@@ -286,7 +286,7 @@
           </div>
 
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">키워드 검색</span>
+            <span class="filter-label w-130">키워드 검색</span>
             <span class="description-marker-anchor"><span class="description-target-marker" aria-hidden="true">1</span><select class="filter-select w-130" id="selPermKeywordTarget">
               <option value="all" selected>전체</option>
               <option value="name">권한그룹명</option>
@@ -412,54 +412,13 @@
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
   <!-- 권한그룹 삭제 유의사항(확인) 모달 -->
-  <div class="modal-backdrop" id="permGroupDeleteModal" role="alertdialog" aria-modal="true" aria-labelledby="permGroupDeleteModalTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header">
-        <h2 class="modal-title" id="permGroupDeleteModalTitle">권한그룹 삭제 유의사항</h2>
-        <button type="button" class="modal-close" aria-label="닫기">×</button>
-      </div>
-      <div class="modal-body">
-        <div class="notice-box warning" role="alert">
-          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span>
-          <div class="notice-body">
-            <p class="notice-lead">권한그룹을 삭제하면, 해당 권한그룹에 매핑된 직원들의 권한이 모두 해제됩니다.</p>
-            <p>반드시 최고관리자(시스템 운영자)만 사용하세요. 그래도 진행하시겠습니까?</p>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-secondary modal-close">취소</button>
-        <button type="button" class="btn-delete modal-close">삭제하기</button>
-      </div>
-    </div>
-  </div>
+
 
   <button type="button" class="description-floating-button" data-description-guide-toggle="permGroupDescriptionGuide" aria-controls="permGroupDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
-  <div class="modal-backdrop description-guide-backdrop" id="permGroupDescriptionGuide" role="dialog" aria-modal="false" aria-labelledby="permGroupDescriptionGuideTitle" aria-hidden="true">
-    <div class="modal-dialog description-modal-dialog">
-      <div class="modal-header">
-        <h2 class="modal-title" id="permGroupDescriptionGuideTitle">화면설계 Description</h2>
-        <button type="button" class="modal-close" aria-label="닫기">×</button>
-      </div>
-      <div class="modal-body description-modal-body">
-        <section class="description-source-section" aria-labelledby="permGroupDescriptionGuideSection1">
-          <h3 id="permGroupDescriptionGuideSection1">검색/조회</h3>
-          <div class="description-mapping-list">
-            <div class="description-mapping-item">
-              <span class="description-mapping-number" aria-hidden="true">1</span>
-              <pre class="description-source-text">검색 구분 : 전체, 권한그룹명, 권한그룹 설명</pre>
-            </div>
-            <div class="description-mapping-item">
-              <span class="description-mapping-number" aria-hidden="true">2</span>
-              <pre class="description-source-text">권한에 매핑된 직원의 숫자 표시</pre>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-  </div>
+
 
   <script src="../../assets/scripts/dashboard.js"></script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMPermGroupManage/permGroupDeleteModal.html", "popups/SRMPermGroupManage/permGroupDescriptionGuide.html"]</script>
 </body>
 </html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>소싱 그룹 추가하기</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<div class="modal-backdrop" id="pmSourcingAddModal" role="dialog" aria-modal="true" aria-labelledby="pmSourcingAddTitle" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-header"><h2 class="modal-title" id="pmSourcingAddTitle">소싱 그룹 추가하기</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
+      <div class="modal-body">
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>대분류 <span class="required" aria-hidden="true">*</span></dt><dd><select class="filter-select w-280"><option>소싱 그룹 대분류 선택</option></select></dd></div>
+          <div class="srm-kv-row"><dt>중분류 <span class="required" aria-hidden="true">*</span></dt><dd><select class="filter-select w-280"><option>소싱 그룹 중분류 선택</option></select></dd></div>
+          <div class="srm-kv-row"><dt>소분류 <span class="required" aria-hidden="true">*</span></dt><dd><select class="filter-select w-280"><option>소싱 그룹 소분류 선택</option></select></dd></div>
+          <div class="srm-kv-row"><dt>처리자</dt><dd>박승길</dd></div>
+        </div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn-primary" data-close-modal data-open-modal="pmDetailModal">소싱 그룹 추가하기</button><button type="button" class="btn-secondary" data-close-modal data-open-modal="pmDetailModal">닫기</button></div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

@@ -37,7 +37,7 @@
   <div class="app-container">
     <aside class="sidebar" id="sidebar">
       <nav class="sidebar-nav">
-        <div class="nav-item">
+        <div class="nav-item active open">
           <a href="#" class="nav-link">
             <span class="nav-icon"></span>
             <span class="nav-text">협력업체 전용 창구</span>
@@ -91,7 +91,9 @@
       </div>
 
 
-      <section class="filter-card">
+      <div class="board-view show" id="partnerQnaListView">
+      <section class="filter-card description-marker-container">
+        <span class="description-target-marker marker-top-left" aria-hidden="true">1</span>
         <form id="partnerQnaSearchForm">
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-80">조회기간(등록일)</span>
@@ -115,12 +117,12 @@
           </div>
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-80">키워드 검색</span>
-            <select class="filter-select w-130">
+            <span class="description-marker-anchor"><span class="description-target-marker" aria-hidden="true">2</span><select class="filter-select w-130">
               <option value="title" selected>제목</option>
               <option value="body">내용</option>
               <option value="titlebody">제목+내용</option>
               <option value="answer">답변</option>
-            </select>
+            </select></span>
             <input type="text" class="filter-text-input w-380" placeholder="검색어를 입력하세요.">
           </div>
           <div class="filter-action-row">
@@ -141,36 +143,24 @@
               <option value="50">50개씩</option>
               <option value="100">100개씩</option>
             </select>
-            <button type="button" class="btn-action-new" data-open-modal="partnerQnaWriteModal">등록</button>
+            <button type="button" class="btn-action-new" data-open-modal="partnerQnaWriteView">등록</button>
           </div>
         </div>
         <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="질문과 답변 목록" data-total-items="55" data-total-pages="6">
           <table class="data-table data-grid-table" aria-label="질문과 답변 목록">
             <thead><tr><th class="w-55">No</th><th class="minw-300">제목</th><th class="w-110">작성업체</th><th class="w-100">등록일</th><th class="w-80">상태</th><th class="w-80">답변자</th><th class="w-100">답변일</th></tr></thead>
             <tbody>
-              <tr><td>55</td><td class="text-left"><a href="#" data-open-modal="partnerQnaDetailAnsweredModal">협력업체 선정 후 회사의 기본정보를 수정하고 싶어요~</a></td><td>(주)큐비트엑스</td><td>2026.06.30</td><td><span class="badge-tag">답변요청</span></td><td>-</td><td>-</td></tr>
-              <tr><td>54</td><td class="text-left"><a href="#" data-open-modal="partnerQnaDetailAnsweredModal">입찰 참여 서류 제출 방법이 궁금합니다.</a></td><td>(주)큐비트엑스</td><td>2026.06.20</td><td><span class="badge-success">답변완료</span></td><td>홍길동</td><td>2026.07.02</td></tr>
+              <tr><td>55</td><td class="text-left"><a href="#" data-open-modal="partnerQnaDetailView">협력업체 선정 후 회사의 기본정보를 수정하고 싶어요~</a></td><td>(주)큐비트엑스</td><td>2026.06.30</td><td><span class="badge-tag">답변요청</span></td><td>-</td><td>-</td></tr>
+              <tr><td>54</td><td class="text-left"><a href="#" data-open-modal="partnerQnaDetailView">입찰 참여 서류 제출 방법이 궁금합니다.</a></td><td>(주)큐비트엑스</td><td>2026.06.20</td><td><span class="badge-success">답변완료</span></td><td>홍길동</td><td>2026.07.02</td></tr>
             </tbody>
           </table>
         </div>
         <div class="table-pagination-row"><nav class="pagination-controls" aria-label="표 페이지 이동"></nav></div>
       </div>
-
-    </main>
-  </div>
-
-  <footer class="app-footer">
-    <div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div>
-  </footer>
-
-
-  <div class="modal-backdrop" id="partnerQnaDetailAnsweredModal" role="dialog" aria-modal="true" aria-labelledby="partnerQnaDetailAnsweredTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-header">
-        <h2 class="modal-title" id="partnerQnaDetailAnsweredTitle">질문 내용</h2>
-        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
       </div>
-      <div class="modal-body">
+
+      <section class="app-card board-view" id="partnerQnaDetailView">
+        <div class="srm-section-heading"><div><h2>질문 내용</h2></div></div>
         <div class="notice-box info" role="note">
           <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8h.01"/></svg></span>
           <div class="notice-body"><p>답변이 등록된 경우 질문을 수정하거나 삭제할 수 없습니다.</p></div>
@@ -187,7 +177,7 @@
           <div class="srm-file-item"><span>두 번째로 첨부된 파일명.HWP</span><button type="button" class="btn-file-preview">바로보기</button><button type="button" class="btn-file-download">다운로드</button></div>
         </div>
 
-        <div class="srm-section-heading content-object-gap-top"><div><h2>답변 내용</h2></div></div>
+        <div class="srm-section-heading content-object-gap-top description-marker-container"><span class="description-target-marker marker-top-left" aria-hidden="true">2</span><div><h2>답변 내용</h2></div></div>
         <div class="srm-kv-grid">
           <div class="srm-kv-row"><dt>답변자</dt><dd>홍길동</dd></div>
           <div class="srm-kv-row"><dt>답변일시</dt><dd>2026.08.12 15:34</dd></div>
@@ -196,33 +186,45 @@
         <div class="srm-file-list content-inner-gap-top">
           <div class="srm-file-item"><span>첫 번째로 첨부된 파일명.PDF</span><button type="button" class="btn-file-preview">바로보기</button><button type="button" class="btn-file-download">다운로드</button></div>
         </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">목록</button></div>
-    </div>
-  </div>
+        <div class="srm-detail-actions content-object-gap-top description-marker-container">
+          <span class="description-target-marker marker-top-left" aria-hidden="true">1</span>
+          <button type="button" class="btn-secondary srm-list-button" data-open-modal="partnerQnaListView">목록</button>
+        </div>
+      </section>
 
-  <div class="modal-backdrop" id="partnerQnaWriteModal" role="dialog" aria-modal="true" aria-labelledby="partnerQnaWriteTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-header">
-        <h2 class="modal-title" id="partnerQnaWriteTitle">질문 등록</h2>
-        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
-      </div>
-      <div class="modal-body">
+      <section class="app-card board-view" id="partnerQnaWriteView">
+        <div class="srm-section-heading"><div><h2>질문 등록</h2></div></div>
         <div class="srm-kv-grid">
           <div class="srm-kv-row"><dt>제목 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control"></dd></div>
           <div class="srm-kv-row"><dt>작성자 <span class="required" aria-hidden="true">*</span></dt><dd>(주)큐비트엑스</dd></div>
           <div class="srm-kv-row"><dt>질문 내용 <span class="required" aria-hidden="true">*</span></dt><dd><textarea class="form-control" rows="6"></textarea></dd></div>
           <div class="srm-kv-row"><dt>첨부파일</dt><dd><div class="srm-file-list"><div class="srm-file-item"><span>첫 번째로 첨부된 파일명.PDF</span><button type="button" class="btn-row-del">삭제</button></div><div class="srm-file-item"><span>두 번째로 첨부된 파일명.HWP</span><button type="button" class="btn-row-del">삭제</button></div></div></dd></div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-secondary modal-close">목록</button>
-        <button type="button" class="btn-primary modal-close">등록</button>
-        <button type="button" class="btn-primary modal-close">수정</button>
-      </div>
-    </div>
+        <div class="srm-detail-actions content-object-gap-top">
+          <button type="button" class="btn-secondary srm-list-button" data-open-modal="partnerQnaListView">목록</button>
+          <div class="hstack">
+            <span class="description-marker-anchor">
+              <span class="description-target-marker" aria-hidden="true">1</span>
+              <button type="button" class="btn-primary" data-open-modal="partnerQnaListView">등록</button>
+            </span>
+            <button type="button" class="btn-primary" data-open-modal="partnerQnaListView">수정</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
   </div>
 
+  <footer class="app-footer">
+    <div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div>
+  </footer>
+
+  <!-- 화면설계 Description 개발자 가이드 (DESIGN_GUIDE 5.15) -->
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
+
+
+
   <script src="../../assets/scripts/dashboard.js"></script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMPartnerQna/screenDescriptionGuide.html"]</script>
 </body>
 </html>

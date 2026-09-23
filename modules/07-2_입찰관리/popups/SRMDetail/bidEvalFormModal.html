@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>심사/평가 하기</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<div class="modal-backdrop" id="bidEvalFormModal" role="dialog" aria-modal="true" aria-labelledby="bidEvalFormTitle" aria-hidden="false">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header"><h2 class="modal-title" id="bidEvalFormTitle">심사/평가 하기</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
+      <div class="modal-body">
+        <div class="srm-kv-grid"><div class="srm-kv-row"><dt>회사명</dt><dd>(주)큐비트엑스</dd></div></div>
+        <div class="srm-table-wrap content-inner-gap-top">
+          <table class="data-table" aria-label="심사/평가 점수 입력">
+            <thead><tr><th class="col-no">No</th><th>심사항목</th><th>심사기준</th><th>자가심사 여부</th><th>배점</th><th>규격(기술) 평가점수</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td class="col-left">신용평가등급</td><td class="col-left">첨부된 '배점 및 평가기준 관련 파일'을 확인하세요.</td><td><span class="badge-info">필요</span></td><td class="col-num">5.00</td><td><input type="text" class="form-control w-90" placeholder="숫자(소수점 가능)"></td></tr>
+              <tr><td>2</td><td class="col-left">시공경험(일반공사)</td><td class="col-left">제안요청서 내 '배점 및 평가기준'을 확인하세요.</td><td><span class="badge-info">필요</span></td><td class="col-num">10.00</td><td><input type="text" class="form-control w-90" placeholder="숫자(소수점 가능)"></td></tr>
+              <tr><td>3</td><td class="col-left">영업기간</td><td>-</td><td><span class="badge-info">필요</span></td><td class="col-num">5.00</td><td><input type="text" class="form-control w-90" placeholder="숫자(소수점 가능)"></td></tr>
+              <tr><td>4</td><td class="col-left">제안 평가</td><td class="col-left">제안서/발표자료의 충실성(사업의 이해, 기술부문 등)</td><td><span class="badge-tag">불필요</span></td><td class="col-num">60.00</td><td><input type="text" class="form-control w-90" placeholder="숫자(소수점 가능)"></td></tr>
+            </tbody>
+            <tfoot><tr><td colspan="4">합</td><td class="col-num">80.00</td><td class="col-num">75.42 점</td></tr></tfoot>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary">초기화</button>
+        <button type="button" class="btn-primary" data-close-modal data-open-modal="bidEvaluateDetailModal">저장</button>
+        <button type="button" class="btn-secondary" data-close-modal data-open-modal="bidEvaluateDetailModal">닫기</button>
+      </div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

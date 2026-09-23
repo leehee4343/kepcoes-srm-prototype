@@ -269,7 +269,7 @@
       <section class="filter-card">
         <form id="qnaMgSearchForm">
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">조회기간(등록일)</span>
+            <span class="filter-label w-130">조회기간(등록일)</span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
             <div class="quick-date-btns hstack gap-6">
               <button type="button" class="btn-quick-date" data-range="1d">하루 전</button>
@@ -281,7 +281,7 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">상태</span>
+            <span class="filter-label w-130">상태</span>
             <div class="form-choice-group" role="radiogroup">
               <label class="form-choice"><input type="radio" name="qnaState" checked>전체</label>
               <label class="form-choice"><input type="radio" name="qnaState">답변요청</label>
@@ -289,7 +289,7 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">키워드 검색</span>
+            <span class="filter-label w-130">키워드 검색</span>
             <select class="filter-select w-160"><option>제목</option><option>내용</option><option>제목+내용</option><option>답변</option><option>작성업체명</option><option>답변자</option></select>
             <input type="text" class="filter-text-input w-380" placeholder="검색어를 입력하세요.">
           </div>
@@ -319,8 +319,8 @@
               <tr><th class="w-70">No</th><th class="w-380">제목</th><th class="minw-170">작성업체</th><th class="w-90">등록일</th><th class="w-80">상태</th><th class="w-80">답변자</th><th class="w-90">답변일</th></tr>
             </thead>
             <tbody>
-              <tr><td>25,214</td><td class="text-left"><a href="#" data-open-modal="qnaDetailModal">협력업체 선정 후 회사의 기본 정보를 수정하고 싶어요~</a></td><td class="text-left">(주)큐비트엑스</td><td>2026.06.30</td><td><span class="badge-warning">답변요청</span></td><td>-</td><td>-</td></tr>
-              <tr><td>25,213</td><td class="text-left"><a href="#" data-open-modal="qnaDetailModal">협력업체 선정 후 회사의 기본 정보를 수정하고 싶어요~</a></td><td class="text-left">A업체</td><td>2026.06.28</td><td><span class="badge-success">답변완료</span></td><td>홍길동</td><td>2026.07.02</td></tr>
+              <tr><td>25,214</td><td class="text-left"><a href="#" onclick="window.location.href='SRMPartnerQnaDetail.html'">협력업체 선정 후 회사의 기본 정보를 수정하고 싶어요~</a></td><td class="text-left">(주)큐비트엑스</td><td>2026.06.30</td><td><span class="badge-warning">답변요청</span></td><td>-</td><td>-</td></tr>
+              <tr><td>25,213</td><td class="text-left"><a href="#" onclick="window.location.href='SRMPartnerQnaDetail.html'">협력업체 선정 후 회사의 기본 정보를 수정하고 싶어요~</a></td><td class="text-left">A업체</td><td>2026.06.28</td><td><span class="badge-success">답변완료</span></td><td>홍길동</td><td>2026.07.02</td></tr>
             </tbody>
           </table>
         </div>
@@ -334,62 +334,12 @@
 
 
   <!-- 질문/답변 상세 -->
-  <div class="modal-backdrop" id="qnaDetailModal" role="dialog" aria-modal="true" aria-labelledby="qnaDetailTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-header">
-        <h2 class="modal-title" id="qnaDetailTitle">질문과 답변 상세</h2>
-        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div class="srm-section-heading"><div><h2>질문 내용</h2></div></div>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>제목</dt><dd>협력업체 선정 후 회사의 기본 정보를 수정하고 싶어요~</dd></div>
-          <div class="srm-kv-row"><dt>처리상태</dt><dd><span class="badge-warning">답변요청</span> <span class="badge-success">답변완료</span></dd></div>
-          <div class="srm-kv-row"><dt>작성업체</dt><dd>(주)큐비트엑스</dd></div>
-          <div class="srm-kv-row"><dt>등록일시</dt><dd>2026.06.30 15:34</dd></div>
-          <div class="srm-kv-row"><dt>질문 내용</dt><dd>Text Area로 작성된 질문 내용</dd></div>
-          <div class="srm-kv-row"><dt>첨부파일</dt><dd>첫 번째로 첨부된 파일명.PDF, 두 번째로 첨부된 파일명.HWP</dd></div>
-        </div>
 
-        <div class="srm-section-heading content-object-gap-top"><div><h2>답변 내용</h2></div></div>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>답변자</dt><dd>홍길동</dd></div>
-          <div class="srm-kv-row"><dt>답변일시</dt><dd>2026.07.02 15:34</dd></div>
-          <div class="srm-kv-row"><dt>답변 내용</dt><dd>Editor로 작성된 답변 내용</dd></div>
-          <div class="srm-kv-row"><dt>첨부파일</dt><dd>첫 번째로 첨부된 파일명.PDF, 두 번째로 첨부된 파일명.HWP</dd></div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-secondary modal-close">목록</button>
-        <button type="button" class="btn-primary" data-close-modal data-open-modal="qnaAnswerFormModal">답변 등록/수정</button>
-      </div>
-    </div>
-  </div>
 
   <!-- 답변 등록/수정 -->
-  <div class="modal-backdrop" id="qnaAnswerFormModal" role="dialog" aria-modal="true" aria-labelledby="qnaAnswerFormTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-header"><h2 class="modal-title" id="qnaAnswerFormTitle">답변 등록/수정</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <p class="modal-field-label">답변 내용 등록 시 고객에게 통보됩니다(수정 시에는 통보하지 않습니다). 질문 글 자체는 관리자가 삭제할 수 없으며, 답변 내용만 삭제할 수 있습니다.</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>답변자</dt><dd>홍길동</dd></div>
-          <div class="srm-kv-row"><dt>답변내용</dt><dd><textarea class="form-control" rows="6" placeholder="Editor"></textarea></dd></div>
-          <div class="srm-kv-row"><dt>등록된 첨부파일</dt><dd>
-            첫 번째로 첨부된 파일명.PDF <button type="button" class="btn-file-preview">바로보기</button><button type="button" class="btn-file-download">다운로드</button><button type="button" class="btn-row-del">삭제</button><br>
-            두 번째로 첨부된 파일명.HWP <button type="button" class="btn-file-preview">바로보기</button><button type="button" class="btn-file-download">다운로드</button><button type="button" class="btn-row-del">삭제</button>
-          </dd></div>
-          <div class="srm-kv-row"><dt>첨부파일</dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-primary" data-close-modal data-open-modal="qnaDetailModal">등록</button>
-        <button type="button" class="btn-primary" data-close-modal data-open-modal="qnaDetailModal">수정</button>
-        <button type="button" class="btn-secondary" data-close-modal data-open-modal="qnaDetailModal">취소</button>
-      </div>
-    </div>
-  </div>
+
 
   <script src="../../assets/scripts/dashboard.js"></script>
+  <script type="application/json" class="external-modal-manifest">[]</script>
 </body>
 </html>

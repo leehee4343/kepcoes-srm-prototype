@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>가격 투찰 시 유의사항</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<div class="modal-backdrop" id="bidPriceSubmitConfirmModal" role="alertdialog" aria-modal="true" aria-labelledby="bidPriceSubmitConfirmTitle" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2 class="modal-title" id="bidPriceSubmitConfirmTitle">가격 투찰 시 유의사항</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="notice-box warning" role="alert">
+          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span>
+          <div class="notice-body">
+            <p class="notice-lead">가격을 투찰하면 더 이상 가격이 수정되지 않습니다. 정확하게 가격이 입력되었는지 다시 한번 확인 부탁드립니다.</p>
+            <p>가격 투찰을 진행하시겠습니까? (투찰 완료 시 제출상태가 '가격 투찰 완료' 또는 '입찰 참여 완료'로 변경되며, 고객통보 MSG-015가 발송됩니다.)</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary modal-close">취소</button>
+        <span class="description-marker-anchor">
+          <span class="description-target-marker" aria-hidden="true">2</span>
+          <button type="button" class="btn-critical-primary modal-close">가격 투찰하기</button>
+        </span>
+      </div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

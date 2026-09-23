@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>화면설계 Description</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<div class="modal-backdrop description-guide-backdrop" id="screenDescriptionGuide" role="dialog" aria-modal="false" aria-labelledby="screenDescriptionGuideTitle" aria-hidden="false">
+    <div class="modal-dialog modal-lg description-modal-dialog">
+      <div class="modal-header">
+        <h2 class="modal-title" id="screenDescriptionGuideTitle">화면설계 Description</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body description-modal-body">
+        <section class="description-source-section" aria-labelledby="descriptionSearchTitle">
+          <h3 id="descriptionSearchTitle">검색/조회</h3>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item">
+              <span class="description-mapping-number" aria-hidden="true">1</span>
+              <pre class="description-source-text">입찰마감일 기준 기간검색</pre>
+            </div>
+            <div class="description-mapping-item">
+              <span class="description-mapping-number" aria-hidden="true">2</span>
+              <pre class="description-source-text">‘계약방법’ 에 따른 ‘낙찰자 선정방법’ 으로 검색</pre>
+            </div>
+            <div class="description-mapping-item">
+              <span class="description-mapping-number" aria-hidden="true">3</span>
+              <pre class="description-source-text">본공고인지 유찰 후 재공고인지 여부</pre>
+            </div>
+            <div class="description-mapping-item">
+              <span class="description-mapping-number" aria-hidden="true">4</span>
+              <pre class="description-source-text">진행상태 정리(노란색 영역 참고)
+
+협력업체에게는 아래의 단계 외에는 보여주지 않음
+공고대기, 공고게시중, 입찰진행중, 입찰마감, 투찰진행중, 투찰마감, 선정완료, 유찰</pre>
+            </div>
+            <div class="description-mapping-item">
+              <span class="description-mapping-number" aria-hidden="true">5</span>
+              <pre class="description-source-text">검색 구분 : 공고번호, 입찰 건명</pre>
+            </div>
+            <div class="description-mapping-item">
+              <span class="description-mapping-number" aria-hidden="true">6</span>
+              <pre class="description-source-text">입찰공고 내역서 호출(뒷페이지)</pre>
+            </div>
+            <div class="description-mapping-item">
+              <pre class="description-source-text">협력업체에게는 해당 상태 값만 제공</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="descriptionDetailTitle">
+          <h3 id="descriptionDetailTitle">상세정보</h3>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item">
+              <span class="description-mapping-number" aria-hidden="true">1</span>
+              <pre class="description-source-text">현장설명회가 있는 경우에만 노출</pre>
+            </div>
+            <div class="description-mapping-item">
+              <span class="description-mapping-number" aria-hidden="true">2</span>
+              <pre class="description-source-text">낙찰자 선정방법이 ‘제한적 최저가 입찰’, ‘2단계 경쟁입찰(규격/가격 분리)’인 경우 입력되는 정보이며, 해당 경우에만 노출</pre>
+            </div>
+            <div class="description-mapping-item">
+              <span class="description-mapping-number" aria-hidden="true">3</span>
+              <pre class="description-source-text">낙찰자 선정방법이 ‘제한적 최저가 입찰’, ‘2단계 경쟁입찰(규격/가격 동시)’, ‘2단계 경쟁입찰(규격/가격 분리)’, ‘적격심사’의 경우에만 등록될 수 있으며, 해당 경우에만 등록된 항목 노출</pre>
+            </div>
+            <div class="description-mapping-item">
+              <span class="description-mapping-number" aria-hidden="true">4</span>
+              <pre class="description-source-text">낙찰자 선정방법이 ‘2단계 경쟁입찰(규격/가격 동시)’인 경우에만 등록될 수 있으며, 해당 경우에만 등록된 항목 노출</pre>
+            </div>
+            <div class="description-mapping-item">
+              <span class="description-mapping-number" aria-hidden="true">5</span>
+              <pre class="description-source-text">낙찰자 선정방법이 ‘2단계 경쟁입찰(규격/가격 동시)’인 경우에만 등록될 수 있으며, 해당 경우에만 등록된 항목 노출(무조건 제안발표를 하는 것은 아님)</pre>
+            </div>
+            <div class="description-mapping-item">
+              <span class="description-mapping-number" aria-hidden="true">6</span>
+              <pre class="description-source-text">자가심사가 있건 없건, 심사/평가 항목을 모두 보여줌</pre>
+            </div>
+            <div class="description-mapping-item">
+              <span class="description-mapping-number" aria-hidden="true">7</span>
+              <pre class="description-source-text">낙찰자 선정방법이 ‘제한적 최저가’, ‘2단계 경쟁입찰(규격/가격 동시)’, ‘2단계 경쟁입찰(규격/가격 분리)’, ‘적격심사’의 경우에만 등록될 수 있으며, 해당 경우에만 등록된 항목 노출</pre>
+            </div>
+            <div class="description-mapping-item">
+              <span class="description-mapping-number" aria-hidden="true">8</span>
+              <pre class="description-source-text">‘입찰 참여 현황 > 입찰 서류 제출’ 화면으로 이동</pre>
+            </div>
+            <div class="description-mapping-item">
+              <span class="description-mapping-number" aria-hidden="true">9</span>
+              <pre class="description-source-text">계약방법이 ‘경쟁입찰(지명)’인 경우 입찰계획 수립 당시 등록된 협력업체만 입찰이 가능함</pre>
+            </div>
+            <div class="description-mapping-item">
+              <span class="description-mapping-number" aria-hidden="true">10</span>
+              <pre class="description-source-text">가격 투찰을 위해서는 반드시 ‘입찰 서류’가 먼저 제출되어야 함
+
+가격투찰이 동시에 진행되지 않는 경우(낙찰자 선정방법이 ‘제한적 최저가’, ‘2단계 경쟁입찰(규격/가격 분리)’인 경우)에 노출되는 팝업
+
+별도로 설정된 ‘투찰 기간’에만 접근 가능</pre>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

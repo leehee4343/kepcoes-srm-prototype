@@ -53,6 +53,7 @@
   --control-radius: 6px;
   --content-edge-gap: 28px;
   --content-object-gap: 16px;
+  --content-section-gap: 64px;
   --content-card-padding: 20px;
   --content-inner-gap: 12px;
   --radius-sm: 4px;
@@ -1352,7 +1353,28 @@ img {
   font-size: 13px;
   font-weight: 600;
   color: var(--text-main);
+  white-space: nowrap;
 }
+
+/* 한 검색영역(.filter-card) 안의 모든 행은 라벨 폭이 같아야 오른쪽 컨트롤의 왼쪽 세로선이 맞습니다.
+   단, 폭 자체를 프로젝트 전체 공통값으로 고정하지는 않습니다 — 카드마다 라벨 중 가장 긴 것을 기준으로
+   w-80~w-200 중 그 카드에 맞는 값을 고르고, 같은 카드의 모든 라벨에 동일하게 적용합니다(가이드 5.2).
+   짧은 라벨만 있는 카드에 불필요하게 넓은 값을 쓰면 타이틀-컨트롤 간격이 답답하지 않되 헐렁해 보이므로 피합니다. */
+.filter-row .filter-label.w-80,
+.filter-row .filter-label.w-90,
+.filter-row .filter-label.w-100,
+.filter-row .filter-label.w-130,
+.filter-row .filter-label.w-140,
+.filter-row .filter-label.w-200 {
+  width: auto;
+  flex: 0 0 auto;
+}
+.filter-row .filter-label.w-80 { min-width: 80px; }
+.filter-row .filter-label.w-90 { min-width: 90px; }
+.filter-row .filter-label.w-100 { min-width: 100px; }
+.filter-row .filter-label.w-130 { min-width: 130px; }
+.filter-row .filter-label.w-140 { min-width: 140px; }
+.filter-row .filter-label.w-200 { min-width: 200px; }
 
 .filter-input, .filter-select {
   height: 38px;
@@ -2828,10 +2850,10 @@ img {
   font-size: 13px;
   font-weight: 700;
   color: #475569;
-  width: 72px;
   min-width: 72px;
-  flex-shrink: 0;
+  flex: 0 0 auto;
   letter-spacing: -0.2px;
+  white-space: nowrap;
 }
 
 .date-range-wrap {
@@ -3477,6 +3499,9 @@ img {
 }
 
 .detail-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-width: 84px;
   min-height: 48px;
   padding: 10px 20px;
@@ -3489,6 +3514,7 @@ img {
   cursor: pointer;
   position: relative;
   white-space: nowrap;
+  text-decoration: none;
   transition: color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
 }
 
@@ -4382,8 +4408,9 @@ img {
   font-size: 13px;
   font-weight: 700;
   color: #475569;
-  width: 75px;
-  flex-shrink: 0;
+  min-width: 75px;
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 
 .settle-filter-actions {
@@ -6496,12 +6523,26 @@ img {
 .srm-kv-row:last-child { border-bottom: 0; }
 .srm-kv-row dt { display: flex; align-items: center; padding: 10px 14px; background: #f8fafc; border-right: 1px solid var(--border-card); color: #475569; font-size: 13px; font-weight: 600; }
 .srm-kv-row dd { display: flex; align-items: center; min-width: 0; margin: 0; padding: 10px 14px; color: #475569; font-size: 13px; }
+.srm-kv-row > dd:has(> .content-inner-gap-top) {
+  flex-wrap: wrap;
+  column-gap: 8px;
+}
+.srm-kv-row > dd > .content-inner-gap-top {
+  flex: 1 0 100%;
+  width: 100%;
+  min-width: 0;
+}
 .srm-kv-grid.compact { margin-top: 14px; }
 .srm-inline-badge { padding: 3px 8px; background: #f1f5f9; border-radius: 4px; color: #475569; font-size: 13px; font-weight: 700; }
 .srm-divider { margin: 0 12px; color: #cbd5e1; }
 .srm-file-list { display: flex; flex-direction: column; gap: 6px; width: 100%; }
 .srm-file-item { display: flex; align-items: center; gap: 6px; min-width: 0; }
 .srm-file-item > span { min-width: 205px; color: #475569; }
+.srm-kv-row > dd:has(> .srm-file-list) {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+}
 
 /* 콘텐츠 블릿: 5px 원형, 텍스트와 8px 간격, 첫 줄 세로 중앙 (가이드 5.12) */
 .bullet-list { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }
@@ -6511,6 +6552,11 @@ img {
 .srm-file-item > span::before { content: ''; position: absolute; left: 0; top: 0.75em; width: 5px; height: 5px; border-radius: 50%; background: #7c8ca0; transform: translateY(-50%); }
 .btn-file-preview, .btn-file-download { padding: 4px 9px; background: #fff; border: 1px solid #cbd5e1; border-radius: 4px; color: #475569; font-size: 13px; font-weight: 600; }
 .btn-file-preview:hover, .btn-file-download:hover { border-color: var(--primary-blue); color: var(--primary-blue); background: #f0f7ff; }
+
+/* 버튼끼리 간격 없이 붙는 것 방지: 부모가 flex(gap)든 아니든 상관없이 인접한 두 버튼 사이는 항상 최소 간격을 둡니다(가이드 5.4) */
+:is(.btn-file-preview, .btn-file-download, .btn-row-del) + :is(.btn-file-preview, .btn-file-download, .btn-row-del) {
+  margin-left: 8px;
+}
 
 
 
@@ -8050,6 +8096,11 @@ body .filter-action-row > button {
   from { opacity: 0; transform: translateY(6px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* 게시판형 목록·상세·등록 화면 전환 (DESIGN_GUIDE 6.2.1): 모달이 아니라 같은 페이지 안에서 목록 영역을 상세/등록 화면으로 교체 */
+.board-view:not(.show) {
+  display: none;
+}
 .terms-box {
   max-height: 200px;
   overflow-y: auto;
@@ -8276,6 +8327,14 @@ body .wizard-stepper .wizard-step-num { font-weight: 400 !important; }
   visibility: hidden;
   transition: opacity var(--transition-normal), visibility var(--transition-normal);
 }
+
+/* 독립 팝업 HTML을 직접 열었을 때도 팝업 본문을 확인할 수 있습니다. */
+body.popup-document > .modal-backdrop {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
 .modal-backdrop.show { opacity: 1; visibility: visible; }
 .modal-backdrop.modal-top { z-index: 1100; }
 
@@ -8307,7 +8366,7 @@ body .wizard-stepper .wizard-step-num { font-weight: 400 !important; }
   border-bottom: 1px solid #e2e8f0;
 }
 .modal-title { margin: 0; color: #334155; font-size: 16px; line-height: 1.4; }
-.modal-close {
+.modal-header .modal-close {
   display: flex;
   flex: 0 0 32px;
   align-items: center;
@@ -8319,8 +8378,8 @@ body .wizard-stepper .wizard-step-num { font-weight: 400 !important; }
   font-size: 22px;
   line-height: 1;
 }
-.modal-close:hover,
-.modal-close:focus-visible { background: #f1f5f9; color: #334155; }
+.modal-header .modal-close:hover,
+.modal-header .modal-close:focus-visible { background: #f1f5f9; color: #334155; }
 
 .modal-body { flex: 1 1 auto; min-height: 0; padding: 20px 24px; overflow-y: auto; }
 .modal-footer {
@@ -8360,6 +8419,9 @@ body.modal-open { overflow: hidden; }
 .content-inner-gap-block { margin-block: var(--content-inner-gap); }
 .inline-control { display: inline-block; }
 
+/* 상세화면 내 영역별 타이틀(직전 영역과의 구분) 간격은 일반 오브젝트 간격보다 넓게 — DESIGN_GUIDE 6.2.2 */
+.srm-section-heading.content-object-gap-top { margin-top: var(--content-section-gap); }
+
 /* 콘텐츠 목록의 표준 5px 원형 블릿 — DESIGN_GUIDE 5.12 */
 .content-bullet-item {
   position: relative;
@@ -8375,6 +8437,26 @@ body.modal-open { overflow: hidden; }
   border-radius: var(--radius-full);
   background: var(--text-sub);
   transform: translateY(-50%);
+}
+
+/* 블릿 클래스가 패딩을 가진 상세정보 값 셀(dd)이나 표 셀(td)에 직접
+   적용되어도 블릿이 셀 경계로 빠지지 않도록 컨텍스트별 들여쓰기를 보존합니다. */
+.srm-kv-row > dd.content-bullet-item {
+  padding-left: 27px;
+}
+
+.srm-kv-row > dd.content-bullet-item::before {
+  left: 14px;
+  top: 50%;
+}
+
+.data-table td.content-bullet-item {
+  padding-left: 27px !important;
+}
+
+.data-table td.content-bullet-item::before {
+  left: 14px;
+  top: 50%;
 }
 
 /* 편집기·장문 입력 미리보기 — DESIGN_GUIDE 5.5 */
@@ -8760,7 +8842,7 @@ body .btn-critical-primary { font-size: 13px; }
   position: fixed;
   right: 24px;
   bottom: 72px;
-  z-index: 900;
+  z-index: 1150;
   display: grid;
   place-items: center;
   width: 52px;
@@ -8807,6 +8889,8 @@ body .btn-critical-primary { font-size: 13px; }
   padding: 0;
   pointer-events: none;
   background: transparent;
+  backdrop-filter: none;
+  z-index: 1150;
 }
 
 .description-guide-backdrop.show .description-modal-dialog {
@@ -8835,7 +8919,7 @@ body .btn-critical-primary { font-size: 13px; }
 
 .description-target-marker {
   position: absolute;
-  z-index: 4;
+  z-index: 1300;
   top: -13px;
   right: -11px;
   display: none;
@@ -9083,6 +9167,29 @@ body main :is(.pipeline-flow, .tally-grid, .widget-donuts).is-plain :is(.pipelin
 
 /* 표 안 행 액션 버튼은 13px, 파이프라인·건수 타일 수치는 본문색 (#334155는 타이틀 전용, 2.3) */
 .data-table .btn-task-done, .data-table .btn-task-register { font-size: 13px; }
+
+/* 표의 같은 행 레벨에 놓이는 액션 버튼은 클래스와 강조 단계가 달라도
+   동일한 28px 높이·패딩·라운드를 사용합니다. */
+.data-table :is(button[class*="btn-"], a[class*="btn-"]) {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px !important;
+  height: 28px !important;
+  padding: 0 10px !important;
+  border-radius: 4px !important;
+  line-height: 1 !important;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* 같은 액션 열에서 상태에 따라 문구·강조만 바뀌는 버튼은 폭도 고정합니다. */
+.data-table .btn-row-action {
+  width: 104px !important;
+  min-width: 104px !important;
+  max-width: 104px !important;
+}
 .pipeline-count { color: #475569; }
 .tally-count { color: #475569; }
 .tally-count.text-primary { color: #1976d2; }
@@ -9308,3 +9415,40 @@ body a:not(.nav-link):not(.submenu-item > a):not([class*="btn-"]):is(:hover, :fo
 .wizard-stepper.has-actions .wizard-step-title { min-height: 36px; line-height: 1.4; white-space: normal; }
 .wizard-step-actions { display: flex; gap: 6px; width: 100%; margin-top: 12px; }
 .wizard-step-actions .btn-sub-action { flex: 1; min-width: 0; }
+
+/* Full-page documents converted from designs that were previously wired as modals. */
+.page-detail-content .page-detail-body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  min-height: 0;
+  padding: var(--content-card-padding);
+  background: var(--bg-white);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.page-detail-content .page-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: var(--content-card-padding);
+  background: var(--bg-white);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.page-detail-content .page-actions > :first-child {
+  margin-right: auto;
+}
+
+.page-detail-content .modal-section,
+.page-detail-content .modal-section-card,
+.page-detail-content .srm-kv-grid {
+  width: 100%;
+}

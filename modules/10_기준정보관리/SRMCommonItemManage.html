@@ -269,7 +269,7 @@
       <section class="filter-card">
         <form id="commonItemSearchForm">
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">조회기간(등록일)</span>
+            <span class="filter-label w-130">조회기간(등록일)</span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
             <div class="quick-date-btns hstack gap-6">
               <button type="button" class="btn-quick-date" data-range="1d">하루 전</button>
@@ -281,17 +281,17 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">분류</span>
+            <span class="filter-label w-130">분류</span>
             <select class="filter-select w-140"><option>전체(대분류)</option></select>
             <select class="filter-select w-140"><option>전체(중분류)</option></select>
             <select class="filter-select w-140"><option>전체(소분류)</option></select>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">발주단위</span>
+            <span class="filter-label w-130">발주단위</span>
             <select class="filter-select w-140"><option>전체(발주단위)</option></select>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">사용여부</span>
+            <span class="filter-label w-130">사용여부</span>
             <div class="form-choice-group" role="radiogroup">
               <label class="form-choice"><input type="radio" name="ciUseYn" checked>전체</label>
               <label class="form-choice"><input type="radio" name="ciUseYn">사용(Y)</label>
@@ -299,7 +299,7 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">키워드 검색</span>
+            <span class="filter-label w-130">키워드 검색</span>
             <select class="filter-select w-140"><option>품목코드</option><option>품목명</option></select>
             <input type="text" class="filter-text-input w-380" placeholder="검색어를 입력하세요.">
           </div>
@@ -322,7 +322,7 @@
               <option value="100">100개씩</option>
             </select>
             <button type="button" class="btn-action-excel"><svg aria-hidden="true" class="icon-excel" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="m8 12 4 6"></path><path d="m12 12-4 6"></path></svg>엑셀 다운로드</button>
-            <button type="button" class="btn-action-new" data-open-modal="ciFormModal">공통 품목 등록</button>
+            <button type="button" class="btn-action-new" onclick="window.location.href='SRMCommonItemForm.html'">공통 품목 등록</button>
           </div>
         </div>
         <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="공통 품목관리 목록" data-total-items="55" data-total-pages="6">
@@ -331,8 +331,8 @@
               <tr><th class="w-70">No</th><th class="w-100">품목코드</th><th class="minw-170">품목명</th><th class="w-90">대분류</th><th class="w-90">중분류</th><th class="w-90">소분류</th><th class="w-80">발주단위</th><th class="w-80">사용여부</th><th class="w-90">등록일</th><th class="w-70">등록자</th><th class="minw-170">최종 수정</th></tr>
             </thead>
             <tbody>
-              <tr><td>25,214</td><td><a href="#" data-open-modal="ciDetailModal">A0102-0001</a></td><td class="text-left">고효율 ESS PCS</td><td>제조사</td><td>고효율</td><td>ESS PCS</td><td>EA</td><td><span class="badge-info">사용(Y)</span></td><td>2026.06.09</td><td>이희성</td><td>2026.06.10(이희성)</td></tr>
-              <tr><td>25,213</td><td><a href="#" data-open-modal="ciDetailModal">A0103-002</a></td><td class="text-left">고효율 공기 압축기</td><td>제조사</td><td>고효율</td><td>공기압축기</td><td>식</td><td><span class="badge-tag">중지(N)</span></td><td>2026.06.05</td><td>이희성</td><td>-</td></tr>
+              <tr><td>25,214</td><td><a href="#" onclick="window.location.href='SRMCommonItemDetail.html'">A0102-0001</a></td><td class="text-left">고효율 ESS PCS</td><td>제조사</td><td>고효율</td><td>ESS PCS</td><td>EA</td><td><span class="badge-info">사용(Y)</span></td><td>2026.06.09</td><td>이희성</td><td>2026.06.10(이희성)</td></tr>
+              <tr><td>25,213</td><td><a href="#" onclick="window.location.href='SRMCommonItemDetail.html'">A0103-002</a></td><td class="text-left">고효율 공기 압축기</td><td>제조사</td><td>고효율</td><td>공기압축기</td><td>식</td><td><span class="badge-tag">중지(N)</span></td><td>2026.06.05</td><td>이희성</td><td>-</td></tr>
             </tbody>
           </table>
         </div>
@@ -346,67 +346,15 @@
 
 
   <!-- 공통 품목 등록/수정 -->
-  <div class="modal-backdrop" id="ciFormModal" role="dialog" aria-modal="true" aria-labelledby="ciFormTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header"><h2 class="modal-title" id="ciFormTitle">공통 품목 등록/수정</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <p class="modal-field-label">기존에 사용하지 않는 항목을 확인해서 발주단위 입력 정보를 축소하였습니다. (EA, 식, BOX, SET, 대, 매, 회선, 롤, 명)</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>품목코드 <span class="required" aria-hidden="true">*</span></dt><dd>자동 발번됩니다 (예: A0102-0001)</dd></div>
-          <div class="srm-kv-row"><dt>품목명 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control"></dd></div>
-          <div class="srm-kv-row"><dt>분류 <span class="required" aria-hidden="true">*</span></dt><dd><select class="filter-select w-140"><option>대분류 선택</option></select> <select class="filter-select w-140"><option>중분류 선택</option></select> <select class="filter-select w-140"><option>소분류 선택</option></select></dd></div>
-          <div class="srm-kv-row"><dt>발주단위 <span class="required" aria-hidden="true">*</span></dt><dd><select class="filter-select w-140"><option>발주단위 선택</option></select></dd></div>
-          <div class="srm-kv-row"><dt>사용여부 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="ciUse" checked>사용(Y)</label><label class="form-choice"><input type="radio" name="ciUse">중지(N)</label></div></dd></div>
-          <div class="srm-kv-row"><dt>품목설명</dt><dd><textarea class="form-control" rows="4" placeholder="Text Area"></textarea></dd></div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-secondary modal-close">목록</button>
-        <button type="button" class="btn-primary modal-close">등록</button>
-        <button type="button" class="btn-primary modal-close">수정</button>
-      </div>
-    </div>
-  </div>
+
 
   <!-- 공통 품목 상세정보 -->
-  <div class="modal-backdrop" id="ciDetailModal" role="dialog" aria-modal="true" aria-labelledby="ciDetailTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header"><h2 class="modal-title" id="ciDetailTitle">공통 품목 상세정보</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>품목코드</dt><dd>A0102-0001</dd></div>
-          <div class="srm-kv-row"><dt>품목명</dt><dd>고효율 ESS PCS</dd></div>
-          <div class="srm-kv-row"><dt>분류</dt><dd>제조사 &gt; 고효율 &gt; ESS PCS</dd></div>
-          <div class="srm-kv-row"><dt>발주단위</dt><dd>EA</dd></div>
-          <div class="srm-kv-row"><dt>사용여부</dt><dd><span class="badge-info">사용(Y)</span></dd></div>
-          <div class="srm-kv-row"><dt>품목설명</dt><dd>고효율 ESS PCS는 ESS(에너지저장장치)에서 AC(교류)와 DC(직류)를 변환할 때 전력 변환 손실을 줄여 효율을 높인 전력변환장치(PCS)를 뜻합니다. ESS는 배터리 저장, PCS 변환, BMS·EMS 제어로 구성되며, PCS는 ESS의 핵심 부품으로 AC↔DC 변환과 전압·주파수 조정까지 수행합니다.</dd></div>
-          <div class="srm-kv-row"><dt>등록일시</dt><dd>2026.06.09 15:23</dd></div>
-          <div class="srm-kv-row"><dt>등록자</dt><dd>이희성</dd></div>
-          <div class="srm-kv-row"><dt>최종 수정일시</dt><dd>2026.06.10 10:45(이희성)</dd></div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-secondary modal-close">목록</button>
-        <button type="button" class="btn-secondary" data-close-modal data-open-modal="ciFormModal">수정</button>
-        <button type="button" class="btn-delete" data-close-modal data-open-modal="ciDeleteConfirmModal">삭제</button>
-      </div>
-    </div>
-  </div>
+
 
   <!-- 공통 품목 삭제 확인 -->
-  <div class="modal-backdrop" id="ciDeleteConfirmModal" role="alertdialog" aria-modal="true" aria-labelledby="ciDeleteConfirmTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header"><h2 class="modal-title" id="ciDeleteConfirmTitle">공통 품목 삭제 시 유의사항</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <div class="notice-box warning" role="alert">
-          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span>
-          <div class="notice-body"><p class="notice-lead">공통 품목을 삭제하면, 해당 품목에 매핑된 정보들이 훼손될 수 있습니다.</p><p>반드시 최고 관리자(시스템 운영자)만 사용해 주세요. 그래도 진행하시겠습니까?</p></div>
-        </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">취소</button><button type="button" class="btn-delete modal-close">삭제하기</button></div>
-    </div>
-  </div>
+
 
   <script src="../../assets/scripts/dashboard.js"></script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMCommonItemManage/ciDeleteConfirmModal.html"]</script>
 </body>
 </html>

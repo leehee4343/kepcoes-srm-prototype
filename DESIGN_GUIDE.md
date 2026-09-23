@@ -1,8 +1,8 @@
 # 📘 KEPCO ES 통합 디자인 / UI / UX 가이드라인 (Design System)
 
 > **프로젝트**: 켑코이에스(주) 사업관리시스템 (PMS) & 전자입찰시스템 (SRM)  
-> **버전**: v2.33
-> **최종 수정일**: 2026-09-22
+> **버전**: v2.52
+> **최종 수정일**: 2026-09-23
 > **목적**: PMS 및 SRM 전체 화면의 시각적 완성도, 일관성, 접근성 및 사용자 경험(UX) 표준을 정의하고 협업 기준을 제공하는 단일 진실 공급원(Single Source of Truth).
 
 ### 이 문서의 사용법
@@ -60,7 +60,8 @@
 </html>
 ```
 - 스크립트는 `assets/scripts/dashboard.js` 하나이며 화면 진입 시 `DOMContentLoaded`에서 해당 화면·컴포넌트의 `init*` 함수가 자동 실행됩니다(12.2). 새 화면 전용 스크립트 파일이나 `<script>` 인라인 블록을 만들지 않고, 필요하면 `dashboard.js`에 `init*` 함수를 추가합니다.
-- 모달은 `</body>` 직전(스크립트 앞)에 두고, 팝업 화면은 헤더·사이드바·푸터를 두지 않습니다(6.3, E11).
+- **페이지·팝업 파일 분리 원칙**: 페이지와 팝업은 화면 단위마다 각각 하나의 독립 HTML 파일로 구성합니다. 일반 페이지 HTML 안에 `.modal-backdrop` 마크업을 직접 포함하지 않습니다. 팝업 파일은 부모 화면의 `popups/{부모파일명}/{팝업ID}.html`에 두고, 부모 화면에는 `external-modal-manifest`만 선언합니다. 공통 `loadExternalModals()`가 팝업 파일을 불러온 뒤 기존 레이어 UX를 유지합니다(5.8, E11).
+- **탭 파일 분리 원칙**: 업무 탐색 탭(`.detail-tab-group`)으로 나뉜 화면도 같은 이유로 탭마다 독립된 HTML 파일로 구성하며, 한 파일 안에 여러 탭 패널을 감춰두는 방식을 쓰지 않습니다(5.7).
 
 ---
 
@@ -213,6 +214,7 @@ font-family: 'Pretendard';
 - 왼쪽 메뉴와 콘텐츠 영역 사이의 외곽 간격: `28px` (`--content-edge-gap`)
 - 콘텐츠 영역의 직접 객체 간 간격: `16px` (`--content-object-gap`)
 - 카드·폼 등 객체 내부 요소 간격: 기본 `12px` (`--content-inner-gap`), 필요에 따라 `8px ~ 16px`
+- 상세 화면(6.2) 안에서 `.srm-section-heading` 제목을 가진 영역이 여러 개 쌓일 때, 영역-영역 사이 간격: `64px` (`--content-section-gap`, 6.2.2 참고). 일반 오브젝트 간격(16px)보다 넓게 떼어 섹션 구분을 명확히 합니다.
 - 모든 콘텐츠 카드의 내부 패딩은 `20px`로 통일합니다(`--content-card-padding`).
 - 카드 내부의 제목, 도구 모음, 본문, 표 사이 간격은 `12px`로 통일합니다.
 - 표는 카드 외곽선에 붙이지 않고 20px 안쪽에 배치하며, 자체 테두리와 `8px` 라운드를 적용합니다.
@@ -351,6 +353,11 @@ font-family: 'Pretendard';
 - 액션 행은 상단 `1px solid #eaedf3` 구분선, `16px` 상단 여백과 패딩, 버튼 사이 `10px` 간격을 사용합니다.
 - `검색`은 조회용 Secondary(연한 블루), `초기화`는 흰색 Tertiary를 사용하며 공통 버튼 높이 `38px`와 내부 여백 규격을 유지합니다(5.4).
 - 기간·옵션 선택 칩(`.btn-period-pill` 등)의 활성 상태는 연한 블루 배경(`#e8f1fd`)·블루 텍스트·옅은 블루 테두리를 사용하며, Primary 버튼과 동일한 강한 블루 면을 사용하지 않습니다. 굵기는 `400`입니다.
+- **라벨 줄바꿈·겹침 금지**: `.filter-label`·`.filter-field-label`·`.settle-filter-label`처럼 필터 행 왼쪽에 고정폭으로 붙는 라벨은 `조회기간(견적 마감일시)`처럼 글자 수가 많아도 두 줄로 떨어지거나 오른쪽 입력 컨트롤과 겹치면 안 됩니다. `white-space: nowrap`만 걸고 폭은 고정값(`width`/`flex: 0 0 Npx`)으로 두면 줄바꿈 대신 글자가 옆 컨트롤 위로 겹쳐 보이므로, 반드시 **`min-width`(정렬용 최소폭) + `flex: 0 0 auto`(글자만큼 늘어남)** 조합을 함께 씁니다. 글자가 고정폭보다 길면 라벨 칸이 그만큼 넓어지며 오른쪽 컨트롤을 밀어내고, 짧으면 `min-width`로 기존 정렬을 유지합니다. 라벨 칸을 줄이거나 폰트 크기를 낮춰 맞추지 않습니다.
+- **한 검색영역(`.filter-card`) 안의 모든 행은 라벨 폭이 같아야 합니다**: 오른쪽 컨트롤(입력창·버튼·드롭다운 등)의 왼쪽 세로선은 같은 필터 카드 안의 모든 행에서 반드시 일치해야 합니다. `조회기간(...)`처럼 긴 라벨이 있는 행만 넓어지고 `구분`·`진행상태`처럼 짧은 라벨의 행은 좁은 채로 있으면, 컨트롤 시작 위치가 행마다 어긋나 정렬이 깨집니다.
+  - **폭은 프로젝트 전체 공통값으로 고정하지 않습니다.** 카드마다 라벨 중 가장 긴 것을 기준으로 필요한 최소 폭만 확보하고, 그보다 넓은 값을 쓰지 않습니다 — 짧은 라벨만 있는 카드에 불필요하게 넓은 폭을 주면 타이틀과 컨트롤 사이가 헐렁하게 떨어져 보입니다.
+  - 방법: `.filter-label`에 `w-80`/`w-90`/`w-100`/`w-130`/`w-140`/`w-200` 중 **그 카드의 가장 긴 라벨이 한 줄로 들어가는 가장 작은 값**을 고르고, **같은 카드의 모든 행에 동일한 값**을 적용합니다(행마다 자기 글자 수에 맞는 값을 따로 고르지 않습니다). 예: 라벨이 전부 2~5자면 `w-80`~`w-100`, `조회기간(등록일)`처럼 9자 안팎이 섞이면 `w-130`, `조회기간(견적 마감 일시)`·`계약방법/낙찰자 선정방법`처럼 12자 이상이 섞이면 `w-200`을 씁니다.
+  - CSS 쪽 값(`min-width`)은 카드 판단과 무관하게 클래스별로 고정되어 있으므로(`w-80`=80px … `w-200`=200px), 새 화면을 만들 때도 카드의 가장 긴 라벨 길이에 맞는 클래스를 고르기만 하면 됩니다. 라벨에 임의의 `width`/`min-width`를 인라인으로 직접 지정하지 않습니다.
 
 ### 5.3 데이터 테이블 시스템 (Table System)
 테이블은 업무 시스템의 핵심이므로 용도별로 통일된 그리드를 적용합니다.
@@ -372,6 +379,8 @@ font-family: 'Pretendard';
 #### 5.3.1 상세정보 / 요약 테이블 (Key-Value 그리드)
 - 적용 대상: 프로젝트 개요, 입찰공고 요약, 투자·상환 정보, 신청 내용 확인 등 사용자가 항목과 값을 대조하는 모든 상세정보 영역
 - **항목 배치 원칙**: 상세정보·입력 항목은 **기본적으로 한 행에 하나**입니다. 값이 짧고 서로 관련 있는 항목(번호·이름·직책·날짜·코드·선택값 등 대략 15자 이내, 예: 비밀번호/비밀번호 확인, 이름/직책, 핸드폰/유선전화)만 한 행에 2개까지 짝지을 수 있으며, 파일명·주소·업종·서류·설명·복합 값(이메일, 전화번호 구성 입력)처럼 길거나 구성이 복잡한 항목은 항상 전체 행에 각각 한 줄로 둡니다. 판단이 애매하면 한 줄로 배치합니다.
+- **값 셀 안의 줄 분리**: `.srm-kv-row > dd` 안에서 다음 줄에 표시해야 하는 컨트롤·안내·하위 표에는 `.content-inner-gap-top`을 적용합니다. 이 클래스가 붙은 `dd`의 직계 자식은 새 행(`flex-basis: 100%`)에서 시작해야 하며 앞선 컨트롤 옆의 남은 공간에 압축해서 배치하지 않습니다. `<br>`로 줄을 맞추거나 공백 문자로 컨트롤 간격을 만들지 않습니다.
+- **주소 입력**: 우편번호와 주소 검색 버튼은 첫 줄에 둡니다. 기본주소와 상세주소는 각각 다음 줄의 전체 폭 입력으로 배치하며 두 입력 모두 `.content-inner-gap-top`을 사용합니다. 상세주소를 기본주소 오른쪽에 억지로 줄이거나 우편번호 행에 함께 넣지 않습니다.
 - 기본 레이아웃: 한 행에 최대 2개의 `라벨 | 값` 쌍을 배치합니다. 각 쌍 내부는 반드시 좌우 구조로 표현하고, 화면 폭 `760px` 이하에서는 한 행에 1개 쌍으로 전환합니다.
 - 긴 핵심정보: 프로젝트명·입찰 건명·주소·비고처럼 길어질 수 있는 핵심 값은 전체 행(`grid-column: 1 / -1`)을 사용합니다. 라벨 너비는 유지하고 값 셀에 `min-width: 0`, `overflow: hidden`, `text-overflow: ellipsis`, `white-space: nowrap`을 적용하며 전체 내용은 `title` 등으로 확인할 수 있게 합니다.
 - 라벨 셀: 너비 `130~150px`, 최소 행 높이 `48px`, 패딩 `10px 14px`, 배경 `#f8fafc`, 색상 `#475569`, 굵기 `400`(표 안은 모두 `400`, 3.3), 줄바꿈 금지. 라벨은 굵기가 아니라 배경(`#f8fafc`)으로 값 셀과 구분합니다.
@@ -445,7 +454,9 @@ font-family: 'Pretendard';
 | **Delete (짙은 회색)** | Background `#475569`, Text `#ffffff`, Border `1px solid #475569`, 굵기 `400` (hover: `#334155`) | 삭제, 반려, 중지 등 되돌리기 어려운 보조 액션. 중요한 버튼이 아니므로 강조하지 않고 회색 위계 중 가장 진한 단계로 표시 | `.btn-delete`, `.btn-row-del` |
 | **File Action (바로보기/다운로드) — 컴팩트** | Height `28px`, Padding `0 10px`, Radius `4px`, 13px / `400`, `다운로드`는 흰 배경 + `1px solid #cbd5e1` + Text `#58687b`(hover: 옅은 회색 배경·진한 테두리), `바로보기`는 한 단계 강조해 연한 블루 배경 `#e8f1fd` + Text `#1976d2` + 테두리 `#90caf9`(hover: `#dbeafe`) | 콘텐츠 행(Key-Value 값 셀, 표 안)에 삽입되는 첨부파일 열람·다운로드. 일반 버튼(38px)보다 한 단계 낮은 보조 액션 | `.btn-file-preview`, `.btn-file-download` |
 
+- **버튼끼리 간격 없이 붙는 경우는 없습니다**: `바로보기`+`다운로드`처럼 같은 셀·같은 줄에 버튼 두 개 이상을 나란히 쓸 때, 부모 요소가 `flex`+`gap`이 아니면(표의 `<td>`, 텍스트 사이 등) HTML에 공백이 없을 경우 버튼이 서로 딱 붙어버립니다. 이런 조합(`.btn-file-preview`·`.btn-file-download`·`.btn-row-del` 등)은 `:is(...) + :is(...) { margin-left: 8px; }` 형태로 CSS에서 항상 최소 간격을 보장하며, 새 버튼 조합을 추가할 때도 부모의 `gap`에만 기대지 말고 이 규칙 목록에 포함시킵니다.
 - **업무 단계 액션 버튼 (`.btn-task-*`)**: 단계별 카드처럼 한 줄에 상태가 다른 액션 버튼이 나란히 놓일 때는 색 이름이 아니라 **강조 정도**로 위계를 구분합니다. 굵기는 모두 `400`, 높이 `38px`입니다.
+- **표 내부 행 액션 크기 통일**: `.data-table` 안의 버튼형 액션은 강조 단계나 클래스와 관계없이 높이 `28px`, 좌우 패딩 `10px`, 라운드 `4px`, 글자 `13px / 400`을 사용합니다. 전역 일반 버튼의 `38px` 규격보다 표 전용 규격이 반드시 우선해야 하므로 높이·최소 높이·패딩·라운드는 표 선택자에서 강제합니다. 같은 액션 열에서 상태에 따라 버튼의 문구·색상만 바뀌는 경우에는 모든 상태 버튼에 `.btn-row-action`을 함께 사용하고 폭도 `104px`로 고정합니다. 서로 다른 기능을 한 셀에 나란히 배치하는 경우에는 문구 길이에 따른 너비 차이를 허용하지만 높이 규격은 동일해야 합니다.
 
 | 상태 | 클래스 | 스타일 | 위계 |
 |---|---|---|---|
@@ -510,8 +521,13 @@ font-family: 'Pretendard';
 - 배지 텍스트는 2.4에 따라 흰 배경·소프트 배경 위에서 4.5:1을 확보하는 진한 톤을 권장합니다.
 
 ### 5.7 탭과 스텝퍼 (Tabs & Steppers)
-- **업무 탐색 탭**: 화면의 주요 업무 단계 탭은 `15px ~ 15.5px`, 최소 높이 `48px`을 적용합니다. 굵기는 비활성·선택 모두 `400`(볼드 없음)이며 선택 여부는 굵기가 아니라 색상과 인디케이터로 구분합니다. 비활성 탭 텍스트는 중간 회색 `#58687b`로 통일합니다. 선택 탭은 별도 면 배경 없이 오렌지 텍스트, 4px 오렌지 하단 인디케이터로 구분하며 hover와 키보드 focus 상태를 제공합니다. 탭 컨테이너는 `role="tablist"`, 각 탭은 `role="tab"`과 `aria-selected`를 사용합니다. 표준 마크업과 클래스는 `.detail-tabs-bar`(흰 박스) > `.detail-tab-group`(`role="tablist"`) > `.detail-tab-btn`(`role="tab"`)이며, 탭은 자동 너비로 왼쪽부터 나열하고 탭 사이에 구분선이나 균등 분할 그리드를 사용하지 않습니다. 동작(선택·`aria-selected`·방향키/Home/End 이동)은 `initTabGroup()`이 담당합니다.
-- **입찰 프로세스 탭**(SRM 8단계, `입찰공고 현황` 상세 화면): 왼쪽 메뉴에는 나열하지 않고(4.2) 이 탭으로만 구분하며, 별도 스타일 없이 위 표준 탭을 그대로 사용합니다. 아직 화면이 없는 단계는 `.detail-tab-group`에 `data-tab-preview`를 지정해 선택 시 안내만 표시하고 선택 상태를 바꾸지 않습니다.
+- **업무 탐색 탭**: 화면의 주요 업무 단계 탭은 `15px ~ 15.5px`, 최소 높이 `48px`을 적용합니다. 굵기는 비활성·선택 모두 `400`(볼드 없음)이며 선택 여부는 굵기가 아니라 색상과 인디케이터로 구분합니다. 비활성 탭 텍스트는 중간 회색 `#58687b`로 통일합니다. 선택 탭은 별도 면 배경 없이 오렌지 텍스트, 4px 오렌지 하단 인디케이터로 구분하며 hover와 키보드 focus 상태를 제공합니다. 탭 컨테이너는 `role="tablist"`, 각 탭은 `role="tab"`과 `aria-selected`를 사용합니다. 표준 마크업과 클래스는 `.detail-tabs-bar`(흰 박스) > `.detail-tab-group`(`role="tablist"`) > `.detail-tab-btn`(`role="tab"`)이며, 탭은 자동 너비로 왼쪽부터 나열하고 탭 사이에 구분선이나 균등 분할 그리드를 사용하지 않습니다.
+- **탭 = 독립 HTML 파일 (필수, 신규 표준)**: `.detail-tab-group`의 각 탭은 서로 다른 화면(콘텐츠)을 나타내므로 **탭마다 완전히 독립된 HTML 파일**로 만듭니다. 한 파일 안에서 여러 탭 패널을 만들어 두고 스크립트로 하나만 보이게 숨기는 방식(`data-tab-target`/`data-tab-panel`/`hidden`, 옛 `initTabInterfaces()`)은 사용하지 않습니다. 페이지·팝업을 화면 단위로 나누는 원칙(위 "새 화면 만들기" 4단계, 5.8)과 같은 이유입니다.
+  - **탭 버튼 = 링크**: 탭 버튼은 `<button>`이 아니라 `<a class="detail-tab-btn" href="대상파일.html" role="tab" aria-selected="true|false">`로 만듭니다. 현재 열려 있는 파일에 해당하는 탭에만 `active` 클래스와 `aria-selected="true"`를 하드코딩하고, 나머지 탭은 `active` 클래스 없이 `aria-selected="false"`만 둡니다. 탭 전환은 브라우저의 기본 링크 이동으로 처리하며 별도 스크립트(`initTabGroup()`, 텍스트 매칭 라우팅 등)를 사용하지 않습니다.
+  - **공통 영역 복제**: 탭 위에 걸쳐 모든 탭에서 동일하게 보여야 하는 콘텐츠(검색바, 목록, 요약 표 등)는 탭 파일마다 그대로 반복합니다.
+  - **파일명 규칙**: 화면의 대표 탭(목록에서 바로 진입하는 기본 탭)은 기존 파일명을 유지하고, 나머지 탭은 `{대표 파일명}{탭 구분 영문}.html`로 만듭니다. 예: `SRMPartnerInfo.html`(정보 확인) 기준 `SRMPartnerInfoEdit.html`(수정 요청) · `SRMPartnerInfoContact.html`(담당자) · `SRMPartnerInfoPassword.html`(비밀번호 변경). 이미 여러 화면이 파일명을 공유하는 탭 세트(예: 입찰 참여 진행 단계)는 기존 파일명을 그대로 재사용합니다.
+  - **팝업 매니페스트**: 각 탭 파일은 자신이 실제로 사용하는 팝업만 `external-modal-manifest`에 선언합니다(5.8).
+- **입찰 프로세스 탭**(SRM 8단계, `입찰공고 현황` 상세 화면): 왼쪽 메뉴에는 나열하지 않고(4.2) 이 탭으로만 구분하며, 별도 스타일 없이 위 표준 탭을 그대로 사용합니다. 8단계 모두 독립된 화면(파일)을 가지며, 미구현 단계를 안내만 표시하던 옛 `data-tab-preview`는 더 이상 사용하지 않습니다.
 - **단계 표시 표준 — 위저드 스텝바 (확정)**(`.wizard-stepper` > `.wizard-step-box`, 협력업체 신청 5-Step·입찰계획 세부 업무 6단계 등 순차 진행 화면): 번호 원 + 연결선 + 단계 라벨로 구성하며 단계 수(3~7개)와 무관하게 균등 분할합니다. **순서대로 진행되는 단계·프로세스를 보여주는 모든 화면(협력업체 신청, 입찰계획 현황 등)은 이 디자인 하나만 사용하며, 화면마다 별도의 단계 표시를 새로 만들지 않습니다.**
   - **구성**: 각 단계는 세로 가운데 정렬로 `번호 원(.wizard-step-dot, 30px)` → `STEP 01`(13px, 자간 `0.5px`) → 단계명(13px, 한 줄 말줄임) 순서입니다. 컨테이너는 흰 배경, 패딩 `22px 24px 18px`, 하단 `1px solid #e2e8f0`이며 카드 헤더 아래에 붙습니다.
   - **연결선**: 단계 사이를 `2px` 선으로 잇고, 완료된 단계와 현재 단계로 들어오는 선은 블루 `#1976d2`, 이후는 `#e2e8f0`입니다. 원은 선 위에 흰색으로 겹칩니다(`z-index`).
@@ -519,7 +535,7 @@ font-family: 'Pretendard';
   - **표기**: 번호는 `STEP 01`처럼 영문 대문자, 단계명은 띄어쓰기를 지킨 명사형(`기본정보 입력`)입니다.
   - **동작·접근성**: 스텝바 항목을 클릭하거나 `Enter`/`Space`를 누르면 해당 단계 화면으로 바로 이동합니다(단계 화면이 아직 없는 시연 화면은 이동하지 않고 안내만 표시)(`role="button"`, `tabindex="0"`). 현재 단계에 `aria-current="step"`을 제공하고 hover(현재 단계 제외)에서는 원 테두리와 단계명이 블루로, 키보드 포커스에서는 원에 `2px #1976d2` 아웃라인(`offset 3px`)이 표시됩니다. 하단 `이전/다음` 버튼과 스텝바 클릭은 함께 쓸 수 있습니다.
 - **박스형 스텝바(`.stepper-step-box`)는 폐지**되었습니다. 옛 박스형 스타일은 삭제했습니다.
-- **입찰계획 현황(`StepWorkflow`)의 구성**: 상단 입찰계획 7단계(`발주계획 정보 확인 → … → 입찰계획 등록 완료`)는 이동을 위한 메뉴이므로 위저드 스텝바가 아니라 **표준 업무 탐색 탭**(`.detail-tabs-bar`, `data-tab-preview`, 현재 탭 `예정가 / 예비가`)으로 표현합니다. 그 아래 `예정가 / 예비가 세부 업무 진행` 6단계는 순서대로 처리하는 업무 흐름이므로 **순서도(위저드 스텝바) 디자인**을 씁니다.
+- **입찰계획 현황(`StepWorkflow`)의 구성**: 상단 입찰계획 7단계(`발주계획 정보 확인 → … → 입찰계획 등록 완료`)는 이동을 위한 메뉴이므로 위저드 스텝바가 아니라 **표준 업무 탐색 탭**(`.detail-tabs-bar`, 단계마다 독립 파일, 현재 탭 `예정가 / 예비가` = `StepWorkflow.html`)으로 표현합니다. 그 아래 `예정가 / 예비가 세부 업무 진행` 6단계는 순서대로 처리하는 업무 흐름이므로 **순서도(위저드 스텝바) 디자인**을 씁니다.
 - **액션형 스텝바**(`.wizard-stepper.has-actions`): 각 단계에 처리할 업무 버튼이 있는 순서도입니다. 단계 박스는 이동 대상이 아니므로 `role="button"`·클릭 이동을 두지 않고(버튼이 중첩되기 때문), 번호 원 → STEP 0N → 단계명(두 줄까지 줄바꿈, 최소 높이 `36px`) → 버튼 행(`.wizard-step-actions`, 위 간격 `12px`, 버튼 균등 분할 `6px`) 순서입니다. 버튼은 업무 단계 액션 규격(5.4 `.btn-task-*`)을 따르고, 한 단계의 업무가 끝나면 그 단계는 `completed`(블루 체크), 다음 단계는 `active`(오렌지)로 옮깁니다. 스텝바를 콘텐츠 영역에 카드 밖으로 직접 둘 때(`.main-content > .wizard-stepper`)는 카드 규격(5.1: 테두리 `#e2e8f0`, 라운드 `12px`, 그림자 `--shadow-sm`)을 따르고, 카드(팝업) 헤더 아래에 붙일 때는 하단선만 사용합니다. 진행 순서대로 앞 단계는 `completed`, 현재 단계는 `active`(`aria-current`), 나머지는 대기입니다.
 - **표준 마크업**: 단계 수만큼 `.wizard-step-box`를 나열하고, 현재 단계에 `active`와 `aria-current="step"`, 이미 지난 단계에 `completed`를 부여합니다. 상태 클래스는 스크립트(`goToStep`)가 갱신하며 마크업에는 초기 상태만 둡니다.
 
@@ -541,6 +557,11 @@ font-family: 'Pretendard';
 
 ### 5.8 모달 팝업 가이드 (Modal & Dialog)
 모든 모달은 아래 표준 구조 하나를 사용하며, 화면마다 모달 레이아웃(헤더·닫기·푸터)을 새로 만들지 않습니다.
+- **파일 분리 필수**: 모달·확인창·조회창·Description 개발자 드로어를 포함한 모든 팝업은 부모 페이지와 분리된 완전한 HTML 문서여야 합니다. 한 HTML 파일 안에 페이지 본문과 팝업 `.modal-backdrop`을 함께 작성하지 않습니다.
+- **저장 위치**: 부모가 `SRMDetail.html`이고 팝업 ID가 `bidDetailModal`이면 `popups/SRMDetail/bidDetailModal.html`에 저장합니다. 팝업 파일명은 루트 `.modal-backdrop`의 `id`와 동일하게 합니다.
+- **부모 연결**: 부모 화면은 `<script type="application/json" class="external-modal-manifest">["popups/SRMDetail/bidDetailModal.html"]</script>`로 필요한 팝업 파일을 선언합니다. `loadExternalModals()`가 `DOMContentLoaded` 초기화보다 먼저 파일을 불러오며, 기존 호출 요소의 `data-open-modal="bidDetailModal"`은 그대로 사용합니다.
+- **독립성**: 팝업 파일은 `<!DOCTYPE html>`, `lang`, `meta charset`, viewport, title, 공통 CSS·JS 참조를 모두 가진 완전한 HTML 문서입니다. `body.popup-document` 아래에는 자신의 `.modal-backdrop` 하나만 둡니다. 팝업 파일을 직접 열어도 내용을 확인할 수 있어야 합니다.
+- **금지**: 부모 페이지에 팝업 본문을 복사해 중복 보관하거나, 하나의 팝업 파일에 서로 다른 팝업 두 개를 넣거나, 인라인 `<template>`·문자열 HTML로 팝업 내용을 숨겨 두지 않습니다.
 - **구조**: `.modal-backdrop`(오버레이) > `.modal-dialog`(창) > `.modal-header`(제목 + 닫기) · `.modal-body`(본문) · `.modal-footer`(액션)의 3단 구조입니다. 열고 닫는 상태는 `.modal-backdrop`의 `show` 클래스로 표현합니다.
 - **오버레이**: `rgba(15, 23, 42, 0.55)` + `blur(2px)`, `z-index: 1000`, 창을 가운데 정렬하고 바깥 여백 `24px`. 다른 모달 위에 열리는 모달(확인 팝업)은 `.modal-top`(`z-index: 1100`)을 추가합니다.
 - **모달 창**: 배경 `#ffffff`, 라운드 `14px`, 그림자 `0 20px 25px -5px rgba(0,0,0,0.15)`. 장식용 그라데이션·원형 무늬를 쓰지 않습니다. **너비는 내용 크기에 따라 4단계**입니다.
@@ -560,6 +581,8 @@ font-family: 'Pretendard';
 - **닫기 방법 (필수 3가지)**: ① 헤더 닫기(×) 또는 취소 버튼, ② 오버레이(창 바깥) 클릭, ③ `Esc`(여러 개가 열려 있으면 가장 위 모달부터)를 모두 지원합니다. 공통 스크립트 `initModals()`가 ②·③과 접근성 상태를 처리하므로 화면 스크립트는 여는 동작(`show`)과 ① 취소 동작만 구현합니다.
 - **접근성·동작**: `role="dialog"`(확인 팝업은 `role="alertdialog"`), `aria-modal="true"`, `aria-labelledby`(제목 ID)를 제공하고 열림 상태에 맞춰 `aria-hidden`을 갱신합니다. 열려 있는 동안 배경 `body` 스크롤을 잠급니다(`body.modal-open`). 필수 입력이 비어 있으면 제출하지 않고 오류를 표시합니다(5.5).
 - **신규 프로젝트 등록 예외 (E9)**: 계약형태 선택과 프로젝트 기본정보 입력은 모달을 사용하지 않고 `ProjectRegister.html`의 페이지 내부 콘텐츠 작업영역에서 단계 전환 방식으로 제공합니다.
+
+아래 마크업은 부모 페이지가 아니라 **독립 팝업 HTML 문서의 `body.popup-document` 안**에 작성합니다.
 
 ```html
 <div class="modal-backdrop" id="modalExample" role="dialog" aria-modal="true" aria-labelledby="exampleTitle" aria-hidden="true">
@@ -668,11 +691,13 @@ font-family: 'Pretendard';
 ### 5.12 콘텐츠 블릿 (Bullet List)
 콘텐츠 영역의 목록 항목(첨부파일명, 참여 업체 목록, 안내 항목 등) 앞에는 아래 공통 블릿만 사용합니다. 왼쪽 메뉴의 2Depth 블릿(4.2)과 같은 5px 원형이며 색만 콘텐츠용 중립 회색입니다.
 - **모양**: 지름 `5px` 원형 채움. 네모·체크·별·화살표·문자 기호(`·`, `•`, `-`)나 별도 이미지·아이콘을 블릿으로 쓰지 않습니다.
+- **정렬과 들여쓰기**: 블릿과 본문 사이는 `8px`이며 블릿은 해당 본문 첫 줄의 세로 중앙에 둡니다. 블릿이 `dd`·`td` 같은 패딩 컨테이너에 직접 적용될 때는 컨테이너의 기본 좌측 패딩 `14px`을 유지하고, 본문 시작점은 `27px`로 확장합니다. 블릿의 `left`는 `14px`로 두어 셀 경계선에 붙거나 라벨 열로 넘어가지 않게 합니다. 한 줄짜리 상세정보·표 셀은 블릿과 본문 묶음을 셀 높이의 중앙에 정렬합니다.
 - **색상**: `#7c8ca0`(`--text-sub`). 항목 텍스트 색과 관계없이 고정하며 hover·활성 상태에서 변하지 않습니다.
 - **간격**: 블릿과 텍스트 사이 `8px`(블릿 왼쪽 시작 위치 기준 텍스트 들여쓰기 `13px`), 항목 사이 `6px`.
 - **정렬**: 블릿은 항목 **첫 줄**의 세로 중앙에 맞춥니다. 항목이 두 줄 이상이어도 블릿은 첫 줄에만 있고 다음 줄은 텍스트 시작 위치에 맞춰 내어쓰기합니다.
 - **단계**: 1단계만 사용합니다. 하위 항목이 필요하면 별도 항목·표로 분리하고 2단계 블릿을 만들지 않습니다.
 - **구현**: 목록은 `<ul class="bullet-list"><li>…</li></ul>`, 첨부파일 행은 `.srm-file-item > span`이 같은 블릿을 사용합니다. 블릿은 CSS `::before`로만 그리며 HTML에 기호 문자를 넣지 않습니다.
+- **첨부파일 표시**: 첨부파일은 파일명만 일반 텍스트로 표시하지 않습니다. `.srm-file-list` 안에 파일 하나마다 `.srm-file-item` 한 줄을 만들고, 각 행은 `파일명 → 바로보기 → 다운로드` 순서로 구성합니다. 파일이 여러 개이면 `·`로 이어 쓰지 않고 반드시 파일별로 줄을 바꿉니다. 기존 파일을 교체·삭제할 수 있는 편집 화면에서도 `바로보기`와 `다운로드`를 유지하고 그 뒤에 `삭제`를 추가합니다. 파일명에는 공통 5px 블릿을 적용합니다.
 - **사용하지 않는 곳**: 표 셀의 단일 값, 라벨(`dt`), 버튼·탭·메뉴 항목, 제목(5.1)에는 블릿을 붙이지 않습니다.
 
 ```html
@@ -733,10 +758,11 @@ font-family: 'Pretendard';
 화면설계 PPTX의 Description과 번호 목적지를 구현 화면에서 대조하기 위한 **개발·검수 전용 기능**입니다. 실제 업무 기능이나 사용자 도움말이 아니며, 운영 UI의 정보 구조·권한·업무 흐름에 포함하지 않습니다.
 
 #### 표시와 동작
-- 화면 오른쪽 아래에 `D` 플로팅 버튼(`.description-floating-button`)을 둡니다. 버튼은 지름 `52px`(`767px` 이하 `48px`), 짙은 회색 `rgba(31, 41, 55, 0.30)`, 흰색 `D`, `z-index: 900`이며 업무 버튼보다 시각적 우선순위가 낮아야 합니다.
+- 화면 오른쪽 아래에 `D` 플로팅 버튼(`.description-floating-button`)을 둡니다. 버튼은 지름 `52px`(`767px` 이하 `48px`), 짙은 회색 `rgba(31, 41, 55, 0.30)`, 흰색 `D`, `z-index: 1150`이며 색상·크기로 업무 버튼보다 시각적 우선순위가 낮아 보이되, 업무 모달(`z-index: 1000~1100`)에 가려 클릭이 막히지 않도록 모달보다는 높고 토스트(`z-index: 1200`)보다는 낮게 둡니다.
 - `D`를 누르면 중앙 모달이 아니라 화면 오른쪽에서 왼쪽으로 들어오는 개발자 드로어를 엽니다. 드로어는 너비 `340px`(최대 `100vw`), 높이 `100vh`, 배경 `#111827`, 본문 박스 `#1f2937`, 왼쪽 모서리만 `14px`입니다.
 - 본문은 항상 위에서부터 배치합니다(`align-content: start`, `grid-auto-rows: max-content`). 내용이 적으면 남는 공간은 아래 여백으로 두며 섹션 높이를 강제로 늘리지 않습니다.
 - 드로어는 상단 `×`와 `Esc`로 닫습니다. 하단 푸터와 `닫기` 버튼은 두지 않습니다. 드로어 바깥의 원래 화면은 목적지 확인과 상세 모달 진입을 위해 조작할 수 있어야 합니다.
+- 드로어 바깥 영역에는 일반 모달의 어둡게 처리·블러(`backdrop-filter`) 효과를 적용하지 않습니다(`.description-guide-backdrop`는 `background: transparent`, `backdrop-filter: none`). 업무 화면을 원래 상태 그대로 대조해서 봐야 하기 때문입니다.
 - 개발자 가이드는 인쇄·PDF·콘텐츠 출력 결과와 운영 배포물에서 제외할 수 있어야 하며, 출력 모드에서는 `D`, 드로어, 목적지 번호를 표시하지 않습니다.
 
 #### Description 원문 규칙
@@ -747,10 +773,54 @@ font-family: 'Pretendard';
 
 #### 목적지 번호 규칙
 - 화면설계의 반투명 붉은 원형 번호는 실제 목적지 요소에 `.description-marker-anchor`와 `.description-target-marker`로 연결합니다. 목적지 번호만 지름 `26px`, 흰 글자, `rgba(220, 38, 38, 0.58)` 배경, 원형으로 표시합니다.
+- 목적지 번호의 `z-index: 1300`은 Description 드로어(`1150`)·업무 모달(`1000~1100`)·토스트(`1200`)보다 항상 높아야 합니다. 목적지가 드로어가 덮는 화면 오른쪽 영역과 겹치더라도 번호가 가려지면 안 됩니다.
 - 목적지 번호는 Description 드로어가 열린 동안에만 보이고 닫으면 모두 사라져야 합니다. 평상시 업무 화면의 레이아웃과 접근성 트리에 영향을 주지 않도록 `aria-hidden="true"`, `pointer-events: none`을 사용합니다.
 - 번호를 화면 좌표에 고정하지 않고 실제 입력·버튼·표·탭·섹션 요소에 상대 배치합니다. 해상도나 콘텐츠 높이가 바뀌어도 목적지를 따라가야 합니다.
 - 숨겨진 탭·아코디언·상세 모달 안의 목적지는 해당 상태가 열렸을 때 표시합니다. 목적지 확인을 위해 업무 상태를 자동 변경하거나 모달을 강제로 열지 않습니다.
 - Description 번호와 목적지 번호는 **슬라이드·화면 상태 단위**로 일치해야 합니다. 같은 HTML 안에서 번호가 다시 시작되면 섹션 또는 상태 식별자를 함께 관리하여 서로 잘못 연결되지 않게 합니다.
+
+#### 표준 마크업
+
+```html
+<!-- 화면 하단: D 플로팅 버튼 -->
+<button type="button" class="description-floating-button"
+  data-description-guide-toggle="screenDescriptionGuide"
+  aria-controls="screenDescriptionGuide" aria-expanded="false"
+  aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
+
+<!-- 우측 드로어: 슬라이드 화면명 단위로 섹션을 나누고, 섹션 안에서 번호는 1부터 다시 시작 가능 -->
+<div class="modal-backdrop description-guide-backdrop" id="screenDescriptionGuide"
+  role="dialog" aria-modal="false" aria-labelledby="screenDescriptionGuideTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg description-modal-dialog">
+    <div class="modal-header">
+      <h2 class="modal-title" id="screenDescriptionGuideTitle">화면설계 Description</h2>
+      <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+    </div>
+    <div class="modal-body description-modal-body">
+      <section class="description-source-section" aria-labelledby="descriptionSearchTitle">
+        <h3 id="descriptionSearchTitle">검색/조회</h3>
+        <div class="description-mapping-list">
+          <div class="description-mapping-item">
+            <span class="description-mapping-number" aria-hidden="true">1</span>
+            <pre class="description-source-text">PPTX 원문을 문자 단위로 그대로 옮깁니다.</pre>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<!-- 목적지 번호: 실제 대상 요소를 감싸 상대 배치. 인라인 요소는 span, 블록·컨테이너는 marker-top-left로 좌상단에 둡니다 -->
+<span class="description-marker-anchor">
+  <span class="description-target-marker" aria-hidden="true">1</span>
+  <button type="button" class="btn-secondary">검색</button>
+</span>
+
+<div class="description-marker-container">
+  <span class="description-target-marker marker-top-left" aria-hidden="true">2</span>
+  <!-- 표·카드처럼 감싸는 대상 -->
+</div>
+```
 
 #### 필수 검증
 1. PPTX Description의 각 문단과 HTML의 `.description-source-text`를 Unicode 문자열로 비교하여 길이와 내용이 모두 동일한지 확인합니다.
@@ -800,7 +870,29 @@ font-family: 'Pretendard';
 - 새 화면은 `index.html` 카드와 사이드바/네비게이션에 즉시 연결합니다.
 
 ### 6.2 상세 화면 (`ProjectDetail.html`, `SRMDetail.html` 기준)
-구성: 요약 Key-Value(5.3.1) → 업무 탐색 탭(5.7) → 섹션 카드(전체 폭, 위에서 아래로 한 줄씩 쌓기) → 하단 액션 바(목록 좌측 / 메인 액션 우측). 섹션 카드는 좌우로 나란히 배치하지 않고, 각 섹션은 5.1의 장식 없는 제목과 전체 폭 Key-Value 표(라벨 | 값 한 쌍 per 행) 또는 표로 구성합니다. 첨부파일은 5.11을 따릅니다.
+구성: 요약 Key-Value(5.3.1) → 업무 탐색 탭(5.7) → 섹션 카드(전체 폭, 위에서 아래로 한 줄씩 쌓기) → 하단 액션 바(목록 좌측 / 메인 액션 우측). 섹션 카드는 좌우로 나란히 배치하지 않고, 각 섹션은 5.1의 장식 없는 제목과 전체 폭 Key-Value 표(라벨 | 값 한 쌍 per 행) 또는 표로 구성합니다. 첨부파일은 5.11을 따릅니다. 탭은 각각 독립 HTML 파일이며(5.7) 요약 Key-Value와 탭 바는 모든 탭 파일에 동일하게 반복합니다.
+
+### 6.2.1 독립 페이지형 목록·상세·등록
+공지사항·양식 등 자료실·질문과 답변처럼 **목록에서 항목을 눌러 들어가는 게시판형 화면**은 원본 화면설계에서 목적지 화면이 전체 폭을 그대로 쓰고 dimming(반투명 검정 오버레이)이나 `X` 닫기가 없는 전체 화면입니다. **이런 화면은 모달로 만들지 않습니다.** 모달은 5.8처럼 화면설계에 어두운 오버레이 + 중앙의 작은 카드 + `X` 닫기가 있는 경우에만 씁니다. 화면설계에 그 셋이 없다면 게시판형이며, 아래 구조를 따릅니다.
+
+목록·상세·등록·수정·업무 단계는 각각 독립 HTML 파일로 구성합니다. 목록의 링크나 버튼은 `href` 또는 페이지 이동 이벤트로 목적지 HTML을 열며, 페이지 이동에 `data-open-modal`을 사용하지 않습니다. 상세/등록 페이지는 공통 헤더·사이드바·푸터와 `.main-content`를 유지합니다. 본문 `.page-detail-body`와 하단 `.page-actions`는 모두 5.1의 흰색 콘텐츠 카드 규격(배경 `#ffffff`, 테두리, 12px 라운드, 그림자, 20px 패딩)을 사용하며, 페이지 기본 배경색이 데이터·표·상세정보 뒤로 직접 비쳐서는 안 됩니다.
+
+- **팝업 판별 기준**: 화면설계에 dimming 배경 위의 독립 대화상자 프레임이 있고, 대화상자 자체에 제목·닫기·본문 경계가 표현된 경우에만 모달(5.8)입니다.
+- **페이지 판별 기준**: 시스템 헤더(`H`), 좌측 메뉴, breadcrumb, 푸터가 이어지는 화면이거나 기존 페이지의 연속 설계이면 독립 페이지입니다. 슬라이드에 검토용 `X` 표식이 있더라도 전체 페이지 프레임이 확인되면 `X` 하나만으로 모달로 판정하지 않습니다.
+- **소형 업무창 예외**: 선택, 검색, 파일 추가, 매핑, 확인/경고처럼 현재 페이지의 맥락 안에서 완료되는 짧은 작업만 팝업으로 유지합니다.
+- **파일 구조**: 페이지 HTML은 업무 모듈 폴더에, 팝업 HTML은 `popups/{부모화면명}/{popupId}.html`에 둡니다. 페이지 문서는 `.modal-backdrop`, `.modal-dialog`, `.modal-close`를 사용하지 않습니다.
+
+### 6.2.2 상세 화면 내 섹션 간 간격
+하나의 상세 화면 안에 "견적 기본정보", "품목 정보"처럼 `.srm-section-heading` 제목을 가진 영역이 여러 개 위에서 아래로 쌓일 때, 각 영역(제목 + 그 아래 내용)과 **다음 영역의 제목** 사이 간격은 일반 오브젝트 간격(`--content-object-gap`, 16px)보다 넓은 `--content-section-gap`(64px)을 씁니다. 같은 영역 안에서 제목과 바로 아래 내용의 간격(`--content-inner-gap`, 12px)과는 구분되는 값입니다 — 제목-내용은 좁게 묶고, 영역-영역은 넓게 떼어서 섹션 구분이 한눈에 보이도록 합니다.
+```html
+<div class="srm-section-heading"><div><h2>견적 기본정보</h2></div></div>
+<div class="srm-kv-grid"><!-- 내용 --></div>
+
+<!-- 다음 섹션 제목: content-object-gap-top이 아니라 이 클래스 조합으로 64px 간격이 자동 적용됨 -->
+<div class="srm-section-heading content-object-gap-top"><div><h2>품목 정보</h2></div></div>
+<div class="srm-table-wrap"><!-- 내용 --></div>
+```
+`.srm-section-heading.content-object-gap-top { margin-top: var(--content-section-gap); }`로 두 클래스가 함께 있을 때만 넓은 간격을 적용하므로, `.content-object-gap-top` 단독으로 쓰이는 다른 곳(예: 하단 액션 바 `.srm-detail-actions.content-object-gap-top`)은 기존 16px 간격을 그대로 유지합니다.
 
 ### 6.3 위저드·입력 화면 (`PartnerRegister.html`, `StepWorkflow.html`, `ProjectRegister.html`)
 단계 표시(5.7) → 단계별 입력 카드 → 하단 `이전(Tertiary)` / `다음(Primary)`, 마지막 단계의 `제출`은 Critical Primary.
@@ -1001,6 +1093,25 @@ font-family: 'Pretendard';
 ### 11.2 변경 이력
 | 버전 | 날짜 | 요지 |
 |---|---|---|
+| v2.52 | 2026-09-23 | **탭 파일 분리 원칙 신설(5.7, 6.2, 새 화면 만들기)**: `.detail-tab-group` 업무 탐색 탭은 한 HTML 안에서 `data-tab-target`/`data-tab-panel`로 패널을 숨겼다 보여주는 방식 대신 탭마다 독립된 HTML 파일로 구성하고, 탭 버튼을 `<a href>` 링크로 만들어 현재 파일에만 `active`/`aria-selected="true"`를 하드코딩하도록 표준화. 옛 `initTabInterfaces()`(패널 전환)와 `initTabPageNavigation()`(텍스트 매칭 라우팅)를 제거하고 순수 링크 이동으로 대체. `SRMPartnerInfo`(정보 확인/수정 요청/담당자/비밀번호 변경 4탭), `SRMDetail`(입찰 8단계), `StepWorkflow`(입찰계획 7단계), `SRMContractStatusDetail`, `SRMSoleSourceStatus`, `SRMPreQuoteStatusDetail`, `SRMPartnerNegoRequest` 및 이미 파일이 분리돼 있던 협력업체 입찰/계약 탭 그룹까지 전 화면에 적용. |
+| v2.51 | 2026-09-23 | 상세정보 값 셀의 복합 입력 줄 분리 규격 추가. `dd` 직계 자식의 `.content-inner-gap-top`은 항상 새 행 전체 폭으로 배치하며, 주소는 우편번호/검색 → 기본주소 → 상세주소의 3행 구조로 통일. `<br>` 기반 폼 정렬 금지. |
+| v2.50 | 2026-09-23 | 독립 상세/등록 페이지의 콘텐츠 배경 규격 보강. 팝업에서 페이지로 전환한 51개 화면의 `.page-detail-body`와 `.page-actions`를 흰색 카드로 통일하고, 누락된 화면 매뉴얼·출력 도구·브레드크럼 및 `<title>` 형식을 부모 화면 기준으로 복구. |
+| v2.49 | 2026-09-23 | 화면설계 기준 페이지/팝업 판별 규칙 보강: 전체 페이지 프레임이 있으면 단독 `X` 표식만으로 팝업 판정 금지. 잘못 구현된 대형 모달 51개를 공통 헤더·사이드바·푸터가 있는 독립 페이지 HTML로 전환하고 페이지 이동으로 연결. |
+| v2.48 | 2026-09-23 | 프로젝트 구조 원칙 추가: 페이지와 팝업을 각각 독립 HTML 파일로 구성. 44개 부모 HTML에 내장돼 있던 팝업 209개를 `popups/{부모파일명}/{팝업ID}.html`로 분리하고 부모에는 JSON manifest만 유지. `loadExternalModals()`가 초기 인터랙션 실행 전에 외부 팝업을 불러와 기존 레이어 UX를 유지하며, 독립 팝업 문서의 저장 위치·문서 골격·ID·금지사항을 5.8에 명시. |
+| v2.47 | 2026-09-23 | 5.4 표 내부 버튼 규격 재수정. 전역 일반 버튼의 `38px !important`가 `.btn-secondary`에 남아 상태별 행 버튼의 높이가 달라지는 우선순위 충돌을 해결하기 위해 `.data-table` 규격의 높이·최소 높이·패딩·라운드·행높이를 `!important`로 확정. 같은 열의 상태 전환 버튼 폭은 불필요하게 넓었던 112px에서 104px로 축소하고 width/min/max를 동일하게 고정. |
+| v2.46 | 2026-09-23 | 5.12 첨부파일 표시 규격 확정. 파일명을 `·`로 이어 쓰거나 버튼 없이 표시하지 않고 파일별 한 줄로 분리해 `파일명 → 바로보기 → 다운로드`를 제공하도록 규정. 공통 `initAttachmentDisplays()`가 기존 `.content-bullet-item`의 파일명 표시 37건을 `.srm-file-list > .srm-file-item` 구조로 정규화하며 편집 화면의 삭제 버튼은 보존. |
+| v2.45 | 2026-09-23 | 5.12 블릿 정렬 규격 보완. `.content-bullet-item`이 상세정보 `dd`나 표 `td`에 직접 적용될 때 기존 패딩이 사라져 블릿이 셀 경계 상단에 붙는 문제를 전체 공통 CSS에서 수정. 컨테이너 패딩 14px, 본문 시작 27px, 블릿 위치 14px을 적용하고 한 줄 셀에서는 블릿과 본문을 세로 중앙 정렬. |
+| v2.44 | 2026-09-23 | 5.4 표 내부 버튼 크기 규격 추가. 모든 `.data-table` 행 액션을 높이 28px·좌우 패딩 10px·라운드 4px·13px로 통일하고, 같은 액션 열에서 상태에 따라 교체되는 버튼은 `.btn-row-action`으로 폭 112px까지 동일하게 고정. 협력업체 수의시담의 `견적 제출하기`/`견적 제출내역` 조합 2개 화면에 적용. |
+| v2.43 | 2026-09-23 | 5.4 추가: `바로보기`+`다운로드`처럼 표의 `<td>`나 텍스트 사이에 버튼 두 개를 나란히 쓴 곳(HTML에 공백 없이 `</button><button>`으로 이어짐, 부모가 flex+gap이 아님) 50곳 이상에서 버튼이 간격 없이 붙어 보이는 문제 발견. `:is(.btn-file-preview, .btn-file-download, .btn-row-del) + :is(...)  { margin-left: 8px; }`를 추가해 부모의 레이아웃과 무관하게 항상 최소 간격이 보장되도록 수정. |
+| v2.42 | 2026-09-23 | 6.2.2 재수정: v2.40에서 올린 `--content-section-gap`(48px)도 여전히 부족하다는 재신고를 받아 `64px`로 상향. 클래스 구조·적용 범위는 그대로이며 토큰 값만 교체. |
+| v2.41 | 2026-09-23 | 5.2 재수정: v2.39에서 모든 `.filter-label`을 프로젝트 전체 공통값(`--filter-label-col: 200px`)으로 통일했더니, 짧은 라벨만 있는 카드(`조회기간(등록일)`+`키워드 검색` 등)에서 타이틀과 컨트롤 사이가 불필요하게 멀어지는 문제 재신고. "라벨 폭은 프로젝트 전체가 아니라 같은 카드 안에서만 통일하고, 그 카드의 가장 긴 라벨 기준으로 최소 폭을 고른다"로 규칙을 정정. `--filter-label-col` 변수를 제거하고 `w-80/90/100/130/140/200`(130·200 신설) 클래스별 `min-width`를 되살린 뒤, 32개 화면의 `.filter-card`를 실제 라벨 길이 기준으로 재조사해 카드별로 적절한 클래스를 다시 부여(예: `조회기간(등록일)`류 카드는 `w-130`, `계약방법/낙찰자 선정방법`처럼 긴 라벨이 섞인 카드는 `w-200`). |
+| v2.40 | 2026-09-23 | 6.2.2 재수정: v2.38에서 도입한 `--content-section-gap`(32px)을 실제 화면(`SRMPartnerPreQuote.html` "사전 견적 상세정보/견적처리")에 적용해보니 여전히 섹션 구분이 답답하다는 재신고를 받아 `48px`로 상향. 클래스 구조·적용 범위(18개 화면)는 그대로이며 토큰 값만 교체해 전체 화면에 일괄 반영됨. |
+| v2.39 | 2026-09-23 | 5.2 추가 수정: 같은 `.filter-card` 안에서 `조회기간(견적 마감 일시)`처럼 긴 라벨이 있는 행만 v2.37 규칙(`min-width`+`flex: 0 0 auto`)에 따라 넓어지고, `구분`·`진행상태`처럼 짧은 라벨의 행은 좁게 남아 오른쪽 컨트롤의 왼쪽 세로선이 행마다 어긋나는 문제 발견. `.filter-row .filter-label.w-80/.w-90/.w-100/.w-140`의 서로 다른 `min-width`(80~140px)를 새 공통 토큰 `--filter-label-col: 200px` 하나로 통일해, 클래스명과 무관하게 프로젝트 전체 모든 필터 라벨이 같은 폭을 갖도록(가장 긴 라벨도 한 줄에 들어가는 여유 폭) 수정. HTML 변경 없이 CSS 값 통일만으로 전 검색화면에 일괄 적용됨. |
+| v2.38 | 2026-09-23 | **6.2.2 상세 화면 내 섹션 간 간격 신설**: `SRMPartnerPreQuote.html`의 "사전 견적 상세정보/견적처리"처럼 `.srm-section-heading` 제목을 가진 섹션이 여러 개 쌓이는 화면에서, "견적 기본정보"→"품목 정보"처럼 다음 섹션 제목까지의 간격이 일반 오브젝트 간격(16px)이라 답답해 보이는 문제 수정. 새 토큰 `--content-section-gap`(32px) 추가, `.srm-section-heading.content-object-gap-top { margin-top: var(--content-section-gap); }`로 두 클래스 조합에만 넓은 간격이 적용되도록 스코프해 하단 액션 바(`.srm-detail-actions.content-object-gap-top`) 등 `.content-object-gap-top` 단독 사용처는 영향받지 않음. HTML 변경 없이 CSS만으로 상세 화면 패턴을 쓰는 18개 화면에 일괄 적용됨. |
+| v2.37 | 2026-09-23 | 5.2 추가 수정: v2.36에서 `white-space: nowrap`만 추가했더니 라벨 폭이 고정값(`width`/`flex: 0 0 Npx`)에 묶여 있어 줄바꿈 대신 오른쪽 입력 컨트롤과 글자가 겹치는 문제 발견. `.filter-label`(`w-80/90/100/140` 조합)·`.filter-field-label`·`.settle-filter-label`을 `min-width` + `flex: 0 0 auto` 조합으로 교체해 짧은 라벨은 기존 폭을 유지하고 긴 라벨은 글자만큼 늘어나며 오른쪽 컨트롤을 밀어내도록 수정. |
+| v2.36 | 2026-09-23 | 5.2 수정: 검색 필터 라벨(`.filter-label`·`.filter-field-label`·`.settle-filter-label`)에 `white-space: nowrap` 추가. `조회기간(등록일)`처럼 글자 수가 많은 라벨이 고정폭 칸(`w-80` 등)에서 두 줄로 떨어지던 문제 수정 — 라벨이 필요한 만큼 넓어지며 오른쪽 컨트롤을 밀어내도록 함. |
+| v2.35 | 2026-09-23 | **6.2.1 게시판형 목록·상세·등록 신설**: 공지사항·양식 등 자료실·질문과 답변처럼 화면설계에 어두운 오버레이·중앙 카드·`X` 닫기가 없는 목록→상세 전환을 모달(`.modal-backdrop`)로 잘못 구현했던 문제를 발견해 전수 수정. `SRMNoticeManage.html`·`SRMFileRepoManage.html`(00)·`SRMPartnerNotice.html`·`SRMPartnerFileRepo.html`·`SRMPartnerQna.html`(02)·`SRMDashNotice.html`·`SRMDashFileRepo.html`(03) 7개 화면의 상세/등록을 `.board-view`(모달 아님, `.show`가 붙은 것만 표시)로 교체하고 공통 처리기(`initDashboardWidgets()`의 `data-open-modal` 핸들러)가 대상이 `.board-view`인지 자동 판별하도록 수정. |
+| v2.34 | 2026-09-22 | 5.15 수정: `D` 버튼·Description 드로어 `z-index`를 `900`→`1150`으로 올려 업무 모달(`1000~1100`)이 열려 있을 때 `D` 버튼이 가려져 클릭할 수 없던 문제 수정(토스트 `1200`보다는 낮게 유지). 목적지 번호(`.description-target-marker`) `z-index`를 `4`→`1300`으로 올려 드로어가 덮는 화면 영역과 겹쳐도 번호가 가려지지 않도록 수정. 사용자 지시로 드로어 바깥 배경의 블러(`backdrop-filter`) 효과 제거, 업무 화면을 원래 상태 그대로 노출. |
 | v2.33 | 2026-09-22 | 화면설계 Description 개발자 가이드(5.15) 신설: 우측 하단 반투명 진회색 `D`, 우측 340px 다크 드로어, PPTX 원문 무수정, Description 일반 숫자와 화면의 반투명 붉은 원형 목적지 번호 매핑, 숨겨진 모달·탭 목적지 및 문자 단위 검증 규칙 확정. 전 화면 적용 계획서를 `docs/DESCRIPTION_OVERLAY_ROLLOUT_PLAN.md`로 분리. |
 | v2.32 | 2026-09-22 | SRM 전 화면 정합성 감사: 인라인 스타일·이벤트 제거, 표·모달·안내 박스·필수 표시·장식 SVG 접근성 표준화, 단일 본문 스크롤과 카드·테이블 공통 규격 보정, `alert()`를 표준 토스트로 교체하여 구현 차이 13번 해소. |
 | v2.31 | 2026-09-21 | 입찰계획 현황(`StepWorkflow.html`) 구성 변경: 상단 입찰계획 7단계를 위저드 스텝바에서 표준 업무 탐색 탭으로, `예정가 / 예비가 세부 업무 진행` 6단계를 카드 그리드에서 순서도(액션형 스텝바 `.wizard-stepper.has-actions`)로 교체(5.7). 옛 `.sub-stepper-grid`·`.sub-step-*` 삭제. |
@@ -1094,9 +1205,10 @@ font-family: 'Pretendard';
 | | 입력 화면 폼 | `.form-section`(`.col-full`) · `.form-choice-group` > `.form-choice` · `.form-lookup` · `.form-hint` · `.form-actions-bar`(`.form-actions-left/right`) · `.promo-panel` | 5.5, 6.3 |
 | | 약관 박스(E3) | `.terms-box` | 9장 |
 | 상태 | 배지 | `.badge-info` · `.badge-success` · `.badge-warning` · `.badge-danger` · `.badge-tag` · `.status-pill` | 5.6 |
-| 탭·단계 | 업무 탐색 탭 | `.detail-tabs-bar` > `.detail-tab-group` > `.detail-tab-btn` | 5.7, `initTabGroup()` |
+| 탭·단계 | 업무 탐색 탭 | `.detail-tabs-bar` > `.detail-tab-group` > `a.detail-tab-btn`(탭마다 독립 HTML 파일, 스크립트 없이 링크 이동) | 5.7 |
 | | 위저드 스텝바 | `.wizard-stepper` > `.wizard-step-box`(`.wizard-step-dot`) · 액션형 `.wizard-stepper.has-actions` > `.wizard-step-actions` | 5.7 |
 | 오버레이 | 모달 | `.modal-backdrop`(`.show`, `.modal-top`) > `.modal-dialog`(`.modal-sm/lg/xl`) > `.modal-header`(`.modal-title`, `.modal-close`) · `.modal-body` · `.modal-footer` | 5.8, `initModals()` |
+| | 게시판형 목록·상세·등록(모달 아님) | `.board-view`(`.show`) 형제 전환, 하단 `.srm-detail-actions` > `.srm-list-button` | 6.2.1 |
 | 개발자 가이드 | Description 버튼 · 우측 드로어 · 원문 매핑 | `.description-floating-button` · `.description-modal-dialog` · `.description-modal-body` · `.description-source-section` · `.description-mapping-list/item/number` · `.description-source-text` | 5.15 |
 | | 화면설계 목적지 번호 | `.description-marker-anchor` > `.description-target-marker` | 5.15 |
 | 안내 | 안내 박스 | `.notice-box`(`.info/.warning/.danger/.success`) > `.notice-icon` · `.notice-body`(`.notice-lead`, `.notice-note`) | 5.9.1 |
@@ -1122,12 +1234,11 @@ font-family: 'Pretendard';
 | `initPageManuals` | 타이틀 옆 매뉴얼·인쇄·PDF 버튼(`Esc` 닫기, 출력 모드) | 4.3 |
 | `initNativeFormControls` | 날짜·셀렉트 등 네이티브 컨트롤 보정 | 5.5 |
 | `initDataGrids` | 조회 그리드(정렬·컬럼 이동·리사이즈·페이징) | `.data-grid` |
-| `initTabGroup` | 탭 선택·`aria-selected`·방향키 이동 | `.detail-tab-group` |
 | `initModals` | 모달 열기·닫기 3종(× · 오버레이 · `Esc`) | `.modal-backdrop` |
 | `initDescriptionGuide` | 개발자용 Description 우측 드로어 열기·상태·목적지 번호 동기화 | 5.15 |
 | `renderDonutCharts` · `animateBarCharts` · `animateProgressBars` | 차트·진행 막대 렌더링 | 대시보드·통계 |
 | `init…Page` | 화면 전용 인터랙션: `ProjectRegister`, `SRMLogin`, `ProjectSearch`, `ProjectDetail`, `BusinessSettlement`, `Statistics`, `StepWorkflow`, `PlanPerformance`, `PartnerRegister`, `SrmDetail`, `ProjectPromotion` | 각 화면 |
-| `initDashboardWidgets` | 대시보드 위젯 전환(범위·기간 칩, 캘린더 날짜 선택, 파이프라인 단계 선택, 진행상황 팝업 열기)과 권한 버튼 이동(`data-href`) | 6.7 |
+| `initDashboardWidgets` | 대시보드 위젯 전환(범위·기간 칩, 캘린더 날짜 선택, 파이프라인 단계 선택)과 권한 버튼 이동(`data-href`). `data-open-modal` 클릭 처리기도 여기에 있으며 대상이 `.board-view`면 게시판형 화면 전환(6.2.1), 아니면 모달 열기(5.8)로 분기 | 6.7, 6.2.1 |
 
 포털 카드 배치는 `assets/scripts/portal.js`가 담당합니다(6.4).
 

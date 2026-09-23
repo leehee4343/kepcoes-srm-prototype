@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>전달자료 추가</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<div class="modal-backdrop" id="pqAttachModal" role="dialog" aria-modal="true" aria-labelledby="pqAttachTitle" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-header"><h2 class="modal-title" id="pqAttachTitle">전달자료 추가</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
+      <div class="modal-body">
+        <p class="modal-field-label">[별첨1] 품목 정보 추가를 위한 엑셀 다운로드 양식.xlsx</p>
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>전달자료 첨부 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
+          <div class="srm-kv-row"><dt>전달자료 안내</dt><dd><input type="text" class="form-control" placeholder="50자 이내로 간략히 작성해주세요." maxlength="50"></dd></div>
+        </div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn-secondary" data-close-modal data-open-modal="pqManageModal">취소</button><button type="button" class="btn-primary" data-close-modal data-open-modal="pqManageModal">전달자료 추가</button></div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

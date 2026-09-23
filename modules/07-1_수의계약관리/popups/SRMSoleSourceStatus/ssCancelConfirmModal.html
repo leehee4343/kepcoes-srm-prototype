@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>공고취소 처리하기</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<div class="modal-backdrop" id="ssCancelConfirmModal" role="alertdialog" aria-modal="true" aria-labelledby="ssCancelConfirmTitle" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-header"><h2 class="modal-title" id="ssCancelConfirmTitle">공고취소 처리하기</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
+      <div class="modal-body">
+        <div class="notice-box warning" role="alert">
+          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span>
+          <div class="notice-body">
+            <p class="notice-lead">공고취소로 처리하면 해당 공고건은 무효가 되며 이후 업무 진행이 불가능합니다.</p>
+            <p>낙찰업체(수의계약업체)가 계약을 포기하는 경우, 수의시담 견적 제출 과정 중 가격협의가 이루어지지 않는 경우, 기타 주관기관과 낙찰업체에게 특별한 사정이 있는 경우 등에 처리합니다. 이후 본 공고가 다시 진행되려면 발주계약 요청부터 다시 시작해야 합니다.</p>
+          </div>
+        </div>
+        <div class="srm-kv-grid content-inner-gap-top">
+          <div class="srm-kv-row"><dt>공고취소 사유(메모) <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" placeholder="100자 이내로 입력해주세요." maxlength="100"></dd></div>
+        </div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">취소</button><button type="button" class="btn-delete" data-close-modal data-open-modal="ssDetailView">공고취소 처리하기</button></div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

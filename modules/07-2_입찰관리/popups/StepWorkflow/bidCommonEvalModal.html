@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>공통 심사/평가 불러오기</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<div class="modal-backdrop" id="bidCommonEvalModal" role="dialog" aria-modal="true" aria-labelledby="bidCommonEvalTitle" aria-hidden="false">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header"><h2 class="modal-title" id="bidCommonEvalTitle">공통 심사/평가 불러오기</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
+      <div class="modal-body">
+        <p class="modal-field-label">'기준정보관리 &gt; 공통 심사/평가'를 호출하여 편리하게 등록할 수 있습니다.</p>
+        <div class="filter-row hstack gap-12">
+          <span class="filter-label w-80">사용여부</span>
+          <div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="bidEvalUse" checked>전체</label><label class="form-choice"><input type="radio" name="bidEvalUse">사용(Y)</label><label class="form-choice"><input type="radio" name="bidEvalUse">중지(N)</label></div>
+        </div>
+        <div class="form-lookup content-inner-gap-top">
+          <span class="filter-label w-140">공통 심사/평가 명칭</span>
+          <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
+          <button type="button" class="btn-filter-search">검색</button>
+        </div>
+        <div class="table-scroll-wrapper content-inner-gap-top">
+          <table class="data-table" aria-label="공통 심사/평가 목록">
+            <thead><tr><th>공통 심사/평가 명칭</th><th class="w-90">심사/평가항목(수)</th><th class="w-90">사용여부</th><th class="w-70">선택</th></tr></thead>
+            <tbody><tr><td class="col-left">일반/공통(공사 사업 기준) 사업에 쓰이는 심사/평가</td><td>3개</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-action-primary modal-close">선택</button></td></tr></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn-filter-reset modal-close">닫기</button></div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

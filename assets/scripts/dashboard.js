@@ -2,11 +2,13 @@
  * KEPCO ES (켑코이에스) PMS 대시보드 인터랙션 & 차트 렌더링 스크립트
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  await loadExternalModals();
   initHeaderCleanup();
   initSidebar();
   initPageManuals();
   initNativeFormControls();
+  initPartnerContactForm();
   initPermissions();
   renderDonutCharts();
   animateBarCharts();
@@ -24,9 +26,162 @@ document.addEventListener('DOMContentLoaded', () => {
   initProjectPromotionPage();
   initSrmDetailPage();
   initDataGrids();
+  initAttachmentDisplays();
   initDescriptionGuide();
   initModals();
 });
+
+/**
+ * 협력업체정보 관리 > 담당자 정보 추가/수정 팝업 상태를 구성합니다.
+ * 화면설계에 따라 추가는 빈 입력 + 추가 버튼, 관리는 기존 값 + 수정/삭제 버튼을 표시합니다.
+ */
+function initPartnerContactForm() {
+  const modal = document.getElementById('partnerContactFormModal');
+  const triggers = Array.from(document.querySelectorAll('[data-open-modal="partnerContactFormModal"][data-contact-mode]'));
+  if (!modal || !triggers.length) return;
+
+  const field = id => modal.querySelector(`#${id}`);
+  const splitNumber = (value, fallbackPrefix = '') => {
+    const parts = String(value || '').split('-');
+    return parts.length === 3 ? parts : [fallbackPrefix, '', ''];
+  };
+  const setHidden = (element, hidden) => {
+    if (element) element.hidden = hidden;
+  };
+
+  const emailDomain = field('contactEmailDomain');
+  const emailDirect = field('contactEmailDirect');
+  emailDomain?.addEventListener('change', () => {
+    const direct = emailDomain.value === 'direct';
+    setHidden(emailDirect, !direct);
+    if (!direct && emailDirect) emailDirect.value = '';
+  });
+
+  triggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const editMode = trigger.dataset.contactMode === 'edit';
+      const basicContact = trigger.dataset.contactKind === 'basic';
+      const emailParts = String(trigger.dataset.contactEmail || '').split('@');
+      const mobile = splitNumber(trigger.dataset.contactMobile, '010');
+      const phone = splitNumber(trigger.dataset.contactPhone, '02');
+
+      field('contactKindBasic').checked = editMode && basicContact;
+      field('contactKindAdditional').checked = !editMode || !basicContact;
+      field('contactName').value = editMode ? (trigger.dataset.contactName || '') : '';
+      field('contactPosition').value = editMode ? (trigger.dataset.contactPosition || '') : '';
+      field('contactDuty').value = editMode ? (trigger.dataset.contactDuty || '') : '';
+      field('contactEmailLocal').value = editMode ? (emailParts[0] || '') : '';
+
+      const knownDomain = Array.from(emailDomain?.options || []).some(option => option.value === emailParts[1]);
+      if (emailDomain) emailDomain.value = editMode && emailParts[1] ? (knownDomain ? emailParts[1] : 'direct') : '';
+      if (emailDirect) emailDirect.value = editMode && emailParts[1] && !knownDomain ? emailParts[1] : '';
+      setHidden(emailDirect, emailDomain?.value !== 'direct');
+
+      field('contactMobilePrefix').value = mobile[0] || '010';
+      field('contactMobileMiddle').value = mobile[1] || '';
+      field('contactMobileLast').value = mobile[2] || '';
+      field('contactPhonePrefix').value = phone[0] || '02';
+      field('contactPhoneMiddle').value = phone[1] || '';
+      field('contactPhoneLast').value = phone[2] || '';
+
+      setHidden(field('contactAddButton'), editMode);
+      setHidden(field('contactUpdateButton'), !editMode);
+      setHidden(field('contactDeleteButton'), !editMode || basicContact);
+      modal.classList.add('show');
+    });
+  });
+}
+
+/**
+ * 독립 HTML로 분리된 팝업을 현재 화면에 불러옵니다 (DESIGN_GUIDE 5.8).
+ * 부모 화면에는 팝업 마크업을 두지 않고 JSON manifest만 유지합니다.
+ */
+async function loadExternalModals() {
+  const manifest = document.querySelector('script.external-modal-manifest[type="application/json"]');
+  if (!manifest) return;
+
+  let sources = [];
+  try {
+    sources = JSON.parse(manifest.textContent || '[]');
+  } catch (error) {
+    console.error('외부 팝업 manifest를 해석하지 못했습니다.', error);
+    return;
+  }
+
+  const parser = new DOMParser();
+  await Promise.all(sources.map(async source => {
+    try {
+      const response = await fetch(source, { credentials: 'same-origin' });
+      if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+      const popupDocument = parser.parseFromString(await response.text(), 'text/html');
+      const modal = popupDocument.querySelector('.modal-backdrop');
+      if (!modal) throw new Error('modal-backdrop 루트가 없습니다.');
+      modal.classList.remove('show');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(document.importNode(modal, true));
+    } catch (error) {
+      console.error(`팝업을 불러오지 못했습니다: ${source}`, error);
+    }
+  }));
+}
+
+/**
+ * 첨부파일 표시 표준화 (DESIGN_GUIDE 5.12)
+ * 파일명만 나열된 기존 마크업도 파일별 한 줄 + 바로보기/다운로드 액션으로 보정합니다.
+ */
+function initAttachmentDisplays() {
+  const fileExtensionPattern = /\.(pdf|hwp|hwpx|doc|docx|xls|xlsx|ppt|pptx|zip)$/i;
+
+  document.querySelectorAll('.content-bullet-item').forEach(container => {
+    const directTextNodes = Array.from(container.childNodes).filter(node =>
+      node.nodeType === Node.TEXT_NODE && node.textContent.trim()
+    );
+    if (!directTextNodes.length) return;
+
+    const fileNames = directTextNodes
+      .map(node => node.textContent.trim())
+      .join(' ')
+      .split(/\s*·\s*/)
+      .map(name => name.trim())
+      .filter(Boolean);
+    if (!fileNames.length || !fileNames.every(name => fileExtensionPattern.test(name))) return;
+
+    const fileList = document.createElement('div');
+    fileList.className = 'srm-file-list';
+    const existingDeleteButton = Array.from(container.children).find(child =>
+      child.matches('button.btn-row-del, button.btn-delete')
+    );
+
+    fileNames.forEach((fileName, index) => {
+      const fileItem = document.createElement('div');
+      fileItem.className = 'srm-file-item';
+
+      const name = document.createElement('span');
+      name.textContent = fileName;
+
+      const preview = document.createElement('button');
+      preview.type = 'button';
+      preview.className = 'btn-file-preview';
+      preview.textContent = '바로보기';
+      preview.setAttribute('aria-label', `${fileName} 바로보기`);
+
+      const download = document.createElement('button');
+      download.type = 'button';
+      download.className = 'btn-file-download';
+      download.textContent = '다운로드';
+      download.setAttribute('aria-label', `${fileName} 다운로드`);
+
+      fileItem.append(name, preview, download);
+      if (index === 0 && existingDeleteButton) fileItem.appendChild(existingDeleteButton);
+      fileList.appendChild(fileItem);
+    });
+
+    const firstContentNode = directTextNodes[0];
+    container.insertBefore(fileList, firstContentNode);
+    directTextNodes.forEach(node => node.remove());
+    container.classList.remove('content-bullet-item');
+  });
+}
 
 /**
  * 공통 토스트 알림 (DESIGN_GUIDE 5.9)
@@ -1066,47 +1221,11 @@ function initDescriptionGuide() {
 }
 
 /**
- * 표준 탭 그룹(.detail-tab-group) 공통 동작
- * - 선택 상태(active)와 aria-selected 동기화, 방향키·Home·End 이동
- * - canSelect(tab, source)가 false를 반환하면 선택을 바꾸지 않습니다. source는 'click' | 'key'
- */
-function initTabGroup(tabGroup, canSelect = () => true) {
-  const tabs = Array.from(tabGroup.querySelectorAll('[role="tab"]'));
-
-  const select = (tab, source) => {
-    if (!canSelect(tab, source)) return;
-    tabs.forEach(item => {
-      item.classList.remove('active');
-      item.setAttribute('aria-selected', 'false');
-    });
-    tab.classList.add('active');
-    tab.setAttribute('aria-selected', 'true');
-  };
-
-  tabs.forEach((tab, index) => {
-    tab.addEventListener('click', () => select(tab, 'click'));
-
-    tab.addEventListener('keydown', event => {
-      if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
-      event.preventDefault();
-      let nextIndex = event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : index;
-      if (event.key === 'ArrowLeft') nextIndex = (index - 1 + tabs.length) % tabs.length;
-      if (event.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length;
-      tabs[nextIndex].focus();
-      select(tabs[nextIndex], 'key');
-    });
-  });
-}
-
-/**
  * 프로젝트 상세 화면 인터랙션 (ProjectDetail.html)
  */
 function initProjectDetailPage() {
   const detailContainer = document.querySelector('.detail-tabs-bar');
   if (!detailContainer) return;
-
-  // 상단 프로세스 탭 전환 (HOME, 추진, 계약, 투자, 상환, 발주)
-  document.querySelectorAll('.detail-tab-group:not([data-tab-preview])').forEach(group => initTabGroup(group));
 
   // 투자금 정보 거래처 서브탭 전환
   const subtabBtns = document.querySelectorAll('.detail-subtab-btn');
@@ -1289,16 +1408,6 @@ function initStatisticsPage() {
  * SRM 입찰계획 현황 화면 인터랙션 (StepWorkflow.html)
  */
 function initStepWorkflowPage() {
-  const workflowTabs = document.getElementById('workflowTabs');
-  if (!workflowTabs) return;
-
-  // 업무 단계 탭: 현재 화면(예정가 / 예비가) 외의 단계는 시연 범위 밖이라 안내만 표시합니다.
-  initTabGroup(workflowTabs, (tab, source) => {
-    if (tab.classList.contains('active')) return true;
-    if (source === 'click') showToast(`${tab.textContent.trim()} 단계 화면은 현재 시연 범위에 포함되지 않습니다.`);
-    return false;
-  });
-
   const btnOpenCalcModal = document.querySelectorAll('.btn-open-calc-modal');
   const modalCalc = document.getElementById('modalCalcPrice');
   const btnCloseCalcModal = document.getElementById('btnCloseCalcModal');
@@ -1521,9 +1630,16 @@ function initDashboardWidgets() {
     });
   });
 
-  // 진행상황 확인 팝업 열기
+  // 진행상황 확인 팝업 열기 / 게시판형 목록·상세·등록 화면 전환(DESIGN_GUIDE 6.2.1)
   document.querySelectorAll('[data-open-modal]').forEach(btn => {
-    btn.addEventListener('click', () => document.getElementById(btn.dataset.openModal)?.classList.add('show'));
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.dataset.openModal);
+      if (!target) return;
+      if (target.classList.contains('board-view')) {
+        target.parentElement?.querySelectorAll(':scope > .board-view').forEach(view => view.classList.remove('show'));
+      }
+      target.classList.add('show');
+    });
   });
   document.querySelectorAll('.modal-backdrop [data-close-modal], .modal-backdrop .modal-close').forEach(btn => {
     btn.addEventListener('click', () => btn.closest('.modal-backdrop')?.classList.remove('show'));
@@ -1910,15 +2026,6 @@ function initSrmDetailPage() {
       showToast(`${fileName} 다운로드를 시작합니다.`);
     });
   });
-
-  const tabGroup = document.querySelector('.detail-tab-group[data-tab-preview]');
-  if (tabGroup) {
-    initTabGroup(tabGroup, (tab, source) => {
-      if (tab.classList.contains('active')) return true;
-      if (source === 'click') showToast(`${tab.textContent.trim()} 단계 화면은 현재 시연 범위에 포함되지 않습니다.`);
-      return false;
-    });
-  }
 }
 
 /**

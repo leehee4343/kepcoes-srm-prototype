@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>전자입찰시스템(SRM) - 수의계약 요청 현황 상세 | KEPCO ES</title>
+  <link rel="stylesheet" href="../../assets/styles/style.css">
+</head>
+<body>
+
+  <header class="top-header">
+    <div class="header-left">
+      <button type="button" class="btn-menu-toggle" id="btnmenutoggle" title="사이드바 메뉴 접기/펼치기">
+        <svg aria-hidden="true" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="SRMDashboardPartner.html" class="brand-logo-wrap" title="전자입찰시스템 SRM 메인">
+        <img src="../../assets/images/logo.png" alt="켑코이에스(주) 로고" class="brand-logo-img">
+      </a>
+      <div class="header-system-badge-group">
+        <span class="system-title">전자입찰시스템(SRM)</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="user-profile">
+        <span class="user-name">김큐빗 대리</span>
+        <span class="user-role">[(주)큐비트엑스]</span>
+        <span class="user-divider">|</span>
+        <a href="../01_협력업체창구_로그인전/SRMLogin.html" class="btn-logout" title="로그아웃">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="app-container">
+    <aside class="sidebar" id="sidebar">
+      <nav class="sidebar-nav">
+        <div class="nav-item active open">
+          <a href="#" class="nav-link">
+            <span class="nav-icon"></span>
+            <span class="nav-text">협력업체 전용 창구</span>
+            <span class="nav-arrow">
+              <svg aria-hidden="true" width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </a>
+          <ul class="submenu">
+              <li class="submenu-item"><a href="SRMDashboardPartner.html">대시보드</a></li>
+              <li class="submenu-item"><a href="SRMPartnerNotice.html">공지사항</a></li>
+              <li class="submenu-item"><a href="SRMPartnerQna.html">질문과 답변</a></li>
+              <li class="submenu-item"><a href="SRMPartnerFileRepo.html">양식 등 자료실</a></li>
+              <li class="submenu-item"><a href="SRMPartnerPreQuote.html">사전 견적 관리</a></li>
+              <li class="submenu-item active"><a href="SRMPartnerNegoRequest.html">수의계약 요청 현황</a></li>
+              <li class="submenu-item"><a href="SRMPartnerBidNotice.html">입찰공고 현황</a></li>
+              <li class="submenu-item"><a href="SRMPartnerBidJoin.html">입찰 참여 현황</a></li>
+              <li class="submenu-item"><a href="SRMPartnerContract.html">계약관리</a></li>
+              <li class="submenu-item"><a href="SRMPartnerInfo.html">협력업체 정보 관리</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="sidebar-bottom-actions">
+        <a href="SRMDashboardPartner.html" class="btn-sidebar-switch" title="사업관리시스템(PMS)으로 이동">
+          <svg aria-hidden="true" width="17" height="17" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+          <span>사업관리시스템(PMS)</span>
+        </a>
+        <button type="button" class="btn-sidebar-manual">
+          <svg aria-hidden="true" width="15" height="15" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="m9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+          <span>온라인 매뉴얼</span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-title-wrap">
+        <div class="page-title-left"><h1 class="page-title">수의계약 요청 현황 상세</h1></div>
+        <nav class="breadcrumb" aria-label="현재 위치">
+          <span class="breadcrumb-item">홈</span><span class="breadcrumb-separator">&gt;</span>
+          <span class="breadcrumb-item">협력업체 전용 창구</span><span class="breadcrumb-separator">&gt;</span>
+          <span class="breadcrumb-item">수의계약 요청 현황</span>
+        <span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">수의계약 요청 현황 상세</span></nav>
+      </div>
+
+      <div class="srm-table-wrap">
+        <table class="data-table" aria-label="공고 요약">
+          <thead><tr><th>공고번호</th><th>공고 구분</th><th>진행상태</th><th>입찰 건명</th><th>견적 마감 일시</th><th>구분</th><th>계약방법</th><th>낙찰자 선정방법</th></tr></thead>
+          <tbody><tr><td>BD2026-0023</td><td>본공고</td><td><span class="badge-success">수의계약(견적요청)</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중...</td><td>2026.07.31 18:00</td><td>공사</td><td>수의계약</td><td>최저가</td></tr></tbody>
+        </table>
+      </div>
+
+      <div class="detail-tabs-bar content-object-gap-top">
+        <div class="detail-tab-group" role="tablist" aria-label="수의계약 상세 탭">
+          <a href="SRMPartnerNegoRequestDetail.html" class="detail-tab-btn active" role="tab" aria-selected="true">공고 정보</a>
+          <a href="SRMPartnerNegoRequestQuote.html" class="detail-tab-btn" role="tab" aria-selected="false">견적 제출 및 확인</a>
+        </div>
+      </div>
+
+      <div class="srm-section-heading content-object-gap-top"><div><h2>공고 기본 정보</h2></div></div>
+      <div class="srm-kv-grid">
+        <div class="srm-kv-row"><dt>공고번호</dt><dd>BD2026-0023</dd></div>
+        <div class="srm-kv-row"><dt>수의계약 건명</dt><dd>서초동 1601-9 오피스텔 신축공사 중 습식공사</dd></div>
+        <div class="srm-kv-row"><dt>계약방법</dt><dd>수의계약</dd></div>
+        <div class="srm-kv-row"><dt>낙찰자 선정방법</dt><dd>최저가</dd></div>
+        <div class="srm-kv-row"><dt>추정금액</dt><dd>94,490,000원 (구천사백사십구만원 / VAT 포함)</dd></div>
+        <div class="srm-kv-row"><dt>계약기간</dt><dd>2026.07.20 ~ 2027.07.30</dd></div>
+        <div class="srm-kv-row"><dt>납품장소</dt><dd>현장 내</dd></div>
+        <div class="srm-kv-row"><dt>근거 / 수의계약 사유</dt><dd>추정가격이 2,000만원 미만으로 수의계약 진행</dd></div>
+        <div class="srm-kv-row"><dt>참가자격</dt><dd>도장·습식·방수·석공사업 보유업체</dd></div>
+      </div>
+
+      <div class="srm-section-heading content-object-gap-top"><div><h2>계약업체 면허</h2></div></div>
+      <div class="srm-table-wrap">
+        <table class="data-table" aria-label="계약업체 면허">
+          <tbody><tr><th class="w-160">종합건설업</th><td class="text-left">건축설계 및 시공</td></tr><tr><th>전문건설업</th><td class="text-left">도장/습식/방수/석공 사업</td></tr></tbody>
+        </table>
+      </div>
+
+      <div class="srm-section-heading content-object-gap-top"><div><h2>품목 정보</h2></div></div>
+      <div class="srm-table-wrap">
+        <table class="data-table" aria-label="품목 정보">
+          <thead><tr><th class="col-no">No</th><th>품목코드</th><th>품목명</th><th>규격</th><th>단위</th><th>수량</th><th>납기요청일</th><th>입고장소</th><th>비고</th></tr></thead>
+          <tbody><tr><td>1</td><td>-</td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td class="text-left">품목구성방법이 '지정항목작성'인 경우에 등록됨</td><td>-</td><td>1</td><td>2026.07.31</td><td>현장</td><td class="text-left">품목등록의 비고에 들어간 내용입니다.</td></tr></tbody>
+        </table>
+      </div>
+
+      <div class="srm-section-heading content-object-gap-top"><div><h2>수의계약 계획 상세정보</h2></div></div>
+      <div class="srm-kv-grid">
+        <div class="srm-kv-row"><dt>수의계약 요청기간</dt><dd>2026.07.31 09시 00분 ~ 2026.08.15 18시 00분</dd></div>
+        <div class="srm-kv-row"><dt>시방서, 구매견적서, 과업지시서</dt><dd class="content-bullet-item">등록된 파일명.PDF · 등록된 파일명.PDF</dd></div>
+        <div class="srm-kv-row"><dt>기타서류</dt><dd class="content-bullet-item">등록된 파일명.PDF · 등록된 파일명.PDF</dd></div>
+      </div>
+
+      <div class="srm-section-heading content-object-gap-top"><div><h2>수의계약 참여 가능 업체</h2></div></div>
+      <div class="srm-kv-grid"><div class="srm-kv-row"><dt>수의계약 참여 가능 업체</dt><dd class="content-bullet-item">큐비트엑스(135-81-77202)</dd></div></div>
+
+      <div class="srm-section-heading content-object-gap-top"><div><h2>수의계약 참여 서류</h2></div></div>
+      <div class="srm-table-wrap">
+        <table class="data-table" aria-label="수의계약 참여 서류">
+          <thead><tr><th class="col-no">No</th><th>수의계약 참여 서류</th><th>설명</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td class="text-left">신용평가등급 확인서</td><td class="text-left">신용평가 등급 확인서는 반드시 유효기간 내에 있어야 합니다.</td></tr>
+            <tr><td>2</td><td class="text-left">법인인감 증명서</td><td class="text-left">제출되는 법인인감증명서는 유효기간 내에 있어야 합니다.</td></tr>
+            <tr><td>3</td><td class="text-left">기타</td><td>-</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="page-actions"><button type="button" class="btn-secondary" onclick="window.location.href='SRMPartnerNegoRequest.html'">목록</button></div>
+    </main>
+  </div>
+
+  <footer class="app-footer">
+    <div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div>
+  </footer>
+
+
+  <!-- 화면설계 Description 개발자 가이드 (DESIGN_GUIDE 5.15) -->
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
+
+
+
+  <script src="../../assets/scripts/dashboard.js"></script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMPartnerNegoRequest/screenDescriptionGuide.html"]</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>코드 관리</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<div class="modal-backdrop" id="codeManageModal" role="dialog" aria-modal="true" aria-labelledby="codeManageModalTitle" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2 class="modal-title" id="codeManageModalTitle">코드 관리</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>대분류 코드</dt><dd>[001] 계약방식</dd></div>
+          <div class="srm-kv-row"><dt>중분류 코드</dt><dd>[001001] EPC 계약</dd></div>
+          <div class="srm-kv-row"><dt>코드</dt><dd>001001001 (자동발번)</dd></div>
+          <div class="srm-kv-row"><dt>코드명 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" placeholder="20자 이내로 간략히 작성해 주세요." maxlength="20"></dd></div>
+          <div class="srm-kv-row"><dt>사용 여부 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="codeUseYn" checked>사용(Y)</label><label class="form-choice"><input type="radio" name="codeUseYn">중지(N)</label></div></dd></div>
+          <div class="srm-kv-row"><dt>코드 설명</dt><dd><input type="text" class="form-control" placeholder="100자 이내로 간략히 작성해 주세요." maxlength="100"></dd></div>
+          <div class="srm-kv-row"><dt>등록일시</dt><dd>2026.06.09 15:23</dd></div>
+          <div class="srm-kv-row"><dt>등록자</dt><dd>이희성</dd></div>
+          <div class="srm-kv-row"><dt>최종수정일시</dt><dd>2026.06.10 10:45(이희성)</dd></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary modal-close">취소</button>
+        <button type="button" class="btn-primary modal-close">등록</button>
+      </div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

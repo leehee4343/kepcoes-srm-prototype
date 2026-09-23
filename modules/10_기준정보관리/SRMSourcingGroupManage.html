@@ -289,7 +289,7 @@
               </tbody>
             </table>
           </div>
-          <div class="srm-detail-actions"><button type="button" class="btn-action-new" data-open-modal="sgManageModal">등록</button></div>
+          <div class="srm-detail-actions"><button type="button" class="btn-action-new" onclick="window.location.href='SRMSourcingGroupDetail.html'">등록</button></div>
         </section>
 
         <section class="app-card srm-detail-section">
@@ -304,7 +304,7 @@
               </tbody>
             </table>
           </div>
-          <div class="srm-detail-actions"><button type="button" class="btn-secondary">순서 적용</button><button type="button" class="btn-action-new" data-open-modal="sgManageModal">등록</button></div>
+          <div class="srm-detail-actions"><button type="button" class="btn-secondary">순서 적용</button><button type="button" class="btn-action-new" onclick="window.location.href='SRMSourcingGroupDetail.html'">등록</button></div>
         </section>
 
         <section class="app-card srm-detail-section">
@@ -321,7 +321,7 @@
               </tbody>
             </table>
           </div>
-          <div class="srm-detail-actions"><button type="button" class="btn-secondary">순서 적용</button><button type="button" class="btn-action-new" data-open-modal="sgManageModal">등록</button></div>
+          <div class="srm-detail-actions"><button type="button" class="btn-secondary">순서 적용</button><button type="button" class="btn-action-new" onclick="window.location.href='SRMSourcingGroupDetail.html'">등록</button></div>
         </section>
       </div>
 
@@ -332,33 +332,9 @@
 
 
   <!-- 코드 관리(소싱그룹 등록/수정) -->
-  <div class="modal-backdrop" id="sgManageModal" role="dialog" aria-modal="true" aria-labelledby="sgManageTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header">
-        <h2 class="modal-title" id="sgManageTitle">코드 관리</h2>
-        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>대분류 코드</dt><dd>[001] 제조사</dd></div>
-          <div class="srm-kv-row"><dt>중분류 코드</dt><dd>[001001] 고효율</dd></div>
-          <div class="srm-kv-row"><dt>코드</dt><dd>001001001 (자동 발번)</dd></div>
-          <div class="srm-kv-row"><dt>코드명 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" placeholder="20자 이내로 간략히 작성해 주세요." maxlength="20"></dd></div>
-          <div class="srm-kv-row"><dt>사용여부 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="sgUseYn" checked>사용(Y)</label><label class="form-choice"><input type="radio" name="sgUseYn">중지(N)</label></div></dd></div>
-          <div class="srm-kv-row"><dt>코드 설명</dt><dd><input type="text" class="form-control" placeholder="100자 이내로 간략히 작성해 주세요." maxlength="100"></dd></div>
-          <div class="srm-kv-row"><dt>등록일시</dt><dd>2026.06.09 15:23</dd></div>
-          <div class="srm-kv-row"><dt>등록자</dt><dd>이희성</dd></div>
-          <div class="srm-kv-row"><dt>최종 수정일시</dt><dd>2026.06.10 10:45(이희성)</dd></div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-secondary modal-close">등록</button>
-        <button type="button" class="btn-primary modal-close">수정</button>
-        <button type="button" class="btn-secondary modal-close">취소</button>
-      </div>
-    </div>
-  </div>
+
 
   <script src="../../assets/scripts/dashboard.js"></script>
+  <script type="application/json" class="external-modal-manifest">[]</script>
 </body>
 </html>

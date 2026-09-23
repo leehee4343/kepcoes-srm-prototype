@@ -269,7 +269,7 @@
       <section class="filter-card">
         <form id="contractSearchForm">
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-100">조회기간(계약 체결일)</span>
+            <span class="filter-label w-200">조회기간(계약 체결일)</span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
             <div class="quick-date-btns hstack gap-6">
               <button type="button" class="btn-quick-date" data-range="1d">하루 전</button>
@@ -281,7 +281,7 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-100">구분</span>
+            <span class="filter-label w-200">구분</span>
             <div class="form-choice-group" role="radiogroup">
               <label class="form-choice"><input type="radio" name="ctKind" checked>전체</label>
               <label class="form-choice"><input type="radio" name="ctKind">공사</label>
@@ -290,12 +290,12 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-100">계약방법/낙찰자 선정방법</span>
+            <span class="filter-label w-200">계약방법/낙찰자 선정방법</span>
             <select class="filter-select w-160"><option>계약방법 선택</option></select>
             <select class="filter-select w-165"><option>낙찰자 선정방법 선택</option></select>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-100">발주 구분</span>
+            <span class="filter-label w-200">발주 구분</span>
             <div class="form-choice-group" role="radiogroup">
               <label class="form-choice"><input type="radio" name="ctSrc" checked>전체</label>
               <label class="form-choice"><input type="radio" name="ctSrc">수주 기반 발주</label>
@@ -303,7 +303,7 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-100">공고 구분</span>
+            <span class="filter-label w-200">공고 구분</span>
             <div class="form-choice-group" role="radiogroup">
               <label class="form-choice"><input type="radio" name="ctGosi" checked>전체</label>
               <label class="form-choice"><input type="radio" name="ctGosi">본공고</label>
@@ -311,7 +311,7 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-100">진행상태</span>
+            <span class="filter-label w-200">진행상태</span>
             <div class="form-choice-group" role="radiogroup">
               <label class="form-choice"><input type="radio" name="ctState" checked>전체</label>
               <label class="form-choice"><input type="radio" name="ctState">계약준비</label>
@@ -319,12 +319,12 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-100">계약 상대자 선택</span>
+            <span class="filter-label w-200">계약 상대자 선택</span>
             <button type="button" class="btn-secondary" data-open-modal="ctPartnerPickModal">협력업체 선택</button>
             <span class="modal-field-label content-bullet-item">선택된 협력업체 : (주)큐비트엑스(135-81-77202)</span>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-100">키워드 검색</span>
+            <span class="filter-label w-200">키워드 검색</span>
             <select class="filter-select w-140"><option>계약 번호</option><option>계약명</option></select>
             <input type="text" class="filter-text-input w-380" placeholder="검색어를 입력하세요.">
           </div>
@@ -356,8 +356,8 @@
               <tr><th class="w-110">계약 번호</th><th class="w-90">발주 구분</th><th class="w-70">공고 구분</th><th class="w-70">진행상태</th><th class="minw-200">계약명</th><th class="w-80">계약 상대자</th><th class="w-100">계약금액</th><th class="w-90">계약 체결일</th><th class="minw-170">납기일/공사기간</th><th class="w-60">구분</th><th class="w-100">계약방법</th><th class="minw-170">낙찰자 선정방법</th><th class="w-70">사업담당자</th><th class="w-70">계약담당자</th></tr>
             </thead>
             <tbody>
-              <tr><td><a href="#" data-open-modal="ctDetailModal">CT_20260801_001</a></td><td>수주 기반 발주</td><td>본공고</td><td><span class="badge-tag">계약준비</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td class="text-left">A업체</td><td class="col-num">48,507,800</td><td>2026.07.31</td><td>2026.08.01 ~ 2026.12.31</td><td>공사</td><td>수의계약</td><td>최저가</td><td>홍길동</td><td>임꺽정</td></tr>
-              <tr><td><a href="#" data-open-modal="ctDetailModal">CT_20260805_002</a></td><td>일반 발주</td><td>재공고(1차)</td><td><span class="badge-success">계약완료</span></td><td class="text-left">본사 사옥 노후 배관 교체공사</td><td class="text-left">B업체</td><td class="col-num">58,000,000</td><td>2026.05.14</td><td>2026.05.20 ~ 2026.11.30</td><td>용역</td><td>경쟁입찰(일반)</td><td>최저가</td><td>박일용</td><td>임꺽정</td></tr>
+              <tr><td><a href="#" onclick="window.location.href='SRMContractStatusDetail.html'">CT_20260801_001</a></td><td>수주 기반 발주</td><td>본공고</td><td><span class="badge-tag">계약준비</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td class="text-left">A업체</td><td class="col-num">48,507,800</td><td>2026.07.31</td><td>2026.08.01 ~ 2026.12.31</td><td>공사</td><td>수의계약</td><td>최저가</td><td>홍길동</td><td>임꺽정</td></tr>
+              <tr><td><a href="#" onclick="window.location.href='SRMContractStatusDetail.html'">CT_20260805_002</a></td><td>일반 발주</td><td>재공고(1차)</td><td><span class="badge-success">계약완료</span></td><td class="text-left">본사 사옥 노후 배관 교체공사</td><td class="text-left">B업체</td><td class="col-num">58,000,000</td><td>2026.05.14</td><td>2026.05.20 ~ 2026.11.30</td><td>용역</td><td>경쟁입찰(일반)</td><td>최저가</td><td>박일용</td><td>임꺽정</td></tr>
             </tbody>
           </table>
         </div>
@@ -372,373 +372,23 @@
 
 
   <!-- 협력업체 선택 -->
-  <div class="modal-backdrop" id="ctPartnerPickModal" role="dialog" aria-modal="true" aria-labelledby="ctPartnerPickTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-header"><h2 class="modal-title" id="ctPartnerPickTitle">협력업체 선택</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <div class="filter-row hstack gap-12">
-          <span class="filter-label w-80">조회기간(신청일)</span>
-          <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
-            <div class="quick-date-btns hstack gap-6">
-              <button type="button" class="btn-quick-date" data-range="1d">하루 전</button>
-              <button type="button" class="btn-quick-date" data-range="1w">1주일</button>
-              <button type="button" class="btn-quick-date active" data-range="1m">1개월</button>
-              <button type="button" class="btn-quick-date" data-range="3m">3개월</button>
-              <button type="button" class="btn-quick-date" data-range="6m">6개월</button>
-              <button type="button" class="btn-quick-date" data-range="1y">1년</button>
-            </div>
-        </div>
-        <div class="filter-row hstack gap-12">
-          <span class="filter-label w-80">신용평가등급</span>
-          <select class="filter-select w-150"><option>신용평가등급 선택</option></select>
-        </div>
-        <div class="filter-row hstack gap-12">
-          <span class="filter-label w-80">소싱 그룹</span>
-          <select class="filter-select w-140"><option>대분류 선택</option></select>
-          <select class="filter-select w-140"><option>중분류 선택</option></select>
-          <select class="filter-select w-140"><option>소분류 선택</option></select>
-        </div>
-        <div class="form-lookup content-inner-gap-top">
-          <select class="filter-select w-130"><option>검색 구분</option></select>
-          <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
-          <button type="button" class="btn-filter-search">검색</button>
-        </div>
-        <div class="table-scroll-wrapper content-inner-gap-top">
-          <table class="data-table" aria-label="협력업체 목록">
-            <thead><tr><th>사업자 번호</th><th>업체명</th><th>담당자</th><th>핸드폰 번호</th><th>이메일</th><th>신청일</th><th class="w-70">매핑</th></tr></thead>
-            <tbody>
-              <tr><td>123-45-67891</td><td class="text-left">삼전디에스</td><td>한지훈</td><td>010-1234-5678</td><td>leehee43@naver.com</td><td>2026.06.10</td><td><button type="button" class="btn-secondary modal-close">매핑</button></td></tr>
-              <tr><td>123-45-67891</td><td class="text-left">넷퍼시</td><td>김미라</td><td>-</td><td>-</td><td>2026.06.10</td><td><button type="button" class="btn-secondary modal-close">매핑</button></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">닫기</button></div>
-    </div>
-  </div>
+
 
   <!-- 발주계약 현황 상세정보 (5 코스메틱 탭) -->
-  <div class="modal-backdrop" id="ctDetailModal" role="dialog" aria-modal="true" aria-labelledby="ctDetailTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-header">
-        <h2 class="modal-title" id="ctDetailTitle">발주계약 현황 상세정보</h2>
-        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
-      </div>
-      <div class="modal-body">
-        <p class="modal-field-label">※ 어두운 색으로 표시된 영역은 PMS와 연동되는 항목입니다.</p>
-        <div class="detail-tabs-bar">
-          <div class="detail-tab-group" role="tablist" aria-label="발주계약 현황 상세정보 탭">
-            <button type="button" class="detail-tab-btn active" role="tab" aria-selected="true">계약 정보</button>
-            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">계약 관련 서류</button>
-            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">발주계약 요청 정보</button>
-            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">발주계획 정보</button>
-            <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">입찰계획 정보</button>
-          </div>
-        </div>
 
-        <!-- 1. 계약 정보 -->
-        <div class="srm-section-heading content-inner-gap-top"><div><h2>계약 기본 정보</h2></div></div>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>계약 번호</dt><dd>CT_20260801_001</dd></div>
-          <div class="srm-kv-row"><dt>계약명</dt><dd>서초동 1601-9 오피스텔 신축공사 중 도장공사</dd></div>
-          <div class="srm-kv-row"><dt>계약 구분</dt><dd>공사</dd></div>
-          <div class="srm-kv-row"><dt>발주 구분</dt><dd>수주 기반 발주</dd></div>
-          <div class="srm-kv-row"><dt>수주계약정보</dt><dd class="content-bullet-item">수주계약번호 : 160011612-01-31-C<br>· 수주계약명 : GE-4 에너지효율화(ID Fan VVVF 설치) 사업<br>· 수주계약 체결일 : 2026.12.23<br>· 수주계약업체 : 군장에너지주식회사</dd></div>
-          <div class="srm-kv-row"><dt>계약 체결일</dt><dd>2026.07.31</dd></div>
-          <div class="srm-kv-row"><dt>계약 상대자</dt><dd>(주)큐비트엑스 (135-81-77202)</dd></div>
-          <div class="srm-kv-row"><dt>계약 대상자 필요 면허</dt><dd class="content-bullet-item">종합건설업 : 건축설계 및 시공<br>· 전문건설업 : 도장/습식/방수/석공 사업</dd></div>
-          <div class="srm-kv-row"><dt>계약방법</dt><dd>경쟁입찰(일반)</dd></div>
-          <div class="srm-kv-row"><dt>낙찰자 선정방법</dt><dd>제한적 최저가 입찰</dd></div>
-          <div class="srm-kv-row"><dt>계약 근거(사유)</dt><dd>근거 / 수의계약 사유로 입력된 내용</dd></div>
-          <div class="srm-kv-row"><dt>입찰 참가자격</dt><dd>제주도 관내 본사를 두고 있는 사업자</dd></div>
-          <div class="srm-kv-row"><dt>추정가격(소요예산)</dt><dd>100,000,000원 (일억원, VAT 포함)</dd></div>
-          <div class="srm-kv-row"><dt>계약금액</dt><dd>99,000,000원 (구천구백만원, VAT 포함)</dd></div>
-          <div class="srm-kv-row"><dt>공급가액</dt><dd>90,000,000원 (구천만원)</dd></div>
-          <div class="srm-kv-row"><dt>부가세</dt><dd>9,000,000원 (구백만원)</dd></div>
-          <div class="srm-kv-row"><dt>납기일/공사기간</dt><dd>2026.07.20 ~ 2027.07.30</dd></div>
-          <div class="srm-kv-row"><dt>계약이행 보증금률</dt><dd>10%</dd></div>
-          <div class="srm-kv-row"><dt>선금이행 보증금률</dt><dd>10%</dd></div>
-          <div class="srm-kv-row"><dt>하자이행 보증금률</dt><dd>10%</dd></div>
-          <div class="srm-kv-row"><dt>하자이행 보증기간</dt><dd>24개월</dd></div>
-          <div class="srm-kv-row"><dt>사업담당자</dt><dd>홍길동</dd></div>
-          <div class="srm-kv-row"><dt>계약담당자</dt><dd>임꺽정</dd></div>
-        </div>
-
-        <!-- 2. 계약 관련 서류 -->
-        <div class="srm-section-heading content-object-gap-top"><div><h2>계약 관련 서류</h2></div></div>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>계약서(비 날인본)</dt><dd>등록된 파일명.PDF</dd></div>
-          <div class="srm-kv-row"><dt>기타서류</dt><dd>등록된 파일명.PDF, 등록된 파일명.PDF</dd></div>
-          <div class="srm-kv-row"><dt>계약서(날인본)</dt><dd>등록된 파일명.PDF</dd></div>
-          <div class="srm-kv-row"><dt>계약이행 보증보험 증권</dt><dd>등록된 파일명.PDF</dd></div>
-          <div class="srm-kv-row"><dt>선금이행 보증보험 증권</dt><dd>등록된 파일명.PDF</dd></div>
-          <div class="srm-kv-row"><dt>하자이행 보증보험 증권</dt><dd>등록된 파일명.PDF</dd></div>
-          <div class="srm-kv-row"><dt>계약 시 참고서류</dt><dd>등록된 파일명.PDF</dd></div>
-        </div>
-        <div class="srm-detail-actions">
-          <button type="button" class="btn-secondary" data-close-modal data-open-modal="ctDocManageModal">등록/수정 · 확정 처리</button>
-        </div>
-        <p class="modal-field-label content-inner-gap-top">변경계약 진행내역 — 본 계약의 '계약금액', '납기일/공사기간'에 변경이 발생하는 경우 사용합니다.</p>
-        <div class="srm-table-wrap">
-          <table class="data-table" aria-label="변경계약 진행내역">
-            <thead><tr><th>계약 변경일</th><th>변경내용(메모)</th><th>작성자</th><th>변경 처리일</th><th class="w-90"></th></tr></thead>
-            <tbody>
-              <tr><td>2026.09.01</td><td class="text-left">품목 1종이 제외되어 계약금액을 수정하여 변경계약 하였습니다.</td><td>홍길동</td><td>2026.09.15</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="ctChangeDetailModal">상세보기</button></td></tr>
-              <tr><td>2026.09.30</td><td class="text-left">천재지변으로 공사가 지연되어 '납기일/공사기간'이 변경되어 변경계약 하였습니다.</td><td>홍길동</td><td>2026.09.15</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="ctChangeDetailModal">상세보기</button></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="srm-detail-actions">
-          <label class="form-choice"><input type="checkbox"> 본 계약의 '계약금액', '납기일/공사기간'에 변경이 발생하였습니다.</label>
-          <button type="button" class="btn-secondary" data-close-modal data-open-modal="ctChangeFormModal">계약 변경 처리하기</button>
-        </div>
-
-        <!-- 3. 발주계약 요청 정보 -->
-        <div class="srm-section-heading content-object-gap-top"><div><h2>발주계약 요청 기본정보</h2></div></div>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>발주계약 요청번호</dt><dd>PR2026-0003</dd></div>
-          <div class="srm-kv-row"><dt>계약명</dt><dd>서초동 1601-9 오피스텔 신축공사 중 도장공사</dd></div>
-          <div class="srm-kv-row"><dt>요청일</dt><dd>2026.06.30</dd></div>
-          <div class="srm-kv-row"><dt>계약예정일</dt><dd>2026.07.20</dd></div>
-          <div class="srm-kv-row"><dt>구분</dt><dd>공사</dd></div>
-          <div class="srm-kv-row"><dt>수주계약정보</dt><dd class="content-bullet-item">수주계약번호 : 160011612-01-31-C<br>· 수주계약명 : GE-4 에너지효율화(ID Fan VVVF 설치) 사업<br>· 수주계약 체결일 : 2026.12.23<br>· 수주계약업체 : 군장에너지주식회사</dd></div>
-          <div class="srm-kv-row"><dt>등록일시</dt><dd>2026.06.10 15:42</dd></div>
-        </div>
-        <p class="modal-field-label content-inner-gap-top">발주계약 요청 체크리스트</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>결재문서</dt><dd>추진안, 일상감사의견서</dd></div>
-          <div class="srm-kv-row"><dt>결재문서 등록</dt><dd>등록된 파일명 #1.pdf, #2.pdf, #3.pdf</dd></div>
-          <div class="srm-kv-row"><dt>추정금액</dt><dd>94,490,000원 (구천사백사십구만원, VAT 포함)</dd></div>
-          <div class="srm-kv-row"><dt>계약기간</dt><dd>2026.07.20 ~ 2027.07.30</dd></div>
-          <div class="srm-kv-row"><dt>납품장소</dt><dd>현장 내</dd></div>
-          <div class="srm-kv-row"><dt>계약이행 보증금률</dt><dd>10%</dd></div>
-          <div class="srm-kv-row"><dt>하자이행 보증금률</dt><dd>3%</dd></div>
-          <div class="srm-kv-row"><dt>하자이행 기간</dt><dd>2년</dd></div>
-          <div class="srm-kv-row"><dt>계약방법</dt><dd>경쟁입찰(일반)</dd></div>
-          <div class="srm-kv-row"><dt>낙찰자 선정방법</dt><dd>제한적 최저가 입찰</dd></div>
-          <div class="srm-kv-row"><dt>근거 / 수의계약 사유</dt><dd>근거 / 수의계약 사유로 입력된 내용</dd></div>
-          <div class="srm-kv-row"><dt>계약상대자(수의계약의 경우)</dt><dd class="content-bullet-item">매핑된 협력업체 : (주)큐비트엑스(135-81-77202)</dd></div>
-        </div>
-        <p class="modal-field-label content-inner-gap-top">계약업체 면허 설정 / 첨부 서류 / 품목 정보</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>종합건설업</dt><dd>건축설계 및 시공</dd></div>
-          <div class="srm-kv-row"><dt>전문건설업</dt><dd>도장/습식/방수/석공 사업</dd></div>
-        </div>
-        <div class="srm-table-wrap">
-          <table class="data-table" aria-label="품목 정보">
-            <thead><tr><th class="col-no">No</th><th>품목코드</th><th>품목명</th><th>규격</th><th>단위</th><th>수량</th><th>납기요청일</th><th>입고장소</th><th>비고</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>A0106-001</td><td class="text-left">고효율 인버터</td><td class="text-left">품목구성방법이 '지정항목작성'인 경우에 등록됨</td><td>EA</td><td>3</td><td>2026.07.31</td><td>현장</td><td class="text-left">품목등록의 비고에 들어간 내용입니다.</td></tr>
-              <tr><td>2</td><td>-</td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td>-</td><td>EA</td><td>3</td><td>2026.07.31</td><td>현장</td><td class="text-left">품목등록의 비고에 들어간 내용입니다.</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- 4. 발주계획 정보 -->
-        <div class="srm-section-heading content-object-gap-top"><div><h2>발주계획 기본정보</h2></div></div>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>발주계약 품의번호</dt><dd>PPW2026-0029</dd></div>
-          <div class="srm-kv-row"><dt>계약명</dt><dd>서초동 1601-9 오피스텔 신축공사 중 도장공사</dd></div>
-          <div class="srm-kv-row"><dt>품의일</dt><dd>2026.06.05</dd></div>
-          <div class="srm-kv-row"><dt>요청일</dt><dd>2026.06.01</dd></div>
-          <div class="srm-kv-row"><dt>계약예정일</dt><dd>2026.07.31</dd></div>
-          <div class="srm-kv-row"><dt>구분</dt><dd>공사</dd></div>
-          <div class="srm-kv-row"><dt>수주계약정보</dt><dd class="content-bullet-item">수주계약번호 : 160011612-01-31-C<br>· 수주계약명 : GE-4 에너지효율화(ID Fan VVVF 설치) 사업<br>· 수주계약 체결일 : 2026.12.23<br>· 수주계약업체 : 군장에너지주식회사</dd></div>
-          <div class="srm-kv-row"><dt>사업담당자</dt><dd>홍길동</dd></div>
-          <div class="srm-kv-row"><dt>계약담당자</dt><dd>임꺽정</dd></div>
-        </div>
-        <p class="modal-field-label content-inner-gap-top">발주계획 체크리스트</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>결재문서</dt><dd>추진안, 일상감사의견서</dd></div>
-          <div class="srm-kv-row"><dt>결재문서 등록</dt><dd>등록된 파일명 #1.pdf, #2.pdf</dd></div>
-          <div class="srm-kv-row"><dt>추정금액</dt><dd>94,490,000원 (구천사백사십구만원, VAT 포함)</dd></div>
-          <div class="srm-kv-row"><dt>계약기간</dt><dd>2026.07.20 ~ 2027.07.30</dd></div>
-          <div class="srm-kv-row"><dt>납품장소</dt><dd>현장 내</dd></div>
-          <div class="srm-kv-row"><dt>계약이행 보증금률</dt><dd>10%</dd></div>
-          <div class="srm-kv-row"><dt>하자이행 보증금률</dt><dd>3%</dd></div>
-          <div class="srm-kv-row"><dt>하자이행 기간</dt><dd>2년</dd></div>
-          <div class="srm-kv-row"><dt>계약방법</dt><dd>경쟁입찰(일반)</dd></div>
-          <div class="srm-kv-row"><dt>낙찰자 선정방법</dt><dd>제한적 최저가 입찰</dd></div>
-          <div class="srm-kv-row"><dt>참가자격</dt><dd>제주도 관내 본사를 두고 있는 사업자</dd></div>
-          <div class="srm-kv-row"><dt>예정/예비가격 결정</dt><dd>예비가</dd></div>
-          <div class="srm-kv-row"><dt>예정가격 결정자</dt><dd>사장, 본부장</dd></div>
-          <div class="srm-kv-row"><dt>입찰 보증금률</dt><dd>5%</dd></div>
-        </div>
-        <p class="modal-field-label content-inner-gap-top">계약업체 면허 설정 / 첨부 서류 / 품목 정보</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>종합건설업</dt><dd>건축설계 및 시공</dd></div>
-          <div class="srm-kv-row"><dt>전문건설업</dt><dd>도장/습식/방수/석공 사업</dd></div>
-        </div>
-        <div class="srm-table-wrap">
-          <table class="data-table" aria-label="품목 정보(발주계획)">
-            <thead><tr><th class="col-no">No</th><th>품목명</th><th>수량</th><th>납기요청일</th><th>입고장소</th></tr></thead>
-            <tbody><tr><td>1</td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td>1</td><td>2026.07.31</td><td>현장</td></tr></tbody>
-          </table>
-        </div>
-
-        <!-- 5. 입찰계획 정보 (경쟁입찰/지명 등 입찰 시) -->
-        <div class="srm-section-heading content-object-gap-top"><div><h2>입찰계획 상세정보 (입찰 시 화면)</h2></div><p>수의계약 건은 이 탭이 '수의계약 계획 정보'로 표기되며 아래와 다른 항목이 표시됩니다.</p></div>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>입찰 시작/마감일시</dt><dd>2026.07.31 09시 00분 ~ 2026.08.15 18시 00분</dd></div>
-          <div class="srm-kv-row"><dt>입찰공고 게시기간</dt><dd>2026.07.28 09시 00분 ~ 2026.08.15 18시 00분</dd></div>
-          <div class="srm-kv-row"><dt>현장설명회 일시</dt><dd>현장설명회 없음 | 2026.08.05 16시 00분</dd></div>
-          <div class="srm-kv-row"><dt>입찰공고문</dt><dd>등록된 파일명.PDF</dd></div>
-          <div class="srm-kv-row"><dt>입찰참가신청서</dt><dd>등록된 파일명.PDF</dd></div>
-          <div class="srm-kv-row"><dt>입찰보증금지급각서</dt><dd>등록된 파일명.PDF, 등록된 파일명.PDF</dd></div>
-          <div class="srm-kv-row"><dt>시방서, 구매견적서, 과업지시서</dt><dd>등록된 파일명.PDF, 등록된 파일명.PDF</dd></div>
-          <div class="srm-kv-row"><dt>기타서류</dt><dd>등록된 파일명.PDF</dd></div>
-          <div class="srm-kv-row"><dt>입찰참여 업체 선택</dt><dd class="content-bullet-item">A협력업체명(123-45-67891) · B협력업체명(123-45-67891) · C협력업체명(123-45-67891)</dd></div>
-          <div class="srm-kv-row"><dt>가격 투찰 기간</dt><dd>2026.07.20 09시 00분 ~ 2026.08.25 18시 00분</dd></div>
-          <div class="srm-kv-row"><dt>업체평가 종료일</dt><dd>2026.07.21</dd></div>
-          <div class="srm-kv-row"><dt>동점자 처리기준</dt><dd>규격(기술)</dd></div>
-          <div class="srm-kv-row"><dt>평가자 매핑</dt><dd>홍길동</dd></div>
-          <div class="srm-kv-row"><dt>종합평가 비율</dt><dd>기술 : 80% | 가격 : 20%</dd></div>
-          <div class="srm-kv-row"><dt>업체 전달사항</dt><dd>입찰 참여 시 등록해야 하는 서류를 꼼꼼히 읽어보시고 빠짐없이 등록해주세요.</dd></div>
-          <div class="srm-kv-row"><dt>협상에 의한 계약 여부</dt><dd>협상에 의한 계약</dd></div>
-          <div class="srm-kv-row"><dt>제안발표 여부</dt><dd>제안발표 진행</dd></div>
-          <div class="srm-kv-row"><dt>제안발표 일시</dt><dd>2026.08.31 16시 30분부터 진행</dd></div>
-          <div class="srm-kv-row"><dt>제안발표 장소</dt><dd>전기회관 9층(켑코이에스 대회의실)</dd></div>
-        </div>
-        <p class="modal-field-label content-inner-gap-top">심사/평가 항목 — 등록된 심사/평가 항목 : 총 3건</p>
-        <div class="srm-table-wrap">
-          <table class="data-table" aria-label="심사/평가 항목">
-            <thead><tr><th class="col-no">No</th><th>심사/평가 구분</th><th>심사/평가 항목</th><th>배점</th><th>자가심사 여부</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>계량(정량)</td><td class="text-left">신용평가등급</td><td class="col-num">10.00</td><td><span class="badge-info">필요</span></td></tr>
-              <tr><td>2</td><td>계량(정량)</td><td class="text-left">시공경험(일반공사)</td><td class="col-num">10.00</td><td><span class="badge-info">필요</span></td></tr>
-              <tr><td>3</td><td>비계량(정성)</td><td class="text-left">제안 평가</td><td class="col-num">60.00</td><td><span class="badge-tag">불필요</span></td></tr>
-            </tbody>
-            <tfoot><tr><td colspan="3">총 배점</td><td class="col-num">80.00</td><td></td></tr></tfoot>
-          </table>
-        </div>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>최저점수(적격여부 판단)</dt><dd>60점</dd></div>
-        </div>
-        <p class="modal-field-label content-inner-gap-top">예정가 / 예비가</p>
-        <div class="srm-table-wrap">
-          <table class="data-table" aria-label="예정가/예비가">
-            <thead><tr><th>추정금액</th><th>사정금액</th><th>복수예비 기초금액</th><th>낙찰하한율</th><th>예정가격</th><th>낙찰하한가</th></tr></thead>
-            <tbody><tr><td class="col-num">94,710,000</td><td class="col-num">94,710,000</td><td class="col-num">91,088,550</td><td class="col-num">87.745</td><td>개찰 과정에서 정의됨</td><td>개찰 과정에서 정의됨</td></tr></tbody>
-          </table>
-        </div>
-        <p class="modal-field-label content-inner-gap-top">입찰 참여 서류 — 등록된 서류 : 총 5건 (입찰신청 전 상태에서만 '입찰계획'으로 되돌릴 수 있습니다)</p>
-        <div class="srm-table-wrap">
-          <table class="data-table" aria-label="입찰 참여 서류">
-            <thead><tr><th class="col-no">No</th><th>입찰 참여 서류</th><th>설명</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td class="text-left">입찰참가신청서 날인본</td><td class="text-left">입찰참가신청서는 반드시 날인이 되어있어야 합니다. (날인이 빠진 경우 미입찰로 처리됩니다.)</td></tr>
-              <tr><td>2</td><td class="text-left">신용평가등급 확인서</td><td class="text-left">신용평가등급 확인서는 반드시 유효기간 내에 있어야 합니다.</td></tr>
-              <tr><td>3</td><td class="text-left">법인인감 증명서</td><td class="text-left">제출되는 법인인감증명서는 유효기간 내에 있어야 합니다.</td></tr>
-              <tr><td>4</td><td class="text-left">제안서</td><td class="text-left">제안서를 첨부해주세요. (되도록 하나의 PDF 파일로 합쳐서 첨부해주세요.)</td></tr>
-              <tr><td>5</td><td class="text-left">기타</td><td>-</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="modal-field-label content-object-gap-top">(참고) 수의계약 건의 경우, 이 탭은 '수의계약 계획 정보'로 표기되며 아래 항목이 대신 표시됩니다: 수의계약 요청기간, 시방서/구매견적서/과업지시서 등 참여서류참고파일, 수의계약 참여 가능 업체, 예정가, 수의계약 참여 서류(신용평가등급 확인서·법인인감 증명서·기타).</p>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">목록</button></div>
-    </div>
-  </div>
 
   <!-- 계약 관련 서류 등록/수정 · 확정 처리 -->
-  <div class="modal-backdrop" id="ctDocManageModal" role="dialog" aria-modal="true" aria-labelledby="ctDocManageTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-header"><h2 class="modal-title" id="ctDocManageTitle">계약 관련 서류 등록/수정 · 확정 처리</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <p class="modal-field-label">입찰관리에서 이 화면으로 넘어올 때 입력되었던 정보를 보여주며 수정할 수 있습니다. 협력업체가 각종 증권을 발급하려면 켑코이에스가 먼저 계약서(날인본)를 제공해야 합니다. 협력업체가 등록해야 하는 서류를 관리자가 직접 등록해 줄 수도 있습니다.</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>계약서(날인본) <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-lookup"><input type="text" class="form-control" value="이미 등록된 파일명.PDF" readonly><button type="button" class="btn-secondary">찾아보기</button></div><p class="modal-field-label content-inner-gap-top">※ 첨부파일은 PDF로 업로드해주세요.</p></dd></div>
-          <div class="srm-kv-row"><dt>계약이행 보증보험 증권</dt><dd><div class="form-lookup"><input type="text" class="form-control" value="이미 등록된 파일명.PDF" readonly><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
-          <div class="srm-kv-row"><dt>선금이행 보증보험 증권</dt><dd><div class="form-lookup"><input type="text" class="form-control" value="이미 등록된 파일명.PDF" readonly><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
-          <div class="srm-kv-row"><dt>하자이행 보증보험 증권</dt><dd><div class="form-lookup"><input type="text" class="form-control" value="이미 등록된 파일명.PDF" readonly><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
-          <div class="srm-kv-row"><dt>계약 시 참고서류</dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
-        </div>
-        <p class="modal-field-label content-object-gap-top">등록된 '계약 관련 서류' 조회 및 확정 처리 — '확정 처리(계약정보로 전송)' 클릭 시 계약정보와 PMS 계약정보에 업데이트(덮어쓰기)되고 진행상태가 '계약완료'로 변경됩니다. 확정된 항목은 협력업체가 더 이상 수정할 수 없습니다.</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>계약이행 보증보험 증권</dt><dd>등록된 파일명.PDF <label class="form-choice"><input type="checkbox"> 확정(수정 불가)</label></dd></div>
-          <div class="srm-kv-row"><dt>선금이행 보증보험 증권</dt><dd>등록된 파일명.PDF <label class="form-choice"><input type="checkbox"> 확정(수정 불가)</label></dd></div>
-          <div class="srm-kv-row"><dt>하자이행 보증보험 증권</dt><dd>등록된 파일명.PDF <label class="form-choice"><input type="checkbox"> 확정(수정 불가)</label></dd></div>
-          <div class="srm-kv-row"><dt>계약 시 참고서류</dt><dd>등록된 파일명.PDF <label class="form-choice"><input type="checkbox"> 확정(수정 불가)</label></dd></div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-secondary" data-close-modal data-open-modal="ctDetailModal">목록</button>
-        <button type="button" class="btn-primary" data-close-modal data-open-modal="ctDetailModal">저장</button>
-        <button type="button" class="btn-critical-primary" data-close-modal data-open-modal="ctConfirmSendModal">확정 처리(계약정보로 전송)</button>
-      </div>
-    </div>
-  </div>
-  <div class="modal-backdrop" id="ctConfirmSendModal" role="alertdialog" aria-modal="true" aria-labelledby="ctConfirmSendTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header"><h2 class="modal-title" id="ctConfirmSendTitle">확정 처리 유의사항</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <div class="notice-box warning" role="alert">
-          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span>
-          <div class="notice-body"><p class="notice-lead">'확정(수정 불가)'으로 처리된 내역(파일)을 계약정보에 업데이트합니다. 확정된 항목은 협력업체가 더 이상 수정할 수 없습니다.</p><p>확정 처리(계약정보로 전송)하시겠습니까?</p></div>
-        </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">취소</button><button type="button" class="btn-critical-primary" data-close-modal data-open-modal="ctDetailModal">확정 처리(계약정보로 전송)</button></div>
-    </div>
-  </div>
+
+
 
   <!-- 계약 변경 처리하기 -->
-  <div class="modal-backdrop" id="ctChangeFormModal" role="dialog" aria-modal="true" aria-labelledby="ctChangeFormTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-header"><h2 class="modal-title" id="ctChangeFormTitle">계약 변경 처리하기</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <p class="modal-field-label">변경 계약 처리(PMS로 계약정보 전송) 시 SRM과 PMS의 '계약정보'가 모두 업데이트되며, 계약변경일·변경내용(메모)·변경내역 상세보기 URL이 PMS로 추가 전송됩니다.</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>계약변경일 <span class="required" aria-hidden="true">*</span></dt><dd><input type="date" class="filter-date-input"></dd></div>
-          <div class="srm-kv-row"><dt>변경계약 사유 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="ctChangeReason" checked>'계약금액' 변경</label><label class="form-choice"><input type="radio" name="ctChangeReason">'납기일/공사기간' 변경</label></div></dd></div>
-          <div class="srm-kv-row"><dt>기존 계약금액</dt><dd>99,000,000원 (구천구백만원, VAT 포함)</dd></div>
-          <div class="srm-kv-row"><dt>변경된 계약금액 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" placeholder="숫자로 입력해주세요."> 원 (VAT 포함)</dd></div>
-          <div class="srm-kv-row"><dt>기존 납기일/공사기간</dt><dd>2026.07.20 ~ 2027.07.30</dd></div>
-          <div class="srm-kv-row"><dt>변경된 납기일/공사기간 <span class="required" aria-hidden="true">*</span></dt><dd><input type="date" class="filter-date-input"> ~ <input type="date" class="filter-date-input"></dd></div>
-          <div class="srm-kv-row"><dt>변경내용(메모) <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" placeholder="100자 이내로 등록해주세요." maxlength="100"></dd></div>
-          <div class="srm-kv-row"><dt>변경 계약서 <span class="required" aria-hidden="true">*</span></dt><dd>이미 등록된 파일명.PDF <button type="button" class="btn-row-del">삭제</button><div class="form-lookup content-inner-gap-top"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
-          <div class="srm-kv-row"><dt>변경 시 참고서류</dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-secondary" data-close-modal data-open-modal="ctDetailModal">취소</button>
-        <button type="button" class="btn-critical-primary" data-close-modal data-open-modal="ctChangeConfirmModal">변경 계약 처리(PMS로 계약정보 전송)</button>
-      </div>
-    </div>
-  </div>
-  <div class="modal-backdrop" id="ctChangeConfirmModal" role="alertdialog" aria-modal="true" aria-labelledby="ctChangeConfirmTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header"><h2 class="modal-title" id="ctChangeConfirmTitle">변경 계약 처리 유의사항</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <div class="notice-box warning" role="alert">
-          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span>
-          <div class="notice-body"><p class="notice-lead">변경 계약 처리(PMS로 계약정보 전송) 시 PMS로 계약정보가 전송/업데이트됩니다. 변경 계약 관련 서류를 다시 한 번 면밀히 확인하세요.</p><p>변경 계약(PMS로 계약정보 전송) 처리하시겠습니까?</p></div>
-        </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">취소</button><button type="button" class="btn-critical-primary" data-close-modal data-open-modal="ctDetailModal">변경 계약 처리(PMS로 계약정보 전송)</button></div>
-    </div>
-  </div>
+
+
 
   <!-- 계약 변경 내역 상세보기 -->
-  <div class="modal-backdrop" id="ctChangeDetailModal" role="dialog" aria-modal="true" aria-labelledby="ctChangeDetailTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-header"><h2 class="modal-title" id="ctChangeDetailTitle">계약 변경 내역 상세보기</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>계약변경일</dt><dd>2026.09.01</dd></div>
-          <div class="srm-kv-row"><dt>변경계약 사유</dt><dd>'계약금액' 변경</dd></div>
-          <div class="srm-kv-row"><dt>기존 계약금액</dt><dd>99,000,000원 (구천구백만원, VAT 포함)</dd></div>
-          <div class="srm-kv-row"><dt>변경된 계약금액</dt><dd>92,000,000원 (구천이백만원, VAT 포함)</dd></div>
-          <div class="srm-kv-row"><dt>기존 납기일/공사기간</dt><dd>2026.07.20 ~ 2027.07.30</dd></div>
-          <div class="srm-kv-row"><dt>변경된 납기일/공사기간</dt><dd>2026.07.20 ~ 2027.08.30</dd></div>
-          <div class="srm-kv-row"><dt>변경내용(메모)</dt><dd>품목 1종이 제외되어 계약금액을 수정하여 변경계약 하였습니다.</dd></div>
-          <div class="srm-kv-row"><dt>변경 계약서</dt><dd>이미 등록된 파일명.PDF</dd></div>
-          <div class="srm-kv-row"><dt>변경 시 참고서류</dt><dd>이미 등록된 파일명.PDF</dd></div>
-        </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">닫기</button></div>
-    </div>
-  </div>
+
 
   <script src="../../assets/scripts/dashboard.js"></script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMContractStatus/ctPartnerPickModal.html", "popups/SRMContractStatus/ctConfirmSendModal.html", "popups/SRMContractStatus/ctChangeFormModal.html", "popups/SRMContractStatus/ctChangeConfirmModal.html", "popups/SRMContractStatus/ctChangeDetailModal.html"]</script>
 </body>
 </html>

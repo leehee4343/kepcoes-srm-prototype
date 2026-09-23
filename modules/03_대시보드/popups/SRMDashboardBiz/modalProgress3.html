@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>진행상황 확인</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<div class="modal-backdrop" id="modalProgress3" role="dialog" aria-modal="true" aria-labelledby="modalProgress3Title" aria-hidden="false">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalProgress3Title">진행상황 확인</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="greeting-info"><span>발주 건 서초동 1601-9 오피스텔 신축공사 중 도장공사</span><span>번호 PR2026-0039</span><span>구분 공사</span></div>
+        <div class="wizard-stepper" role="group" aria-label="진행 단계">
+            <div class="wizard-step-box completed">
+              <span class="wizard-step-dot" aria-hidden="true">1</span>
+              <div class="wizard-step-num">STEP 01</div>
+              <div class="wizard-step-title">발주계약 요청</div>
+            </div>
+            <div class="wizard-step-box active" aria-current="step">
+              <span class="wizard-step-dot" aria-hidden="true">2</span>
+              <div class="wizard-step-num">STEP 02</div>
+              <div class="wizard-step-title">발주계획</div>
+            </div>
+            <div class="wizard-step-box">
+              <span class="wizard-step-dot" aria-hidden="true">3</span>
+              <div class="wizard-step-num">STEP 03</div>
+              <div class="wizard-step-title">입찰관리 / 수의계약 관리</div>
+            </div>
+            <div class="wizard-step-box">
+              <span class="wizard-step-dot" aria-hidden="true">4</span>
+              <div class="wizard-step-num">STEP 04</div>
+              <div class="wizard-step-title">계약관리</div>
+            </div>
+        </div>
+        <ul class="timeline" aria-label="처리 이력">
+            <li class="is-current"><span class="tl-time">2026.09.10 17:10</span><div><div class="tl-name">결재완료</div><div class="tl-desc">전자결재가 완료되어 요청접수로 이관되었습니다.</div></div></li>
+            <li class="is-done"><span class="tl-time">2026.09.10 10:20</span><div><div class="tl-name">결재요청</div><div class="tl-desc">발주계약 요청 전자결재를 요청했습니다.</div></div></li>
+            <li class="is-done"><span class="tl-time">2026.09.10 09:30</span><div><div class="tl-name">발주계약 요청 작성</div><div class="tl-desc">요청 내용을 작성했습니다.</div></div></li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" data-close-modal>닫기</button>
+      </div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

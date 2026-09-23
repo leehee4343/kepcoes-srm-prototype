@@ -269,7 +269,7 @@
       <section class="filter-card">
         <form id="approvalSearchForm">
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">조회기간(신청일)</span>
+            <span class="filter-label w-130">조회기간(신청일)</span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
             <div class="quick-date-btns hstack gap-6">
               <button type="button" class="btn-quick-date" data-range="1d">하루 전</button>
@@ -281,7 +281,7 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">처리상태</span>
+            <span class="filter-label w-130">처리상태</span>
             <div class="form-choice-group" role="radiogroup">
               <label class="form-choice"><input type="radio" name="apState" checked>전체</label>
               <label class="form-choice"><input type="radio" name="apState">신청완료</label>
@@ -289,11 +289,11 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">신용평가등급</span>
+            <span class="filter-label w-130">신용평가등급</span>
             <select class="filter-select w-150"><option>신용평가등급 선택</option></select>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">키워드 검색</span>
+            <span class="filter-label w-130">키워드 검색</span>
             <select class="filter-select w-140"><option>사업자번호</option><option>업체명</option><option>대표자</option><option>담당자</option></select>
             <input type="text" class="filter-text-input w-380" placeholder="검색어를 입력하세요.">
           </div>
@@ -340,96 +340,18 @@
 
 
   <!-- 신청내역 확인 및 처리 -->
-  <div class="modal-backdrop" id="apDetailModal" role="dialog" aria-modal="true" aria-labelledby="apDetailTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-header">
-        <h2 class="modal-title" id="apDetailTitle">신청내역 확인 및 처리</h2>
-        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
-      </div>
-      <div class="modal-body">
-        <p class="modal-field-label">기본 정보</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>사업자 번호 <span class="required" aria-hidden="true">*</span></dt><dd>135-82-77202</dd></div>
-          <div class="srm-kv-row"><dt>회사명 <span class="required" aria-hidden="true">*</span></dt><dd>(주)큐비트엑스</dd></div>
-          <div class="srm-kv-row"><dt>대표자명 <span class="required" aria-hidden="true">*</span></dt><dd>이홍태, 윤지병</dd></div>
-          <div class="srm-kv-row"><dt>전화번호 <span class="required" aria-hidden="true">*</span></dt><dd>02-833-1650</dd></div>
-          <div class="srm-kv-row"><dt>업종 <span class="required" aria-hidden="true">*</span></dt><dd>IT인프라</dd></div>
-          <div class="srm-kv-row"><dt>업태 <span class="required" aria-hidden="true">*</span></dt><dd>소프트웨어개발</dd></div>
-          <div class="srm-kv-row"><dt>주소 <span class="required" aria-hidden="true">*</span></dt><dd>(12654) 경기도 고양시 일산서구 강선로 118 강선마을아파트 제208동 1202호</dd></div>
-        </div>
-        <p class="modal-field-label content-inner-gap-top">관련 증빙서류</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>사업자등록증 <span class="required" aria-hidden="true">*</span></dt><dd>이미 등록된 파일명.PDF</dd></div>
-          <div class="srm-kv-row"><dt>법인인감증명서 <span class="required" aria-hidden="true">*</span></dt><dd>이미 등록된 파일명.PDF</dd></div>
-          <div class="srm-kv-row"><dt>면허 등 <span class="required" aria-hidden="true">*</span></dt><dd>이미 등록된 파일명.PDF</dd></div>
-        </div>
-        <p class="modal-field-label content-inner-gap-top">신용평가등급 관련 정보</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>신용평가등급</dt><dd>BB0</dd></div>
-          <div class="srm-kv-row"><dt>신용평가등급 확인서</dt><dd>이미 등록된 파일명.PDF</dd></div>
-        </div>
-        <p class="modal-field-label content-inner-gap-top">담당자 정보</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>이름 <span class="required" aria-hidden="true">*</span></dt><dd>이희성</dd></div>
-          <div class="srm-kv-row"><dt>이메일 <span class="required" aria-hidden="true">*</span></dt><dd>leehee43@naver.com</dd></div>
-          <div class="srm-kv-row"><dt>핸드폰번호 <span class="required" aria-hidden="true">*</span></dt><dd>010-6844-2810</dd></div>
-          <div class="srm-kv-row"><dt>직책 <span class="required" aria-hidden="true">*</span></dt><dd>부장</dd></div>
-          <div class="srm-kv-row"><dt>담당업무 <span class="required" aria-hidden="true">*</span></dt><dd>PM 및 기획</dd></div>
-          <div class="srm-kv-row"><dt>전화번호 <span class="required" aria-hidden="true">*</span></dt><dd>02-6959-9857</dd></div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-critical-primary" data-close-modal data-open-modal="apApproveConfirmModal">승인 처리</button>
-        <button type="button" class="btn-delete" data-close-modal data-open-modal="apRejectConfirmModal">거절 처리</button>
-      </div>
-    </div>
-  </div>
+
 
   <!-- 승인 처리 확인 -->
-  <div class="modal-backdrop" id="apApproveConfirmModal" role="alertdialog" aria-modal="true" aria-labelledby="apApproveConfirmTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header"><h2 class="modal-title" id="apApproveConfirmTitle">승인 처리</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <div class="notice-box" role="note">
-          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01"/><path d="M11 12h1v4h1"/></svg></span>
-          <div class="notice-body"><p class="notice-lead">협력업체로 승인 처리하시겠습니까?</p><p>승인 처리되면 이 메뉴의 목록에서는 더 이상 보이지 않고 '협력업체 관리'로 이관됩니다.</p></div>
-        </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">취소</button><button type="button" class="btn-primary" data-close-modal data-open-modal="apListRedirectHint">승인 처리</button></div>
-    </div>
-  </div>
+
 
   <!-- 거절 처리 시 유의사항 (신규 신청 / 정보수정 요청 2종) -->
-  <div class="modal-backdrop" id="apRejectConfirmModal" role="alertdialog" aria-modal="true" aria-labelledby="apRejectConfirmTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header"><h2 class="modal-title" id="apRejectConfirmTitle">거절 처리 시 유의사항</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <div class="notice-box warning" role="alert">
-          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span>
-          <div class="notice-body">
-            <p class="notice-lead">협력업체 신규 신청 건에 대한 거절 처리 시 협력업체의 신청 정보가 모두 삭제됩니다. 삭제 후 해당 업체는 다시 협력업체 신청을 할 수 있습니다. 승인 후 정보 수정을 요구하여 처리하실 수도 있습니다.</p>
-            <p>협력업체의 정보 수정 요청 건에 대한 거절 처리 시 수정 전의 정보로 복원됩니다. 거절 후 해당 업체는 다시 정보 변경을 요청할 수 있습니다.</p>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">닫기</button><button type="button" class="btn-delete" data-close-modal data-open-modal="apListRedirectHint">거절 처리</button></div>
-    </div>
-  </div>
+
 
   <!-- 처리 완료 안내(목록으로 돌아가는 지점을 명확히 하기 위한 안내) -->
-  <div class="modal-backdrop" id="apListRedirectHint" role="alertdialog" aria-modal="true" aria-labelledby="apListRedirectHintTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header"><h2 class="modal-title" id="apListRedirectHintTitle">처리 완료</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <div class="notice-box success" role="note">
-          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
-          <div class="notice-body"><p class="notice-lead">처리가 완료되었습니다.</p><p>목록에서 처리 결과를 확인하실 수 있습니다.</p></div>
-        </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-primary modal-close">목록으로</button></div>
-    </div>
-  </div>
+
 
   <script src="../../assets/scripts/dashboard.js"></script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMPartnerApproval/apDetailModal.html", "popups/SRMPartnerApproval/apApproveConfirmModal.html", "popups/SRMPartnerApproval/apRejectConfirmModal.html", "popups/SRMPartnerApproval/apListRedirectHint.html"]</script>
 </body>
 </html>

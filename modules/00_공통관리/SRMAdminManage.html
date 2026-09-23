@@ -269,7 +269,7 @@
       <section class="filter-card">
         <form id="adminSearchForm">
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">조회기간(등록일)</span>
+            <span class="filter-label w-130">조회기간(등록일)</span>
             <div class="date-range-wrap hstack gap-6">
               <input type="date" class="filter-date-input" id="adminStartDate">
               <span>~</span>
@@ -286,7 +286,7 @@
           </div>
 
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">사용 여부</span>
+            <span class="filter-label w-130">사용 여부</span>
             <div class="form-choice-group" role="radiogroup">
               <label class="form-choice"><input type="radio" name="useYn" checked>전체</label>
               <label class="form-choice"><input type="radio" name="useYn">사용(Y)</label>
@@ -295,7 +295,7 @@
           </div>
 
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">키워드 검색</span>
+            <span class="filter-label w-130">키워드 검색</span>
             <span class="description-marker-anchor">
               <span class="description-target-marker" aria-hidden="true">1</span>
               <select class="filter-select w-130" id="selAdminKeywordTarget">
@@ -495,87 +495,12 @@
   <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionModal" aria-controls="screenDescriptionModal" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
   <!-- 화면설계 Description 모달 -->
-  <div class="modal-backdrop description-guide-backdrop" id="screenDescriptionModal" role="dialog" aria-modal="false" aria-labelledby="screenDescriptionModalTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg description-modal-dialog">
-      <div class="modal-header">
-        <h2 class="modal-title" id="screenDescriptionModalTitle">화면설계 Description</h2>
-        <button type="button" class="modal-close" aria-label="닫기">×</button>
-      </div>
-      <div class="modal-body description-modal-body">
-        <section class="description-source-section" aria-labelledby="descriptionSearchTitle">
-          <h3 id="descriptionSearchTitle">검색/조회</h3>
-          <div class="description-mapping-list">
-            <div class="description-mapping-item">
-              <span class="description-mapping-number" aria-hidden="true">1</span>
-              <pre class="description-source-text">검색 구분 : 전체, 사원번호, 아이디, 사원명, 부서, 직급, 이메일</pre>
-            </div>
-            <div class="description-mapping-item">
-              <span class="description-mapping-number" aria-hidden="true">2</span>
-              <pre class="description-source-text">공통 적용 : 10개씩, 20개씩,30개씩, 50개씩, 100개씩</pre>
-            </div>
-            <div class="description-mapping-item">
-              <span class="description-mapping-number" aria-hidden="true">3</span>
-              <pre class="description-source-text">공통 적용 : 목록의 내용 그대로 엑셀 다운로드 기능 제공단, 특정 목록에서 상세정보의 일부가 엑셀 데이터에 수록되어야 하는 경우 별도로 항목을 정의하여 Description 영역에서 설명함</pre>
-            </div>
-          </div>
-        </section>
-        <section class="description-source-section" aria-labelledby="descriptionDetailTitle">
-          <h3 id="descriptionDetailTitle">상세정보</h3>
-          <div class="description-mapping-list">
-            <div class="description-mapping-item">
-              <span class="description-mapping-number" aria-hidden="true">1</span>
-              <pre class="description-source-text">사용 여부에 따라 본 시스템에 접속 제한.&#32;</pre>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-  </div>
+
 
   <!-- 관리자 상세정보 모달 -->
-  <div class="modal-backdrop" id="adminDetailModal" role="dialog" aria-modal="true" aria-labelledby="adminDetailModalTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header">
-        <h2 class="modal-title" id="adminDetailModalTitle">관리자 상세정보</h2>
-        <button type="button" class="modal-close" aria-label="닫기">×</button>
-      </div>
-      <div class="modal-body">
-        <section class="srm-detail-section">
-          <div class="srm-section-heading">
-            <div><h2>상세정보</h2></div>
-            <p>해당 정보는 그룹웨어에서 수정되면 실시간 반영됩니다.</p>
-          </div>
-          <div class="srm-kv-grid">
-            <div class="srm-kv-row"><dt>사원번호</dt><dd>2110004</dd></div>
-            <div class="srm-kv-row"><dt>아이디</dt><dd>simon</dd></div>
-            <div class="srm-kv-row"><dt>사원명</dt><dd>장시형</dd></div>
-            <div class="srm-kv-row"><dt>부서</dt><dd>기획지원팀</dd></div>
-            <div class="srm-kv-row"><dt>직급</dt><dd>과장</dd></div>
-            <div class="srm-kv-row"><dt>이메일</dt><dd>simon@kepcoes.co.kr</dd></div>
-            <div class="srm-kv-row"><dt>사용 여부 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group description-marker-anchor" role="radiogroup"><span class="description-target-marker" aria-hidden="true">1</span><label class="form-choice"><input type="radio" name="modalUseYn" checked>사용(Y)</label><label class="form-choice"><input type="radio" name="modalUseYn">중지(N)</label></div></dd></div>
-            <div class="srm-kv-row"><dt>등록일시</dt><dd>2026.06.09 15:23</dd></div>
-            <div class="srm-kv-row"><dt>등록자</dt><dd>이희성</dd></div>
-            <div class="srm-kv-row"><dt>최종수정일시</dt><dd>2026.06.10 10:45(이희성)</dd></div>
-          </div>
-        </section>
 
-        <section class="srm-detail-section">
-          <div class="srm-section-heading">
-            <div><h2>권한</h2></div>
-            <p>해당 정보는 권한그룹 및 메뉴별 권한 관리에서 수정하실 수 있습니다.</p>
-          </div>
-          <div class="srm-kv-grid">
-            <div class="srm-kv-row"><dt>권한그룹</dt><dd><span class="badge-tag">권한그룹명 #1</span> <span class="badge-tag">권한그룹명 #2</span></dd></div>
-          </div>
-        </section>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-secondary modal-close">닫기</button>
-        <button type="button" class="btn-primary modal-close">적용</button>
-      </div>
-    </div>
-  </div>
 
   <script src="../../assets/scripts/dashboard.js"></script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMAdminManage/screenDescriptionModal.html", "popups/SRMAdminManage/adminDetailModal.html"]</script>
 </body>
 </html>

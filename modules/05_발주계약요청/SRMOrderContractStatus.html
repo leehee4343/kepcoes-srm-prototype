@@ -269,7 +269,7 @@
       <section class="filter-card">
         <form id="ocStatusSearchForm">
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">조회기간(요청일)</span>
+            <span class="filter-label w-130">조회기간(요청일)</span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
             <div class="quick-date-btns hstack gap-6">
               <button type="button" class="btn-quick-date" data-range="1d">하루 전</button>
@@ -281,7 +281,7 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">진행상태</span>
+            <span class="filter-label w-130">진행상태</span>
             <div class="form-choice-group" role="radiogroup">
               <label class="form-choice"><input type="radio" name="ocStatState" checked>전체</label>
               <label class="form-choice"><input type="radio" name="ocStatState">결재요청</label>
@@ -289,7 +289,7 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">구분</span>
+            <span class="filter-label w-130">구분</span>
             <div class="form-choice-group" role="radiogroup">
               <label class="form-choice"><input type="radio" name="ocStatKind" checked>전체</label>
               <label class="form-choice"><input type="radio" name="ocStatKind">공사</label>
@@ -298,7 +298,7 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">키워드 검색</span>
+            <span class="filter-label w-130">키워드 검색</span>
             <select class="filter-select w-160"><option>발주계약 요청번호</option><option>건명</option></select>
             <input type="text" class="filter-text-input w-380" placeholder="검색어를 입력하세요.">
           </div>
@@ -330,9 +330,9 @@
               <tr><th class="w-55">No</th><th class="w-90">발주계약 요청번호</th><th class="w-70">진행상태</th><th class="minw-240">건명</th><th class="w-90">요청일</th><th class="w-90">계약예정일</th><th class="w-60">구분</th><th class="w-100">진행상황 확인</th><th class="w-90">등록일</th><th class="w-70">사업담당자</th></tr>
             </thead>
             <tbody>
-              <tr><td>1,542</td><td><a href="#" data-open-modal="ocStatusDetailModal">PR2026-0003</a></td><td><span class="badge-info">결재요청</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td>2026.07.22</td><td>2026.07.31</td><td>공사</td><td><button type="button" class="btn-secondary" data-open-modal="ocProgressModal">진행상황 확인</button></td><td>2026.06.10</td><td>홍길동</td></tr>
-              <tr><td>1,541</td><td><a href="#" data-open-modal="ocStatusDetailModal">PR2026-0004</a></td><td><span class="badge-success">결재완료</span></td><td class="text-left">금호동 1601-9 오피스텔 신축공사 중 도장공사</td><td>-</td><td>-</td><td>용역</td><td><button type="button" class="btn-secondary" data-open-modal="ocProgressModal">진행상황 확인</button></td><td>-</td><td>-</td></tr>
-              <tr><td>1,540</td><td><a href="#" data-open-modal="ocStatusDetailModal">PR2025-0512</a></td><td><span class="badge-success">결재완료</span></td><td class="text-left">본사 사옥 노후 배관 교체공사</td><td>2025.12.02</td><td>2025.12.20</td><td>물품</td><td><button type="button" class="btn-secondary" data-open-modal="ocProgressModal">진행상황 확인</button></td><td>2025.11.28</td><td>박일용</td></tr>
+              <tr><td>1,542</td><td><a href="#" onclick="window.location.href='SRMOrderContractStatusDetail.html'">PR2026-0003</a></td><td><span class="badge-info">결재요청</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td>2026.07.22</td><td>2026.07.31</td><td>공사</td><td><button type="button" class="btn-secondary" data-open-modal="ocProgressModal">진행상황 확인</button></td><td>2026.06.10</td><td>홍길동</td></tr>
+              <tr><td>1,541</td><td><a href="#" onclick="window.location.href='SRMOrderContractStatusDetail.html'">PR2026-0004</a></td><td><span class="badge-success">결재완료</span></td><td class="text-left">금호동 1601-9 오피스텔 신축공사 중 도장공사</td><td>-</td><td>-</td><td>용역</td><td><button type="button" class="btn-secondary" data-open-modal="ocProgressModal">진행상황 확인</button></td><td>-</td><td>-</td></tr>
+              <tr><td>1,540</td><td><a href="#" onclick="window.location.href='SRMOrderContractStatusDetail.html'">PR2025-0512</a></td><td><span class="badge-success">결재완료</span></td><td class="text-left">본사 사옥 노후 배관 교체공사</td><td>2025.12.02</td><td>2025.12.20</td><td>물품</td><td><button type="button" class="btn-secondary" data-open-modal="ocProgressModal">진행상황 확인</button></td><td>2025.11.28</td><td>박일용</td></tr>
             </tbody>
           </table>
         </div>
@@ -346,195 +346,15 @@
 
 
   <!-- 발주계약 요청현황 상세 -->
-  <div class="modal-backdrop" id="ocStatusDetailModal" role="dialog" aria-modal="true" aria-labelledby="ocStatusDetailTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-header">
-        <h2 class="modal-title" id="ocStatusDetailTitle">발주계약 요청현황 상세정보</h2>
-        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div class="srm-section-heading"><div><h2>발주계약 요청 기본정보</h2></div></div>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>발주계약 요청번호</dt><dd>PR2026-0003</dd></div>
-          <div class="srm-kv-row"><dt>처리상태</dt><dd><span class="badge-info">결재요청</span> <span class="badge-success">결재완료</span></dd></div>
-          <div class="srm-kv-row"><dt>건명</dt><dd>서초동 1601-9 오피스텔 신축공사 중 도장공사</dd></div>
-          <div class="srm-kv-row"><dt>요청일</dt><dd>2026.06.30</dd></div>
-          <div class="srm-kv-row"><dt>계약예정일</dt><dd>2026.07.20</dd></div>
-          <div class="srm-kv-row"><dt>구분</dt><dd>공사</dd></div>
-          <div class="srm-kv-row"><dt>수주계약정보</dt><dd class="content-bullet-item">수주계약번호 : 160011612-01-31-C<br>· 수주계약명 : GE-4 에너지효율화(ID Fan VVVF 설치) 사업<br>· 수주계약일 : 2026.12.23<br>· 수주계약업체 : 군장에너지주식회사</dd></div>
-          <div class="srm-kv-row"><dt>등록일시</dt><dd>2026.06.10 15:42</dd></div>
-          <div class="srm-kv-row"><dt>사업담당자</dt><dd>홍길동</dd></div>
-        </div>
 
-        <div class="srm-section-heading content-object-gap-top"><div><h2>발주계약 체크리스트</h2></div></div>
-        <p class="modal-field-label">결재 관련 정보</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>결재문서</dt><dd>추진안, 일상감사의견서</dd></div>
-          <div class="srm-kv-row"><dt>결재문서 등록</dt><dd>
-            등록된 파일명 #1.pdf <button type="button" class="btn-file-preview">바로보기</button><button type="button" class="btn-file-download">다운로드</button><br>
-            등록된 파일명 #2.pdf <button type="button" class="btn-file-preview">바로보기</button><button type="button" class="btn-file-download">다운로드</button>
-          </dd></div>
-        </div>
-        <p class="modal-field-label content-object-gap-top">발주계약 요청 세부정보</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>추정금액</dt><dd>94,490,000원 (구천사백사십구만원, VAT 포함)</dd></div>
-          <div class="srm-kv-row"><dt>계약기간</dt><dd>2026.07.20 ~ 2027.07.30</dd></div>
-          <div class="srm-kv-row"><dt>납품장소</dt><dd>현장 내</dd></div>
-          <div class="srm-kv-row"><dt>계약이행 보증금률</dt><dd>10%</dd></div>
-          <div class="srm-kv-row"><dt>하자이행 보증금률</dt><dd>3%</dd></div>
-          <div class="srm-kv-row"><dt>하자이행 기간</dt><dd>2년</dd></div>
-          <div class="srm-kv-row"><dt>계약방법</dt><dd>경쟁입찰(일반)</dd></div>
-          <div class="srm-kv-row"><dt>낙찰자 선정방법</dt><dd>제한적 최저가 입찰</dd></div>
-          <div class="srm-kv-row"><dt>근거 / 수의계약 사유</dt><dd>근거 / 수의계약 사유로 입력된 내용</dd></div>
-          <div class="srm-kv-row"><dt>계약상대자(수의계약의 경우)</dt><dd class="content-bullet-item">매핑된 협력업체 : (주)큐비트엑스(135-81-77202)</dd></div>
-        </div>
-
-        <p class="modal-field-label content-object-gap-top">계약업체 면허 설정</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>종합건설업</dt><dd>건축설계 및 시공</dd></div>
-          <div class="srm-kv-row"><dt>전문건설업</dt><dd>도장/습식/방수/석공사업</dd></div>
-        </div>
-
-        <p class="modal-field-label content-object-gap-top">첨부 서류</p>
-        <div class="srm-table-wrap">
-          <table class="data-table" aria-label="첨부 서류">
-            <thead><tr><th>구분</th><th>첨부파일</th><th class="w-140"></th></tr></thead>
-            <tbody>
-              <tr><td>용역(원가계산서, 과업지시서 등)</td><td class="text-left">등록된 파일명 #1.pdf, #2.pdf, #3.pdf</td><td><button type="button" class="btn-file-preview">바로보기</button><button type="button" class="btn-file-download">다운로드</button></td></tr>
-              <tr><td>기타 서류</td><td class="text-left">등록된 파일명 #1.pdf</td><td><button type="button" class="btn-file-preview">바로보기</button><button type="button" class="btn-file-download">다운로드</button></td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="srm-section-heading content-object-gap-top"><div><h2>품목 정보</h2></div></div>
-        <div class="srm-table-wrap">
-          <table class="data-table" aria-label="품목 정보">
-            <thead><tr><th class="col-no">No</th><th>품목코드</th><th>품목명</th><th>규격</th><th>단위</th><th>수량</th><th>납기요청일</th><th>입고장소</th><th>비고</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>A0106-001</td><td class="text-left">고효율 인버터</td><td class="text-left">품목구성방법이 '지정항목작성'인 경우에 등록됨</td><td>EA</td><td>3</td><td>2026.07.31</td><td>현장</td><td class="text-left">품목등록의 비고에 들어간 내용입니다.</td></tr>
-              <tr><td>2</td><td>-</td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td>-</td><td>EA</td><td>3</td><td>2026.07.31</td><td>현장</td><td class="text-left">품목등록의 비고에 들어간 내용입니다.</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="srm-detail-actions">
-          <button type="button" class="btn-secondary" data-close-modal data-open-modal="ocReqDocModal">발주계약 요청서</button>
-        </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">목록</button></div>
-    </div>
-  </div>
 
   <!-- 발주계약 요청서 (공식 문서 형태) -->
-  <div class="modal-backdrop" id="ocReqDocModal" role="dialog" aria-modal="true" aria-labelledby="ocReqDocTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-header"><h2 class="modal-title" id="ocReqDocTitle">발주계약 요청서</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <div class="srm-section-heading"><div><h2>계약요청</h2></div></div>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>계약요청일</dt><dd>2026-06-30</dd></div>
-          <div class="srm-kv-row"><dt>요청자 / 부서</dt><dd>노두윤 / 시공관리팀</dd></div>
-          <div class="srm-kv-row"><dt>계약예정일</dt><dd>2026-07-20</dd></div>
-          <div class="srm-kv-row"><dt>발주계약 구분</dt><dd>공사</dd></div>
-          <div class="srm-kv-row"><dt>결재문서</dt><dd>-</dd></div>
-        </div>
 
-        <div class="srm-section-heading content-object-gap-top"><div><h2>수주계약 정보</h2></div></div>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>계약체결일</dt><dd>2025-06-25</dd></div>
-          <div class="srm-kv-row"><dt>에너지사용자</dt><dd>가람디에프씨</dd></div>
-          <div class="srm-kv-row"><dt>계약명</dt><dd>서초 가람디에프씨 LH 매입임대주택 에너지효율화사업</dd></div>
-          <div class="srm-kv-row"><dt>수주금액(공사금액)</dt><dd>15,000,000,000 KRW / VAT 제외</dd></div>
-        </div>
-
-        <div class="srm-section-heading content-object-gap-top"><div><h2>발주계약 체크리스트</h2></div></div>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>계약명</dt><dd>서초동 1601-9 오피스텔 신축공사 중 도장공사</dd></div>
-          <div class="srm-kv-row"><dt>추정금액(소요예산)</dt><dd>94,490,000 KRW / VAT 포함</dd></div>
-          <div class="srm-kv-row"><dt>공사기간(납기일)</dt><dd>2026-07-20 ~ 2027-06-30 / 현장 내</dd></div>
-          <div class="srm-kv-row"><dt>계약방법</dt><dd>경쟁입찰(일반)</dd></div>
-          <div class="srm-kv-row"><dt>낙찰자 선정방법</dt><dd>제한적 최저가 입찰</dd></div>
-          <div class="srm-kv-row"><dt>수의계약사유</dt><dd>-</dd></div>
-        </div>
-
-        <div class="srm-section-heading content-object-gap-top"><div><h2>자격/면허</h2></div></div>
-        <div class="srm-table-wrap">
-          <table class="data-table" aria-label="자격/면허">
-            <thead><tr><th>구분</th><th class="w-70">해당</th><th>업종</th></tr></thead>
-            <tbody>
-              <tr><td>종합건설업</td><td>N</td><td class="text-left">-</td></tr>
-              <tr><td>전문건설업</td><td>Y</td><td class="text-left">도장/습식/방수/석공사업</td></tr>
-              <tr><td>개별공사업</td><td>N</td><td class="text-left">-</td></tr>
-              <tr><td>용역업</td><td>N</td><td class="text-left">-</td></tr>
-              <tr><td>기타</td><td>N</td><td class="text-left">-</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="srm-section-heading content-object-gap-top"><div><h2>보증금률</h2></div></div>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>계약이행 보증금률</dt><dd>10%</dd></div>
-          <div class="srm-kv-row"><dt>하자이행 보증금률</dt><dd>3% (준공일로부터 2년)</dd></div>
-        </div>
-
-        <div class="srm-section-heading content-object-gap-top"><div><h2>첨부</h2></div></div>
-        <div class="srm-table-wrap">
-          <table class="data-table" aria-label="첨부">
-            <thead><tr><th>구분</th><th class="w-90">첨부여부</th><th>비고</th></tr></thead>
-            <tbody>
-              <tr><td>공사</td><td>첨부완료(1건)</td><td class="text-left">시방서, 원가계산서, 설계서(도면, 공정표 등)</td></tr>
-              <tr><td>용역</td><td>-</td><td class="text-left">원가계산서(or 산출내역서), 과업지시서</td></tr>
-              <tr><td>물품</td><td>-</td><td class="text-left">산출내역서(or 원가계산서), 사양서(or 구매규격서)</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="srm-table-wrap">
-          <table class="data-table" aria-label="기타 첨부">
-            <thead><tr><th>기타 첨부</th><th>비고</th></tr></thead>
-            <tbody>
-              <tr><td class="text-left">발주처 규격</td><td class="text-left">규격에 의한 수의계약 요청 시</td></tr>
-              <tr><td class="text-left">공동수주협약서</td><td class="text-left">공동수주업체와 수의계약 요청 시</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="srm-table-wrap">
-          <table class="data-table" aria-label="추가 전달자료">
-            <thead><tr><th>추가 전달자료</th></tr></thead>
-            <tbody><tr><td class="text-left">-</td></tr></tbody>
-          </table>
-        </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-secondary" data-close-modal data-open-modal="ocStatusDetailModal">닫기</button></div>
-    </div>
-  </div>
 
   <!-- 진행상황 확인 -->
-  <div class="modal-backdrop" id="ocProgressModal" role="dialog" aria-modal="true" aria-labelledby="ocProgressTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header"><h2 class="modal-title" id="ocProgressTitle">진행상황 확인</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <p class="modal-field-label">마지막으로 처리된 상태는 조금 더 큰 원(블릿/아이콘)과 조금 더 큰 폰트 사이즈로 표시됩니다.</p>
-        <div class="wizard-stepper">
-          <div class="wizard-step-box completed" data-step="1"><span class="wizard-step-dot" aria-hidden="true">✓</span><div class="wizard-step-num">STEP 01</div><div class="wizard-step-title">발주계약 요청</div></div>
-          <div class="wizard-step-box completed" data-step="2"><span class="wizard-step-dot" aria-hidden="true">✓</span><div class="wizard-step-num">STEP 02</div><div class="wizard-step-title">발주계획</div></div>
-          <div class="wizard-step-box completed" data-step="3"><span class="wizard-step-dot" aria-hidden="true">✓</span><div class="wizard-step-num">STEP 03</div><div class="wizard-step-title">입찰관리 / 수의계약 관리</div></div>
-          <div class="wizard-step-box active" data-step="4" aria-current="step"><span class="wizard-step-dot" aria-hidden="true">4</span><div class="wizard-step-num">STEP 04</div><div class="wizard-step-title">계약관리</div></div>
-        </div>
-        <div class="srm-table-wrap content-object-gap-top">
-          <table class="data-table" aria-label="진행 이력">
-            <thead><tr><th>처리 내역</th><th class="w-150">처리일시</th></tr></thead>
-            <tbody>
-              <tr><td class="text-left">발주계약 요청 &gt; 전자결재 요청 : 장시형 과장(기획지원팀)</td><td>2026.01.01 15:34</td></tr>
-              <tr><td class="text-left">발주계획 등록 &gt; 전자결재 요청 : 홍길동 부장(기획지원팀)</td><td>2026.01.01 15:34</td></tr>
-              <tr><td class="text-left">입찰계획 현황 &gt; 예정가격 산출기초조서 등록 및 전자결재 요청 : 홍길동 부장(기획지원팀)</td><td>2026.01.01 15:34</td></tr>
-              <tr><td class="text-left">계약관리 &gt; 확정 처리(계약정보로 전송) : 홍길동 부장(기획지원팀)</td><td>2026.01.01 15:34</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">닫기</button></div>
-    </div>
-  </div>
+
 
   <script src="../../assets/scripts/dashboard.js"></script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMOrderContractStatus/ocReqDocModal.html", "popups/SRMOrderContractStatus/ocProgressModal.html"]</script>
 </body>
 </html>

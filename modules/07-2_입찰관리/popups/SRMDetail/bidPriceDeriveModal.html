@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>예정가·낙찰하한금액 도출 내역 확인</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<div class="modal-backdrop" id="bidPriceDeriveModal" role="dialog" aria-modal="true" aria-labelledby="bidPriceDeriveTitle" aria-hidden="false">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header"><h2 class="modal-title" id="bidPriceDeriveTitle">예정가·낙찰하한금액 도출 내역 확인</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
+      <div class="modal-body">
+        <p class="modal-field-label">입찰참여 업체들이 가격 투찰 시 선택한 가격에 색깔이 부여되며, 가격 투찰 순서대로 예비금액#1~#4까지 배정됩니다(4개 미만이면 시스템이 자동 선택). 예정가격은 예비금액#1~#4의 평균이며, 낙찰하한가는 예비금액 평균 × 낙찰하한율입니다. 예정가격 이상 또는 예비가격 이하로 투찰한 경우 부적격 처리됩니다.</p>
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>복수예비 기초금액</dt><dd>122,000,000원</dd></div>
+          <div class="srm-kv-row"><dt>낙찰하한율 기준</dt><dd>공사 / 2억 미만(87.745%)</dd></div>
+          <div class="srm-kv-row"><dt>낙찰하한율</dt><dd>87.745%</dd></div>
+        </div>
+        <p class="modal-field-label content-inner-gap-top">복수예비가격 생성 (복수예비 기초금액 ±2% 범위 내에서 15개 자동 생성)</p>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="복수예비가격">
+            <thead><tr><th>구분</th><th>#1</th><th>#2</th><th>#3</th><th>#4</th><th>#5</th><th>#6</th><th>#7</th><th>#8</th></tr></thead>
+            <tbody>
+              <tr><td class="col-left">+2% 중 7개</td><td class="col-num">123,379,000</td><td class="col-num">123,387,000</td><td class="col-num">123,569,000</td><td class="col-num">124,315,000</td><td class="col-num">126,351,000</td><td class="col-num">124,379,000</td><td class="col-num">123,524,000</td><td>-</td></tr>
+              <tr><td class="col-left">-2% 중 8개</td><td class="col-num">122,526,000</td><td class="col-num">121,345,000</td><td class="col-num">122,352,000</td><td class="col-num">121,759,000</td><td class="col-num">122,952,000</td><td class="col-num">120,524,000</td><td class="col-num">120,875,000</td><td class="col-num">120,579,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="modal-field-label content-inner-gap-top">예비금액(업체 선택)</p>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="예비금액">
+            <thead><tr><th>예비금액 #1</th><th>예비금액 #2</th><th>예비금액 #3</th><th>예비금액 #4</th></tr></thead>
+            <tbody><tr><td class="col-num">123,379,000</td><td class="col-num">122,352,000</td><td class="col-num">124,315,000</td><td class="col-num">120,579,000</td></tr></tbody>
+          </table>
+        </div>
+        <p class="modal-field-label content-inner-gap-top">낙찰하한가 도출</p>
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="낙찰하한가 도출">
+            <thead><tr><th>복수예비금액(평균)</th><th>낙찰하한가</th></tr></thead>
+            <tbody><tr><td class="col-num">122,656,250</td><td class="col-num">107,624,727</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">닫기</button></div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

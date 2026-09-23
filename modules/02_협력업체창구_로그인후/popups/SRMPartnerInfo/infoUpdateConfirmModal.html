@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>기본 정보 수정 요청 시 유의사항</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<div class="modal-backdrop" id="infoUpdateConfirmModal" role="alertdialog" aria-modal="true" aria-labelledby="infoUpdateConfirmTitle" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2 class="modal-title" id="infoUpdateConfirmTitle">기본 정보 수정 요청 시 유의사항</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="notice-box warning" role="alert">
+          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span>
+          <div class="notice-body">
+            <p class="notice-lead">수정 요청 후 승인 기간 동안 본 시스템 접속이 제한됩니다.</p>
+            <p>승인에 걸리는 시간은 약 영업일 기준 3일이며, 문의사항은 02-6959-4561로 연락 부탁드립니다.</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">취소</button><span class="description-marker-anchor"><span class="description-target-marker" aria-hidden="true">3</span><button type="button" class="btn-critical-primary modal-close">기본정보 수정 요청</button></span></div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

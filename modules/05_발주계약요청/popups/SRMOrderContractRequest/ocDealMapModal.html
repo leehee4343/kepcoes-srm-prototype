@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>수주계약 매핑</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<div class="modal-backdrop" id="ocDealMapModal" role="dialog" aria-modal="true" aria-labelledby="ocDealMapTitle" aria-hidden="false">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header"><h2 class="modal-title" id="ocDealMapTitle">수주계약 매핑</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
+      <div class="modal-body">
+        <p class="modal-field-label">PMS의 수주계약 프로젝트를 호출합니다.</p>
+        <div class="filter-row hstack gap-12">
+          <span class="filter-label w-80">수주계약일</span>
+          <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
+            <div class="quick-date-btns hstack gap-6">
+              <button type="button" class="btn-quick-date" data-range="1d">하루 전</button>
+              <button type="button" class="btn-quick-date" data-range="1w">1주일</button>
+              <button type="button" class="btn-quick-date active" data-range="1m">1개월</button>
+              <button type="button" class="btn-quick-date" data-range="3m">3개월</button>
+              <button type="button" class="btn-quick-date" data-range="6m">6개월</button>
+              <button type="button" class="btn-quick-date" data-range="1y">1년</button>
+            </div>
+        </div>
+        <div class="form-lookup content-inner-gap-top">
+          <select class="filter-select w-130"><option>검색 구분</option></select>
+          <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
+          <button type="button" class="btn-filter-search">검색</button>
+        </div>
+        <div class="table-scroll-wrapper content-inner-gap-top">
+          <table class="data-table" aria-label="수주계약 목록">
+            <thead><tr><th>수주계약번호</th><th>수주계약명</th><th>수주계약일</th><th>수주계약업체</th><th>착공일자</th><th>준공(예상)일자</th><th class="w-120">총사업금액</th><th class="w-70"></th></tr></thead>
+            <tbody>
+              <tr><td>160011612-01-31-C</td><td class="text-left">GE-4 에너지효율화(ID Fan VVVF 설치) 사업</td><td>2026.12.23</td><td class="text-left">군장에너지</td><td>2026.12.22</td><td>2027.05.31</td><td class="col-num">2,384,000,000</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="ocNewModal">매핑</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn-secondary" data-close-modal data-open-modal="ocNewModal">취소</button></div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

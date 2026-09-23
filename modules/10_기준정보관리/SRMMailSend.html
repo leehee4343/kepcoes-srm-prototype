@@ -310,168 +310,21 @@
 
 
   <!-- 협력업체 선택 -->
-  <div class="modal-backdrop" id="msVendorPickModal" role="dialog" aria-modal="true" aria-labelledby="msVendorPickTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-header"><h2 class="modal-title" id="msVendorPickTitle">협력업체 선택</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <p class="modal-field-label">승인된 협력업체만 호출됩니다.</p>
-        <div class="filter-row hstack gap-12">
-          <span class="filter-label w-80">조회기간(신청일)</span>
-          <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
-            <div class="quick-date-btns hstack gap-6">
-              <button type="button" class="btn-quick-date" data-range="1d">하루 전</button>
-              <button type="button" class="btn-quick-date" data-range="1w">1주일</button>
-              <button type="button" class="btn-quick-date active" data-range="1m">1개월</button>
-              <button type="button" class="btn-quick-date" data-range="3m">3개월</button>
-              <button type="button" class="btn-quick-date" data-range="6m">6개월</button>
-              <button type="button" class="btn-quick-date" data-range="1y">1년</button>
-            </div>
-        </div>
-        <div class="filter-row hstack gap-12">
-          <span class="filter-label w-80">신용평가등급</span>
-          <select class="filter-select w-150"><option>신용평가등급 선택</option></select>
-        </div>
-        <div class="filter-row hstack gap-12">
-          <span class="filter-label w-80">소싱 그룹</span>
-          <select class="filter-select w-140"><option>대분류 선택</option></select>
-          <select class="filter-select w-140"><option>중분류 선택</option></select>
-          <select class="filter-select w-140"><option>소분류 선택</option></select>
-        </div>
-        <div class="form-lookup content-inner-gap-top">
-          <select class="filter-select w-130"><option>검색 구분</option></select>
-          <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
-          <button type="button" class="btn-filter-search">검색</button>
-        </div>
-        <div class="table-scroll-wrapper content-inner-gap-top">
-          <table class="data-table" aria-label="협력업체 목록">
-            <thead><tr><th class="w-40">선택</th><th>처리상태</th><th>사업자 번호</th><th>업체명</th><th>담당자</th><th>휴대전화 번호</th><th>이메일</th><th>신청일</th></tr></thead>
-            <tbody>
-              <tr><td><input type="checkbox"></td><td><span class="badge-success">승인</span></td><td>123-45-67891</td><td class="text-left">삼전디에스</td><td>한지훈</td><td>010-1234-5678</td><td>leehee43@naver.com</td><td>2026.06.10</td></tr>
-              <tr><td><input type="checkbox"></td><td><span class="badge-success">승인</span></td><td>123-45-67891</td><td class="text-left">넷퍼시</td><td>김미라</td><td>-</td><td>-</td><td>2026.06.10</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">취소</button><button type="button" class="btn-primary modal-close">선택 추가</button></div>
-    </div>
-  </div>
+
 
   <!-- 거래처 선택 -->
-  <div class="modal-backdrop" id="msClientPickModal" role="dialog" aria-modal="true" aria-labelledby="msClientPickTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-header"><h2 class="modal-title" id="msClientPickTitle">거래처 선택</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <p class="modal-field-label">ERP와 연동된 거래처 목록을 호출합니다.</p>
-        <div class="filter-row hstack gap-12">
-          <span class="filter-label w-80">조회기간(등록일)</span>
-          <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
-            <div class="quick-date-btns hstack gap-6">
-              <button type="button" class="btn-quick-date" data-range="1d">하루 전</button>
-              <button type="button" class="btn-quick-date" data-range="1w">1주일</button>
-              <button type="button" class="btn-quick-date active" data-range="1m">1개월</button>
-              <button type="button" class="btn-quick-date" data-range="3m">3개월</button>
-              <button type="button" class="btn-quick-date" data-range="6m">6개월</button>
-              <button type="button" class="btn-quick-date" data-range="1y">1년</button>
-            </div>
-        </div>
-        <div class="filter-row hstack gap-12">
-          <span class="filter-label w-80">휴/폐업 구분</span>
-          <div class="form-choice-group" role="radiogroup">
-            <label class="form-choice"><input type="radio" name="msClientState" checked>전체</label>
-            <label class="form-choice"><input type="radio" name="msClientState">정상</label>
-            <label class="form-choice"><input type="radio" name="msClientState">중지</label>
-          </div>
-        </div>
-        <div class="form-lookup content-inner-gap-top">
-          <select class="filter-select w-130"><option>검색 구분</option></select>
-          <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
-          <button type="button" class="btn-filter-search">검색</button>
-        </div>
-        <div class="table-scroll-wrapper content-inner-gap-top">
-          <table class="data-table" aria-label="거래처 목록">
-            <thead><tr><th class="w-40">선택</th><th>거래처 코드</th><th>거래처명</th><th>사업자등록번호</th><th>거래 담당자</th><th>휴/폐업 구분</th><th>등록일</th></tr></thead>
-            <tbody>
-              <tr><td><input type="checkbox"></td><td>02663</td><td class="text-left">큐비트엑스</td><td>349-83-01795</td><td class="text-left">이희성 (leehee43@naver.com, 010-6844-2810)</td><td><span class="badge-success">정상</span></td><td>2026.06.09</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">취소</button><button type="button" class="btn-primary modal-close">선택 추가</button></div>
-    </div>
-  </div>
+
 
   <!-- 직원(관리자) 선택 -->
-  <div class="modal-backdrop" id="msStaffPickModal" role="dialog" aria-modal="true" aria-labelledby="msStaffPickTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-header"><h2 class="modal-title" id="msStaffPickTitle">직원(관리자) 선택</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <div class="filter-row hstack gap-12">
-          <span class="filter-label w-80">조회기간(등록일)</span>
-          <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
-            <div class="quick-date-btns hstack gap-6">
-              <button type="button" class="btn-quick-date" data-range="1d">하루 전</button>
-              <button type="button" class="btn-quick-date" data-range="1w">1주일</button>
-              <button type="button" class="btn-quick-date active" data-range="1m">1개월</button>
-              <button type="button" class="btn-quick-date" data-range="3m">3개월</button>
-              <button type="button" class="btn-quick-date" data-range="6m">6개월</button>
-              <button type="button" class="btn-quick-date" data-range="1y">1년</button>
-            </div>
-        </div>
-        <div class="filter-row hstack gap-12">
-          <span class="filter-label w-80">사용여부</span>
-          <div class="form-choice-group" role="radiogroup">
-            <label class="form-choice"><input type="radio" name="msStaffUse" checked>전체</label>
-            <label class="form-choice"><input type="radio" name="msStaffUse">사용(Y)</label>
-            <label class="form-choice"><input type="radio" name="msStaffUse">중지(N)</label>
-          </div>
-        </div>
-        <div class="form-lookup content-inner-gap-top">
-          <select class="filter-select w-130"><option>검색 구분</option></select>
-          <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
-          <button type="button" class="btn-filter-search">검색</button>
-        </div>
-        <div class="table-scroll-wrapper content-inner-gap-top">
-          <table class="data-table" aria-label="직원(관리자) 목록">
-            <thead><tr><th class="w-40">선택</th><th>사원번호</th><th>아이디</th><th>사원명</th><th>부서</th><th>직급</th><th>이메일</th><th>사용여부</th><th>등록일</th></tr></thead>
-            <tbody>
-              <tr><td><input type="checkbox"></td><td>2110004</td><td>simon</td><td class="text-left">장시형</td><td class="text-left">기획지원팀</td><td>과장</td><td>simon@kepcoes.co.kr</td><td><span class="badge-success">사용(Y)</span></td><td>2026.06.09</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">취소</button><button type="button" class="btn-primary modal-close">선택 추가</button></div>
-    </div>
-  </div>
+
 
   <!-- 수동 등록 -->
-  <div class="modal-backdrop" id="msManualAddModal" role="dialog" aria-modal="true" aria-labelledby="msManualAddTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header"><h2 class="modal-title" id="msManualAddTitle">수동 등록</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>이름 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" placeholder="예) 홍길동"></dd></div>
-          <div class="srm-kv-row"><dt>연락처 <span class="required" aria-hidden="true">*</span></dt><dd><select class="filter-select w-90"><option>010</option></select> - <input type="text" class="form-control w-80"> - <input type="text" class="form-control w-80"></dd></div>
-          <div class="srm-kv-row"><dt>이메일 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control w-160"> @ <select class="filter-select w-140"><option>이메일 선택</option><option>직접 입력</option></select></dd></div>
-        </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-primary modal-close">추가</button><button type="button" class="btn-secondary modal-close">취소</button></div>
-    </div>
-  </div>
+
 
   <!-- 메일/메시지 발송 시 유의사항 -->
-  <div class="modal-backdrop" id="msSendConfirmModal" role="alertdialog" aria-modal="true" aria-labelledby="msSendConfirmTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header"><h2 class="modal-title" id="msSendConfirmTitle">메일/메시지 발송 시 유의사항</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
-      <div class="modal-body">
-        <div class="notice-box warning" role="alert">
-          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span>
-          <div class="notice-body"><p class="notice-lead">메일/메시지를 발송하면 취소할 수 없습니다.</p><p>메일/메시지 발송 내역(발송 대상, 발송 방법, 발송 내용 등)을 확인해 주세요. 그래도 진행하시겠습니까?</p></div>
-        </div>
-      </div>
-      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">취소</button><a href="SRMMailSendStatus.html" class="btn-critical-primary">메일/메시지 발송</a></div>
-    </div>
-  </div>
+
 
   <script src="../../assets/scripts/dashboard.js"></script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMMailSend/msVendorPickModal.html", "popups/SRMMailSend/msClientPickModal.html", "popups/SRMMailSend/msStaffPickModal.html", "popups/SRMMailSend/msManualAddModal.html", "popups/SRMMailSend/msSendConfirmModal.html"]</script>
 </body>
 </html>

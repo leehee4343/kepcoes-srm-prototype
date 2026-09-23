@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>확정 처리 유의사항</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<div class="modal-backdrop" id="ctConfirmSendModal" role="alertdialog" aria-modal="true" aria-labelledby="ctConfirmSendTitle" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-header"><h2 class="modal-title" id="ctConfirmSendTitle">확정 처리 유의사항</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
+      <div class="modal-body">
+        <div class="notice-box warning" role="alert">
+          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span>
+          <div class="notice-body"><p class="notice-lead">'확정(수정 불가)'으로 처리된 내역(파일)을 계약정보에 업데이트합니다. 확정된 항목은 협력업체가 더 이상 수정할 수 없습니다.</p><p>확정 처리(계약정보로 전송)하시겠습니까?</p></div>
+        </div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn-secondary modal-close">취소</button><button type="button" class="btn-critical-primary" data-close-modal data-open-modal="ctDetailModal">확정 처리(계약정보로 전송)</button></div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

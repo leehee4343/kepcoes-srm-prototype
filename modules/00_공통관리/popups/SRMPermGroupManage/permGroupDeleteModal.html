@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>권한그룹 삭제 유의사항</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<div class="modal-backdrop" id="permGroupDeleteModal" role="alertdialog" aria-modal="true" aria-labelledby="permGroupDeleteModalTitle" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2 class="modal-title" id="permGroupDeleteModalTitle">권한그룹 삭제 유의사항</h2>
+        <button type="button" class="modal-close" aria-label="닫기">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="notice-box warning" role="alert">
+          <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span>
+          <div class="notice-body">
+            <p class="notice-lead">권한그룹을 삭제하면, 해당 권한그룹에 매핑된 직원들의 권한이 모두 해제됩니다.</p>
+            <p>반드시 최고관리자(시스템 운영자)만 사용하세요. 그래도 진행하시겠습니까?</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary modal-close">취소</button>
+        <button type="button" class="btn-delete modal-close">삭제하기</button>
+      </div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

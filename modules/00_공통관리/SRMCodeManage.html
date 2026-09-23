@@ -319,66 +319,13 @@
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
 
-  <div class="modal-backdrop" id="codeManageModal" role="dialog" aria-modal="true" aria-labelledby="codeManageModalTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-header">
-        <h2 class="modal-title" id="codeManageModalTitle">코드 관리</h2>
-        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>대분류 코드</dt><dd>[001] 계약방식</dd></div>
-          <div class="srm-kv-row"><dt>중분류 코드</dt><dd>[001001] EPC 계약</dd></div>
-          <div class="srm-kv-row"><dt>코드</dt><dd>001001001 (자동발번)</dd></div>
-          <div class="srm-kv-row"><dt>코드명 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" placeholder="20자 이내로 간략히 작성해 주세요." maxlength="20"></dd></div>
-          <div class="srm-kv-row"><dt>사용 여부 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="codeUseYn" checked>사용(Y)</label><label class="form-choice"><input type="radio" name="codeUseYn">중지(N)</label></div></dd></div>
-          <div class="srm-kv-row"><dt>코드 설명</dt><dd><input type="text" class="form-control" placeholder="100자 이내로 간략히 작성해 주세요." maxlength="100"></dd></div>
-          <div class="srm-kv-row"><dt>등록일시</dt><dd>2026.06.09 15:23</dd></div>
-          <div class="srm-kv-row"><dt>등록자</dt><dd>이희성</dd></div>
-          <div class="srm-kv-row"><dt>최종수정일시</dt><dd>2026.06.10 10:45(이희성)</dd></div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-secondary modal-close">취소</button>
-        <button type="button" class="btn-primary modal-close">등록</button>
-      </div>
-    </div>
-  </div>
+
 
   <button type="button" class="description-floating-button" data-description-guide-toggle="codeDescriptionGuide" aria-controls="codeDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
-  <div class="modal-backdrop description-guide-backdrop" id="codeDescriptionGuide" role="dialog" aria-modal="false" aria-labelledby="codeDescriptionGuideTitle" aria-hidden="true">
-    <div class="modal-dialog description-modal-dialog">
-      <div class="modal-header">
-        <h2 class="modal-title" id="codeDescriptionGuideTitle">화면설계 Description</h2>
-        <button type="button" class="modal-close" aria-label="닫기">×</button>
-      </div>
-      <div class="modal-body description-modal-body">
-        <section class="description-source-section" aria-labelledby="codeDescriptionGuideSection1">
-          <h3 id="codeDescriptionGuideSection1">검색/조회</h3>
-          <div class="description-mapping-list">
-            <div class="description-mapping-item">
-              <span class="description-mapping-number" aria-hidden="true">1</span>
-              <pre class="description-source-text">검색 구분 : 코드, 대분류 코드명, 설명</pre>
-            </div>
-            <div class="description-mapping-item">
-              <span class="description-mapping-number" aria-hidden="true">2</span>
-              <pre class="description-source-text">개발 당시에만 사용 : 컨펌 박스 노출코드 삭제 시 시스템에 영향(값 삭제, 정보 유실 등)이 있을 수 있습니다. 시스템 관리자의 점검 후 삭제하세요. 본 코드를 삭제하시겠습니까?</pre>
-            </div>
-            <div class="description-mapping-item">
-              <span class="description-mapping-number" aria-hidden="true">3</span>
-              <pre class="description-source-text">다음 페이지의 ‘코드 관리’ 팝업 호출</pre>
-            </div>
-            <div class="description-mapping-item">
-              <span class="description-mapping-number" aria-hidden="true">4</span>
-              <pre class="description-source-text">만약, 본 시스템에서 코드가 4Depth로 구성되어야 하는 항목이 있다면 [세분류 코드(4Depth)]를 추가해서 개발할 것</pre>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-  </div>
+
 
   <script src="../../assets/scripts/dashboard.js"></script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMCodeManage/codeManageModal.html", "popups/SRMCodeManage/codeDescriptionGuide.html"]</script>
 </body>
 </html>

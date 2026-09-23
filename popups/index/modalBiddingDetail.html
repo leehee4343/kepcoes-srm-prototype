@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>입찰공고 내역서 상세</title>
+  <link rel="stylesheet" href="../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<div class="modal-backdrop" id="modalBiddingDetail" role="dialog" aria-modal="true" aria-labelledby="biddingModalTitle" aria-hidden="false">
+    <div class="modal-dialog modal-lg">
+    <div class="modal-header">
+      <h2 class="modal-title" id="biddingModalTitle">입찰공고 내역서 상세</h2>
+      <button type="button" class="modal-close" id="btnCloseBiddingModal" aria-label="닫기">&times;</button>
+    </div>
+      <div class="modal-body">
+        <p class="modal-desc">입찰 진행사: 켑코이에스(주)</p>
+        <table class="data-table" aria-label="입찰공고 기본정보">
+          <tbody>
+            <tr>
+              <th>공고번호</th>
+              <td>BD2026-0025</td>
+              <th>상태</th>
+              <td>입찰공고</td>
+            </tr>
+            <tr>
+              <th>입찰담당자</th>
+              <td>이길수</td>
+              <th>개찰담당자</th>
+              <td>박승길</td>
+            </tr>
+            <tr>
+              <th>입찰건명</th>
+              <td colspan="3">서초동 1601-9 오피스텔 신축공사 중 기계식주차설비공사</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="modal-desc content-object-gap-top">입찰 진행 방법</p>
+        <table class="data-table" aria-label="입찰 진행 방법">
+          <tbody>
+            <tr><th>구분</th><td colspan="3">공사</td></tr>
+            <tr><th>계약방법</th><td>경쟁입찰(일반)</td><th>낙찰자 선정방법</th><td>제한적 최저가 입찰</td></tr>
+            <tr><th>수행기간</th><td>2026-08-20 ~ 2027-06-30</td><th>수행기간(일수)</th><td>314일</td></tr>
+            <tr><th>납품장소(현장)</th><td colspan="3">현장 내</td></tr>
+          </tbody>
+        </table>
+
+        <p class="modal-desc content-object-gap-top">보증금률</p>
+        <table class="data-table" aria-label="보증금률">
+          <tbody>
+            <tr><th>입찰 보증금률</th><td>5%</td><th>계약이행 보증금률</th><td>10%</td></tr>
+            <tr><th>하자이행 보증금률</th><td>3%</td><th>하자이행 기간</th><td>3년</td></tr>
+          </tbody>
+        </table>
+
+        <p class="modal-desc content-object-gap-top">입찰 일정 계획</p>
+        <table class="data-table" aria-label="입찰 일정 계획">
+          <tbody>
+            <tr><th>입찰 시작일시</th><td>2026-08-04 16:00</td><th>공급업체 등록마감일</th><td>2026-08-10</td></tr>
+            <tr><th>현장설명회(일시/장소)</th><td colspan="3">-</td></tr>
+            <tr><th>입찰참가 신청마감일시</th><td>2026-08-11 16:00</td><th>입찰 마감일시</th><td class="text-danger">2026-08-18 16:00</td></tr>
+            <tr><th>제안발표(일시/장소)</th><td colspan="3">-</td></tr>
+          </tbody>
+        </table>
+
+        <p class="modal-desc content-object-gap-top">입찰업체 전달내역</p>
+        <table class="data-table" aria-label="입찰업체 전달내역">
+          <tbody>
+            <tr><th>업체 자격요건</th><td colspan="3">승강기·삭도공사업 면허 보유업체</td></tr>
+            <tr><th>참여신청 제출서류</th><td colspan="3">1. 입찰참가신청서.hwp</td></tr>
+            <tr><th>입찰 제출서류</th><td colspan="3">2. 입찰보증금지급각서.hwp</td></tr>
+            <tr><th>전달사항(비고)</th><td colspan="3">입찰공고문의 입찰 참가자격, 참가신청 및 낙찰자 결정방법을 숙지하여 주시기 바랍니다.</td></tr>
+            <tr><th>입찰업체 배포서류</th><td colspan="3">00. 입찰공고문_재공고(서초동 1601-9 오피스텔 신축공사 중 기계식주차설비공사).pdf</td></tr>
+          </tbody>
+        </table>
+
+        <p class="modal-desc content-object-gap-top">입찰 품목</p>
+        <table class="data-table" aria-label="입찰 품목">
+          <thead><tr><th>품목명</th><th>규격</th><th>단위</th><th>수량</th><th>비고</th></tr></thead>
+          <tbody>
+            <tr><td colspan="1">서초동 1601-9 오피스텔 신축공사 중 기계식주차 설비공사</td><td>-</td><td>식</td><td>1</td><td>-</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-form-prev" id="btnCloseBiddingAction">닫기</button>
+                  <button type="button" class="btn-form-submit" id="btnJoinBidding">입찰 참가신청 (로그인 필요)</button>
+      </div>
+    </div>
+  </div>
+  <script src="../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

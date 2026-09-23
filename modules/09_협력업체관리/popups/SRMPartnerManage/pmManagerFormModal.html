@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>담당자 정보 수정</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<div class="modal-backdrop" id="pmManagerFormModal" role="dialog" aria-modal="true" aria-labelledby="pmManagerFormTitle" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-header"><h2 class="modal-title" id="pmManagerFormTitle">담당자 정보 수정</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
+      <div class="modal-body">
+        <div class="srm-kv-grid">
+          <div class="srm-kv-row"><dt>담당자 구분</dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="pmMgrKind" checked>기본 담당자</label><label class="form-choice"><input type="radio" name="pmMgrKind">추가 담당자</label></div></dd></div>
+          <div class="srm-kv-row"><dt>이름 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="이희성"></dd></div>
+          <div class="srm-kv-row"><dt>이메일 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="leehee43"> @ <input type="text" class="form-control" value="naver.com"></dd></div>
+          <div class="srm-kv-row"><dt>핸드폰번호 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control w-70" value="010"> - <input type="text" class="form-control w-70" value="6844"> - <input type="text" class="form-control w-70" value="2810"></dd></div>
+          <div class="srm-kv-row"><dt>직책 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="이사"></dd></div>
+          <div class="srm-kv-row"><dt>담당업무 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="사내 입찰/계약 담당자"></dd></div>
+          <div class="srm-kv-row"><dt>전화번호 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control w-70" value="02"> - <input type="text" class="form-control w-70" value="6959"> - <input type="text" class="form-control w-70" value="9856"></dd></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" data-close-modal data-open-modal="pmDetailModal">취소</button>
+        <button type="button" class="btn-primary" data-close-modal data-open-modal="pmDetailModal">수정</button>
+      </div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>
