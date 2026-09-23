@@ -3267,11 +3267,12 @@ img {
 }
 
 .portal-title-area h1 {
-  font-size: 32px;
+  font-size: clamp(22px, 4.5vw, 32px);
   font-weight: 800;
   letter-spacing: -0.5px;
   line-height: 1.35;
   margin-bottom: 10px;
+  word-break: keep-all;
 }
 
 .portal-title-area p {
@@ -3471,6 +3472,122 @@ img {
   .portal-screens-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* --------------------------------------------------------------------------
+   section: PMS/SRM 런처 초기화면 (index.html 전용)
+   -------------------------------------------------------------------------- */
+.launcher-page-body {
+  background: var(--bg-page);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.launcher-hero {
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  padding: 48px 24px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.launcher-hero img {
+  height: 32px;
+  width: auto;
+  margin-bottom: 20px;
+}
+
+.launcher-hero h1 {
+  font-size: clamp(22px, 4.5vw, 28px);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--text-title);
+  margin-bottom: 8px;
+  word-break: keep-all;
+}
+
+.launcher-hero p {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.launcher-main {
+  max-width: 920px;
+  margin: 40px auto 60px;
+  padding: 0 24px;
+  width: 100%;
+  flex: 1;
+}
+
+.launcher-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 800px) {
+  .launcher-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.launcher-card:hover {
+  border-color: var(--border-divider);
+  box-shadow: var(--shadow-md);
+}
+
+.launcher-thumb {
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 14px;
+  background: var(--bg-page);
+}
+
+.launcher-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.launcher-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 6px;
+  margin-bottom: 10px;
+}
+
+.launcher-card-code {
+  font-size: 13px;
+  color: var(--text-muted);
+  background: #f1f5f9;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.launcher-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-title);
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.launcher-card-desc {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.launcher-card .btn-critical-primary {
+  width: 100%;
 }
 
 /* --------------------------------------------------------------------------

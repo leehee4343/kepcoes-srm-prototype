@@ -4,9 +4,200 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>전자입찰시스템 SRM - 로그인 | KEPCO ES</title>
-  <meta http-equiv="refresh" content="0; url=../../index.html">
+  <link rel="stylesheet" href="../../assets/styles/style.css">
 </head>
-<body>
-  <p><a href="../../index.html">로그인 화면으로 이동</a></p>
+<body class="login-page-body">
+
+  <!-- ====================================================================
+       SRM 로그인 메인 컨테이너 ([참고]로그인 화면.jpeg 100% 반영)
+       ==================================================================== -->
+  <div class="login-main-container">
+    <div class="login-content-wrapper">
+      <!-- ================================================================
+           좌측 컬럼: 브랜드 소개 및 진행 중인 입찰공고 슬라이더
+           ================================================================ -->
+      <div class="login-left-col description-marker-container">
+        <span class="description-target-marker marker-top-left" aria-hidden="true">1</span>
+        <!-- 브랜드 로고 및 플랫폼 뱃지 -->
+        <div class="login-brand-header">
+          <div class="login-logo-pill" title="켑코이에스(주)">
+            <img src="../../assets/images/logo.png" alt="켑코이에스(주)">
+          </div>
+        </div>
+
+        <!-- 헤드라인 타이틀 -->
+        <h1 class="login-hero-title">
+          <span class="login-hero-line">켑코이에스는 한국전력공사와</span>
+          <span class="login-hero-line">6개 발전사가 자본금 3천억 원으로</span>
+          <span class="login-hero-line login-hero-line-accent">설립한 <span class="highlight-cyan">에너지 효율 향상 전문기업</span>입니다.</span>
+        </h1>
+
+        <!-- 서브 설명 문구 -->
+        <div class="login-hero-desc">
+          <p class="desc-strong">입찰 참여에서 계약에 이르는 전 과정을<br>통합 관리하여 경영 투명성을 보장합니다.</p>
+        </div>
+
+        <!-- 진행 중인 입찰공고 섹션 -->
+        <section class="bidding-section" aria-labelledby="biddingSectionTitle">
+          <h2 class="bidding-section-title" id="biddingSectionTitle">
+            진행 중인 입찰공고
+          </h2>
+
+          <div class="bidding-notice-card description-marker-container">
+          <span class="description-target-marker marker-top-left" aria-hidden="true">4</span>
+          <div class="bidding-card-header">
+            <!-- 입찰 구분 탭 -->
+            <div class="bidding-tabs">
+              <button type="button" class="bidding-tab-btn" data-tab="공사" aria-pressed="false">공사</button>
+              <button type="button" class="bidding-tab-btn active" data-tab="용역" aria-pressed="true">용역</button>
+              <button type="button" class="bidding-tab-btn" data-tab="물품" aria-pressed="false">물품</button>
+            </div>
+          </div>
+
+          <!-- 슬라이더 컨테이너 -->
+          <div class="bidding-slider-container">
+            <!-- 슬라이드 이전/다음 버튼 -->
+            <button type="button" class="bidding-nav-btn prev" id="btnPrevBidding" aria-label="이전 입찰공고">
+              <svg aria-hidden="true" width="14" height="14" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <button type="button" class="bidding-nav-btn next" id="btnNextBidding" aria-label="다음 입찰공고">
+              <svg aria-hidden="true" width="14" height="14" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+
+            <!-- 공고 1: 청주 오송 공장 (참고 이미지) -->
+            <div class="bidding-slide" data-category="공사">
+              <button type="button" class="bidding-project-name" title="입찰공고 내역서 열기">청주 오송 공장 수변전설비 증설공사</button>
+              <ul class="bidding-info-list">
+                <li>• 입찰 마감일시 : <span class="val">2026.09.26 18:00</span></li>
+                <li>• 계약방법 : <span class="val">경쟁입찰(제한)</span></li>
+                <li>• 낙찰자 선정방법 : <span class="val">적격심사</span></li>
+              </ul>
+            </div>
+
+            <!-- 공고 2: 서초동 오피스텔 (설계서 pdf 명세) -->
+            <div class="bidding-slide" data-category="공사">
+              <button type="button" class="bidding-project-name" title="입찰공고 내역서 열기">서초동 1601-9 오피스텔 신축공사 중 기계식주차설비공사</button>
+              <ul class="bidding-info-list">
+                <li>• 입찰 마감일시 : <span class="val">2026.08.18 16:00</span></li>
+                <li>• 계약방법 : <span class="val">경쟁입찰(일반)</span></li>
+                <li>• 낙찰자 선정방법 : <span class="val">제한적 최저가 입찰</span></li>
+              </ul>
+            </div>
+
+            <!-- 공고 3: 용역 공고 -->
+            <div class="bidding-slide active" data-category="용역">
+              <button type="button" class="bidding-project-name" title="입찰공고 내역서 열기">2026년도 에너지 절감 효과 모니터링 시스템 기술지원 용역</button>
+              <ul class="bidding-info-list">
+                <li>• 입찰 마감일시 : <span class="val">2026.10.15 17:00</span></li>
+                <li>• 계약방법 : <span class="val">제한경쟁입찰</span></li>
+                <li>• 낙찰자 선정방법 : <span class="val">협상에 의한 계약</span></li>
+              </ul>
+            </div>
+
+            <!-- 공고 4: 물품 구매 공고 -->
+            <div class="bidding-slide" data-category="물품">
+              <button type="button" class="bidding-project-name" title="입찰공고 내역서 열기">구미 사업장 고효율 인버터 및 고효율 터빈 물품 구매 입찰</button>
+              <ul class="bidding-info-list">
+                <li>• 입찰 마감일시 : <span class="val">2026.10.30 15:00</span></li>
+                <li>• 계약방법 : <span class="val">일반경쟁입찰</span></li>
+                <li>• 낙찰자 선정방법 : <span class="val">최저가 낙찰제</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 인디케이터 도트 -->
+          <div class="bidding-dots">
+            <button type="button" class="bidding-dot" data-index="0" aria-label="첫 번째 입찰공고 보기" aria-pressed="false"></button>
+            <button type="button" class="bidding-dot" data-index="1" aria-label="두 번째 입찰공고 보기" aria-pressed="false"></button>
+            <button type="button" class="bidding-dot active" data-index="2" aria-label="세 번째 입찰공고 보기" aria-pressed="true"></button>
+            <button type="button" class="bidding-dot" data-index="3" aria-label="네 번째 입찰공고 보기" aria-pressed="false"></button>
+          </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ================================================================
+           우측 컬럼: 화이트 엘리베이티드 로그인 카드
+           ================================================================ -->
+      <div class="login-right-col">
+        <div class="login-card">
+          <!-- 카드 타이틀 -->
+          <div class="login-card-header">
+            <h2 class="login-card-title">전자입찰시스템(SRM) 로그인</h2>
+          </div>
+
+          <!-- 로그인 입력 폼 -->
+          <form class="login-form" id="srmLoginForm" data-partner-url="../02_협력업체창구_로그인후/SRMDashboardPartner.html" data-admin-url="../03_대시보드/SRMDashboardAdmin.html">
+            <div class="login-form-group">
+              <label class="login-label" for="loginUserId">아이디</label>
+              <input type="text" class="login-input" id="loginUserId" placeholder="아이디를 입력하세요" autocomplete="username" required>
+            </div>
+
+            <div class="login-form-group">
+              <label class="login-label" for="loginUserPw">비밀번호</label>
+              <input type="password" class="login-input" id="loginUserPw" placeholder="비밀번호를 입력하세요" autocomplete="current-password">
+            </div>
+
+            <div class="login-options-row">
+              <label class="remember-id-label">
+                <input type="checkbox" id="chkrememberid">
+                <span>아이디 저장</span>
+              </label>
+              <div class="find-account-links">
+                <a href="#" id="btnFindId">아이디 찾기</a>
+                <a href="#" id="btnFindPw">비밀번호 찾기</a>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-submit-login description-marker-container">
+              <span class="description-target-marker marker-top-left" aria-hidden="true">3</span>
+              로그인
+            </button>
+          </form>
+
+          <!-- 로그인 문의 (운영담당 - 설계서 및 이미지 반영) -->
+          <div class="login-support-box description-marker-container">
+            <span class="description-target-marker marker-top-left" aria-hidden="true">2</span>
+            <svg aria-hidden="true" width="15" height="15" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            <div>
+              <strong>로그인 문의(운영담당)</strong> : 홍길동 과장 : 02-6959-4561 | <a href="mailto:simon@kepcoes.co.kr">simon@kepcoes.co.kr</a>
+            </div>
+          </div>
+
+          <!-- 하단 협력업체 버튼군 -->
+          <div class="login-bottom-actions">
+            <a href="PartnerRegister.html" class="btn-partner-register" id="btnPartnerRegister">
+              협력업체 신청 →
+            </a>
+            <button type="button" class="btn-partner-manual" id="btnpartnermanual">
+              협력업체 이용 매뉴얼
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       표준 카피라이트 푸터
+       ==================================================================== -->
+  <footer class="app-footer">
+    <div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div>
+  </footer>
+
+  <!-- 화면설계 Description 개발자 가이드 (DESIGN_GUIDE 5.15) -->
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
+
+  <script src="../../assets/scripts/dashboard.js"></script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMLogin/modalBiddingDetail.html", "popups/SRMLogin/modalIdFind.html", "popups/SRMLogin/modalPwFind.html", "popups/SRMLogin/modalPwFindMismatch.html", "popups/SRMLogin/modalPwFindSent.html", "popups/SRMLogin/screenDescriptionGuide.html"]</script>
 </body>
 </html>
