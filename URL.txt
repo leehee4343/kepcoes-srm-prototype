@@ -1,0 +1,10 @@
+켑코이에스 PMS·SRM 프로토타입 - 배포 URL
+
+[초기화면 (PMS/SRM 선택)]
+https://leehee4343.github.io/kepcoes-srm-prototype/
+
+[프로젝트관리시스템(PMS)]
+https://01kepcoes.vercel.app/
+
+[전자입찰시스템(SRM) 로그인]
+https://leehee4343.github.io/kepcoes-srm-prototype/modules/01_협력업체창구_로그인전/SRMLogin.html
