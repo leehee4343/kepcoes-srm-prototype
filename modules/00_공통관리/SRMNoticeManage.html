@@ -267,7 +267,7 @@
       </div>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">공지사항 관리</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardAdmin.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">공통관리</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">공지사항 관리</span></div>
@@ -276,7 +276,7 @@
 
       <div class="board-view show" id="noticeListView">
       <section class="filter-card">
-        <form id="noticeSearchForm">
+        <form id="noticeSearchForm" data-ui-scope="filter">
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-130">조회기간(등록일)</span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
@@ -363,7 +363,7 @@
           <div class="srm-kv-row"><dt>게시대상 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="noticeTargetW">전체</label><label class="form-choice"><input type="radio" name="noticeTargetW">직원 대상</label><label class="form-choice"><input type="radio" name="noticeTargetW">협력업체 대상</label></div></dd></div>
           <div class="srm-kv-row"><dt>우선노출 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="priorityYn">Y(우선노출)</label><label class="form-choice"><input type="radio" name="priorityYn">N(우선노출 안 함)</label></div></dd></div>
           <div class="srm-kv-row"><dt>제목 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control fit-360"></dd></div>
-          <div class="srm-kv-row"><dt>게시기간 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="periodType">무관</label><label class="form-choice"><input type="radio" name="periodType">기간 설정</label></div> <input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></dd></div>
+          <div class="srm-kv-row"><dt>게시기간 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="periodType" value="always" data-ui-field="publishPeriod">무관</label><label class="form-choice"><input type="radio" name="periodType" value="range" data-ui-field="publishPeriod">기간 설정</label></div><div class="ui-dependent-fields" data-ui-enable="publishPeriod=range"> <input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div></dd></div>
           <div class="srm-kv-row"><dt>게시여부 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="publishYn">게시</label><label class="form-choice"><input type="radio" name="publishYn">미게시</label></div></dd></div>
           <div class="srm-kv-row"><dt>작성자 <span class="required" aria-hidden="true">*</span></dt><dd>이희성</dd></div>
           <div class="srm-kv-row"><dt>내용</dt><dd><textarea class="form-control" rows="6" placeholder="Editor"></textarea></dd></div>

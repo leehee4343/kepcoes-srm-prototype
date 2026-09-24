@@ -7,12 +7,12 @@
   <link rel="stylesheet" href="../../../../assets/styles/style.css">
 </head>
 <body class="popup-document">
-<div class="modal-backdrop" id="bidNegoQuoteReqModal" role="dialog" aria-modal="true" aria-labelledby="bidNegoQuoteReqTitle" aria-hidden="false">
+<div class="modal-backdrop" id="bidNegoQuoteReqModal" role="dialog" aria-modal="true" aria-labelledby="bidNegoQuoteReqTitle" aria-hidden="false" data-ui-defaults="{&quot;method&quot;:&quot;general&quot;,&quot;award&quot;:&quot;restricted&quot;,&quot;price&quot;:&quot;reserve&quot;}" data-ui-scope="popup">
     <div class="modal-dialog">
       <div class="modal-header"><h2 class="modal-title" id="bidNegoQuoteReqTitle">수의시담을 위한 견적 요청</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
       <div class="modal-body">
         <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>견적 마감일시 <span class="required" aria-hidden="true">*</span></dt><dd><input type="date" class="filter-date-input"> <select class="filter-select w-90"><option>시간 선택</option></select> <select class="filter-select w-90"><option>분 선택</option></select></dd></div>
+          <div class="srm-kv-row"><dt>견적 마감일시 <span class="required" aria-hidden="true">*</span></dt><dd><span class="form-date-time"><input type="date" class="filter-date-input"> <select class="filter-select w-90"><option>시간 선택</option></select> <select class="filter-select w-90"><option>분 선택</option></select></span></dd></div>
           <div class="srm-kv-row"><dt>견적 요청 시 전달 사항 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control grow" placeholder="50자 이내로 입력해주세요." maxlength="50"></dd></div>
           <div class="srm-kv-row"><dt>견적 요청 시 전달 자료</dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
         </div>

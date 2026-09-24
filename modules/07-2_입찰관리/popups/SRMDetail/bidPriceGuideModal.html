@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../../../../assets/styles/style.css">
 </head>
 <body class="popup-document">
-<div class="modal-backdrop" id="bidPriceGuideModal" role="dialog" aria-modal="true" aria-labelledby="bidPriceGuideTitle" aria-hidden="false">
+<div class="modal-backdrop" id="bidPriceGuideModal" role="dialog" aria-modal="true" aria-labelledby="bidPriceGuideTitle" aria-hidden="false" data-ui-defaults="{&quot;method&quot;:&quot;general&quot;,&quot;award&quot;:&quot;restricted&quot;,&quot;price&quot;:&quot;reserve&quot;}" data-ui-scope="popup">
     <div class="modal-dialog modal-xl">
       <div class="modal-header"><h2 class="modal-title" id="bidPriceGuideTitle">가격 투찰 안내하기</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
       <div class="modal-body">
@@ -15,8 +15,8 @@
         <div class="srm-kv-grid"><div class="srm-kv-row"><dt>가격 투찰 기간</dt><dd>2026.07.20 09시 00분 ~ 2026.08.25 18시 00분</dd></div></div>
         <p class="modal-field-label content-inner-gap-top">가격 투찰 기간 변경</p>
         <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>변경 여부</dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="bidPriceChange" checked>변경 안함</label><label class="form-choice"><input type="radio" name="bidPriceChange">변경</label></div></dd></div>
-          <div class="srm-kv-row"><dt>가격 투찰 기간</dt><dd><input type="date" class="filter-date-input"> <select class="filter-select w-90"><option>시간 선택</option></select> <select class="filter-select w-90"><option>분 선택</option></select> ~ <input type="date" class="filter-date-input"> <select class="filter-select w-90"><option>시간 선택</option></select> <select class="filter-select w-90"><option>분 선택</option></select></dd></div>
+          <div class="srm-kv-row"><dt>변경 여부</dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="bidPriceChange" checked value="no" data-ui-field="changePeriod">변경 안함</label><label class="form-choice"><input type="radio" name="bidPriceChange" value="yes" data-ui-field="changePeriod">변경</label></div></dd></div>
+          <div class="srm-kv-row" data-ui-enable="changePeriod=yes"><dt>가격 투찰 기간</dt><dd><span class="form-date-time"><input type="date" class="filter-date-input"> <select class="filter-select w-90"><option>시간 선택</option></select> <select class="filter-select w-90"><option>분 선택</option></select></span> ~ <span class="form-date-time"><input type="date" class="filter-date-input"> <select class="filter-select w-90"><option>시간 선택</option></select> <select class="filter-select w-90"><option>분 선택</option></select></span></dd></div>
         </div>
         <p class="modal-field-label content-inner-gap-top">발송 대상</p>
         <div class="srm-table-wrap">
@@ -30,10 +30,10 @@
         </div>
         <p class="modal-field-label content-inner-gap-top">발송 내용</p>
         <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>발송방법 선택</dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="bidGuideMethod" checked>이메일 + 메시지</label><label class="form-choice"><input type="radio" name="bidGuideMethod">이메일</label><label class="form-choice"><input type="radio" name="bidGuideMethod">메시지</label></div></dd></div>
+          <div class="srm-kv-row"><dt>발송방법 선택</dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="bidGuideMethod" checked value="both" data-ui-field="channel">이메일 + 메시지</label><label class="form-choice"><input type="radio" name="bidGuideMethod" value="email" data-ui-field="channel">이메일</label><label class="form-choice"><input type="radio" name="bidGuideMethod" value="sms" data-ui-field="channel">메시지</label></div></dd></div>
           <div class="srm-kv-row"><dt>제목 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control fit-360" value="안녕하세요. 켑코이에스입니다. (가격투찰 요청 드립니다.)"></dd></div>
-          <div class="srm-kv-row"><dt>이메일 내용 <span class="required" aria-hidden="true">*</span></dt><dd><textarea class="form-control" rows="4">안녕하세요. 켑코이에스입니다. 심사/평가 결과 '적격'으로 판정되어 가격 투찰을 요청드립니다. 가격 투찰 기간은 2026.07.20 09시 00분 ~ 2026.08.25 18시 00분까지입니다. 전자입찰시스템(SRM)에 로그인 후 '입찰 참여 현황'을 통해 가격을 투찰해 주세요. 가격 투찰이 기한 내에 이루어질 수 있도록 부탁드립니다. 감사합니다.</textarea></dd></div>
-          <div class="srm-kv-row"><dt>메시지(SMS) <span class="required" aria-hidden="true">*</span></dt><dd><textarea class="form-control" rows="2">안녕하세요. 켑코이에스입니다. 심사/평가 결과 '적격'으로 판정되어 가격 투찰을 요청드립니다. 가격 투찰 기간은 2026.07.20 09시 00분 ~ 2026.08.25 18시 00분까지입니다. 감사합니다.</textarea></dd></div>
+          <div class="srm-kv-row" data-ui-show="channel=both|email"><dt>이메일 내용 <span class="required" aria-hidden="true">*</span></dt><dd><textarea class="form-control" rows="4">안녕하세요. 켑코이에스입니다. 심사/평가 결과 '적격'으로 판정되어 가격 투찰을 요청드립니다. 가격 투찰 기간은 2026.07.20 09시 00분 ~ 2026.08.25 18시 00분까지입니다. 전자입찰시스템(SRM)에 로그인 후 '입찰 참여 현황'을 통해 가격을 투찰해 주세요. 가격 투찰이 기한 내에 이루어질 수 있도록 부탁드립니다. 감사합니다.</textarea></dd></div>
+          <div class="srm-kv-row" data-ui-show="channel=both|sms"><dt>메시지(SMS) <span class="required" aria-hidden="true">*</span></dt><dd><textarea class="form-control" rows="2">안녕하세요. 켑코이에스입니다. 심사/평가 결과 '적격'으로 판정되어 가격 투찰을 요청드립니다. 가격 투찰 기간은 2026.07.20 09시 00분 ~ 2026.08.25 18시 00분까지입니다. 감사합니다.</textarea></dd></div>
         </div>
       </div>
       <div class="modal-footer">

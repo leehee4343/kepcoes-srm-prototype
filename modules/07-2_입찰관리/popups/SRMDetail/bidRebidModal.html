@@ -7,13 +7,13 @@
   <link rel="stylesheet" href="../../../../assets/styles/style.css">
 </head>
 <body class="popup-document">
-<div class="modal-backdrop" id="bidRebidModal" role="dialog" aria-modal="true" aria-labelledby="bidRebidTitle" aria-hidden="false">
+<div class="modal-backdrop" id="bidRebidModal" role="dialog" aria-modal="true" aria-labelledby="bidRebidTitle" aria-hidden="false" data-ui-defaults="{&quot;method&quot;:&quot;general&quot;,&quot;award&quot;:&quot;restricted&quot;,&quot;price&quot;:&quot;reserve&quot;}" data-ui-scope="popup">
     <div class="modal-dialog modal-xl">
       <div class="modal-header"><h2 class="modal-title" id="bidRebidTitle">재입찰 처리하기</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
       <div class="modal-body">
         <p class="modal-field-label">개찰결과에 문제(가격 불성립, 담합 의심 등)가 있는 경우 본 '개찰 목록'의 협력업체를 대상으로 가격 투찰을 한 번 더 진행합니다. 재입찰 처리 시 진행상태가 '재입찰'로 변경되고, 기존에 등록한 가격 투찰 정보는 모두 삭제됩니다.</p>
         <p class="modal-field-label">재입찰(가격 투찰) 기간 설정</p>
-        <div class="srm-kv-grid"><div class="srm-kv-row"><dt>재입찰(가격 투찰) 기간</dt><dd><input type="date" class="filter-date-input"> <select class="filter-select w-90"><option>시간 선택</option></select> <select class="filter-select w-90"><option>분 선택</option></select> ~ <input type="date" class="filter-date-input"> <select class="filter-select w-90"><option>시간 선택</option></select> <select class="filter-select w-90"><option>분 선택</option></select></dd></div></div>
+        <div class="srm-kv-grid"><div class="srm-kv-row"><dt>재입찰(가격 투찰) 기간</dt><dd><span class="form-date-time"><input type="date" class="filter-date-input"> <select class="filter-select w-90"><option>시간 선택</option></select> <select class="filter-select w-90"><option>분 선택</option></select></span> ~ <span class="form-date-time"><input type="date" class="filter-date-input"> <select class="filter-select w-90"><option>시간 선택</option></select> <select class="filter-select w-90"><option>분 선택</option></select></span></dd></div></div>
         <p class="modal-field-label content-inner-gap-top">재입찰 대상</p>
         <div class="srm-table-wrap">
           <table class="data-table" aria-label="재입찰 대상">
@@ -26,10 +26,10 @@
         </div>
         <p class="modal-field-label content-inner-gap-top">발송 내용</p>
         <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>발송방법 선택</dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="bidRebidMethod" checked>이메일 + 메시지</label><label class="form-choice"><input type="radio" name="bidRebidMethod">이메일</label><label class="form-choice"><input type="radio" name="bidRebidMethod">메시지</label></div></dd></div>
+          <div class="srm-kv-row"><dt>발송방법 선택</dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="bidRebidMethod" checked value="both" data-ui-field="channel">이메일 + 메시지</label><label class="form-choice"><input type="radio" name="bidRebidMethod" value="email" data-ui-field="channel">이메일</label><label class="form-choice"><input type="radio" name="bidRebidMethod" value="sms" data-ui-field="channel">메시지</label></div></dd></div>
           <div class="srm-kv-row"><dt>제목 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control fit-360" value="안녕하세요. 켑코이에스입니다. ('재입찰' 요청 드립니다.)"></dd></div>
-          <div class="srm-kv-row"><dt>이메일 내용 <span class="required" aria-hidden="true">*</span></dt><dd><textarea class="form-control" rows="3">안녕하세요. 켑코이에스입니다. 개찰결과 '경쟁이 불성립'되어 재입찰(가격 투찰)을 요청드립니다. 재입찰(가격 투찰) 기간은 2026.07.20 09시 00분 ~ 2026.08.25 18시 00분까지입니다. 감사합니다.</textarea></dd></div>
-          <div class="srm-kv-row"><dt>메시지(SMS) <span class="required" aria-hidden="true">*</span></dt><dd><textarea class="form-control" rows="2">안녕하세요. 켑코이에스입니다. 개찰결과 '경쟁이 불성립'되어 재입찰(가격 투찰)을 요청드립니다. 감사합니다.</textarea></dd></div>
+          <div class="srm-kv-row" data-ui-show="channel=both|email"><dt>이메일 내용 <span class="required" aria-hidden="true">*</span></dt><dd><textarea class="form-control" rows="3">안녕하세요. 켑코이에스입니다. 개찰결과 '경쟁이 불성립'되어 재입찰(가격 투찰)을 요청드립니다. 재입찰(가격 투찰) 기간은 2026.07.20 09시 00분 ~ 2026.08.25 18시 00분까지입니다. 감사합니다.</textarea></dd></div>
+          <div class="srm-kv-row" data-ui-show="channel=both|sms"><dt>메시지(SMS) <span class="required" aria-hidden="true">*</span></dt><dd><textarea class="form-control" rows="2">안녕하세요. 켑코이에스입니다. 개찰결과 '경쟁이 불성립'되어 재입찰(가격 투찰)을 요청드립니다. 감사합니다.</textarea></dd></div>
         </div>
       </div>
       <div class="modal-footer">

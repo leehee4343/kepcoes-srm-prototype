@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>예정가격 등록 요청</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<div class="modal-backdrop" id="bidPriceRequestModal" role="dialog" aria-modal="true" aria-labelledby="bidPriceRequestTitle" aria-hidden="false" data-ui-scope="popup">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header"><h2 class="modal-title" id="bidPriceRequestTitle">예정가격 등록 요청</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
+      <div class="modal-body">
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="산출기초조서 요약">
+            <thead><tr><th>구분</th><th>추정가액(A)</th><th>사정가액(B)</th><th>증감액(C=B-A)</th><th>비고</th></tr></thead>
+            <tbody>
+              <tr><td class="text-left">합계(공급가액) <span class="required" aria-hidden="true">*</span></td><td class="col-num">86,100,000원</td><td class="col-num">86,100,000원</td><td class="col-num">0원</td><td>-</td></tr>
+              <tr><td class="text-left">부가세 <span class="required" aria-hidden="true">*</span></td><td class="col-num">8,610,000원</td><td class="col-num">8,610,000원</td><td class="col-num">0원</td><td>-</td></tr>
+              <tr><td class="text-left">총계 <span class="required" aria-hidden="true">*</span></td><td class="col-num">94,710,000원</td><td class="col-num">94,710,000원</td><td class="col-num">0원</td><td class="text-left">특이사항이 없어서 사정가액의 변화가 없습니다.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="srm-kv-grid content-inner-gap-top"><div class="srm-kv-row" data-ui-show="price=reserve"><dt>낙찰하한율 기준 <span class="required" aria-hidden="true">*</span></dt><dd><select class="filter-select" aria-label="낙찰하한율 기준"><option>공사 / 2억 미만 (87.745%)</option></select></dd></div>
+          <div class="srm-kv-row"><dt>예정가격 결정자 <span class="required" aria-hidden="true">*</span></dt><dd>사장</dd></div>
+          <div class="srm-kv-row"><dt>비고</dt><dd><textarea class="form-control" rows="2" placeholder="Text Area"></textarea></dd></div>
+          <div class="srm-kv-row"><dt>첨부파일</dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary">저장</button>
+        <button type="button" class="btn-critical-primary" data-close-modal data-open-modal="modalApprovalConfirm">전자결재 요청</button>
+        <button type="button" class="btn-secondary" data-close-modal>취소</button>
+      </div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

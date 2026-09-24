@@ -267,7 +267,7 @@
       </div>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" data-ui-defaults="{&quot;method&quot;:&quot;general&quot;,&quot;award&quot;:&quot;restricted&quot;,&quot;price&quot;:&quot;reserve&quot;,&quot;items&quot;:&quot;unit&quot;}" data-ui-family="plan" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">발주계약 요청 접수</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardBiz.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">발주계획</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">발주계약 요청 접수</span></div>
@@ -275,7 +275,7 @@
 
 
       <section class="filter-card">
-        <form id="opIntakeSearchForm">
+        <form id="opIntakeSearchForm" data-ui-scope="filter">
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-130">조회기간(요청일)</span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
@@ -336,9 +336,9 @@
               <tr><th class="w-40"><input type="checkbox" aria-label="전체선택"></th><th class="w-90">발주계약 요청번호</th><th class="w-70">진행상태</th><th class="minw-240">건명</th><th class="w-90">요청일</th><th class="w-90">계약예정일</th><th class="w-60">구분</th><th class="w-90">등록일</th><th class="w-70">사업담당자</th><th class="w-70">계약담당자</th></tr>
             </thead>
             <tbody>
-              <tr><td><input type="checkbox"></td><td><a href="SRMOrderPlanIntakeDetail.html">PR2026-0003</a></td><td><span class="badge-info">요청</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td>2026.07.22</td><td>2026.07.31</td><td>공사</td><td>2026.06.10</td><td>홍길동</td><td>-</td></tr>
-              <tr><td><input type="checkbox"></td><td><a href="SRMOrderPlanIntakeDetail.html">PR2026-0004</a></td><td><span class="badge-success">접수</span></td><td class="text-left">금호동 1601-9 오피스텔 신축공사 중 도장공사</td><td>-</td><td>-</td><td>용역</td><td>-</td><td>-</td><td>-</td></tr>
-              <tr><td><input type="checkbox"></td><td><a href="SRMOrderPlanIntakeDetail.html">PR2026-0005</a></td><td><span class="badge-success">접수</span></td><td class="text-left">금호동 1601-9 오피스텔 신축공사 중 도장공사</td><td>-</td><td>-</td><td>물품</td><td>-</td><td>-</td><td>임꺽정</td></tr>
+              <tr><td><input type="checkbox"></td><td><a href="#" data-open-modal="opReqDocModal">PR2026-0003</a></td><td><span class="badge-info">요청</span></td><td class="text-left"><a href="SRMOrderPlanIntakeDetail.html">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>2026.07.22</td><td>2026.07.31</td><td>공사</td><td>2026.06.10</td><td>홍길동</td><td>-</td></tr>
+              <tr><td><input type="checkbox"></td><td><a href="#" data-open-modal="opReqDocModal">PR2026-0004</a></td><td><span class="badge-success">접수</span></td><td class="text-left"><a href="SRMOrderPlanIntakeDetail.html">금호동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>-</td><td>-</td><td>용역</td><td>-</td><td>-</td><td>-</td></tr>
+              <tr><td><input type="checkbox"></td><td><a href="#" data-open-modal="opReqDocModal">PR2026-0005</a></td><td><span class="badge-success">접수</span></td><td class="text-left"><a href="SRMOrderPlanIntakeDetail.html">금호동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>-</td><td>-</td><td>물품</td><td>-</td><td>-</td><td>임꺽정</td></tr>
             </tbody>
           </table>
         </div>

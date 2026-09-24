@@ -262,7 +262,7 @@
     <!-- ====================================================================
          메인 컨텐츠 영역: 진행상태별 업무 관리 ([참고]진행상태별 업무 관리.pdf 구현)
          ==================================================================== -->
-    <main class="main-content">
+    <main data-detail-anchor="workflowDetail" data-list-page="StepWorkflow.html" class="main-content" data-ui-defaults="{&quot;method&quot;:&quot;general&quot;,&quot;award&quot;:&quot;restricted&quot;,&quot;price&quot;:&quot;reserve&quot;,&quot;briefing&quot;:&quot;no&quot;,&quot;negotiated&quot;:&quot;no&quot;,&quot;presentation&quot;:&quot;no&quot;,&quot;selfReview&quot;:&quot;true&quot;}" data-ui-family="bid" data-ui-scope="page">
 
       <!-- 상단 페이지 헤더 및 브레드크럼 -->
       <div class="page-title-wrap">
@@ -279,7 +279,7 @@
 
 
       <section class="filter-card">
-        <form id="bidPlanSearchForm">
+        <form id="bidPlanSearchForm" data-ui-scope="filter">
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-130">조회기간(등록일)</span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
@@ -340,14 +340,15 @@
               <tr><th class="w-55">No</th><th class="w-90">공고 번호</th><th class="w-70">공고 구분</th><th class="w-70">진행상태</th><th class="minw-240">입찰 건명</th><th class="w-60">구분</th><th class="w-110">계약방법</th><th class="minw-170">낙찰자 선정방법</th><th class="w-90">등록일</th><th class="w-70">사업담당자</th><th class="w-70">계약담당자</th></tr>
             </thead>
             <tbody>
-              <tr><td>1,542</td><td><a href="#workflowDetail">BD2026-0023</a></td><td>본공고</td><td><span class="badge-tag">작성중</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td>공사</td><td>경쟁입찰(일반)</td><td>제한적 최저가 입찰</td><td>2026.06.10</td><td>홍길동</td><td>임꺽정</td></tr>
-              <tr><td>1,541</td><td><a href="#workflowDetail">BD2026-0024</a></td><td>재공고(1차)</td><td><span class="badge-tag">작성중</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td>용역</td><td>경쟁입찰(일반)</td><td>제한적 최저가 입찰</td><td>-</td><td>-</td><td>-</td></tr>
+              <tr><td>1,542</td><td>BD2026-0023</td><td>본공고</td><td><span class="badge-tag">작성중</span></td><td class="text-left"><a href="StepWorkflowOrderPlan.html#workflowDetail">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>공사</td><td>경쟁입찰(일반)</td><td>제한적 최저가 입찰</td><td>2026.06.10</td><td>홍길동</td><td>임꺽정</td></tr>
+              <tr><td>1,541</td><td>BD2026-0024</td><td>재공고(1차)</td><td><span class="badge-tag">작성중</span></td><td class="text-left"><a href="StepWorkflowOrderPlan.html#workflowDetail">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>용역</td><td>경쟁입찰(일반)</td><td>제한적 최저가 입찰</td><td>-</td><td>-</td><td>-</td></tr>
             </tbody>
           </table>
         </div>
         <div class="table-pagination-row"><nav class="pagination-controls" aria-label="표 페이지 이동"></nav></div>
       </div>
 
+      <section data-detail-view>
       <h2 class="card-title content-object-gap-top" id="workflowDetail">입찰계획 등록/설정 — BD2026-0023</h2>
       <p class="modal-field-label">각 단계로 안내되어 있긴 하지만, 각 영역에 바로 접근(클릭)해서 정보 입력이 가능합니다.</p>
 
@@ -356,13 +357,13 @@
            ================================================================== -->
       <div class="detail-tabs-bar">
         <div class="detail-tab-group" role="tablist" aria-label="입찰계획 업무 단계">
-          <a href="StepWorkflowOrderPlan.html" class="detail-tab-btn" role="tab" aria-selected="false">발주계획 정보 확인</a>
-          <a href="StepWorkflowBidPlan.html" class="detail-tab-btn active" role="tab" aria-selected="true">입찰계획 상세정보</a>
-          <a href="StepWorkflowEvaluation.html" class="detail-tab-btn" role="tab" aria-selected="false">심사/평가 계획</a>
-          <a href="StepWorkflow.html" class="detail-tab-btn" role="tab" aria-selected="false">예정가 / 예비가</a>
-          <a href="StepWorkflowDocuments.html" class="detail-tab-btn" role="tab" aria-selected="false">입찰 참여 서류</a>
-          <a href="StepWorkflowReview.html" class="detail-tab-btn" role="tab" aria-selected="false">최종 점검</a>
-          <a href="StepWorkflowComplete.html" class="detail-tab-btn" role="tab" aria-selected="false">입찰계획 등록 완료</a>
+          <a href="StepWorkflowOrderPlan.html#workflowDetail" class="detail-tab-btn" role="tab" aria-selected="false">발주계획 정보 확인</a>
+          <a href="StepWorkflowBidPlan.html#workflowDetail" class="detail-tab-btn active" role="tab" aria-selected="true">입찰계획 상세정보</a>
+          <a href="StepWorkflowEvaluation.html#workflowDetail" class="detail-tab-btn" role="tab" aria-selected="false" data-ui-unavailable="본 입찰공고는 낙찰자 선정방법이 최저가 방식으로 심사/평가 대상이 아닙니다." data-ui-enable="award=restricted|simultaneous|separate|qualification">심사/평가 계획</a>
+          <a href="StepWorkflow.html#workflowDetail" class="detail-tab-btn" role="tab" aria-selected="false">예정가 / 예비가</a>
+          <a href="StepWorkflowDocuments.html#workflowDetail" class="detail-tab-btn" role="tab" aria-selected="false">입찰 참여 서류</a>
+          <a href="StepWorkflowReview.html#workflowDetail" class="detail-tab-btn" role="tab" aria-selected="false">최종 점검</a>
+          <a href="StepWorkflowComplete.html#workflowDetail" class="detail-tab-btn" role="tab" aria-selected="false">입찰계획 등록 완료</a>
         </div>
       </div>
 
@@ -395,8 +396,8 @@
               <td class="text-left">서초동 1601-9 오피스텔 신축공사 중...</td>
               <td>2026.07.22</td>
               <td>공사</td>
-              <td>경쟁입찰(일반)</td>
-              <td>제한적 최저가 입찰</td>
+              <td data-ui-text="method">경쟁입찰(일반)</td>
+              <td data-ui-text="award">제한적 최저가 입찰</td>
               <td>홍길동</td>
               <td>임꺽정</td>
             </tr>
@@ -406,56 +407,57 @@
 
             <h2 class="card-title content-object-gap-top">입찰계획 상세정보</h2>
       <div class="srm-kv-grid">
-        <div class="srm-kv-row"><dt>입찰 시작/마감일시 <span class="required" aria-hidden="true">*</span></dt><dd><input type="date" class="filter-date-input"> <select class="filter-select w-90"><option>시간 선택</option></select> <select class="filter-select w-90"><option>분 선택</option></select> ~ <input type="date" class="filter-date-input"> <select class="filter-select w-90"><option>시간 선택</option></select> <select class="filter-select w-90"><option>분 선택</option></select></dd></div>
-        <div class="srm-kv-row"><dt>입찰공고 게시기간 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="bidGosiPeriod" checked>입찰 시작/마감기간과 동일</label><label class="form-choice"><input type="radio" name="bidGosiPeriod">입찰공고 게시기간 수동 설정</label></div> <input type="date" class="filter-date-input"> ~ <input type="date" class="filter-date-input"></dd></div>
-        <div class="srm-kv-row"><dt>현장설명회 일시</dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="bidBriefing" checked>현장설명회 없음</label><label class="form-choice"><input type="radio" name="bidBriefing">현장설명회 있음</label></div> <input type="date" class="filter-date-input"> <select class="filter-select w-90"><option>시간 선택</option></select> <select class="filter-select w-90"><option>분 선택</option></select></dd></div>
+        <div class="srm-kv-row"><dt>입찰 시작/마감일시 <span class="required" aria-hidden="true">*</span></dt><dd><span class="form-date-time"><input type="date" class="filter-date-input"> <select class="filter-select w-90"><option>시간 선택</option></select> <select class="filter-select w-90"><option>분 선택</option></select></span> ~ <span class="form-date-time"><input type="date" class="filter-date-input"> <select class="filter-select w-90"><option>시간 선택</option></select> <select class="filter-select w-90"><option>분 선택</option></select></span></dd></div>
+        <div class="srm-kv-row"><dt>입찰공고 게시기간 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="bidGosiPeriod" checked value="same" data-ui-field="posting">입찰 시작/마감기간과 동일</label><label class="form-choice"><input type="radio" name="bidGosiPeriod" value="manual" data-ui-field="posting">입찰공고 게시기간 수동 설정</label></div><div class="ui-dependent-fields" data-ui-enable="posting=manual"> <input type="date" class="filter-date-input"> ~ <input type="date" class="filter-date-input"></div></dd></div>
+        <div class="srm-kv-row"><dt>현장설명회 일시</dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="bidBriefing" checked value="no" data-ui-field="briefing">현장설명회 없음</label><label class="form-choice"><input type="radio" name="bidBriefing" value="yes" data-ui-field="briefing">현장설명회 있음</label></div><div class="ui-dependent-fields" data-ui-enable="briefing=yes"> <span class="form-date-time"><input type="date" class="filter-date-input"> <select class="filter-select w-90"><option>시간 선택</option></select> <select class="filter-select w-90"><option>분 선택</option></select></span></div></dd></div>
         <div class="srm-kv-row"><dt>입찰공고문</dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
         <div class="srm-kv-row"><dt>입찰참가신청서</dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
         <div class="srm-kv-row"><dt>입찰보증금지급각서</dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
         <div class="srm-kv-row"><dt>시방서, 구매견적서, 과업지시서</dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
         <div class="srm-kv-row"><dt>기타서류</dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
       </div>
-      <p class="modal-field-label content-inner-gap-top">입찰참여 가능 업체 선택 — 계약방법이 '경쟁입찰(지명)'인 경우에만 등록합니다.</p>
-      <div class="srm-kv-grid">
-        <div class="srm-kv-row"><dt>입찰참여 업체 선택</dt><dd>
+      <p class="modal-field-label content-inner-gap-top" data-ui-show="method=designated">입찰참여 가능 업체 선택 — 계약방법이 '경쟁입찰(지명)'인 경우에만 등록합니다.</p>
+      <div class="srm-kv-grid" data-ui-show="method=designated">
+        <div class="srm-kv-row" data-ui-show="method=designated"><dt>입찰참여 업체 선택</dt><dd>
           · A협력업체명(123-45-67891) <button type="button" class="btn-row-del">삭제</button><br>
           · B협력업체명(123-45-67891) <button type="button" class="btn-row-del">삭제</button><br>
           · C협력업체명(123-45-67891) <button type="button" class="btn-row-del">삭제</button><br>
           <button type="button" class="btn-secondary" data-close-modal data-open-modal="bidVendorAddModal">입찰참여 가능 업체 추가</button>
         </dd></div>
       </div>
-      <p class="modal-field-label content-inner-gap-top">가격 투찰 기간 — 낙찰자 선정방법이 '제한적 최저가 입찰', '2단계 경쟁입찰(규격/가격 분리)'인 경우에만 입력합니다.</p>
-      <div class="srm-kv-grid">
-        <div class="srm-kv-row"><dt>가격 투찰 기간 <span class="required" aria-hidden="true">*</span></dt><dd><input type="date" class="filter-date-input"> <select class="filter-select w-90"><option>시간 선택</option></select> <select class="filter-select w-90"><option>분 선택</option></select> ~ <input type="date" class="filter-date-input"> <select class="filter-select w-90"><option>시간 선택</option></select> <select class="filter-select w-90"><option>분 선택</option></select></dd></div>
+      <p class="modal-field-label content-inner-gap-top" data-ui-show="award=restricted|separate">가격 투찰 기간 — 낙찰자 선정방법이 '제한적 최저가 입찰', '2단계 경쟁입찰(규격/가격 분리)'인 경우에만 입력합니다.</p>
+      <div class="srm-kv-grid" data-ui-show="award=restricted|separate">
+        <div class="srm-kv-row"><dt>가격 투찰 기간 <span class="required" aria-hidden="true">*</span></dt><dd><span class="form-date-time"><input type="date" class="filter-date-input"> <select class="filter-select w-90"><option>시간 선택</option></select> <select class="filter-select w-90"><option>분 선택</option></select></span> ~ <span class="form-date-time"><input type="date" class="filter-date-input"> <select class="filter-select w-90"><option>시간 선택</option></select> <select class="filter-select w-90"><option>분 선택</option></select></span></dd></div>
       </div>
-      <p class="modal-field-label content-inner-gap-top">심사/평가 관련 정보 — 낙찰자 선정방법이 '제한적 최저가 입찰', '2단계 경쟁입찰(규격/가격 동시)', '2단계 경쟁입찰(규격/가격 분리)', '적격심사'의 경우에만 입력합니다. 평가자는 한 명만 매핑합니다.</p>
-      <div class="srm-kv-grid">
+      <p class="modal-field-label content-inner-gap-top" data-ui-show="award=restricted|simultaneous|separate|qualification">심사/평가 관련 정보 — 낙찰자 선정방법이 '제한적 최저가 입찰', '2단계 경쟁입찰(규격/가격 동시)', '2단계 경쟁입찰(규격/가격 분리)', '적격심사'의 경우에만 입력합니다. 평가자는 한 명만 매핑합니다.</p>
+      <div class="srm-kv-grid" data-ui-show="award=restricted|simultaneous|separate|qualification">
         <div class="srm-kv-row"><dt>업체평가 종료일</dt><dd><input type="date" class="filter-date-input"></dd></div>
-        <div class="srm-kv-row"><dt>동점자 처리기준 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="bidTieBreak" checked>규격(기술)</label><label class="form-choice"><input type="radio" name="bidTieBreak">가격</label></div></dd></div>
-        <div class="srm-kv-row"><dt>평가자 매핑</dt><dd>홍길동 <button type="button" class="btn-secondary" data-close-modal data-open-modal="bidEvaluatorMapModal">평가자 매핑</button></dd></div>
+        <div class="srm-kv-row"><dt>동점자 처리기준 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="bidTieBreak" checked value="technical" data-ui-field="tie">규격(기술)</label><label class="form-choice"><input type="radio" name="bidTieBreak" value="price" data-ui-field="tie">가격</label></div></dd></div>
+        <div class="srm-kv-row" data-ui-show="award=restricted|simultaneous|separate|qualification"><dt>평가자 매핑</dt><dd>홍길동 <button type="button" class="btn-secondary" data-close-modal data-open-modal="bidEvaluatorMapModal">평가자 매핑</button></dd></div>
       </div>
-      <p class="modal-field-label content-inner-gap-top">종합평가 비율 — 낙찰자 선정방법이 '2단계 경쟁입찰(규격/가격 동시)'인 경우에만 입력합니다.</p>
-      <div class="srm-kv-grid">
-        <div class="srm-kv-row"><dt>종합평가 비율</dt><dd>기술 : <input type="text" class="form-control w-70" placeholder="숫자로 입력"> % | 가격 : <input type="text" class="form-control w-70" placeholder="숫자로 입력"> %</dd></div>
+      <p class="modal-field-label content-inner-gap-top" data-ui-show="award=simultaneous">종합평가 비율 — 낙찰자 선정방법이 '2단계 경쟁입찰(규격/가격 동시)'인 경우에만 입력합니다.</p>
+      <div class="srm-kv-grid" data-ui-show="award=simultaneous">
+        <div class="srm-kv-row"><dt>종합평가 비율</dt><dd>기술 : <span class="form-unit"><input type="text" class="form-control w-70" placeholder="숫자로 입력"><span>%</span></span> | 가격 : <span class="form-unit"><input type="text" class="form-control w-70" placeholder="숫자로 입력"><span>%</span></span></dd></div>
         <div class="srm-kv-row"><dt>업체 전달사항</dt><dd><textarea class="form-control" rows="2" placeholder="Text Area"></textarea></dd></div>
       </div>
-      <p class="modal-field-label content-inner-gap-top">제안발표 관련 정보 — '협상에 의한 계약'인 경우에만 제안발표가 있을 수 있습니다.</p>
-      <div class="srm-kv-grid">
-        <div class="srm-kv-row"><dt>협상에 의한 계약 여부 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="bidNego" checked>협상에 의한 계약 아님</label><label class="form-choice"><input type="radio" name="bidNego">협상에 의한 계약</label></div></dd></div>
-        <div class="srm-kv-row"><dt>제안발표 여부</dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="bidPresent" checked>제안발표 안함</label><label class="form-choice"><input type="radio" name="bidPresent">제안발표 진행</label></div></dd></div>
-        <div class="srm-kv-row"><dt>제안발표 일시</dt><dd><input type="date" class="filter-date-input"> <select class="filter-select w-90"><option>시간 선택</option></select> <select class="filter-select w-90"><option>분 선택</option></select> 부터 진행</dd></div>
-        <div class="srm-kv-row"><dt>제안발표 장소</dt><dd><input type="text" class="form-control grow" placeholder="50자 이내로 입력해주세요." maxlength="50"></dd></div>
+      <p class="modal-field-label content-inner-gap-top" data-ui-show="award=simultaneous">제안발표 관련 정보 — '협상에 의한 계약'인 경우에만 제안발표가 있을 수 있습니다.</p>
+      <div class="srm-kv-grid" data-ui-show="award=simultaneous">
+        <div class="srm-kv-row"><dt>협상에 의한 계약 여부 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="bidNego" checked value="no" data-ui-field="negotiated">협상에 의한 계약 아님</label><label class="form-choice"><input type="radio" name="bidNego" value="yes" data-ui-field="negotiated">협상에 의한 계약</label></div></dd></div>
+        <div class="srm-kv-row" data-ui-enable="negotiated=yes"><dt>제안발표 여부</dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="bidPresent" checked value="no" data-ui-field="presentation">제안발표 안함</label><label class="form-choice"><input type="radio" name="bidPresent" value="yes" data-ui-field="presentation">제안발표 진행</label></div></dd></div>
+        <div class="srm-kv-row" data-ui-enable="negotiated=yes;presentation=yes"><dt>제안발표 일시</dt><dd><span class="form-date-time"><input type="date" class="filter-date-input"> <select class="filter-select w-90"><option>시간 선택</option></select> <select class="filter-select w-90"><option>분 선택</option></select></span> 부터 진행</dd></div>
+        <div class="srm-kv-row" data-ui-enable="negotiated=yes;presentation=yes"><dt>제안발표 장소</dt><dd><input type="text" class="form-control grow" placeholder="50자 이내로 입력해주세요." maxlength="50"></dd></div>
       </div>
       <div class="hstack content-inner-gap-top"><button type="button" class="btn-action-primary">저장</button></div>
 
 <!-- 하단 목록 바로가기 액션 -->
       <div class="hstack">
-        <a href="StepWorkflow.html" class="btn-filter-reset">
+        <a href="StepWorkflow.html#list" class="btn-filter-reset">
           <svg aria-hidden="true" width="14" height="14" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
           목록
         </a>
       </div>
 
+      </section>
     </main>
   </div>
 

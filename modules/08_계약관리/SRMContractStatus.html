@@ -267,7 +267,7 @@
       </div>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">발주계약 현황</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardContract.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">계약관리</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">발주계약 현황</span></div>
@@ -275,7 +275,7 @@
 
 
       <section class="filter-card">
-        <form id="contractSearchForm">
+        <form id="contractSearchForm" data-ui-scope="filter">
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-200">조회기간(계약 체결일)</span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
@@ -299,8 +299,8 @@
           </div>
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-200">계약방법/낙찰자 선정방법</span>
-            <select class="filter-select w-160"><option>계약방법 선택</option></select>
-            <select class="filter-select w-165"><option>낙찰자 선정방법 선택</option></select>
+            <select class="filter-select w-160" data-ui-field="method"><option value="">전체</option><option value="sole">수의계약</option><option value="general">경쟁입찰(일반)</option><option value="limited">경쟁입찰(제한)</option><option value="designated">경쟁입찰(지명)</option></select>
+            <select class="filter-select w-165" data-ui-field="award"><option value="">전체</option><option value="lowest">최저가</option><option value="restricted">제한적 최저가 입찰</option><option value="simultaneous">2단계 경쟁입찰(규격/가격 동시)</option><option value="separate">2단계 경쟁입찰(규격/가격 분리)</option><option value="qualification">적격심사</option></select>
           </div>
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-200">발주 구분</span>
@@ -362,8 +362,8 @@
               <tr><th class="w-110">계약 번호</th><th class="w-90">발주 구분</th><th class="w-70">공고 구분</th><th class="w-70">진행상태</th><th class="minw-200">계약명</th><th class="w-80">계약 상대자</th><th class="w-100">계약금액</th><th class="w-90">계약 체결일</th><th class="minw-170">납기일/공사기간</th><th class="w-60">구분</th><th class="w-100">계약방법</th><th class="minw-170">낙찰자 선정방법</th><th class="w-70">사업담당자</th><th class="w-70">계약담당자</th></tr>
             </thead>
             <tbody>
-              <tr><td><a href="SRMContractStatusDetail.html">CT_20260801_001</a></td><td>수주 기반 발주</td><td>본공고</td><td><span class="badge-tag">계약준비</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td class="text-left">A업체</td><td class="col-num">48,507,800</td><td>2026.07.31</td><td>2026.08.01 ~ 2026.12.31</td><td>공사</td><td>수의계약</td><td>최저가</td><td>홍길동</td><td>임꺽정</td></tr>
-              <tr><td><a href="SRMContractStatusDetail.html">CT_20260805_002</a></td><td>일반 발주</td><td>재공고(1차)</td><td><span class="badge-success">계약완료</span></td><td class="text-left">본사 사옥 노후 배관 교체공사</td><td class="text-left">B업체</td><td class="col-num">58,000,000</td><td>2026.05.14</td><td>2026.05.20 ~ 2026.11.30</td><td>용역</td><td>경쟁입찰(일반)</td><td>최저가</td><td>박일용</td><td>임꺽정</td></tr>
+              <tr><td>CT_20260801_001</td><td>수주 기반 발주</td><td>본공고</td><td><span class="badge-tag">계약준비</span></td><td class="text-left"><a href="SRMContractStatusDetail.html">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td class="text-left">A업체</td><td class="col-num">48,507,800</td><td>2026.07.31</td><td>2026.08.01 ~ 2026.12.31</td><td>공사</td><td>수의계약</td><td>최저가</td><td>홍길동</td><td>임꺽정</td></tr>
+              <tr><td>CT_20260805_002</td><td>일반 발주</td><td>재공고(1차)</td><td><span class="badge-success">계약완료</span></td><td class="text-left"><a href="SRMContractStatusDetail.html">본사 사옥 노후 배관 교체공사</a></td><td class="text-left">B업체</td><td class="col-num">58,000,000</td><td>2026.05.14</td><td>2026.05.20 ~ 2026.11.30</td><td>용역</td><td>경쟁입찰(일반)</td><td>최저가</td><td>박일용</td><td>임꺽정</td></tr>
             </tbody>
           </table>
         </div>

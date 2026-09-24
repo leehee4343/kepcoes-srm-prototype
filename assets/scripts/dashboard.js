@@ -4,6 +4,9 @@
 
 document.addEventListener('DOMContentLoaded', async () => {
   await loadExternalModals();
+  initPrototypeRecords();
+  initPrototypeReadViews();
+  initListDetailViews();
   initHeaderCleanup();
   initSidebar();
   initPageManuals();
@@ -29,14 +32,84 @@ document.addEventListener('DOMContentLoaded', async () => {
   initAttachmentDisplays();
   initDescriptionGuide();
   initPageLinks();
+  initStepTabs();
   initModals();
+  initFilterResets();
+  initPrototypeConditions();
+  initNavigationContext();
 });
+
+// 검색 카드는 form이 아닌 section/div도 사용하므로 기본값 복원을 공통 처리합니다.
+function initFilterResets() {
+  document.querySelectorAll('.filter-card').forEach(card => {
+    card.querySelectorAll('.btn-filter-reset, .btn-reset-main').forEach(button => {
+      button.addEventListener('click', () => {
+        card.querySelectorAll('input, select, textarea').forEach(control => {
+          if (control.matches('input[type="radio"], input[type="checkbox"]')) {
+            control.checked = control.defaultChecked;
+          } else if (control.tagName === 'SELECT') {
+            const index = Array.from(control.options).findIndex(option => option.defaultSelected);
+            control.selectedIndex = Math.max(0, index);
+          } else {
+            control.value = control.defaultValue;
+          }
+        });
+      });
+    });
+  });
+
+}
 
 /**
  * 버튼형 페이지 이동 (DESIGN_GUIDE 6.2.1)
  * 인라인 onclick 대신 data-href(목적지 파일) · data-history-back(이전 화면)으로 이동합니다.
  * 권한 버튼(.perm-btn)의 data-href는 initDashboardWidgets()가 처리합니다.
  */
+/**
+ * 선택형 스텝바 (DESIGN_GUIDE 5.7): [data-step-tabs] 안의 [data-step-target] 단계를 누르면
+ * 해당 패널만 보이고 선택 상태(active·aria-selected)를 옮깁니다. 예) 진행상황 확인 팝업
+ */
+function initListDetailViews() {
+  const main = document.querySelector('main[data-detail-anchor]');
+  if (!main) return;
+  const anchor = document.getElementById(main.dataset.detailAnchor);
+  const children = Array.from(main.children);
+  const list = children.filter(el => el.matches('.filter-card, .table-card'));
+  const detail = main.querySelector('[data-detail-view]');
+  const render = force => {
+    const show = typeof force === 'boolean' ? force : location.hash !== '#list' && (location.hash === '#' + anchor.id || !!prototypeRecordId() || decodeURIComponent(location.pathname.split('/').pop()) !== main.dataset.listPage);
+    list.forEach(el => { el.hidden = show; });
+    detail.hidden = !show;
+  };
+  document.addEventListener('click', event => {
+    const link = event.target.closest('a[href]');
+    if (!link || link.hasAttribute('data-open-modal')) return;
+    const url = new URL(link.href, location.href);
+    if (url.pathname !== location.pathname) return;
+    if (url.hash === '#' + anchor.id) render(true);
+    else if (url.hash === '#list') render(false);
+  });
+  window.addEventListener('hashchange', () => render());
+  render();
+}
+
+function initStepTabs() {
+  document.querySelectorAll('[data-step-tabs]').forEach(group => {
+    const tabs = Array.from(group.querySelectorAll('[data-step-target]'));
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(other => {
+          const on = other === tab;
+          other.classList.toggle('active', on);
+          other.setAttribute('aria-selected', String(on));
+          const panel = document.getElementById(other.dataset.stepTarget);
+          if (panel) panel.hidden = !on;
+        });
+      });
+    });
+  });
+}
+
 function initPageLinks() {
   document.querySelectorAll('[data-href]:not(.perm-btn)').forEach(el => {
     el.addEventListener('click', () => {
@@ -1071,7 +1144,6 @@ function initSRMLoginPage() {
   document.addEventListener('keydown', (event) => {
     if (event.key !== 'Escape') return;
     if (biddingModal?.classList.contains('show')) closeBidding();
-    if (partnerModal?.classList.contains('show')) closePartner();
   });
 }
 
@@ -1603,6 +1675,12 @@ function initStepWorkflowPage() {
  * - 권한 버튼(data-href) 이동, 범위·기간 칩 전환, 캘린더 날짜 선택, 파이프라인 단계 선택, 진행상황 팝업 열기
  */
 function initDashboardWidgets() {
+  // The sole-source status tabs share list/detail markup. Restore the detail
+  // when arriving from another tab or a record link instead of showing the list.
+  const soleDetail = document.getElementById('ssDetailView');
+  if (soleDetail && (location.hash === '#ssDetailView' || window.srmPrototypeRecords?.some(record => record.id === prototypeRecordId()))) {
+    soleDetail.parentElement.querySelectorAll(':scope > .board-view').forEach(view => view.classList.toggle('show', view === soleDetail));
+  }
   // 권한 버튼: 해당 권한의 대시보드로 이동
   document.querySelectorAll('.perm-btn[data-href]').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -2154,6 +2232,24 @@ function initDataGrids() {
     let suppressSort = false;
 
     headers.forEach(header => {
+      // 검색 결과는 정렬을 기본 제공하며 선택/조작 전용 열만 제외합니다.
+      const label = header.textContent.replace(/⇅|↑|↓/g, '').trim();
+      header.tabIndex = 0;
+      if (label && !/^(선택|삭제|관리|처리|변경)$/.test(label) && !header.querySelector('input, button')) {
+        header.classList.add('th-sortable');
+        if (!header.querySelector('.sort-caret')) {
+          const caret = document.createElement('span');
+          caret.className = 'sort-caret';
+          caret.setAttribute('aria-hidden', 'true');
+          caret.dataset.symbol = '⇅';
+          header.appendChild(caret);
+        }
+      }
+      header.querySelectorAll('.sort-caret').forEach(caret => {
+        caret.dataset.symbol = '⇅';
+        caret.textContent = '';
+        caret.setAttribute('aria-hidden', 'true');
+      });
       header.draggable = true;
       header.classList.add('grid-column-header');
       header.title = `${header.textContent.replace(/⇅|↑|↓/g, '').trim()} 열: 드래그하여 이동, 오른쪽 경계를 드래그하여 너비 조절`;
@@ -2252,14 +2348,16 @@ function initDataGrids() {
     updateColumnIndexes();
 
     const tableCard = wrapper.closest('.table-card');
+    const paginated = wrapper.dataset.pagination !== 'false';
     const pageSizeSelect = tableCard?.querySelector('.select-per-page')
       || wrapper.closest('main, .main-content')?.querySelector('.select-per-page');
     let paginationRow = wrapper.nextElementSibling;
     if (!paginationRow?.classList.contains('table-pagination-row')) {
       paginationRow = document.createElement('div');
       paginationRow.className = 'table-pagination-row';
-      wrapper.insertAdjacentElement('afterend', paginationRow);
+      if (paginated) wrapper.insertAdjacentElement('afterend', paginationRow);
     }
+    if (!paginated) paginationRow.remove();
 
     paginationRow.innerHTML = '<nav class="pagination-controls" aria-label="표 페이지 이동"></nav>';
 
@@ -2293,6 +2391,12 @@ function initDataGrids() {
     const renderPage = () => {
       const allRows = getRows();
       const eligibleRows = getEligibleRows();
+      if (!paginated) {
+        allRows.forEach(row => { row.style.display = row.dataset.filteredOut === 'true' ? 'none' : ''; });
+        if (pageSummary) pageSummary.textContent = `총 ${eligibleRows.length.toLocaleString('ko-KR')}개`;
+        table.setAttribute('aria-rowcount', String(eligibleRows.length + 1));
+        return;
+      }
       const hasActiveFilter = eligibleRows.length !== allRows.length;
       const declaredTotal = Number(wrapper.dataset.totalItems) || 0;
       const totalItems = hasActiveFilter ? eligibleRows.length : Math.max(declaredTotal, eligibleRows.length);
@@ -2370,11 +2474,11 @@ function initDataGrids() {
       currentHeaders.forEach(item => {
         item.removeAttribute('aria-sort');
         const caret = item.querySelector('.sort-caret');
-        if (caret) caret.textContent = '⇅';
+        if (caret) caret.dataset.symbol = '⇅';
       });
       header.setAttribute('aria-sort', nextDirection);
       const activeCaret = header.querySelector('.sort-caret');
-      if (activeCaret) activeCaret.textContent = nextDirection === 'ascending' ? '↑' : '↓';
+      if (activeCaret) activeCaret.dataset.symbol = nextDirection === 'ascending' ? '↑' : '↓';
 
       const tbody = table.tBodies[0];
       const sortedRows = Array.from(tbody.rows).sort((rowA, rowB) => {
@@ -2382,7 +2486,8 @@ function initDataGrids() {
         const valueB = rowB.cells[columnIndex]?.textContent.trim() || '';
         const numberA = Number(valueA.replace(/[^0-9.-]/g, ''));
         const numberB = Number(valueB.replace(/[^0-9.-]/g, ''));
-        const bothNumeric = valueA !== '' && valueB !== '' && !Number.isNaN(numberA) && !Number.isNaN(numberB);
+        const numericValue = /^[+-]?\d[\d,]*(?:\.\d+)?\s*(?:원|%|건|개)?$/;
+        const bothNumeric = numericValue.test(valueA) && numericValue.test(valueB) && !Number.isNaN(numberA) && !Number.isNaN(numberB);
         const result = bothNumeric
           ? numberA - numberB
           : valueA.localeCompare(valueB, 'ko', { numeric: true, sensitivity: 'base' });
@@ -2424,5 +2529,972 @@ function initDataGrids() {
 
     renderPage();
     updateOverflowTitles();
+  });
+}
+
+/**
+ * Description 기반 화면 상태. 업무 데이터/서버 저장 없이 선택값과 보이는 UI만 바꿉니다.
+ * 근거와 예외: docs/CONDITIONAL_UI_AUDIT.md
+ */
+function initPrototypeConditions() {
+  const main = document.querySelector('main[data-ui-scope]');
+  const scopes = Array.from(document.querySelectorAll('[data-ui-scope]'));
+  if (!scopes.length) return;
+  const labels = {
+    method: { sole: '수의계약', general: '경쟁입찰(일반)', limited: '경쟁입찰(제한)', designated: '경쟁입찰(지명)' },
+    award: { lowest: '최저가', restricted: '제한적 최저가 입찰', simultaneous: '2단계 경쟁입찰(규격/가격 동시)', separate: '2단계 경쟁입찰(규격/가격 분리)', qualification: '적격심사' },
+    price: { planned: '예정가', reserve: '예비가', estimated: '추정금액(수의계약 전용)' },
+    items: { unit: '품목단가', custom: '지정항목' }
+  };
+  const portable = { ...labels, opened: { true: '', false: '' }, evaluationDone: { true: '', false: '' }, winnerDone: { true: '', false: '' }, negotiationStarted: { true: '', false: '' }, briefing: { no: '', yes: '' }, negotiated: { no: '', yes: '' }, presentation: { no: '', yes: '' }, documents: { true: '', false: '' }, selfReview: { true: '', false: '' } };
+  const pageState = {};
+  const states = new Map();
+  const baseDisabled = new WeakMap();
+  const normalized = text => (text || '').replace(/[\s*]/g, '');
+  const own = (scope, selector) => Array.from(scope.querySelectorAll(selector)).filter(el => el.closest('[data-ui-scope]') === scope);
+  const stateOf = el => states.get(el.closest('[data-ui-scope]')) || pageState;
+  const parse = text => { try { const value = JSON.parse(text || '{}'); return value && typeof value === 'object' && !Array.isArray(value) ? value : {}; } catch { return {}; } };
+  const copyPortable = source => Object.fromEntries(Object.entries(source).filter(([key, value]) => portable[key] && Object.hasOwn(portable[key], value)));
+  const family = main?.dataset.uiFamily || '';
+  const storageKey = `kepco.srm.ui.v1:${location.pathname.split('/modules/')[0]}:${family}`;
+  let restored = {};
+  // Only non-sensitive screen selections are retained for the current browser session.
+  try { if (family && !prototypeRecordId()) restored = copyPortable(parse(sessionStorage.getItem(storageKey))); } catch { /* file:// storage may be unavailable */ }
+  const fromUrl = new URLSearchParams(location.hash.slice(1)).has('record') ? {} : copyPortable(parse(new URL(location.href).searchParams.get('ui')));
+  Object.assign(pageState, parse(main?.dataset.uiDefaults), restored, fromUrl);
+  let selectedRecord = window.srmPrototypeRecords?.find(record => record.id === prototypeRecordId());
+  if (selectedRecord) Object.assign(pageState, selectedRecord.state, fromUrl);
+  scopes.forEach(scope => {
+    const state = scope === main ? pageState : scope.dataset.uiScope === 'filter' ? {} : { ...pageState, ...parse(scope.dataset.uiDefaults) };
+    states.set(scope, state);
+    own(scope, '[data-ui-text], [data-ui-contract-summary="true"]').forEach(el => {
+      const keys = el.dataset.uiText ? [el.dataset.uiText] : ['method', 'award'];
+      keys.forEach(key => {
+        if (state[key] || !labels[key]) return;
+        const entry = Object.entries(labels[key]).sort((a, b) => b[1].length - a[1].length).find(([, label]) => normalized(el.textContent).includes(normalized(label)));
+        if (entry) state[key] = entry[0];
+      });
+    });
+    own(scope, '[data-ui-source]').forEach(el => { state[el.dataset.uiSource] = el.dataset.uiValue || el.textContent.trim(); });
+    const fields = own(scope, '[data-ui-field]');
+    fields.forEach(el => {
+      const key = el.dataset.uiField;
+      if (el.type === 'radio') {
+        if (Object.hasOwn(state, key)) el.checked = el.value === state[key];
+        else if (el.checked) state[key] = el.value;
+      } else if (el.type === 'checkbox') {
+        if (Object.hasOwn(state, key)) el.checked = state[key] === 'true';
+        else state[key] = String(el.checked);
+      } else if (Object.hasOwn(state, key)) el.value = state[key];
+      else state[key] = el.value;
+    });
+  });
+  document.querySelectorAll('input, select, textarea, button').forEach(el => baseDisabled.set(el, el.disabled));
+  const matches = (expression, state) => !expression || expression.split(';').every(test => {
+    const index = test.indexOf('=');
+    if (index < 1) return false;
+    return test.slice(index + 1).split('|').includes(String(state[test.slice(0, index)] ?? ''));
+  });
+  const setField = (scope, key, value) => {
+    states.get(scope)[key] = value;
+    own(scope, '[data-ui-field]').filter(el => el.dataset.uiField === key).forEach(el => {
+      if (el.type === 'radio') el.checked = el.value === value;
+      else if (el.type === 'checkbox') el.checked = value === 'true';
+      else el.value = value;
+    });
+  };
+  const allowed = (scope, key, values) => {
+    const fields = own(scope, '[data-ui-field]').filter(el => el.dataset.uiField === key);
+    if (!fields.length) return;
+    const state = states.get(scope);
+    fields.forEach(el => {
+      if (el.tagName === 'SELECT') Array.from(el.options).forEach(option => { option.disabled = option.value !== '' && !values.includes(option.value); });
+      else el.dataset.uiChoiceDisabled = String(!values.includes(el.value));
+    });
+    if (state[key] && !values.includes(state[key]) || !state[key] && fields[0].type === 'radio') setField(scope, key, values[0]);
+  };
+  const persist = () => {
+    if (!family || selectedRecord) return;
+    try { sessionStorage.setItem(storageKey, JSON.stringify(copyPortable(pageState))); } catch { /* optional UI memory */ }
+  };
+  const showValues = scope => {
+    const state = states.get(scope);
+    own(scope, '[data-ui-text]').forEach(el => { const key = el.dataset.uiText; if (state[key] !== undefined) el.textContent = labels[key]?.[state[key]] || state[key]; });
+    own(scope, '[data-ui-contract-summary="true"]').forEach(el => {
+      if (state.method && state.award) el.textContent = `${labels.method[state.method]} > ${labels.award[state.award]}`;
+    });
+    own(scope, '[data-ui-tie-summary]').forEach(el => { el.textContent = state.award === 'simultaneous' && state.tie === 'price' ? '가격' : '규격(기술)'; });
+    own(scope, '[data-ui-score="minimum"]').forEach(el => {
+      const fixed = ['restricted', 'separate'].includes(state.award);
+      if (fixed) el.value = '30';
+      el.readOnly = fixed;
+    });
+  };
+  const refresh = () => {
+    scopes.forEach(scope => {
+      const state = states.get(scope);
+      if (scope !== main && scope.dataset.uiScope !== 'filter') {
+        const localKeys = new Set(own(scope, '[data-ui-field], [data-ui-source]').map(el => el.dataset.uiField || el.dataset.uiSource));
+        Object.entries(pageState).forEach(([key, value]) => { if (!localKeys.has(key)) state[key] = value; });
+      }
+      allowed(scope, 'award', state.method === 'sole' ? ['lowest'] : Object.keys(labels.award));
+      const prices = state.method === 'sole' ? ['planned', 'estimated'] : ['restricted', 'qualification'].includes(state.award) ? ['reserve'] : ['planned'];
+      allowed(scope, 'price', prices);
+      // Read-only bid/sole pages have no price input but still use the same matrix.
+      if (scope.dataset.uiScope !== 'filter' && state.award && state.method !== 'sole') state.price = ['restricted', 'qualification'].includes(state.award) ? 'reserve' : 'planned';
+      allowed(scope, 'tie', state.award === 'simultaneous' ? ['technical', 'price'] : ['technical']);
+      if (state.negotiated === 'no') setField(scope, 'presentation', 'no');
+      showValues(scope);
+    });
+    document.querySelectorAll('[data-ui-show]').forEach(el => { el.hidden = !matches(el.dataset.uiShow, stateOf(el)); });
+    document.querySelectorAll('[data-ui-required]').forEach(el => {
+      const required = matches(el.dataset.uiRequired, stateOf(el));
+      let marker = el.querySelector(':scope > dt .required');
+      if (required && !marker && el.querySelector(':scope > dt')) {
+        marker = document.createElement('span'); marker.className = 'required'; marker.textContent = ' *'; marker.setAttribute('aria-hidden', 'true'); el.querySelector(':scope > dt').appendChild(marker);
+      }
+      if (marker) marker.hidden = !required;
+      el.querySelectorAll('input, select, textarea').forEach(input => input.setAttribute('aria-required', String(required)));
+    });
+    document.querySelectorAll('input, select, textarea, button, a[data-ui-enable]').forEach(el => {
+      let disabled = Boolean(baseDisabled.get(el)) || el.dataset.uiChoiceDisabled === 'true' || Boolean(el.closest('[data-ui-show][hidden]'));
+      for (let owner = el; owner; owner = owner.parentElement) {
+        if (owner.dataset?.uiEnable && !matches(owner.dataset.uiEnable, stateOf(owner))) disabled = true;
+      }
+      if (el.tagName === 'A') el.setAttribute('aria-disabled', String(disabled));
+      else el.disabled = disabled;
+    });
+    document.querySelectorAll('[data-ui-enable]').forEach(el => el.setAttribute('aria-disabled', String(!matches(el.dataset.uiEnable, stateOf(el)))));
+    document.dispatchEvent(new CustomEvent('prototype:refresh'));
+    if (selectedRecord) renderPrototypeRecord(selectedRecord, copyPortable(pageState));
+    // Scope selects to a single row/record: search filters never alter the detail state.
+    persist();
+  };
+  document.addEventListener('change', event => {
+    const el = event.target.closest('[data-ui-field]');
+    if (!el) return;
+    const state = stateOf(el);
+    state[el.dataset.uiField] = el.type === 'checkbox' ? String(el.checked) : el.value;
+    refresh();
+  });
+  document.addEventListener('click', event => {
+    const recordOwner = event.target.closest('[data-prototype-record]');
+    if (recordOwner && event.target.closest('a, button, [data-href]')) {
+      const record = window.srmPrototypeRecords.find(item => item.id === recordOwner.dataset.prototypeRecord);
+      if (record) {
+        selectedRecord = record;
+        Object.assign(pageState, record.state);
+        const destination = event.target.closest('a[href], [data-href]');
+        const source = destination?.getAttribute('href') || destination?.dataset.href;
+        const modalTrigger = event.target.closest('[data-open-modal]');
+        const documentPopup = modalTrigger && document.getElementById(modalTrigger.dataset.openModal)?.classList.contains('modal-backdrop');
+        if ((!source || source.startsWith('#')) && !documentPopup) {
+          const url = new URL(location.href);
+          url.hash = '';
+          url.searchParams.set('record', record.id); url.searchParams.set('ui', JSON.stringify(record.state));
+          try { history.replaceState(null, '', url.href); } catch {
+            // file:// may only permit changing the fragment, not query parameters.
+            const local = new URL(location.href);
+            local.hash = new URLSearchParams({ record: record.id }).toString();
+            try {
+              location.hash = local.hash;
+              if (destination?.tagName === 'A') {
+                destination.setAttribute('href', local.hash);
+                document.getElementById(source?.slice(1))?.scrollIntoView?.();
+              }
+            } catch { /* browser may disallow all history changes */ }
+          }
+        }
+        own(main || document.body, '[data-ui-field]').forEach(el => {
+          if (Object.hasOwn(record.state, el.dataset.uiField)) setField(main, el.dataset.uiField, record.state[el.dataset.uiField]);
+        });
+        refresh();
+      }
+    }
+    const disabledLink = event.target.closest('a[aria-disabled="true"]');
+    if (disabledLink) { event.preventDefault(); event.stopImmediatePropagation(); showToast(disabledLink.dataset.uiUnavailable || '현재 선택 조건에서는 사용할 수 없습니다.'); return; }
+    const setter = event.target.closest('[data-ui-set]');
+    if (setter) {
+      const scope = setter.closest('[data-ui-scope]');
+      setter.dataset.uiSet.split(';').forEach(entry => { const [key, value] = entry.split('='); setField(scope, key, value); });
+      refresh();
+    }
+    const link = event.target.closest('a[href]');
+    const nav = event.target.closest('[data-href]');
+    const source = link?.getAttribute('href') || nav?.dataset.href;
+    if ((!family && !selectedRecord) || !source || source.startsWith('#') || /^(https?:|mailto:)/.test(source)) return;
+    const targetIsNextPlan = family === 'plan' && ((pageState.method === 'sole' && source.includes('07-1_')) || (pageState.method !== 'sole' && source.includes('07-2_')));
+    const inFlow = recordOwner || targetIsNextPlan || (link || nav).closest('.detail-tabs-bar, .wizard-stepper, .page-actions, .srm-detail-actions, .modal-footer, #ssDetailView, [data-detail-view], .page-detail-body, .srm-detail-section');
+    if (!inFlow) return;
+    const url = new URL(source, location.href);
+    if (!url.pathname.endsWith('.html')) return;
+    const carried = copyPortable(pageState);
+    if (targetIsNextPlan) Object.assign(carried, { opened: 'false', evaluationDone: 'false', winnerDone: 'false' });
+    url.searchParams.set('ui', JSON.stringify(carried));
+    if (selectedRecord) url.searchParams.set('record', selectedRecord.id);
+    if (link) link.href = url.href;
+    else nav.dataset.href = url.href;
+  }, true);
+  document.querySelectorAll('[data-ui-scope="filter"]').forEach(scope => {
+    scope.addEventListener('submit', event => event.preventDefault());
+    scope.querySelectorAll('.btn-filter-reset, .btn-reset-main').forEach(button => button.addEventListener('click', () => {
+      scope.reset?.();
+      own(scope, '[data-ui-field]').forEach(el => {
+        if (el.type !== 'radio' || el.checked) states.get(scope)[el.dataset.uiField] = el.type === 'checkbox' ? String(el.checked) : el.value;
+      });
+      refresh();
+    }));
+  });
+  initPrototypeDetails({ main, pageState, stateOf, setField, refresh, labels, own });
+  initPrototypeBidStates({ main, pageState, stateOf, refresh });
+  initPrototypePickers({ main, pageState, refresh });
+  initPrototypeRecordSearch();
+  refresh();
+}
+
+function initPrototypeDetails({ main, pageState, stateOf, setField, refresh, labels, own }) {
+  const text = el => (el?.textContent || '').replace(/\s+/g, ' ').trim();
+  const rowName = row => text(row.querySelector(':scope > dt')).replace(/[\s*]/g, '');
+  const page = decodeURIComponent(location.pathname.split('/').pop());
+  const allButtons = scope => Array.from((scope || document).querySelectorAll('button'));
+  const toggleModalReadOnly = (modal, readOnly) => {
+    modal.querySelectorAll('.file-dropzone').forEach(zone => {
+      let display = zone.nextElementSibling;
+      if (!display?.classList.contains('ui-readonly-value')) {
+        display = document.createElement('span'); display.className = 'ui-readonly-value'; zone.after(display);
+      }
+      display.textContent = '-';
+      // Existing file lists remain visible; an empty attachment field shows '-'.
+      display.hidden = !readOnly || !!zone.parentElement.querySelector('.srm-file-item');
+      zone.hidden = readOnly;
+    });
+    modal.querySelectorAll('input, select, textarea').forEach(input => {
+      if (input.type === 'hidden') return;
+      let display = input.nextElementSibling;
+      if (!display?.classList.contains('ui-readonly-value')) {
+        display = document.createElement('span'); display.className = 'ui-readonly-value'; input.after(display);
+      }
+      display.textContent = input.type === 'file' ? Array.from(input.files || []).map(file => file.name).join(', ') || '-' : input.tagName === 'SELECT' ? text(input.selectedOptions[0]) : ['radio', 'checkbox'].includes(input.type) ? (input.checked ? '선택' : '') : input.value || '-';
+      display.hidden = !readOnly;
+      input.hidden = readOnly;
+      input.dataset.uiEnable = readOnly ? 'viewMode=edit' : '';
+    });
+    // File pickers are separate buttons from their filename inputs. They must
+    // follow the same view/edit mode, while preview/download actions remain.
+    modal.querySelectorAll('button, a, label[for]').forEach(control => {
+      const fileInput = control.htmlFor && document.getElementById(control.htmlFor);
+      if (control.matches('.modal-close, .btn-file-preview, .btn-file-download') || /바로보기|미리보기|다운로드/.test(text(control))) return;
+      if (!/저장|등록|요청|추가|삭제|찾아보기|파일\s*선택|첨부|업로드/.test(text(control)) && fileInput?.type !== 'file') return;
+      if (readOnly && !control.hasAttribute('data-ui-edit-hidden')) control.dataset.uiEditHidden = String(control.hidden);
+      control.hidden = readOnly || control.dataset.uiEditHidden === 'true';
+      if (!readOnly) delete control.dataset.uiEditHidden;
+    });
+    modal.querySelectorAll('.modal-footer button').forEach(button => {
+      if (text(button) !== '취소' && !button.hasAttribute('data-ui-edit-label')) return;
+      if (!button.hasAttribute('data-ui-edit-label')) button.dataset.uiEditLabel = button.textContent;
+      button.textContent = readOnly ? '닫기' : button.dataset.uiEditLabel;
+    });
+    modal.dataset.uiReadOnly = String(readOnly);
+  };
+  // A completed step opens the same source popup as an immutable view.
+  document.querySelectorAll('.wizard-step-box .btn-task-done').forEach(button => {
+    if (!text(button).includes('확인')) return;
+    const opener = button.closest('.wizard-step-box').querySelector('[data-open-modal], .btn-open-calc-modal');
+    const id = opener?.dataset.openModal || (opener?.classList.contains('btn-open-calc-modal') ? 'modalCalcPrice' : '');
+    if (id) { button.dataset.openModal = id; button.dataset.uiView = 'read'; }
+  });
+  document.addEventListener('click', event => {
+    const opener = event.target.closest('[data-open-modal], .btn-open-calc-modal');
+    if (!opener) return;
+    const id = opener.dataset.openModal || 'modalCalcPrice';
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    if (opener.dataset.uiView === 'read' || modal.hasAttribute('data-ui-read-only') || /ssBaseCostModal|ssPriceRequestModal|ssPriceRegisterModal|modalCalcPrice|bidPriceRequestModal|bidPriceRegisterModal|bidReserve|bidPlanned/.test(id)) toggleModalReadOnly(modal, opener.dataset.uiView === 'read');
+    // New completion/view triggers are added after the generic modal binding.
+    if (opener.dataset.uiView === 'read') modal.classList.add('show');
+    refresh();
+  }, true);
+  // Date/time placeholders become usable controls without implementing scheduling rules.
+  document.querySelectorAll('select').forEach(select => {
+    const placeholder = text(select.options[0]);
+    if (select.options.length === 1 && /^(시간|분) 선택$/.test(placeholder)) {
+      select.options[0].value = '';
+      const hour = placeholder.startsWith('시간');
+      for (let n = 0; n < (hour ? 24 : 60); n += 1) {
+        const option = document.createElement('option'); option.value = String(n).padStart(2, '0'); option.textContent = `${option.value}${hour ? '시' : '분'}`; select.appendChild(option);
+      }
+    }
+  });
+  // Three-level sourcing classification: select a parent before its children.
+  document.querySelectorAll('.filter-row, .hstack, .form-row').forEach(group => {
+    const selects = Array.from(group.children).filter(el => el.tagName === 'SELECT');
+    if (selects.length !== 3 || !/대분류/.test(text(selects[0])) || !/중분류/.test(text(selects[1])) || !/소분류/.test(text(selects[2]))) return;
+    const sync = changed => {
+      if (changed >= 0) selects.slice(changed + 1).forEach(select => { select.selectedIndex = 0; });
+      selects[1].disabled = selects[0].selectedIndex === 0;
+      selects[2].disabled = selects[0].selectedIndex === 0 || selects[1].selectedIndex === 0;
+    };
+    selects.forEach((select, i) => select.addEventListener('change', () => sync(i)));
+    document.addEventListener('prototype:refresh', () => sync(-1));
+    sync(-1);
+  });
+  // Email domains: direct entry is editable; a preset fills and locks its domain field.
+  document.querySelectorAll('select').forEach(select => {
+    if (!Array.from(select.options).some(option => /naver\.com/.test(option.textContent))) return;
+    const container = select.closest('.form-row, .form-lookup, .hstack, dd, .input-with-btn') || select.parentElement;
+    const inputs = Array.from(container.querySelectorAll('input[type="text"]'));
+    const domain = inputs.find(input => /domain|도메인/i.test(`${input.id} ${input.getAttribute('aria-label') || ''}`)) || inputs[inputs.length - 1];
+    if (!domain || domain.id === 'contactEmailDirect') return;
+    const sync = () => {
+      const value = text(select.selectedOptions[0]); const direct = /직접|선택/.test(value);
+      domain.readOnly = !direct;
+      if (!direct) domain.value = value;
+    };
+    select.addEventListener('change', sync); sync();
+  });
+  // Optional participation documents, negotiation and single-select mapping are local UI transitions.
+  if (page === 'SRMDetailNegotiation.html') {
+    const section = document.querySelector('.srm-detail-section');
+    const start = allButtons(section).find(button => text(button) === '수의시담 진행하기');
+    if (start) {
+      pageState.negotiationStarted = 'false'; start.dataset.uiSet = 'negotiationStarted=true';
+      const prompt = start.closest('.srm-detail-actions, .inline-action-bar') || start.parentElement;
+      let sibling = prompt.nextElementSibling;
+      while (sibling) { sibling.dataset.uiShow = 'negotiationStarted=true'; sibling = sibling.nextElementSibling; }
+    }
+  }
+  // Monetary/timing alternatives in a detail popup use its original change reason.
+  document.querySelectorAll('[data-ui-scope="popup"]').forEach(modal => {
+    const reason = Array.from(modal.querySelectorAll('.srm-kv-row')).find(row => rowName(row) === '변경계약사유');
+    if (reason && !reason.querySelector('input')) stateOf(reason).change = text(reason).includes('납기') ? 'period' : 'amount';
+  });
+  // Approval/mapping dialogs use the existing sample row; no backend update or notification is made.
+  const mappingTargets = { ocPartnerMapModal: '계약상대자(수의계약의경우)', opPartnerMapModal: '계약상대자(수의계약의경우)', bidEvaluatorMapModal: '평가자매핑', ssQuoteReqManagerModal: '담당자', pqManagerChangeModal: '담당자' };
+  Object.entries(mappingTargets).forEach(([id, label]) => {
+    const modal = document.getElementById(id); if (!modal || !main) return;
+    allButtons(modal).filter(button => /^(선택|매핑)$/.test(text(button))).forEach(button => button.addEventListener('click', () => {
+      const cells = button.closest('tr')?.cells; if (!cells) return;
+      const targetRow = Array.from(main.querySelectorAll('.srm-kv-row')).find(row => rowName(row).startsWith(label));
+      if (targetRow) {
+        const dd = targetRow.querySelector('dd');
+        let output = dd.querySelector('[data-ui-mapped-value]');
+        if (!output) { output = document.createElement('div'); output.dataset.uiMappedValue = ''; output.className = 'content-inner-gap-top'; dd.appendChild(output); }
+        output.textContent = Array.from(cells).slice(0, -1).map(text).filter(Boolean).join(' / ');
+        // Remove stale sample text, keeping actions.
+        Array.from(dd.childNodes).filter(node => node.nodeType === 3).forEach(node => { node.textContent = ''; });
+        Array.from(dd.children).filter(el => el !== output && !el.querySelector('button') && el.tagName !== 'BUTTON').forEach(el => { el.hidden = true; });
+      }
+      modal.classList.remove('show');
+    }));
+  });
+  // Confirmed Q&A answers protect the question and show answer content only for answered samples.
+  if (page === 'SRMPartnerQna.html') {
+    const detail = document.querySelector('#qnaDetailModal, #qnaDetailView') || Array.from(document.querySelectorAll('.board-view')).find(view => text(view).includes('질문 내용'));
+    if (detail) {
+      const answered = text(detail).includes('답변완료');
+      allButtons(detail).filter(button => /^(수정|삭제)$/.test(text(button))).forEach(button => { button.disabled = answered; button.dataset.uiEnable = answered ? 'answered=false' : ''; });
+    }
+  }
+  // Staff selection fills only the existing sample's visible fields.
+  if (page === 'SRMPartnerBidDocumentSubmit.html') {
+    const rows = Array.from(main.querySelectorAll('.srm-kv-row'));
+    const select = rows.find(row => rowName(row).startsWith('담당자선택'))?.querySelector('select');
+    if (select) {
+      const details = rows.filter(row => /^(이름|이메일|핸드폰번호|직책|전화번호)$/.test(rowName(row)));
+      const initial = details.map(row => row.querySelector('dd').innerHTML);
+      const sync = () => details.forEach((row, i) => { row.querySelector('dd').innerHTML = select.selectedIndex > 0 ? initial[i] : '-'; });
+      select.addEventListener('change', sync); sync();
+    }
+  }
+  // Submit price: reserve-price cases select exactly one of 15 numbers first.
+  if (page === 'SRMPartnerBidPrice.html') {
+    const submit = allButtons(main).find(button => /가격 투찰하기/.test(text(button)));
+    if (submit) submit.addEventListener('click', event => {
+      event.stopImmediatePropagation(); event.preventDefault();
+      const target = pageState.price === 'reserve' ? 'bidPriceDrawModal' : 'bidPriceSubmitConfirmModal';
+      document.getElementById(target)?.classList.add('show');
+    }, true);
+  }
+  const draw = document.getElementById('bidPriceDrawModal');
+  if (draw) {
+    const button = draw.querySelector('[data-open-modal="bidPriceSubmitConfirmModal"]');
+    if (button) {
+      button.dataset.uiEnable = 'drawSelected=true'; stateOf(button).drawSelected = 'false';
+      draw.querySelectorAll('input[name="drawNo"]').forEach(input => input.addEventListener('change', () => { stateOf(button).drawSelected = 'true'; refresh(); }));
+    }
+  }
+  // Row ordering is visual only and is kept inside the current table body.
+  document.querySelectorAll('table').forEach(table => {
+    const buttons = allButtons(table).filter(button => /^(▲|▼|↑|↓|위|아래)$/.test(text(button)));
+    buttons.forEach(button => button.addEventListener('click', () => {
+      const row = button.closest('tr'); const previous = /▲|↑|위/.test(text(button));
+      const adjacent = previous ? row.previousElementSibling : row.nextElementSibling;
+      if (!adjacent) return;
+      if (previous) adjacent.before(row); else adjacent.after(row);
+    }));
+  });
+}
+
+/** 입찰 심사·개찰·선정의 화면 전후 상태만 시연합니다. 실제 점수 판정/낙찰 계산은 하지 않습니다. */
+function initPrototypeBidStates({ main, pageState, stateOf, refresh }) {
+  if (!main) return;
+  const page = decodeURIComponent(location.pathname.split('/').pop());
+  const text = el => (el?.textContent || '').replace(/\s+/g, ' ').trim();
+  const buttons = scope => Array.from((scope || document).querySelectorAll('button'));
+  const onRefresh = callback => document.addEventListener('prototype:refresh', callback);
+  onRefresh(() => {
+    const reserve = pageState.price === 'reserve';
+    main.querySelectorAll('[data-ui-price-step]').forEach(el => {
+      const step = el.dataset.uiPriceStep;
+      el.textContent = step === '5' ? (reserve ? '복수예비 기초금액 등록(사장님, 본부장님)' : '예정가격 등록(사장님, 본부장님)') : `${reserve ? '예비가격' : '예정가격'} 등록 요청 / ${step === '3' ? '전자결재 요청' : '전자결재'}`;
+    });
+    document.querySelectorAll('[data-ui-price-label]').forEach(el => { el.textContent = `${reserve ? '복수예비 기초금액' : '예정가격'} *`; });
+    const requestTitle = document.getElementById('bidPriceRequestTitle'); if (requestTitle) requestTitle.textContent = `${reserve ? '예비가격' : '예정가격'} 등록 요청`;
+    const registerTitle = document.getElementById('bidPriceRegisterTitle'); if (registerTitle) registerTitle.textContent = reserve ? '복수예비 기초금액 등록' : '예정가격 등록';
+  });
+  const confirm = (id, callback) => document.querySelector(`#${id} .btn-critical-primary`)?.addEventListener('click', () => { callback(); refresh(); });
+  // The selected sample status controls return actions (07-2:41, 07-1:25).
+  const summary = main.querySelector('.srm-bid-summary, .workflow-notice-table-card');
+  let initialStatus = '';
+  if (summary) {
+    const table = summary.querySelector('table');
+    const index = Array.from(table?.querySelectorAll('thead th') || []).findIndex(th => text(th) === '진행상태');
+    initialStatus = text(table?.tBodies[0]?.rows[0]?.cells[index]);
+  }
+  const backButton = main.querySelector('#btnReturnBidPlan');
+  if (backButton && !['공고대기', '공고게시중'].includes(initialStatus)) { backButton.dataset.uiEnable = 'canReturn=true'; pageState.canReturn = 'false'; }
+  if (page === 'SRMDetailOpening.html') {
+    const table = main.querySelector('table[aria-label="개찰 결과"]');
+    if (table) {
+      const headers = Array.from(table.tHead.rows[0].cells);
+      const priceIndexes = headers.map((th, i) => /입찰\(견적\)금액|예정가|낙찰하한/.test(text(th)) ? i : -1).filter(i => i >= 0);
+      const priceCells = Array.from(table.tBodies[0].rows).flatMap(row => priceIndexes.map(i => row.cells[i]));
+      const amounts = new Map(priceCells.map(cell => [cell, cell.textContent]));
+      const suitability = Array.from(table.tBodies[0].rows).map(row => row.cells[9]);
+      const suitabilityValues = new Map(suitability.map(cell => [cell, cell.innerHTML]));
+      const scoreHeader = document.createElement('th'); scoreHeader.textContent = '가격점수'; table.tHead.rows[0].appendChild(scoreHeader);
+      const scoreCells = Array.from(table.tBodies[0].rows).map(row => {
+        const cell = row.insertCell();
+        if (text(row.cells[9]) === '적합') { const input = document.createElement('input'); input.type = 'number'; input.min = '0'; input.className = 'form-control w-80'; input.setAttribute('aria-label', `${text(row.cells[1])} 가격점수`); input.dataset.uiPriceScore = ''; cell.appendChild(input); }
+        else cell.textContent = '입력불가';
+        return cell;
+      });
+      const scoreButton = document.createElement('button'); scoreButton.type = 'button'; scoreButton.className = 'btn-critical-primary'; scoreButton.textContent = '가격점수 입력하기(개찰완료 처리)';
+      main.querySelector('[data-open-modal="bidOpenConfirmModal"]')?.parentElement.appendChild(scoreButton);
+      pageState.priceOpened = pageState.opened === 'true' ? 'true' : 'false';
+      scoreButton.addEventListener('click', () => { pageState.opened = 'true'; refresh(); });
+      table.addEventListener('input', () => refresh());
+      confirm('bidOpenConfirmModal', () => {
+        pageState.priceOpened = 'true';
+        pageState.opened = pageState.award === 'simultaneous' ? 'false' : 'true';
+      });
+      onRefresh(() => {
+        const opened = pageState.priceOpened === 'true' || pageState.opened === 'true';
+        priceCells.forEach(cell => { cell.textContent = opened ? amounts.get(cell) : '********'; });
+        suitability.forEach(cell => { cell.innerHTML = opened ? suitabilityValues.get(cell) : '개찰 전'; });
+        table.querySelectorAll('[data-open-modal]').forEach(button => {
+          const disabled = !opened || /0개/.test(text(button));
+          button.disabled = disabled;
+          if (button.tagName === 'A') {
+            button.setAttribute('aria-disabled', String(disabled));
+            button.dataset.uiUnavailable = '개찰 후 입찰 견적서를 확인할 수 있습니다.';
+          }
+        });
+        const simultaneous = pageState.award === 'simultaneous';
+        [scoreHeader, ...scoreCells].forEach(cell => { cell.hidden = !simultaneous || !opened; });
+        scoreCells.forEach(cell => { const input = cell.querySelector('input'); if (input) input.disabled = !opened || pageState.opened === 'true'; });
+        scoreButton.hidden = !simultaneous || !opened || pageState.opened === 'true';
+        scoreButton.disabled = Array.from(table.querySelectorAll('[data-ui-price-score]')).some(input => input.value.trim() === '');
+        const openButton = main.querySelector('[data-open-modal="bidOpenConfirmModal"]'); if (openButton) openButton.hidden = opened;
+        const derive = main.querySelector('[data-open-modal="bidPriceDeriveModal"]'); if (derive) derive.hidden = !opened || pageState.price !== 'reserve';
+        const bidAgain = main.querySelector('[data-open-modal="bidRebidModal"]'); if (bidAgain) bidAgain.parentElement.hidden = !opened;
+        // Original sample contains eligible bids; no "all ineligible" area before/after opening.
+        const fail = main.querySelector('[data-open-modal="bidWithdrawModal"]'); if (fail) fail.parentElement.hidden = !(opened && suitabilityValues.size && Array.from(suitabilityValues.values()).every(value => !value.includes('>적합<')));
+        const status = summary?.querySelector('.status-pill, .badge-warning, .badge-info'); if (status && pageState.opened === 'true') status.textContent = '개찰완료';
+      });
+    }
+  }
+  if (page === 'SRMDetailEvaluation.html') {
+    confirm('bidEvalCompleteConfirmModal', () => { pageState.evaluationDone = 'true'; });
+    const modal = document.getElementById('bidEvalFormModal');
+    onRefresh(() => {
+      if (modal) {
+        modal.querySelectorAll('input, textarea').forEach(input => { input.disabled = pageState.evaluationDone === 'true'; });
+        buttons(modal).filter(button => /저장|평가하기/.test(text(button))).forEach(button => { button.hidden = pageState.evaluationDone === 'true'; });
+      }
+      const target = document.getElementById('bidEvaluateDetailModal');
+      buttons(target).filter(button => /심사\/평가하기/.test(text(button))).forEach(button => { button.hidden = pageState.evaluationDone === 'true'; });
+      const fail = main.querySelector('[data-open-modal="bidWithdrawModal"]');
+      if (fail) {
+        const eligible = Array.from(main.querySelectorAll('table[aria-label="심사/평가 참여업체"] tbody tr')).filter(row => text(row.lastElementChild) === '적격').length;
+        fail.parentElement.hidden = !(pageState.evaluationDone === 'true' && ['restricted', 'separate'].includes(pageState.award) && eligible < 2);
+      }
+    });
+  }
+  if (page === 'SRMDetailWinner.html') {
+    const tables = Array.from(main.querySelectorAll('[data-ui-winner-table]'));
+    const selected = () => tables.find(table => !table.closest('[hidden]'))?.querySelector('input:checked');
+    const choose = buttons(main).find(button => text(button) === '우선협상대상자 선정');
+    if (choose) choose.addEventListener('click', () => {
+      const input = selected(); if (!input) return;
+      const table = input.closest('table');
+      Array.from(table.tBodies[0].rows).forEach(row => { row.cells[2].textContent = row === input.closest('tr') ? '우선협상대상자' : '-'; });
+    });
+    confirm('bidWinnerConfirmModal', () => {
+      const input = selected(); if (!input) return;
+      input.closest('table').querySelectorAll('[data-ui-winner-result]').forEach(cell => { cell.textContent = cell.closest('tr') === input.closest('tr') ? '낙찰' : '탈락'; });
+      pageState.winnerDone = 'true';
+    });
+    main.addEventListener('change', event => { if (event.target.name === 'bidWinnerPick') refresh(); });
+    onRefresh(() => {
+      buttons(main).filter(button => /^(우선협상대상자 선정|낙찰\(업체 선정\))$/.test(text(button))).forEach(button => { button.disabled = !selected() || pageState.winnerDone === 'true'; });
+    });
+  }
+  // Selection of a list row drives the existing detail, without changing the fixture itself.
+  main.querySelectorAll('.table-card table tbody tr').forEach(row => {
+    if (row.dataset.prototypeRecord) return;
+    const table = row.closest('table'); const head = Array.from(table.querySelectorAll('thead th')).map(text);
+    const methodIndex = head.indexOf('계약방법'); const awardIndex = head.indexOf('낙찰자 선정방법');
+    if (methodIndex < 0 || awardIndex < 0) return;
+    row.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      const methods = { '수의계약': 'sole', '경쟁입찰(일반)': 'general', '경쟁입찰(제한)': 'limited', '경쟁입찰(지명)': 'designated' };
+      const awards = { '최저가': 'lowest', '제한적 최저가 입찰': 'restricted', '2단계 경쟁입찰(규격/가격 동시)': 'simultaneous', '2단계 경쟁입찰(규격/가격 분리)': 'separate', '적격심사': 'qualification' };
+      const method = methods[text(row.cells[methodIndex])]; const award = awards[text(row.cells[awardIndex])];
+      if (method) pageState.method = method; if (award) pageState.award = award;
+      pageState.opened = 'false'; pageState.winnerDone = 'false'; pageState.evaluationDone = 'false';
+      refresh();
+      if (!link.getAttribute('href').startsWith('#')) {
+        const url = new URL(link.href, location.href); url.searchParams.set('ui', JSON.stringify({ method, award, opened: 'false', winnerDone: 'false', evaluationDone: 'false' })); link.href = url.href;
+      }
+    }));
+  });
+}
+
+/** 선택 팝업의 결과를 호출 화면에 표시합니다. 원본 예시 데이터만 사용합니다. */
+function initPrototypePickers({ main, pageState, refresh }) {
+  if (!main) return;
+  const page = decodeURIComponent(location.pathname.split('/').pop());
+  const text = el => (el?.textContent || '').replace(/\s+/g, ' ').trim();
+  const buttons = scope => Array.from((scope || document).querySelectorAll('button'));
+  const callers = new Map();
+  document.addEventListener('click', event => {
+    const button = event.target.closest('[data-open-modal]');
+    if (button) callers.set(button.dataset.openModal, button);
+  }, true);
+  // Pre-quote manager changes affect only the vendor row that opened the picker.
+  const manager = document.getElementById('pqManagerChangeModal');
+  if (manager) buttons(manager).filter(button => text(button) === '선택').forEach(button => button.addEventListener('click', () => {
+    const source = button.closest('tr'); const target = callers.get('pqManagerChangeModal')?.closest('tr');
+    if (!source || !target) return;
+    const headers = Array.from(target.closest('table').querySelectorAll('thead th')).map(text);
+    const values = { 담당자: text(source.cells[2]), 이름: text(source.cells[2]), 직책: text(source.cells[3]), 이메일: text(source.cells[4]), 핸드폰번호: text(source.cells[5]), 휴대전화번호: text(source.cells[5]) };
+    headers.forEach((label, i) => {
+      const value = values[label]; const cell = target.cells[i];
+      if (!value || !cell) return;
+      const buttonInCell = cell.querySelector('button');
+      if (buttonInCell) { Array.from(cell.childNodes).filter(node => node.nodeType === 3).forEach(node => node.remove()); cell.prepend(document.createTextNode(value + ' ')); }
+      else cell.textContent = value;
+    });
+  }));
+  // Select one ERP sample and show its code. This does not send contract information.
+  ['ssErpMapModal', 'bidErpMapModal'].forEach(id => {
+    const modal = document.getElementById(id); if (!modal) return;
+    buttons(modal).filter(button => /매핑|선택/.test(text(button)) && !button.classList.contains('modal-close')).forEach(button => button.addEventListener('click', () => {
+      const row = button.closest('tr') || modal.querySelector('input:checked')?.closest('tr') || modal.querySelector('tbody tr');
+      if (!row) return;
+      const head = Array.from(row.closest('table').querySelectorAll('thead th')).map(text);
+      const index = head.findIndex(label => /거래처.*코드/.test(label));
+      if (index < 0) return;
+      const code = text(row.cells[index]);
+      const target = callers.get(id)?.closest('dd');
+      if (!target) return;
+      Array.from(target.childNodes).filter(node => node.nodeType === 3).forEach(node => { node.textContent = node.textContent.replace('매핑 안됨', code); });
+      pageState.erpMapped = 'true'; modal.classList.remove('show'); refresh();
+    }));
+  });
+  // Q&A uses the selected row's answer status, not a single fixed detail sample.
+  if (page === 'SRMPartnerQna.html') {
+    const view = document.getElementById('partnerQnaDetailView');
+    if (view) {
+      const heading = Array.from(view.querySelectorAll('.srm-section-heading')).find(el => text(el.querySelector('h2')) === '답변 내용');
+      const answerNodes = [];
+      if (heading) { for (let el = heading; el && !el.classList.contains('srm-detail-actions'); el = el.nextElementSibling) answerNodes.push(el); }
+      const actionBar = view.querySelector('.srm-detail-actions');
+      if (actionBar && !buttons(actionBar).some(button => text(button) === '수정')) {
+        const edit = document.createElement('button'); edit.type = 'button'; edit.className = 'btn-primary'; edit.textContent = '수정';
+        edit.addEventListener('click', () => { view.classList.remove('show'); document.getElementById('partnerQnaWriteView')?.classList.add('show'); }); actionBar.appendChild(edit);
+        const remove = document.createElement('button'); remove.type = 'button'; remove.className = 'btn-delete'; remove.textContent = '삭제';
+        remove.addEventListener('click', () => { view.classList.remove('show'); document.getElementById('partnerQnaListView')?.classList.add('show'); }); actionBar.appendChild(remove);
+      }
+      main.querySelectorAll('[data-open-modal="partnerQnaDetailView"]').forEach(link => link.addEventListener('click', () => {
+        const row = link.closest('tr'); const answered = text(row).includes('답변완료');
+        view.querySelectorAll('.srm-kv-row').forEach(field => {
+          const label = text(field.querySelector('dt')); const value = field.querySelector('dd');
+          if (label === '제목') value.textContent = text(link);
+          if (label === '처리상태') value.textContent = answered ? '답변완료' : '답변요청';
+        });
+        answerNodes.forEach(el => { el.hidden = !answered; });
+        buttons(view).filter(button => /^(수정|삭제)$/.test(text(button))).forEach(button => { button.disabled = answered; button.hidden = answered; });
+        const note = view.querySelector('.notice-box'); if (note) note.hidden = !answered;
+      }));
+    }
+  }
+  if (page === 'SRMMailSend.html') {
+    const table = main.querySelector('table[aria-label="대상 확정 목록"]'); if (!table) return;
+    const count = table.closest('.srm-detail-section')?.querySelector('.srm-section-heading p');
+    const update = () => { if (count) count.textContent = `총 ${table.tBodies[0].rows.length}명`; };
+    const append = values => {
+      if (Array.from(table.tBodies[0].rows).some(row => values.every((value, i) => text(row.cells[i]) === value))) return;
+      const row = table.tBodies[0].insertRow(); values.forEach(value => { row.insertCell().textContent = value || '-'; });
+      const button = document.createElement('button'); button.type = 'button'; button.className = 'btn-row-del'; button.textContent = '삭제'; button.addEventListener('click', () => { row.remove(); update(); }); row.insertCell().appendChild(button); update();
+    };
+    ['msVendorPickModal', 'msClientPickModal', 'msStaffPickModal'].forEach(id => {
+      const modal = document.getElementById(id); if (!modal) return;
+      buttons(modal).filter(button => text(button) === '선택 추가').forEach(button => button.addEventListener('click', () => {
+        modal.querySelectorAll('tbody input:checked').forEach(input => {
+          const row = input.closest('tr'); const headers = Array.from(row.closest('table').querySelectorAll('thead th')).map(text);
+          const value = regex => text(row.cells[headers.findIndex(label => regex.test(label))]);
+          append([value(/^(담당자|사원명|이름)$/), value(/휴대|핸드폰|연락처/), value(/이메일/)]); input.checked = false;
+        });
+      }));
+    });
+    const manual = document.getElementById('msManualAddModal');
+    if (manual) buttons(manual).filter(button => text(button) === '추가').forEach(button => button.addEventListener('click', () => {
+      const rows = Array.from(manual.querySelectorAll('.srm-kv-row'));
+      const name = rows[0].querySelector('input').value;
+      const phone = Array.from(rows[1].querySelectorAll('input, select')).map(el => el.value).join('-');
+      const mail = Array.from(rows[2].querySelectorAll('input')).map(el => el.value).join('@');
+      if (name.trim()) append([name, phone, mail]);
+    }));
+    table.addEventListener('click', () => window.setTimeout(update, 0)); update();
+  }
+}
+
+/** Deterministic sample records: the permitted matrix from the 06 design, slides 15–18. */
+function initPrototypeRecords() {
+  const methods = { general: '경쟁입찰(일반)', limited: '경쟁입찰(제한)', designated: '경쟁입찰(지명)', sole: '수의계약' };
+  const awards = { lowest: '최저가', restricted: '제한적 최저가 입찰', simultaneous: '2단계 경쟁입찰(규격/가격 동시)', separate: '2단계 경쟁입찰(규격/가격 분리)', qualification: '적격심사' };
+  const records = [];
+  Object.keys(methods).forEach(method => Object.keys(awards).forEach(award => {
+    if (method === 'sole' && award !== 'lowest') return;
+    const prices = method === 'sole' ? ['planned', 'estimated'] : [['restricted', 'qualification'].includes(award) ? 'reserve' : 'planned'];
+    prices.forEach(price => {
+      const index = records.length + 1;
+      const methodLabel = methods[method]; const awardLabel = awards[award];
+      const project = ['서초동 오피스텔 설비공사', '사업장 에너지진단 용역', '고효율 인버터 구매'][(index - 1) % 3];
+      records.push({ id: `${method}-${award}-${price}`, index, methodLabel, awardLabel,
+        title: `${project} ${String(index).padStart(2, '0')} (${methodLabel} / ${awardLabel}${method === 'sole' ? ` / ${price === 'estimated' ? '추정금액' : '예정가'}` : ''})`,
+        state: { method, award, price, briefing: index % 2 ? 'yes' : 'no', negotiated: award === 'simultaneous' ? 'yes' : 'no', presentation: award === 'simultaneous' ? 'yes' : 'no', documents: 'true', selfReview: ['restricted', 'qualification', 'separate'].includes(award) ? 'true' : 'false', opened: 'false', evaluationDone: 'false', winnerDone: 'false', negotiationStarted: 'false' }
+      });
+    });
+  }));
+  window.srmPrototypeRecords = records;
+  const page = decodeURIComponent(location.pathname);
+  const soleOnly = /07-1_|SRMPartnerNego/.test(page);
+  const competitionOnly = /07-2_|SRMPartnerBid|SRMLogin/.test(page);
+  const candidates = records.filter(record => soleOnly ? record.state.method === 'sole' : competitionOnly ? record.state.method !== 'sole' : true);
+  const normalize = value => value.replace(/\s/g, '');
+  const write = (cell, value) => {
+    if (!cell) return;
+    const target = cell.querySelector('a, .badge-tag, .badge-info, .badge-success') || cell;
+    target.textContent = value;
+    cell.title = value;
+  };
+  document.querySelectorAll('main .data-grid table, main table.widget-table').forEach(table => {
+    const headers = Array.from(table.querySelectorAll('thead th')).map(th => normalize(th.textContent));
+    const methodIndex = headers.findIndex(text => /^(계약방법|계약방식)$/.test(text));
+    const awardIndex = headers.findIndex(text => /^(낙찰자선정방법|낙찰방법)$/.test(text));
+    const requestList = /05_|06_/.test(page) && headers.some(text => /발주.*(번호|건명)/.test(text));
+    if (methodIndex < 0 && !requestList) return;
+    const tbody = table.tBodies[0];
+    if (!tbody?.rows.length) return;
+    const templates = Array.from(tbody.rows).filter(row => row.cells.length === headers.length);
+    if (!templates.length) return;
+    const titleIndex = headers.findIndex(text => /^(입찰건명|수의계약건명|발주건명|건명|계약명|발주계획명|품의건명)$/.test(text));
+    const numberIndex = headers.findIndex(text => /번호$/.test(text));
+    const wrapper = table.closest('.data-grid');
+    const tableRecords = table.classList.contains('widget-table')
+      ? records.filter(record => table.getAttribute('aria-label')?.includes('수의계약') ? record.state.method === 'sole' : record.state.method !== 'sole') : candidates;
+    table.dataset.prototypeList = 'true';
+    tbody.replaceChildren();
+    tableRecords.forEach((record, index) => {
+      const row = templates[index % templates.length].cloneNode(true);
+      row.dataset.prototypeRecord = record.id;
+      row.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
+      row.querySelectorAll('[data-ui-text], [data-ui-contract-summary]').forEach(el => { delete el.dataset.uiText; delete el.dataset.uiContractSummary; });
+      write(row.cells[methodIndex], record.methodLabel);
+      write(row.cells[awardIndex], record.awardLabel);
+      write(row.cells[titleIndex], record.title);
+      headers.forEach((header, index) => {
+        const value = prototypeRecordValue(record, header);
+        if (value !== null) write(row.cells[index], value);
+      });
+      if (numberIndex >= 0) write(row.cells[numberIndex], prototypeRecordNumber(record, headers[numberIndex]));
+      if (headers[0] === 'No') write(row.cells[0], String(index + 1));
+      if (table.classList.contains('widget-table')) {
+        const partner = page.includes('SRMDashboardPartner');
+        const destination = record.state.method === 'sole' ? '../07-1_수의계약관리/SRMSoleSourceStatus.html' : partner ? 'SRMPartnerBidJoinDetail.html' : '../07-2_입찰관리/SRMDetail.html';
+        if (numberIndex >= 0) row.cells[numberIndex].textContent = row.cells[numberIndex].textContent;
+        [titleIndex].filter(index => index >= 0).forEach(index => {
+          const cell = row.cells[index];
+          if (!cell.querySelector('a')) { const link = document.createElement('a'); link.textContent = cell.textContent; cell.replaceChildren(link); }
+          cell.querySelector('a').setAttribute('href', destination);
+        });
+      }
+      // Links have their own record URL before click, so opening a new tab works too.
+      row.querySelectorAll('a[href], [data-href]').forEach(link => {
+        const attribute = link.hasAttribute('href') ? 'href' : 'data-href';
+        const source = link.getAttribute(attribute);
+        if (!source || source.startsWith('#')) return;
+        const url = new URL(source, location.href);
+        if (url.origin !== location.origin || !url.pathname.endsWith('.html')) return;
+        url.searchParams.set('record', record.id);
+        url.searchParams.set('ui', JSON.stringify(record.state));
+        link.setAttribute(attribute, url.href);
+      });
+      tbody.appendChild(row);
+    });
+    if (wrapper) { wrapper.dataset.totalItems = String(tableRecords.length); delete wrapper.dataset.totalPages; }
+  });
+  // The public announcement carousel uses the same competitive records.
+  const slides = Array.from(document.querySelectorAll('.bidding-slide'));
+  if (slides.length) {
+    const parent = slides[0].parentElement;
+    slides.forEach(slide => slide.remove());
+    candidates.forEach((record, index) => {
+      const slide = slides[0].cloneNode(true);
+      slide.classList.toggle('active', index === 0);
+      slide.dataset.prototypeRecord = record.id;
+      slide.dataset.category = ['공사', '용역', '물품'][(record.index - 1) % 3];
+      slide.querySelector('.bidding-project-name').textContent = record.title;
+      slide.querySelectorAll('li').forEach(li => {
+        if (li.textContent.includes('낙찰자 선정방법')) li.querySelector('.val').textContent = record.awardLabel;
+        else if (li.textContent.includes('계약방법')) li.querySelector('.val').textContent = record.methodLabel;
+      });
+      parent.appendChild(slide);
+    });
+    const dots = document.querySelector('.bidding-dots');
+    const dot = dots?.querySelector('.bidding-dot');
+    if (dot) {
+      const template = dot.cloneNode(true); dots.replaceChildren();
+      candidates.forEach((record, index) => {
+        const item = template.cloneNode(true); item.classList.toggle('active', index === 0);
+        item.dataset.index = String(index); item.setAttribute('aria-label', `${index + 1}번 입찰공고`); dots.appendChild(item);
+      });
+    }
+  }
+}
+
+function prototypeRecordNumber(record, label) {
+  const prefix = /요청/.test(label) ? 'PR' : /계획|품의/.test(label) ? 'OP' : /계약/.test(label) ? 'CT' : 'BD';
+  return `${prefix}2026-${String(record.index).padStart(4, '0')}`;
+}
+
+function prototypeRecordId() {
+  const url = new URL(location.href);
+  return new URLSearchParams(url.hash.slice(1)).get('record') || url.searchParams.get('record');
+}
+
+function prototypeRecordValue(record, label) {
+  const values = {
+    '구분': ['공사', '용역', '물품'][(record.index - 1) % 3],
+    '계약구분': ['공사', '용역', '물품'][(record.index - 1) % 3],
+    '계약금액': '99,000,000원', '계약체결일': '2026.07.31',
+    '납기일/공사기간': '2026.07.20 ~ 2027.07.30',
+    '계약상대자': '(주)큐비트엑스 (135-81-77202)', '사업담당자': '홍길동', '계약담당자': '임꺽정'
+  };
+  return values[label.replace(/[\s*]/g, '')] ?? null;
+}
+
+function renderPrototypeRecord(record, state = record.state) {
+  document.querySelectorAll('#workflowDetail, #bidDetailAnchor').forEach(heading => {
+    heading.textContent = heading.textContent.replace(/BD\d{4}-\d+/, prototypeRecordNumber(record, '공고번호'));
+  });
+  const normalize = value => value.replace(/[\s*]/g, '');
+  const valueFor = label => {
+    const name = normalize(label);
+    if (/^현장설명회(일시|장소|\()/.test(name) && state.briefing === 'yes') return '2026.08.05 16:00 / 켑코이에스 대회의실';
+    if (/^제안발표(일시|장소|\()/.test(name) && state.presentation === 'yes') return '2026.08.31 16:30 / 켑코이에스 대회의실';
+    if (name === '최저점수(적격여부판단)') return ['restricted', 'separate'].includes(state.award) ? '30점' : '60점';
+    if (/^(입찰건명|수의계약건명|발주건명|발주계획명|건명|계약명|품의건명)$/.test(name)) return record.title;
+    if (/^(입찰번호|입찰공고번호|공고번호|계약번호|발주계약요청번호|발주요청번호|발주계획번호|발주계약품의번호)$/.test(name)) return prototypeRecordNumber(record, name);
+    return prototypeRecordValue(record, name);
+  };
+  document.querySelectorAll('main .srm-kv-row, .modal-backdrop .srm-kv-row').forEach(row => {
+    if (row.closest('[data-prototype-record]')) return;
+    const value = valueFor(row.querySelector('dt')?.textContent || '');
+    const dd = row.querySelector('dd');
+    if (value === null || !dd) return;
+    const input = dd.querySelector('input[type="text"]');
+    if (input) input.value = value;
+    else if (!dd.querySelector('button, a, select, textarea')) dd.textContent = value;
+  });
+  document.querySelectorAll('main table:not([data-prototype-list]), .modal-backdrop table').forEach(table => {
+    table.querySelectorAll('tbody th').forEach(header => {
+      const value = valueFor(header.textContent);
+      const cell = header.nextElementSibling;
+      if (value !== null && cell?.tagName === 'TD') cell.textContent = value;
+    });
+    const headers = Array.from(table.querySelectorAll('thead th'));
+    headers.forEach((header, index) => {
+      if (/^예정가격/.test(normalize(header.textContent))) Array.from(table.tBodies).forEach(body => Array.from(body.rows).forEach(row => {
+        const cell = row.cells[index];
+        if (!cell || row.cells.length !== headers.length || cell.querySelector('input, button')) return;
+        if (cell.textContent.includes('개찰 과정') || cell.dataset.prototypePendingPrice) {
+          cell.dataset.prototypePendingPrice = 'true';
+          cell.textContent = state.price === 'planned' ? '91,088,550' : '개찰 과정에서 정의됨';
+        }
+      }));
+      const value = valueFor(header.textContent);
+      if (value === null) return;
+      Array.from(table.tBodies).forEach(body => Array.from(body.rows).forEach(row => {
+        const cell = row.cells[index];
+        if (cell && row.cells.length === headers.length && !cell.querySelector('button, input, select')) (cell.querySelector('a') || cell).textContent = value;
+      }));
+    });
+  });
+  document.querySelectorAll('.calc-notice-bar > div').forEach(item => {
+    const label = item.querySelector('strong');
+    if (!label) return;
+    const name = label.textContent.replace(/[:：]/g, '');
+    const value = /계약방법/.test(name) ? record.methodLabel : /낙찰자/.test(name) ? record.awardLabel : valueFor(name);
+    if (value !== null) { item.replaceChildren(label); item.append(document.createTextNode(` ${value}`)); }
+  });
+  document.querySelectorAll('.detail-tabs-bar a[href], .wizard-stepper a[href], .page-actions a[href], .srm-detail-actions a[href], #ssDetailView a[href], main [data-detail-view] a[href], main .page-detail-body a[href], main .srm-detail-section a[href]').forEach(link => {
+    if (link.closest('[data-prototype-record]') || link.getAttribute('href').startsWith('#')) return;
+    const url = new URL(link.getAttribute('href'), location.href);
+    if (url.origin !== location.origin || !url.pathname.endsWith('.html')) return;
+    url.searchParams.set('record', record.id); url.searchParams.set('ui', JSON.stringify(state)); link.href = url.href;
+  });
+}
+
+function initPrototypeRecordSearch() {
+  const tables = Array.from(document.querySelectorAll('table[data-prototype-list]'));
+  if (!tables.length) return;
+  document.querySelectorAll('[data-ui-scope="filter"]').forEach(filter => {
+    const apply = () => {
+      const method = filter.querySelector('[data-ui-field="method"]')?.value || '';
+      const award = filter.querySelector('[data-ui-field="award"]')?.value || '';
+      const keywords = Array.from(filter.querySelectorAll('input[type="text"], input[type="search"]')).filter(input => !input.disabled && !input.readOnly).map(input => input.value.trim().toLowerCase()).filter(Boolean);
+      tables.forEach(table => {
+        let count = 0;
+        table.querySelectorAll('tbody [data-prototype-record]').forEach(row => {
+          const record = window.srmPrototypeRecords.find(item => item.id === row.dataset.prototypeRecord);
+          const visible = (!method || method === record.state.method) && (!award || award === record.state.award) && keywords.every(keyword => row.textContent.toLowerCase().includes(keyword));
+          row.dataset.filteredOut = String(!visible);
+          if (visible) count++;
+        });
+        const wrapper = table.closest('.data-grid');
+        wrapper?.dispatchEvent(new CustomEvent('grid:refresh'));
+        let empty = wrapper?.parentElement.querySelector('[data-prototype-empty]');
+        if (!empty && wrapper) {
+          empty = document.createElement('p'); empty.dataset.prototypeEmpty = 'true'; empty.className = 'content-inner-gap-top'; empty.setAttribute('role', 'status'); empty.textContent = '검색 조건에 해당하는 게시물이 없습니다.'; wrapper.after(empty);
+        }
+        if (empty) empty.hidden = count > 0;
+      });
+    };
+    filter.addEventListener('submit', event => { event.preventDefault(); apply(); });
+    filter.querySelectorAll('.btn-filter-search, .btn-search-main').forEach(button => button.addEventListener('click', apply));
+    filter.querySelectorAll('.btn-filter-reset, .btn-reset-main').forEach(button => button.addEventListener('click', () => {
+      filter.querySelectorAll('input[type="text"], input[type="search"]').forEach(input => { if (!input.readOnly) input.value = ''; });
+      apply();
+    }));
+  });
+}
+
+/** Fill the read-only variants with the same Description rules as the edit forms. */
+function initPrototypeReadViews() {
+  const normalize = value => value.replace(/[\s*]/g, '');
+  const evaluated = 'award=restricted|simultaneous|separate|qualification';
+  const rules = [
+    [/^(가격투찰기간|가격투찰시작일시|가격투찰종료일시)$/, 'award=restricted|separate'],
+    [/^(업체평가종료일|동점자처리기준|평가자매핑|최저점수\(적격여부판단\))$/, evaluated],
+    [/^종합평가비율$|^협상에의한계약여부$/, 'award=simultaneous'],
+    [/^제안발표여부$/, 'award=simultaneous;negotiated=yes'],
+    [/^제안발표(일시|장소|\()/, 'award=simultaneous;negotiated=yes;presentation=yes'],
+    [/^현장설명회?(일시|장소|\()/, 'briefing=yes'],
+    [/^입찰참여(업체선택|가능업체)$/, 'method=designated'],
+    [/^(수의계약사유|근거\/수의계약사유|계약상대자\(수의계약의경우\))$/, 'method=sole'],
+    [/^(제한경쟁참가자격|입찰참가자격)$/, 'method=limited']
+  ];
+  document.querySelectorAll('[data-ui-scope] .srm-kv-row, [data-ui-scope] table tbody tr').forEach(row => {
+    if (row.closest('[data-prototype-record]') || row.querySelector('input, select, textarea')) return;
+    const pairs = row.matches('.srm-kv-row') ? [row.querySelector('dt')] : Array.from(row.querySelectorAll(':scope > th'));
+    pairs.filter(Boolean).forEach(label => {
+      const name = normalize(label.textContent);
+      const value = label.nextElementSibling;
+      if (!value) return;
+      if (/^(계약방법|계약방식)$/.test(name)) value.dataset.uiText = 'method';
+      if (/^(낙찰자선정방법|낙찰방법)$/.test(name)) value.dataset.uiText = 'award';
+      const rule = rules.find(([pattern]) => pattern.test(name));
+      if (rule) {
+        if (pairs.length === 1 && !row.dataset.uiShow) row.dataset.uiShow = rule[1];
+        else if (pairs.length > 1) { label.dataset.uiShow = rule[1]; value.dataset.uiShow = rule[1]; }
+      }
+    });
+  });
+  document.querySelectorAll('[data-ui-scope] table').forEach(table => {
+    if (table.dataset.prototypeList) return;
+    if (table.getAttribute('aria-label') === '심사/평가 항목') {
+      const wrapper = table.closest('.srm-table-wrap') || table;
+      if (!wrapper.dataset.uiShow) wrapper.dataset.uiShow = evaluated;
+      const heading = wrapper.previousElementSibling;
+      if (heading?.matches('p') && heading.textContent.includes('심사/평가')) heading.dataset.uiShow = evaluated;
+    }
+    const headers = Array.from(table.querySelectorAll('thead th'));
+    headers.forEach((header, index) => {
+      const name = normalize(header.textContent);
+      const field = /^(계약방법|계약방식)$/.test(name) ? 'method' : /^(낙찰자선정방법|낙찰방법)$/.test(name) ? 'award' : '';
+      if (field) Array.from(table.tBodies).forEach(body => Array.from(body.rows).forEach(row => {
+        if (row.cells.length === headers.length) row.cells[index].dataset.uiText = field;
+      }));
+      const condition = /복수예비|낙찰하한/.test(name) ? 'price=reserve' : /^(사정금액|예정가격)/.test(name) ? 'price=planned|reserve' : '';
+      if (!condition) return;
+      header.dataset.uiShow = condition;
+      Array.from(table.tBodies).forEach(body => Array.from(body.rows).forEach(row => {
+        if (row.cells.length === headers.length) row.cells[index].dataset.uiShow = condition;
+      }));
+    });
+  });
+  document.querySelectorAll('[data-ui-scope] p.modal-field-label').forEach(label => {
+    if (/^(예정가|예정가\/예비가)$/.test(normalize(label.textContent))) label.dataset.uiText = 'price';
+  });
+  document.addEventListener('prototype:refresh', () => {
+    const record = window.srmPrototypeRecords.find(item => item.id === prototypeRecordId());
+    if (!record) return;
+    const sole = record.state.method === 'sole';
+    document.querySelectorAll('a[href*="SRMContractStatusDetailBidPlan.html"].detail-tab-btn').forEach(link => { link.textContent = sole ? '수의계약 계획 정보' : '입찰계획 정보'; });
+    if (location.pathname.endsWith('/SRMContractStatusDetailBidPlan.html')) {
+      document.querySelectorAll('.page-title, .breadcrumb-item.current').forEach(el => { el.textContent = sole ? '수의계약 계획 정보' : '입찰계획 정보'; });
+    }
+  });
+}
+
+// Preserve the selected quotation/request context across its distinct view routes.
+function initNavigationContext() {
+  const apply = (scope, values) => {
+    scope.querySelectorAll('[data-nav-value]').forEach(el => {
+      if (values[el.dataset.navValue]) el.textContent = values[el.dataset.navValue];
+    });
+  };
+  const params = Object.fromEntries(new URL(location.href).searchParams);
+  apply(document.querySelector('main') || document.body, params);
+  document.addEventListener('click', event => {
+    const edit = event.target.closest('[data-nav-edit], [data-nav-new]');
+    if (edit) {
+      const modal = document.getElementById(edit.dataset.openModal);
+      modal?.querySelectorAll('.srm-kv-row').forEach(row => {
+        const name = row.querySelector('dt')?.textContent.replace(/[\s*]/g, '');
+        const input = row.querySelector('input[type="text"]');
+        if (input && (name === edit.dataset.navEdit || edit.hasAttribute('data-nav-new'))) input.value = edit.hasAttribute('data-nav-new') ? '' : edit.textContent.trim();
+      });
+    }
+    const link = event.target.closest('[data-quote-preview]');
+    if (!link) return;
+    const row = link.closest('tr'), modal = document.getElementById(link.dataset.openModal);
+    if (!row || !modal) return;
+    const headers = Array.from(row.closest('table').querySelectorAll('thead th')).map(el => el.textContent.replace(/\s/g, ''));
+    const value = name => row.cells[headers.indexOf(name)]?.textContent.trim();
+    apply(modal, { quoteRound: [value('견적번호'), value('차수')].filter(Boolean).join(' / '), vendor: value('업체명'), submitted: value('견적제출일시') || '-' });
   });
 }

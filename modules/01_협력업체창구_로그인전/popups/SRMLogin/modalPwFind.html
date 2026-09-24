@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>비밀번호 찾기</title>
-  <link rel="stylesheet" href="../../../assets/styles/style.css">
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
 </head>
 <body class="popup-document">
-<div class="modal-backdrop" id="modalPwFind" role="dialog" aria-modal="true" aria-labelledby="pwFindModalTitle" aria-hidden="false">
+<div class="modal-backdrop" id="modalPwFind" role="dialog" aria-modal="true" aria-labelledby="pwFindModalTitle" aria-hidden="false" data-ui-scope="popup">
     <div class="modal-dialog modal-lg">
       <div class="modal-header">
         <h2 class="modal-title" id="pwFindModalTitle">비밀번호 찾기</h2>
@@ -24,7 +24,7 @@
         <div class="srm-kv-grid content-inner-gap-top description-marker-container">
           <span class="description-target-marker marker-top-left" aria-hidden="true">1</span>
           <div class="srm-kv-row"><dt>사업자등록번호(아이디) <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control w-160" placeholder="숫자로만 입력해 주세요."></dd></div>
-          <div class="srm-kv-row"><dt>담당자 이메일 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control w-140 inline-control"> @ <select class="filter-select w-150 inline-control"><option>이메일 선택</option><option>직접 입력</option></select></dd></div>
+          <div class="srm-kv-row"><dt>담당자 이메일 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control w-140 inline-control"> @ <select class="filter-select w-150 inline-control"><option value="">이메일 선택</option><option value="direct">직접 입력</option><option value="naver.com">naver.com</option><option value="google.com">google.com</option><option value="hanmail.net">hanmail.net</option><option value="daum.net">daum.net</option><option value="nate.com">nate.com</option></select><input type="text" class="form-control w-160" aria-label="이메일 도메인" placeholder="도메인 직접 입력"></dd></div>
           <div class="srm-kv-row"><dt>담당자 핸드폰 번호 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control w-60 inline-control" value="010"> - <input type="text" class="form-control w-60 inline-control"> - <input type="text" class="form-control w-60 inline-control"></dd></div>
         </div>
       </div>
@@ -37,6 +37,6 @@
       </div>
     </div>
   </div>
-  <script src="../../../assets/scripts/dashboard.js"></script>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
 </body>
 </html>

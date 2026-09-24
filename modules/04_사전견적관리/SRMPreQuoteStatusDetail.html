@@ -267,7 +267,7 @@
       </div>
     </aside>
 
-        <main class="main-content page-detail-content">
+        <main class="main-content page-detail-content" data-ui-defaults="{&quot;items&quot;:&quot;unit&quot;}" data-ui-family="prequote" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">사전 견적 요청 현황 상세</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardBiz.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">사전 견적 관리</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">사전 견적 요청 현황</span></div>
@@ -286,7 +286,7 @@
           <div class="srm-kv-row"><dt>견적요청명</dt><dd>[재견적(1)] 태양광 발전기 도입 관련 견적 요청의 건</dd></div>
           <div class="srm-kv-row"><dt>견적유형</dt><dd>공사</dd></div>
           <div class="srm-kv-row"><dt>예산금액</dt><dd>135,400,000원</dd></div>
-          <div class="srm-kv-row"><dt>품목구성방법</dt><dd>지정항목</dd></div>
+          <div class="srm-kv-row"><dt>품목구성방법</dt><dd data-ui-text="items">지정항목</dd></div>
           <div class="srm-kv-row"><dt>비고</dt><dd>-</dd></div>
           <div class="srm-kv-row"><dt>견적요청일</dt><dd>2026.06.15 09:20</dd></div>
           <div class="srm-kv-row"><dt>견적 마감일시</dt><dd>2026.07.31 18:00</dd></div>
@@ -297,10 +297,10 @@
         <div class="srm-section-heading content-object-gap-top"><div><h2>품목 정보</h2></div><p>등록된 품목 : 총 2건</p></div>
         <div class="srm-table-wrap">
           <table class="data-table" aria-label="품목 정보">
-            <thead><tr><th class="col-no">No</th><th>품목코드</th><th>품목명</th><th>규격</th><th>단위</th><th>수량</th><th>납기요청일</th><th>입고장소</th><th>비고</th></tr></thead>
+            <thead><tr><th class="col-no">No</th><th>품목코드</th><th>품목명</th><th data-ui-show="items=custom">규격</th><th>단위</th><th>수량</th><th>납기요청일</th><th>입고장소</th><th>비고</th></tr></thead>
             <tbody>
-              <tr><td>1</td><td>A0106-001</td><td class="text-left">고효율 인버터</td><td class="text-left">-</td><td>EA</td><td>3</td><td>2026.07.31</td><td>현장</td><td>-</td></tr>
-              <tr><td>2</td><td>A0103-001</td><td class="text-left">고효율 공기 압축기</td><td>-</td><td>EA</td><td>2</td><td>2026.07.31</td><td>켑코이에스 본사</td><td>-</td></tr>
+              <tr><td>1</td><td>A0106-001</td><td class="text-left">고효율 인버터</td><td class="text-left" data-ui-show="items=custom">-</td><td>EA</td><td>3</td><td>2026.07.31</td><td>현장</td><td>-</td></tr>
+              <tr><td>2</td><td>A0103-001</td><td class="text-left">고효율 공기 압축기</td><td data-ui-show="items=custom">-</td><td>EA</td><td>2</td><td>2026.07.31</td><td>켑코이에스 본사</td><td>-</td></tr>
             </tbody>
           </table>
         </div>

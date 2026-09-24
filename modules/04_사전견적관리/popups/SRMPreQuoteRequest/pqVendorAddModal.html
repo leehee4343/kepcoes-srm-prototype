@@ -7,12 +7,12 @@
   <link rel="stylesheet" href="../../../../assets/styles/style.css">
 </head>
 <body class="popup-document">
-<div class="modal-backdrop" id="pqVendorAddModal" role="dialog" aria-modal="true" aria-labelledby="pqVendorAddTitle" aria-hidden="false">
+<div class="modal-backdrop" id="pqVendorAddModal" role="dialog" aria-modal="true" aria-labelledby="pqVendorAddTitle" aria-hidden="false" data-ui-defaults="{&quot;items&quot;:&quot;unit&quot;}" data-ui-scope="popup">
     <div class="modal-dialog modal-xl">
       <div class="modal-header"><h2 class="modal-title" id="pqVendorAddTitle">견적요청 업체 추가</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
       <div class="modal-body">
         <section class="filter-card">
-          <form>
+          <form data-ui-scope="filter">
             <div class="filter-row hstack gap-12">
               <span class="filter-label w-130">조회기간(신청일)</span>
               <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input" aria-label="검색 시작일"><span>~</span><input type="date" class="filter-date-input" aria-label="검색 종료일"></div>

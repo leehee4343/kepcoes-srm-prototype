@@ -267,7 +267,7 @@
       </div>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" data-ui-defaults="{&quot;method&quot;:&quot;sole&quot;,&quot;award&quot;:&quot;lowest&quot;,&quot;price&quot;:&quot;estimated&quot;,&quot;documents&quot;:&quot;false&quot;}" data-ui-family="sole" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">수의계약 현황</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardBiz.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">수의계약 관리</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">수의계약 현황</span></div>
@@ -276,7 +276,7 @@
 
       <div class="board-view show" id="ssListView">
       <section class="filter-card">
-        <form id="ssStatusSearchForm">
+        <form id="ssStatusSearchForm" data-ui-scope="filter">
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-130">조회기간(등록일)</span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
@@ -342,10 +342,10 @@
               <tr><th class="w-55">No</th><th class="w-90">공고 번호</th><th class="w-70">공고 구분</th><th class="w-120">진행상태</th><th class="minw-240">수의계약 건명</th><th class="w-60">구분</th><th class="w-90">계약방법</th><th class="w-90">낙찰자 선정방법</th><th class="w-90">등록일</th><th class="w-70">사업담당자</th><th class="w-70">계약담당자</th></tr>
             </thead>
             <tbody>
-              <tr><td>1,542</td><td><a href="#" data-open-modal="ssDetailView">BD2026-0023</a></td><td>본공고</td><td><span class="badge-tag">공고대기</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td>공사</td><td>수의계약</td><td>최저가</td><td>2026.06.10</td><td>홍길동</td><td>임꺽정</td></tr>
-              <tr><td>1,541</td><td><a href="#" data-open-modal="ssDetailView">BD2026-0024</a></td><td>본공고</td><td><span class="badge-info">공고게시중</span></td><td class="text-left">금호동 1601-9 오피스텔 신축공사 중 도장공사</td><td>용역</td><td>수의계약</td><td>최저가</td><td>2026.06.10</td><td>홍길동</td><td>임꺽정</td></tr>
-              <tr><td>1,540</td><td><a href="#" data-open-modal="ssDetailView">BD2026-0025</a></td><td>본공고</td><td><span class="badge-info">수의계약(견적요청)</span></td><td class="text-left">본사 사옥 노후 배관 교체공사</td><td>물품</td><td>수의계약</td><td>최저가</td><td>2026.06.10</td><td>홍길동</td><td>임꺽정</td></tr>
-              <tr><td>1,539</td><td><a href="#" data-open-modal="ssDetailView">BD2026-0026</a></td><td>본공고</td><td><span class="badge-success">계약품의(전자결재 완료)</span></td><td class="text-left">사무동 냉난방기 유지보수 용역</td><td>용역</td><td>수의계약</td><td>최저가</td><td>2026.05.14</td><td>박일용</td><td>임꺽정</td></tr>
+              <tr><td>1,542</td><td>BD2026-0023</td><td>본공고</td><td><span class="badge-tag">공고대기</span></td><td class="text-left"><a href="#" data-open-modal="ssDetailView">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>공사</td><td>수의계약</td><td>최저가</td><td>2026.06.10</td><td>홍길동</td><td>임꺽정</td></tr>
+              <tr><td>1,541</td><td>BD2026-0024</td><td>본공고</td><td><span class="badge-info">공고게시중</span></td><td class="text-left"><a href="#" data-open-modal="ssDetailView">금호동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>용역</td><td>수의계약</td><td>최저가</td><td>2026.06.10</td><td>홍길동</td><td>임꺽정</td></tr>
+              <tr><td>1,540</td><td>BD2026-0025</td><td>본공고</td><td><span class="badge-info">수의계약(견적요청)</span></td><td class="text-left"><a href="#" data-open-modal="ssDetailView">본사 사옥 노후 배관 교체공사</a></td><td>물품</td><td>수의계약</td><td>최저가</td><td>2026.06.10</td><td>홍길동</td><td>임꺽정</td></tr>
+              <tr><td>1,539</td><td>BD2026-0026</td><td>본공고</td><td><span class="badge-success">계약품의(전자결재 완료)</span></td><td class="text-left"><a href="#" data-open-modal="ssDetailView">사무동 냉난방기 유지보수 용역</a></td><td>용역</td><td>수의계약</td><td>최저가</td><td>2026.05.14</td><td>박일용</td><td>임꺽정</td></tr>
             </tbody>
           </table>
         </div>
@@ -366,10 +366,10 @@
         <!-- 표준 탭 메뉴 (5.7): 탭마다 독립 HTML 파일 -->
       <div class="detail-tabs-bar">
         <div class="detail-tab-group" role="tablist" aria-label="수의계약 현황 상세정보 탭">
-          <a href="SRMSoleSourceStatus.html" class="detail-tab-btn active" role="tab" aria-selected="true">발주계획 정보</a>
-          <a href="SRMSoleSourceStatusPlan.html" class="detail-tab-btn" role="tab" aria-selected="false">수의계약 계획 정보</a>
-          <a href="SRMSoleSourceStatusQuote.html" class="detail-tab-btn" role="tab" aria-selected="false">견적 요청 및 확인</a>
-          <a href="SRMSoleSourceStatusContract.html" class="detail-tab-btn" role="tab" aria-selected="false">계약 요청</a>
+          <a href="SRMSoleSourceStatus.html#ssDetailView" class="detail-tab-btn active" role="tab" aria-selected="true">발주계획 정보</a>
+          <a href="SRMSoleSourceStatusPlan.html#ssDetailView" class="detail-tab-btn" role="tab" aria-selected="false">수의계약 계획 정보</a>
+          <a href="SRMSoleSourceStatusQuote.html#ssDetailView" class="detail-tab-btn" role="tab" aria-selected="false">견적 요청 및 확인</a>
+          <a href="SRMSoleSourceStatusContract.html#ssDetailView" class="detail-tab-btn" role="tab" aria-selected="false">계약 요청</a>
         </div>
       </div>
 
@@ -384,7 +384,7 @@
           <div class="srm-kv-row"><dt>요청일</dt><dd>2026.06.01</dd></div>
           <div class="srm-kv-row"><dt>계약예정일</dt><dd>2026.07.31</dd></div>
           <div class="srm-kv-row"><dt>구분</dt><dd>공사</dd></div>
-          <div class="srm-kv-row"><dt>수주계약정보</dt><dd class="content-bullet-item">수주계약번호 : 160011612-01-31-C<br>· 수주계약명 : GE-4 에너지효율화(ID Fan VVVF 설치) 사업<br>· 수주계약일 : 2026.12.23<br>· 수주계약업체 : 군장에너지주식회사</dd></div>
+          <div class="srm-kv-row"><dt>수주계약정보</dt><dd><ul class="bullet-list"><li>수주계약번호 : 160011612-01-31-C</li><li>수주계약명 : GE-4 에너지효율화(ID Fan VVVF 설치) 사업</li><li>수주계약일 : 2026.12.23</li><li>수주계약업체 : 군장에너지주식회사</li></ul></dd></div>
           <div class="srm-kv-row"><dt>사업담당자</dt><dd>홍길동</dd></div>
           <div class="srm-kv-row"><dt>계약담당자</dt><dd>임꺽정</dd></div>
         </div>
@@ -398,13 +398,13 @@
           <div class="srm-kv-row"><dt>계약이행 보증금률</dt><dd>10%</dd></div>
           <div class="srm-kv-row"><dt>하자이행 보증금률</dt><dd>3%</dd></div>
           <div class="srm-kv-row"><dt>하자이행 기간</dt><dd>2년</dd></div>
-          <div class="srm-kv-row"><dt>계약방법</dt><dd>수의계약</dd></div>
-          <div class="srm-kv-row"><dt>낙찰자 선정방법</dt><dd>최저가</dd></div>
-          <div class="srm-kv-row"><dt>근거 / 수의계약 사유</dt><dd>추정가격이 2,000만원 미만으로 수의계약 진행</dd></div>
-          <div class="srm-kv-row"><dt>계약상대자(수의계약의 경우)</dt><dd class="content-bullet-item">매핑된 협력업체 : (주)큐비트엑스(135-81-77202)</dd></div>
+          <div class="srm-kv-row"><dt>계약방법</dt><dd data-ui-contract-summary="false" data-ui-text="method">수의계약</dd></div>
+          <div class="srm-kv-row"><dt>낙찰자 선정방법</dt><dd data-ui-text="award">최저가</dd></div>
+          <div class="srm-kv-row" data-ui-show="method=sole"><dt>근거 / 수의계약 사유</dt><dd>추정가격이 2,000만원 미만으로 수의계약 진행</dd></div>
+          <div class="srm-kv-row" data-ui-show="method=sole"><dt>계약상대자(수의계약의 경우)</dt><dd class="content-bullet-item">매핑된 협력업체 : (주)큐비트엑스(135-81-77202)</dd></div>
           <div class="srm-kv-row"><dt>참가자격</dt><dd>도장·습식·방수·석공사업 보유업체</dd></div>
-          <div class="srm-kv-row"><dt>예정/예비가격 결정</dt><dd>예정가</dd></div>
-          <div class="srm-kv-row"><dt>예정가격 결정자</dt><dd>사장</dd></div>
+          <div class="srm-kv-row"><dt>예정/예비가격 결정</dt><dd data-ui-text="price">예정가</dd></div>
+          <div class="srm-kv-row" data-ui-show="price=planned"><dt>예정가격 결정자</dt><dd>사장</dd></div>
         </div>
         <p class="modal-field-label content-inner-gap-top">계약업체 면허 설정 / 첨부 서류 / 품목 정보</p>
         <div class="srm-kv-grid">

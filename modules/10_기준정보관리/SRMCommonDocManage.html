@@ -267,7 +267,7 @@
       </div>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">공통 서류 관리</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardAdmin.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">기준정보 관리</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">공통 서류 관리</span></div>
@@ -275,7 +275,7 @@
 
 
       <p class="modal-field-label">'입찰 참여 서류', '수의계약 참여 서류' 등록을 편하게 하기 위한 템플릿 관리 기능입니다.</p>
-      <section class="filter-card">
+      <section class="filter-card" data-ui-scope="filter">
         <div class="filter-row hstack gap-12">
           <span class="filter-label w-100">구분</span>
           <div class="form-choice-group" role="radiogroup">
@@ -320,13 +320,13 @@
               <tr><th class="w-70">No</th><th class="w-140">구분</th><th class="minw-240">공통 서류 명칭</th><th class="w-80">서류(수)</th><th class="w-80">사용여부</th><th class="w-90">등록일</th><th class="w-70">등록자</th><th class="w-60">관리</th><th class="w-60">삭제</th></tr>
             </thead>
             <tbody>
-              <tr><td>1,524</td><td>입찰 참여 서류</td><td class="text-left">일반/공통(공사 사업 기준) 사업에 쓰이는 입찰 서류 목록</td><td>5개</td><td><span class="badge-info">사용(Y)</span></td><td>2026.06.09</td><td>이희성</td><td><a href="SRMCommonDocDetail.html">관리</a></td><td><button type="button" class="btn-delete" data-close-modal data-open-modal="cdDeleteConfirmModal">삭제</button></td></tr>
-              <tr><td>1,523</td><td>수의계약 참여 서류</td><td class="text-left">수의계약(공사) 사업에 쓰이는 입찰 서류 목록</td><td>7개</td><td><span class="badge-tag">중지(N)</span></td><td>2026.05.20</td><td>이희성</td><td><a href="SRMCommonDocDetail.html">관리</a></td><td><button type="button" class="btn-delete" data-close-modal data-open-modal="cdDeleteConfirmModal">삭제</button></td></tr>
+              <tr><td>1,524</td><td>입찰 참여 서류</td><td class="text-left"><a href="#" data-open-modal="cdFormModal" data-nav-edit="공통서류명칭">일반/공통(공사 사업 기준) 사업에 쓰이는 입찰 서류 목록</a></td><td>5개</td><td><span class="badge-info">사용(Y)</span></td><td>2026.06.09</td><td>이희성</td><td><a href="SRMCommonDocDetail.html">관리</a></td><td><button type="button" class="btn-delete" data-close-modal data-open-modal="cdDeleteConfirmModal">삭제</button></td></tr>
+              <tr><td>1,523</td><td>수의계약 참여 서류</td><td class="text-left"><a href="#" data-open-modal="cdFormModal" data-nav-edit="공통서류명칭">수의계약(공사) 사업에 쓰이는 입찰 서류 목록</a></td><td>7개</td><td><span class="badge-tag">중지(N)</span></td><td>2026.05.20</td><td>이희성</td><td><a href="SRMCommonDocDetail.html">관리</a></td><td><button type="button" class="btn-delete" data-close-modal data-open-modal="cdDeleteConfirmModal">삭제</button></td></tr>
             </tbody>
           </table>
         </div>
         <div class="table-pagination-row"><nav class="pagination-controls" aria-label="표 페이지 이동"></nav></div>
-        <div class="table-bottom-actions"><button type="button" class="btn-action-new" data-href="SRMCommonDocForm.html">공통 서류 등록</button></div>
+        <div class="table-bottom-actions"><button type="button" class="btn-action-new" data-href="#" data-open-modal="cdFormModal" data-nav-edit="공통서류명칭">공통 서류 등록</button></div>
       </div>
 
     </main>
@@ -349,6 +349,6 @@
 
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMCommonDocManage/cdDeleteConfirmModal.html", "popups/SRMCommonDocManage/cdDocAddModal.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMCommonDocManage/cdDeleteConfirmModal.html","popups/SRMCommonDocManage/cdDocAddModal.html","popups/SRMCommonDocManage/cdFormModal.html"]</script>
 </body>
 </html>

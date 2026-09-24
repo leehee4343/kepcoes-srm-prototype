@@ -267,7 +267,7 @@
       </div>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">코드관리</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardAdmin.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">공통관리</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">코드관리</span></div>
@@ -281,9 +281,9 @@
             <table class="data-table" aria-label="대분류 코드">
               <thead><tr><th class="col-no">코드</th><th>대분류 코드명</th><th class="w-80">사용 여부</th><th class="w-60">삭제</th></tr></thead>
               <tbody>
-              <tr class="is-selected"><td>001</td><td class="col-left">계약방식</td><td><span class="badge-success">사용(Y)</span></td><td><span class="description-marker-anchor"><span class="description-target-marker" aria-hidden="true">2</span><button type="button" class="btn-row-del">삭제</button></span></td></tr>
-                <tr><td>002</td><td class="col-left">낙찰자 선정방법</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-                <tr><td>003</td><td class="col-left">처리상태</td><td><span class="badge-tag">중지(N)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+              <tr class="is-selected"><td>001</td><td class="col-left"><a href="#" data-open-modal="codeManageModal" data-nav-edit="코드명">계약방식</a></td><td><span class="badge-success">사용(Y)</span></td><td><span class="description-marker-anchor"><span class="description-target-marker" aria-hidden="true">2</span><button type="button" class="btn-row-del">삭제</button></span></td></tr>
+                <tr><td>002</td><td class="col-left"><a href="#" data-open-modal="codeManageModal" data-nav-edit="코드명">낙찰자 선정방법</a></td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+                <tr><td>003</td><td class="col-left"><a href="#" data-open-modal="codeManageModal" data-nav-edit="코드명">처리상태</a></td><td><span class="badge-tag">중지(N)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
               </tbody>
             </table>
           </div>
@@ -296,9 +296,9 @@
             <table class="data-table" aria-label="중분류 코드">
               <thead><tr><th class="col-no">코드</th><th>중분류 코드명</th><th class="w-60">순서</th><th class="w-80">사용 여부</th><th class="w-60">삭제</th></tr></thead>
               <tbody>
-                <tr class="is-selected"><td>001001</td><td class="col-left">EPC 계약</td><td>▼</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-                <tr><td></td><td class="col-left">ESCO 계약</td><td>▼ ▲</td><td><span class="badge-tag">중지(N)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-                <tr><td></td><td class="col-left">기타 계약</td><td>▲</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+                <tr class="is-selected"><td>001001</td><td class="col-left"><a href="#" data-open-modal="codeManageModal" data-nav-edit="코드명">EPC 계약</a></td><td>▼</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+                <tr><td></td><td class="col-left"><a href="#" data-open-modal="codeManageModal" data-nav-edit="코드명">ESCO 계약</a></td><td>▼ ▲</td><td><span class="badge-tag">중지(N)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+                <tr><td></td><td class="col-left"><a href="#" data-open-modal="codeManageModal" data-nav-edit="코드명">기타 계약</a></td><td>▲</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
               </tbody>
             </table>
           </div>
@@ -311,9 +311,9 @@
             <table class="data-table" aria-label="소분류 코드">
               <thead><tr><th class="col-no">코드</th><th>소분류 코드명</th><th class="w-60">순서</th><th class="w-80">사용 여부</th><th class="w-60">삭제</th></tr></thead>
               <tbody>
-                <tr class="is-selected"><td>001001001</td><td class="col-left">소분류#1</td><td>▼</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-                <tr><td></td><td class="col-left">소분류#2</td><td>▼ ▲</td><td><span class="badge-tag">중지(N)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-                <tr><td></td><td class="col-left">소분류#3</td><td>▲</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+                <tr class="is-selected"><td>001001001</td><td class="col-left"><a href="#" data-open-modal="codeManageModal" data-nav-edit="코드명">소분류#1</a></td><td>▼</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+                <tr><td></td><td class="col-left"><a href="#" data-open-modal="codeManageModal" data-nav-edit="코드명">소분류#2</a></td><td>▼ ▲</td><td><span class="badge-tag">중지(N)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+                <tr><td></td><td class="col-left"><a href="#" data-open-modal="codeManageModal" data-nav-edit="코드명">소분류#3</a></td><td>▲</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
               </tbody>
             </table>
           </div>

@@ -7,12 +7,12 @@
   <link rel="stylesheet" href="../../../../assets/styles/style.css">
 </head>
 <body class="popup-document">
-<div class="modal-backdrop" id="ctPartnerPickModal" role="dialog" aria-modal="true" aria-labelledby="ctPartnerPickTitle" aria-hidden="false">
+<div class="modal-backdrop" id="ctPartnerPickModal" role="dialog" aria-modal="true" aria-labelledby="ctPartnerPickTitle" aria-hidden="false" data-ui-scope="popup">
     <div class="modal-dialog modal-xl">
       <div class="modal-header"><h2 class="modal-title" id="ctPartnerPickTitle">협력업체 선택</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
       <div class="modal-body">
         <section class="filter-card">
-          <form>
+          <form data-ui-scope="filter">
   <div class="filter-row hstack gap-12">
             <span class="filter-label w-130">조회기간(신청일)</span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>

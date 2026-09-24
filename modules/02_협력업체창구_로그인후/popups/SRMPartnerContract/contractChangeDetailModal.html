@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../../../../assets/styles/style.css">
 </head>
 <body class="popup-document">
-<div class="modal-backdrop" id="contractChangeDetailModal" role="dialog" aria-modal="true" aria-labelledby="contractChangeDetailTitle" aria-hidden="false">
+<div class="modal-backdrop" id="contractChangeDetailModal" role="dialog" aria-modal="true" aria-labelledby="contractChangeDetailTitle" aria-hidden="false" data-ui-scope="popup">
     <div class="modal-dialog">
       <div class="modal-header">
         <h2 class="modal-title" id="contractChangeDetailTitle">계약 변경 내역 상세보기</h2>
@@ -16,11 +16,11 @@
       <div class="modal-body">
         <div class="srm-kv-grid">
           <div class="srm-kv-row"><dt>계약변경일</dt><dd>2026.09.01</dd></div>
-          <div class="srm-kv-row description-marker-container"><span class="description-target-marker marker-top-left" aria-hidden="true">1</span><dt>변경계약 사유</dt><dd>'계약금액' 변경 | '납기일/공사기간' 변경</dd></div>
-          <div class="srm-kv-row description-marker-container"><span class="description-target-marker marker-top-left" aria-hidden="true">2</span><dt>기존 계약금액</dt><dd>99,000,000원 (구천구백만원 / VAT 포함)</dd></div>
-          <div class="srm-kv-row description-marker-container"><span class="description-target-marker marker-top-left" aria-hidden="true">2’</span><dt>변경된 계약금액</dt><dd>92,000,000원 (구천이백만원 / VAT 포함)</dd></div>
-          <div class="srm-kv-row description-marker-container"><span class="description-target-marker marker-top-left" aria-hidden="true">3</span><dt>기존 납기일/공사기간</dt><dd>2026.07.20 ~ 2027.07.30</dd></div>
-          <div class="srm-kv-row description-marker-container"><span class="description-target-marker marker-top-left" aria-hidden="true">3’</span><dt>변경된 납기일/공사기간</dt><dd>2026.07.20 ~ 2027.08.30</dd></div>
+          <div class="srm-kv-row description-marker-container"><span class="description-target-marker marker-top-left" aria-hidden="true">1</span><dt>변경계약 사유</dt><dd data-ui-value="period" data-ui-source="change">'계약금액' 변경 | '납기일/공사기간' 변경</dd></div>
+          <div class="srm-kv-row description-marker-container" data-ui-show="change=amount"><span class="description-target-marker marker-top-left" aria-hidden="true">2</span><dt>기존 계약금액</dt><dd>99,000,000원 (구천구백만원 / VAT 포함)</dd></div>
+          <div class="srm-kv-row description-marker-container" data-ui-show="change=amount"><span class="description-target-marker marker-top-left" aria-hidden="true">2’</span><dt>변경된 계약금액</dt><dd>92,000,000원 (구천이백만원 / VAT 포함)</dd></div>
+          <div class="srm-kv-row description-marker-container" data-ui-show="change=period"><span class="description-target-marker marker-top-left" aria-hidden="true">3</span><dt>기존 납기일/공사기간</dt><dd>2026.07.20 ~ 2027.07.30</dd></div>
+          <div class="srm-kv-row description-marker-container" data-ui-show="change=period"><span class="description-target-marker marker-top-left" aria-hidden="true">3’</span><dt>변경된 납기일/공사기간</dt><dd>2026.07.20 ~ 2027.08.30</dd></div>
           <div class="srm-kv-row"><dt>변경내용(메모)</dt><dd>품목 1종이 제외되어 계약금액을 수정하여 변경계약 하였습니다.</dd></div>
           <div class="srm-kv-row"><dt>변경 계약서</dt><dd class="content-bullet-item">이미 등록된 파일명.PDF</dd></div>
           <div class="srm-kv-row"><dt>변경 시 참고서류</dt><dd class="content-bullet-item">이미 등록된 파일명.PDF</dd></div>

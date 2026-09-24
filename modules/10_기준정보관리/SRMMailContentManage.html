@@ -267,7 +267,7 @@
       </div>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">메일/메시지 발송 내용 관리</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardAdmin.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">기준정보 관리</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">메일/메시지 발송 내용 관리</span></div>
@@ -275,12 +275,12 @@
 
 
       <p class="modal-field-label">메일을 발송하는 상황과 메시지를 모두 정리합니다. (참조: [별첨1] 자동 발송 메일, 메시지 내용 정리.xlsx)</p>
-      <section class="filter-card">
+      <section class="filter-card" data-ui-scope="filter">
         <div class="form-lookup">
           <select class="filter-select w-130"><option>검색 구분</option></select>
           <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
-          <button type="button" class="btn-filter-search">검색</button>
         </div>
+        <div class="filter-action-row"><button type="button" class="btn-filter-search">검색</button><button type="button" class="btn-filter-reset">초기화</button></div>
       </section>
 
       <div class="table-card">
@@ -301,10 +301,10 @@
               <tr><th class="w-70">No</th><th class="w-150">발송 상황</th><th class="w-380">이메일 제목</th><th class="w-110">발송 방법</th><th class="w-90">등록일</th><th class="w-70">등록자</th><th class="minw-170">최종 수정</th><th class="w-60">수정</th></tr>
             </thead>
             <tbody>
-              <tr><td>25,214</td><td class="text-left">협력업체 신청</td><td class="text-left">안녕하세요. 켑코이에스입니다. (협력업체 신청이 완료되었습니다.)</td><td>메일 + 메시지</td><td>2026.06.09</td><td>이희성</td><td>2026.06.10(이희성)</td><td><button type="button" class="btn-secondary" data-close-modal data-href="SRMMailContentForm.html">수정</button></td></tr>
-              <tr><td>25,213</td><td class="text-left">협력업체 승인</td><td class="text-left">안녕하세요. 켑코이에스입니다. (협력업체 승인이 완료되었습니다.)</td><td>메일</td><td>-</td><td>-</td><td>-</td><td><button type="button" class="btn-secondary" data-close-modal data-href="SRMMailContentForm.html">수정</button></td></tr>
-              <tr><td>25,212</td><td class="text-left">기본정보 수정 요청</td><td class="text-left">안녕하세요. 켑코이에스입니다. (기본정보 수정 요청이 완료되었습니다.)</td><td>메시지</td><td>-</td><td>-</td><td>-</td><td><button type="button" class="btn-secondary" data-close-modal data-href="SRMMailContentForm.html">수정</button></td></tr>
-              <tr><td>25,211</td><td class="text-left">입찰 참여 신청 완료</td><td class="text-left">안녕하세요. 켑코이에스입니다. (입찰 참여 신청이 완료되었습니다.)</td><td>메일 + 메시지</td><td>-</td><td>-</td><td>-</td><td><button type="button" class="btn-secondary" data-close-modal data-href="SRMMailContentDetail.html">수정</button></td></tr>
+              <tr><td>25,214</td><td class="text-left">협력업체 신청</td><td class="text-left"><a href="SRMMailContentDetail.html">안녕하세요. 켑코이에스입니다. (협력업체 신청이 완료되었습니다.)</a></td><td>메일 + 메시지</td><td>2026.06.09</td><td>이희성</td><td>2026.06.10(이희성)</td><td><button type="button" class="btn-secondary" data-close-modal data-href="SRMMailContentForm.html">수정</button></td></tr>
+              <tr><td>25,213</td><td class="text-left">협력업체 승인</td><td class="text-left"><a href="SRMMailContentDetail.html">안녕하세요. 켑코이에스입니다. (협력업체 승인이 완료되었습니다.)</a></td><td>메일</td><td>-</td><td>-</td><td>-</td><td><button type="button" class="btn-secondary" data-close-modal data-href="SRMMailContentForm.html">수정</button></td></tr>
+              <tr><td>25,212</td><td class="text-left">기본정보 수정 요청</td><td class="text-left"><a href="SRMMailContentDetail.html">안녕하세요. 켑코이에스입니다. (기본정보 수정 요청이 완료되었습니다.)</a></td><td>메시지</td><td>-</td><td>-</td><td>-</td><td><button type="button" class="btn-secondary" data-close-modal data-href="SRMMailContentForm.html">수정</button></td></tr>
+              <tr><td>25,211</td><td class="text-left">입찰 참여 신청 완료</td><td class="text-left"><a href="SRMMailContentDetail.html">안녕하세요. 켑코이에스입니다. (입찰 참여 신청이 완료되었습니다.)</a></td><td>메일 + 메시지</td><td>-</td><td>-</td><td>-</td><td><button type="button" class="btn-secondary" data-close-modal data-href="SRMMailContentDetail.html">수정</button></td></tr>
             </tbody>
           </table>
         </div>

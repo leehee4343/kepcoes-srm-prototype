@@ -267,7 +267,7 @@
       </div>
     </aside>
 
-        <main class="main-content page-detail-content">
+        <main class="main-content page-detail-content" data-ui-defaults="{&quot;items&quot;:&quot;unit&quot;}" data-ui-family="prequote" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">사전 견적 요청</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardBiz.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">사전 견적 관리</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">사전 견적 요청</span></div>
@@ -277,7 +277,7 @@
           <div class="srm-kv-row"><dt>견적요청명 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control grow" placeholder="50자 이내로 등록해주세요." maxlength="50"></dd></div>
           <div class="srm-kv-row"><dt>견적유형 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="pqNewType" checked>공사</label><label class="form-choice"><input type="radio" name="pqNewType">용역</label><label class="form-choice"><input type="radio" name="pqNewType">물품</label></div></dd></div>
           <div class="srm-kv-row"><dt>예산금액 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control w-160" placeholder="숫자로만 입력해주세요."></dd></div>
-          <div class="srm-kv-row"><dt>품목구성방법 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="pqNewComp" checked>품목단가</label><label class="form-choice"><input type="radio" name="pqNewComp">지정항목</label></div></dd></div>
+          <div class="srm-kv-row"><dt>품목구성방법 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="pqNewComp" checked value="unit" data-ui-field="items">품목단가</label><label class="form-choice"><input type="radio" name="pqNewComp" value="custom" data-ui-field="items">지정항목</label></div></dd></div>
           <div class="srm-kv-row"><dt>비고</dt><dd><input type="text" class="form-control grow" placeholder="100자 이내의 간단한 메모를 작성해주세요." maxlength="100"></dd></div>
         </div></section>
       <div class="page-actions"><button type="button" class="btn-secondary " data-href="SRMPreQuoteRequest.html">목록</button>

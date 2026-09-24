@@ -288,7 +288,7 @@
       </div>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">공지사항</h1></div>
         <nav class="breadcrumb" aria-label="현재 위치">
@@ -301,7 +301,7 @@
 
       <div class="board-view show" id="dashNoticeListView">
       <section class="filter-card">
-        <form id="dashNoticeSearchForm">
+        <form id="dashNoticeSearchForm" data-ui-scope="filter">
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-130">조회기간(등록일)</span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>

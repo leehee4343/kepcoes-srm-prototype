@@ -267,7 +267,7 @@
       </div>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">신청/변경 요청 처리</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardAdmin.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">협력업체 관리</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">신청/변경 요청 처리</span></div>
@@ -275,7 +275,7 @@
 
 
       <section class="filter-card">
-        <form id="approvalSearchForm">
+        <form id="approvalSearchForm" data-ui-scope="filter">
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-130">조회기간(신청일)</span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
@@ -331,8 +331,8 @@
               <tr><th class="w-55">No</th><th class="w-90">처리상태</th><th class="w-100">사업자번호</th><th class="minw-170">업체명</th><th class="w-70">대표자</th><th class="w-70">담당자</th><th class="w-110">핸드폰번호</th><th class="minw-170">이메일</th><th class="w-90">신용평가등급</th><th class="w-90">신청일</th></tr>
             </thead>
             <tbody>
-              <tr><td>1,542</td><td><span class="badge-info">신청완료</span></td><td>123-45-67891</td><td class="text-left"><a href="#" data-open-modal="apDetailModal">삼전디에스</a></td><td>홍길동</td><td>한지훈</td><td>010-1234-5678</td><td>leehee43@naver.com</td><td>-</td><td>2026.06.10</td></tr>
-              <tr><td>1,541</td><td><span class="badge-warning">정보수정 요청</span></td><td>123-45-67891</td><td class="text-left"><a href="#" data-open-modal="apDetailModal">넷퍼시</a></td><td>홍길동</td><td>김미라</td><td>-</td><td>-</td><td>AAA</td><td>2026.06.10</td></tr>
+              <tr><td>1,542</td><td><span class="badge-info">신청완료</span></td><td><a href="#" data-open-modal="apDetailModal">123-45-67891</a></td><td class="text-left">삼전디에스</td><td>홍길동</td><td>한지훈</td><td>010-1234-5678</td><td>leehee43@naver.com</td><td>-</td><td>2026.06.10</td></tr>
+              <tr><td>1,541</td><td><span class="badge-warning">정보수정 요청</span></td><td><a href="#" data-open-modal="apDetailModal">123-45-67891</a></td><td class="text-left">넷퍼시</td><td>홍길동</td><td>김미라</td><td>-</td><td>-</td><td>AAA</td><td>2026.06.10</td></tr>
             </tbody>
           </table>
         </div>

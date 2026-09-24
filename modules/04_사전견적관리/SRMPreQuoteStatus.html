@@ -267,7 +267,7 @@
       </div>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" data-ui-defaults="{&quot;items&quot;:&quot;unit&quot;}" data-ui-family="prequote" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">사전 견적 요청 현황</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardBiz.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">사전 견적 관리</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">사전 견적 요청 현황</span></div>
@@ -275,7 +275,7 @@
 
 
       <section class="filter-card">
-        <form id="pqStatusSearchForm">
+        <form id="pqStatusSearchForm" data-ui-scope="filter">
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-130">조회기간(요청일)</span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
@@ -343,9 +343,9 @@
               <tr><th class="w-55">No</th><th class="w-90">견적요청번호</th><th class="w-80">진행상태</th><th class="minw-240">견적요청명</th><th class="w-60">견적유형</th><th class="w-100">예산금액</th><th class="w-90">품목구성방법</th><th class="w-60">품목</th><th class="w-70">전달자료</th><th class="w-80">요청 업체 수</th><th class="w-90">견적요청일</th><th class="w-130">견적 마감일시</th><th class="w-90">등록일</th><th class="w-70">등록자</th></tr>
             </thead>
             <tbody>
-              <tr><td>4,821</td><td><a href="SRMPreQuoteStatusDetail.html">RFQ2608</a></td><td><span class="badge-info">견적요청중</span></td><td class="text-left">[재견적(1)] 태양광 발전기 도입 관련 견적 요청의 건</td><td>공사</td><td class="col-num">135,400,000</td><td>지정항목</td><td>2건</td><td>3건</td><td>3개</td><td>2026.06.15</td><td>2026.07.31 18:00</td><td>2026.06.10</td><td>홍길동</td></tr>
-              <tr><td>4,820</td><td><a href="SRMPreQuoteStatusDetail.html">RFQ2591</a></td><td><span class="badge-tag">견적마감</span></td><td class="text-left">고효율 압축기 교체 관련 견적 요청의 건</td><td>물품</td><td class="col-num">58,000,000</td><td>지정항목</td><td>1건</td><td>-</td><td>3개</td><td>2026.05.20</td><td>2026.05.31 18:00</td><td>2026.05.14</td><td>홍길동</td></tr>
-              <tr><td>4,819</td><td><a href="SRMPreQuoteStatusDetail.html">RFQ2580</a></td><td><span class="badge-tag">견적마감</span></td><td class="text-left">사무동 냉난방기 유지보수 용역 견적 요청의 건</td><td>용역</td><td class="col-num">24,000,000</td><td>품목단가</td><td>-</td><td>1건</td><td>5개</td><td>2026.04.02</td><td>2026.04.15 18:00</td><td>2026.03.28</td><td>박일용</td></tr>
+              <tr><td>4,821</td><td>RFQ2608</td><td><span class="badge-info">견적요청중</span></td><td class="text-left"><a href="SRMPreQuoteStatusDetail.html">[재견적(1)] 태양광 발전기 도입 관련 견적 요청의 건</a></td><td>공사</td><td class="col-num">135,400,000</td><td>지정항목</td><td>2건</td><td>3건</td><td>3개</td><td>2026.06.15</td><td>2026.07.31 18:00</td><td>2026.06.10</td><td>홍길동</td></tr>
+              <tr><td>4,820</td><td>RFQ2591</td><td><span class="badge-tag">견적마감</span></td><td class="text-left"><a href="SRMPreQuoteStatusDetail.html">고효율 압축기 교체 관련 견적 요청의 건</a></td><td>물품</td><td class="col-num">58,000,000</td><td>지정항목</td><td>1건</td><td>-</td><td>3개</td><td>2026.05.20</td><td>2026.05.31 18:00</td><td>2026.05.14</td><td>홍길동</td></tr>
+              <tr><td>4,819</td><td>RFQ2580</td><td><span class="badge-tag">견적마감</span></td><td class="text-left"><a href="SRMPreQuoteStatusDetail.html">사무동 냉난방기 유지보수 용역 견적 요청의 건</a></td><td>용역</td><td class="col-num">24,000,000</td><td>품목단가</td><td>-</td><td>1건</td><td>5개</td><td>2026.04.02</td><td>2026.04.15 18:00</td><td>2026.03.28</td><td>박일용</td></tr>
             </tbody>
           </table>
         </div>

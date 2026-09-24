@@ -262,7 +262,7 @@
     <!-- ====================================================================
          메인 컨텐츠 영역: 진행상태별 업무 관리 ([참고]진행상태별 업무 관리.pdf 구현)
          ==================================================================== -->
-    <main class="main-content">
+    <main data-detail-anchor="workflowDetail" data-list-page="StepWorkflow.html" class="main-content" data-ui-defaults="{&quot;method&quot;:&quot;general&quot;,&quot;award&quot;:&quot;restricted&quot;,&quot;price&quot;:&quot;reserve&quot;,&quot;briefing&quot;:&quot;no&quot;,&quot;negotiated&quot;:&quot;no&quot;,&quot;presentation&quot;:&quot;no&quot;,&quot;selfReview&quot;:&quot;true&quot;}" data-ui-family="bid" data-ui-scope="page">
 
       <!-- 상단 페이지 헤더 및 브레드크럼 -->
       <div class="page-title-wrap">
@@ -279,7 +279,7 @@
 
 
       <section class="filter-card">
-        <form id="bidPlanSearchForm">
+        <form id="bidPlanSearchForm" data-ui-scope="filter">
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-130">조회기간(등록일)</span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
@@ -340,14 +340,15 @@
               <tr><th class="w-55">No</th><th class="w-90">공고 번호</th><th class="w-70">공고 구분</th><th class="w-70">진행상태</th><th class="minw-240">입찰 건명</th><th class="w-60">구분</th><th class="w-110">계약방법</th><th class="minw-170">낙찰자 선정방법</th><th class="w-90">등록일</th><th class="w-70">사업담당자</th><th class="w-70">계약담당자</th></tr>
             </thead>
             <tbody>
-              <tr><td>1,542</td><td><a href="#workflowDetail">BD2026-0023</a></td><td>본공고</td><td><span class="badge-tag">작성중</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td>공사</td><td>경쟁입찰(일반)</td><td>제한적 최저가 입찰</td><td>2026.06.10</td><td>홍길동</td><td>임꺽정</td></tr>
-              <tr><td>1,541</td><td><a href="#workflowDetail">BD2026-0024</a></td><td>재공고(1차)</td><td><span class="badge-tag">작성중</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td>용역</td><td>경쟁입찰(일반)</td><td>제한적 최저가 입찰</td><td>-</td><td>-</td><td>-</td></tr>
+              <tr><td>1,542</td><td>BD2026-0023</td><td>본공고</td><td><span class="badge-tag">작성중</span></td><td class="text-left"><a href="StepWorkflowOrderPlan.html#workflowDetail">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>공사</td><td>경쟁입찰(일반)</td><td>제한적 최저가 입찰</td><td>2026.06.10</td><td>홍길동</td><td>임꺽정</td></tr>
+              <tr><td>1,541</td><td>BD2026-0024</td><td>재공고(1차)</td><td><span class="badge-tag">작성중</span></td><td class="text-left"><a href="StepWorkflowOrderPlan.html#workflowDetail">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>용역</td><td>경쟁입찰(일반)</td><td>제한적 최저가 입찰</td><td>-</td><td>-</td><td>-</td></tr>
             </tbody>
           </table>
         </div>
         <div class="table-pagination-row"><nav class="pagination-controls" aria-label="표 페이지 이동"></nav></div>
       </div>
 
+      <section data-detail-view>
       <h2 class="card-title content-object-gap-top" id="workflowDetail">입찰계획 등록/설정 — BD2026-0023</h2>
       <p class="modal-field-label">각 단계로 안내되어 있긴 하지만, 각 영역에 바로 접근(클릭)해서 정보 입력이 가능합니다.</p>
 
@@ -356,13 +357,13 @@
            ================================================================== -->
       <div class="detail-tabs-bar">
         <div class="detail-tab-group" role="tablist" aria-label="입찰계획 업무 단계">
-          <a href="StepWorkflowOrderPlan.html" class="detail-tab-btn" role="tab" aria-selected="false">발주계획 정보 확인</a>
-          <a href="StepWorkflowBidPlan.html" class="detail-tab-btn" role="tab" aria-selected="false">입찰계획 상세정보</a>
-          <a href="StepWorkflowEvaluation.html" class="detail-tab-btn active" role="tab" aria-selected="true">심사/평가 계획</a>
-          <a href="StepWorkflow.html" class="detail-tab-btn" role="tab" aria-selected="false">예정가 / 예비가</a>
-          <a href="StepWorkflowDocuments.html" class="detail-tab-btn" role="tab" aria-selected="false">입찰 참여 서류</a>
-          <a href="StepWorkflowReview.html" class="detail-tab-btn" role="tab" aria-selected="false">최종 점검</a>
-          <a href="StepWorkflowComplete.html" class="detail-tab-btn" role="tab" aria-selected="false">입찰계획 등록 완료</a>
+          <a href="StepWorkflowOrderPlan.html#workflowDetail" class="detail-tab-btn" role="tab" aria-selected="false">발주계획 정보 확인</a>
+          <a href="StepWorkflowBidPlan.html#workflowDetail" class="detail-tab-btn" role="tab" aria-selected="false">입찰계획 상세정보</a>
+          <a href="StepWorkflowEvaluation.html#workflowDetail" class="detail-tab-btn active" role="tab" aria-selected="true" data-ui-unavailable="본 입찰공고는 낙찰자 선정방법이 최저가 방식으로 심사/평가 대상이 아닙니다." data-ui-enable="award=restricted|simultaneous|separate|qualification">심사/평가 계획</a>
+          <a href="StepWorkflow.html#workflowDetail" class="detail-tab-btn" role="tab" aria-selected="false">예정가 / 예비가</a>
+          <a href="StepWorkflowDocuments.html#workflowDetail" class="detail-tab-btn" role="tab" aria-selected="false">입찰 참여 서류</a>
+          <a href="StepWorkflowReview.html#workflowDetail" class="detail-tab-btn" role="tab" aria-selected="false">최종 점검</a>
+          <a href="StepWorkflowComplete.html#workflowDetail" class="detail-tab-btn" role="tab" aria-selected="false">입찰계획 등록 완료</a>
         </div>
       </div>
 
@@ -395,19 +396,20 @@
               <td class="text-left">서초동 1601-9 오피스텔 신축공사 중...</td>
               <td>2026.07.22</td>
               <td>공사</td>
-              <td>경쟁입찰(일반)</td>
-              <td>제한적 최저가 입찰</td>
+              <td data-ui-text="method">경쟁입찰(일반)</td>
+              <td data-ui-text="award">제한적 최저가 입찰</td>
               <td>홍길동</td>
               <td>임꺽정</td>
             </tr>
           </tbody>
         </table>
       </div>
+      <section class="app-card srm-detail-section">
 
-            <h2 class="card-title content-object-gap-top">심사/평가 계획</h2>
-      <p class="modal-field-label">심사/평가를 하지 않는 경우(낙찰자 선정방법이 '최저가')에는 접근할 수 없습니다. 자가심사로 필수 체크된 항목만 협력업체의 자가심사 항목으로 관리됩니다. 낙찰자 선정방법이 '제한적 최저가', '2단계 경쟁입찰(규격/가격 분리)'인 경우 '총 배점'은 반드시 45점, '최저점수(적격여부 판단)'는 반드시 30점으로 세팅되어야 저장할 수 있습니다.</p>
-      <p class="modal-field-label">등록된 심사/평가 항목 : 총 3건</p>
-      <div class="srm-table-wrap">
+            <p class="inline-action-bar" data-ui-show="award=lowest">본 공고는 심사/평가 대상이 아닙니다.</p><h2 class="card-title content-object-gap-top" data-ui-show="award=restricted|simultaneous|separate|qualification">심사/평가 계획</h2>
+      <p class="modal-field-label" data-ui-show="award=restricted|simultaneous|separate|qualification">심사/평가를 하지 않는 경우(낙찰자 선정방법이 '최저가')에는 접근할 수 없습니다. 자가심사로 필수 체크된 항목만 협력업체의 자가심사 항목으로 관리됩니다. 낙찰자 선정방법이 '제한적 최저가', '2단계 경쟁입찰(규격/가격 분리)'인 경우 '총 배점'은 반드시 45점, '최저점수(적격여부 판단)'는 반드시 30점으로 세팅되어야 저장할 수 있습니다.</p>
+      <p class="modal-field-label" data-ui-show="award=restricted|simultaneous|separate|qualification">등록된 심사/평가 항목 : 총 3건</p>
+      <div class="srm-table-wrap" data-ui-show="award=restricted|simultaneous|separate|qualification">
         <table class="data-table" aria-label="심사/평가 항목">
           <thead><tr><th class="col-no">No</th><th>심사/평가 구분</th><th>심사/평가 항목</th><th>배점</th><th>자가심사 여부</th><th class="w-70">순서</th><th class="w-60">수정</th><th class="w-60">삭제</th></tr></thead>
           <tbody>
@@ -418,25 +420,27 @@
           <tfoot><tr><td colspan="3">총 배점</td><td class="col-num">80.00</td><td colspan="4"></td></tr></tfoot>
         </table>
       </div>
-      <div class="hstack content-inner-gap-block">
+      <div class="hstack content-inner-gap-block" data-ui-show="award=restricted|simultaneous|separate|qualification">
         <button type="button" class="btn-secondary" data-close-modal data-open-modal="bidCommonEvalModal">공통 심사/평가 불러오기</button>
         <button type="button" class="btn-secondary">순서 적용</button>
         <button type="button" class="btn-secondary" data-close-modal data-open-modal="bidEvalItemModal">심사/평가항목 추가</button>
       </div>
-      <div class="srm-kv-grid">
-        <div class="srm-kv-row"><dt>최저점수(적격여부 판단) <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control w-100" placeholder="숫자로 입력"> 점</dd></div>
+      <div class="srm-kv-grid" data-ui-show="award=restricted|simultaneous|separate|qualification">
+        <div class="srm-kv-row"><dt>최저점수(적격여부 판단) <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control w-100" placeholder="숫자로 입력" data-ui-score="minimum"> 점</dd></div>
         <div class="srm-kv-row"><dt>심사기준(배점 및 평가기준 등)</dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
       </div>
-      <div class="hstack content-inner-gap-top"><button type="button" class="btn-action-primary">저장</button></div>
+      <div class="hstack content-inner-gap-top" data-ui-show="award=restricted|simultaneous|separate|qualification"><button type="button" class="btn-action-primary">저장</button></div>
 
+      </section>
 <!-- 하단 목록 바로가기 액션 -->
-      <div class="hstack">
-        <a href="StepWorkflow.html" class="btn-filter-reset">
+      <div class="hstack" data-ui-show="award=restricted|simultaneous|separate|qualification">
+        <a href="StepWorkflow.html#list" class="btn-filter-reset">
           <svg aria-hidden="true" width="14" height="14" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
           목록
         </a>
       </div>
 
+      </section>
     </main>
   </div>
 
@@ -446,6 +450,6 @@
 
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/StepWorkflow/bidEvalItemModal.html", "popups/StepWorkflow/bidCommonEvalModal.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/StepWorkflow/bidEvalItemModal.html","popups/StepWorkflow/bidCommonEvalModal.html","popups/StepWorkflow/bidCommonEvalPreview.html"]</script>
 </body>
 </html>

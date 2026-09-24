@@ -267,7 +267,7 @@
       </div>
     </aside>
 
-        <main class="main-content page-detail-content">
+        <main class="main-content page-detail-content" data-ui-defaults="{&quot;items&quot;:&quot;unit&quot;}" data-ui-family="prequote" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">업체별 견적 제출 상세</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardBiz.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">사전 견적 관리</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">사전 견적 요청 현황</span></div>
@@ -286,10 +286,10 @@
         <div class="srm-section-heading content-object-gap-top"><div><h2>견적 제출 내역</h2></div></div>
         <div class="srm-table-wrap">
           <table class="data-table" aria-label="견적 제출 내역">
-            <thead><tr><th class="col-no">No</th><th>품목명</th><th>규격</th><th>단위</th><th>수량</th><th>견적단가</th><th>견적금액</th></tr></thead>
+            <thead><tr><th class="col-no">No</th><th>품목명</th><th data-ui-show="items=custom">규격</th><th>단위</th><th>수량</th><th>견적단가</th><th>견적금액</th></tr></thead>
             <tbody>
-              <tr><td>1</td><td class="text-left">고효율 인버터</td><td>-</td><td>EA</td><td>3</td><td class="col-num">28,000,000</td><td class="col-num">84,000,000</td></tr>
-              <tr><td>2</td><td class="text-left">고효율 공기 압축기</td><td>-</td><td>EA</td><td>2</td><td class="col-num">22,000,000</td><td class="col-num">44,000,000</td></tr>
+              <tr><td>1</td><td class="text-left">고효율 인버터</td><td data-ui-show="items=custom">-</td><td>EA</td><td>3</td><td class="col-num">28,000,000</td><td class="col-num">84,000,000</td></tr>
+              <tr><td>2</td><td class="text-left">고효율 공기 압축기</td><td data-ui-show="items=custom">-</td><td>EA</td><td>2</td><td class="col-num">22,000,000</td><td class="col-num">44,000,000</td></tr>
               <tr><td colspan="6" class="text-right">합계</td><td class="col-num">128,000,000</td></tr>
             </tbody>
           </table>

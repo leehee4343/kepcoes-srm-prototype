@@ -267,7 +267,7 @@
       </div>
     </aside>
 
-        <main class="main-content page-detail-content">
+        <main class="main-content page-detail-content" data-ui-defaults="{&quot;items&quot;:&quot;unit&quot;}" data-ui-family="prequote" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">사전 견적 요청</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardBiz.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">사전 견적 관리</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">사전 견적 요청</span></div>
@@ -275,7 +275,7 @@
       <section class="app-card srm-bid-summary" aria-label="견적 요청 요약">
         <table class="data-table" aria-label="견적 요청 요약">
           <thead><tr><th>견적요청번호</th><th>진행상태</th><th class="srm-bid-name">견적요청명</th><th>견적유형</th><th>예산금액</th><th>품목구성방법</th><th>품목</th><th>전달자료</th><th>요청 업체 수</th></tr></thead>
-          <tbody><tr><td>RFQ2607</td><td>작성 중</td><td class="srm-bid-name" title="태양광 발전기 도입 관련 견적 요청의 건">태양광 발전기 도입 관련 견적 요청의 건</td><td>공사/용역/물품</td><td>135,400,000</td><td>품목단가 | 지정항목</td><td>2건</td><td>3건</td><td>3개</td></tr></tbody>
+          <tbody><tr><td>RFQ2607</td><td>작성 중</td><td class="srm-bid-name" title="태양광 발전기 도입 관련 견적 요청의 건">태양광 발전기 도입 관련 견적 요청의 건</td><td>공사/용역/물품</td><td>135,400,000</td><td data-ui-text="items">품목단가 | 지정항목</td><td>2건</td><td>3건</td><td>3개</td></tr></tbody>
         </table>
       </section>
       <nav class="wizard-stepper" aria-label="사전 견적 요청 단계">
@@ -293,7 +293,7 @@
           <div class="srm-kv-row"><dt>견적요청명 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control grow" placeholder="50자 이내로 등록해주세요." maxlength="50" aria-label="견적요청명"></dd></div>
           <div class="srm-kv-row"><dt>견적유형 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup" aria-label="견적유형"><label class="form-choice"><input type="radio" name="pqType">공사</label><label class="form-choice"><input type="radio" name="pqType">용역</label><label class="form-choice"><input type="radio" name="pqType">물품</label></div></dd></div>
           <div class="srm-kv-row"><dt>예산금액 <span class="required" aria-hidden="true">*</span></dt><dd><div class="hstack gap-10"><input type="text" class="form-control w-160" placeholder="숫자로만 입력해주세요." aria-label="예산금액"><span class="unit-text">일억삼천오백사십만원</span></div></dd></div>
-          <div class="srm-kv-row"><dt>품목구성방법 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup" aria-label="품목구성방법"><label class="form-choice"><input type="radio" name="pqComp">품목단가</label><label class="form-choice"><input type="radio" name="pqComp">지정항목</label></div></dd></div>
+          <div class="srm-kv-row"><dt>품목구성방법 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup" aria-label="품목구성방법"><label class="form-choice"><input type="radio" name="pqComp" value="unit" data-ui-field="items">품목단가</label><label class="form-choice"><input type="radio" name="pqComp" value="custom" data-ui-field="items">지정항목</label></div></dd></div>
           <div class="srm-kv-row"><dt>비고</dt><dd><input type="text" class="form-control grow" placeholder="100자 이내의 간단한 메모를 작성해주세요." maxlength="100" aria-label="비고"></dd></div>
           <div class="srm-kv-row"><dt>등록일시</dt><dd>2026.06.10 15:42</dd></div>
           <div class="srm-kv-row"><dt>등록자</dt><dd>홍길동</dd></div>

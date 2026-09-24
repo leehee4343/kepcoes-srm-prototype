@@ -255,14 +255,14 @@
       </div>
     </aside>
 
-    <main class="main-content srm-detail-main">
+    <main data-detail-anchor="bidDetailAnchor" data-list-page="SRMDetail.html" class="main-content srm-detail-main" data-ui-defaults="{&quot;method&quot;:&quot;general&quot;,&quot;award&quot;:&quot;restricted&quot;,&quot;price&quot;:&quot;reserve&quot;,&quot;briefing&quot;:&quot;no&quot;,&quot;negotiated&quot;:&quot;no&quot;,&quot;presentation&quot;:&quot;no&quot;,&quot;selfReview&quot;:&quot;true&quot;,&quot;opened&quot;:&quot;false&quot;,&quot;winnerDone&quot;:&quot;false&quot;}" data-ui-family="bid" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">낙찰(업체 선정)</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardContract.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">입찰관리 &gt; 낙찰(업체 선정)</span></div>
       </div>
 
       <section class="filter-card">
-        <form id="bidStatusSearchForm">
+        <form id="bidStatusSearchForm" data-ui-scope="filter">
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-200">조회기간(입찰 마감일)</span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
@@ -286,8 +286,8 @@
           </div>
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-200">계약방법/낙찰자 선정방법</span>
-            <select class="filter-select w-160"><option>계약방법 선택</option></select>
-            <select class="filter-select w-165"><option>낙찰자 선정방법 선택</option></select>
+            <select class="filter-select w-160" data-ui-field="method"><option value="">전체</option><option value="sole">수의계약</option><option value="general">경쟁입찰(일반)</option><option value="limited">경쟁입찰(제한)</option><option value="designated">경쟁입찰(지명)</option></select>
+            <select class="filter-select w-165" data-ui-field="award"><option value="">전체</option><option value="lowest">최저가</option><option value="restricted">제한적 최저가 입찰</option><option value="simultaneous">2단계 경쟁입찰(규격/가격 동시)</option><option value="separate">2단계 경쟁입찰(규격/가격 분리)</option><option value="qualification">적격심사</option></select>
           </div>
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-200">공고 구분</span>
@@ -331,8 +331,8 @@
               <tr><th class="w-90">공고 번호</th><th class="w-80">공고 구분</th><th class="w-100">진행상태</th><th class="minw-240">입찰 건명</th><th class="w-120">입찰 마감일시</th><th class="w-70">참여업체(수)</th><th class="w-60">구분</th><th class="w-110">계약방법</th><th class="minw-170">낙찰자 선정방법</th><th class="w-70">사업담당자</th><th class="w-70">계약담당자</th></tr>
             </thead>
             <tbody>
-              <tr><td><a href="#bidDetailAnchor" data-open-modal="bidNoticeDocModal">BD2026-0023</a></td><td>본공고</td><td><span class="badge-tag">공고대기</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td>2026.07.31 18:00</td><td>15</td><td>공사</td><td>경쟁입찰(일반)</td><td>최저가</td><td>홍길동</td><td>임꺽정</td></tr>
-              <tr><td><a href="#bidDetailAnchor">BD2026-0024</a></td><td>재공고(1차)</td><td><span class="badge-info">입찰진행중</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td>2026.07.31 18:00</td><td>3</td><td>용역</td><td>경쟁입찰(일반)</td><td>제한적 최저가 입찰</td><td>홍길동</td><td>임꺽정</td></tr>
+              <tr><td><a href="#" data-open-modal="bidNoticeDocModal">BD2026-0023</a></td><td>본공고</td><td><span class="badge-tag">공고대기</span></td><td class="text-left"><a href="SRMDetailOrderPlan.html#bidDetailAnchor">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>2026.07.31 18:00</td><td>15</td><td>공사</td><td>경쟁입찰(일반)</td><td>최저가</td><td>홍길동</td><td>임꺽정</td></tr>
+              <tr><td><a href="#" data-open-modal="bidNoticeDocModal">BD2026-0024</a></td><td>재공고(1차)</td><td><span class="badge-info">입찰진행중</span></td><td class="text-left"><a href="SRMDetailOrderPlan.html#bidDetailAnchor">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>2026.07.31 18:00</td><td>3</td><td>용역</td><td>경쟁입찰(일반)</td><td>제한적 최저가 입찰</td><td>홍길동</td><td>임꺽정</td></tr>
             </tbody>
           </table>
         </div>
@@ -346,6 +346,7 @@
         <div class="table-pagination-row"><nav class="pagination-controls" aria-label="표 페이지 이동"></nav></div>
       </div>
 
+      <section data-detail-view>
       <h2 class="card-title content-object-gap-top" id="bidDetailAnchor">입찰공고 상세정보 — BD2026-0023</h2>
 
       <section class="app-card srm-bid-summary" aria-label="입찰공고 요약">
@@ -370,8 +371,8 @@
               <td><span class="status-pill active-ing">입찰진행중</span></td>
               <td class="srm-bid-name" title="서초동 1601-9 오피스텔 신축공사">서초동 1601-9 오피스텔 신축공사</td>
               <td>공사</td>
-              <td>경쟁입찰(일반)</td>
-              <td>제한적 최저가 입찰</td>
+              <td data-ui-text="method">경쟁입찰(일반)</td>
+              <td data-ui-text="award">제한적 최저가 입찰</td>
               <td>홍길동</td>
               <td>임꺽정</td>
             </tr>
@@ -382,45 +383,40 @@
       <!-- 표준 탭 메뉴 (5.7): 탭마다 독립 HTML 파일 -->
       <div class="detail-tabs-bar">
         <div class="detail-tab-group" role="tablist" aria-label="입찰 업무 단계">
-        <a href="SRMDetailOrderPlan.html" class="detail-tab-btn" role="tab" aria-selected="false">발주계획 정보</a>
-        <a href="SRMDetail.html" class="detail-tab-btn" role="tab" aria-selected="false">입찰계획 정보</a>
-        <a href="SRMDetailParticipation.html" class="detail-tab-btn" role="tab" aria-selected="false">입찰 참여현황</a>
-        <a href="SRMDetailEvaluation.html" class="detail-tab-btn" role="tab" aria-selected="false">심사/평가</a>
-        <a href="SRMDetailOpening.html" class="detail-tab-btn" role="tab" aria-selected="false">개찰</a>
-        <a href="SRMDetailWinner.html" class="detail-tab-btn active" role="tab" aria-selected="true">낙찰(업체 선정)</a>
-        <a href="SRMDetailNegotiation.html" class="detail-tab-btn" role="tab" aria-selected="false">수의시담</a>
-        <a href="SRMDetailContract.html" class="detail-tab-btn" role="tab" aria-selected="false">계약 요청</a>
+        <a href="SRMDetailOrderPlan.html#bidDetailAnchor" class="detail-tab-btn" role="tab" aria-selected="false">발주계획 정보</a>
+        <a href="SRMDetail.html#bidDetailAnchor" class="detail-tab-btn" role="tab" aria-selected="false">입찰계획 정보</a>
+        <a href="SRMDetailParticipation.html#bidDetailAnchor" class="detail-tab-btn" role="tab" aria-selected="false">입찰 참여현황</a>
+        <a href="SRMDetailEvaluation.html#bidDetailAnchor" class="detail-tab-btn" role="tab" aria-selected="false" data-ui-unavailable="본 입찰공고는 낙찰자 선정방법이 최저가 방식으로 심사/평가 대상이 아닙니다." data-ui-enable="award=restricted|simultaneous|separate|qualification">심사/평가</a>
+        <a href="SRMDetailOpening.html#bidDetailAnchor" class="detail-tab-btn" role="tab" aria-selected="false">개찰</a>
+        <a href="SRMDetailWinner.html#bidDetailAnchor" class="detail-tab-btn active" role="tab" aria-selected="true">낙찰(업체 선정)</a>
+        <a href="SRMDetailNegotiation.html#bidDetailAnchor" class="detail-tab-btn" role="tab" aria-selected="false">수의시담</a>
+        <a href="SRMDetailContract.html#bidDetailAnchor" class="detail-tab-btn" role="tab" aria-selected="false">계약 요청</a>
         </div>
       </div>
 
       <!-- 낙찰(업체 선정) -->
       <section class="app-card srm-detail-section">
-        <div class="srm-section-heading"><div><h2>낙찰(업체 선정) — 낙찰자 선정방법 '최저가'인 경우</h2></div><p>참여업체 : 총 4건 — 우선협상대상자 선정기준: 예정가를 초과하지 않는 범위 내에서 투찰가격이 가장 낮은 업체(1순위는 무조건 우선협상자). 동일 가격 투찰 시 추첨(랜덤)으로 우선협상자 선정. 낙찰(업체 선정)은 항상 수동으로 처리합니다.</p></div>
-        <div class="srm-table-wrap">
-          <table class="data-table" aria-label="낙찰(업체 선정) - 최저가">
-            <thead><tr><th class="w-40">선택</th><th>순위</th><th>우선협상대상자</th><th>결과</th><th>업체명</th><th>입찰(견적)금액</th><th>가격 적합 여부</th><th>예정가</th></tr></thead>
-            <tbody>
-              <tr><td><input type="radio" name="bidWinnerPick"></td><td>1</td><td>우선협상대상자</td><td><span class="badge-tag">낙찰/탈락 처리 전</span> | 낙찰</td><td class="col-left">A업체명</td><td class="col-num">90,000,000</td><td><span class="badge-success">적합</span></td><td class="col-num">100,000,000</td></tr>
-              <tr><td><input type="radio" name="bidWinnerPick"></td><td>2</td><td>-</td><td><span class="badge-tag">낙찰/탈락 처리 전</span> | 탈락</td><td class="col-left">B업체명</td><td class="col-num">90,000,000</td><td><span class="badge-success">적합</span></td><td class="col-num">100,000,000</td></tr>
-              <tr><td><input type="radio" name="bidWinnerPick"></td><td>3</td><td>-</td><td><span class="badge-tag">낙찰/탈락 처리 전</span> | 탈락</td><td class="col-left">C업체명</td><td class="col-num">95,000,000</td><td><span class="badge-success">적합</span></td><td class="col-num">100,000,000</td></tr>
-              <tr><td><input type="radio" name="bidWinnerPick"></td><td>-</td><td>-</td><td><span class="badge-tag">낙찰/탈락 처리 전</span> | 탈락</td><td class="col-left">D업체명</td><td class="col-num">110,000,000</td><td><span class="badge-danger">예정가 초과</span></td><td class="col-num">100,000,000</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="srm-detail-actions">
+        <div class="srm-section-heading"><div><h2>낙찰(업체 선정)</h2></div><p>낙찰자 선정방법에 따른 평가 결과를 확인하고 업체 한 곳을 선택해 주세요.</p></div>
+        <p class="inline-action-bar" data-ui-show="opened=false">개찰이 완료되지 않았습니다. 개찰 완료 후 낙찰(업체 선정)을 진행할 수 있습니다.</p><div class="srm-table-wrap" data-ui-show="award=lowest;opened=true"><table class="data-table" aria-label="낙찰 업체 선정 lowest" data-ui-winner-table><thead><tr><th>선택</th><th>순위</th><th>우선협상대상자</th><th>결과</th><th>업체명</th><th>입찰 ( 견적 ) 금액</th><th>가격 적합 여부</th><th>예정가</th></tr></thead><tbody><tr><td><input type="radio" name="bidWinnerPick" value="0" aria-label="A 업체명 선택" data-ui-enable="winnerDone=false"></td><td>1</td><td>우선협상대상자</td><td><span data-ui-winner-result>낙찰/탈락 처리 전</span></td><td>A 업체명</td><td>90,000,000</td><td>적합</td><td>100,000,000</td></tr><tr><td><input type="radio" name="bidWinnerPick" value="1" aria-label="B 업체명 선택" data-ui-enable="winnerDone=false"></td><td>2</td><td>-</td><td><span data-ui-winner-result>낙찰/탈락 처리 전</span></td><td>B 업체명</td><td>90,000,000</td><td>적합</td><td>100,000,000</td></tr><tr><td><input type="radio" name="bidWinnerPick" value="2" aria-label="C 업체명 선택" data-ui-enable="winnerDone=false"></td><td>3</td><td>-</td><td><span data-ui-winner-result>낙찰/탈락 처리 전</span></td><td>C 업체명</td><td>95,000,000</td><td>적합</td><td>100,000,000</td></tr><tr><td><input type="radio" name="bidWinnerPick" value="3" aria-label="D 업체명 선택" data-ui-enable="winnerDone=false" disabled></td><td>-</td><td>-</td><td><span data-ui-winner-result>낙찰/탈락 처리 전</span></td><td>D 업체명</td><td>110,000,000</td><td>예정가  초과</td><td>100,000,000</td></tr></tbody></table></div>
+<div class="srm-table-wrap" data-ui-show="award=restricted;opened=true"><table class="data-table" aria-label="낙찰 업체 선정 restricted" data-ui-winner-table><thead><tr><th>선택</th><th>순위</th><th>우선협상대상자</th><th>결과</th><th>업체명</th><th>규격 ( 기술 )  평가점수 ( 합 )</th><th>규격 ( 기술 )  적격여부</th><th>입찰 ( 견적 ) 금액</th><th>가격 적합 여부</th><th>예정가</th><th>낙찰하한율(%)</th><th>낙찰하한가</th></tr></thead><tbody><tr><td><input type="radio" name="bidWinnerPick" value="0" aria-label="A 업체명 선택" data-ui-enable="winnerDone=false"></td><td>1</td><td>우선협상대상자</td><td><span data-ui-winner-result>낙찰/탈락 처리 전</span></td><td>A 업체명</td><td>40</td><td>적격</td><td>90,000,000</td><td>적합</td><td>100,000,000</td><td>87.745</td><td>87,745,000</td></tr><tr><td><input type="radio" name="bidWinnerPick" value="1" aria-label="B업체명 선택" data-ui-enable="winnerDone=false"></td><td>2</td><td>-</td><td><span data-ui-winner-result>낙찰/탈락 처리 전</span></td><td>B업체명</td><td>39</td><td>적격</td><td>90,000,000</td><td>적합</td><td>100,000,000</td><td>87.745</td><td>87,745,000</td></tr><tr><td><input type="radio" name="bidWinnerPick" value="2" aria-label="C 업체명 선택" data-ui-enable="winnerDone=false"></td><td>3</td><td>-</td><td><span data-ui-winner-result>낙찰/탈락 처리 전</span></td><td>C 업체명</td><td>45</td><td>적격</td><td>95,000,000</td><td>적합</td><td>100,000,000</td><td>87.745</td><td>87,745,000</td></tr><tr><td><input type="radio" name="bidWinnerPick" value="3" aria-label="D 업체명 선택" data-ui-enable="winnerDone=false" disabled></td><td>-</td><td>-</td><td><span data-ui-winner-result>낙찰/탈락 처리 전</span></td><td>D 업체명</td><td>40</td><td>적격</td><td>110,000,000</td><td>예정가  초과</td><td>100,000,000</td><td>87.745</td><td>87,745,000</td></tr><tr><td><input type="radio" name="bidWinnerPick" value="4" aria-label="E 업체명 선택" data-ui-enable="winnerDone=false" disabled></td><td>-</td><td>-</td><td><span data-ui-winner-result>낙찰/탈락 처리 전</span></td><td>E 업체명</td><td>40</td><td>적격</td><td>80,000,000</td><td>낙찰하한가  미만</td><td>100,000,000</td><td>87.745</td><td>87,745,000</td></tr></tbody></table></div>
+<div class="srm-table-wrap" data-ui-show="award=simultaneous;opened=true"><table class="data-table" aria-label="낙찰 업체 선정 simultaneous" data-ui-winner-table><thead><tr><th>선택</th><th>순위</th><th>우선협상대상자</th><th>결과</th><th>업체명</th><th>규격 ( 기술 )  평가점수 ( 합 )</th><th>규격 ( 기술 )  적격여부</th><th>입찰 ( 견적 ) 금액</th><th>가격 적합 여부</th><th>예정가</th><th>가격점수</th><th>총점</th></tr></thead><tbody><tr><td><input type="radio" name="bidWinnerPick" value="0" aria-label="A 업체명 선택" data-ui-enable="winnerDone=false"></td><td>1</td><td>우선협상대상자</td><td><span data-ui-winner-result>낙찰/탈락 처리 전</span></td><td>A 업체명</td><td>75.45</td><td>적격</td><td>90,000,000</td><td>적합</td><td>100,000,000</td><td>15.00</td><td>90.45</td></tr><tr><td><input type="radio" name="bidWinnerPick" value="1" aria-label="B 업체명 선택" data-ui-enable="winnerDone=false"></td><td>2</td><td>-</td><td><span data-ui-winner-result>낙찰/탈락 처리 전</span></td><td>B 업체명</td><td>76.45</td><td>적격</td><td>91,000,000</td><td>적합</td><td>100,000,000</td><td>14.00</td><td>90.45</td></tr><tr><td><input type="radio" name="bidWinnerPick" value="2" aria-label="B 업체명 선택" data-ui-enable="winnerDone=false"></td><td>3</td><td>-</td><td><span data-ui-winner-result>낙찰/탈락 처리 전</span></td><td>B 업체명</td><td>78.45</td><td>적격</td><td>95,000,000</td><td>적합</td><td>100,000,000</td><td>11.00</td><td>89.45</td></tr><tr><td><input type="radio" name="bidWinnerPick" value="3" aria-label="C 업체명 선택" data-ui-enable="winnerDone=false" disabled></td><td>4</td><td>-</td><td><span data-ui-winner-result>낙찰/탈락 처리 전</span></td><td>C 업체명</td><td>70.03</td><td>적격</td><td>110,000,000</td><td>예정가  초과</td><td>100,000,000</td><td>입력불가</td><td>부적격</td></tr><tr><td><input type="radio" name="bidWinnerPick" value="4" aria-label="D 업체명 선택" data-ui-enable="winnerDone=false" disabled></td><td>-</td><td>-</td><td><span data-ui-winner-result>낙찰/탈락 처리 전</span></td><td>D 업체명</td><td>62.28</td><td>부적격</td><td>95,000,000</td><td>적합</td><td>100,000,000</td><td>입력불가</td><td>부적격</td></tr></tbody></table></div>
+<div class="srm-table-wrap" data-ui-show="award=separate;opened=true"><table class="data-table" aria-label="낙찰 업체 선정 separate" data-ui-winner-table><thead><tr><th>선택</th><th>순위</th><th>우선협상대상자</th><th>결과</th><th>업체명</th><th>규격 ( 기술 )  평가점수 ( 합 )</th><th>규격 ( 기술 )  적격여부</th><th>입찰 ( 견적 ) 금액</th><th>가격 적합 여부</th><th>예정가</th></tr></thead><tbody><tr><td><input type="radio" name="bidWinnerPick" value="0" aria-label="A 업체명 선택" data-ui-enable="winnerDone=false"></td><td>1</td><td>우선협상대상자</td><td><span data-ui-winner-result>낙찰/탈락 처리 전</span></td><td>A 업체명</td><td>40</td><td>적격</td><td>90,000,000</td><td>적합</td><td>100,000,000</td></tr><tr><td><input type="radio" name="bidWinnerPick" value="1" aria-label="B업체명 선택" data-ui-enable="winnerDone=false"></td><td>2</td><td>-</td><td><span data-ui-winner-result>낙찰/탈락 처리 전</span></td><td>B업체명</td><td>39</td><td>적격</td><td>90,000,000</td><td>적합</td><td>100,000,000</td></tr><tr><td><input type="radio" name="bidWinnerPick" value="2" aria-label="C 업체명 선택" data-ui-enable="winnerDone=false"></td><td>3</td><td>-</td><td><span data-ui-winner-result>낙찰/탈락 처리 전</span></td><td>C 업체명</td><td>45</td><td>적격</td><td>95,000,000</td><td>적합</td><td>100,000,000</td></tr><tr><td><input type="radio" name="bidWinnerPick" value="3" aria-label="D 업체명 선택" data-ui-enable="winnerDone=false" disabled></td><td>-</td><td>-</td><td><span data-ui-winner-result>낙찰/탈락 처리 전</span></td><td>D 업체명</td><td>40</td><td>적격</td><td>110,000,000</td><td>예정가  초과</td><td>100,000,000</td></tr></tbody></table></div>
+<div class="srm-table-wrap" data-ui-show="award=qualification;opened=true"><table class="data-table" aria-label="낙찰 업체 선정 qualification" data-ui-winner-table><thead><tr><th>선택</th><th>순위</th><th>우선협상대상자</th><th>결과</th><th>업체명</th><th>규격 ( 기술 )  평가점수 ( 합 )</th><th>규격 ( 기술 )  적격여부</th><th>입찰 ( 견적 ) 금액</th><th>가격 적합 여부</th><th>예정가</th><th>낙찰하한율(%)</th><th>낙찰하한가</th></tr></thead><tbody><tr><td><input type="radio" name="bidWinnerPick" value="0" aria-label="A 업체명 선택" data-ui-enable="winnerDone=false"></td><td>1</td><td>우선협상대상자</td><td><span data-ui-winner-result>낙찰/탈락 처리 전</span></td><td>A 업체명</td><td>40</td><td>적격</td><td>90,000,000</td><td>적합</td><td>100,000,000</td><td>87.745</td><td>87,745,000</td></tr><tr><td><input type="radio" name="bidWinnerPick" value="1" aria-label="B 업체명 선택" data-ui-enable="winnerDone=false"></td><td>2</td><td>-</td><td><span data-ui-winner-result>낙찰/탈락 처리 전</span></td><td>B 업체명</td><td>39</td><td>적격</td><td>90,000,000</td><td>적합</td><td>100,000,000</td><td>87.745</td><td>87,745,000</td></tr><tr><td><input type="radio" name="bidWinnerPick" value="2" aria-label="C 업체명 선택" data-ui-enable="winnerDone=false"></td><td>3</td><td>-</td><td><span data-ui-winner-result>낙찰/탈락 처리 전</span></td><td>C 업체명</td><td>39</td><td>적격</td><td>95,000,000</td><td>적합</td><td>100,000,000</td><td>87.745</td><td>87,745,000</td></tr><tr><td><input type="radio" name="bidWinnerPick" value="3" aria-label="D 업체명 선택" data-ui-enable="winnerDone=false" disabled></td><td>-</td><td>-</td><td><span data-ui-winner-result>낙찰/탈락 처리 전</span></td><td>D 업체명</td><td>45</td><td>적격</td><td>110,000,000</td><td>예정가  초과</td><td>100,000,000</td><td>87.745</td><td>87,745,000</td></tr><tr><td><input type="radio" name="bidWinnerPick" value="4" aria-label="E 업체명 선택" data-ui-enable="winnerDone=false" disabled></td><td>-</td><td>-</td><td><span data-ui-winner-result>낙찰/탈락 처리 전</span></td><td>E 업체명</td><td>40</td><td>적격</td><td>80,000,000</td><td>낙찰하한가  미만</td><td>100,000,000</td><td>87.745</td><td>87,745,000</td></tr></tbody></table></div>
+        <div class="srm-detail-actions" data-ui-show="opened=true">
           <button type="button" class="btn-secondary">우선협상대상자 선정</button>
           <button type="button" class="btn-secondary">우선협상대상자 통보</button>
           <button type="button" class="btn-critical-primary" data-close-modal data-open-modal="bidWinnerConfirmModal">낙찰(업체 선정)</button>
           <button type="button" class="btn-secondary">낙찰/탈락 통보</button>
           <button type="button" class="btn-caution" data-close-modal data-open-modal="bidCancelModal">공고취소</button>
         </div>
-        <p class="modal-field-label content-inner-gap-top">※ 낙찰자 선정방법에 따라 표의 열 구성이 달라집니다 — 제한적 최저가/2단계 경쟁입찰(규격/가격 분리)/적격심사: 규격(기술) 평가점수(합)·적격여부·낙찰하한율(%)·낙찰하한가 열이 추가되며, 우선협상대상자 기준도 '낙찰하한가 이상 범위 내 최저가'로 달라집니다. 2단계 경쟁입찰(규격/가격 동시): 가격점수·총점 열이 추가되며 우선협상대상자 기준은 '총점 최고점'입니다. 이 4종은 열 구성 차이만 있고 처리 버튼(우선협상대상자 선정/통보, 낙찰(업체 선정), 낙찰/탈락 통보, 공고취소)은 동일하여 이 화면에서는 '최저가' 1종만 실제로 구현하고 나머지는 본 각주로 대체합니다.</p>
+
       </section>
 
       <div class="srm-detail-actions">
-        <a href="../03_대시보드/SRMDashboardContract.html" class="btn-secondary srm-list-button">목록</a>
+        <a href="SRMDetail.html#list" class="btn-secondary srm-list-button">목록</a>
         <div class="srm-return-wrap"><span>입찰 신청 전 상태에서만 실행할 수 있습니다.</span><button type="button" class="btn-caution srm-return-button" id="btnReturnBidPlan">‘입찰계획’으로 되돌리기 <b>→</b></button></div>
       </div>
+      </section>
     </main>
   </div>
 

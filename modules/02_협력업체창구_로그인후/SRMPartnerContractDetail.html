@@ -80,7 +80,7 @@
       </div>
     </aside>
 
-        <main class="main-content page-detail-content">
+        <main class="main-content page-detail-content" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">계약 정보</h1></div>
         <nav class="breadcrumb" aria-label="현재 위치">
@@ -109,9 +109,9 @@
           <div class="srm-kv-row"><dt>계약 구분</dt><dd>공사</dd></div>
           <div class="srm-kv-row"><dt>계약 체결일</dt><dd>2026.07.31</dd></div>
           <div class="srm-kv-row"><dt>계약 상대자</dt><dd>(주)큐비트엑스 (135-81-77202)</dd></div>
-          <div class="srm-kv-row"><dt>계약 대상자 필요 면허</dt><dd class="content-bullet-item">종합건설업 : 건축설계 및 시공 · 전문건설업 : 도장/습식/방수/석공 사업</dd></div>
-          <div class="srm-kv-row"><dt>계약방법</dt><dd>경쟁입찰(일반)</dd></div>
-          <div class="srm-kv-row"><dt>낙찰자 선정방법</dt><dd>제한적 최저가 입찰</dd></div>
+          <div class="srm-kv-row"><dt>계약 대상자 필요 면허</dt><dd><ul class="bullet-list"><li>종합건설업 : 건축설계 및 시공</li><li>전문건설업 : 도장/습식/방수/석공 사업</li></ul></dd></div>
+          <div class="srm-kv-row"><dt>계약방법</dt><dd data-ui-contract-summary="false" data-ui-text="method">경쟁입찰(일반)</dd></div>
+          <div class="srm-kv-row"><dt>낙찰자 선정방법</dt><dd data-ui-text="award">제한적 최저가 입찰</dd></div>
           <div class="srm-kv-row"><dt>계약 근거(사유)</dt><dd>근거 / 수의계약 사유로 입력된 내용</dd></div>
           <div class="srm-kv-row"><dt>입찰 참가자격</dt><dd>제주도 관내 본사를 두고 있는 사업자</dd></div>
           <div class="srm-kv-row"><dt>추정가격(소요예산)</dt><dd>100,000,000원 (일억원 / VAT 포함)</dd></div>
@@ -138,7 +138,7 @@
         <div class="srm-table-wrap">
           <table class="data-table" aria-label="변경계약 진행내역">
             <thead><tr><th class="w-100">계약 변경일</th><th>변경내용(메모)</th><th class="w-80">작성자</th><th class="w-100">변경 처리일</th></tr></thead>
-            <tbody><tr><td><a href="#" data-close-modal data-open-modal="contractChangeDetailModal">2026.09.01</a></td><td class="text-left">품목 1종이 제외되어 계약금액을 수정하여 변경계약 하였습니다.</td><td>홍길동</td><td>2026.09.15</td></tr></tbody>
+            <tbody><tr><td>2026.09.01</td><td class="text-left"><a href="#" data-close-modal="" data-open-modal="contractChangeDetailModal">품목 1종이 제외되어 계약금액을 수정하여 변경계약 하였습니다.</a></td><td>홍길동</td><td>2026.09.15</td></tr></tbody>
           </table>
         </div></section>
       <div class="page-actions"><button type="button" class="btn-secondary " data-href="SRMPartnerContract.html">목록</button></div>

@@ -80,7 +80,7 @@
       </div>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">수의계약 요청 현황</h1></div>
         <nav class="breadcrumb" aria-label="현재 위치">
@@ -93,7 +93,7 @@
 
       <div class="board-view show" id="negoListView">
       <section class="filter-card">
-        <form id="negoSearchForm">
+        <form id="negoSearchForm" data-ui-scope="filter">
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-200">조회기간(견적 마감 일시)</span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
@@ -155,9 +155,9 @@
               <tr><th class="w-100">공고번호</th><th class="w-80">공고 구분</th><th class="w-130">진행상태</th><th class="minw-250">수의계약 건명</th><th class="w-130">견적 마감 일시</th><th class="w-60">구분</th><th class="w-90">계약방법</th><th class="w-90">낙찰자 선정방법</th><th class="w-80">사업담당자</th><th class="w-80">계약 담당자</th></tr>
             </thead>
             <tbody>
-              <tr><td><a href="SRMPartnerNegoRequestDetail.html">BD2026-0023</a></td><td>본공고</td><td><span class="badge-success">공고게시중</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td>2026.07.31 18:00</td><td>공사</td><td>수의계약</td><td>최저가</td><td>홍길동</td><td>박승길</td></tr>
-              <tr><td><a href="SRMPartnerNegoRequestDetail.html">BD2026-0018</a></td><td>본공고</td><td><span class="badge-info">수의계약(견적요청)</span></td><td class="text-left">금호동 1601-9 오피스텔 신축공사 중 도장공사</td><td>2026.07.31 18:00</td><td>용역</td><td>수의계약</td><td>최저가</td><td>홍길동</td><td>박승길</td></tr>
-              <tr><td><a href="SRMPartnerNegoRequestDetail.html">BD2026-0011</a></td><td>본공고</td><td><span class="badge-tag">가격협의 완료</span></td><td class="text-left">본사 노후 배전반 교체공사</td><td>2026.06.20 18:00</td><td>공사</td><td>수의계약</td><td>최저가</td><td>홍길동</td><td>박승길</td></tr>
+              <tr><td><a href="SRMPartnerNegoRequestDetail.html">BD2026-0023</a></td><td>본공고</td><td><span class="badge-success">공고게시중</span></td><td class="text-left"><a href="SRMPartnerNegoRequestDetail.html">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>2026.07.31 18:00</td><td>공사</td><td>수의계약</td><td>최저가</td><td>홍길동</td><td>박승길</td></tr>
+              <tr><td><a href="SRMPartnerNegoRequestDetail.html">BD2026-0018</a></td><td>본공고</td><td><span class="badge-info">수의계약(견적요청)</span></td><td class="text-left"><a href="SRMPartnerNegoRequestDetail.html">금호동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>2026.07.31 18:00</td><td>용역</td><td>수의계약</td><td>최저가</td><td>홍길동</td><td>박승길</td></tr>
+              <tr><td><a href="SRMPartnerNegoRequestDetail.html">BD2026-0011</a></td><td>본공고</td><td><span class="badge-tag">가격협의 완료</span></td><td class="text-left"><a href="SRMPartnerNegoRequestDetail.html">본사 노후 배전반 교체공사</a></td><td>2026.06.20 18:00</td><td>공사</td><td>수의계약</td><td>최저가</td><td>홍길동</td><td>박승길</td></tr>
             </tbody>
           </table>
         </div>

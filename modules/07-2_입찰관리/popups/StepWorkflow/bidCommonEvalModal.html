@@ -7,12 +7,12 @@
   <link rel="stylesheet" href="../../../../assets/styles/style.css">
 </head>
 <body class="popup-document">
-<div class="modal-backdrop" id="bidCommonEvalModal" role="dialog" aria-modal="true" aria-labelledby="bidCommonEvalTitle" aria-hidden="false">
+<div class="modal-backdrop" id="bidCommonEvalModal" role="dialog" aria-modal="true" aria-labelledby="bidCommonEvalTitle" aria-hidden="false" data-ui-defaults="{&quot;method&quot;:&quot;general&quot;,&quot;award&quot;:&quot;restricted&quot;,&quot;price&quot;:&quot;reserve&quot;}" data-ui-scope="popup">
     <div class="modal-dialog modal-xl">
       <div class="modal-header"><h2 class="modal-title" id="bidCommonEvalTitle">공통 심사/평가 불러오기</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
       <div class="modal-body">
         <section class="filter-card">
-          <form>
+          <form data-ui-scope="filter">
   <div class="filter-row hstack gap-12">
             <span class="filter-label w-140">사용여부</span>
             <div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="bidEvalUse" checked>전체</label><label class="form-choice"><input type="radio" name="bidEvalUse">사용(Y)</label><label class="form-choice"><input type="radio" name="bidEvalUse">중지(N)</label></div>
@@ -41,7 +41,7 @@
           <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="공통 심사/평가 목록" data-total-items="55" data-total-pages="6">
             <table class="data-table data-grid-table" aria-label="공통 심사/평가 목록">
             <thead><tr><th>공통 심사/평가 명칭</th><th class="w-90">심사/평가항목(수)</th><th class="w-90">사용여부</th><th class="w-70">선택</th></tr></thead>
-            <tbody><tr><td class="col-left">일반/공통(공사 사업 기준) 사업에 쓰이는 심사/평가</td><td>3개</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-task-register" data-close-modal>선택</button></td></tr></tbody>
+            <tbody><tr><td class="col-left"><a href="#" data-open-modal="bidCommonEvalPreview">일반/공통(공사 사업 기준) 사업에 쓰이는 심사/평가</a></td><td>3개</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-task-register" data-close-modal>선택</button></td></tr></tbody>
           </table>
           </div>
         </div>

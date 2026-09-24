@@ -80,7 +80,7 @@
       </div>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">사전 견적 관리</h1></div>
         <nav class="breadcrumb" aria-label="현재 위치">
@@ -93,7 +93,7 @@
 
       <div class="board-view show" id="pqListView">
       <section class="filter-card">
-        <form id="preQuoteSearchForm">
+        <form id="preQuoteSearchForm" data-ui-scope="filter">
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-130">조회기간(요청일)</span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
@@ -165,9 +165,9 @@
               <tr><th class="w-55">No</th><th class="w-100">견적요청번호</th><th class="w-90"><span class="description-marker-anchor">진행상태<span class="description-target-marker" aria-hidden="true">3</span></span></th><th class="w-80"><span class="description-marker-anchor">제출상태<span class="description-target-marker" aria-hidden="true">4</span></span></th><th class="minw-250">견적요청명</th><th class="w-70">견적유형</th><th class="w-100">제출일/포기일</th><th class="w-100">견적요청일</th><th class="w-140">견적마감일시</th></tr>
             </thead>
             <tbody>
-              <tr><td>1,542</td><td><a href="#" data-open-modal="pqDetailView">RFQ2607</a></td><td><span class="badge-success">견적 요청중</span></td><td><span class="badge-tag">미제출</span></td><td class="text-left">태양광 발전기 도입 관련 견적 요청의 건</td><td>공사</td><td>-</td><td>2026.07.01</td><td>2026.07.31 18:00</td></tr>
-              <tr><td>1,541</td><td><a href="#" data-open-modal="pqDetailView">RFQ2606</a></td><td><span class="badge-tag">견적 마감</span></td><td><span class="badge-success">제출완료</span></td><td class="text-left">태양광 발전기 도입 관련 견적 요청의 건</td><td>용역</td><td>2026.08.12</td><td>2026.07.01</td><td>2026.07.31 18:00</td></tr>
-              <tr><td>1,540</td><td><a href="#" data-open-modal="pqDetailView">RFQ2605</a></td><td><span class="badge-tag">견적 마감</span></td><td><span class="badge-tag">견적포기</span></td><td class="text-left">고효율 압축기 교체 관련 견적 요청의 건</td><td>물품</td><td>2026.07.20</td><td>2026.06.28</td><td>2026.07.20 18:00</td></tr>
+              <tr><td>1,542</td><td>RFQ2607</td><td><span class="badge-success">견적 요청중</span></td><td><span class="badge-tag">미제출</span></td><td class="text-left"><a href="#" data-open-modal="pqDetailView">태양광 발전기 도입 관련 견적 요청의 건</a></td><td>공사</td><td>-</td><td>2026.07.01</td><td>2026.07.31 18:00</td></tr>
+              <tr><td>1,541</td><td>RFQ2606</td><td><span class="badge-tag">견적 마감</span></td><td><span class="badge-success">제출완료</span></td><td class="text-left"><a href="#" data-open-modal="pqDetailView">태양광 발전기 도입 관련 견적 요청의 건</a></td><td>용역</td><td>2026.08.12</td><td>2026.07.01</td><td>2026.07.31 18:00</td></tr>
+              <tr><td>1,540</td><td>RFQ2605</td><td><span class="badge-tag">견적 마감</span></td><td><span class="badge-tag">견적포기</span></td><td class="text-left"><a href="#" data-open-modal="pqDetailView">고효율 압축기 교체 관련 견적 요청의 건</a></td><td>물품</td><td>2026.07.20</td><td>2026.06.28</td><td>2026.07.20 18:00</td></tr>
             </tbody>
           </table>
         </div>

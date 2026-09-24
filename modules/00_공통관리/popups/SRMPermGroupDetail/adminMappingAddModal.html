@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../../../../assets/styles/style.css">
 </head>
 <body class="popup-document">
-<div class="modal-backdrop" id="adminMappingAddModal" role="dialog" aria-modal="true" aria-labelledby="adminMappingAddModalTitle" aria-hidden="false">
+<div class="modal-backdrop" id="adminMappingAddModal" role="dialog" aria-modal="true" aria-labelledby="adminMappingAddModalTitle" aria-hidden="false" data-ui-scope="popup">
     <div class="modal-dialog modal-xl">
       <div class="modal-header">
         <h2 class="modal-title" id="adminMappingAddModalTitle">관리자(직원) 추가하기</h2>
@@ -15,7 +15,7 @@
       </div>
       <div class="modal-body">
         <section class="filter-card">
-          <form>
+          <form data-ui-scope="filter">
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-100">키워드 검색</span>
             <select class="filter-select w-130">

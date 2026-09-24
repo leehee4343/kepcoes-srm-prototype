@@ -7,12 +7,12 @@
   <link rel="stylesheet" href="../../../../assets/styles/style.css">
 </head>
 <body class="popup-document">
-<div class="modal-backdrop" id="bidEvaluatorMapModal" role="dialog" aria-modal="true" aria-labelledby="bidEvaluatorMapTitle" aria-hidden="false">
+<div class="modal-backdrop" id="bidEvaluatorMapModal" role="dialog" aria-modal="true" aria-labelledby="bidEvaluatorMapTitle" aria-hidden="false" data-ui-defaults="{&quot;method&quot;:&quot;general&quot;,&quot;award&quot;:&quot;restricted&quot;,&quot;price&quot;:&quot;reserve&quot;}" data-ui-scope="popup">
     <div class="modal-dialog modal-xl">
       <div class="modal-header"><h2 class="modal-title" id="bidEvaluatorMapTitle">평가자 매핑</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
       <div class="modal-body">
         <section class="filter-card">
-          <form>
+          <form data-ui-scope="filter">
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-100">키워드 검색</span>
             <select class="filter-select w-130"><option>검색 구분</option></select>

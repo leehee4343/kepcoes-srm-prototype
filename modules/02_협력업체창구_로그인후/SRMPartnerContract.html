@@ -80,7 +80,7 @@
       </div>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">계약관리</h1></div>
         <nav class="breadcrumb" aria-label="현재 위치">
@@ -92,7 +92,7 @@
 
 
       <section class="filter-card">
-        <form id="contractSearchForm" class="description-marker-container">
+        <form id="contractSearchForm" class="description-marker-container" data-ui-scope="filter">
           <span class="description-target-marker marker-top-left" aria-hidden="true">1</span>
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-200">조회기간(계약 체결일)</span>
@@ -118,8 +118,8 @@
           <div class="filter-row hstack gap-12 description-marker-container">
             <span class="description-target-marker marker-top-left" aria-hidden="true">2</span>
             <span class="filter-label w-200">계약방법/낙찰자 선정방법</span>
-            <select class="filter-select w-180"><option>계약방법 선택</option><option>수의계약</option><option>경쟁입찰(일반)</option><option>경쟁입찰(제한)</option><option>경쟁입찰(지명)</option></select>
-            <select class="filter-select w-180"><option>낙찰자 선정방법 선택</option></select>
+            <select class="filter-select w-180" data-ui-field="method"><option value="">전체</option><option value="sole">수의계약</option><option value="general">경쟁입찰(일반)</option><option value="limited">경쟁입찰(제한)</option><option value="designated">경쟁입찰(지명)</option></select>
+            <select class="filter-select w-180" data-ui-field="award"><option value="">전체</option><option value="lowest">최저가</option><option value="restricted">제한적 최저가 입찰</option><option value="simultaneous">2단계 경쟁입찰(규격/가격 동시)</option><option value="separate">2단계 경쟁입찰(규격/가격 분리)</option><option value="qualification">적격심사</option></select>
           </div>
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-200">공고 구분</span>
@@ -169,8 +169,8 @@
               <tr><th class="w-130">계약 번호</th><th class="w-80">공고 구분</th><th class="w-90">진행상태</th><th class="minw-220">계약명</th><th class="w-110">계약금액</th><th class="w-100">계약 체결일</th><th class="w-140">납기일/공사기간</th><th class="w-60">구분</th><th class="w-100">계약방법</th><th class="w-110">낙찰자 선정방법</th></tr>
             </thead>
             <tbody>
-              <tr><td><a href="SRMPartnerContractDocuments.html">CT_20260801_001</a></td><td>본공고</td><td><span class="badge-info">계약준비</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td class="col-num">48,507,800</td><td>2026.07.31</td><td>2026.08.01 ~ 2026.12.31</td><td>공사</td><td>수의계약</td><td>최저가</td></tr>
-              <tr><td><a href="SRMPartnerContractDetail.html">CT_20260715_014</a></td><td>재공고(1차)</td><td><span class="badge-success">계약완료</span></td><td class="text-left">본사 LED 조명 교체공사</td><td class="col-num">99,000,000</td><td>2026.07.31</td><td>2026.07.20 ~ 2027.07.30</td><td>용역</td><td>경쟁입찰(일반)</td><td>최저가</td></tr>
+              <tr><td>CT_20260801_001</td><td>본공고</td><td><span class="badge-info">계약준비</span></td><td class="text-left"><a href="SRMPartnerContractDetail.html">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td class="col-num">48,507,800</td><td>2026.07.31</td><td>2026.08.01 ~ 2026.12.31</td><td>공사</td><td>수의계약</td><td>최저가</td></tr>
+              <tr><td>CT_20260715_014</td><td>재공고(1차)</td><td><span class="badge-success">계약완료</span></td><td class="text-left"><a href="SRMPartnerContractDetail.html">본사 LED 조명 교체공사</a></td><td class="col-num">99,000,000</td><td>2026.07.31</td><td>2026.07.20 ~ 2027.07.30</td><td>용역</td><td>경쟁입찰(일반)</td><td>최저가</td></tr>
             </tbody>
           </table>
         </div>

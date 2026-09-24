@@ -267,30 +267,32 @@
       </div>
     </aside>
 
-        <main class="main-content page-detail-content">
+        <main class="main-content page-detail-content" data-ui-defaults="{&quot;method&quot;:&quot;sole&quot;,&quot;award&quot;:&quot;lowest&quot;,&quot;price&quot;:&quot;estimated&quot;,&quot;documents&quot;:&quot;false&quot;}" data-ui-family="sole" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">수의계약 계획 현황</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardBiz.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">수의계약 관리</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">수의계약 계획 현황</span></div>
       </div>
-      <nav class="wizard-stepper" aria-label="수의계약 계획 등록/설정 단계">
-        <a href="SRMSoleSourcePlanManage.html" class="wizard-step-box completed"><span class="wizard-step-dot" aria-hidden="true">1</span><span class="wizard-step-num">STEP 01</span><span class="wizard-step-title">발주계획 정보 확인</span></a>
-        <a href="SRMSoleSourcePlanManageDetail.html" class="wizard-step-box completed"><span class="wizard-step-dot" aria-hidden="true">2</span><span class="wizard-step-num">STEP 02</span><span class="wizard-step-title">수의계약 계획 상세정보</span></a>
-        <a href="SRMSoleSourcePlanManagePrice.html" class="wizard-step-box completed"><span class="wizard-step-dot" aria-hidden="true">3</span><span class="wizard-step-num">STEP 03</span><span class="wizard-step-title">예정가</span></a>
-        <a href="SRMSoleSourcePlanManageDocuments.html" class="wizard-step-box active" aria-current="step"><span class="wizard-step-dot" aria-hidden="true">4</span><span class="wizard-step-num">STEP 04</span><span class="wizard-step-title">수의계약 참여 서류</span></a>
-        <a href="SRMSoleSourcePlanManageReview.html" class="wizard-step-box"><span class="wizard-step-dot" aria-hidden="true">5</span><span class="wizard-step-num">STEP 05</span><span class="wizard-step-title">최종 점검</span></a>
-        <a href="SRMSoleSourcePlanComplete.html" class="wizard-step-box"><span class="wizard-step-dot" aria-hidden="true">6</span><span class="wizard-step-num">STEP 06</span><span class="wizard-step-title">수의계약 계획 등록 완료</span></a>
-      </nav>
+      <div class="detail-tabs-bar">
+        <div class="detail-tab-group" role="tablist" aria-label="수의계약 계획 정보 탭">
+          <a href="SRMSoleSourcePlanManage.html" class="detail-tab-btn" role="tab" aria-selected="false">발주계획 정보 확인</a>
+          <a href="SRMSoleSourcePlanManageDetail.html" class="detail-tab-btn" role="tab" aria-selected="false">수의계약 계획 상세정보</a>
+          <a href="SRMSoleSourcePlanManagePrice.html" class="detail-tab-btn" role="tab" aria-selected="false">예정가</a>
+          <a href="SRMSoleSourcePlanManageDocuments.html" class="detail-tab-btn active" role="tab" aria-selected="true">수의계약 참여 서류</a>
+          <a href="SRMSoleSourcePlanManageReview.html" class="detail-tab-btn" role="tab" aria-selected="false">최종 점검</a>
+          <a href="SRMSoleSourcePlanComplete.html" class="detail-tab-btn" role="tab" aria-selected="false">수의계약 계획 등록 완료</a>
+        </div>
+      </div>
       <section class="app-card srm-bid-summary" aria-label="수의계약 계획 요약">
         <table class="data-table" aria-label="수의계약 계획 요약">
           <thead><tr><th>공고 번호</th><th>공고 구분</th><th>진행상태</th><th class="srm-bid-name">수의계약 건명</th><th>등록일</th><th>구분</th><th>계약방법</th><th>낙찰자 선정방법</th><th>사업담당자</th><th>계약담당자</th></tr></thead>
-          <tbody><tr><td>BD2026-0023</td><td>본공고</td><td>작성중</td><td class="srm-bid-name" title="서초동 1601-9 오피스텔 신축공사 중 습식공사">서초동 1601-9 오피스텔 신축공사 중 습식공사</td><td>2026.07.22</td><td>공사</td><td>수의계약</td><td>최저가</td><td>홍길동</td><td>임꺽정</td></tr></tbody>
+          <tbody><tr><td>BD2026-0023</td><td>본공고</td><td>작성중</td><td class="srm-bid-name" title="서초동 1601-9 오피스텔 신축공사 중 습식공사">서초동 1601-9 오피스텔 신축공사 중 습식공사</td><td>2026.07.22</td><td>공사</td><td data-ui-text="method">수의계약</td><td data-ui-text="award">최저가</td><td>홍길동</td><td>임꺽정</td></tr></tbody>
         </table>
       </section>
       <section class="page-detail-body" aria-label="수의계약 참여 서류">
-        <div class="inline-action-bar"><label class="form-choice"><input type="checkbox">본 수의계약은 수의계약 시 제출해야 할 참여 서류가 있습니다.</label><button type="button" class="btn-primary">수의계약 참여 서류 등록</button></div>
-        <div class="srm-section-heading content-object-gap-top"><div><h2>수의계약 참여 서류</h2><p class="form-hint text-primary">※ 수의계약 참여 시 협력업체가 첨부해야 하는 서류 목록 관리</p></div></div>
-        <p class="modal-field-label">등록된 수의계약 참여 서류 : 총 5건</p>
-        <div class="srm-table-wrap">
+        <div class="inline-action-bar"><label class="form-choice"><input type="checkbox" data-ui-field="documents">본 수의계약은 수의계약 시 제출해야 할 참여 서류가 있습니다.</label><button type="button" class="btn-primary" data-ui-set="documents=true">수의계약 참여 서류 등록</button></div>
+        <div class="srm-section-heading content-object-gap-top" data-ui-show="documents=true"><div><h2>수의계약 참여 서류</h2><p class="form-hint text-primary">※ 수의계약 참여 시 협력업체가 첨부해야 하는 서류 목록 관리</p></div></div>
+        <p class="modal-field-label" data-ui-show="documents=true">등록된 수의계약 참여 서류 : 총 5건</p>
+        <div class="srm-table-wrap" data-ui-show="documents=true">
           <table class="data-table" aria-label="수의계약 참여 서류">
             <thead><tr><th class="col-no">No</th><th>수의계약 참여 서류</th><th>설명</th><th class="w-80">순서</th><th class="w-60">삭제</th></tr></thead>
             <tbody>
@@ -313,6 +315,6 @@
 
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMSoleSourcePlan/ssCommonDocModal.html", "popups/SRMSoleSourcePlan/ssDocAddModal.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMSoleSourcePlan/ssCommonDocModal.html","popups/SRMSoleSourcePlan/ssDocAddModal.html","popups/SRMSoleSourcePlan/ssCommonDocPreview.html"]</script>
 </body>
 </html>

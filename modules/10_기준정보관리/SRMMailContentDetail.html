@@ -267,23 +267,23 @@
       </div>
     </aside>
 
-        <main class="main-content page-detail-content">
+        <main class="main-content page-detail-content" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">메일/메시지 발송 내용 수정</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardAdmin.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">기준정보 관리</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">메일/메시지 발송 내용 관리</span></div>
       </div>
       <section class="page-detail-body"><div class="srm-kv-grid">
           <div class="srm-kv-row"><dt>발송 상황</dt><dd>입찰 참여 신청 완료</dd></div>
-          <div class="srm-kv-row"><dt>발송 방법 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="mcMethod2" checked>이메일 + 메시지</label><label class="form-choice"><input type="radio" name="mcMethod2">이메일</label><label class="form-choice"><input type="radio" name="mcMethod2">메시지</label></div></dd></div>
-          <div class="srm-kv-row"><dt>이메일 제목 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control fit-360" value="안녕하세요. 켑코이에스입니다. (입찰 참여 신청이 완료되었습니다.)"></dd></div>
-          <div class="srm-kv-row"><dt>이메일 내용 <span class="required" aria-hidden="true">*</span></dt><dd><textarea class="form-control" rows="7">안녕하세요. 켑코이에스입니다.
+          <div class="srm-kv-row"><dt>발송 방법 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="mcMethod2" checked value="both" data-ui-field="channel">이메일 + 메시지</label><label class="form-choice"><input type="radio" name="mcMethod2" value="email" data-ui-field="channel">이메일</label><label class="form-choice"><input type="radio" name="mcMethod2" value="sms" data-ui-field="channel">메시지</label></div></dd></div>
+          <div class="srm-kv-row" data-ui-show="channel=both|email"><dt>이메일 제목 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control fit-360" value="안녕하세요. 켑코이에스입니다. (입찰 참여 신청이 완료되었습니다.)"></dd></div>
+          <div class="srm-kv-row" data-ui-show="channel=both|email"><dt>이메일 내용 <span class="required" aria-hidden="true">*</span></dt><dd><textarea class="form-control" rows="7">안녕하세요. 켑코이에스입니다.
 
 입찰 참여 신청이 완료되었습니다.
 입찰 참여 이후에는 입찰 관련 정보를 수정하실 수 없습니다.
 문의 사항은 02-6959-4561로 연락 부탁드립니다.
 
 켑코이에스의 발주 사업에 관심을 가져 주셔서 감사드립니다.</textarea></dd></div>
-          <div class="srm-kv-row"><dt>메시지(SMS) <span class="required" aria-hidden="true">*</span></dt><dd><textarea class="form-control" rows="7">안녕하세요. 켑코이에스입니다.
+          <div class="srm-kv-row" data-ui-show="channel=both|sms"><dt>메시지(SMS) <span class="required" aria-hidden="true">*</span></dt><dd><textarea class="form-control" rows="7">안녕하세요. 켑코이에스입니다.
 
 입찰 참여 신청이 완료되었습니다.
 입찰 참여 이후에는 입찰 관련 정보를 수정하실 수 없습니다.

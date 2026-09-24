@@ -267,13 +267,13 @@
       </div>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">권한그룹 및 메뉴별 권한 관리</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardAdmin.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">공통관리</span><span class="breadcrumb-separator">&gt;</span><a href="SRMPermGroupManage.html" class="breadcrumb-item">권한그룹 및 메뉴별 권한 관리</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">권한그룹 추가하기</span></div>
       </div>
 
-      <div class="two-col-panels">
+      <div class="two-col-panels permission-panels">
         <section class="app-card srm-detail-section">
           <div class="srm-section-heading"><div><h2>권한그룹 정보</h2></div></div>
           <div class="srm-kv-grid">
@@ -286,29 +286,9 @@
           </div>
         </section>
 
-        <section class="app-card srm-detail-section">
+        <section class="app-card srm-detail-section permission-menu-card">
           <div class="srm-section-heading"><div><h2>메뉴별 권한 부여</h2></div></div>
-          <ul class="perm-menu-tree">
-            <li>
-              <label class="form-choice"><input type="checkbox" checked>대메뉴 #1(1Depth)</label>
-              <ul>
-                <li><label class="form-choice"><input type="checkbox" checked>중메뉴 #1(2Depth)</label></li>
-                <li>
-                  <label class="form-choice"><input type="checkbox" checked>중메뉴 #2(2Depth)</label>
-                  <ul>
-                    <li><label class="form-choice"><input type="checkbox" checked>소메뉴 #1(3Depth)</label></li>
-                    <li><label class="form-choice"><input type="checkbox" checked>소메뉴 #2(3Depth)</label></li>
-                    <li><label class="form-choice"><input type="checkbox" checked>소메뉴 #3(3Depth)</label></li>
-                    <li><label class="form-choice"><input type="checkbox" checked>소메뉴 #4(3Depth)</label></li>
-                  </ul>
-                </li>
-                <li><label class="form-choice"><input type="checkbox" checked>중메뉴 #3(2Depth)</label></li>
-              </ul>
-            </li>
-            <li>
-              <label class="form-choice"><input type="checkbox">대메뉴 #2(1Depth)</label>
-            </li>
-          </ul>
+          <ul class="perm-menu-tree perm-menu-scroll" tabindex="0" aria-label="메뉴별 권한 선택 목록"><li><label class="form-choice"><input type="checkbox" checked="">대시보드</label><ul><li><label class="form-choice"><input type="checkbox" checked="">대시보드</label></li><li><label class="form-choice"><input type="checkbox" checked="">공지사항</label></li><li><label class="form-choice"><input type="checkbox" checked="">양식 등 자료실</label></li></ul></li><li><label class="form-choice"><input type="checkbox" checked="">사전 견적 관리</label><ul><li><label class="form-choice"><input type="checkbox" checked="">사전 견적 요청</label></li><li><label class="form-choice"><input type="checkbox" checked="">사전 견적 요청 현황</label></li></ul></li><li><label class="form-choice"><input type="checkbox" checked="">발주계약 요청</label><ul><li><label class="form-choice"><input type="checkbox" checked="">발주계약 요청</label></li><li><label class="form-choice"><input type="checkbox" checked="">발주계약 요청현황</label></li></ul></li><li><label class="form-choice"><input type="checkbox" checked="">발주계획</label><ul><li><label class="form-choice"><input type="checkbox" checked="">발주계약 요청 접수</label></li><li><label class="form-choice"><input type="checkbox" checked="">발주계획 등록</label></li></ul></li><li><label class="form-choice"><input type="checkbox" checked="">수의계약 관리</label><ul><li><label class="form-choice"><input type="checkbox" checked="">수의계약 계획 현황</label></li><li><label class="form-choice"><input type="checkbox" checked="">수의계약 현황</label></li></ul></li><li><label class="form-choice"><input type="checkbox" checked="">입찰관리</label><ul><li><label class="form-choice"><input type="checkbox" checked="">입찰계획 현황</label></li><li><label class="form-choice"><input type="checkbox" checked="">입찰공고 현황</label></li></ul></li><li><label class="form-choice"><input type="checkbox" checked="">계약관리</label><ul><li><label class="form-choice"><input type="checkbox" checked="">발주계약 현황</label></li></ul></li><li><label class="form-choice"><input type="checkbox" checked="">협력업체 관리</label><ul><li><label class="form-choice"><input type="checkbox" checked="">신청/변경 요청 처리</label></li><li><label class="form-choice"><input type="checkbox" checked="">협력업체 관리</label></li><li><label class="form-choice"><input type="checkbox" checked="">질문과 답변</label></li></ul></li><li><label class="form-choice"><input type="checkbox" checked="">기준정보 관리</label><ul><li><label class="form-choice"><input type="checkbox" checked="">공통 품목관리</label></li><li><label class="form-choice"><input type="checkbox" checked="">소싱그룹 관리</label></li><li><label class="form-choice"><input type="checkbox" checked="">공통 심사/평가 관리</label></li><li><label class="form-choice"><input type="checkbox" checked="">공통 서류 관리</label></li><li><label class="form-choice"><input type="checkbox" checked="">메일/메시지 발송 내용 관리</label></li><li><label class="form-choice"><input type="checkbox" checked="">메일/메시지 발송</label></li><li><label class="form-choice"><input type="checkbox" checked="">메일/메시지 발송 현황 조회</label></li></ul></li><li><label class="form-choice"><input type="checkbox" checked="">공통관리</label><ul><li><label class="form-choice"><input type="checkbox" checked="">관리자 관리</label></li><li><label class="form-choice"><input type="checkbox" checked="">권한그룹 및 메뉴별 권한 관리</label></li><li><label class="form-choice"><input type="checkbox" checked="">시스템 권한 관리</label></li><li><label class="form-choice"><input type="checkbox" checked="">접속 아이피(IP) 관리</label></li><li><label class="form-choice"><input type="checkbox" checked="">코드관리</label></li><li><label class="form-choice"><input type="checkbox" checked="">로그인 현황</label></li><li><label class="form-choice"><input type="checkbox" checked="">메뉴별 접속현황</label></li><li><label class="form-choice"><input type="checkbox" checked="">거래처 관리</label></li><li><label class="form-choice"><input type="checkbox" checked="">공지사항 관리</label></li><li><label class="form-choice"><input type="checkbox" checked="">양식 등 자료실 관리</label></li></ul></li></ul>
         </section>
       </div>
 

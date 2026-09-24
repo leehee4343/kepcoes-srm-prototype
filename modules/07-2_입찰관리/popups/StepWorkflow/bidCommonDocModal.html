@@ -7,12 +7,12 @@
   <link rel="stylesheet" href="../../../../assets/styles/style.css">
 </head>
 <body class="popup-document">
-<div class="modal-backdrop" id="bidCommonDocModal" role="dialog" aria-modal="true" aria-labelledby="bidCommonDocTitle" aria-hidden="false">
+<div class="modal-backdrop" id="bidCommonDocModal" role="dialog" aria-modal="true" aria-labelledby="bidCommonDocTitle" aria-hidden="false" data-ui-defaults="{&quot;method&quot;:&quot;general&quot;,&quot;award&quot;:&quot;restricted&quot;,&quot;price&quot;:&quot;reserve&quot;}" data-ui-scope="popup">
     <div class="modal-dialog modal-xl">
       <div class="modal-header"><h2 class="modal-title" id="bidCommonDocTitle">공통 입찰 참여 서류 불러오기</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
       <div class="modal-body">
         <section class="filter-card">
-          <form>
+          <form data-ui-scope="filter">
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-80">서류 명칭</span>
             <input type="text" class="filter-text-input w-380" placeholder="검색어를 입력하세요." aria-label="검색어">
@@ -37,7 +37,7 @@
           <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="공통 서류 목록" data-total-items="55" data-total-pages="6">
             <table class="data-table data-grid-table" aria-label="공통 서류 목록">
             <thead><tr><th>서류 명칭</th><th class="w-70">서류(수)</th><th class="w-70">선택</th></tr></thead>
-            <tbody><tr><td class="col-left">일반/공통(공사 사업 기준) 사업에 쓰이는 입찰 서류 목록</td><td>5개</td><td><button type="button" class="btn-task-register" data-close-modal>선택</button></td></tr></tbody>
+            <tbody><tr><td class="col-left"><a href="#" data-open-modal="bidCommonDocPreview">일반/공통(공사 사업 기준) 사업에 쓰이는 입찰 서류 목록</a></td><td>5개</td><td><button type="button" class="btn-task-register" data-close-modal>선택</button></td></tr></tbody>
           </table>
           </div>
         </div>

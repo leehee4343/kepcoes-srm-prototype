@@ -80,7 +80,7 @@
       </div>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" data-ui-defaults="{&quot;method&quot;:&quot;general&quot;,&quot;award&quot;:&quot;restricted&quot;,&quot;price&quot;:&quot;reserve&quot;,&quot;briefing&quot;:&quot;no&quot;,&quot;negotiated&quot;:&quot;no&quot;,&quot;presentation&quot;:&quot;no&quot;,&quot;selfReview&quot;:&quot;true&quot;}" data-ui-family="partnerbid" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">입찰 참여 현황</h1></div>
         <nav class="breadcrumb" aria-label="현재 위치">
@@ -92,7 +92,7 @@
 
 
       <section class="filter-card">
-        <form id="bidJoinSearchForm">
+        <form id="bidJoinSearchForm" data-ui-scope="filter">
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-200">조회기간(입찰 마감일)</span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
@@ -116,8 +116,8 @@
           </div>
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-200">계약방법/낙찰자 선정방법</span>
-            <select class="filter-select w-180"><option>계약방법 선택</option></select>
-            <select class="filter-select w-180"><option>낙찰자 선정방법 선택</option></select>
+            <select class="filter-select w-180" data-ui-field="method"><option value="">전체</option><option value="sole">수의계약</option><option value="general">경쟁입찰(일반)</option><option value="limited">경쟁입찰(제한)</option><option value="designated">경쟁입찰(지명)</option></select>
+            <select class="filter-select w-180" data-ui-field="award"><option value="">전체</option><option value="lowest">최저가</option><option value="restricted">제한적 최저가 입찰</option><option value="simultaneous">2단계 경쟁입찰(규격/가격 동시)</option><option value="separate">2단계 경쟁입찰(규격/가격 분리)</option><option value="qualification">적격심사</option></select>
           </div>
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-200">공고 구분</span>
@@ -165,9 +165,9 @@
               <tr><th class="w-100">공고번호</th><th class="w-80">공고 구분</th><th class="w-90">진행상태</th><th class="w-140"><span class="description-marker-anchor">제출상태<span class="description-target-marker" aria-hidden="true">2</span></span></th><th class="w-140">결과</th><th class="minw-220">입찰 건명</th><th class="w-130">입찰 마감일시</th><th class="w-60">구분</th><th class="w-100">계약방법</th><th class="w-110">낙찰자 선정방법</th><th class="w-80">사업담당자</th><th class="w-80">계약 담당자</th></tr>
             </thead>
             <tbody>
-              <tr><td><a href="SRMPartnerBidJoinDetail.html">BD2026-0023</a></td><td>본공고</td><td><span class="badge-info">입찰진행중</span></td><td><span class="badge-tag">작성중(미제출)</span></td><td><span class="badge-success">우선협상대상자 선정</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td>2026.07.31 18:00</td><td>공사</td><td>경쟁입찰(일반)</td><td>최저가</td><td>홍길동</td><td>박승길</td></tr>
-              <tr><td><a href="SRMPartnerBidDocumentHistory.html">BD2026-0025</a></td><td>재공고(1차)</td><td><span class="badge-tag">입찰마감</span></td><td><span class="badge-success">입찰 서류 제출 완료</span></td><td><span class="badge-success">우선협상대상자 선정</span></td><td class="text-left">금호동 1601-9 오피스텔 신축공사 중 도장공사</td><td>2026.07.31 18:00</td><td>용역</td><td>경쟁입찰(제한)</td><td>제한적 최저가 입찰</td><td>홍길동</td><td>박승길</td></tr>
-              <tr><td><a href="SRMPartnerBidPriceComplete.html">BD2026-0031</a></td><td>재공고(2차)</td><td><span class="badge-info">투찰진행중</span></td><td><span class="badge-success">가격 투찰 완료</span></td><td>탈락</td><td class="text-left">금호동 1601-9 오피스텔 신축공사 중 도장공사</td><td>2026.07.31 18:00</td><td>물품</td><td>경쟁입찰(지명)</td><td>2단계 경쟁입찰(규격/가격 동시)</td><td>홍길동</td><td>박승길</td></tr>
+              <tr><td><a href="#" data-open-modal="bidNoticeDocModal">BD2026-0023</a></td><td>본공고</td><td><span class="badge-info">입찰진행중</span></td><td><span class="badge-tag">작성중(미제출)</span></td><td><span class="badge-success">우선협상대상자 선정</span></td><td class="text-left"><a href="SRMPartnerBidJoinDetail.html">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>2026.07.31 18:00</td><td>공사</td><td>경쟁입찰(일반)</td><td>최저가</td><td>홍길동</td><td>박승길</td></tr>
+              <tr><td><a href="#" data-open-modal="bidNoticeDocModal">BD2026-0025</a></td><td>재공고(1차)</td><td><span class="badge-tag">입찰마감</span></td><td><span class="badge-success">입찰 서류 제출 완료</span></td><td><span class="badge-success">우선협상대상자 선정</span></td><td class="text-left"><a href="SRMPartnerBidJoinDetail.html">금호동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>2026.07.31 18:00</td><td>용역</td><td>경쟁입찰(제한)</td><td>제한적 최저가 입찰</td><td>홍길동</td><td>박승길</td></tr>
+              <tr><td><a href="#" data-open-modal="bidNoticeDocModal">BD2026-0031</a></td><td>재공고(2차)</td><td><span class="badge-info">투찰진행중</span></td><td><span class="badge-success">가격 투찰 완료</span></td><td>탈락</td><td class="text-left"><a href="SRMPartnerBidJoinDetail.html">금호동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>2026.07.31 18:00</td><td>물품</td><td>경쟁입찰(지명)</td><td>2단계 경쟁입찰(규격/가격 동시)</td><td>홍길동</td><td>박승길</td></tr>
             </tbody>
           </table>
         </div>
@@ -241,6 +241,6 @@
 
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMPartnerBidJoin/bidJoinLimitNoticeModal2.html", "popups/SRMPartnerBidJoin/bidPriceLimitNoticeModal2.html", "popups/SRMPartnerBidJoin/bidDocSubmitConfirmModal.html", "popups/SRMPartnerBidJoin/bidDocSubmitDoneModal.html", "popups/SRMPartnerBidJoin/bidDocCancelConfirmModal.html", "popups/SRMPartnerBidJoin/bidGiveUpConfirmModal.html", "popups/SRMPartnerBidJoin/bidPriceDrawModal.html", "popups/SRMPartnerBidJoin/bidPriceSubmitConfirmModal.html", "popups/SRMPartnerBidJoin/negoTalkSubmitConfirmModal.html", "popups/SRMPartnerBidJoin/screenDescriptionGuide.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMPartnerBidJoin/bidJoinLimitNoticeModal2.html", "popups/SRMPartnerBidJoin/bidPriceLimitNoticeModal2.html", "popups/SRMPartnerBidJoin/bidDocSubmitConfirmModal.html", "popups/SRMPartnerBidJoin/bidDocSubmitDoneModal.html", "popups/SRMPartnerBidJoin/bidDocCancelConfirmModal.html", "popups/SRMPartnerBidJoin/bidGiveUpConfirmModal.html", "popups/SRMPartnerBidJoin/bidPriceDrawModal.html", "popups/SRMPartnerBidJoin/bidPriceSubmitConfirmModal.html", "popups/SRMPartnerBidJoin/negoTalkSubmitConfirmModal.html", "popups/SRMPartnerBidJoin/screenDescriptionGuide.html", "popups/SRMPartnerBidNotice/bidNoticeDocModal.html"]</script>
 </body>
 </html>

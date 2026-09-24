@@ -267,7 +267,7 @@
       </div>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">소싱그룹 관리</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardAdmin.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">기준정보 관리</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">소싱그룹 관리</span></div>
@@ -275,29 +275,29 @@
 
 
       <p class="modal-field-label">'코드 관리'와 유사하게 대/중/소분류 3단으로 관리합니다.</p>
-      <div class="filter-card">
+      <div class="filter-card" data-ui-scope="filter">
         <div class="form-lookup">
           <select class="filter-select w-130"><option>검색 구분</option></select>
           <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
-          <button type="button" class="btn-filter-search">검색</button>
         </div>
+        <div class="filter-action-row"><button type="button" class="btn-filter-search">검색</button><button type="button" class="btn-filter-reset">초기화</button></div>
       </div>
 
-      <div class="three-col-panels">
+      <div class="three-col-panels equal-height-panels">
         <section class="app-card srm-detail-section">
           <div class="srm-section-heading"><div><h2>대분류 코드</h2></div></div>
           <div class="srm-table-wrap">
             <table class="data-table" aria-label="대분류 코드">
               <thead><tr><th class="col-no">코드</th><th>대분류 코드명</th><th class="w-80">사용여부</th><th class="w-60">삭제</th></tr></thead>
               <tbody>
-                <tr class="is-selected"><td>001</td><td class="text-left">제조사</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-                <tr><td>002</td><td class="text-left">시공사</td><td><span class="badge-tag">중지(N)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-                <tr><td>003</td><td class="text-left">구매</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-                <tr><td>004</td><td class="text-left">용역</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+                <tr class="is-selected"><td>001</td><td class="text-left"><a href="#" data-open-modal="sgManageModal" data-nav-edit="코드명">제조사</a></td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+                <tr><td>002</td><td class="text-left"><a href="#" data-open-modal="sgManageModal" data-nav-edit="코드명">시공사</a></td><td><span class="badge-tag">중지(N)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+                <tr><td>003</td><td class="text-left"><a href="#" data-open-modal="sgManageModal" data-nav-edit="코드명">구매</a></td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+                <tr><td>004</td><td class="text-left"><a href="#" data-open-modal="sgManageModal" data-nav-edit="코드명">용역</a></td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
               </tbody>
             </table>
           </div>
-          <div class="srm-detail-actions"><button type="button" class="btn-action-new" data-href="SRMSourcingGroupDetail.html">등록</button></div>
+          <div class="srm-detail-actions"><button type="button" class="btn-action-new" data-href="#" data-open-modal="sgManageModal" data-nav-edit="코드명">등록</button></div>
         </section>
 
         <section class="app-card srm-detail-section">
@@ -306,13 +306,13 @@
             <table class="data-table" aria-label="중분류 코드">
               <thead><tr><th class="col-no">코드</th><th>중분류 코드명</th><th class="w-60">순서</th><th class="w-80">사용여부</th><th class="w-60">삭제</th></tr></thead>
               <tbody>
-                <tr class="is-selected"><td>001001</td><td class="text-left">고효율</td><td>▼</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-                <tr><td></td><td class="text-left">신재생</td><td>▲ ▼</td><td><span class="badge-tag">중지(N)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-                <tr><td></td><td class="text-left">일반</td><td>▲</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+                <tr class="is-selected"><td>001001</td><td class="text-left"><a href="#" data-open-modal="sgManageModal" data-nav-edit="코드명">고효율</a></td><td>▼</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+                <tr><td></td><td class="text-left"><a href="#" data-open-modal="sgManageModal" data-nav-edit="코드명">신재생</a></td><td>▲ ▼</td><td><span class="badge-tag">중지(N)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+                <tr><td></td><td class="text-left"><a href="#" data-open-modal="sgManageModal" data-nav-edit="코드명">일반</a></td><td>▲</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
               </tbody>
             </table>
           </div>
-          <div class="srm-detail-actions"><button type="button" class="btn-secondary">순서 적용</button><button type="button" class="btn-action-new" data-href="SRMSourcingGroupDetail.html">등록</button></div>
+          <div class="srm-detail-actions"><button type="button" class="btn-secondary">순서 적용</button><button type="button" class="btn-action-new" data-href="#" data-open-modal="sgManageModal" data-nav-edit="코드명">등록</button></div>
         </section>
 
         <section class="app-card srm-detail-section">
@@ -321,15 +321,15 @@
             <table class="data-table" aria-label="소분류 코드">
               <thead><tr><th class="col-no">코드</th><th>소분류 코드명</th><th class="w-60">순서</th><th class="w-80">사용여부</th><th class="w-60">삭제</th></tr></thead>
               <tbody>
-                <tr class="is-selected"><td>001001001</td><td class="text-left">BIPV</td><td>▼</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-                <tr><td></td><td class="text-left">ESS PCS</td><td>▲ ▼</td><td><span class="badge-tag">중지(N)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-                <tr><td></td><td class="text-left">수배전반</td><td>▲ ▼</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-                <tr><td></td><td class="text-left">태양광 인버터</td><td>▲ ▼</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-                <tr><td></td><td class="text-left">PV모듈</td><td>▲</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+                <tr class="is-selected"><td>001001001</td><td class="text-left"><a href="#" data-open-modal="sgManageModal" data-nav-edit="코드명">BIPV</a></td><td>▼</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+                <tr><td></td><td class="text-left"><a href="#" data-open-modal="sgManageModal" data-nav-edit="코드명">ESS PCS</a></td><td>▲ ▼</td><td><span class="badge-tag">중지(N)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+                <tr><td></td><td class="text-left"><a href="#" data-open-modal="sgManageModal" data-nav-edit="코드명">수배전반</a></td><td>▲ ▼</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+                <tr><td></td><td class="text-left"><a href="#" data-open-modal="sgManageModal" data-nav-edit="코드명">태양광 인버터</a></td><td>▲ ▼</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+                <tr><td></td><td class="text-left"><a href="#" data-open-modal="sgManageModal" data-nav-edit="코드명">PV모듈</a></td><td>▲</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
               </tbody>
             </table>
           </div>
-          <div class="srm-detail-actions"><button type="button" class="btn-secondary">순서 적용</button><button type="button" class="btn-action-new" data-href="SRMSourcingGroupDetail.html">등록</button></div>
+          <div class="srm-detail-actions"><button type="button" class="btn-secondary">순서 적용</button><button type="button" class="btn-action-new" data-href="#" data-open-modal="sgManageModal" data-nav-edit="코드명">등록</button></div>
         </section>
       </div>
 
@@ -344,6 +344,6 @@
 
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">[]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMSourcingGroupManage/sgManageModal.html"]</script>
 </body>
 </html>

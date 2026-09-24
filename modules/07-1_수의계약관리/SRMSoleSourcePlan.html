@@ -267,7 +267,7 @@
       </div>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" data-ui-defaults="{&quot;method&quot;:&quot;sole&quot;,&quot;award&quot;:&quot;lowest&quot;,&quot;price&quot;:&quot;estimated&quot;,&quot;documents&quot;:&quot;false&quot;}" data-ui-family="sole" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">수의계약 계획 현황</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardBiz.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">수의계약 관리</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">수의계약 계획 현황</span></div>
@@ -275,7 +275,7 @@
 
 
       <section class="filter-card">
-        <form id="ssPlanSearchForm">
+        <form id="ssPlanSearchForm" data-ui-scope="filter">
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-130">조회기간(등록일)</span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
@@ -328,8 +328,8 @@
               <tr><th class="w-55">No</th><th class="w-90">공고 번호</th><th class="w-70">공고 구분</th><th class="w-70">진행상태</th><th class="minw-240">수의계약 건명</th><th class="w-60">구분</th><th class="w-90">계약방법</th><th class="w-90">낙찰자 선정방법</th><th class="w-90">등록일</th><th class="w-70">사업담당자</th><th class="w-70">계약담당자</th></tr>
             </thead>
             <tbody>
-              <tr><td>1,542</td><td><a href="SRMSoleSourcePlanManage.html">BD2026-0023</a></td><td>본공고</td><td><span class="badge-tag">작성중</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td>공사</td><td>수의계약</td><td>최저가</td><td>2026.06.10</td><td>홍길동</td><td>임꺽정</td></tr>
-              <tr><td>1,541</td><td><a href="SRMSoleSourcePlanManage.html">BD2026-0024</a></td><td>본공고</td><td><span class="badge-tag">작성중</span></td><td class="text-left">금호동 1601-9 오피스텔 신축공사 중 도장공사</td><td>용역</td><td>수의계약</td><td>최저가</td><td>-</td><td>-</td><td>-</td></tr>
+              <tr><td>1,542</td><td>BD2026-0023</td><td>본공고</td><td><span class="badge-tag">작성중</span></td><td class="text-left"><a href="SRMSoleSourcePlanManage.html">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>공사</td><td>수의계약</td><td>최저가</td><td>2026.06.10</td><td>홍길동</td><td>임꺽정</td></tr>
+              <tr><td>1,541</td><td>BD2026-0024</td><td>본공고</td><td><span class="badge-tag">작성중</span></td><td class="text-left"><a href="SRMSoleSourcePlanManage.html">금호동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>용역</td><td>수의계약</td><td>최저가</td><td>-</td><td>-</td><td>-</td></tr>
             </tbody>
           </table>
         </div>
@@ -370,6 +370,6 @@
 
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMSoleSourcePlan/ssBaseCostModal.html", "popups/SRMSoleSourcePlan/ssBaseCostConfirmModal.html", "popups/SRMSoleSourcePlan/ssPriceRequestModal.html", "popups/SRMSoleSourcePlan/ssPriceRequestConfirmModal.html", "popups/SRMSoleSourcePlan/ssPriceRegisterModal.html", "popups/SRMSoleSourcePlan/ssCommonDocModal.html", "popups/SRMSoleSourcePlan/ssDocAddModal.html", "popups/SRMSoleSourcePlan/ssFinalConfirmModal.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMSoleSourcePlan/ssBaseCostModal.html","popups/SRMSoleSourcePlan/ssBaseCostConfirmModal.html","popups/SRMSoleSourcePlan/ssPriceRequestModal.html","popups/SRMSoleSourcePlan/ssPriceRequestConfirmModal.html","popups/SRMSoleSourcePlan/ssPriceRegisterModal.html","popups/SRMSoleSourcePlan/ssCommonDocModal.html","popups/SRMSoleSourcePlan/ssDocAddModal.html","popups/SRMSoleSourcePlan/ssFinalConfirmModal.html","popups/SRMSoleSourcePlan/ssCommonDocPreview.html"]</script>
 </body>
 </html>

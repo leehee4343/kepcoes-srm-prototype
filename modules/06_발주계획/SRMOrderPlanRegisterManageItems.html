@@ -267,7 +267,7 @@
       </div>
     </aside>
 
-        <main class="main-content page-detail-content">
+        <main class="main-content page-detail-content" data-ui-defaults="{&quot;method&quot;:&quot;general&quot;,&quot;award&quot;:&quot;restricted&quot;,&quot;price&quot;:&quot;reserve&quot;,&quot;items&quot;:&quot;unit&quot;}" data-ui-family="plan" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">발주계획 등록</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardBiz.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">발주계획</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">발주계획 등록</span></div>
@@ -289,18 +289,18 @@
         <p class="modal-field-label">등록된 품목 : 총 3건</p>
         <div class="srm-table-wrap">
           <table class="data-table" aria-label="품목 정보">
-            <thead><tr><th class="col-no">No</th><th>품목코드</th><th>품목명</th><th>규격</th><th>단위</th><th>수량</th><th>납기요청일</th><th>입고장소</th><th>비고</th><th class="w-60">수정</th><th class="w-60">삭제</th></tr></thead>
+            <thead><tr><th class="col-no">No</th><th>품목코드</th><th>품목명</th><th data-ui-show="items=custom">규격</th><th>단위</th><th>수량</th><th>납기요청일</th><th>입고장소</th><th>비고</th><th class="w-60">수정</th><th class="w-60">삭제</th></tr></thead>
             <tbody>
-              <tr><td>1</td><td>A0106-001</td><td>고효율 인버터</td><td class="text-left">품목 구성 방법이 ‘지정 항목 작성’인 경우에 등록됨</td><td>EA</td><td class="text-right">3</td><td>2026.07.31</td><td>현장</td><td class="text-left">품목 등록의 비고에 들어간 내용입니다.</td><td><button type="button" class="btn-secondary" data-open-modal="opItemFormModal">수정</button></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-              <tr><td>2</td><td>A0103-001</td><td>고효율 공기 압축기</td><td></td><td>EA</td><td class="text-right">2</td><td>2026.07.31</td><td>켑코이에스 본사</td><td></td><td><button type="button" class="btn-secondary" data-open-modal="opItemFormModal">수정</button></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-              <tr><td>3</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td><button type="button" class="btn-secondary" data-open-modal="opItemFormModal">수정</button></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+              <tr><td>1</td><td>A0106-001</td><td>고효율 인버터</td><td class="text-left" data-ui-show="items=custom">품목 구성 방법이 ‘지정 항목 작성’인 경우에 등록됨</td><td>EA</td><td class="text-right">3</td><td>2026.07.31</td><td>현장</td><td class="text-left">품목 등록의 비고에 들어간 내용입니다.</td><td><button type="button" class="btn-secondary" data-open-modal="opItemFormModal">수정</button></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+              <tr><td>2</td><td>A0103-001</td><td>고효율 공기 압축기</td><td data-ui-show="items=custom"></td><td>EA</td><td class="text-right">2</td><td>2026.07.31</td><td>켑코이에스 본사</td><td></td><td><button type="button" class="btn-secondary" data-open-modal="opItemFormModal">수정</button></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+              <tr><td>3</td><td></td><td></td><td data-ui-show="items=custom"></td><td></td><td></td><td></td><td></td><td></td><td><button type="button" class="btn-secondary" data-open-modal="opItemFormModal">수정</button></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
             </tbody>
           </table>
         </div>
       </section>
       <div class="page-actions"><button type="button" class="btn-secondary"><svg aria-hidden="true" class="icon-excel" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="m8 12 4 6"></path><path d="m12 12-4 6"></path></svg>엑셀 업로드 양식 다운로드</button>
         <button type="button" class="btn-secondary" data-open-modal="opItemUploadModal">품목 정보 추가(업로드)</button>
-        <button type="button" class="btn-secondary" data-open-modal="opCommonItemModal">품목 추가(공통 품목)</button>
+        <button type="button" class="btn-secondary" data-open-modal="opCommonItemModal" data-ui-show="items=unit">품목 추가(공통 품목)</button>
         <button type="button" class="btn-secondary" data-open-modal="opItemFormModal">품목 정보 추가(개별 등록)</button>
         <button type="button" class="btn-critical-primary">저장</button></div>
     </main>

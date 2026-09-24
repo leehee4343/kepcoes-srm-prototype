@@ -267,14 +267,14 @@
       </div>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">메뉴별 접속현황</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardAdmin.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">공통관리</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">메뉴별 접속현황</span></div>
       </div>
 
 
-      <section class="filter-card">
+      <section class="filter-card" data-ui-scope="filter">
         <div class="filter-row hstack gap-12">
           <span class="filter-label w-130">조회기간(접속일)</span>
           <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
@@ -292,25 +292,24 @@
 
       <div class="table-card">
         <div class="table-header-action-row">
-          <div class="table-total-count grid-page-summary">메뉴별 접속현황</div>
+          <div class="table-total-count">총 34개 메뉴</div>
           <div class="table-actions">
             <button type="button" class="btn-action-excel"><svg aria-hidden="true" class="icon-excel" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="m8 12 4 6"></path><path d="m12 12-4 6"></path></svg>엑셀 다운로드</button>
           </div>
         </div>
-        <div class="table-scroll-wrapper">
-          <table class="data-table" aria-label="메뉴별 접속현황">
-            <thead><tr><th>대메뉴(1Depth)</th><th>중메뉴(2Depth)</th><th>소메뉴(3Depth)</th><th class="col-num">메뉴 접속 횟수</th></tr></thead>
-            <tbody>
-              <tr><td class="col-left">대메뉴(1Depth)명 #1</td><td class="col-left">중메뉴(2Depth)명 #1</td><td></td><td class="col-num">16,528</td></tr>
-              <tr><td class="col-left"><span class="tree-indent">└</span></td><td class="col-left">중메뉴(2Depth)명 #2</td><td></td><td class="col-num">16,528</td></tr>
-              <tr><td class="col-left"><span class="tree-indent">└</span></td><td class="col-left">중메뉴(2Depth)명 #3</td><td class="col-left">소메뉴(3Depth)명 #1</td><td class="col-num">16,528</td></tr>
-              <tr><td class="col-left"><span class="tree-indent">└</span></td><td class="col-left"><span class="tree-indent">└</span></td><td class="col-left">소메뉴(3Depth)명 #2</td><td class="col-num">16,528</td></tr>
-              <tr><td class="col-left"><span class="tree-indent">└</span></td><td class="col-left">중메뉴(2Depth)명 #4</td><td></td><td class="col-num">16,528</td></tr>
-              <tr><td class="col-left"><span class="tree-indent">└</span></td><td class="col-left">중메뉴(2Depth)명 #5</td><td></td><td class="col-num">16,528</td></tr>
-              <tr><td class="col-left">대메뉴(1Depth)명 #2</td><td class="col-left">중메뉴(2Depth)명 #1</td><td></td><td class="col-num">16,528</td></tr>
-              <tr><td class="col-left"><span class="tree-indent">└</span></td><td class="col-left">중메뉴(2Depth)명 #2</td><td></td><td class="col-num">16,528</td></tr>
-              <tr><td class="col-left"><span class="tree-indent">└</span></td><td class="col-left">중메뉴(2Depth)명 #3</td><td></td><td class="col-num">16,528</td></tr>
-            </tbody>
+        <div class="srm-table-wrap" tabindex="0" aria-label="SRM 메뉴별 접속현황">
+          <table class="data-table menu-access-table" aria-label="메뉴별 접속현황">
+            <thead><tr><th>대메뉴(1Depth)</th><th>중메뉴(2Depth)</th><th class="col-num">메뉴 접속 횟수</th></tr></thead>
+            <tbody><tr><th scope="rowgroup" rowspan="3">대시보드</th><td>대시보드</td><td>16,528</td></tr><tr><td>공지사항</td><td>16,211</td></tr><tr><td>양식 등 자료실</td><td>15,894</td></tr></tbody>
+            <tbody><tr><th scope="rowgroup" rowspan="2">사전 견적 관리</th><td>사전 견적 요청</td><td>15,577</td></tr><tr><td>사전 견적 요청 현황</td><td>15,260</td></tr></tbody>
+            <tbody><tr><th scope="rowgroup" rowspan="2">발주계약 요청</th><td>발주계약 요청</td><td>14,943</td></tr><tr><td>발주계약 요청현황</td><td>14,626</td></tr></tbody>
+            <tbody><tr><th scope="rowgroup" rowspan="2">발주계획</th><td>발주계약 요청 접수</td><td>14,309</td></tr><tr><td>발주계획 등록</td><td>13,992</td></tr></tbody>
+            <tbody><tr><th scope="rowgroup" rowspan="2">수의계약 관리</th><td>수의계약 계획 현황</td><td>13,675</td></tr><tr><td>수의계약 현황</td><td>13,358</td></tr></tbody>
+            <tbody><tr><th scope="rowgroup" rowspan="2">입찰관리</th><td>입찰계획 현황</td><td>13,041</td></tr><tr><td>입찰공고 현황</td><td>12,724</td></tr></tbody>
+            <tbody><tr><th scope="rowgroup" rowspan="1">계약관리</th><td>발주계약 현황</td><td>12,407</td></tr></tbody>
+            <tbody><tr><th scope="rowgroup" rowspan="3">협력업체 관리</th><td>신청/변경 요청 처리</td><td>12,090</td></tr><tr><td>협력업체 관리</td><td>11,773</td></tr><tr><td>질문과 답변</td><td>11,456</td></tr></tbody>
+            <tbody><tr><th scope="rowgroup" rowspan="7">기준정보 관리</th><td>공통 품목관리</td><td>11,139</td></tr><tr><td>소싱그룹 관리</td><td>10,822</td></tr><tr><td>공통 심사/평가 관리</td><td>10,505</td></tr><tr><td>공통 서류 관리</td><td>10,188</td></tr><tr><td>메일/메시지 발송 내용 관리</td><td>9,871</td></tr><tr><td>메일/메시지 발송</td><td>9,554</td></tr><tr><td>메일/메시지 발송 현황 조회</td><td>9,237</td></tr></tbody>
+            <tbody><tr><th scope="rowgroup" rowspan="10">공통관리</th><td>관리자 관리</td><td>8,920</td></tr><tr><td>권한그룹 및 메뉴별 권한 관리</td><td>8,603</td></tr><tr><td>시스템 권한 관리</td><td>8,286</td></tr><tr><td>접속 아이피(IP) 관리</td><td>7,969</td></tr><tr><td>코드관리</td><td>7,652</td></tr><tr><td>로그인 현황</td><td>7,335</td></tr><tr><td>메뉴별 접속현황</td><td>7,018</td></tr><tr><td>거래처 관리</td><td>6,701</td></tr><tr><td>공지사항 관리</td><td>6,384</td></tr><tr><td>양식 등 자료실 관리</td><td>6,067</td></tr></tbody>
           </table>
         </div>
       </div>

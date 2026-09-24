@@ -255,14 +255,14 @@
       </div>
     </aside>
 
-    <main class="main-content srm-detail-main">
+    <main data-detail-anchor="bidDetailAnchor" data-list-page="SRMDetail.html" class="main-content srm-detail-main" data-ui-defaults="{&quot;method&quot;:&quot;general&quot;,&quot;award&quot;:&quot;restricted&quot;,&quot;price&quot;:&quot;reserve&quot;,&quot;briefing&quot;:&quot;no&quot;,&quot;negotiated&quot;:&quot;no&quot;,&quot;presentation&quot;:&quot;no&quot;,&quot;selfReview&quot;:&quot;true&quot;}" data-ui-family="bid" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">입찰공고 현황</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardContract.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">입찰관리 &gt; 입찰공고 현황</span></div>
       </div>
 
       <section class="filter-card">
-        <form id="bidStatusSearchForm">
+        <form id="bidStatusSearchForm" data-ui-scope="filter">
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-200">조회기간(입찰 마감일)</span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
@@ -286,8 +286,8 @@
           </div>
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-200">계약방법/낙찰자 선정방법</span>
-            <select class="filter-select w-160"><option>계약방법 선택</option></select>
-            <select class="filter-select w-165"><option>낙찰자 선정방법 선택</option></select>
+            <select class="filter-select w-160" data-ui-field="method"><option value="">전체</option><option value="sole">수의계약</option><option value="general">경쟁입찰(일반)</option><option value="limited">경쟁입찰(제한)</option><option value="designated">경쟁입찰(지명)</option></select>
+            <select class="filter-select w-165" data-ui-field="award"><option value="">전체</option><option value="lowest">최저가</option><option value="restricted">제한적 최저가 입찰</option><option value="simultaneous">2단계 경쟁입찰(규격/가격 동시)</option><option value="separate">2단계 경쟁입찰(규격/가격 분리)</option><option value="qualification">적격심사</option></select>
           </div>
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-200">공고 구분</span>
@@ -331,8 +331,8 @@
               <tr><th class="w-90">공고 번호</th><th class="w-80">공고 구분</th><th class="w-100">진행상태</th><th class="minw-240">입찰 건명</th><th class="w-120">입찰 마감일시</th><th class="w-70">참여업체(수)</th><th class="w-60">구분</th><th class="w-110">계약방법</th><th class="minw-170">낙찰자 선정방법</th><th class="w-70">사업담당자</th><th class="w-70">계약담당자</th></tr>
             </thead>
             <tbody>
-              <tr><td><a href="#bidDetailAnchor" data-open-modal="bidNoticeDocModal">BD2026-0023</a></td><td>본공고</td><td><span class="badge-tag">공고대기</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td>2026.07.31 18:00</td><td>15</td><td>공사</td><td>경쟁입찰(일반)</td><td>최저가</td><td>홍길동</td><td>임꺽정</td></tr>
-              <tr><td><a href="#bidDetailAnchor">BD2026-0024</a></td><td>재공고(1차)</td><td><span class="badge-info">입찰진행중</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td>2026.07.31 18:00</td><td>3</td><td>용역</td><td>경쟁입찰(일반)</td><td>제한적 최저가 입찰</td><td>홍길동</td><td>임꺽정</td></tr>
+              <tr><td><a href="#" data-open-modal="bidNoticeDocModal">BD2026-0023</a></td><td>본공고</td><td><span class="badge-tag">공고대기</span></td><td class="text-left"><a href="SRMDetailOrderPlan.html#bidDetailAnchor">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>2026.07.31 18:00</td><td>15</td><td>공사</td><td>경쟁입찰(일반)</td><td>최저가</td><td>홍길동</td><td>임꺽정</td></tr>
+              <tr><td><a href="#" data-open-modal="bidNoticeDocModal">BD2026-0024</a></td><td>재공고(1차)</td><td><span class="badge-info">입찰진행중</span></td><td class="text-left"><a href="SRMDetailOrderPlan.html#bidDetailAnchor">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>2026.07.31 18:00</td><td>3</td><td>용역</td><td>경쟁입찰(일반)</td><td>제한적 최저가 입찰</td><td>홍길동</td><td>임꺽정</td></tr>
             </tbody>
           </table>
         </div>
@@ -346,6 +346,7 @@
         <div class="table-pagination-row"><nav class="pagination-controls" aria-label="표 페이지 이동"></nav></div>
       </div>
 
+      <section data-detail-view>
       <h2 class="card-title content-object-gap-top" id="bidDetailAnchor">입찰공고 상세정보 — BD2026-0023</h2>
 
       <section class="app-card srm-bid-summary" aria-label="입찰공고 요약">
@@ -370,8 +371,8 @@
               <td><span class="status-pill active-ing">입찰진행중</span></td>
               <td class="srm-bid-name" title="서초동 1601-9 오피스텔 신축공사">서초동 1601-9 오피스텔 신축공사</td>
               <td>공사</td>
-              <td>경쟁입찰(일반)</td>
-              <td>제한적 최저가 입찰</td>
+              <td data-ui-text="method">경쟁입찰(일반)</td>
+              <td data-ui-text="award">제한적 최저가 입찰</td>
               <td>홍길동</td>
               <td>임꺽정</td>
             </tr>
@@ -382,14 +383,14 @@
       <!-- 표준 탭 메뉴 (5.7): 탭마다 독립 HTML 파일 -->
       <div class="detail-tabs-bar">
         <div class="detail-tab-group" role="tablist" aria-label="입찰 업무 단계">
-        <a href="SRMDetailOrderPlan.html" class="detail-tab-btn" role="tab" aria-selected="false">발주계획 정보</a>
-        <a href="SRMDetail.html" class="detail-tab-btn active" role="tab" aria-selected="true">입찰계획 정보</a>
-        <a href="SRMDetailParticipation.html" class="detail-tab-btn" role="tab" aria-selected="false">입찰 참여현황</a>
-        <a href="SRMDetailEvaluation.html" class="detail-tab-btn" role="tab" aria-selected="false">심사/평가</a>
-        <a href="SRMDetailOpening.html" class="detail-tab-btn" role="tab" aria-selected="false">개찰</a>
-        <a href="SRMDetailWinner.html" class="detail-tab-btn" role="tab" aria-selected="false">낙찰(업체 선정)</a>
-        <a href="SRMDetailNegotiation.html" class="detail-tab-btn" role="tab" aria-selected="false">수의시담</a>
-        <a href="SRMDetailContract.html" class="detail-tab-btn" role="tab" aria-selected="false">계약 요청</a>
+        <a href="SRMDetailOrderPlan.html#bidDetailAnchor" class="detail-tab-btn" role="tab" aria-selected="false">발주계획 정보</a>
+        <a href="SRMDetail.html#bidDetailAnchor" class="detail-tab-btn active" role="tab" aria-selected="true">입찰계획 정보</a>
+        <a href="SRMDetailParticipation.html#bidDetailAnchor" class="detail-tab-btn" role="tab" aria-selected="false">입찰 참여현황</a>
+        <a href="SRMDetailEvaluation.html#bidDetailAnchor" class="detail-tab-btn" role="tab" aria-selected="false" data-ui-unavailable="본 입찰공고는 낙찰자 선정방법이 최저가 방식으로 심사/평가 대상이 아닙니다." data-ui-enable="award=restricted|simultaneous|separate|qualification">심사/평가</a>
+        <a href="SRMDetailOpening.html#bidDetailAnchor" class="detail-tab-btn" role="tab" aria-selected="false">개찰</a>
+        <a href="SRMDetailWinner.html#bidDetailAnchor" class="detail-tab-btn" role="tab" aria-selected="false">낙찰(업체 선정)</a>
+        <a href="SRMDetailNegotiation.html#bidDetailAnchor" class="detail-tab-btn" role="tab" aria-selected="false">수의시담</a>
+        <a href="SRMDetailContract.html#bidDetailAnchor" class="detail-tab-btn" role="tab" aria-selected="false">계약 요청</a>
         </div>
       </div>
 
@@ -402,7 +403,7 @@
         <div class="srm-kv-grid">
           <div class="srm-kv-row"><dt>입찰 시작/마감일시</dt><dd>2026.07.31 09시 00분 ~ 2026.08.15 18시 00분</dd></div>
           <div class="srm-kv-row"><dt>입찰공고 게시기간</dt><dd>2026.07.28 09시 00분 ~ 2026.08.15 18시 00분</dd></div>
-          <div class="srm-kv-row"><dt>현장설명회 일시</dt><dd><span class="srm-inline-badge">현장설명회 없음</span><span class="srm-divider">|</span>2026.08.05 16시 00분</dd></div>
+          <div class="srm-kv-row" data-ui-show="briefing=yes"><dt>현장설명회 일시</dt><dd><span class="srm-inline-badge">현장설명회 없음</span><span class="srm-divider">|</span>2026.08.05 16시 00분</dd></div>
           <div class="srm-kv-row"><dt>입찰공고문</dt><dd><div class="srm-file-item"><span>입찰공고문_서초동오피스텔.PDF</span><button type="button" class="btn-file-preview">바로보기</button><button type="button" class="btn-file-download">다운로드</button></div></dd></div>
           <div class="srm-kv-row"><dt>입찰참가신청서</dt><dd><div class="srm-file-item"><span>입찰참가신청서.PDF</span><button type="button" class="btn-file-preview">바로보기</button><button type="button" class="btn-file-download">다운로드</button></div></dd></div>
           <div class="srm-kv-row"><dt>입찰보증금 지급각서</dt><dd><div class="srm-file-list"><div class="srm-file-item"><span>입찰보증금_지급각서.PDF</span><button type="button" class="btn-file-preview">바로보기</button><button type="button" class="btn-file-download">다운로드</button></div><div class="srm-file-item"><span>보증금_면제기준.PDF</span><button type="button" class="btn-file-preview">바로보기</button><button type="button" class="btn-file-download">다운로드</button></div></div></dd></div>
@@ -412,46 +413,46 @@
       </section>
 
       <!-- 02. 입찰참여 가능 업체 -->
-      <section class="app-card srm-detail-section">
+      <section class="app-card srm-detail-section" data-ui-show="method=designated">
         <div class="srm-section-heading"><div><h2>입찰참여 가능 업체</h2></div></div>
         <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>입찰참여 업체 선택</dt><dd><ul class="bullet-list"><li>A협력업체명(123-45-67891)</li><li>B협력업체명(123-45-67891)</li><li>C협력업체명(123-45-67891)</li></ul></dd></div>
+          <div class="srm-kv-row" data-ui-show="method=designated"><dt>입찰참여 업체 선택</dt><dd><ul class="bullet-list"><li>A협력업체명(123-45-67891)</li><li>B협력업체명(123-45-67891)</li><li>C협력업체명(123-45-67891)</li></ul></dd></div>
         </div>
       </section>
 
       <!-- 03. 가격 투찰 기간 -->
-      <section class="app-card srm-detail-section">
+      <section class="app-card srm-detail-section" data-ui-show="award=restricted|separate">
         <div class="srm-section-heading"><div><h2>가격 투찰 기간</h2></div></div>
         <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>가격 투찰 기간</dt><dd>2026.07.20 09시 00분 ~ 2026.08.25 18시 00분</dd></div>
+          <div class="srm-kv-row" data-ui-show="award=restricted|separate"><dt>가격 투찰 기간</dt><dd>2026.07.20 09시 00분 ~ 2026.08.25 18시 00분</dd></div>
         </div>
       </section>
 
       <!-- 04. 심사/평가 관련 정보 -->
-      <section class="app-card srm-detail-section">
+      <section class="app-card srm-detail-section" data-ui-show="award=restricted|simultaneous|separate|qualification">
         <div class="srm-section-heading"><div><h2>심사/평가 관련 정보</h2></div></div>
         <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>업체평가 종료일</dt><dd>2026.07.21</dd></div>
-          <div class="srm-kv-row"><dt>동점자 처리기준</dt><dd>규격(기술)</dd></div>
-          <div class="srm-kv-row"><dt>평가자 매핑</dt><dd>홍길동</dd></div>
-          <div class="srm-kv-row"><dt>종합평가 비율</dt><dd>기술 : 80%<span class="srm-divider">|</span>가격 : 20%</dd></div>
-          <div class="srm-kv-row"><dt>업체 전달사항</dt><dd>입찰 참여 시 등록해야 하는 서류를 꼼꼼히 읽어보시고 빠짐없이 등록해 주세요.</dd></div>
+          <div class="srm-kv-row" data-ui-show="award=restricted|simultaneous|separate|qualification"><dt>업체평가 종료일</dt><dd>2026.07.21</dd></div>
+          <div class="srm-kv-row" data-ui-show="award=restricted|simultaneous|separate|qualification"><dt>동점자 처리기준</dt><dd data-ui-tie-summary="true">규격(기술)</dd></div>
+          <div class="srm-kv-row" data-ui-show="award=restricted|simultaneous|separate|qualification"><dt>평가자 매핑</dt><dd>홍길동</dd></div>
+          <div class="srm-kv-row" data-ui-show="award=simultaneous"><dt>종합평가 비율</dt><dd>기술 : 80%<span class="srm-divider">|</span>가격 : 20%</dd></div>
+          <div class="srm-kv-row" data-ui-show="award=simultaneous"><dt>업체 전달사항</dt><dd>입찰 참여 시 등록해야 하는 서류를 꼼꼼히 읽어보시고 빠짐없이 등록해 주세요.</dd></div>
         </div>
       </section>
 
       <!-- 05. 제안발표 관련 정보 -->
-      <section class="app-card srm-detail-section">
+      <section class="app-card srm-detail-section" data-ui-show="award=simultaneous">
         <div class="srm-section-heading"><div><h2>제안발표 관련 정보</h2></div></div>
         <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>협상에 의한 계약 여부</dt><dd>협상에 의한 계약</dd></div>
-          <div class="srm-kv-row"><dt>제안발표 여부</dt><dd>제안발표 진행</dd></div>
-          <div class="srm-kv-row"><dt>제안발표 일시</dt><dd>2026.08.31 16시 30분부터 진행</dd></div>
-          <div class="srm-kv-row"><dt>제안발표 장소</dt><dd>전기회관 9층(켑코이에스 대회의실)</dd></div>
+          <div class="srm-kv-row" data-ui-show="award=simultaneous"><dt>협상에 의한 계약 여부</dt><dd>협상에 의한 계약</dd></div>
+          <div class="srm-kv-row" data-ui-enable="negotiated=yes" data-ui-show="award=simultaneous;negotiated=yes"><dt>제안발표 여부</dt><dd>제안발표 진행</dd></div>
+          <div class="srm-kv-row" data-ui-enable="negotiated=yes;presentation=yes" data-ui-show="award=simultaneous;negotiated=yes;presentation=yes"><dt>제안발표 일시</dt><dd>2026.08.31 16시 30분부터 진행</dd></div>
+          <div class="srm-kv-row" data-ui-enable="negotiated=yes;presentation=yes" data-ui-show="award=simultaneous;negotiated=yes;presentation=yes"><dt>제안발표 장소</dt><dd>전기회관 9층(켑코이에스 대회의실)</dd></div>
         </div>
       </section>
 
       <!-- 06. 심사/평가 항목 -->
-      <section class="app-card srm-detail-section">
+      <section class="app-card srm-detail-section" data-ui-show="award=restricted|simultaneous|separate|qualification">
         <div class="srm-section-heading"><div><h2>심사/평가 항목</h2></div><p>등록된 심사/평가 항목 : 총 3건</p></div>
         <div class="srm-table-wrap">
           <table class="data-table" aria-label="심사/평가 항목">
@@ -470,8 +471,8 @@
         <div class="srm-section-heading"><div><h2>예정가 / 예비가</h2></div></div>
         <div class="srm-table-wrap">
           <table class="data-table" aria-label="예정가 / 예비가">
-            <thead><tr><th>추정금액(원)</th><th>사정금액(원)</th><th>복수예비 기초금액(원)</th><th>낙찰하한율(%)</th><th>예정가격(원)</th><th>낙찰하한가(원)</th></tr></thead>
-            <tbody><tr><td class="col-num">94,710,000</td><td class="col-num">94,710,000</td><td class="col-num">91,088,550</td><td class="col-num">87.745</td><td><span class="col-muted">개찰 과정에서 정의됨</span></td><td><span class="col-muted">개찰 과정에서 정의됨</span></td></tr></tbody>
+            <thead><tr><th>추정금액(원)</th><th>사정금액(원)</th><th>복수예비 기초금액(원)</th><th data-ui-show="price=reserve">낙찰하한율(%)</th><th>예정가격(원)</th><th>낙찰하한가(원)</th></tr></thead>
+            <tbody><tr><td class="col-num">94,710,000</td><td class="col-num">94,710,000</td><td class="col-num">91,088,550</td><td class="col-num" data-ui-show="price=reserve">87.745</td><td><span class="col-muted">개찰 과정에서 정의됨</span></td><td><span class="col-muted">개찰 과정에서 정의됨</span></td></tr></tbody>
           </table>
         </div>
         <div class="srm-table-wrap">
@@ -494,9 +495,10 @@
       </section>
 
       <div class="srm-detail-actions">
-        <a href="../03_대시보드/SRMDashboardContract.html" class="btn-secondary srm-list-button">목록</a>
+        <a href="SRMDetail.html#list" class="btn-secondary srm-list-button">목록</a>
         <div class="srm-return-wrap"><span>입찰 신청 전 상태에서만 실행할 수 있습니다.</span><button type="button" class="btn-caution srm-return-button" id="btnReturnBidPlan">‘입찰계획’으로 되돌리기 <b>→</b></button></div>
       </div>
+      </section>
     </main>
   </div>
 

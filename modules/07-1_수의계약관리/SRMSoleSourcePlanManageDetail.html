@@ -267,29 +267,31 @@
       </div>
     </aside>
 
-        <main class="main-content page-detail-content">
+        <main class="main-content page-detail-content" data-ui-defaults="{&quot;method&quot;:&quot;sole&quot;,&quot;award&quot;:&quot;lowest&quot;,&quot;price&quot;:&quot;estimated&quot;,&quot;documents&quot;:&quot;false&quot;}" data-ui-family="sole" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">수의계약 계획 현황</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardBiz.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">수의계약 관리</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">수의계약 계획 현황</span></div>
       </div>
-      <nav class="wizard-stepper" aria-label="수의계약 계획 등록/설정 단계">
-        <a href="SRMSoleSourcePlanManage.html" class="wizard-step-box completed"><span class="wizard-step-dot" aria-hidden="true">1</span><span class="wizard-step-num">STEP 01</span><span class="wizard-step-title">발주계획 정보 확인</span></a>
-        <a href="SRMSoleSourcePlanManageDetail.html" class="wizard-step-box active" aria-current="step"><span class="wizard-step-dot" aria-hidden="true">2</span><span class="wizard-step-num">STEP 02</span><span class="wizard-step-title">수의계약 계획 상세정보</span></a>
-        <a href="SRMSoleSourcePlanManagePrice.html" class="wizard-step-box"><span class="wizard-step-dot" aria-hidden="true">3</span><span class="wizard-step-num">STEP 03</span><span class="wizard-step-title">예정가</span></a>
-        <a href="SRMSoleSourcePlanManageDocuments.html" class="wizard-step-box"><span class="wizard-step-dot" aria-hidden="true">4</span><span class="wizard-step-num">STEP 04</span><span class="wizard-step-title">수의계약 참여 서류</span></a>
-        <a href="SRMSoleSourcePlanManageReview.html" class="wizard-step-box"><span class="wizard-step-dot" aria-hidden="true">5</span><span class="wizard-step-num">STEP 05</span><span class="wizard-step-title">최종 점검</span></a>
-        <a href="SRMSoleSourcePlanComplete.html" class="wizard-step-box"><span class="wizard-step-dot" aria-hidden="true">6</span><span class="wizard-step-num">STEP 06</span><span class="wizard-step-title">수의계약 계획 등록 완료</span></a>
-      </nav>
+      <div class="detail-tabs-bar">
+        <div class="detail-tab-group" role="tablist" aria-label="수의계약 계획 정보 탭">
+          <a href="SRMSoleSourcePlanManage.html" class="detail-tab-btn" role="tab" aria-selected="false">발주계획 정보 확인</a>
+          <a href="SRMSoleSourcePlanManageDetail.html" class="detail-tab-btn active" role="tab" aria-selected="true">수의계약 계획 상세정보</a>
+          <a href="SRMSoleSourcePlanManagePrice.html" class="detail-tab-btn" role="tab" aria-selected="false">예정가</a>
+          <a href="SRMSoleSourcePlanManageDocuments.html" class="detail-tab-btn" role="tab" aria-selected="false">수의계약 참여 서류</a>
+          <a href="SRMSoleSourcePlanManageReview.html" class="detail-tab-btn" role="tab" aria-selected="false">최종 점검</a>
+          <a href="SRMSoleSourcePlanComplete.html" class="detail-tab-btn" role="tab" aria-selected="false">수의계약 계획 등록 완료</a>
+        </div>
+      </div>
       <section class="app-card srm-bid-summary" aria-label="수의계약 계획 요약">
         <table class="data-table" aria-label="수의계약 계획 요약">
           <thead><tr><th>공고 번호</th><th>공고 구분</th><th>진행상태</th><th class="srm-bid-name">수의계약 건명</th><th>등록일</th><th>구분</th><th>계약방법</th><th>낙찰자 선정방법</th><th>사업담당자</th><th>계약담당자</th></tr></thead>
-          <tbody><tr><td>BD2026-0023</td><td>본공고</td><td>작성중</td><td class="srm-bid-name" title="서초동 1601-9 오피스텔 신축공사 중 습식공사">서초동 1601-9 오피스텔 신축공사 중 습식공사</td><td>2026.07.22</td><td>공사</td><td>수의계약</td><td>최저가</td><td>홍길동</td><td>임꺽정</td></tr></tbody>
+          <tbody><tr><td>BD2026-0023</td><td>본공고</td><td>작성중</td><td class="srm-bid-name" title="서초동 1601-9 오피스텔 신축공사 중 습식공사">서초동 1601-9 오피스텔 신축공사 중 습식공사</td><td>2026.07.22</td><td>공사</td><td data-ui-text="method">수의계약</td><td data-ui-text="award">최저가</td><td>홍길동</td><td>임꺽정</td></tr></tbody>
         </table>
       </section>
       <section class="page-detail-body" aria-label="수의계약 계획 상세정보">
         <div class="srm-section-heading"><div><h2>수의계약 계획 상세정보</h2></div></div>
         <dl class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>수의계약 요청기간 <span class="required" aria-hidden="true">*</span></dt><dd><div class="hstack gap-6"><input type="date" class="filter-date-input" aria-label="시작일"><select class="filter-select w-120" aria-label="시작 시간"><option>시간 선택</option></select><select class="filter-select w-120" aria-label="시작 분"><option>분 선택</option></select><span>~</span><input type="date" class="filter-date-input" aria-label="종료일"><select class="filter-select w-120" aria-label="종료 시간"><option>시간 선택</option></select><select class="filter-select w-120" aria-label="종료 분"><option>분 선택</option></select></div></dd></div>
+          <div class="srm-kv-row"><dt>수의계약 요청기간 <span class="required" aria-hidden="true">*</span></dt><dd><div class="hstack gap-6"><span class="form-date-time"><input type="date" class="filter-date-input" aria-label="시작일"><select class="filter-select w-120" aria-label="시작 시간"><option>시간 선택</option></select><select class="filter-select w-120" aria-label="시작 분"><option>분 선택</option></select></span><span>~</span><span class="form-date-time"><input type="date" class="filter-date-input" aria-label="종료일"><select class="filter-select w-120" aria-label="종료 시간"><option>시간 선택</option></select><select class="filter-select w-120" aria-label="종료 분"><option>분 선택</option></select></span></div></dd></div>
           <div class="srm-kv-row"><dt>시방서, 구매견적서, 과업지시서 등</dt><dd><div class="srm-file-list"><div class="srm-file-item"><span>등록된 파일명 #1.pdf</span><button type="button" class="btn-file-preview" aria-label="등록된 파일명 #1.pdf 바로보기">바로보기</button><button type="button" class="btn-file-download" aria-label="등록된 파일명 #1.pdf 다운로드">다운로드</button><button type="button" class="btn-row-del" aria-label="등록된 파일명 #1.pdf 삭제">삭제</button></div><div class="srm-file-item"><span>등록된 파일명 #2.pdf</span><button type="button" class="btn-file-preview" aria-label="등록된 파일명 #2.pdf 바로보기">바로보기</button><button type="button" class="btn-file-download" aria-label="등록된 파일명 #2.pdf 다운로드">다운로드</button><button type="button" class="btn-row-del" aria-label="등록된 파일명 #2.pdf 삭제">삭제</button></div></div><div class="content-inner-gap-top grow"><div class="file-dropzone grow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/></svg><p>여러개 파일을 마우스로 끌어오거나, <span class="file-dropzone-link" role="button" tabindex="0">파일을 선택</span>해주세요.</p><p class="file-dropzone-note">최대 20000MB 이하의 파일을 등록할 수 있습니다.</p></div></div></dd></div>
           <div class="srm-kv-row"><dt>기타 서류</dt><dd><div class="srm-file-list"><div class="srm-file-item"><span>등록된 파일명 #1.pdf</span><button type="button" class="btn-file-preview" aria-label="등록된 파일명 #1.pdf 바로보기">바로보기</button><button type="button" class="btn-file-download" aria-label="등록된 파일명 #1.pdf 다운로드">다운로드</button><button type="button" class="btn-row-del" aria-label="등록된 파일명 #1.pdf 삭제">삭제</button></div></div><div class="content-inner-gap-top grow"><div class="file-dropzone grow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/></svg><p>여러개 파일을 마우스로 끌어오거나, <span class="file-dropzone-link" role="button" tabindex="0">파일을 선택</span>해주세요.</p><p class="file-dropzone-note">최대 20000MB 이하의 파일을 등록할 수 있습니다.</p></div></div></dd></div>
         </dl>

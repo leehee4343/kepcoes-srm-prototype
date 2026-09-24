@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../../../../assets/styles/style.css">
 </head>
 <body class="popup-document">
-<div class="modal-backdrop" id="ssCancelConfirmModal" role="alertdialog" aria-modal="true" aria-labelledby="ssCancelConfirmTitle" aria-hidden="false">
+<div class="modal-backdrop" id="ssCancelConfirmModal" role="alertdialog" aria-modal="true" aria-labelledby="ssCancelConfirmTitle" aria-hidden="false" data-ui-defaults="{&quot;method&quot;:&quot;sole&quot;,&quot;award&quot;:&quot;lowest&quot;,&quot;price&quot;:&quot;estimated&quot;,&quot;documents&quot;:&quot;false&quot;}" data-ui-scope="popup">
     <div class="modal-dialog">
       <div class="modal-header"><h2 class="modal-title" id="ssCancelConfirmTitle">공고취소 처리하기</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
       <div class="modal-body">
@@ -22,7 +22,7 @@
           <div class="srm-kv-row"><dt>공고취소 사유(메모) <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control grow" placeholder="100자 이내로 입력해주세요." maxlength="100"></dd></div>
         </div>
       </div>
-      <div class="modal-footer"><button type="button" class="btn-delete" data-close-modal data-open-modal="ssDetailView">공고취소 처리하기</button><button type="button" class="btn-secondary modal-close">취소</button></div>
+      <div class="modal-footer"><button type="button" class="btn-delete" data-close-modal>공고취소 처리하기</button><button type="button" class="btn-secondary modal-close">취소</button></div>
     </div>
   </div>
   <script src="../../../../assets/scripts/dashboard.js"></script>

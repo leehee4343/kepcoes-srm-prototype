@@ -267,7 +267,7 @@
       </div>
     </aside>
 
-        <main class="main-content page-detail-content">
+        <main class="main-content page-detail-content" data-ui-defaults="{&quot;items&quot;:&quot;unit&quot;}" data-ui-family="prequote" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">사전 견적 요청</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardBiz.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">사전 견적 관리</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">사전 견적 요청</span></div>
@@ -275,7 +275,7 @@
       <section class="app-card srm-bid-summary" aria-label="견적 요청 요약">
         <table class="data-table" aria-label="견적 요청 요약">
           <thead><tr><th>견적요청번호</th><th>진행상태</th><th class="srm-bid-name">견적요청명</th><th>견적유형</th><th>예산금액</th><th>품목구성방법</th><th>품목</th><th>전달자료</th><th>요청 업체 수</th></tr></thead>
-          <tbody><tr><td>RFQ2607</td><td>작성 중</td><td class="srm-bid-name" title="태양광 발전기 도입 관련 견적 요청의 건">태양광 발전기 도입 관련 견적 요청의 건</td><td>공사/용역/물품</td><td>135,400,000</td><td>품목단가 | 지정항목</td><td>2건</td><td>3건</td><td>3개</td></tr></tbody>
+          <tbody><tr><td>RFQ2607</td><td>작성 중</td><td class="srm-bid-name" title="태양광 발전기 도입 관련 견적 요청의 건">태양광 발전기 도입 관련 견적 요청의 건</td><td>공사/용역/물품</td><td>135,400,000</td><td data-ui-text="items">품목단가 | 지정항목</td><td>2건</td><td>3건</td><td>3개</td></tr></tbody>
         </table>
       </section>
       <nav class="wizard-stepper" aria-label="사전 견적 요청 단계">
@@ -290,18 +290,18 @@
         <p class="modal-field-label">등록된 품목 : 총 3건</p>
         <div class="srm-table-wrap">
           <table class="data-table" aria-label="품목 정보">
-            <thead><tr><th class="col-no">No</th><th>품목코드</th><th>품목명</th><th>규격</th><th>단위</th><th>수량</th><th>납기요청일</th><th>입고장소</th><th>비고</th><th class="w-60">수정</th><th class="w-60">삭제</th></tr></thead>
+            <thead><tr><th class="col-no">No</th><th>품목코드</th><th>품목명</th><th data-ui-show="items=custom">규격</th><th>단위</th><th>수량</th><th>납기요청일</th><th>입고장소</th><th>비고</th><th class="w-60">수정</th><th class="w-60">삭제</th></tr></thead>
             <tbody>
-              <tr><td>1</td><td>A0106-001</td><td>고효율 인버터</td><td class="text-left">품목구성방법이 ‘지정항목’인 경우에 등록됨</td><td>EA</td><td class="text-right">3</td><td>2026.07.31</td><td>현장</td><td class="text-left">품목등록의 비고에 들어간 내용입니다.</td><td><button type="button" class="btn-secondary" data-open-modal="pqItemFormModal">수정</button></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-              <tr><td>2</td><td>A0103-001</td><td>고효율 공기 압축기</td><td></td><td>EA</td><td class="text-right">2</td><td>2026.07.31</td><td>켑코이에스 본사</td><td></td><td><button type="button" class="btn-secondary" data-open-modal="pqItemFormModal">수정</button></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-              <tr><td>3</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td><button type="button" class="btn-secondary" data-open-modal="pqItemFormModal">수정</button></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+              <tr><td>1</td><td>A0106-001</td><td>고효율 인버터</td><td class="text-left" data-ui-show="items=custom">품목구성방법이 ‘지정항목’인 경우에 등록됨</td><td>EA</td><td class="text-right">3</td><td>2026.07.31</td><td>현장</td><td class="text-left">품목등록의 비고에 들어간 내용입니다.</td><td><button type="button" class="btn-secondary" data-open-modal="pqItemFormModal">수정</button></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+              <tr><td>2</td><td>A0103-001</td><td>고효율 공기 압축기</td><td data-ui-show="items=custom"></td><td>EA</td><td class="text-right">2</td><td>2026.07.31</td><td>켑코이에스 본사</td><td></td><td><button type="button" class="btn-secondary" data-open-modal="pqItemFormModal">수정</button></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+              <tr><td>3</td><td></td><td></td><td data-ui-show="items=custom"></td><td></td><td></td><td></td><td></td><td></td><td><button type="button" class="btn-secondary" data-open-modal="pqItemFormModal">수정</button></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
             </tbody>
           </table>
         </div>
       </section>
       <div class="page-actions"><button type="button" class="btn-secondary"><svg aria-hidden="true" class="icon-excel" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="m8 12 4 6"></path><path d="m12 12-4 6"></path></svg>엑셀 업로드 양식 다운로드</button>
         <button type="button" class="btn-secondary" data-open-modal="pqItemUploadModal">품목 정보 추가(업로드)</button>
-        <button type="button" class="btn-secondary" data-open-modal="pqCommonItemModal">품목 추가(공통 품목)</button>
+        <button type="button" class="btn-secondary" data-open-modal="pqCommonItemModal" data-ui-show="items=unit">품목 추가(공통 품목)</button>
         <button type="button" class="btn-secondary" data-open-modal="pqItemFormModal">품목 정보 추가(개별 등록)</button>
         <button type="button" class="btn-critical-primary">저장</button></div>
     </main>

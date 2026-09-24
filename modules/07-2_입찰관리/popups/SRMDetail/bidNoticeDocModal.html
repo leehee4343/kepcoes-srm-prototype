@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../../../../assets/styles/style.css">
 </head>
 <body class="popup-document">
-<div class="modal-backdrop" id="bidNoticeDocModal" role="dialog" aria-modal="true" aria-labelledby="bidNoticeDocTitle" aria-hidden="false">
+<div class="modal-backdrop" id="bidNoticeDocModal" role="dialog" aria-modal="true" aria-labelledby="bidNoticeDocTitle" aria-hidden="false" data-ui-defaults="{&quot;method&quot;:&quot;general&quot;,&quot;award&quot;:&quot;restricted&quot;,&quot;price&quot;:&quot;reserve&quot;}" data-ui-scope="popup">
     <div class="modal-dialog modal-lg">
       <div class="modal-header"><h2 class="modal-title" id="bidNoticeDocTitle">입찰계획서</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
       <div class="modal-body">
@@ -22,8 +22,8 @@
         <p class="modal-field-label content-inner-gap-top">입찰 진행방법</p>
         <div class="srm-kv-grid">
           <div class="srm-kv-row"><dt>구분</dt><dd>공사</dd></div>
-          <div class="srm-kv-row"><dt>계약방법</dt><dd>경쟁입찰(일반)</dd></div>
-          <div class="srm-kv-row"><dt>낙찰자 선정방법</dt><dd>제한적 최저가 입찰</dd></div>
+          <div class="srm-kv-row"><dt>계약방법</dt><dd data-ui-contract-summary="false" data-ui-text="method">경쟁입찰(일반)</dd></div>
+          <div class="srm-kv-row"><dt>낙찰자 선정방법</dt><dd data-ui-text="award">제한적 최저가 입찰</dd></div>
           <div class="srm-kv-row"><dt>수행기간</dt><dd>2026-04-15 ~ 2027-01-31 (291일)</dd></div>
           <div class="srm-kv-row"><dt>납품장소(현장)</dt><dd>서초LH현장</dd></div>
         </div>

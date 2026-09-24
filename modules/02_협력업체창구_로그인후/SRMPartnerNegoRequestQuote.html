@@ -80,7 +80,7 @@
       </div>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">견적 제출 및 확인</h1></div>
         <nav class="breadcrumb" aria-label="현재 위치">
@@ -90,12 +90,12 @@
         <span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">견적 제출 및 확인</span></nav>
       </div>
 
-      <div class="srm-table-wrap">
+      <section class="app-card srm-bid-summary"><div class="srm-table-wrap">
         <table class="data-table" aria-label="공고 요약">
           <thead><tr><th>공고번호</th><th>공고 구분</th><th>진행상태</th><th>입찰 건명</th><th>견적 마감 일시</th><th>구분</th><th>계약방법</th><th>낙찰자 선정방법</th></tr></thead>
           <tbody><tr><td>BD2026-0023</td><td>본공고</td><td><span class="badge-success">수의계약(견적요청)</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중...</td><td>2026.07.31 18:00</td><td>공사</td><td>수의계약</td><td>최저가</td></tr></tbody>
         </table>
-      </div>
+      </div></section>
 
       <div class="detail-tabs-bar content-object-gap-top">
         <div class="detail-tab-group" role="tablist" aria-label="수의계약 상세 탭">
@@ -103,20 +103,22 @@
           <a href="SRMPartnerNegoRequestQuote.html" class="detail-tab-btn active" role="tab" aria-selected="true">견적 제출 및 확인</a>
         </div>
       </div>
+<section class="app-card srm-detail-section">
 
       <div class="srm-section-heading content-object-gap-top description-marker-container"><span class="description-target-marker marker-top-left" aria-hidden="true">1</span><div><h2>수의계약을 위한 견적 요청 현황</h2></div></div>
       <div class="srm-table-wrap">
         <table class="data-table" aria-label="수의계약을 위한 견적 요청 현황">
           <thead><tr><th class="w-60">차수</th><th class="w-90">진행상태</th><th class="minw-250">견적 요청 시 전달 사항</th><th class="w-130">견적 마감 일시</th><th class="w-130">견적 제출 일시</th><th class="w-120">수의시담 견적 금액</th><th class="w-100"><span class="description-marker-anchor">견적 제출<span class="description-target-marker" aria-hidden="true">3</span></span></th></tr></thead>
           <tbody>
-            <tr><td>3차</td><td><span class="badge-info">견적요청</span></td><td class="text-left">견적금액이 적합하지 않습니다. 조정된 금액으로 다시 한번 제출 부탁드립니다.</td><td>2026.08.15 18:00</td><td>-</td><td>-</td><td><span class="description-marker-anchor"><span class="description-target-marker" aria-hidden="true">2</span><button type="button" class="btn-task-register btn-row-action" data-href="SRMPartnerNegoQuoteRequestInfo.html">견적 제출하기</button></span></td></tr>
-            <tr><td>2차</td><td><span class="badge-success">견적제출 완료</span></td><td class="text-left">견적금액이 적합하지 않습니다. 조정된 금액으로 다시 한번 제출 부탁드립니다.</td><td>2026.07.31 18:00</td><td>2026.07.30 15:40</td><td class="col-num">180,000,000</td><td><button type="button" class="btn-secondary btn-row-action" data-href="SRMPartnerNegoQuoteHistory.html">견적 제출내역</button></td></tr>
-            <tr><td>1차</td><td><span class="badge-success">견적제출 완료</span></td><td class="text-left">귀사와의 수의계약을 위해 견적서 제출을 요청드립니다.</td><td>2026.07.15 18:00</td><td>2026.07.14 17:20</td><td class="col-num">190,000,000</td><td><button type="button" class="btn-secondary btn-row-action" data-href="SRMPartnerNegoQuoteHistory.html">견적 제출내역</button></td></tr>
+            <tr><td>3차</td><td><span class="badge-info">견적요청</span></td><td class="text-left"><a href="SRMPartnerNegoQuoteRequestInfo.html?round=3%EC%B0%A8&deadline=2026.08.15+18%3A00&message=%EA%B2%AC%EC%A0%81%EA%B8%88%EC%95%A1%EC%9D%B4+%EC%A0%81%ED%95%A9%ED%95%98%EC%A7%80+%EC%95%8A%EC%8A%B5%EB%8B%88%EB%8B%A4.+%EC%A1%B0%EC%A0%95%EB%90%9C+%EA%B8%88%EC%95%A1%EC%9C%BC%EB%A1%9C+%EB%8B%A4%EC%8B%9C+%ED%95%9C%EB%B2%88+%EC%A0%9C%EC%B6%9C+%EB%B6%80%ED%83%81%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.">견적금액이 적합하지 않습니다. 조정된 금액으로 다시 한번 제출 부탁드립니다.</a></td><td>2026.08.15 18:00</td><td>-</td><td>-</td><td><span class="description-marker-anchor"><span class="description-target-marker" aria-hidden="true">2</span><button type="button" class="btn-task-register btn-row-action" data-href="SRMPartnerNegoQuoteRequestInfo.html">견적 제출하기</button></span></td></tr>
+            <tr><td>2차</td><td><span class="badge-success">견적제출 완료</span></td><td class="text-left"><a href="SRMPartnerNegoQuoteRequestInfo.html?round=2%EC%B0%A8&deadline=2026.07.31+18%3A00&message=%EA%B2%AC%EC%A0%81%EA%B8%88%EC%95%A1%EC%9D%B4+%EC%A0%81%ED%95%A9%ED%95%98%EC%A7%80+%EC%95%8A%EC%8A%B5%EB%8B%88%EB%8B%A4.+%EC%A1%B0%EC%A0%95%EB%90%9C+%EA%B8%88%EC%95%A1%EC%9C%BC%EB%A1%9C+%EB%8B%A4%EC%8B%9C+%ED%95%9C%EB%B2%88+%EC%A0%9C%EC%B6%9C+%EB%B6%80%ED%83%81%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.">견적금액이 적합하지 않습니다. 조정된 금액으로 다시 한번 제출 부탁드립니다.</a></td><td>2026.07.31 18:00</td><td>2026.07.30 15:40</td><td class="col-num">180,000,000</td><td><button type="button" class="btn-secondary btn-row-action" data-href="SRMPartnerNegoQuoteHistory.html">견적 제출내역</button></td></tr>
+            <tr><td>1차</td><td><span class="badge-success">견적제출 완료</span></td><td class="text-left"><a href="SRMPartnerNegoQuoteRequestInfo.html?round=1%EC%B0%A8&deadline=2026.07.15+18%3A00&message=%EA%B7%80%EC%82%AC%EC%99%80%EC%9D%98+%EC%88%98%EC%9D%98%EA%B3%84%EC%95%BD%EC%9D%84+%EC%9C%84%ED%95%B4+%EA%B2%AC%EC%A0%81%EC%84%9C+%EC%A0%9C%EC%B6%9C%EC%9D%84+%EC%9A%94%EC%B2%AD%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.">귀사와의 수의계약을 위해 견적서 제출을 요청드립니다.</a></td><td>2026.07.15 18:00</td><td>2026.07.14 17:20</td><td class="col-num">190,000,000</td><td><button type="button" class="btn-secondary btn-row-action" data-href="SRMPartnerNegoQuoteHistory.html">견적 제출내역</button></td></tr>
           </tbody>
         </table>
       </div>
 
-      <div class="page-actions"><button type="button" class="btn-secondary" data-href="SRMPartnerNegoRequest.html">목록</button></div>
+      </section>
+<div class="page-actions"><button type="button" class="btn-secondary" data-href="SRMPartnerNegoRequest.html">목록</button></div>
     </main>
   </div>
 

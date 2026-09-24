@@ -267,43 +267,41 @@
       </div>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">로그인 현황</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardAdmin.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">공통관리</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">로그인 현황</span></div>
       </div>
 
 
-      <section class="filter-card description-marker-container"><span class="description-target-marker marker-top-left" aria-hidden="true">1</span>
+      <section class="filter-card description-marker-container" data-ui-scope="filter"><span class="description-target-marker marker-top-left" aria-hidden="true">1</span>
         <div class="filter-row hstack gap-12">
           <span class="filter-label w-80">기준</span>
           <div class="form-choice-group" role="radiogroup">
-            <label class="form-choice"><input type="radio" name="loginStatBasis">일별</label>
-            <label class="form-choice"><input type="radio" name="loginStatBasis" checked>월별</label>
-            <label class="form-choice"><input type="radio" name="loginStatBasis">연도별</label>
+            <label class="form-choice"><input type="radio" name="loginStatBasis" value="day" data-ui-field="basis">일별</label>
+            <label class="form-choice"><input type="radio" name="loginStatBasis" checked value="month" data-ui-field="basis">월별</label>
+            <label class="form-choice"><input type="radio" name="loginStatBasis" value="year" data-ui-field="basis">연도별</label>
           </div>
         </div>
-        <div class="filter-row hstack gap-12">
+        <div class="filter-row hstack gap-12" data-ui-show="basis=day">
           <span class="filter-label w-80">기간(일별)</span>
           <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
-          <button type="button" class="btn-filter-search">조회</button>
         </div>
-        <div class="filter-row hstack gap-12">
+        <div class="filter-row hstack gap-12" data-ui-show="basis=month">
           <span class="filter-label w-80">기간(월별)</span>
           <select class="filter-select w-110"><option>2026년</option></select>
           <select class="filter-select w-90"><option>01월</option></select>
           <span>~</span>
           <select class="filter-select w-110"><option>2026년</option></select>
           <select class="filter-select w-90"><option>09월</option></select>
-          <button type="button" class="btn-filter-search">조회</button>
         </div>
-        <div class="filter-row hstack gap-12">
+        <div class="filter-row hstack gap-12" data-ui-show="basis=year">
           <span class="filter-label w-80">기간(연도별)</span>
           <select class="filter-select w-110"><option>2024년</option></select>
           <span>~</span>
           <select class="filter-select w-110"><option>2026년</option></select>
-          <button type="button" class="btn-filter-search">조회</button>
         </div>
+        <div class="filter-action-row"><button type="button" class="btn-filter-search">조회</button><button type="button" class="btn-filter-reset">초기화</button></div>
       </section>
 
       <section class="app-card srm-detail-section">

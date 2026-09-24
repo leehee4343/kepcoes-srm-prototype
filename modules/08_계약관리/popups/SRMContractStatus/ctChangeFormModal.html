@@ -7,18 +7,18 @@
   <link rel="stylesheet" href="../../../../assets/styles/style.css">
 </head>
 <body class="popup-document">
-<div class="modal-backdrop" id="ctChangeFormModal" role="dialog" aria-modal="true" aria-labelledby="ctChangeFormTitle" aria-hidden="false">
+<div class="modal-backdrop" id="ctChangeFormModal" role="dialog" aria-modal="true" aria-labelledby="ctChangeFormTitle" aria-hidden="false" data-ui-scope="popup">
     <div class="modal-dialog modal-lg">
       <div class="modal-header"><h2 class="modal-title" id="ctChangeFormTitle">계약 변경 처리하기</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
       <div class="modal-body">
         <p class="modal-field-label">변경 계약 처리(PMS로 계약정보 전송) 시 SRM과 PMS의 '계약정보'가 모두 업데이트되며, 계약변경일·변경내용(메모)·변경내역 상세보기 URL이 PMS로 추가 전송됩니다.</p>
         <div class="srm-kv-grid">
           <div class="srm-kv-row"><dt>계약변경일 <span class="required" aria-hidden="true">*</span></dt><dd><input type="date" class="filter-date-input"></dd></div>
-          <div class="srm-kv-row"><dt>변경계약 사유 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="ctChangeReason" checked>'계약금액' 변경</label><label class="form-choice"><input type="radio" name="ctChangeReason">'납기일/공사기간' 변경</label></div></dd></div>
-          <div class="srm-kv-row"><dt>기존 계약금액</dt><dd>99,000,000원 (구천구백만원, VAT 포함)</dd></div>
-          <div class="srm-kv-row"><dt>변경된 계약금액 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" placeholder="숫자로 입력해주세요."> 원 (VAT 포함)</dd></div>
-          <div class="srm-kv-row"><dt>기존 납기일/공사기간</dt><dd>2026.07.20 ~ 2027.07.30</dd></div>
-          <div class="srm-kv-row"><dt>변경된 납기일/공사기간 <span class="required" aria-hidden="true">*</span></dt><dd><input type="date" class="filter-date-input"> ~ <input type="date" class="filter-date-input"></dd></div>
+          <div class="srm-kv-row"><dt>변경계약 사유 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="ctChangeReason" checked value="amount" data-ui-field="change">'계약금액' 변경</label><label class="form-choice"><input type="radio" name="ctChangeReason" value="period" data-ui-field="change">'납기일/공사기간' 변경</label></div></dd></div>
+          <div class="srm-kv-row" data-ui-show="change=amount"><dt>기존 계약금액</dt><dd>99,000,000원 (구천구백만원, VAT 포함)</dd></div>
+          <div class="srm-kv-row" data-ui-show="change=amount"><dt>변경된 계약금액 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" placeholder="숫자로 입력해주세요."> 원 (VAT 포함)</dd></div>
+          <div class="srm-kv-row" data-ui-show="change=period"><dt>기존 납기일/공사기간</dt><dd>2026.07.20 ~ 2027.07.30</dd></div>
+          <div class="srm-kv-row" data-ui-show="change=period"><dt>변경된 납기일/공사기간 <span class="required" aria-hidden="true">*</span></dt><dd><input type="date" class="filter-date-input"> ~ <input type="date" class="filter-date-input"></dd></div>
           <div class="srm-kv-row"><dt>변경내용(메모) <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control grow" placeholder="100자 이내로 등록해주세요." maxlength="100"></dd></div>
           <div class="srm-kv-row"><dt>변경 계약서 <span class="required" aria-hidden="true">*</span></dt><dd>이미 등록된 파일명.PDF <button type="button" class="btn-row-del">삭제</button><div class="form-lookup content-inner-gap-top"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
           <div class="srm-kv-row"><dt>변경 시 참고서류</dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>

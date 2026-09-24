@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../../../../assets/styles/style.css">
 </head>
 <body class="popup-document">
-<div class="modal-backdrop" id="ssQuoteReqManagerModal" role="dialog" aria-modal="true" aria-labelledby="ssQuoteReqManagerTitle" aria-hidden="false">
+<div class="modal-backdrop" id="ssQuoteReqManagerModal" role="dialog" aria-modal="true" aria-labelledby="ssQuoteReqManagerTitle" aria-hidden="false" data-ui-defaults="{&quot;method&quot;:&quot;sole&quot;,&quot;award&quot;:&quot;lowest&quot;,&quot;price&quot;:&quot;estimated&quot;,&quot;documents&quot;:&quot;false&quot;}" data-ui-scope="popup">
     <div class="modal-dialog modal-xl">
       <div class="modal-header"><h2 class="modal-title" id="ssQuoteReqManagerTitle">견적요청 담당자 변경</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
       <div class="modal-body">
@@ -15,13 +15,13 @@
           <table class="data-table" aria-label="담당자 목록">
             <thead><tr><th class="col-no">No</th><th>담당자 구분</th><th>이름</th><th>직책</th><th>이메일</th><th>핸드폰번호</th><th>담당업무</th><th class="w-60">선택</th></tr></thead>
             <tbody>
-              <tr><td>1</td><td>기본 담당자</td><td class="text-left">이희성</td><td>이사</td><td>leehee43@naver.com</td><td>010-6844-2810</td><td class="text-left">사내 입찰/계약 담당자</td><td><button type="button" class="btn-task-register" data-close-modal data-open-modal="ssDetailView">선택</button></td></tr>
-              <tr><td>2</td><td>추가 담당자</td><td class="text-left">박일용</td><td>부장</td><td>-</td><td>-</td><td class="text-left">견적 등 업무 관련 담당자</td><td><button type="button" class="btn-task-register" data-close-modal data-open-modal="ssDetailView">선택</button></td></tr>
+              <tr><td>1</td><td>기본 담당자</td><td class="text-left">이희성</td><td>이사</td><td>leehee43@naver.com</td><td>010-6844-2810</td><td class="text-left">사내 입찰/계약 담당자</td><td><button type="button" class="btn-task-register" data-close-modal>선택</button></td></tr>
+              <tr><td>2</td><td>추가 담당자</td><td class="text-left">박일용</td><td>부장</td><td>-</td><td>-</td><td class="text-left">견적 등 업무 관련 담당자</td><td><button type="button" class="btn-task-register" data-close-modal>선택</button></td></tr>
             </tbody>
           </table>
         </div>
       </div>
-      <div class="modal-footer"><button type="button" class="btn-secondary" data-close-modal data-open-modal="ssDetailView">닫기</button></div>
+      <div class="modal-footer"><button type="button" class="btn-secondary" data-close-modal>닫기</button></div>
     </div>
   </div>
   <script src="../../../../assets/scripts/dashboard.js"></script>

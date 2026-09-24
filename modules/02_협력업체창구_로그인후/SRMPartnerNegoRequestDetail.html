@@ -80,7 +80,7 @@
       </div>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">수의계약 요청 현황 상세</h1></div>
         <nav class="breadcrumb" aria-label="현재 위치">
@@ -90,12 +90,12 @@
         <span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">수의계약 요청 현황 상세</span></nav>
       </div>
 
-      <div class="srm-table-wrap">
+      <section class="app-card srm-bid-summary"><div class="srm-table-wrap">
         <table class="data-table" aria-label="공고 요약">
           <thead><tr><th>공고번호</th><th>공고 구분</th><th>진행상태</th><th>입찰 건명</th><th>견적 마감 일시</th><th>구분</th><th>계약방법</th><th>낙찰자 선정방법</th></tr></thead>
           <tbody><tr><td>BD2026-0023</td><td>본공고</td><td><span class="badge-success">수의계약(견적요청)</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중...</td><td>2026.07.31 18:00</td><td>공사</td><td>수의계약</td><td>최저가</td></tr></tbody>
         </table>
-      </div>
+      </div></section>
 
       <div class="detail-tabs-bar content-object-gap-top">
         <div class="detail-tab-group" role="tablist" aria-label="수의계약 상세 탭">
@@ -103,17 +103,18 @@
           <a href="SRMPartnerNegoRequestQuote.html" class="detail-tab-btn" role="tab" aria-selected="false">견적 제출 및 확인</a>
         </div>
       </div>
+<section class="app-card srm-detail-section">
 
       <div class="srm-section-heading content-object-gap-top"><div><h2>공고 기본 정보</h2></div></div>
       <div class="srm-kv-grid">
         <div class="srm-kv-row"><dt>공고번호</dt><dd>BD2026-0023</dd></div>
         <div class="srm-kv-row"><dt>수의계약 건명</dt><dd>서초동 1601-9 오피스텔 신축공사 중 습식공사</dd></div>
-        <div class="srm-kv-row"><dt>계약방법</dt><dd>수의계약</dd></div>
-        <div class="srm-kv-row"><dt>낙찰자 선정방법</dt><dd>최저가</dd></div>
+        <div class="srm-kv-row"><dt>계약방법</dt><dd data-ui-contract-summary="false" data-ui-text="method">수의계약</dd></div>
+        <div class="srm-kv-row"><dt>낙찰자 선정방법</dt><dd data-ui-text="award">최저가</dd></div>
         <div class="srm-kv-row"><dt>추정금액</dt><dd>94,490,000원 (구천사백사십구만원 / VAT 포함)</dd></div>
         <div class="srm-kv-row"><dt>계약기간</dt><dd>2026.07.20 ~ 2027.07.30</dd></div>
         <div class="srm-kv-row"><dt>납품장소</dt><dd>현장 내</dd></div>
-        <div class="srm-kv-row"><dt>근거 / 수의계약 사유</dt><dd>추정가격이 2,000만원 미만으로 수의계약 진행</dd></div>
+        <div class="srm-kv-row" data-ui-show="method=sole"><dt>근거 / 수의계약 사유</dt><dd>추정가격이 2,000만원 미만으로 수의계약 진행</dd></div>
         <div class="srm-kv-row"><dt>참가자격</dt><dd>도장·습식·방수·석공사업 보유업체</dd></div>
       </div>
 
@@ -154,7 +155,8 @@
         </table>
       </div>
 
-      <div class="page-actions"><button type="button" class="btn-secondary" data-href="SRMPartnerNegoRequest.html">목록</button></div>
+      </section>
+<div class="page-actions"><button type="button" class="btn-secondary" data-href="SRMPartnerNegoRequest.html">목록</button></div>
     </main>
   </div>
 

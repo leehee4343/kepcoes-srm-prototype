@@ -80,7 +80,7 @@
       </div>
     </aside>
 
-        <main class="main-content page-detail-content">
+        <main class="main-content page-detail-content" data-ui-defaults="{&quot;method&quot;:&quot;general&quot;,&quot;award&quot;:&quot;restricted&quot;,&quot;price&quot;:&quot;reserve&quot;,&quot;briefing&quot;:&quot;no&quot;,&quot;negotiated&quot;:&quot;no&quot;,&quot;presentation&quot;:&quot;no&quot;,&quot;selfReview&quot;:&quot;true&quot;}" data-ui-family="partnerbid" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">입찰 참여 현황</h1></div>
         <div class="breadcrumb"><a href="SRMDashboardPartner.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">협력업체 전용 창구</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">입찰 참여 현황</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">입찰 서류 제출</span></div>
@@ -88,7 +88,7 @@
       <section class="app-card srm-bid-summary" aria-label="공고 요약">
         <table class="data-table" aria-label="공고 요약">
           <thead><tr><th>공고번호</th><th>공고 구분</th><th>진행상태</th><th>제출상태</th><th class="srm-bid-name">입찰 건명</th><th>입찰마감일시</th><th>구분</th><th>계약방법</th><th>낙찰자 선정방법</th></tr></thead>
-          <tbody><tr><td>BD2026-0023</td><td>본공고</td><td>입찰진행중</td><td>작성중(미제출)</td><td class="srm-bid-name" title="서초동 1601-9 오피스텔 신축공사 중...">서초동 1601-9 오피스텔 신축공사 중...</td><td>2026.07.31 18:00</td><td>공사</td><td>경쟁입찰(일반)</td><td>제한적 최저가 입찰</td></tr></tbody>
+          <tbody><tr><td>BD2026-0023</td><td>본공고</td><td>입찰진행중</td><td>작성중(미제출)</td><td class="srm-bid-name" title="서초동 1601-9 오피스텔 신축공사 중...">서초동 1601-9 오피스텔 신축공사 중...</td><td>2026.07.31 18:00</td><td>공사</td><td data-ui-text="method">경쟁입찰(일반)</td><td data-ui-text="award">제한적 최저가 입찰</td></tr></tbody>
         </table>
       </section>
       <div class="detail-tabs-bar">
@@ -109,9 +109,9 @@
       </nav>
       <section class="page-detail-body" aria-label="자가 심사">
         <div class="srm-section-heading"><div><h2>자가 심사</h2></div></div>
-        <div class="inline-action-bar description-marker-container"><span class="description-target-marker marker-top-left" aria-hidden="true">3</span>본 입찰공고는 자가심사를 진행하지 않습니다.</div>
+        <div class="inline-action-bar description-marker-container" data-ui-show="selfReview=false"><span class="description-target-marker marker-top-left" aria-hidden="true">3</span>본 입찰공고는 자가심사를 진행하지 않습니다.</div>
         <div class="description-marker-container content-inner-gap-top"><span class="description-target-marker marker-top-left" aria-hidden="true">4</span>
-        <div class="srm-table-wrap">
+        <div class="srm-table-wrap" data-ui-show="selfReview=true">
           <table class="data-table" aria-label="자가 심사">
             <thead><tr><th class="col-no">No</th><th>심사/평가 구분</th><th>심사/평가 항목</th><th>자가심사 여부</th><th>배점</th><th class="minw-200">평가점수</th></tr></thead>
             <tbody>

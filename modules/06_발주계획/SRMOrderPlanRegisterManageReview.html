@@ -267,7 +267,7 @@
       </div>
     </aside>
 
-        <main class="main-content page-detail-content">
+        <main class="main-content page-detail-content" data-ui-defaults="{&quot;method&quot;:&quot;general&quot;,&quot;award&quot;:&quot;restricted&quot;,&quot;price&quot;:&quot;reserve&quot;,&quot;items&quot;:&quot;unit&quot;}" data-ui-family="plan" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">발주계획 등록</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardBiz.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">발주계획</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">발주계획 등록</span></div>
@@ -296,7 +296,7 @@
           <div class="srm-kv-row"><dt>요청일 <span class="required" aria-hidden="true">*</span></dt><dd>2026.06.01</dd></div>
           <div class="srm-kv-row"><dt>계약예정일 <span class="required" aria-hidden="true">*</span></dt><dd>2026.07.31</dd></div>
           <div class="srm-kv-row"><dt>구분 <span class="required" aria-hidden="true">*</span></dt><dd>공사</dd></div>
-          <div class="srm-kv-row"><dt>수주계약 정보 <span class="required" aria-hidden="true">*</span></dt><dd><div>· 수주계약번호 : 160011612-01-31-C<br>· 수주계약명 : GE-4 에너지효율화(ID Fan VVVF 설치) 사업<br>· 수주계약일 : 2026.12.23<br>· 수주계약업체 : 군장에너지주식회사</div></dd></div>
+          <div class="srm-kv-row"><dt>수주계약 정보 <span class="required" aria-hidden="true">*</span></dt><dd><div><ul class="bullet-list"><li>수주계약번호 : 160011612-01-31-C</li><li>수주계약명 : GE-4 에너지효율화(ID Fan VVVF 설치) 사업</li><li>수주계약일 : 2026.12.23</li><li>수주계약업체 : 군장에너지주식회사</li></ul></div></dd></div>
           <div class="srm-kv-row"><dt>사업담당자</dt><dd>홍길동</dd></div>
           <div class="srm-kv-row"><dt>계약담당자</dt><dd>임꺽정</dd></div>
         </dl>
@@ -314,12 +314,12 @@
           <div class="srm-kv-row"><dt>계약이행 보증금률 <span class="required" aria-hidden="true">*</span></dt><dd>10%</dd></div>
           <div class="srm-kv-row"><dt>하자이행 보증금률 <span class="required" aria-hidden="true">*</span></dt><dd>3%</dd></div>
           <div class="srm-kv-row"><dt>하자이행 기간 <span class="required" aria-hidden="true">*</span></dt><dd>2년</dd></div>
-          <div class="srm-kv-row"><dt>계약방법 <span class="required" aria-hidden="true">*</span></dt><dd>경쟁입찰(일반)</dd></div>
-          <div class="srm-kv-row"><dt>낙찰자 선정방법 <span class="required" aria-hidden="true">*</span></dt><dd>제한적 최저가 입찰</dd></div>
-          <div class="srm-kv-row"><dt>근거 / 수의계약 사유 <span class="required" aria-hidden="true">*</span></dt><dd>근거 / 수의계약 사유로 입력된 내용</dd></div>
-          <div class="srm-kv-row"><dt>계약상대자(수의계약의 경우)</dt><dd>· 매핑된 협력업체 : (주)큐비트엑스(135-81-77202)</dd></div>
+          <div class="srm-kv-row"><dt>계약방법 <span class="required" aria-hidden="true">*</span></dt><dd data-ui-contract-summary="false" data-ui-text="method">경쟁입찰(일반)</dd></div>
+          <div class="srm-kv-row"><dt>낙찰자 선정방법 <span class="required" aria-hidden="true">*</span></dt><dd data-ui-text="award">제한적 최저가 입찰</dd></div>
+          <div class="srm-kv-row" data-ui-show="method=sole"><dt>근거 / 수의계약 사유 <span class="required" aria-hidden="true">*</span></dt><dd>근거 / 수의계약 사유로 입력된 내용</dd></div>
+          <div class="srm-kv-row" data-ui-show="method=sole"><dt>계약상대자(수의계약의 경우)</dt><dd>· 매핑된 협력업체 : (주)큐비트엑스(135-81-77202)</dd></div>
           <div class="srm-kv-row"><dt>참가자격</dt><dd>등기부등본상 본사의 위치가 제주도에 있는 업체</dd></div>
-          <div class="srm-kv-row"><dt>예정/예비가격 결정 <span class="required" aria-hidden="true">*</span></dt><dd>예비가</dd></div>
+          <div class="srm-kv-row"><dt>예정/예비가격 결정 <span class="required" aria-hidden="true">*</span></dt><dd data-ui-text="price">예비가</dd></div>
           <div class="srm-kv-row"><dt>예정/예비가격 결정자 <span class="required" aria-hidden="true">*</span></dt><dd>사장</dd></div>
           <div class="srm-kv-row"><dt>입찰 보증금률 <span class="required" aria-hidden="true">*</span></dt><dd>5%</dd></div>
         </dl>
@@ -336,9 +336,9 @@
         <div class="srm-section-heading content-object-gap-top"><div><h2>품목 정보</h2><p class="form-hint text-primary">※ 해당 정보를 수정하고자 하는 경우 상단의 ‘STEP 03 품목 정보’를 선택하여 수정해주세요.</p></div></div>
         <div class="srm-table-wrap">
           <table class="data-table" aria-label="품목 정보">
-            <thead><tr><th class="col-no">No</th><th>품목코드</th><th>품목명</th><th>규격</th><th>단위</th><th>수량</th><th>납기요청일</th><th>입고장소</th><th>비고</th></tr></thead>
+            <thead><tr><th class="col-no">No</th><th>품목코드</th><th>품목명</th><th data-ui-show="items=custom">규격</th><th>단위</th><th>수량</th><th>납기요청일</th><th>입고장소</th><th>비고</th></tr></thead>
             <tbody>
-              <tr><td>1</td><td>-</td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td class="text-left">품목 구성 방법이 ‘지정 항목 작성’인 경우에 등록됨</td><td></td><td class="text-right">1</td><td>2026.07.31</td><td>현장</td><td class="text-left">품목 등록의 비고에 들어간 내용입니다.</td></tr>
+              <tr><td>1</td><td>-</td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td class="text-left" data-ui-show="items=custom">품목 구성 방법이 ‘지정 항목 작성’인 경우에 등록됨</td><td></td><td class="text-right">1</td><td>2026.07.31</td><td>현장</td><td class="text-left">품목 등록의 비고에 들어간 내용입니다.</td></tr>
             </tbody>
           </table>
         </div>

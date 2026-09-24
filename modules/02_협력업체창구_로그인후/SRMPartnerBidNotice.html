@@ -80,7 +80,7 @@
       </div>
     </aside>
 
-    <main class="main-content">
+    <main class="main-content" data-ui-defaults="{&quot;method&quot;:&quot;general&quot;,&quot;award&quot;:&quot;restricted&quot;,&quot;price&quot;:&quot;reserve&quot;,&quot;briefing&quot;:&quot;no&quot;,&quot;negotiated&quot;:&quot;no&quot;,&quot;presentation&quot;:&quot;no&quot;,&quot;selfReview&quot;:&quot;true&quot;}" data-ui-family="partnerbid" data-ui-scope="page">
       <div class="page-title-wrap">
         <div class="page-title-left"><h1 class="page-title">입찰공고 현황</h1></div>
         <nav class="breadcrumb" aria-label="현재 위치">
@@ -92,7 +92,7 @@
 
 
       <section class="filter-card">
-        <form id="bidNoticeSearchForm">
+        <form id="bidNoticeSearchForm" data-ui-scope="filter">
           <div class="filter-row hstack gap-12 description-marker-container">
             <span class="description-target-marker marker-top-left" aria-hidden="true">1</span>
             <span class="filter-label w-200">조회기간(입찰 마감일)</span>
@@ -118,8 +118,8 @@
           <div class="filter-row hstack gap-12 description-marker-container">
             <span class="description-target-marker marker-top-left" aria-hidden="true">2</span>
             <span class="filter-label w-200">계약방법/낙찰자 선정방법</span>
-            <select class="filter-select w-180"><option>계약방법 선택</option><option>경쟁입찰(일반)</option><option>경쟁입찰(제한)</option><option>경쟁입찰(지명)</option><option>수의계약</option></select>
-            <select class="filter-select w-180"><option>낙찰자 선정방법 선택</option><option>최저가</option><option>제한적 최저가 입찰</option><option>2단계 경쟁입찰(규격/가격 동시)</option><option>2단계 경쟁입찰(규격/가격 분리)</option><option>적격심사</option></select>
+            <select class="filter-select w-180" data-ui-field="method"><option value="">전체</option><option value="sole">수의계약</option><option value="general">경쟁입찰(일반)</option><option value="limited">경쟁입찰(제한)</option><option value="designated">경쟁입찰(지명)</option></select>
+            <select class="filter-select w-180" data-ui-field="award"><option value="">전체</option><option value="lowest">최저가</option><option value="restricted">제한적 최저가 입찰</option><option value="simultaneous">2단계 경쟁입찰(규격/가격 동시)</option><option value="separate">2단계 경쟁입찰(규격/가격 분리)</option><option value="qualification">적격심사</option></select>
           </div>
           <div class="filter-row hstack gap-12 description-marker-container">
             <span class="description-target-marker marker-top-left" aria-hidden="true">3</span>
@@ -167,12 +167,12 @@
         <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="입찰공고 현황 목록" data-total-items="1523" data-total-pages="153">
           <table class="data-table data-grid-table" aria-label="입찰공고 현황 목록">
             <thead>
-              <tr><th class="w-100">공고번호</th><th class="w-80">공고 구분</th><th class="w-90">진행상태</th><th class="minw-250">입찰 건명</th><th class="w-130">입찰 마감일시</th><th class="w-90">참여업체(수)</th><th class="w-60">구분</th><th class="w-100">계약방법</th><th class="w-110">낙찰자 선정방법</th><th class="w-80">사업담당자</th><th class="w-80">계약 담당자</th><th class="w-80"><span class="description-marker-anchor">내역서<span class="description-target-marker" aria-hidden="true">6</span></span></th></tr>
+              <tr><th class="w-100">공고번호</th><th class="w-80">공고 구분</th><th class="w-90">진행상태</th><th class="minw-250">입찰 건명</th><th class="w-130">입찰 마감일시</th><th class="w-90">참여업체(수)</th><th class="w-60">구분</th><th class="w-100">계약방법</th><th class="w-110">낙찰자 선정방법</th><th class="w-80">사업담당자</th><th class="w-80">계약 담당자</th></tr>
             </thead>
             <tbody>
-              <tr><td><a href="SRMPartnerBidNoticeDetail.html">BD2026-0023</a></td><td>본공고</td><td><span class="badge-success">공고게시중</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td>2026.07.31 18:00</td><td class="col-num">15</td><td>공사</td><td>경쟁입찰(일반)</td><td>최저가</td><td>홍길동</td><td>임꺽정</td><td><button type="button" class="btn-secondary" data-open-modal="bidNoticeDocModal">내역서</button></td></tr>
-              <tr><td><a href="SRMPartnerBidNoticeDetail.html">BD2026-0025</a></td><td>재공고(1차)</td><td><span class="badge-info">입찰진행중</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 기계식주차설비공사</td><td>2026.08.18 16:00</td><td class="col-num">3</td><td>용역</td><td>경쟁입찰(제한)</td><td>제한적 최저가 입찰</td><td>홍길동</td><td>임꺽정</td><td><button type="button" class="btn-secondary" data-open-modal="bidNoticeDocModal">내역서</button></td></tr>
-              <tr><td><a href="SRMPartnerBidNoticeDetail.html">BD2026-0031</a></td><td>재공고(2차)</td><td><span class="badge-tag">입찰마감</span></td><td class="text-left">ESS 배터리 모듈 구매</td><td>2026.10.02 18:00</td><td class="col-num">0</td><td>물품</td><td>경쟁입찰(지명)</td><td>2단계 경쟁입찰(규격/가격 동시)</td><td>홍길동</td><td>임꺽정</td><td><button type="button" class="btn-secondary" data-open-modal="bidNoticeDocModal">내역서</button></td></tr>
+              <tr><td><a href="#" data-open-modal="bidNoticeDocModal">BD2026-0023</a></td><td>본공고</td><td><span class="badge-success">공고게시중</span></td><td class="text-left"><a href="SRMPartnerBidNoticeDetail.html">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>2026.07.31 18:00</td><td class="col-num">15</td><td>공사</td><td>경쟁입찰(일반)</td><td>최저가</td><td>홍길동</td><td>임꺽정</td></tr>
+              <tr><td><a href="#" data-open-modal="bidNoticeDocModal">BD2026-0025</a></td><td>재공고(1차)</td><td><span class="badge-info">입찰진행중</span></td><td class="text-left"><a href="SRMPartnerBidNoticeDetail.html">서초동 1601-9 오피스텔 신축공사 중 기계식주차설비공사</a></td><td>2026.08.18 16:00</td><td class="col-num">3</td><td>용역</td><td>경쟁입찰(제한)</td><td>제한적 최저가 입찰</td><td>홍길동</td><td>임꺽정</td></tr>
+              <tr><td><a href="#" data-open-modal="bidNoticeDocModal">BD2026-0031</a></td><td>재공고(2차)</td><td><span class="badge-tag">입찰마감</span></td><td class="text-left"><a href="SRMPartnerBidNoticeDetail.html">ESS 배터리 모듈 구매</a></td><td>2026.10.02 18:00</td><td class="col-num">0</td><td>물품</td><td>경쟁입찰(지명)</td><td>2단계 경쟁입찰(규격/가격 동시)</td><td>홍길동</td><td>임꺽정</td></tr>
             </tbody>
           </table>
         </div>
