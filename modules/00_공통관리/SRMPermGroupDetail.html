@@ -44,18 +44,26 @@
     <aside class="sidebar" id="sidebar">
       <nav class="sidebar-nav">
         <div class="nav-item">
-                    <a href="../03_대시보드/SRMDashboardAdmin.html" class="nav-link">
-                      <span class="nav-icon">
-                        <svg aria-hidden="true" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                          <rect x="3" y="3" width="7" height="9"></rect>
-                          <rect x="14" y="3" width="7" height="5"></rect>
-                          <rect x="14" y="12" width="7" height="9"></rect>
-                          <rect x="3" y="16" width="7" height="5"></rect>
-                        </svg>
-                      </span>
-                      <span class="nav-text">대시보드</span>
-                    </a>
-                  </div>
+          <a href="#" class="nav-link">
+            <span class="nav-icon">
+              <svg aria-hidden="true" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="9"></rect>
+                <rect x="14" y="3" width="7" height="5"></rect>
+                <rect x="14" y="12" width="7" height="9"></rect>
+                <rect x="3" y="16" width="7" height="5"></rect>
+              </svg>
+            </span>
+            <span class="nav-text">대시보드</span>
+            <span class="nav-arrow">
+              <svg aria-hidden="true" width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </a>
+          <ul class="submenu">
+            <li class="submenu-item"><a href="../03_대시보드/SRMDashboardAdmin.html">대시보드</a></li>
+            <li class="submenu-item"><a href="../03_대시보드/SRMDashNotice.html">공지사항</a></li>
+            <li class="submenu-item"><a href="../03_대시보드/SRMDashFileRepo.html">양식 등 자료실</a></li>
+          </ul>
+        </div>
 
         <div class="nav-item">
                     <a href="#" class="nav-link">
@@ -269,8 +277,8 @@
         <section class="app-card srm-detail-section">
           <div class="srm-section-heading"><div><h2>권한그룹 정보</h2></div></div>
           <div class="srm-kv-grid">
-            <div class="srm-kv-row"><dt>권한그룹명 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="권한그룹명 #1" placeholder="30자 이내로 작성해 주세요." maxlength="30"></dd></div>
-            <div class="srm-kv-row"><dt>권한그룹 설명 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="최고관리자(시스템 운영 담당자)를 대상으로 한 모든 권한" placeholder="100자 이내로 간략히 작성해 주세요." maxlength="100"></dd></div>
+            <div class="srm-kv-row"><dt>권한그룹명 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control grow" value="권한그룹명 #1" placeholder="30자 이내로 작성해 주세요." maxlength="30"></dd></div>
+            <div class="srm-kv-row"><dt>권한그룹 설명 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control grow" value="최고관리자(시스템 운영 담당자)를 대상으로 한 모든 권한" placeholder="100자 이내로 간략히 작성해 주세요." maxlength="100"></dd></div>
             <div class="srm-kv-row"><dt>등록일시</dt><dd>2026.06.09 15:23</dd></div>
             <div class="srm-kv-row"><dt>등록자</dt><dd>이희성</dd></div>
             <div class="srm-kv-row"><dt>최종수정일시</dt><dd>2026.06.10 10:45(이희성)</dd></div>
@@ -336,6 +344,7 @@
 
 
 
+  <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
   <script type="application/json" class="external-modal-manifest">["popups/SRMPermGroupDetail/adminMappingAddModal.html", "popups/SRMPermGroupDetail/permGroupDetailDescriptionGuide.html"]</script>
 </body>

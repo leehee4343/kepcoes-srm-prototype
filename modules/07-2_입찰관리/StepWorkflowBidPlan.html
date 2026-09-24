@@ -36,18 +36,26 @@
     <aside class="sidebar" id="sidebar">
       <nav class="sidebar-nav">
         <div class="nav-item">
-                    <a href="../03_대시보드/SRMDashboardContract.html" class="nav-link">
-                      <span class="nav-icon">
-                        <svg aria-hidden="true" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                          <rect x="3" y="3" width="7" height="9"></rect>
-                          <rect x="14" y="3" width="7" height="5"></rect>
-                          <rect x="14" y="12" width="7" height="9"></rect>
-                          <rect x="3" y="16" width="7" height="5"></rect>
-                        </svg>
-                      </span>
-                      <span class="nav-text">대시보드</span>
-                    </a>
-                  </div>
+          <a href="#" class="nav-link">
+            <span class="nav-icon">
+              <svg aria-hidden="true" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="9"></rect>
+                <rect x="14" y="3" width="7" height="5"></rect>
+                <rect x="14" y="12" width="7" height="9"></rect>
+                <rect x="3" y="16" width="7" height="5"></rect>
+              </svg>
+            </span>
+            <span class="nav-text">대시보드</span>
+            <span class="nav-arrow">
+              <svg aria-hidden="true" width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </a>
+          <ul class="submenu">
+            <li class="submenu-item"><a href="../03_대시보드/SRMDashboardContract.html">대시보드</a></li>
+            <li class="submenu-item"><a href="../03_대시보드/SRMDashNotice.html">공지사항</a></li>
+            <li class="submenu-item"><a href="../03_대시보드/SRMDashFileRepo.html">양식 등 자료실</a></li>
+          </ul>
+        </div>
 
         <div class="nav-item">
                     <a href="#" class="nav-link">
@@ -320,9 +328,7 @@
             <select class="select-per-page" title="페이지당 표시 건수">
               <option value="10" selected>10개씩</option>
               <option value="20">20개씩</option>
-              <option value="30">30개씩</option>
               <option value="50">50개씩</option>
-              <option value="100">100개씩</option>
             </select>
             <button type="button" class="btn-action-excel"><svg aria-hidden="true" class="icon-excel" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="m8 12 4 6"></path><path d="m12 12-4 6"></path></svg>엑셀 다운로드</button>
           </div>
@@ -438,7 +444,7 @@
         <div class="srm-kv-row"><dt>협상에 의한 계약 여부 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="bidNego" checked>협상에 의한 계약 아님</label><label class="form-choice"><input type="radio" name="bidNego">협상에 의한 계약</label></div></dd></div>
         <div class="srm-kv-row"><dt>제안발표 여부</dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="bidPresent" checked>제안발표 안함</label><label class="form-choice"><input type="radio" name="bidPresent">제안발표 진행</label></div></dd></div>
         <div class="srm-kv-row"><dt>제안발표 일시</dt><dd><input type="date" class="filter-date-input"> <select class="filter-select w-90"><option>시간 선택</option></select> <select class="filter-select w-90"><option>분 선택</option></select> 부터 진행</dd></div>
-        <div class="srm-kv-row"><dt>제안발표 장소</dt><dd><input type="text" class="form-control" placeholder="50자 이내로 입력해주세요." maxlength="50"></dd></div>
+        <div class="srm-kv-row"><dt>제안발표 장소</dt><dd><input type="text" class="form-control grow" placeholder="50자 이내로 입력해주세요." maxlength="50"></dd></div>
       </div>
       <div class="hstack content-inner-gap-top"><button type="button" class="btn-action-primary">저장</button></div>
 
@@ -457,6 +463,7 @@
     <div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div>
   </footer>
 
+  <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
   <script type="application/json" class="external-modal-manifest">["popups/StepWorkflow/bidVendorAddModal.html", "popups/StepWorkflow/bidEvaluatorMapModal.html"]</script>
 </body>

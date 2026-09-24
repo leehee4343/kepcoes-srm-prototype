@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>전자입찰시스템(SRM) - 발주계약 요청 관리 | KEPCO ES</title>
+  <title>전자입찰시스템 SRM - 발주계약 요청(발주계약 요청 기본정보) | KEPCO ES</title>
   <link rel="stylesheet" href="../../assets/styles/style.css">
 </head>
 <body>
@@ -44,18 +44,26 @@
     <aside class="sidebar" id="sidebar">
       <nav class="sidebar-nav">
         <div class="nav-item">
-                    <a href="../03_대시보드/SRMDashboardBiz.html" class="nav-link">
-                      <span class="nav-icon">
-                        <svg aria-hidden="true" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                          <rect x="3" y="3" width="7" height="9"></rect>
-                          <rect x="14" y="3" width="7" height="5"></rect>
-                          <rect x="14" y="12" width="7" height="9"></rect>
-                          <rect x="3" y="16" width="7" height="5"></rect>
-                        </svg>
-                      </span>
-                      <span class="nav-text">대시보드</span>
-                    </a>
-                  </div>
+          <a href="#" class="nav-link">
+            <span class="nav-icon">
+              <svg aria-hidden="true" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="9"></rect>
+                <rect x="14" y="3" width="7" height="5"></rect>
+                <rect x="14" y="12" width="7" height="9"></rect>
+                <rect x="3" y="16" width="7" height="5"></rect>
+              </svg>
+            </span>
+            <span class="nav-text">대시보드</span>
+            <span class="nav-arrow">
+              <svg aria-hidden="true" width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </a>
+          <ul class="submenu">
+            <li class="submenu-item"><a href="../03_대시보드/SRMDashboardBiz.html">대시보드</a></li>
+            <li class="submenu-item"><a href="../03_대시보드/SRMDashNotice.html">공지사항</a></li>
+            <li class="submenu-item"><a href="../03_대시보드/SRMDashFileRepo.html">양식 등 자료실</a></li>
+          </ul>
+        </div>
 
         <div class="nav-item">
                     <a href="#" class="nav-link">
@@ -261,134 +269,44 @@
 
         <main class="main-content page-detail-content">
       <div class="page-title-wrap">
-        <div class="page-title-left"><h1 class="page-title">발주계약 요청 관리</h1></div>
+        <div class="page-title-left"><h1 class="page-title">발주계약 요청</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardBiz.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">발주계약 요청</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">발주계약 요청</span></div>
       </div>
-      <section class="page-detail-body"><p class="modal-field-label">각 단계로 안내되어 있긴 하지만, 각 영역에 바로 접근(클릭)해서 정보 입력이 가능합니다.</p>
-
-        <div class="srm-section-heading content-inner-gap-top"><div><h2>발주계약 요청 기본정보</h2></div></div>
-        <div class="srm-kv-grid">
+      <nav class="wizard-stepper" aria-label="발주계약 요청 단계">
+        <a href="SRMOrderContractRequestManage.html" class="wizard-step-box active" aria-current="step"><span class="wizard-step-dot" aria-hidden="true">1</span><span class="wizard-step-num">STEP 01</span><span class="wizard-step-title">발주계약 요청 기본정보</span></a>
+        <a href="SRMOrderContractRequestManageChecklist.html" class="wizard-step-box"><span class="wizard-step-dot" aria-hidden="true">2</span><span class="wizard-step-num">STEP 02</span><span class="wizard-step-title">발주계약 체크리스트</span></a>
+        <a href="SRMOrderContractRequestManageItems.html" class="wizard-step-box"><span class="wizard-step-dot" aria-hidden="true">3</span><span class="wizard-step-num">STEP 03</span><span class="wizard-step-title">품목 정보</span></a>
+        <a href="SRMOrderContractRequestManageReview.html" class="wizard-step-box"><span class="wizard-step-dot" aria-hidden="true">4</span><span class="wizard-step-num">STEP 04</span><span class="wizard-step-title">최종 점검 및 전자결재</span></a>
+        <a href="SRMOrderContractRequestComplete.html" class="wizard-step-box"><span class="wizard-step-dot" aria-hidden="true">5</span><span class="wizard-step-num">STEP 05</span><span class="wizard-step-title">발주계약 요청 완료</span></a>
+      </nav>
+      <section class="app-card srm-bid-summary" aria-label="발주계약 요청 요약">
+        <table class="data-table" aria-label="발주계약 요청 요약">
+          <thead><tr><th>발주계약 요청번호</th><th>진행상태</th><th class="srm-bid-name">건명</th><th>요청일</th><th>계약예정일</th><th>구분</th><th>수주계약번호</th><th>등록일</th><th>사업담당자</th></tr></thead>
+          <tbody><tr><td>PR2026-0003</td><td>작성중</td><td class="srm-bid-name" title="서초동 1601-9 오피스텔 신축공사 중 도장공사">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td>2026.07.22</td><td>2026.07.31</td><td>공사</td><td>160011612-01-31-C</td><td>2026.06.10</td><td>홍길동</td></tr></tbody>
+        </table>
+      </section>
+      <section class="page-detail-body" aria-label="발주계약 요청 기본정보">
+        <dl class="srm-kv-grid">
           <div class="srm-kv-row"><dt>발주계약 요청번호</dt><dd>PR2026-0003</dd></div>
-          <div class="srm-kv-row"><dt>처리상태</dt><dd><span class="badge-tag">요청대기</span></dd></div>
-          <div class="srm-kv-row"><dt>건명 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="서초동 1601-9 오피스텔 신축공사 중 도장공사" maxlength="50"></dd></div>
-          <div class="srm-kv-row"><dt>요청일 <span class="required" aria-hidden="true">*</span></dt><dd><input type="date" class="filter-date-input" value="2026-06-30"></dd></div>
-          <div class="srm-kv-row"><dt>계약예정일 <span class="required" aria-hidden="true">*</span></dt><dd><input type="date" class="filter-date-input" value="2026-07-20"></dd></div>
-          <div class="srm-kv-row"><dt>구분 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="ocMgKind" checked>공사</label><label class="form-choice"><input type="radio" name="ocMgKind">용역</label><label class="form-choice"><input type="radio" name="ocMgKind">물품</label></div></dd></div>
-          <div class="srm-kv-row"><dt>수주계약정보 <span class="required" aria-hidden="true">*</span></dt><dd>
-            <div class="srm-detail-actions content-inner-gap-bottom"><button type="button" class="btn-secondary" data-close-modal data-open-modal="ocDealMapModal">수주계약 매핑</button><button type="button" class="btn-secondary">매핑 취소</button></div>
-            · 수주계약번호 : 160011612-01-31-C<br>· 수주계약명 : GE-4 에너지효율화(ID Fan VVVF 설치) 사업<br>· 수주계약일 : 2026.12.23<br>· 수주계약업체 : 군장에너지주식회사
-          </dd></div>
+          <div class="srm-kv-row"><dt>처리상태</dt><dd>요청대기</dd></div>
+          <div class="srm-kv-row"><dt>건명 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control grow" placeholder="50자 이내로 입력해주세요." maxlength="50" aria-label="건명"></dd></div>
+          <div class="srm-kv-row"><dt>요청일 <span class="required" aria-hidden="true">*</span></dt><dd><input type="date" class="filter-date-input" aria-label="요청일"></dd></div>
+          <div class="srm-kv-row"><dt>계약예정일 <span class="required" aria-hidden="true">*</span></dt><dd><input type="date" class="filter-date-input" aria-label="계약예정일"></dd></div>
+          <div class="srm-kv-row"><dt>구분 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup" aria-label="구분"><label class="form-choice"><input type="radio" name="ocKind">공사</label><label class="form-choice"><input type="radio" name="ocKind">용역</label><label class="form-choice"><input type="radio" name="ocKind">물품</label></div></dd></div>
+          <div class="srm-kv-row"><dt>수주계약정보 <span class="required" aria-hidden="true">*</span></dt><dd><div class="hstack gap-10"><button type="button" class="btn-secondary" data-open-modal="ocDealMapModal">수주계약 매핑</button><button type="button" class="btn-delete">매핑 취소</button></div><div class="content-inner-gap-top"><div>· 수주계약번호 : 160011612-01-31-C<br>· 수주계약명 : GE-4 에너지효율화(ID Fan VVVF 설치) 사업<br>· 수주계약일 : 2026.12.23<br>· 수주계약업체 : 군장에너지주식회사</div></div></dd></div>
           <div class="srm-kv-row"><dt>등록일시</dt><dd>2026.06.10 15:42</dd></div>
           <div class="srm-kv-row"><dt>사업담당자</dt><dd>홍길동</dd></div>
-        </div>
-
-        <div class="srm-section-heading content-object-gap-top"><div><h2>발주계약 체크리스트</h2></div></div>
-        <p class="modal-field-label">결재 관련 정보</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>결재문서 <span class="required" aria-hidden="true">*</span></dt><dd>
-            <label class="form-choice"><input type="checkbox" checked>추진안</label>
-            <label class="form-choice"><input type="checkbox" checked>일상감사의견서</label>
-            <label class="form-choice"><input type="checkbox">심의결과(의결무)</label>
-            <label class="form-choice"><input type="checkbox">심의결과(의결)</label>
-            <label class="form-choice"><input type="checkbox">시행안</label>
-          </dd></div>
-          <div class="srm-kv-row"><dt>결재문서 등록 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
-        </div>
-
-        <p class="modal-field-label content-object-gap-top">발주계약 요청 세부정보</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>추정금액 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="94,490,000"> 구천사백사십구만원 / VAT 포함</dd></div>
-          <div class="srm-kv-row"><dt>계약기간 <span class="required" aria-hidden="true">*</span></dt><dd><input type="date" class="filter-date-input" value="2026-07-20"> ~ <input type="date" class="filter-date-input" value="2027-07-30"></dd></div>
-          <div class="srm-kv-row"><dt>납품장소</dt><dd><input type="text" class="form-control" value="현장 내" placeholder="50자 이내로 입력해주세요." maxlength="50"></dd></div>
-          <div class="srm-kv-row"><dt>계약이행 보증금률 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="10"> %</dd></div>
-          <div class="srm-kv-row"><dt>하자이행 보증금률 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="3"> %</dd></div>
-          <div class="srm-kv-row"><dt>하자이행 기간 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="2"> 년</dd></div>
-          <div class="srm-kv-row"><dt>계약방법 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="ocMethod" checked>수의계약</label><label class="form-choice"><input type="radio" name="ocMethod">경쟁입찰(일반)</label><label class="form-choice"><input type="radio" name="ocMethod">경쟁입찰(제한)</label><label class="form-choice"><input type="radio" name="ocMethod">경쟁입찰(지명)</label></div></dd></div>
-          <div class="srm-kv-row"><dt>낙찰자 선정방법 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="ocAward" checked>최저가</label><label class="form-choice"><input type="radio" name="ocAward">제한적 최저가 입찰</label><label class="form-choice"><input type="radio" name="ocAward">2단계 경쟁입찰(규격/가격 동시)</label><label class="form-choice"><input type="radio" name="ocAward">2단계 경쟁입찰(규격/가격 분리)</label><label class="form-choice"><input type="radio" name="ocAward">적격심사</label></div></dd></div>
-          <div class="srm-kv-row"><dt>근거 / 수의계약 사유 <span class="required" aria-hidden="true">*</span></dt><dd><p class="modal-field-label content-inner-gap-bottom">※ 계약방법이 '수의계약'인 경우에만 아래의 정보를 입력해주세요.</p><input type="text" class="form-control" placeholder="50자 이내로 입력해주세요." maxlength="50"></dd></div>
-          <div class="srm-kv-row"><dt>계약상대자(수의계약의 경우) <span class="required" aria-hidden="true">*</span></dt><dd>
-            <div class="srm-detail-actions content-inner-gap-bottom"><button type="button" class="btn-secondary" data-close-modal data-open-modal="ocPartnerMapModal">협력업체 매핑</button><button type="button" class="btn-secondary">매핑 취소</button></div>
-            · 매핑된 협력업체 : (주)큐비트엑스(135-81-77202)
-          </dd></div>
-        </div>
-
-        <p class="modal-field-label content-object-gap-top">계약업체 면허 설정</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>종합건설업</dt><dd><label class="form-choice"><input type="checkbox"></label> <select class="filter-select w-280"><option>업종을 선택하세요</option></select></dd></div>
-          <div class="srm-kv-row"><dt>전문건설업</dt><dd><label class="form-choice"><input type="checkbox" checked></label> <select class="filter-select w-280"><option>도장/습식/방수/석공사업</option></select></dd></div>
-          <div class="srm-kv-row"><dt>개별공사업</dt><dd><label class="form-choice"><input type="checkbox"></label> <select class="filter-select w-280"><option>업종을 선택하세요</option></select></dd></div>
-          <div class="srm-kv-row"><dt>용역업</dt><dd><label class="form-choice"><input type="checkbox"></label> <select class="filter-select w-280"><option>업종을 선택하세요</option></select></dd></div>
-          <div class="srm-kv-row"><dt>기타</dt><dd><label class="form-choice"><input type="checkbox"></label> <select class="filter-select w-280"><option>업종을 선택하세요</option></select></dd></div>
-        </div>
-
-        <p class="modal-field-label content-object-gap-top">첨부 서류</p>
-        <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>용역 <span class="required" aria-hidden="true">*</span><br><span>원가계산서(or 산출내역서), 과업지시서 등</span></dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
-          <div class="srm-kv-row"><dt>기타 서류</dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
-        </div>
-        <div class="srm-detail-actions"><button type="button" class="btn-primary">저장</button></div>
-
-        <div class="srm-section-heading content-object-gap-top"><div><h2>품목 정보</h2></div></div>
-        <p class="modal-field-label">등록된 품목 : 총 3건</p>
-        <div class="srm-table-wrap">
-          <table class="data-table" aria-label="품목 정보">
-            <thead><tr><th class="col-no">No</th><th>품목코드</th><th>품목명</th><th>규격</th><th>단위</th><th>수량</th><th>납기요청일</th><th>입고장소</th><th>비고</th><th class="w-60">수정</th><th class="w-60">삭제</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>A0106-001</td><td class="text-left">고효율 인버터</td><td class="text-left">품목구성방법이 '지정항목작성'인 경우에 등록됨</td><td>EA</td><td>3</td><td>2026.07.31</td><td>현장</td><td class="text-left">품목등록의 비고에 들어간 내용입니다.</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="ocItemFormModal">수정</button></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-              <tr><td>2</td><td>A0103-001</td><td class="text-left">고효율 공기 압축기</td><td>-</td><td>EA</td><td>2</td><td>2026.07.31</td><td>켑코이에스 본사</td><td>-</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="ocItemFormModal">수정</button></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-              <tr><td>3</td><td>-</td><td class="text-left">-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="ocItemFormModal">수정</button></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="srm-detail-actions">
-          <button type="button" class="btn-secondary">엑셀 업로드 양식 다운로드</button>
-          <button type="button" class="btn-secondary" data-close-modal data-open-modal="ocItemUploadModal">품목 정보 추가(업로드)</button>
-          <button type="button" class="btn-secondary" data-close-modal data-open-modal="ocCommonItemModal">품목 추가(공통 품목)</button>
-          <button type="button" class="btn-secondary" data-close-modal data-open-modal="ocItemFormModal">품목 정보 추가(개별 등록)</button>
-          <button type="button" class="btn-primary">저장</button>
-        </div>
-
-        <div class="srm-section-heading content-object-gap-top"><div><h2>최종 점검 및 전자결재</h2></div></div>
-        <label class="form-choice"><input type="checkbox"> 발주계약 요청 내역을 모두 확인하였습니다.</label></section>
-      <div class="page-actions"><button type="button" class="btn-secondary " onclick="window.location.href=\'SRMOrderContractRequest.html\'">목록</button>
-        <button type="button" class="btn-critical-primary" data-open-modal="ocEsignConfirmModal">전자결재 요청</button></div>
+        </dl>
+      </section>
+      <div class="page-actions"><button type="button" class="btn-secondary" data-href="SRMOrderContractRequest.html">목록</button>
+        <button type="button" class="btn-critical-primary">기본정보 수정</button></div>
     </main>
   </div>
 
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
-
-  <!-- 발주계약 요청 신규 등록 (첫 단계) -->
-
-
-  <!-- 발주계약 요청 삭제 확인 -->
-
-
-  <!-- 수주계약 매핑 -->
-
-
-  <!-- 발주계약 요청 관리 (기본정보~최종점검, 각 영역 바로 접근/입력 가능) -->
-
-
-  <!-- 협력업체 매핑 (계약상대자, 수의계약) -->
-
-
-  <!-- 품목 정보 추가(업로드) -->
-
-
-  <!-- 품목 추가(공통 품목) -->
-
-
-  <!-- 품목 정보 추가/수정 -->
-
-
-  <!-- 전자결재 요청 시 유의사항 -->
-
-
-  <!-- 발주계약 요청 완료 -->
-
-
+  <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMOrderContractRequest/ocDeleteConfirmModal.html", "popups/SRMOrderContractRequest/ocDealMapModal.html", "popups/SRMOrderContractRequest/ocPartnerMapModal.html", "popups/SRMOrderContractRequest/ocItemUploadModal.html", "popups/SRMOrderContractRequest/ocCommonItemModal.html", "popups/SRMOrderContractRequest/ocItemFormModal.html", "popups/SRMOrderContractRequest/ocEsignConfirmModal.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMOrderContractRequest/ocDealMapModal.html"]</script>
 </body>
 </html>

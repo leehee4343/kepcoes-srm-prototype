@@ -159,9 +159,7 @@
             <select class="select-per-page" title="페이지당 표시 건수">
               <option value="10" selected>10개씩</option>
               <option value="20">20개씩</option>
-              <option value="30">30개씩</option>
               <option value="50">50개씩</option>
-              <option value="100">100개씩</option>
             </select>
             <button type="button" class="btn-action-excel"><svg aria-hidden="true" class="icon-excel" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="m8 12 4 6"></path><path d="m12 12-4 6"></path></svg>엑셀 다운로드</button>
           </div>
@@ -172,9 +170,9 @@
               <tr><th class="w-100">공고번호</th><th class="w-80">공고 구분</th><th class="w-90">진행상태</th><th class="minw-250">입찰 건명</th><th class="w-130">입찰 마감일시</th><th class="w-90">참여업체(수)</th><th class="w-60">구분</th><th class="w-100">계약방법</th><th class="w-110">낙찰자 선정방법</th><th class="w-80">사업담당자</th><th class="w-80">계약 담당자</th><th class="w-80"><span class="description-marker-anchor">내역서<span class="description-target-marker" aria-hidden="true">6</span></span></th></tr>
             </thead>
             <tbody>
-              <tr><td><a href="#" onclick="window.location.href='SRMPartnerBidNoticeDetail.html'">BD2026-0023</a></td><td>본공고</td><td><span class="badge-success">공고게시중</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td>2026.07.31 18:00</td><td class="col-num">15</td><td>공사</td><td>경쟁입찰(일반)</td><td>최저가</td><td>홍길동</td><td>임꺽정</td><td><button type="button" class="btn-secondary" data-open-modal="bidNoticeDocModal">내역서</button></td></tr>
-              <tr><td><a href="#" onclick="window.location.href='SRMPartnerBidNoticeDetail.html'">BD2026-0025</a></td><td>재공고(1차)</td><td><span class="badge-info">입찰진행중</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 기계식주차설비공사</td><td>2026.08.18 16:00</td><td class="col-num">3</td><td>용역</td><td>경쟁입찰(제한)</td><td>제한적 최저가 입찰</td><td>홍길동</td><td>임꺽정</td><td><button type="button" class="btn-secondary" data-open-modal="bidNoticeDocModal">내역서</button></td></tr>
-              <tr><td><a href="#" onclick="window.location.href='SRMPartnerBidNoticeDetail.html'">BD2026-0031</a></td><td>재공고(2차)</td><td><span class="badge-tag">입찰마감</span></td><td class="text-left">ESS 배터리 모듈 구매</td><td>2026.10.02 18:00</td><td class="col-num">0</td><td>물품</td><td>경쟁입찰(지명)</td><td>2단계 경쟁입찰(규격/가격 동시)</td><td>홍길동</td><td>임꺽정</td><td><button type="button" class="btn-secondary" data-open-modal="bidNoticeDocModal">내역서</button></td></tr>
+              <tr><td><a href="SRMPartnerBidNoticeDetail.html">BD2026-0023</a></td><td>본공고</td><td><span class="badge-success">공고게시중</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td>2026.07.31 18:00</td><td class="col-num">15</td><td>공사</td><td>경쟁입찰(일반)</td><td>최저가</td><td>홍길동</td><td>임꺽정</td><td><button type="button" class="btn-secondary" data-open-modal="bidNoticeDocModal">내역서</button></td></tr>
+              <tr><td><a href="SRMPartnerBidNoticeDetail.html">BD2026-0025</a></td><td>재공고(1차)</td><td><span class="badge-info">입찰진행중</span></td><td class="text-left">서초동 1601-9 오피스텔 신축공사 중 기계식주차설비공사</td><td>2026.08.18 16:00</td><td class="col-num">3</td><td>용역</td><td>경쟁입찰(제한)</td><td>제한적 최저가 입찰</td><td>홍길동</td><td>임꺽정</td><td><button type="button" class="btn-secondary" data-open-modal="bidNoticeDocModal">내역서</button></td></tr>
+              <tr><td><a href="SRMPartnerBidNoticeDetail.html">BD2026-0031</a></td><td>재공고(2차)</td><td><span class="badge-tag">입찰마감</span></td><td class="text-left">ESS 배터리 모듈 구매</td><td>2026.10.02 18:00</td><td class="col-num">0</td><td>물품</td><td>경쟁입찰(지명)</td><td>2단계 경쟁입찰(규격/가격 동시)</td><td>홍길동</td><td>임꺽정</td><td><button type="button" class="btn-secondary" data-open-modal="bidNoticeDocModal">내역서</button></td></tr>
             </tbody>
           </table>
         </div>
@@ -206,6 +204,7 @@
 
 
 
+  <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
   <script type="application/json" class="external-modal-manifest">["popups/SRMPartnerBidNotice/bidNoticeDocModal.html", "popups/SRMPartnerBidNotice/bidJoinLimitNoticeModal.html", "popups/SRMPartnerBidNotice/bidPriceLimitNoticeModal.html", "popups/SRMPartnerBidNotice/screenDescriptionGuide.html"]</script>
 </body>

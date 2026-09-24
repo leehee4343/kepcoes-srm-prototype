@@ -8,34 +8,53 @@
 </head>
 <body class="popup-document">
 <div class="modal-backdrop" id="bidVendorAddModal" role="dialog" aria-modal="true" aria-labelledby="bidVendorAddTitle" aria-hidden="false">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-xl">
       <div class="modal-header"><h2 class="modal-title" id="bidVendorAddTitle">입찰참여 가능 업체 추가</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
       <div class="modal-body">
-        <p class="modal-field-label">승인된 협력업체만 호출됩니다.</p>
-        <div class="filter-row hstack gap-12">
-          <span class="filter-label w-80">조회기간(신청일)</span>
-          <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
-        </div>
-        <div class="filter-row hstack gap-12">
-          <span class="filter-label w-80">신용평가등급</span>
-          <select class="filter-select w-150"><option>신용평가등급 선택</option></select>
-        </div>
-        <div class="form-lookup content-inner-gap-top">
-          <select class="filter-select w-130"><option>검색 구분</option></select>
-          <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
-          <button type="button" class="btn-filter-search">검색</button>
-        </div>
-        <div class="table-scroll-wrapper content-inner-gap-top">
-          <table class="data-table" aria-label="협력업체 목록">
+        <section class="filter-card">
+          <form>
+  <div class="filter-row hstack gap-12">
+            <span class="filter-label w-130">조회기간(신청일)</span>
+            <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
+          </div>
+  <div class="filter-row hstack gap-12">
+            <span class="filter-label w-130">신용평가등급</span>
+            <select class="filter-select w-150"><option>신용평가등급 선택</option></select>
+          </div>
+          <div class="filter-row hstack gap-12">
+            <span class="filter-label w-130">키워드 검색</span>
+            <select class="filter-select w-130"><option>검색 구분</option></select>
+            <input type="text" class="filter-text-input w-380" placeholder="검색어를 입력하세요." aria-label="검색어">
+          </div>
+            <div class="filter-action-row">
+              <button type="button" class="btn-filter-search">검색</button>
+              <button type="button" class="btn-filter-reset">초기화</button>
+            </div>
+          </form>
+        </section>
+        <div class="table-card">
+          <div class="table-header-action-row">
+            <div class="table-total-count grid-page-summary">1 / 153 (총 1,523개)</div>
+            <div class="table-actions">
+              <select class="select-per-page" title="페이지당 표시 건수">
+                <option value="10" selected>10개씩</option>
+                <option value="20">20개씩</option>
+                <option value="50">50개씩</option>
+              </select>
+            </div>
+          </div>
+          <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="협력업체 목록" data-total-items="1523" data-total-pages="153">
+            <table class="data-table data-grid-table" aria-label="협력업체 목록">
             <thead><tr><th class="w-40">선택</th><th>사업자번호</th><th>업체명</th><th>대표자</th><th>담당자</th><th>핸드폰번호</th><th>이메일</th><th>신용평가등급</th></tr></thead>
             <tbody>
               <tr><td><input type="checkbox"></td><td>123-45-67891</td><td class="col-left">삼전디에스</td><td>홍길동</td><td>한지훈</td><td>010-1234-5678</td><td>leehee43@naver.com</td><td>-</td></tr>
               <tr><td><input type="checkbox"></td><td>123-45-67891</td><td class="col-left">넷퍼시</td><td>홍길동</td><td>김미라</td><td>-</td><td>-</td><td>AAA</td></tr>
             </tbody>
           </table>
+          </div>
         </div>
       </div>
-      <div class="modal-footer"><button type="button" class="btn-filter-reset modal-close">취소</button><button type="button" class="btn-action-primary modal-close">선택 추가</button></div>
+      <div class="modal-footer"><button type="button" class="btn-action-primary modal-close">선택 추가</button><button type="button" class="btn-filter-reset modal-close">취소</button></div>
     </div>
   </div>
   <script src="../../../../assets/scripts/dashboard.js"></script>

@@ -28,8 +28,25 @@ document.addEventListener('DOMContentLoaded', async () => {
   initDataGrids();
   initAttachmentDisplays();
   initDescriptionGuide();
+  initPageLinks();
   initModals();
 });
+
+/**
+ * 버튼형 페이지 이동 (DESIGN_GUIDE 6.2.1)
+ * 인라인 onclick 대신 data-href(목적지 파일) · data-history-back(이전 화면)으로 이동합니다.
+ * 권한 버튼(.perm-btn)의 data-href는 initDashboardWidgets()가 처리합니다.
+ */
+function initPageLinks() {
+  document.querySelectorAll('[data-href]:not(.perm-btn)').forEach(el => {
+    el.addEventListener('click', () => {
+      window.location.href = el.dataset.href;
+    });
+  });
+  document.querySelectorAll('[data-history-back]').forEach(el => {
+    el.addEventListener('click', () => window.history.back());
+  });
+}
 
 /**
  * 협력업체정보 관리 > 담당자 정보 추가/수정 팝업 상태를 구성합니다.
@@ -108,12 +125,20 @@ async function loadExternalModals() {
     return;
   }
 
+  // file:// 에서는 브라우저가 fetch를 막으므로 모듈별 popups/popup-bundle.js(tools/build_popup_bundle.py 생성)를 사용합니다.
+  const bundle = window.KEPCO_POPUP_BUNDLE || {};
+  const useBundle = window.location.protocol === 'file:';
+  const readPopup = async source => {
+    if (useBundle && typeof bundle[source] === 'string') return bundle[source];
+    const response = await fetch(source, { credentials: 'same-origin' });
+    if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+    return response.text();
+  };
+
   const parser = new DOMParser();
   await Promise.all(sources.map(async source => {
     try {
-      const response = await fetch(source, { credentials: 'same-origin' });
-      if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
-      const popupDocument = parser.parseFromString(await response.text(), 'text/html');
+      const popupDocument = parser.parseFromString(await readPopup(source), 'text/html');
       const modal = popupDocument.querySelector('.modal-backdrop');
       if (!modal) throw new Error('modal-backdrop 루트가 없습니다.');
       modal.classList.remove('show');

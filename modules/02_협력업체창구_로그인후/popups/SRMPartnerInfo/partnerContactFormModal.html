@@ -16,20 +16,19 @@
       <div class="modal-body">
         <div class="srm-kv-grid">
           <div class="srm-kv-row description-marker-container"><span class="description-target-marker marker-top-left" aria-hidden="true">5</span><dt>담당자 구분</dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" id="contactKindBasic" name="contactKind" value="basic">기본 담당자</label><label class="form-choice"><input type="radio" id="contactKindAdditional" name="contactKind" value="additional" checked>추가 담당자</label></div></dd></div>
-          <div class="srm-kv-row"><dt>이름 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" id="contactName" placeholder="기 입력된 내용"></dd></div>
+          <div class="srm-kv-row"><dt>이름 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control fit-360" id="contactName" placeholder="기 입력된 내용"></dd></div>
           <div class="srm-kv-row"><dt>이메일 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control w-140 inline-control" id="contactEmailLocal" placeholder="기 입력된 내용"> @ <select class="filter-select w-150 inline-control" id="contactEmailDomain"><option value="">이메일 선택</option><option value="naver.com">naver.com</option><option value="gmail.com">gmail.com</option><option value="direct">직접 입력</option></select><input type="text" class="form-control w-140 inline-control" id="contactEmailDirect" placeholder="직접 입력" hidden></dd></div>
           <div class="srm-kv-row"><dt>핸드폰번호 <span class="required" aria-hidden="true">*</span></dt><dd><select class="filter-select w-80 inline-control" id="contactMobilePrefix"><option>010</option><option>011</option><option>016</option><option>017</option><option>018</option><option>019</option></select> - <input type="text" class="form-control w-80 inline-control" id="contactMobileMiddle"> - <input type="text" class="form-control w-80 inline-control" id="contactMobileLast"></dd></div>
-          <div class="srm-kv-row"><dt>직책 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" id="contactPosition" placeholder="기 입력된 내용"></dd></div>
-          <div class="srm-kv-row"><dt>담당업무 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" id="contactDuty" placeholder="기 입력된 내용"></dd></div>
+          <div class="srm-kv-row"><dt>직책 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control fit-360" id="contactPosition" placeholder="기 입력된 내용"></dd></div>
+          <div class="srm-kv-row"><dt>담당업무 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control fit-360" id="contactDuty" placeholder="기 입력된 내용"></dd></div>
           <div class="srm-kv-row"><dt>전화번호 <span class="required" aria-hidden="true">*</span></dt><dd><select class="filter-select w-80 inline-control" id="contactPhonePrefix"><option>02</option><option>031</option><option>032</option><option>033</option><option>041</option><option>042</option><option>043</option><option>044</option><option>051</option><option>052</option><option>053</option><option>054</option><option>055</option><option>061</option><option>062</option><option>063</option><option>064</option></select> - <input type="text" class="form-control w-80 inline-control" id="contactPhoneMiddle"> - <input type="text" class="form-control w-80 inline-control" id="contactPhoneLast"></dd></div>
         </div>
-        <p class="modal-field-label content-inner-gap-top description-marker-container"><span class="description-target-marker marker-top-left" aria-hidden="true">4</span>※ 협력업체 신청 시 등록한 기본 담당자는 삭제할 수 없습니다(정보 수정은 가능). 기본 담당자는 한 명만 존재할 수 있으며, 다른 담당자를 기본 담당자로 선택하면 기존 기본 담당자와 교체됩니다.</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn-secondary modal-close">취소</button>
         <button type="button" class="btn-primary modal-close" id="contactAddButton">추가</button>
         <button type="button" class="btn-primary modal-close" id="contactUpdateButton" hidden>수정</button>
         <button type="button" class="btn-delete modal-close" id="contactDeleteButton" hidden>삭제</button>
+        <button type="button" class="btn-secondary modal-close">취소</button>
       </div>
     </div>
   </div>

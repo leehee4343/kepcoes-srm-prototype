@@ -1,8 +1,8 @@
 # 📘 KEPCO ES 통합 디자인 / UI / UX 가이드라인 (Design System)
 
 > **프로젝트**: 켑코이에스(주) 사업관리시스템 (PMS) & 전자입찰시스템 (SRM)  
-> **버전**: v2.52
-> **최종 수정일**: 2026-09-23
+> **버전**: v2.58
+> **최종 수정일**: 2026-09-24
 > **목적**: PMS 및 SRM 전체 화면의 시각적 완성도, 일관성, 접근성 및 사용자 경험(UX) 표준을 정의하고 협업 기준을 제공하는 단일 진실 공급원(Single Source of Truth).
 
 ### 이 문서의 사용법
@@ -560,6 +560,7 @@ font-family: 'Pretendard';
 - **파일 분리 필수**: 모달·확인창·조회창·Description 개발자 드로어를 포함한 모든 팝업은 부모 페이지와 분리된 완전한 HTML 문서여야 합니다. 한 HTML 파일 안에 페이지 본문과 팝업 `.modal-backdrop`을 함께 작성하지 않습니다.
 - **저장 위치**: 부모가 `SRMDetail.html`이고 팝업 ID가 `bidDetailModal`이면 `popups/SRMDetail/bidDetailModal.html`에 저장합니다. 팝업 파일명은 루트 `.modal-backdrop`의 `id`와 동일하게 합니다.
 - **부모 연결**: 부모 화면은 `<script type="application/json" class="external-modal-manifest">["popups/SRMDetail/bidDetailModal.html"]</script>`로 필요한 팝업 파일을 선언합니다. `loadExternalModals()`가 `DOMContentLoaded` 초기화보다 먼저 파일을 불러오며, 기존 호출 요소의 `data-open-modal="bidDetailModal"`은 그대로 사용합니다.
+- **`file://` 실행 지원(팝업 묶음)**: 브라우저는 `file://` 화면의 `fetch`를 막으므로, 모듈마다 `popups/popup-bundle.js`(팝업 HTML을 manifest 경로 키로 담은 자동 생성 파일)를 두고 manifest가 있는 화면은 `dashboard.js` 앞에 `<script src="popups/popup-bundle.js">`를 둡니다. `file://`에서는 묶음을, HTTP에서는 원본 팝업 파일을 `fetch`로 읽습니다. 원본은 항상 `popups/{부모}/{팝업ID}.html`이며 묶음은 직접 수정하지 않습니다. **팝업을 추가·수정하면 `python3 tools/build_popup_bundle.py`를 실행**해 묶음과 화면의 스크립트 연결을 갱신합니다. 이 묶음 파일은 "화면 전용 스크립트 금지" 원칙의 유일한 예외입니다.
 - **독립성**: 팝업 파일은 `<!DOCTYPE html>`, `lang`, `meta charset`, viewport, title, 공통 CSS·JS 참조를 모두 가진 완전한 HTML 문서입니다. `body.popup-document` 아래에는 자신의 `.modal-backdrop` 하나만 둡니다. 팝업 파일을 직접 열어도 내용을 확인할 수 있어야 합니다.
 - **금지**: 부모 페이지에 팝업 본문을 복사해 중복 보관하거나, 하나의 팝업 파일에 서로 다른 팝업 두 개를 넣거나, 인라인 `<template>`·문자열 HTML로 팝업 내용을 숨겨 두지 않습니다.
 - **구조**: `.modal-backdrop`(오버레이) > `.modal-dialog`(창) > `.modal-header`(제목 + 닫기) · `.modal-body`(본문) · `.modal-footer`(액션)의 3단 구조입니다. 열고 닫는 상태는 `.modal-backdrop`의 `show` 클래스로 표현합니다.
@@ -577,7 +578,9 @@ font-family: 'Pretendard';
 - **헤더**: 제목(`.modal-title`, 16px, `#334155`)과 닫기 버튼(`.modal-close`, 32px 원형, `×`, `aria-label="닫기"`)만 둡니다. 제목 앞에 `|`, 번호, 아이콘 같은 장식을 붙이지 않고(2.1), 하단 `1px #e2e8f0` 선으로 구분합니다. 패딩 `16px 24px`.
 - **본문**: 패딩 `20px 24px`. 안내·경고 메시지는 안내 박스(`.notice-box`, 5.9.1)로 표시하고 확인 팝업의 본문도 이 박스 하나로 구성합니다. 입력 항목은 5.5, 표는 5.3, 파일 첨부는 `.file-dropzone`(점선 `2px #cbd5e1`, 라운드 `8px`, 안내 문구 13px)을 따릅니다. 본문 라벨은 `.modal-field-label`(13px `#475569`, 글머리 기호 `•` 금지 — 5.12)입니다.
 - **조회(선택) 모달**: 거래처·담당자·EPC사처럼 목록에서 한 건을 골라 입력에 채우는 모달은 `modal-lg`에 `검색어 입력 + 검색(Secondary) + 초기화(Tertiary)`(`.form-lookup`) → `12px` → 조회 목록(`.table-scroll-wrapper` > `.data-table`, 마지막 열 `선택`)으로 구성합니다. 행의 `선택` 버튼은 행 단위 등록 규격(`.btn-task-register`, 28px)이며 행 높이는 `45px`를 유지하고, 푸터에는 `닫기`(Tertiary)만 둡니다.
-- **푸터**: 상단 `1px #e2e8f0` 선, 패딩 `14px 24px`, 버튼은 **우측 정렬**하며 `[취소(Tertiary)]`를 왼쪽, 주 액션을 오른쪽에 둡니다. 주 액션은 `[확인 (Primary)]`, 저장·제출·승인 요청은 Critical, 되돌리기 같은 상태 전환은 `[되돌리기 (Caution)]`, 삭제·반려는 `[삭제 (짙은 회색)]`입니다. 버튼은 인라인 `style`로 크기를 바꾸지 않습니다(38px).
+- **검색+목록 팝업 (신규 표준)**: 조회 조건이 2개 이상이거나 기간 조건이 있는 팝업(공통 품목·협력업체·수주계약 선택 등)은 `modal-xl` 안에 페이지와 같은 **표준 필터 카드**(`.filter-card` > `.filter-row`(라벨 폭은 카드 안 최장 라벨 기준 동일) + `.filter-action-row`의 `검색`·`초기화`, 5.2)와 **표준 목록 카드**(`.table-card` > `.grid-page-summary` + `.select-per-page` + `.data-grid` + 페이징, 5.3.4)를 둡니다. 모달 안 카드는 그림자 없이 테두리만 쓰고, 목록은 팝업 폭 안에 모든 열이 보이도록 왼쪽 정렬 긴 텍스트 칸만 줄바꿈합니다(코드·날짜·버튼은 한 줄). 행의 `선택`·`매핑` 버튼은 `.btn-task-register`입니다. 기간 버튼·날짜 입력은 줄바꿈하지 않습니다.
+- **설계 Description 문구 금지**: 화면설계 오른쪽 Description 칸의 설명(예: `PMS의 수주계약 프로젝트 호출`, `승인된 협력업체만 호출함`, `[별첨1] … .xlsx`)은 개발 참고용이므로 팝업 본문 문구(`.modal-field-label`)로 옮기지 않습니다. 단, 확인창 문구처럼 Description이 팝업 문구 자체를 지정한 경우는 그 문구를 씁니다.
+- **푸터**: 상단 `1px #e2e8f0` 선, 패딩 `14px 24px`, 버튼은 **우측 정렬**하며 화면설계대로 주 액션을 앞(왼쪽)에, `[취소(Tertiary)]`·`[닫기]`를 **맨 오른쪽**에 둡니다(화면설계 113곳 중 111곳 기준, v2.56). 주 액션은 `[확인 (Primary)]`, 저장·제출·승인 요청은 Critical, 되돌리기 같은 상태 전환은 `[되돌리기 (Caution)]`, 삭제·반려는 `[삭제 (짙은 회색)]`입니다. 버튼은 인라인 `style`로 크기를 바꾸지 않습니다(38px).
 - **닫기 방법 (필수 3가지)**: ① 헤더 닫기(×) 또는 취소 버튼, ② 오버레이(창 바깥) 클릭, ③ `Esc`(여러 개가 열려 있으면 가장 위 모달부터)를 모두 지원합니다. 공통 스크립트 `initModals()`가 ②·③과 접근성 상태를 처리하므로 화면 스크립트는 여는 동작(`show`)과 ① 취소 동작만 구현합니다.
 - **접근성·동작**: `role="dialog"`(확인 팝업은 `role="alertdialog"`), `aria-modal="true"`, `aria-labelledby`(제목 ID)를 제공하고 열림 상태에 맞춰 `aria-hidden`을 갱신합니다. 열려 있는 동안 배경 `body` 스크롤을 잠급니다(`body.modal-open`). 필수 입력이 비어 있으면 제출하지 않고 오류를 표시합니다(5.5).
 - **신규 프로젝트 등록 예외 (E9)**: 계약형태 선택과 프로젝트 기본정보 입력은 모달을 사용하지 않고 `ProjectRegister.html`의 페이지 내부 콘텐츠 작업영역에서 단계 전환 방식으로 제공합니다.
@@ -593,8 +596,8 @@ font-family: 'Pretendard';
     </div>
     <div class="modal-body"><!-- 본문 --></div>
     <div class="modal-footer">
-      <button type="button" class="btn-secondary">취소</button>
       <button type="button" class="btn-primary">확인</button>
+      <button type="button" class="btn-secondary">취소</button>
     </div>
   </div>
 </div>
@@ -857,16 +860,19 @@ font-family: 'Pretendard';
   <div class="table-card">
     <div class="table-header-action-row">
       <div class="grid-page-summary">1 / 15 (총 164개)</div>
-      <div class="table-actions"><!-- select-per-page · 엑셀 다운로드 · 신규 등록(Critical) --></div>
+      <div class="table-actions"><!-- select-per-page · 엑셀 다운로드 --></div>
     </div>
     <div class="table-scroll-wrapper data-grid" data-total-items="164" data-total-pages="15">
       <table class="data-table"><!-- thead / tbody --></table>
     </div>
     <!-- 페이징은 initDataGrids()가 표 아래에 자동 생성 -->
+    <div class="table-pagination-row"><nav class="pagination-controls" aria-label="표 페이지 이동"></nav></div>
+    <div class="table-bottom-actions"><!-- 신규 등록(Critical) : 화면설계대로 페이징 아래 오른쪽 --></div>
   </div>
 </main>
 ```
 - 사이드바 활성 메뉴, 헤더, 푸터는 4.1~4.4 표준을 그대로 사용합니다.
+- **버튼 위치**: 건수 선택·엑셀 다운로드는 표 위 오른쪽(`.table-actions`), 신규 등록·추가 버튼(`사전 견적 요청`, `발주계약 요청`, `등록`, `…추가하기` 등)은 화면설계대로 **페이징 아래 오른쪽**(`.table-bottom-actions`)에 둡니다. 표 위 도구 영역에 신규 등록 버튼을 두지 않습니다.
 - 새 화면은 `index.html` 카드와 사이드바/네비게이션에 즉시 연결합니다.
 
 ### 6.2 상세 화면 (`ProjectDetail.html`, `SRMDetail.html` 기준)
@@ -875,7 +881,7 @@ font-family: 'Pretendard';
 ### 6.2.1 독립 페이지형 목록·상세·등록
 공지사항·양식 등 자료실·질문과 답변처럼 **목록에서 항목을 눌러 들어가는 게시판형 화면**은 원본 화면설계에서 목적지 화면이 전체 폭을 그대로 쓰고 dimming(반투명 검정 오버레이)이나 `X` 닫기가 없는 전체 화면입니다. **이런 화면은 모달로 만들지 않습니다.** 모달은 5.8처럼 화면설계에 어두운 오버레이 + 중앙의 작은 카드 + `X` 닫기가 있는 경우에만 씁니다. 화면설계에 그 셋이 없다면 게시판형이며, 아래 구조를 따릅니다.
 
-목록·상세·등록·수정·업무 단계는 각각 독립 HTML 파일로 구성합니다. 목록의 링크나 버튼은 `href` 또는 페이지 이동 이벤트로 목적지 HTML을 열며, 페이지 이동에 `data-open-modal`을 사용하지 않습니다. 상세/등록 페이지는 공통 헤더·사이드바·푸터와 `.main-content`를 유지합니다. 본문 `.page-detail-body`와 하단 `.page-actions`는 모두 5.1의 흰색 콘텐츠 카드 규격(배경 `#ffffff`, 테두리, 12px 라운드, 그림자, 20px 패딩)을 사용하며, 페이지 기본 배경색이 데이터·표·상세정보 뒤로 직접 비쳐서는 안 됩니다.
+목록·상세·등록·수정·업무 단계는 각각 독립 HTML 파일로 구성합니다. 목록의 링크는 `href`로, 버튼은 `data-href="목적지.html"`(이전 화면으로 돌아가는 버튼은 `data-history-back`)로 목적지 HTML을 열며, 페이지 이동에 `data-open-modal`이나 인라인 `onclick`을 사용하지 않습니다(공통 `initPageLinks()`가 처리). 팝업 안의 링크·`data-href`는 팝업을 불러온 부모 화면 위치를 기준으로 상대경로를 씁니다. 상세/등록 페이지는 공통 헤더·사이드바·푸터와 `.main-content`를 유지합니다. 본문 `.page-detail-body`와 하단 `.page-actions`는 모두 5.1의 흰색 콘텐츠 카드 규격(배경 `#ffffff`, 테두리, 12px 라운드, 그림자, 20px 패딩)을 사용하며, 페이지 기본 배경색이 데이터·표·상세정보 뒤로 직접 비쳐서는 안 됩니다.
 
 - **팝업 판별 기준**: 화면설계에 dimming 배경 위의 독립 대화상자 프레임이 있고, 대화상자 자체에 제목·닫기·본문 경계가 표현된 경우에만 모달(5.8)입니다.
 - **페이지 판별 기준**: 시스템 헤더(`H`), 좌측 메뉴, breadcrumb, 푸터가 이어지는 화면이거나 기존 페이지의 연속 설계이면 독립 페이지입니다. 슬라이드에 검토용 `X` 표식이 있더라도 전체 페이지 프레임이 확인되면 `X` 하나만으로 모달로 판정하지 않습니다.
@@ -1093,6 +1099,12 @@ font-family: 'Pretendard';
 ### 11.2 변경 이력
 | 버전 | 날짜 | 요지 |
 |---|---|---|
+| v2.58 | 2026-09-24 | **팝업 전수 점검 및 보정(5.8)**: 검색+목록 팝업 18개를 표준 필터 카드(검색·초기화 별도 줄)·표준 목록 카드(건수 요약·10/20/50·페이징)·`modal-xl`로 변환(건수·조건 라벨은 설계 슬라이드 기준), 7열 이상 표 팝업 10개 `modal-xl`, 행 `선택`·`매핑` 버튼 `.btn-task-register`, 조회 모달 하단 `닫기`, 설계 Description 문구가 본문에 들어간 18건 삭제(Description 목적지 번호는 설계 위치로 이동), 폭 지정 없이 좁게 줄던 입력칸 70개에 내용 길이 기준 폭(5.5) 지정, 기간 버튼 줄바꿈·날짜 세로 쌓임·모달 안 표 넘침 CSS 보정. |
+| v2.57 | 2026-09-24 | **단계형 화면을 화면설계대로 단계별 독립 페이지로 분리(6.3)**: 한 화면에 여러 STEP을 쌓아 두었던 05 발주계약 요청(5단계)·06 발주계획 등록(5단계)·07-1 수의계약 계획(6단계)·02 협력업체 입찰 서류 제출(5단계)을 설계 슬라이드 그대로 `STEP 바 + 요약 표 + 단계 본문 + 하단 버튼` 페이지로 분리(순서는 모듈별 설계를 따름: 04는 요약 표→STEP 바, 그 외는 STEP 바→요약 표). 설계에 없는 제목·버튼·값을 넣지 않고 설계의 입력 안내·예시값·버튼 구성을 그대로 재현하며, 04 사전 견적 요청도 같은 기준으로 재보정(임의 섹션 제목·`목록` 버튼·변경한 예시값 제거). 소제목·확인 줄·순서 버튼용 공통 클래스 3종 추가(12.1). |
+| v2.56 | 2026-09-24 | **목록 화면 신규 등록 버튼 위치를 화면설계 기준으로 변경(6.1)**: 12개 PPTX 362슬라이드에서 버튼 도형 좌표를 추출해 HTML과 대조한 결과, 표 위 도구 영역에 있던 신규 등록·추가 버튼 10개(공지사항·자료실 `등록`, `접속 아이피(IP) 추가하기`, `권한그룹 추가하기`, 협력업체 `질문과 답변 등록`, `사전 견적 요청`, `발주계약 요청`, `공통 품목/심사·평가/서류 등록`)가 설계에서는 모두 페이징 아래 오른쪽 → `.table-bottom-actions`로 이동. 엑셀 다운로드·건수 선택은 설계와 같이 표 위 유지. **팝업 하단 버튼 순서도 화면설계대로 `[실행][취소]`로 변경(5.8)**: 설계는 팝업 113곳 중 111곳이 취소·닫기를 맨 오른쪽에 두므로 기존 규칙(`[취소]` 왼쪽)을 개정하고 팝업 85개의 순서를 바꿈. |
+| v2.55 | 2026-09-24 | **`file://` 팝업 지원 및 사전 견적 요청 팝업 보완**: `file://`로 열면 `fetch`가 막혀 모든 외부 팝업이 열리지 않던 문제를 모듈별 자동 생성 묶음(`popups/popup-bundle.js`, `tools/build_popup_bundle.py`)으로 해결(5.8, 118개 화면 연결). 사전 견적 요청 팝업을 화면설계(슬라이드 7~12)대로 보완: `품목 추가(공통 품목)`·`견적요청 업체 추가`에 조회기간(기간 버튼)·표준 검색 필터·건수 요약·10/20/50·페이징·전체 선택을 추가(`modal-xl`), 업로드·전달자료 팝업에 화면 문구처럼 들어가 있던 Description 원문 제거, 품목 정보 추가/수정 입력 폭 정리. |
+| v2.54 | 2026-09-24 | **사전 견적 요청(04) 단계형 화면 재구성**: 한 화면에 STEP 01~05를 모두 쌓아 두었던 `SRMPreQuoteRequestManage.html`을 화면설계(슬라이드 6~15)대로 `상단 요약 표(5.3.1 가로형) → 위저드 스텝바(5.7) → 단계 본문 → 하단 액션 바` 구조의 단계별 독립 페이지 6개(`…Manage`·`…ManageItems`·`…ManageAttach`·`…ManageVendor`·`…ManageReview`·`…Complete`)로 분리. 단계 이동은 `a.wizard-step-box` 링크이며 콘텐츠 링크 색 규칙에서 제외. 합쳐져 있던 팝업 `견적 마감일시 등록`/`견적요청 담당자 변경`을 분리(`pqManagerChangeModal` 신설). 완료 화면의 단독 이동 버튼 우측 정렬용 `.page-actions.actions-end` 추가(완료 화면 4개 적용). |
+| v2.53 | 2026-09-24 | **전 화면 가이드 정합성 점검 및 보정(화면 126·팝업 158)**: 팝업→페이지 전환 때 남은 인라인 `onclick` 135건(그중 45건은 `\'` 이스케이프 오류로 동작 불가)을 `href`/`data-href`/`data-history-back`으로 교체하고 공통 `initPageLinks()` 신설(6.2.1, 12.2). 대상이 사라진 `data-open-modal` 72건 정리(완료 화면 이동 5건은 `data-href`로 복구), 팝업 상대경로 오류 6건·심사/평가 탭 메일 팝업 manifest 누락 수정. 내부 화면 87개 사이드바 `대시보드`에 메뉴 구조도 2Depth(대시보드·공지사항·양식 등 자료실) 반영(4.2). `<title>` 형식 58건, 건수 선택기 51개를 `10/20/50`으로(5.3.4), 엑셀 양식 다운로드 버튼 `.icon-excel`(5.4), 로그인 화면 문자 블릿(`•`)을 `.content-bullet-item`으로(5.12), 런처 브레이크포인트 `800px`→`760px`(4.6), 누락 유틸리티 `.minw-220/300` 추가. 탭이 `<a>` 링크로 바뀐 뒤 콘텐츠 링크 색 규칙(`!important` 블루·hover 밑줄)이 `.detail-tab-btn`을 덮어써 탭이 파랗게 보이던 문제를 링크 규칙에서 탭을 제외해 해결(5.7). |
 | v2.52 | 2026-09-23 | **탭 파일 분리 원칙 신설(5.7, 6.2, 새 화면 만들기)**: `.detail-tab-group` 업무 탐색 탭은 한 HTML 안에서 `data-tab-target`/`data-tab-panel`로 패널을 숨겼다 보여주는 방식 대신 탭마다 독립된 HTML 파일로 구성하고, 탭 버튼을 `<a href>` 링크로 만들어 현재 파일에만 `active`/`aria-selected="true"`를 하드코딩하도록 표준화. 옛 `initTabInterfaces()`(패널 전환)와 `initTabPageNavigation()`(텍스트 매칭 라우팅)를 제거하고 순수 링크 이동으로 대체. `SRMPartnerInfo`(정보 확인/수정 요청/담당자/비밀번호 변경 4탭), `SRMDetail`(입찰 8단계), `StepWorkflow`(입찰계획 7단계), `SRMContractStatusDetail`, `SRMSoleSourceStatus`, `SRMPreQuoteStatusDetail`, `SRMPartnerNegoRequest` 및 이미 파일이 분리돼 있던 협력업체 입찰/계약 탭 그룹까지 전 화면에 적용. |
 | v2.51 | 2026-09-23 | 상세정보 값 셀의 복합 입력 줄 분리 규격 추가. `dd` 직계 자식의 `.content-inner-gap-top`은 항상 새 행 전체 폭으로 배치하며, 주소는 우편번호/검색 → 기본주소 → 상세주소의 3행 구조로 통일. `<br>` 기반 폼 정렬 금지. |
 | v2.50 | 2026-09-23 | 독립 상세/등록 페이지의 콘텐츠 배경 규격 보강. 팝업에서 페이지로 전환한 51개 화면의 `.page-detail-body`와 `.page-actions`를 흰색 카드로 통일하고, 누락된 화면 매뉴얼·출력 도구·브레드크럼 및 `<title>` 형식을 부모 화면 기준으로 복구. |
@@ -1206,7 +1218,9 @@ font-family: 'Pretendard';
 | | 약관 박스(E3) | `.terms-box` | 9장 |
 | 상태 | 배지 | `.badge-info` · `.badge-success` · `.badge-warning` · `.badge-danger` · `.badge-tag` · `.status-pill` | 5.6 |
 | 탭·단계 | 업무 탐색 탭 | `.detail-tabs-bar` > `.detail-tab-group` > `a.detail-tab-btn`(탭마다 독립 HTML 파일, 스크립트 없이 링크 이동) | 5.7 |
-| | 위저드 스텝바 | `.wizard-stepper` > `.wizard-step-box`(`.wizard-step-dot`) · 액션형 `.wizard-stepper.has-actions` > `.wizard-step-actions` | 5.7 |
+| | 위저드 스텝바 | `.wizard-stepper` > `.wizard-step-box`(`.wizard-step-dot`) · 액션형 `.wizard-stepper.has-actions` > `.wizard-step-actions` · 단계별 독립 페이지형 `nav.wizard-stepper` > `a.wizard-step-box`(`.completed`/`.active` + `aria-current="step"`) | 5.7 |
+| | 섹션 소제목 · 확인 문구 줄 · 순서 이동 | `.srm-subsection-title`(섹션 안 하위 묶음 제목, 15px/700) · `.inline-action-bar`(본문 안 확인 문구 + 버튼 줄, 흰 바탕·테두리) · `.btn-order`(표 안 ▲▼ 순서 이동) | 6.2.2, 6.3 |
+| | 하단 액션 바(독립 페이지) | `.page-actions`(첫 요소=목록, 좌측) · `.page-actions.actions-end`(목록 없이 이동 버튼 하나만 있는 완료 화면, 우측 정렬) | 5.4, 6.2.1 |
 | 오버레이 | 모달 | `.modal-backdrop`(`.show`, `.modal-top`) > `.modal-dialog`(`.modal-sm/lg/xl`) > `.modal-header`(`.modal-title`, `.modal-close`) · `.modal-body` · `.modal-footer` | 5.8, `initModals()` |
 | | 게시판형 목록·상세·등록(모달 아님) | `.board-view`(`.show`) 형제 전환, 하단 `.srm-detail-actions` > `.srm-list-button` | 6.2.1 |
 | 개발자 가이드 | Description 버튼 · 우측 드로어 · 원문 매핑 | `.description-floating-button` · `.description-modal-dialog` · `.description-modal-body` · `.description-source-section` · `.description-mapping-list/item/number` · `.description-source-text` | 5.15 |
@@ -1235,6 +1249,7 @@ font-family: 'Pretendard';
 | `initNativeFormControls` | 날짜·셀렉트 등 네이티브 컨트롤 보정 | 5.5 |
 | `initDataGrids` | 조회 그리드(정렬·컬럼 이동·리사이즈·페이징) | `.data-grid` |
 | `initModals` | 모달 열기·닫기 3종(× · 오버레이 · `Esc`) | `.modal-backdrop` |
+| `initPageLinks` | 버튼형 페이지 이동: `data-href`(목적지 파일), `data-history-back`(이전 화면). 인라인 `onclick` 대체. 권한 버튼(`.perm-btn`)은 제외 | 6.2.1 |
 | `initDescriptionGuide` | 개발자용 Description 우측 드로어 열기·상태·목적지 번호 동기화 | 5.15 |
 | `renderDonutCharts` · `animateBarCharts` · `animateProgressBars` | 차트·진행 막대 렌더링 | 대시보드·통계 |
 | `init…Page` | 화면 전용 인터랙션: `ProjectRegister`, `SRMLogin`, `ProjectSearch`, `ProjectDetail`, `BusinessSettlement`, `Statistics`, `StepWorkflow`, `PlanPerformance`, `PartnerRegister`, `SrmDetail`, `ProjectPromotion` | 각 화면 |

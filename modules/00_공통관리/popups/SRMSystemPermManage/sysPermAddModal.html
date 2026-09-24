@@ -8,27 +8,46 @@
 </head>
 <body class="popup-document">
 <div class="modal-backdrop" id="sysPermAddModal" role="dialog" aria-modal="true" aria-labelledby="sysPermAddModalTitle" aria-hidden="false">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-xl">
       <div class="modal-header">
         <h2 class="modal-title" id="sysPermAddModalTitle">관리자(직원) 추가하기</h2>
         <button type="button" class="modal-close" aria-label="닫기">×</button>
       </div>
       <div class="modal-body">
-        <div class="form-lookup">
-          <select class="filter-select w-130">
-            <option value="all" selected>전체</option>
-            <option value="empno">사원번호</option>
-            <option value="id">아이디</option>
-            <option value="name">사원명</option>
-            <option value="dept">부서</option>
-            <option value="rank">직급</option>
-            <option value="email">이메일</option>
-          </select>
-          <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
-          <button type="button" class="btn-filter-search">검색</button>
-        </div>
-        <div class="table-scroll-wrapper">
-          <table class="data-table" aria-label="관리자(직원) 조회 목록">
+        <section class="filter-card">
+          <form>
+          <div class="filter-row hstack gap-12">
+            <span class="filter-label w-100">키워드 검색</span>
+            <select class="filter-select w-130">
+              <option value="all" selected>전체</option>
+              <option value="empno">사원번호</option>
+              <option value="id">아이디</option>
+              <option value="name">사원명</option>
+              <option value="dept">부서</option>
+              <option value="rank">직급</option>
+              <option value="email">이메일</option>
+            </select>
+            <input type="text" class="filter-text-input w-380" placeholder="검색어를 입력하세요." aria-label="검색어">
+          </div>
+            <div class="filter-action-row">
+              <button type="button" class="btn-filter-search">검색</button>
+              <button type="button" class="btn-filter-reset">초기화</button>
+            </div>
+          </form>
+        </section>
+        <div class="table-card">
+          <div class="table-header-action-row">
+            <div class="table-total-count grid-page-summary">1 / 6 (총 55개)</div>
+            <div class="table-actions">
+              <select class="select-per-page" title="페이지당 표시 건수">
+                <option value="10" selected>10개씩</option>
+                <option value="20">20개씩</option>
+                <option value="50">50개씩</option>
+              </select>
+            </div>
+          </div>
+          <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="관리자(직원) 조회 목록" data-total-items="55" data-total-pages="6">
+            <table class="data-table data-grid-table" aria-label="관리자(직원) 조회 목록">
             <thead><tr><th class="w-40"><input type="checkbox" aria-label="전체 선택"></th><th>사원번호</th><th>아이디</th><th>사원명</th><th>부서</th><th>직급</th><th>이메일</th><th class="w-80">사용 여부</th></tr></thead>
             <tbody>
               <tr><td><input type="checkbox"></td><td>2108017</td><td>yjpark</td><td>박연주</td><td>구매물류팀</td><td>차장</td><td>yjpark@kepcoes.co.kr</td><td><span class="badge-success">사용(Y)</span></td></tr>
@@ -36,11 +55,12 @@
               <tr><td><input type="checkbox"></td><td>2105022</td><td>sjlee</td><td>이수진</td><td>재무회계팀</td><td>과장</td><td>sjlee@kepcoes.co.kr</td><td><span class="badge-success">사용(Y)</span></td></tr>
             </tbody>
           </table>
+          </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn-secondary modal-close">닫기</button>
         <button type="button" class="btn-primary modal-close">관리자(직원) 추가하기</button>
+        <button type="button" class="btn-secondary modal-close">닫기</button>
       </div>
     </div>
   </div>

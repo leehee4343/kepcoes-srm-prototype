@@ -13,20 +13,20 @@
       <div class="modal-body">
         <div class="srm-kv-grid">
           <div class="srm-kv-row"><dt>품목코드</dt><dd>※ 품목을 개별 등록하거나 지정 항목의 경우 품목코드는 없습니다.</dd></div>
-          <div class="srm-kv-row"><dt>품목명 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" placeholder="30자 이내로 간략히 작성해주세요." maxlength="30"></dd></div>
-          <div class="srm-kv-row"><dt>규격</dt><dd><input type="text" class="form-control"></dd></div>
-          <div class="srm-kv-row"><dt>단위</dt><dd><input type="text" class="form-control"></dd></div>
-          <div class="srm-kv-row"><dt>수량 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" placeholder="숫자로만 입력해주세요."></dd></div>
+          <div class="srm-kv-row"><dt>품목명 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control grow" placeholder="30자 이내로 간략히 작성해주세요." maxlength="30"></dd></div>
+          <div class="srm-kv-row"><dt>규격</dt><dd><input type="text" class="form-control fit-360"></dd></div>
+          <div class="srm-kv-row"><dt>단위</dt><dd><input type="text" class="form-control fit-360"></dd></div>
+          <div class="srm-kv-row"><dt>수량 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control w-160" placeholder="숫자로만 입력해주세요."></dd></div>
           <div class="srm-kv-row"><dt>납기요청일 <span class="required" aria-hidden="true">*</span></dt><dd><input type="date" class="filter-date-input"></dd></div>
           <div class="srm-kv-row"><dt>입고장소 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="opItemLoc" checked>켑코이에스 본사</label><label class="form-choice"><input type="radio" name="opItemLoc">현장</label></div></dd></div>
-          <div class="srm-kv-row"><dt>비고 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" placeholder="50자 이내로 간략히 작성해주세요." maxlength="50"></dd></div>
+          <div class="srm-kv-row"><dt>비고 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control grow" placeholder="50자 이내로 간략히 작성해주세요." maxlength="50"></dd></div>
         </div>
         <label class="form-choice content-inner-gap-top"><input type="checkbox"> 본 품목에 입력된 값으로 납기요청일과 입고장소를 일괄적으로 적용합니다.</label>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn-secondary" data-close-modal data-open-modal="opRegManageModal">취소</button>
-        <button type="button" class="btn-primary" data-close-modal data-open-modal="opRegManageModal">등록</button>
-        <button type="button" class="btn-primary" data-close-modal data-open-modal="opRegManageModal">수정</button>
+        <button type="button" class="btn-primary" data-close-modal>등록</button>
+        <button type="button" class="btn-primary" data-close-modal>수정</button>
+        <button type="button" class="btn-secondary" data-close-modal>취소</button>
       </div>
     </div>
   </div>

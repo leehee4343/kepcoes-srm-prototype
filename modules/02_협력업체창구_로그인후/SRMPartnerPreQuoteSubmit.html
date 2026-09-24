@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>전자입찰시스템(SRM) - 견적 제출 | KEPCO ES</title>
+  <title>전자입찰시스템 SRM - 견적 제출 | KEPCO ES</title>
   <link rel="stylesheet" href="../../assets/styles/style.css">
 </head>
 <body>
@@ -107,7 +107,7 @@
         <div class="srm-kv-grid">
           <div class="srm-kv-row"><dt>견적서 첨부 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
           <div class="srm-kv-row"><dt>기타 문서(참고자료) 첨부 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
-          <div class="srm-kv-row"><dt>기타 전달사항</dt><dd><input type="text" class="form-control" placeholder="100자 이내로 간략히 작성해주세요." maxlength="100"></dd></div>
+          <div class="srm-kv-row"><dt>기타 전달사항</dt><dd><input type="text" class="form-control grow" placeholder="100자 이내로 간략히 작성해주세요." maxlength="100"></dd></div>
         </div>
 
         <div class="srm-section-heading content-object-gap-top">
@@ -130,10 +130,10 @@
             <p>견적 제출하시겠습니까? (제출 시 고객 통보 : MSG-011)</p>
           </div>
         </div></section>
-      <div class="page-actions"><button type="button" class="btn-secondary " onclick="history.back()">취소</button>
+      <div class="page-actions"><button type="button" class="btn-secondary " data-history-back>취소</button>
         <span class="description-marker-anchor">
           <span class="description-target-marker" aria-hidden="true">2</span>
-          <button type="button" class="btn-critical-primary " onclick="history.back()">견적 제출</button>
+          <button type="button" class="btn-critical-primary " data-history-back>견적 제출</button>
         </span></div>
     </main>
   </div>
@@ -156,6 +156,7 @@
 
 
 
+  <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
   <script type="application/json" class="external-modal-manifest">["popups/SRMPartnerPreQuote/pqGiveUpConfirmModal.html", "popups/SRMPartnerPreQuote/pqCancelSubmitConfirmModal.html", "popups/SRMPartnerPreQuote/screenDescriptionGuide.html"]</script>
 </body>

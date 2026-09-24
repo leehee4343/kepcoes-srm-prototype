@@ -113,12 +113,12 @@
 | 34 | 협력업체 전용 창구 > 입찰 참여 현황(입찰공고 정보) | 품목 정보 | ☑ 완료 → `SRMPartnerBidJoin.html` (`#bidJoinDetailModal`에 이어서 통합) |
 | 35 | 협력업체 전용 창구 > 입찰 참여 현황(입찰공고 정보) | 심사/평가 관련 정보 | ☑ 완료 → `SRMPartnerBidJoin.html` (`#bidJoinDetailModal`에 이어서 통합) |
 | 36 | 협력업체 전용 창구 > 입찰 참여 현황(입찰공고 정보) | 입찰 참여 서류 | ☑ 완료 → `SRMPartnerBidJoin.html` (`#bidJoinDetailModal` + 참여제한/투찰제한 안내 모달) |
-| 37 | 협력업체 전용 창구 > 입찰 참여 현황 > 입찰 서류 제출 | 입찰정보시스템(SRM) | ☑ 완료 → `SRMPartnerBidJoin.html` (`#bidDocSubmitWizardModal` STEP01) |
-| 38 | 협력업체 전용 창구 > 입찰 참여 현황 > 입찰 서류 제출 | 입찰정보시스템(SRM) | ☑ 완료 → `SRMPartnerBidJoin.html` (`#bidDocSubmitWizardModal` STEP02) |
-| 39 | 협력업체 전용 창구 > 입찰 참여 현황 > 입찰 서류 제출 | 입찰정보시스템(SRM) | ☑ 완료 → `SRMPartnerBidJoin.html` (`#bidDocSubmitWizardModal` STEP03) |
-| 40 | 협력업체 전용 창구 > 입찰 참여 현황 > 입찰 서류 제출 | 입찰정보시스템(SRM) | ☑ 완료 → `SRMPartnerBidJoin.html` (`#bidDocSubmitWizardModal` STEP04 확인) |
-| 41 | 협력업체 전용 창구 > 입찰 참여 현황 > 입찰 서류 제출 | 1 | ☑ 완료 → `SRMPartnerBidJoin.html` (`#bidDocSubmitConfirmModal`) |
-| 42 | 협력업체 전용 창구 > 입찰 참여 현황 > 입찰 서류 제출 | 입찰정보시스템(SRM) | ☑ 완료 → `SRMPartnerBidJoin.html` (`#bidDocSubmitDoneModal`) |
+| 37 | 협력업체 전용 창구 > 입찰 참여 현황 > 입찰 서류 제출 | 입찰정보시스템(SRM) | ☑ 완료 → `02_협력업체창구_로그인후/SRMPartnerBidDocumentSubmit.html` (STEP 01) |
+| 38 | 협력업체 전용 창구 > 입찰 참여 현황 > 입찰 서류 제출 | 입찰정보시스템(SRM) | ☑ 완료 → `02_협력업체창구_로그인후/SRMPartnerBidDocumentSubmitFiles.html` (STEP 02) |
+| 39 | 협력업체 전용 창구 > 입찰 참여 현황 > 입찰 서류 제출 | 입찰정보시스템(SRM) | ☑ 완료 → `02_협력업체창구_로그인후/SRMPartnerBidDocumentSubmitSelfEval.html` (STEP 03) |
+| 40 | 협력업체 전용 창구 > 입찰 참여 현황 > 입찰 서류 제출 | 입찰정보시스템(SRM) | ☑ 완료 → `02_협력업체창구_로그인후/SRMPartnerBidDocumentSubmitReview.html` (STEP 04) |
+| 41 | 협력업체 전용 창구 > 입찰 참여 현황 > 입찰 서류 제출 | 1 | ☑ 완료 → `02_협력업체창구_로그인후/SRMPartnerBidDocumentSubmitReview.html` (STEP 04, 제출 확인 팝업) |
+| 42 | 협력업체 전용 창구 > 입찰 참여 현황 > 입찰 서류 제출 | 입찰정보시스템(SRM) | ☑ 완료 → `02_협력업체창구_로그인후/SRMPartnerBidDocumentComplete.html` (STEP 05) |
 | 43 | 협력업체 전용 창구 > 입찰 참여 현황 > 입찰 서류 제출(입찰 서류가 제출된 경우 제공되는 화면) | 입찰정보시스템(SRM) | ☑ 완료 → `SRMPartnerBidJoin.html` (`#bidJoinDocSubmittedModal`) |
 | 44 | 협력업체 전용 창구 > 입찰 참여 현황 > 입찰 서류 제출(입찰 서류가 제출된 경우 제공되는 화면) | 자가 심사 | ☑ 완료 → `SRMPartnerBidJoin.html` (`#bidJoinDocSubmittedModal`에 이어서 통합 + 제출취소/포기 확인 모달) |
 | 45 | 협력업체 전용 창구 > 입찰 참여 현황 > 가격 투찰 > (가격 투찰 전) | 입찰정보시스템(SRM) | ☑ 완료 → `SRMPartnerBidJoin.html` (`#bidPriceBeforeModal`) |
@@ -164,17 +164,17 @@
 | 2 | (표지/구조도) | 메뉴구조도(SRM) | — |
 | 3 | (표지/구조도) | 메뉴구조도(SRM) | — |
 | 4 | 사전 견적 관리 > 사전 견적 요청(등록) | 전자입찰시스템(SRM) | ☑ 완료 → `04_사전견적관리/SRMPreQuoteRequest.html` |
-| 5 | 사전 견적 관리 > 사전 견적 요청(사전 견적 요청 – 첫 단계) | 전자입찰시스템(SRM) | ☑ 완료 → `04_사전견적관리/SRMPreQuoteRequest.html` |
-| 6 | 사전 견적 관리 > 사전 견적 요청(견적 요청 기본정보 관리) | 전자입찰시스템(SRM) | ☑ 완료 → `04_사전견적관리/SRMPreQuoteRequest.html` |
-| 7 | 사전 견적 관리 > 사전 견적 요청(품목 정보 관리) | 전자입찰시스템(SRM) | ☑ 완료 → `04_사전견적관리/SRMPreQuoteRequest.html` |
-| 8 | 사전 견적 관리 > 사전 견적 요청 > (품목 추가(공통 품목)) | 1 | ☑ 완료 → `04_사전견적관리/SRMPreQuoteRequest.html` |
-| 9 | 사전 견적 관리 > 사전 견적 요청 > (품목 정보 추가/수정) | 1 | ☑ 완료 → `04_사전견적관리/SRMPreQuoteRequest.html` |
-| 10 | 사전 견적 관리 > 사전 견적 요청(전달자료 관리) | 전자입찰시스템(SRM) | ☑ 완료 → `04_사전견적관리/SRMPreQuoteRequest.html` |
-| 11 | 사전 견적 관리 > 사전 견적 요청(견적 요청 업체 선정) | 전자입찰시스템(SRM) | ☑ 완료 → `04_사전견적관리/SRMPreQuoteRequest.html` |
-| 12 | 사전 견적 관리 > 사전 견적 요청(견적 요청 업체 추가) | 견적요청 업체 추가 | ☑ 완료 → `04_사전견적관리/SRMPreQuoteRequest.html` |
-| 13 | 사전 견적 관리 > 사전 견적 요청(최종 점검 및 견적 요청) | 전자입찰시스템(SRM) | ☑ 완료 → `04_사전견적관리/SRMPreQuoteRequest.html` |
-| 14 | 사전 견적 관리 > 사전 견적 요청(최종 점검 및 견적 요청) | 등록된 품목 : 총 2건 | ☑ 완료 → `04_사전견적관리/SRMPreQuoteRequest.html` |
-| 15 | 사전 견적 관리 > 사전 견적 요청(견적 요청 완료) | 전자입찰시스템(SRM) | ☑ 완료 → `04_사전견적관리/SRMPreQuoteRequest.html` |
+| 5 | 사전 견적 관리 > 사전 견적 요청(사전 견적 요청 – 첫 단계) | 전자입찰시스템(SRM) | ☑ 완료 → `04_사전견적관리/SRMPreQuoteRequestNew.html` |
+| 6 | 사전 견적 관리 > 사전 견적 요청(견적 요청 기본정보 관리) | 전자입찰시스템(SRM) | ☑ 완료 → `04_사전견적관리/SRMPreQuoteRequestManage.html` (STEP 01) |
+| 7 | 사전 견적 관리 > 사전 견적 요청(품목 정보 관리) | 전자입찰시스템(SRM) | ☑ 완료 → `04_사전견적관리/SRMPreQuoteRequestManageItems.html` (STEP 02, 업로드 팝업) |
+| 8 | 사전 견적 관리 > 사전 견적 요청 > (품목 추가(공통 품목)) | 1 | ☑ 완료 → `04_사전견적관리/SRMPreQuoteRequestManageItems.html` (공통 품목 팝업) |
+| 9 | 사전 견적 관리 > 사전 견적 요청 > (품목 정보 추가/수정) | 1 | ☑ 완료 → `04_사전견적관리/SRMPreQuoteRequestManageItems.html` (품목 정보 추가/수정 팝업) |
+| 10 | 사전 견적 관리 > 사전 견적 요청(전달자료 관리) | 전자입찰시스템(SRM) | ☑ 완료 → `04_사전견적관리/SRMPreQuoteRequestManageAttach.html` (STEP 03) |
+| 11 | 사전 견적 관리 > 사전 견적 요청(견적 요청 업체 선정) | 전자입찰시스템(SRM) | ☑ 완료 → `04_사전견적관리/SRMPreQuoteRequestManageVendor.html` (STEP 04, 마감일시·담당자 변경 팝업) |
+| 12 | 사전 견적 관리 > 사전 견적 요청(견적 요청 업체 추가) | 견적요청 업체 추가 | ☑ 완료 → `04_사전견적관리/SRMPreQuoteRequestManageVendor.html` (업체 추가 팝업) |
+| 13 | 사전 견적 관리 > 사전 견적 요청(최종 점검 및 견적 요청) | 전자입찰시스템(SRM) | ☑ 완료 → `04_사전견적관리/SRMPreQuoteRequestManageReview.html` (STEP 05) |
+| 14 | 사전 견적 관리 > 사전 견적 요청(최종 점검 및 견적 요청) | 등록된 품목 : 총 2건 | ☑ 완료 → `04_사전견적관리/SRMPreQuoteRequestManageReview.html` (STEP 05, 최종 견적 요청 팝업) |
+| 15 | 사전 견적 관리 > 사전 견적 요청(견적 요청 완료) | 전자입찰시스템(SRM) | ☑ 완료 → `04_사전견적관리/SRMPreQuoteRequestComplete.html` (STEP 06) |
 | 16 | 사전 견적 관리 > 사전 견적 요청 현황(검색/조회) | 전자입찰시스템(SRM) | ☑ 완료 → `04_사전견적관리/SRMPreQuoteStatus.html` |
 | 17 | 사전 견적 관리 > 사전 견적 요청 현황(견적 제출 현황) | 전자입찰시스템(SRM) | ☑ 완료 → `04_사전견적관리/SRMPreQuoteStatus.html` |
 | 18 | 사전 견적 관리 > 사전 견적 요청 현황(최종 점검 및 견적 요청) | 품목 정보 | ☑ 완료 → `04_사전견적관리/SRMPreQuoteStatus.html` |
@@ -194,17 +194,17 @@
 | 6 | 발주계약 요청 > 발주계약 요청(검색/목록) | 전자입찰시스템(SRM) | ☑ 완료 → `05_발주계약요청/SRMOrderContractRequest.html` |
 | 7 | 발주계약 요청 > 발주계약 요청(발주계약 요청 – 첫 단계) | 전자입찰시스템(SRM) | ☑ 완료 → `05_발주계약요청/SRMOrderContractRequest.html` |
 | 8 | 발주계약 요청 > 발주계약 요청(수주계약 매핑) | 수주계약 매핑 | ☑ 완료 → `05_발주계약요청/SRMOrderContractRequest.html` |
-| 9 | 발주계약 요청 > 발주계약 요청(발주계약 요청 기본정보) | 전자입찰시스템(SRM) | ☑ 완료 → `05_발주계약요청/SRMOrderContractRequest.html` |
-| 10 | 발주계약 요청 > 발주계약 요청(발주계약 체크리스트) | 전자입찰시스템(SRM) | ☑ 완료 → `05_발주계약요청/SRMOrderContractRequest.html` |
-| 11 | 발주계약 요청 > 발주계약 요청(발주계약 체크리스트) | 1 | ☑ 완료 → `05_발주계약요청/SRMOrderContractRequest.html` |
-| 12 | 발주계약 요청 > 발주계약 요청(발주계약 체크리스트) > (협력업체 매핑) | 협력업체 매핑 | ☑ 완료 → `05_발주계약요청/SRMOrderContractRequest.html` |
-| 13 | 발주계약 요청 > 발주계약 요청(품목 정보) | 전자입찰시스템(SRM) | ☑ 완료 → `05_발주계약요청/SRMOrderContractRequest.html` |
-| 14 | 발주계약 요청 > 발주계약 요청(품목 정보) > (품목 추가(공통 품목)) | 1 | ☑ 완료 → `05_발주계약요청/SRMOrderContractRequest.html` |
-| 15 | 발주계약 요청 > 발주계약 요청(품목 정보) > (품목 정보 추가/수정) | 1 | ☑ 완료 → `05_발주계약요청/SRMOrderContractRequest.html` |
-| 16 | 발주계약 요청 > 발주계약 요청(최종 점검 및 전자결재) | 전자입찰시스템(SRM) | ☑ 완료 → `05_발주계약요청/SRMOrderContractRequest.html` |
-| 17 | 발주계약 요청 > 발주계약 요청(최종 점검 및 전자결재) | 계약방법이 ‘수의계약’인 경우에만 노출함근거/수의계약 사유계약상대자(수의계약의 경우) | ☑ 완료 → `05_발주계약요청/SRMOrderContractRequest.html` |
-| 18 | 발주계약 요청 > 발주계약 요청(최종 점검 및 전자결재) | 계약업체 면허 설정 | ☑ 완료 → `05_발주계약요청/SRMOrderContractRequest.html` |
-| 19 | 발주계약 요청 > 발주계약 요청(발주계약 요청 완료) | 전자입찰시스템(SRM) | ☑ 완료 → `05_발주계약요청/SRMOrderContractRequest.html` |
+| 9 | 발주계약 요청 > 발주계약 요청(발주계약 요청 기본정보) | 전자입찰시스템(SRM) | ☑ 완료 → `05_발주계약요청/SRMOrderContractRequestManage.html` (STEP 01) |
+| 10 | 발주계약 요청 > 발주계약 요청(발주계약 체크리스트) | 전자입찰시스템(SRM) | ☑ 완료 → `05_발주계약요청/SRMOrderContractRequestManageChecklist.html` (STEP 02) |
+| 11 | 발주계약 요청 > 발주계약 요청(발주계약 체크리스트) | 1 | ☑ 완료 → `05_발주계약요청/SRMOrderContractRequestManageChecklist.html` (STEP 02 계속) |
+| 12 | 발주계약 요청 > 발주계약 요청(발주계약 체크리스트) > (협력업체 매핑) | 협력업체 매핑 | ☑ 완료 → `05_발주계약요청/SRMOrderContractRequestManageChecklist.html` (협력업체 매핑 팝업) |
+| 13 | 발주계약 요청 > 발주계약 요청(품목 정보) | 전자입찰시스템(SRM) | ☑ 완료 → `05_발주계약요청/SRMOrderContractRequestManageItems.html` (STEP 03) |
+| 14 | 발주계약 요청 > 발주계약 요청(품목 정보) > (품목 추가(공통 품목)) | 1 | ☑ 완료 → `05_발주계약요청/SRMOrderContractRequestManageItems.html` (공통 품목 팝업) |
+| 15 | 발주계약 요청 > 발주계약 요청(품목 정보) > (품목 정보 추가/수정) | 1 | ☑ 완료 → `05_발주계약요청/SRMOrderContractRequestManageItems.html` (품목 정보 추가/수정 팝업) |
+| 16 | 발주계약 요청 > 발주계약 요청(최종 점검 및 전자결재) | 전자입찰시스템(SRM) | ☑ 완료 → `05_발주계약요청/SRMOrderContractRequestManageReview.html` (STEP 04) |
+| 17 | 발주계약 요청 > 발주계약 요청(최종 점검 및 전자결재) | 계약방법이 ‘수의계약’인 경우에만 노출함근거/수의계약 사유계약상대자(수의계약의 경우) | ☑ 완료 → `05_발주계약요청/SRMOrderContractRequestManageReview.html` (STEP 04 계속) |
+| 18 | 발주계약 요청 > 발주계약 요청(최종 점검 및 전자결재) | 계약업체 면허 설정 | ☑ 완료 → `05_발주계약요청/SRMOrderContractRequestManageReview.html` (STEP 04, 전자결재 요청 팝업) |
+| 19 | 발주계약 요청 > 발주계약 요청(발주계약 요청 완료) | 전자입찰시스템(SRM) | ☑ 완료 → `05_발주계약요청/SRMOrderContractRequestComplete.html` (STEP 05) |
 | 20 | 발주계약 요청 > 발주계약 요청현황(검색/목록) | 전자입찰시스템(SRM) | ☑ 완료 → `05_발주계약요청/SRMOrderContractStatus.html` |
 | 21 | 발주계약 요청 > 발주계약 요청서 | 발주계약 요청서 | ☑ 완료 → `05_발주계약요청/SRMOrderContractStatus.html` |
 | 22 | 발주계약 요청 > 발주계약 요청서 | 닫기 | ☑ 완료 → `05_발주계약요청/SRMOrderContractStatus.html` |
@@ -235,18 +235,18 @@
 | 10 | 발주계획 > 발주계약 요청접수(상세정보) | 발주계약 요청 체크리스트 | ☑ 완료 → `06_발주계획/SRMOrderPlanIntake.html` |
 | 11 | 발주계획 > 발주계약 요청접수(상세정보) | 계약업체 면허 설정 | ☑ 완료 → `06_발주계획/SRMOrderPlanIntake.html` |
 | 12 | 발주계획 > 발주계획 등록(검색/조회) | 전자입찰시스템(SRM) | ☑ 완료 → `06_발주계획/SRMOrderPlanRegister.html` |
-| 13 | 발주계획 > 발주계획 등록(발주계획 기본정보) | 전자입찰시스템(SRM) | ☑ 완료 → `06_발주계획/SRMOrderPlanRegister.html` |
-| 14 | 발주계획 > 발주계획 등록(발주계획 기본정보) | 저장 | ☑ 완료 → `06_발주계획/SRMOrderPlanRegister.html` |
-| 15 | 발주계획 > 발주계획 등록(발주계획 체크리스트) | 전자입찰시스템(SRM) | ☑ 완료 → `06_발주계획/SRMOrderPlanRegister.html` |
-| 16 | 발주계획 > 발주계획 등록(발주계획 체크리스트) | 1 | ☑ 완료 → `06_발주계획/SRMOrderPlanRegister.html` |
-| 17 | 발주계획 > 발주계획 등록(발주계획 체크리스트) | 1 | ☑ 완료 → `06_발주계획/SRMOrderPlanRegister.html` |
-| 18 | 발주계획 > 발주계획 등록(품목 정보) | 전자입찰시스템(SRM) | ☑ 완료 → `06_발주계획/SRMOrderPlanRegister.html` |
-| 19 | 발주계획 > 발주계획 등록(품목 정보) > (품목 추가(공통 품목)) | 1 | ☑ 완료 → `06_발주계획/SRMOrderPlanRegister.html` |
-| 20 | 발주계획 > 발주계획 등록(품목 정보) > (품목 정보 추가/수정) | 1 | ☑ 완료 → `06_발주계획/SRMOrderPlanRegister.html` |
-| 21 | 발주계획 > 발주계획 등록(최종 점검 및 전자결재) | 전자입찰시스템(SRM) | ☑ 완료 → `06_발주계획/SRMOrderPlanRegister.html` |
-| 22 | 발주계획 > 발주계획 등록(최종 점검 및 전자결재) | 계약방법이 ‘수의계약’인 경우에만 노출됨 | ☑ 완료 → `06_발주계획/SRMOrderPlanRegister.html` |
-| 23 | 발주계획 > 발주계획 등록(최종 점검 및 전자결재) | 계약업체 면허 설정 | ☑ 완료 → `06_발주계획/SRMOrderPlanRegister.html` |
-| 24 | 발주계획 > 발주계획 등록(발주계획 등록 완료) | 전자입찰시스템(SRM) | ☑ 완료 → `06_발주계획/SRMOrderPlanRegister.html` |
+| 13 | 발주계획 > 발주계획 등록(발주계획 기본정보) | 전자입찰시스템(SRM) | ☑ 완료 → `06_발주계획/SRMOrderPlanRegisterManage.html` (STEP 01) |
+| 14 | 발주계획 > 발주계획 등록(발주계획 기본정보) | 저장 | ☑ 완료 → `06_발주계획/SRMOrderPlanRegisterManage.html` (STEP 01 계속) |
+| 15 | 발주계획 > 발주계획 등록(발주계획 체크리스트) | 전자입찰시스템(SRM) | ☑ 완료 → `06_발주계획/SRMOrderPlanRegisterManageChecklist.html` (STEP 02) |
+| 16 | 발주계획 > 발주계획 등록(발주계획 체크리스트) | 1 | ☑ 완료 → `06_발주계획/SRMOrderPlanRegisterManageChecklist.html` (STEP 02 계속) |
+| 17 | 발주계획 > 발주계획 등록(발주계획 체크리스트) | 1 | ☑ 완료 → `06_발주계획/SRMOrderPlanRegisterManageChecklist.html` (STEP 02 계속) |
+| 18 | 발주계획 > 발주계획 등록(품목 정보) | 전자입찰시스템(SRM) | ☑ 완료 → `06_발주계획/SRMOrderPlanRegisterManageItems.html` (STEP 03) |
+| 19 | 발주계획 > 발주계획 등록(품목 정보) > (품목 추가(공통 품목)) | 1 | ☑ 완료 → `06_발주계획/SRMOrderPlanRegisterManageItems.html` (공통 품목 팝업) |
+| 20 | 발주계획 > 발주계획 등록(품목 정보) > (품목 정보 추가/수정) | 1 | ☑ 완료 → `06_발주계획/SRMOrderPlanRegisterManageItems.html` (품목 정보 추가/수정 팝업) |
+| 21 | 발주계획 > 발주계획 등록(최종 점검 및 전자결재) | 전자입찰시스템(SRM) | ☑ 완료 → `06_발주계획/SRMOrderPlanRegisterManageReview.html` (STEP 04) |
+| 22 | 발주계획 > 발주계획 등록(최종 점검 및 전자결재) | 계약방법이 ‘수의계약’인 경우에만 노출됨 | ☑ 완료 → `06_발주계획/SRMOrderPlanRegisterManageReview.html` (STEP 04 계속) |
+| 23 | 발주계획 > 발주계획 등록(최종 점검 및 전자결재) | 계약업체 면허 설정 | ☑ 완료 → `06_발주계획/SRMOrderPlanRegisterManageReview.html` (STEP 04, 전자결재 요청 팝업) |
+| 24 | 발주계획 > 발주계획 등록(발주계획 등록 완료) | 전자입찰시스템(SRM) | ☑ 완료 → `06_발주계획/SRMOrderPlanRegisterComplete.html` (STEP 05) |
 | 25 | 발주계획 > 발주계획 등록(상세정보) | 전자입찰시스템(SRM) | ☑ 완료 → `06_발주계획/SRMOrderPlanRegister.html` |
 | 26 | 발주계획 > 발주계획 등록(상세정보) | 발주계획 체크리스트 | ☑ 완료 → `06_발주계획/SRMOrderPlanRegister.html` |
 | 27 | 발주계획 > 발주계획 등록(상세정보) | 계약업체 면허 설정 | ☑ 완료 → `06_발주계획/SRMOrderPlanRegister.html` |
@@ -261,19 +261,19 @@
 | 4 | (표지/구조도) | [참고자료] 계약방법, 낙찰자 선정방법 정리 | — |
 | 5 | (표지/구조도) | [참고자료] 계약방법, 낙찰자 선정방법 정리 | — |
 | 6 | 수의계약 관리 > 수의계약 계획 현황(검색/조회) | 전자입찰시스템(SRM) | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourcePlan.html` |
-| 7 | 수의계약 관리 > 수의계약 계획 현황(수의계약 계획 등록/설정) > 발주계획 정보 확인 | 전자입찰시스템(SRM) | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourcePlan.html` |
-| 8 | 수의계약 관리 > 수의계약 계획 현황(수의계약 계획 등록/설정) > 발주계획 정보 확인 | 발주계획 체크리스트 | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourcePlan.html` |
-| 9 | 수의계약 관리 > 수의계약 계획 현황(수의계약 계획 등록/설정) > 발주계획 정보 확인 | 1 | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourcePlan.html` |
-| 10 | 수의계약 관리 > 수의계약 계획 현황(수의계약 계획 등록/설정) > 수의계약 계획 상세정보 | 전자입찰시스템(SRM) | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourcePlan.html` |
-| 11 | 수의계약 관리 > 수의계약 계획 현황(수의계약 계획 등록/설정) > 예정가 | 전자입찰시스템(SRM) | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourcePlan.html` |
-| 12 | 수의계약 관리 > 수의계약 계획 현황(수의계약 계획 등록/설정) > 예정가 > (예정가격 산출기초조서 등록 및 전자결재 요청) | 예정가격 산출기초조서 등록 및 전자결재 요청 | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourcePlan.html` |
-| 13 | 수의계약 관리 > 수의계약 계획 현황(수의계약 계획 등록/설정) > 예정가 > (예정가격 등록 요청) | 예정가격 등록 요청 | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourcePlan.html` |
-| 14 | 수의계약 관리 > 수의계약 계획 현황(수의계약 계획 등록/설정) > 예정가 > (예정가격 등록) | 예정가격 등록 | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourcePlan.html` |
-| 15 | 수의계약 관리 > 수의계약 계획 현황(수의계약 계획 등록/설정) > 수의계약 참여 서류 | 전자입찰시스템(SRM) | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourcePlan.html` |
-| 16 | 수의계약 관리 > 수의계약 계획 현황(수의계약 계획 등록/설정) > 수의계약 참여 서류 (공통 수의계약 참여 서류 불러오기 등) | 1 | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourcePlan.html` |
-| 17 | 수의계약 관리 > 수의계약 계획 현황(수의계약 계획 등록/설정) > 최종 점검 | 전자입찰시스템(SRM) | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourcePlan.html` |
-| 18 | 수의계약 관리 > 수의계약 계획 현황(수의계약 계획 등록/설정) > 최종 점검 | 1 | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourcePlan.html` |
-| 19 | 수의계약 관리 > 수의계약 계획 현황(수의계약 계획 등록/설정) > 수의계약 계획 등록 완료 | 전자입찰시스템(SRM) | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourcePlan.html` |
+| 7 | 수의계약 관리 > 수의계약 계획 현황(수의계약 계획 등록/설정) > 발주계획 정보 확인 | 전자입찰시스템(SRM) | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourcePlanManage.html` (STEP 01) |
+| 8 | 수의계약 관리 > 수의계약 계획 현황(수의계약 계획 등록/설정) > 발주계획 정보 확인 | 발주계획 체크리스트 | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourcePlanManage.html` (STEP 01 계속) |
+| 9 | 수의계약 관리 > 수의계약 계획 현황(수의계약 계획 등록/설정) > 발주계획 정보 확인 | 1 | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourcePlanManage.html` (STEP 01 계속) |
+| 10 | 수의계약 관리 > 수의계약 계획 현황(수의계약 계획 등록/설정) > 수의계약 계획 상세정보 | 전자입찰시스템(SRM) | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourcePlanManageDetail.html` (STEP 02) |
+| 11 | 수의계약 관리 > 수의계약 계획 현황(수의계약 계획 등록/설정) > 예정가 | 전자입찰시스템(SRM) | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourcePlanManagePrice.html` (STEP 03) |
+| 12 | 수의계약 관리 > 수의계약 계획 현황(수의계약 계획 등록/설정) > 예정가 > (예정가격 산출기초조서 등록 및 전자결재 요청) | 예정가격 산출기초조서 등록 및 전자결재 요청 | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourcePlanManagePrice.html` (산출기초조서 팝업) |
+| 13 | 수의계약 관리 > 수의계약 계획 현황(수의계약 계획 등록/설정) > 예정가 > (예정가격 등록 요청) | 예정가격 등록 요청 | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourcePlanManagePrice.html` (예정가격 등록 요청 팝업) |
+| 14 | 수의계약 관리 > 수의계약 계획 현황(수의계약 계획 등록/설정) > 예정가 > (예정가격 등록) | 예정가격 등록 | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourcePlanManagePrice.html` (예정가격 등록 팝업) |
+| 15 | 수의계약 관리 > 수의계약 계획 현황(수의계약 계획 등록/설정) > 수의계약 참여 서류 | 전자입찰시스템(SRM) | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourcePlanManageDocuments.html` (STEP 04) |
+| 16 | 수의계약 관리 > 수의계약 계획 현황(수의계약 계획 등록/설정) > 수의계약 참여 서류 (공통 수의계약 참여 서류 불러오기 등) | 1 | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourcePlanManageDocuments.html` (공통 서류 불러오기·추가 팝업) |
+| 17 | 수의계약 관리 > 수의계약 계획 현황(수의계약 계획 등록/설정) > 최종 점검 | 전자입찰시스템(SRM) | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourcePlanManageReview.html` (STEP 05) |
+| 18 | 수의계약 관리 > 수의계약 계획 현황(수의계약 계획 등록/설정) > 최종 점검 | 1 | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourcePlanManageReview.html` (STEP 05, 최종저장 팝업) |
+| 19 | 수의계약 관리 > 수의계약 계획 현황(수의계약 계획 등록/설정) > 수의계약 계획 등록 완료 | 전자입찰시스템(SRM) | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourcePlanComplete.html` (STEP 06) |
 | 20 | 수의계약 관리 > 수의계약 현황(검색/조회) | 전자입찰시스템(SRM) | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourceStatus.html` |
 | 21 | 수의계약 관리 > 수의계약 현황(상세정보) > 발주계획 정보 | 전자입찰시스템(SRM) | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourceStatus.html` |
 | 22 | 수의계약 관리 > 수의계약 현황(상세정보) > 발주계획 정보 | 발주계획 체크리스트 | ☑ 완료 → `07-1_수의계약관리/SRMSoleSourceStatus.html` |

@@ -8,25 +8,43 @@
 </head>
 <body class="popup-document">
 <div class="modal-backdrop" id="ssCommonDocModal" role="dialog" aria-modal="true" aria-labelledby="ssCommonDocTitle" aria-hidden="false">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-xl">
       <div class="modal-header"><h2 class="modal-title" id="ssCommonDocTitle">공통 수의계약 참여 서류 불러오기</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
       <div class="modal-body">
-        <p class="modal-field-label">기준정보 관리 메뉴에서 설정한 '공통 서류 관리'에서 '수의계약 참여 서류' 항목만 불러와서 한 번에 완성하고 조정할 수 있습니다.</p>
-        <div class="form-lookup">
-          <span class="filter-label w-90">서류 명칭</span>
-          <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
-          <button type="button" class="btn-filter-search">검색</button>
-        </div>
-        <div class="table-scroll-wrapper content-inner-gap-top">
-          <table class="data-table" aria-label="공통 서류 목록">
+        <section class="filter-card">
+          <form>
+          <div class="filter-row hstack gap-12">
+            <span class="filter-label w-80">서류 명칭</span>
+            <input type="text" class="filter-text-input w-380" placeholder="검색어를 입력하세요." aria-label="검색어">
+          </div>
+            <div class="filter-action-row">
+              <button type="button" class="btn-filter-search">검색</button>
+              <button type="button" class="btn-filter-reset">초기화</button>
+            </div>
+          </form>
+        </section>
+        <div class="table-card">
+          <div class="table-header-action-row">
+            <div class="table-total-count grid-page-summary">1 / 6 (총 55개)</div>
+            <div class="table-actions">
+              <select class="select-per-page" title="페이지당 표시 건수">
+                <option value="10" selected>10개씩</option>
+                <option value="20">20개씩</option>
+                <option value="50">50개씩</option>
+              </select>
+            </div>
+          </div>
+          <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="공통 서류 목록" data-total-items="55" data-total-pages="6">
+            <table class="data-table data-grid-table" aria-label="공통 서류 목록">
             <thead><tr><th>서류 명칭</th><th class="w-70">서류(수)</th><th class="w-70">선택</th></tr></thead>
             <tbody>
-              <tr><td class="text-left">수의계약(공사) 사업에 쓰이는 입찰 서류 목록</td><td>5개</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="ssPlanManageModal">선택</button></td></tr>
+              <tr><td class="text-left">수의계약(공사) 사업에 쓰이는 입찰 서류 목록</td><td>5개</td><td><button type="button" class="btn-task-register" data-close-modal>선택</button></td></tr>
             </tbody>
           </table>
+          </div>
         </div>
       </div>
-      <div class="modal-footer"><button type="button" class="btn-secondary" data-close-modal data-open-modal="ssPlanManageModal">닫기</button></div>
+      <div class="modal-footer"><button type="button" class="btn-secondary" data-close-modal>닫기</button></div>
     </div>
   </div>
   <script src="../../../../assets/scripts/dashboard.js"></script>

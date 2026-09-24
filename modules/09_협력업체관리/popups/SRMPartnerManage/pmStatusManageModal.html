@@ -11,18 +11,17 @@
     <div class="modal-dialog">
       <div class="modal-header"><h2 class="modal-title" id="pmStatusManageTitle">처리상태 관리</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
       <div class="modal-body">
-        <p class="modal-field-label">사용 여부가 중지(N)일 경우 협력업체는 승인되었더라도 로그인할 수 없습니다.</p>
         <div class="srm-kv-grid">
           <div class="srm-kv-row"><dt>사용 여부</dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="pmUseYn2" checked>사용(Y)</label><label class="form-choice"><input type="radio" name="pmUseYn2">중지(N)</label></div></dd></div>
           <div class="srm-kv-row"><dt>사업자 번호</dt><dd>135-82-77202</dd></div>
           <div class="srm-kv-row"><dt>회사명</dt><dd>(주)큐비트엑스</dd></div>
           <div class="srm-kv-row"><dt>대표자명</dt><dd>이홍태, 윤지병</dd></div>
           <div class="srm-kv-row"><dt>처리상태 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="pmStatusPick" checked>승인</label><label class="form-choice"><input type="radio" name="pmStatusPick">신청완료</label><label class="form-choice"><input type="radio" name="pmStatusPick">정보수정 요청</label></div></dd></div>
-          <div class="srm-kv-row"><dt>처리내역(요약)</dt><dd><input type="text" class="form-control" placeholder="50자 이내로 간단한 메모를 입력해 주세요." maxlength="50"></dd></div>
+          <div class="srm-kv-row"><dt>처리내역(요약)</dt><dd><input type="text" class="form-control grow" placeholder="50자 이내로 간단한 메모를 입력해 주세요." maxlength="50"></dd></div>
           <div class="srm-kv-row"><dt>처리자</dt><dd>박승길</dd></div>
         </div>
       </div>
-      <div class="modal-footer"><button type="button" class="btn-primary" data-close-modal data-open-modal="pmDetailModal">적용</button><button type="button" class="btn-secondary" data-close-modal data-open-modal="pmDetailModal">닫기</button></div>
+      <div class="modal-footer"><button type="button" class="btn-primary" data-close-modal>적용</button><button type="button" class="btn-secondary" data-close-modal>닫기</button></div>
     </div>
   </div>
   <script src="../../../../assets/scripts/dashboard.js"></script>

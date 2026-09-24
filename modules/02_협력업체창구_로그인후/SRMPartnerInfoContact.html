@@ -109,7 +109,7 @@
           <table class="data-table" aria-label="담당자 정보 추가/수정 목록">
             <thead><tr><th class="col-no">No</th><th>담당자 구분</th><th>이름</th><th>직책</th><th>이메일</th><th>핸드폰번호</th><th>전화번호</th><th>담당업무</th><th class="w-70">관리</th></tr></thead>
             <tbody>
-              <tr><td>1</td><td>기본 담당자</td><td class="text-left">이희성</td><td>이사</td><td>leehee43@naver.com</td><td>010-6844-2810</td><td>02-6959-9856</td><td class="text-left">사내 입찰/계약 담당자</td><td><button type="button" class="btn-secondary" data-open-modal="partnerContactFormModal" data-contact-mode="edit" data-contact-kind="basic" data-contact-name="이희성" data-contact-position="이사" data-contact-email="leehee43@naver.com" data-contact-mobile="010-6844-2810" data-contact-phone="02-6959-9856" data-contact-duty="사내 입찰/계약 담당자">관리</button></td></tr>
+              <tr><td>1</td><td><span class="description-marker-anchor"><span class="description-target-marker" aria-hidden="true">4</span>기본 담당자</span></td><td class="text-left">이희성</td><td>이사</td><td>leehee43@naver.com</td><td>010-6844-2810</td><td>02-6959-9856</td><td class="text-left">사내 입찰/계약 담당자</td><td><button type="button" class="btn-secondary" data-open-modal="partnerContactFormModal" data-contact-mode="edit" data-contact-kind="basic" data-contact-name="이희성" data-contact-position="이사" data-contact-email="leehee43@naver.com" data-contact-mobile="010-6844-2810" data-contact-phone="02-6959-9856" data-contact-duty="사내 입찰/계약 담당자">관리</button></td></tr>
               <tr><td>2</td><td>추가 담당자</td><td class="text-left">박일용</td><td>부장</td><td>-</td><td>-</td><td>-</td><td class="text-left">견적 등 업무 관련 담당자</td><td><button type="button" class="btn-secondary" data-open-modal="partnerContactFormModal" data-contact-mode="edit" data-contact-kind="additional" data-contact-name="박일용" data-contact-position="부장" data-contact-duty="견적 등 업무 관련 담당자">관리</button></td></tr>
               <tr><td>3</td><td>추가 담당자</td><td class="text-left">-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td><button type="button" class="btn-secondary" data-open-modal="partnerContactFormModal" data-contact-mode="edit" data-contact-kind="additional">관리</button></td></tr>
             </tbody>
@@ -127,6 +127,7 @@
   <!-- 화면설계 Description 개발자 가이드 (DESIGN_GUIDE 5.15) -->
   <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
+  <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
   <script type="application/json" class="external-modal-manifest">["popups/SRMPartnerInfo/partnerContactFormModal.html", "popups/SRMPartnerInfo/screenDescriptionGuide.html"]</script>
 </body>

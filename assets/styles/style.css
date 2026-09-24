@@ -3529,7 +3529,7 @@ img {
   gap: 24px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 760px) {
   .launcher-grid {
     grid-template-columns: 1fr;
   }
@@ -5962,6 +5962,15 @@ img {
   min-height: 48px;
 }
 
+/* 목록의 신규 등록 버튼은 화면설계대로 페이징 아래 오른쪽에 둡니다(6.1). */
+.table-bottom-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: var(--content-inner-gap);
+}
+
 .pagination-controls {
   display: flex;
   align-items: center;
@@ -7039,15 +7048,15 @@ body.is-resizing-grid-column * {
    Global Content Text Link Policy
    왼쪽 메뉴/헤더/버튼형 링크 제외: 기본 블루, hover/focus 밑줄
    ========================================================================== */
-body a[href]:not(.sidebar *):not([class*="btn-"]):not([class*="-button"]):not([role="button"]):not(.fav-card):not(.portal-screen-card):not(.portal-thumb-card):not(.card-thumb-wrap):not(.card-thumb-launch-btn),
-body a[href]:visited:not(.sidebar *):not([class*="btn-"]):not([class*="-button"]):not([role="button"]):not(.fav-card):not(.portal-screen-card):not(.portal-thumb-card):not(.card-thumb-wrap):not(.card-thumb-launch-btn) {
+body a[href]:not(.sidebar *):not([class*="btn-"]):not([class*="-button"]):not([role="button"]):not(.fav-card):not(.portal-screen-card):not(.portal-thumb-card):not(.card-thumb-wrap):not(.card-thumb-launch-btn):not(.detail-tab-btn):not(.wizard-step-box),
+body a[href]:visited:not(.sidebar *):not([class*="btn-"]):not([class*="-button"]):not([role="button"]):not(.fav-card):not(.portal-screen-card):not(.portal-thumb-card):not(.card-thumb-wrap):not(.card-thumb-launch-btn):not(.detail-tab-btn):not(.wizard-step-box) {
   color: #1976d2 !important;
   font-weight: 400 !important;
   text-decoration: none !important;
 }
 
-body a[href]:hover:not(.sidebar *):not([class*="btn-"]):not([class*="-button"]):not([role="button"]):not(.fav-card):not(.portal-screen-card):not(.portal-thumb-card):not(.card-thumb-wrap):not(.card-thumb-launch-btn),
-body a[href]:focus-visible:not(.sidebar *):not([class*="btn-"]):not([class*="-button"]):not([role="button"]):not(.fav-card):not(.portal-screen-card):not(.portal-thumb-card):not(.card-thumb-wrap):not(.card-thumb-launch-btn) {
+body a[href]:hover:not(.sidebar *):not([class*="btn-"]):not([class*="-button"]):not([role="button"]):not(.fav-card):not(.portal-screen-card):not(.portal-thumb-card):not(.card-thumb-wrap):not(.card-thumb-launch-btn):not(.detail-tab-btn):not(.wizard-step-box),
+body a[href]:focus-visible:not(.sidebar *):not([class*="btn-"]):not([class*="-button"]):not([role="button"]):not(.fav-card):not(.portal-screen-card):not(.portal-thumb-card):not(.card-thumb-wrap):not(.card-thumb-launch-btn):not(.detail-tab-btn):not(.wizard-step-box) {
   color: #1e88e5 !important;
   text-decoration: underline !important;
   text-decoration-thickness: 1px;
@@ -8538,6 +8547,16 @@ body.modal-open { overflow: hidden; }
 
 /* 상세화면 내 영역별 타이틀(직전 영역과의 구분) 간격은 일반 오브젝트 간격보다 넓게 — DESIGN_GUIDE 6.2.2 */
 .srm-section-heading.content-object-gap-top { margin-top: var(--content-section-gap); }
+/* 섹션 안 소제목(화면설계의 "결재 관련 정보"처럼 한 섹션 안의 하위 묶음 제목). 제목–내용 12px, 묶음 간 32px */
+.srm-subsection-title { margin: 0 0 var(--content-inner-gap); color: var(--text-title); font-size: 15px; font-weight: 700; line-height: 1.4; }
+.srm-subsection-title.content-object-gap-top { margin-top: 32px; }
+.srm-section-heading + .srm-subsection-title { margin-top: 0; }
+/* 본문 안 확인 문구 + 버튼 줄(화면설계의 회색 안내 줄). 흰 바탕 + 테두리로 표현합니다(5.1). */
+.inline-action-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 58px; padding: 10px 20px; color: var(--text-main); font-size: 13px; background: var(--bg-white); border: 1px solid var(--border-card); border-radius: var(--radius-md); }
+/* 표 안 순서 이동(▲▼) 아이콘 버튼 */
+.btn-order { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; padding: 0; color: var(--primary-blue); font-size: 13px; background: transparent; border: 0; border-radius: var(--radius-sm); cursor: pointer; }
+.btn-order:hover { background: var(--primary-light); }
+.btn-order:focus-visible { outline: 2px solid var(--primary-blue); outline-offset: 1px; }
 
 /* 콘텐츠 목록의 표준 5px 원형 블릿 — DESIGN_GUIDE 5.12 */
 .content-bullet-item {
@@ -8783,8 +8802,10 @@ body .card-meta { font-size: 13px; font-weight: 400; color: #58687b; margin-left
 .h-130 { height: 130px; }
 .minw-170 { min-width: 170px; }
 .minw-200 { min-width: 200px; }
+.minw-220 { min-width: 220px; }
 .minw-240 { min-width: 240px; }
 .minw-250 { min-width: 250px; }
+.minw-300 { min-width: 300px; }
 
 /* 차트 계열 채움색 (2.5 데이터 시각화 팔레트) */
 .fill-blue { background: #1976d2; }
@@ -9501,12 +9522,12 @@ body :is(input, textarea)::placeholder {
   font-weight: 400;
 }
 
-body a:not(.nav-link):not(.submenu-item > a):not([class*="btn-"]) {
+body a:not(.nav-link):not(.submenu-item > a):not([class*="btn-"]):not(.detail-tab-btn):not(.wizard-step-box) {
   color: var(--primary-blue);
   font-weight: 400;
 }
 
-body a:not(.nav-link):not(.submenu-item > a):not([class*="btn-"]):is(:hover, :focus-visible) {
+body a:not(.nav-link):not(.submenu-item > a):not([class*="btn-"]):not(.detail-tab-btn):not(.wizard-step-box):is(:hover, :focus-visible) {
   color: var(--primary-hover);
   text-decoration: underline;
 }
@@ -9564,8 +9585,31 @@ body a:not(.nav-link):not(.submenu-item > a):not([class*="btn-"]):is(:hover, :fo
   margin-right: auto;
 }
 
+/* 완료 화면처럼 목록 없이 다음 화면 이동 버튼만 있는 액션 바는 버튼을 우측(메인 액션 자리)에 둡니다(5.4). */
+.page-detail-content .page-actions.actions-end > :first-child {
+  margin-right: 0;
+  margin-left: auto;
+}
+
 .page-detail-content .modal-section,
 .page-detail-content .modal-section-card,
 .page-detail-content .srm-kv-grid {
   width: 100%;
 }
+
+/* ==========================================================================
+   팝업(모달) 안 검색·목록 (DESIGN_GUIDE 5.8, 5.2): 기간 버튼·날짜가 줄바꿈되거나 세로로 쌓이지 않고,
+   모달 안 카드는 그림자 없이 테두리만 둡니다.
+   ========================================================================== */
+.btn-quick-date { white-space: nowrap; flex: 0 0 auto; }
+.date-range-wrap { flex-wrap: nowrap; flex: 0 0 auto; }
+.date-range-wrap .filter-date-input { flex: 0 0 auto; }
+.filter-row { flex-wrap: wrap; row-gap: 8px; }
+.modal-body .filter-card,
+.modal-body .table-card { box-shadow: none; }
+.modal-body .filter-card { margin-bottom: 0; }
+.modal-body .filter-card + .table-card { margin-top: var(--content-object-gap); }
+/* 팝업 안 조회 목록은 팝업 폭 안에 모든 열을 보이게 합니다: 긴 텍스트 칸만 줄바꿈(단어 단위)하고 가로 스크롤은 넘칠 때만 생깁니다. */
+.modal-body .data-grid-table:not(.is-manually-sized) { width: 100%; }
+.modal-body .data-grid-table:not(.is-manually-sized) tbody td:is(.text-left, .col-left) { white-space: normal; word-break: keep-all; }
+.modal-body .data-grid-table:not(.is-manually-sized) tbody td :is(button, .badge-info, .badge-success, .badge-warning, .badge-danger, .badge-tag) { white-space: nowrap; }

@@ -155,9 +155,7 @@
             <select class="select-per-page" title="페이지당 표시 건수">
               <option value="10" selected>10개씩</option>
               <option value="20">20개씩</option>
-              <option value="30">30개씩</option>
               <option value="50">50개씩</option>
-              <option value="100">100개씩</option>
             </select>
           </div>
         </div>
@@ -242,7 +240,7 @@
           <div class="hstack">
             <button type="button" class="btn-delete" data-open-modal="pqCancelSubmitConfirmModal">견적 제출 취소(삭제)</button>
             <button type="button" class="btn-delete" data-open-modal="pqGiveUpConfirmModal">견적 포기</button>
-            <button type="button" class="btn-critical-primary" onclick="window.location.href='SRMPartnerPreQuoteSubmit.html'">견적 제출</button>
+            <button type="button" class="btn-critical-primary" data-href="SRMPartnerPreQuoteSubmit.html">견적 제출</button>
           </div>
         </div>
       </section>
@@ -268,6 +266,7 @@
 
 
 
+  <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
   <script type="application/json" class="external-modal-manifest">["popups/SRMPartnerPreQuote/pqGiveUpConfirmModal.html", "popups/SRMPartnerPreQuote/pqCancelSubmitConfirmModal.html", "popups/SRMPartnerPreQuote/screenDescriptionGuide.html"]</script>
 </body>

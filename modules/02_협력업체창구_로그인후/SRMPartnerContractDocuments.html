@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>전자입찰시스템(SRM) - 계약 관련 서류 | KEPCO ES</title>
+  <title>전자입찰시스템 SRM - 계약 관련 서류 | KEPCO ES</title>
   <link rel="stylesheet" href="../../assets/styles/style.css">
 </head>
 <body>
@@ -110,7 +110,7 @@
           <div class="srm-kv-row description-marker-container"><span class="description-target-marker marker-top-left" aria-hidden="true">2</span><dt>하자이행 보증보험 증권 <span class="required" aria-hidden="true">*</span></dt><dd><span class="badge-tag">제출 대상이 아닙니다</span></dd></div>
           <div class="srm-kv-row"><dt>계약 시 참고서류</dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
         </div></section>
-      <div class="page-actions"><button type="button" class="btn-secondary " onclick="window.location.href=\'SRMPartnerContract.html\'">목록</button>
+      <div class="page-actions"><button type="button" class="btn-secondary " data-href="SRMPartnerContract.html">목록</button>
         <span class="description-marker-anchor">
           <span class="description-target-marker" aria-hidden="true">4</span>
           <button type="button" class="btn-critical-primary" data-open-modal="contractDocSubmitConfirmModal">계약 관련 서류 제출하기</button>
@@ -139,6 +139,7 @@
 
 
 
+  <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
   <script type="application/json" class="external-modal-manifest">["popups/SRMPartnerContract/contractChangeDetailModal.html", "popups/SRMPartnerContract/contractDocSubmitConfirmModal.html", "popups/SRMPartnerContract/screenDescriptionGuide.html"]</script>
 </body>

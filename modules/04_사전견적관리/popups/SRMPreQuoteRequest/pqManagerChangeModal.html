@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>견적요청 담당자 변경</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<div class="modal-backdrop" id="pqManagerChangeModal" role="dialog" aria-modal="true" aria-labelledby="pqManagerChangeTitle" aria-hidden="false">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-header"><h2 class="modal-title" id="pqManagerChangeTitle">견적요청 담당자 변경</h2><button type="button" class="modal-close" aria-label="닫기">&times;</button></div>
+      <div class="modal-body">
+        <div class="srm-table-wrap">
+          <table class="data-table" aria-label="견적요청 담당자 목록">
+            <thead><tr><th class="col-no">No</th><th>담당자 구분</th><th>이름</th><th>직책</th><th>이메일</th><th>핸드폰번호</th><th>담당업무</th><th class="w-60">선택</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>기본 담당자</td><td>이희성</td><td>이사</td><td>leehee43@naver.com</td><td>010-6844-2810</td><td class="text-left">사내 입찰/계약 담당자</td><td><button type="button" class="btn-task-register" data-close-modal>선택</button></td></tr>
+              <tr><td>2</td><td>추가 담당자</td><td>박일용</td><td>부장</td><td>-</td><td>-</td><td class="text-left">견적 등 업무 관련 담당자</td><td><button type="button" class="btn-task-register" data-close-modal>선택</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn-secondary" data-close-modal>닫기</button></div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

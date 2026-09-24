@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>전자입찰시스템(SRM) - 사전 견적 요청 관리 | KEPCO ES</title>
+  <title>전자입찰시스템 SRM - 사전 견적 요청(견적 요청 기본정보) | KEPCO ES</title>
   <link rel="stylesheet" href="../../assets/styles/style.css">
 </head>
 <body>
@@ -44,18 +44,26 @@
     <aside class="sidebar" id="sidebar">
       <nav class="sidebar-nav">
         <div class="nav-item">
-                    <a href="../03_대시보드/SRMDashboardBiz.html" class="nav-link">
-                      <span class="nav-icon">
-                        <svg aria-hidden="true" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                          <rect x="3" y="3" width="7" height="9"></rect>
-                          <rect x="14" y="3" width="7" height="5"></rect>
-                          <rect x="14" y="12" width="7" height="9"></rect>
-                          <rect x="3" y="16" width="7" height="5"></rect>
-                        </svg>
-                      </span>
-                      <span class="nav-text">대시보드</span>
-                    </a>
-                  </div>
+          <a href="#" class="nav-link">
+            <span class="nav-icon">
+              <svg aria-hidden="true" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="9"></rect>
+                <rect x="14" y="3" width="7" height="5"></rect>
+                <rect x="14" y="12" width="7" height="9"></rect>
+                <rect x="3" y="16" width="7" height="5"></rect>
+              </svg>
+            </span>
+            <span class="nav-text">대시보드</span>
+            <span class="nav-arrow">
+              <svg aria-hidden="true" width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </a>
+          <ul class="submenu">
+            <li class="submenu-item"><a href="../03_대시보드/SRMDashboardBiz.html">대시보드</a></li>
+            <li class="submenu-item"><a href="../03_대시보드/SRMDashNotice.html">공지사항</a></li>
+            <li class="submenu-item"><a href="../03_대시보드/SRMDashFileRepo.html">양식 등 자료실</a></li>
+          </ul>
+        </div>
 
         <div class="nav-item active open">
                     <a href="#" class="nav-link">
@@ -261,120 +269,43 @@
 
         <main class="main-content page-detail-content">
       <div class="page-title-wrap">
-        <div class="page-title-left"><h1 class="page-title">사전 견적 요청 관리</h1></div>
+        <div class="page-title-left"><h1 class="page-title">사전 견적 요청</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardBiz.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">사전 견적 관리</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">사전 견적 요청</span></div>
       </div>
-      <section class="page-detail-body"><p class="modal-field-label">각 단계로 안내되어 있긴 하지만, 각 영역에 바로 접근(클릭)해서 정보 입력이 가능합니다.</p>
-
-        <div class="srm-section-heading content-inner-gap-top"><div><h2>견적 요청 기본정보</h2></div></div>
-        <div class="srm-kv-grid">
+      <section class="app-card srm-bid-summary" aria-label="견적 요청 요약">
+        <table class="data-table" aria-label="견적 요청 요약">
+          <thead><tr><th>견적요청번호</th><th>진행상태</th><th class="srm-bid-name">견적요청명</th><th>견적유형</th><th>예산금액</th><th>품목구성방법</th><th>품목</th><th>전달자료</th><th>요청 업체 수</th></tr></thead>
+          <tbody><tr><td>RFQ2607</td><td>작성 중</td><td class="srm-bid-name" title="태양광 발전기 도입 관련 견적 요청의 건">태양광 발전기 도입 관련 견적 요청의 건</td><td>공사/용역/물품</td><td>135,400,000</td><td>품목단가 | 지정항목</td><td>2건</td><td>3건</td><td>3개</td></tr></tbody>
+        </table>
+      </section>
+      <nav class="wizard-stepper" aria-label="사전 견적 요청 단계">
+        <a href="SRMPreQuoteRequestManage.html" class="wizard-step-box active" aria-current="step"><span class="wizard-step-dot" aria-hidden="true">1</span><span class="wizard-step-num">STEP 01</span><span class="wizard-step-title">견적 요청 기본정보</span></a>
+        <a href="SRMPreQuoteRequestManageItems.html" class="wizard-step-box"><span class="wizard-step-dot" aria-hidden="true">2</span><span class="wizard-step-num">STEP 02</span><span class="wizard-step-title">품목 정보</span></a>
+        <a href="SRMPreQuoteRequestManageAttach.html" class="wizard-step-box"><span class="wizard-step-dot" aria-hidden="true">3</span><span class="wizard-step-num">STEP 03</span><span class="wizard-step-title">전달자료</span></a>
+        <a href="SRMPreQuoteRequestManageVendor.html" class="wizard-step-box"><span class="wizard-step-dot" aria-hidden="true">4</span><span class="wizard-step-num">STEP 04</span><span class="wizard-step-title">견적 요청 업체 선정</span></a>
+        <a href="SRMPreQuoteRequestManageReview.html" class="wizard-step-box"><span class="wizard-step-dot" aria-hidden="true">5</span><span class="wizard-step-num">STEP 05</span><span class="wizard-step-title">최종 점검 및 견적 요청</span></a>
+        <a href="SRMPreQuoteRequestComplete.html" class="wizard-step-box"><span class="wizard-step-dot" aria-hidden="true">6</span><span class="wizard-step-num">STEP 06</span><span class="wizard-step-title">견적 요청 완료</span></a>
+      </nav>
+      <section class="page-detail-body" aria-label="견적 요청 기본정보">
+        <dl class="srm-kv-grid">
           <div class="srm-kv-row"><dt>견적요청번호</dt><dd>RFQ2607</dd></div>
-          <div class="srm-kv-row"><dt>처리상태</dt><dd><span class="badge-tag">작성 중</span></dd></div>
-          <div class="srm-kv-row"><dt>견적요청명 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="태양광 발전기 도입 관련 견적 요청의 건" maxlength="50"></dd></div>
-          <div class="srm-kv-row"><dt>견적유형 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="pqMgType" checked>공사</label><label class="form-choice"><input type="radio" name="pqMgType">용역</label><label class="form-choice"><input type="radio" name="pqMgType">물품</label></div></dd></div>
-          <div class="srm-kv-row"><dt>예산금액 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control" value="135,400,000"> 일억삼천오백사십만원</dd></div>
-          <div class="srm-kv-row"><dt>품목구성방법 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="pqMgComp" checked>품목단가</label><label class="form-choice"><input type="radio" name="pqMgComp">지정항목</label></div></dd></div>
-          <div class="srm-kv-row"><dt>비고</dt><dd><input type="text" class="form-control" placeholder="100자 이내의 간단한 메모를 작성해주세요." maxlength="100"></dd></div>
+          <div class="srm-kv-row"><dt>처리상태</dt><dd>작성 중</dd></div>
+          <div class="srm-kv-row"><dt>견적요청명 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control grow" placeholder="50자 이내로 등록해주세요." maxlength="50" aria-label="견적요청명"></dd></div>
+          <div class="srm-kv-row"><dt>견적유형 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup" aria-label="견적유형"><label class="form-choice"><input type="radio" name="pqType">공사</label><label class="form-choice"><input type="radio" name="pqType">용역</label><label class="form-choice"><input type="radio" name="pqType">물품</label></div></dd></div>
+          <div class="srm-kv-row"><dt>예산금액 <span class="required" aria-hidden="true">*</span></dt><dd><div class="hstack gap-10"><input type="text" class="form-control w-160" placeholder="숫자로만 입력해주세요." aria-label="예산금액"><span class="unit-text">일억삼천오백사십만원</span></div></dd></div>
+          <div class="srm-kv-row"><dt>품목구성방법 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup" aria-label="품목구성방법"><label class="form-choice"><input type="radio" name="pqComp">품목단가</label><label class="form-choice"><input type="radio" name="pqComp">지정항목</label></div></dd></div>
+          <div class="srm-kv-row"><dt>비고</dt><dd><input type="text" class="form-control grow" placeholder="100자 이내의 간단한 메모를 작성해주세요." maxlength="100" aria-label="비고"></dd></div>
           <div class="srm-kv-row"><dt>등록일시</dt><dd>2026.06.10 15:42</dd></div>
           <div class="srm-kv-row"><dt>등록자</dt><dd>홍길동</dd></div>
-        </div>
-
-        <div class="srm-section-heading content-object-gap-top"><div><h2>품목 정보</h2></div><p>등록된 품목 : 총 3건</p></div>
-        <div class="srm-table-wrap">
-          <table class="data-table" aria-label="품목 정보">
-            <thead><tr><th class="col-no">No</th><th>품목코드</th><th>품목명</th><th>규격</th><th>단위</th><th>수량</th><th>납기요청일</th><th>입고장소</th><th>비고</th><th class="w-60">수정</th><th class="w-60">삭제</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>A0106-001</td><td class="text-left">고효율 인버터</td><td class="text-left">품목구성방법이 '지정항목'인 경우에 등록됨</td><td>EA</td><td>3</td><td>2026.07.31</td><td>현장</td><td class="text-left">품목등록의 비고에 들어간 내용입니다.</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="pqItemFormModal">수정</button></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-              <tr><td>2</td><td>A0103-001</td><td class="text-left">고효율 공기 압축기</td><td>-</td><td>EA</td><td>2</td><td>2026.07.31</td><td>켑코이에스 본사</td><td>-</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="pqItemFormModal">수정</button></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-              <tr><td>3</td><td>-</td><td class="text-left">-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="pqItemFormModal">수정</button></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="srm-detail-actions">
-          <button type="button" class="btn-secondary">엑셀 업로드 양식 다운로드</button>
-          <button type="button" class="btn-secondary" data-close-modal data-open-modal="pqItemUploadModal">품목 정보 추가(업로드)</button>
-          <button type="button" class="btn-secondary" data-close-modal data-open-modal="pqCommonItemModal">품목 추가(공통 품목)</button>
-          <button type="button" class="btn-secondary" data-close-modal data-open-modal="pqItemFormModal">품목 정보 추가(개별 등록)</button>
-          <button type="button" class="btn-primary">저장</button>
-        </div>
-
-        <div class="srm-section-heading content-object-gap-top"><div><h2>전달자료</h2></div><p>견적 요청 대상 협력업체에게 전달하는 견적 참고 자료</p></div>
-        <p class="modal-field-label">등록된 전달자료 : 총 2건</p>
-        <div class="srm-table-wrap">
-          <table class="data-table" aria-label="전달자료">
-            <thead><tr><th class="col-no">No</th><th>전달자료(파일명)</th><th>전달자료 안내</th><th class="w-140"></th><th class="w-60">삭제</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td class="text-left">견적 요청 시 유의사항(켑코이에스)#1 파일명.PDF</td><td class="text-left">견적 요청 시 유의사항(반드시 읽어주세요)</td><td><button type="button" class="btn-file-preview">바로보기</button><button type="button" class="btn-file-download">다운로드</button></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-              <tr><td>2</td><td class="text-left">견적 요청 시 유의사항(켑코이에스)#2 파일명.PDF</td><td>-</td><td><button type="button" class="btn-file-preview">바로보기</button><button type="button" class="btn-file-download">다운로드</button></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="srm-detail-actions">
-          <button type="button" class="btn-secondary" data-close-modal data-open-modal="pqAttachModal">전달자료 추가</button>
-          <button type="button" class="btn-primary">저장</button>
-        </div>
-
-        <div class="srm-section-heading content-object-gap-top"><div><h2>견적 요청 업체 선정</h2></div></div>
-        <p class="modal-field-label">견적 요청 업체 : 총 3개</p>
-        <div class="srm-table-wrap">
-          <table class="data-table" aria-label="견적 요청 업체">
-            <thead><tr><th class="col-no">No</th><th>사업자번호</th><th>업체명</th><th>대표자</th><th>담당자</th><th>핸드폰번호</th><th>이메일</th><th class="w-130">견적 마감일시</th><th class="w-120"></th><th class="w-60">삭제</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>123-45-67891</td><td class="text-left">삼전디에스</td><td>홍길동</td><td>한지훈</td><td>010-1234-5678</td><td>leehee43@naver.com</td><td>2026.08.10 18:00</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="pqDeadlineModal">견적요청 담당자 변경</button></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-              <tr><td>2</td><td>123-45-67891</td><td class="text-left">넷퍼시</td><td>홍길동</td><td>김미라</td><td>-</td><td>-</td><td>2026.08.10 18:00</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="pqDeadlineModal">견적요청 담당자 변경</button></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="srm-detail-actions">
-          <button type="button" class="btn-secondary" data-close-modal data-open-modal="pqVendorAddModal">견적요청 업체 추가</button>
-          <button type="button" class="btn-secondary" data-close-modal data-open-modal="pqDeadlineModal">견적 마감일시 등록</button>
-          <button type="button" class="btn-primary">저장</button>
-        </div>
-
-        <div class="srm-section-heading content-object-gap-top"><div><h2>최종 점검 및 견적 요청</h2></div></div>
-        <p class="modal-field-label">견적 요청 시 업체에게 전달할 사항 : <label class="form-choice"><input type="radio" name="pqFinalNote" checked>없음</label> <label class="form-choice"><input type="radio" name="pqFinalNote">있음</label></p></section>
-      <div class="page-actions"><button type="button" class="btn-secondary " onclick="window.location.href=\'SRMPreQuoteRequest.html\'">목록</button>
-        <button type="button" class="btn-critical-primary" data-open-modal="pqFinalConfirmModal">최종 견적 요청</button></div>
+        </dl>
+      </section>
+      <div class="page-actions"><button type="button" class="btn-secondary" data-href="SRMPreQuoteRequest.html">목록</button>
+        <button type="button" class="btn-critical-primary">기본정보 수정</button></div>
     </main>
   </div>
 
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
-
-  <!-- 사전 견적 요청 신규 등록 (첫 단계) -->
-
-
-  <!-- 견적요청 삭제 확인 -->
-
-
-  <!-- 견적 요청 관리 (기본정보~최종점검, 각 영역 바로 접근/입력 가능) -->
-
-
-  <!-- 품목 정보 추가(업로드) -->
-
-
-  <!-- 품목 추가(공통 품목) -->
-
-
-  <!-- 품목 정보 추가/수정 -->
-
-
-  <!-- 전달자료 추가 -->
-
-
-  <!-- 견적 마감일시 등록 / 견적요청 담당자 변경 -->
-
-
-  <!-- 견적요청 업체 추가 -->
-
-
-  <!-- 최종 견적 요청 확인 -->
-
-
-  <!-- 견적 요청 완료 -->
-
-
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMPreQuoteRequest/pqDeleteConfirmModal.html", "popups/SRMPreQuoteRequest/pqItemUploadModal.html", "popups/SRMPreQuoteRequest/pqCommonItemModal.html", "popups/SRMPreQuoteRequest/pqItemFormModal.html", "popups/SRMPreQuoteRequest/pqAttachModal.html", "popups/SRMPreQuoteRequest/pqDeadlineModal.html", "popups/SRMPreQuoteRequest/pqVendorAddModal.html", "popups/SRMPreQuoteRequest/pqFinalConfirmModal.html"]</script>
 </body>
 </html>

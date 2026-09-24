@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>전자입찰시스템(SRM) - 사전 견적 요청 완료 | KEPCO ES</title>
+  <title>전자입찰시스템 SRM - 사전 견적 요청(견적 요청 완료) | KEPCO ES</title>
   <link rel="stylesheet" href="../../assets/styles/style.css">
 </head>
 <body>
@@ -44,18 +44,26 @@
     <aside class="sidebar" id="sidebar">
       <nav class="sidebar-nav">
         <div class="nav-item">
-                    <a href="../03_대시보드/SRMDashboardBiz.html" class="nav-link">
-                      <span class="nav-icon">
-                        <svg aria-hidden="true" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                          <rect x="3" y="3" width="7" height="9"></rect>
-                          <rect x="14" y="3" width="7" height="5"></rect>
-                          <rect x="14" y="12" width="7" height="9"></rect>
-                          <rect x="3" y="16" width="7" height="5"></rect>
-                        </svg>
-                      </span>
-                      <span class="nav-text">대시보드</span>
-                    </a>
-                  </div>
+          <a href="#" class="nav-link">
+            <span class="nav-icon">
+              <svg aria-hidden="true" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="9"></rect>
+                <rect x="14" y="3" width="7" height="5"></rect>
+                <rect x="14" y="12" width="7" height="9"></rect>
+                <rect x="3" y="16" width="7" height="5"></rect>
+              </svg>
+            </span>
+            <span class="nav-text">대시보드</span>
+            <span class="nav-arrow">
+              <svg aria-hidden="true" width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </a>
+          <ul class="submenu">
+            <li class="submenu-item"><a href="../03_대시보드/SRMDashboardBiz.html">대시보드</a></li>
+            <li class="submenu-item"><a href="../03_대시보드/SRMDashNotice.html">공지사항</a></li>
+            <li class="submenu-item"><a href="../03_대시보드/SRMDashFileRepo.html">양식 등 자료실</a></li>
+          </ul>
+        </div>
 
         <div class="nav-item active open">
                     <a href="#" class="nav-link">
@@ -261,57 +269,38 @@
 
         <main class="main-content page-detail-content">
       <div class="page-title-wrap">
-        <div class="page-title-left"><h1 class="page-title">사전 견적 요청 완료</h1></div>
+        <div class="page-title-left"><h1 class="page-title">사전 견적 요청</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardBiz.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">사전 견적 관리</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">사전 견적 요청</span></div>
       </div>
-      <section class="page-detail-body"><div class="notice-box success" role="note">
+      <section class="app-card srm-bid-summary" aria-label="견적 요청 요약">
+        <table class="data-table" aria-label="견적 요청 요약">
+          <thead><tr><th>견적요청번호</th><th>진행상태</th><th class="srm-bid-name">견적요청명</th><th>견적유형</th><th>예산금액</th><th>품목구성방법</th><th>품목</th><th>전달자료</th><th>요청 업체 수</th></tr></thead>
+          <tbody><tr><td>RFQ2607</td><td>작성 중</td><td class="srm-bid-name" title="태양광 발전기 도입 관련 견적 요청의 건">태양광 발전기 도입 관련 견적 요청의 건</td><td>공사/용역/물품</td><td>135,400,000</td><td>품목단가 | 지정항목</td><td>2건</td><td>3건</td><td>3개</td></tr></tbody>
+        </table>
+      </section>
+      <nav class="wizard-stepper" aria-label="사전 견적 요청 단계">
+        <a href="SRMPreQuoteRequestManage.html" class="wizard-step-box completed"><span class="wizard-step-dot" aria-hidden="true">1</span><span class="wizard-step-num">STEP 01</span><span class="wizard-step-title">견적 요청 기본정보</span></a>
+        <a href="SRMPreQuoteRequestManageItems.html" class="wizard-step-box completed"><span class="wizard-step-dot" aria-hidden="true">2</span><span class="wizard-step-num">STEP 02</span><span class="wizard-step-title">품목 정보</span></a>
+        <a href="SRMPreQuoteRequestManageAttach.html" class="wizard-step-box completed"><span class="wizard-step-dot" aria-hidden="true">3</span><span class="wizard-step-num">STEP 03</span><span class="wizard-step-title">전달자료</span></a>
+        <a href="SRMPreQuoteRequestManageVendor.html" class="wizard-step-box completed"><span class="wizard-step-dot" aria-hidden="true">4</span><span class="wizard-step-num">STEP 04</span><span class="wizard-step-title">견적 요청 업체 선정</span></a>
+        <a href="SRMPreQuoteRequestManageReview.html" class="wizard-step-box completed"><span class="wizard-step-dot" aria-hidden="true">5</span><span class="wizard-step-num">STEP 05</span><span class="wizard-step-title">최종 점검 및 견적 요청</span></a>
+        <a href="SRMPreQuoteRequestComplete.html" class="wizard-step-box active" aria-current="step"><span class="wizard-step-dot" aria-hidden="true">6</span><span class="wizard-step-num">STEP 06</span><span class="wizard-step-title">견적 요청 완료</span></a>
+      </nav>
+      <section class="page-detail-body" aria-label="견적 요청 완료">
+        <div class="notice-box success" role="status">
           <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
           <div class="notice-body">
             <p class="notice-lead">견적 요청이 완료되었습니다.</p>
-            <p>견적 요청이 완료된 경우 요청 정보를 수정할 수 없습니다. 본 사전 견적 진행 현황은 '사전 견적 요청 현황' 메뉴를 통해 확인하실 수 있습니다.</p>
+            <p>견적 요청이 완료된 경우 요청 정보를 수정할 수 없습니다.<br>본 사전 견적 진행 현황은 ‘사전 견적 요청 현황’ 메뉴를 통해 확인하실 수 있습니다.</p>
           </div>
-        </div></section>
-      <div class="page-actions"><a href="SRMPreQuoteStatus.html" class="btn-primary">'사전 견적 요청 현황' 바로가기</a></div>
+        </div>
+      </section>
+      <div class="page-actions actions-end"><a href="SRMPreQuoteStatus.html" class="btn-primary">‘사전 견적 요청 현황’ 바로가기 →</a></div>
     </main>
   </div>
 
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
-
-  <!-- 사전 견적 요청 신규 등록 (첫 단계) -->
-
-
-  <!-- 견적요청 삭제 확인 -->
-
-
-  <!-- 견적 요청 관리 (기본정보~최종점검, 각 영역 바로 접근/입력 가능) -->
-
-
-  <!-- 품목 정보 추가(업로드) -->
-
-
-  <!-- 품목 추가(공통 품목) -->
-
-
-  <!-- 품목 정보 추가/수정 -->
-
-
-  <!-- 전달자료 추가 -->
-
-
-  <!-- 견적 마감일시 등록 / 견적요청 담당자 변경 -->
-
-
-  <!-- 견적요청 업체 추가 -->
-
-
-  <!-- 최종 견적 요청 확인 -->
-
-
-  <!-- 견적 요청 완료 -->
-
-
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMPreQuoteRequest/pqDeleteConfirmModal.html", "popups/SRMPreQuoteRequest/pqItemUploadModal.html", "popups/SRMPreQuoteRequest/pqCommonItemModal.html", "popups/SRMPreQuoteRequest/pqItemFormModal.html", "popups/SRMPreQuoteRequest/pqAttachModal.html", "popups/SRMPreQuoteRequest/pqDeadlineModal.html", "popups/SRMPreQuoteRequest/pqVendorAddModal.html", "popups/SRMPreQuoteRequest/pqFinalConfirmModal.html"]</script>
 </body>
 </html>
