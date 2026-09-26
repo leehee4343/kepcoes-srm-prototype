@@ -1,8 +1,8 @@
 # 📘 KEPCO ES 통합 디자인 / UI / UX 가이드라인 (Design System)
 
 > **프로젝트**: 켑코이에스(주) 사업관리시스템 (PMS) & 전자입찰시스템 (SRM)  
-> **버전**: v2.66
-> **최종 수정일**: 2026-09-24
+> **버전**: v2.69
+> **최종 수정일**: 2026-09-26
 > **목적**: PMS 및 SRM 전체 화면의 시각적 완성도, 일관성, 접근성 및 사용자 경험(UX) 표준을 정의하고 협업 기준을 제공하는 단일 진실 공급원(Single Source of Truth).
 
 ### 이 문서의 사용법
@@ -574,6 +574,7 @@ font-family: 'Pretendard';
 - `.ui-dependent-fields`는 라디오/체크박스 뒤의 조건부 입력 묶음이며 기존 폼 스타일을 사용합니다. `.ui-readonly-value`는 완료/확인 상태의 입력값 표시입니다. 조건부 숨김은 기존 display 규칙보다 우선합니다.
 - 계약방법·낙찰자 선정방법·예정/예비가의 관계 및 적용 슬라이드는 `docs/CONDITIONAL_UI_AUDIT.md`를 기준으로 추적합니다. 원본에 모순되거나 미확정인 설명은 임의 업무규칙으로 확정하지 않고 해당 문서에 남깁니다.
 
+- **진행상태 전수 표시**: 화면설계가 검색·조회 목록의 진행상태(제출상태·결과 포함)를 정의한 경우(노란색 영역·목록 예시), 목록 예시 행에 그 상태가 **모두** 나와야 합니다. 상태 목록은 해당 열 머리글의 `th[data-status-values="상태1|상태2|…"]`에 화면설계 순서대로 적고, `initPrototypeRecords()`가 행마다 배정합니다(투찰 상태는 투찰 기간이 별도인 낙찰방법, 심사완료는 심사가 있는 낙찰방법에만). 예시 건이 상태 수보다 적으면 같은 조합의 추가 예시 건으로 채웁니다. 다른 상태에 딸린 열은 `data-status-when`(예: 결과는 `선정완료` 행에만)·`data-status-fixed`(예: `선정완료=입찰 참여 완료`)로 맞춥니다. 행에서 여는 상세 화면은 진행상태에 맞춰 개찰·심사·낙찰·수의시담 여부를 넘겨받고, 검색 영역의 진행상태 선택은 같은 이름의 열로 목록을 거릅니다. 배지 색은 대기·마감 `badge-tag`, 진행 `badge-info`, 완료·선정 `badge-success`, 결재 요청·재입찰 `badge-warning`, 유찰·취소·탈락·포기 `badge-danger`입니다(5.6).
 - 관련 검색·조회 목록은 공통 예시 게시물의 허용 조합을 모두 제공합니다(경쟁입찰 15종, 수의계약 가격유형 2종). 업무 전용 목록은 해당 계약방법으로 제한하며, 페이지 수는 실제 예시 행 수와 일치시킵니다. `data-prototype-record` 및 URL의 `record`로 선택한 사례를 구분하고 상세·탭·팝업에 같은 조건을 전달합니다. 로컬 파일의 URL 변경 제한 시 `#record=...`로 선택을 보존합니다. 예시 건을 선택한 상태는 신규 입력용 세션 상태와 분리합니다.
 
 ### 5.8 모달 팝업 가이드 (Modal & Dialog)
@@ -790,68 +791,62 @@ font-family: 'Pretendard';
 - 개발자 가이드는 인쇄·PDF·콘텐츠 출력 결과와 운영 배포물에서 제외할 수 있어야 하며, 출력 모드에서는 `D`, 드로어, 목적지 번호를 표시하지 않습니다.
 
 #### Description 원문 규칙
-- 기준 자료는 `docs/reference/[참고] 화면설계(...).pptx`의 해당 화면 슬라이드에 있는 **Description 텍스트 상자**입니다. 화면에 맞게 문장을 다듬거나 맞춤법·띄어쓰기·구두점·용어를 고치지 않습니다.
-- Description의 각 항목은 화면설계 번호와 같은 숫자를 **일반 텍스트**(`.description-mapping-number`)로 내용 왼쪽에 나란히 표시합니다. Description 쪽 숫자에는 원·배경색·테두리를 사용하지 않아 목적지 표식과 혼동되지 않게 합니다.
-- 하나의 HTML이 목록·상세·등록 등 여러 설계 슬라이드를 통합하면 드로어에서 슬라이드의 화면명(예: `검색/조회`, `상세정보`)으로 섹션을 나눕니다. 각 섹션의 번호는 원본 슬라이드처럼 `1`부터 다시 시작할 수 있습니다.
-- 원문이 없는 슬라이드에는 내용을 만들지 않습니다. `Description 없음` 같은 대체 문장도 임의로 추가하지 않고, 적용 현황표에 `원문 없음`으로 기록합니다.
+- 기준 자료는 `docs/reference/[참고] 화면설계(...).pptx`의 해당 화면 슬라이드 **Description**입니다. 오른쪽 Description 텍스트 상자(항목 번호는 PPTX 자동 번호 `circleNumDbPlain`)와 슬라이드 위의 붉은 채움 설명 상자(번호는 연결선이 이어진 붉은 원형 번호)를 모두 포함합니다.
+- 원문은 **변경·추가·삭제하지 않습니다.** 맞춤법·띄어쓰기·구두점·오탈자·용어도 그대로 두며, 줄바꿈도 원문대로 옮깁니다(문단 끝 줄바꿈만 표시하지 않음). 원문이 없는 슬라이드에는 내용을 만들지 않습니다.
+- **Description이 없는 화면에는 `D`·드로어·목적지 번호를 두지 않습니다.**
+- 드로어는 화면(HTML)마다 하나이며 `popups/{화면}/screenDescriptionGuide.html`에 둡니다. 드로어에는 그 화면과 그 화면이 여는 팝업을 설계한 슬라이드만 담고, 슬라이드마다 화면명(`h3`)과 출처(`.description-source-meta`, 예: `화면설계 02 · 슬라이드 30`)로 섹션을 나눕니다.
+- 하나의 화면에 연결된 슬라이드가 여러 장이고 설계서에서 번호가 `1`부터 다시 시작하면, 드로어 번호는 앞 슬라이드에 **이어서 자동 발번**합니다(예: 본 화면 ①~⑤, 팝업 슬라이드 ①~③ → 1~5, 6~8). 목록 → 상세처럼 별도 화면(HTML)은 각자 `1`부터 시작합니다.
+- 연결된 번호 없이 설명 상자만 있는 원문은 번호 없이 번호 있는 항목 뒤에 둡니다.
+- 드로어 파일은 **직접 작성·수정하지 않습니다.** 화면-슬라이드 대응은 `docs/DESCRIPTION_MAP.json`에만 기록하고 `python3 tools/build_description_guides.py`로 생성합니다. 이 스크립트가 원문 추출(`tools/description_source.py`), 연속 번호, `D` 버튼·매니페스트 삽입, `docs/DESCRIPTION_OVERLAY_STATUS.md` 생성, 팝업 번들 재생성을 함께 처리합니다.
 
 #### 목적지 번호 규칙
-- 화면설계의 반투명 붉은 원형 번호는 실제 목적지 요소에 `.description-marker-anchor`와 `.description-target-marker`로 연결합니다. 목적지 번호만 지름 `26px`, 흰 글자, `rgba(220, 38, 38, 0.58)` 배경, 원형으로 표시합니다.
-- 목적지 번호의 `z-index: 1300`은 Description 드로어(`1150`)·업무 모달(`1000~1100`)·토스트(`1200`)보다 항상 높아야 합니다. 목적지가 드로어가 덮는 화면 오른쪽 영역과 겹치더라도 번호가 가려지면 안 됩니다.
-- 목적지 번호는 Description 드로어가 열린 동안에만 보이고 닫으면 모두 사라져야 합니다. 평상시 업무 화면의 레이아웃과 접근성 트리에 영향을 주지 않도록 `aria-hidden="true"`, `pointer-events: none`을 사용합니다.
-- 번호를 화면 좌표에 고정하지 않고 실제 입력·버튼·표·탭·섹션 요소에 상대 배치합니다. 해상도나 콘텐츠 높이가 바뀌어도 목적지를 따라가야 합니다.
-- 숨겨진 탭·아코디언·상세 모달 안의 목적지는 해당 상태가 열렸을 때 표시합니다. 목적지 확인을 위해 업무 상태를 자동 변경하거나 모달을 강제로 열지 않습니다.
-- Description 번호와 목적지 번호는 **슬라이드·화면 상태 단위**로 일치해야 합니다. 같은 HTML 안에서 번호가 다시 시작되면 섹션 또는 상태 식별자를 함께 관리하여 서로 잘못 연결되지 않게 합니다.
+- 화면설계의 붉은 원형 번호는 실제 목적지 요소에 `.description-marker-anchor`(인라인) 또는 `.description-marker-container`(블록) 안의 `.description-target-marker`로 연결합니다. 표식은 지름 `26px`, 흰 글자, `rgba(220, 38, 38, 0.58)` 배경의 원형입니다.
+- 표식에는 **숫자를 쓰지 않고** `data-description-ref="{슬라이드}:{원본 번호}"`(예: `00-15:1`, 설계서의 `①’`는 `00-15:1’`)만 둡니다. `initDescriptionGuide`가 현재 화면 드로어에서 같은 ref의 번호를 찾아 `data-description-number`에 넣고, CSS `::before`가 그 번호를 그립니다. 그래서 표 머리글·버튼·제목의 `textContent`에 번호가 섞이지 않고, 여러 화면이 공유하는 팝업도 화면마다 이어 붙인 번호로 표시됩니다. 현재 화면 드로어에 없는 ref의 표식은 숨깁니다.
+- 조건에 따라 보이는 목적지(가격유형·개찰 상태·수의계약 등)는 표식 span에 대상과 같은 `data-ui-show` 조건을 둡니다(5.7.1). 숨겨진 버튼을 감싼 앵커의 표식도 CSS로 함께 숨깁니다.
+- 목적지가 팝업 자체이면 팝업 제목(`.modal-title`) 앞에 표식을 둡니다. 목록 행을 복제해 채우는 그리드는 `removeDuplicateDescriptionMarkers`로 첫 행에만 표식을 남깁니다.
+- 목적지 번호의 `z-index: 1300`은 Description 드로어(`1150`)·업무 모달(`1000~1100`)·토스트(`1200`)보다 항상 높아야 합니다.
+- 목적지 번호는 Description 드로어가 열린 동안에만 보입니다(`body.description-guide-open`). 이때에 한해 `.srm-kv-grid`의 `overflow`를 풀고, 표식이 있는 스크롤 표 래퍼에 위 여백을 주어 표식이 잘리지 않게 합니다. 평상시 레이아웃과 접근성 트리에는 영향을 주지 않습니다(`aria-hidden="true"`, `pointer-events: none`).
+- 번호를 화면 좌표에 고정하지 않고 실제 입력·버튼·표·탭·섹션 요소에 상대 배치합니다. 숨겨진 탭·모달 안의 목적지는 해당 상태가 열렸을 때 표시하며, 목적지 확인을 위해 업무 상태를 자동 변경하지 않습니다.
+- 화면에 목적지가 없는 번호(화면설계와 구현 차이 등)는 표식을 임의로 만들지 않고 `docs/DESCRIPTION_MAP.json`의 `no_target`에 사유를 기록합니다. 설계서 번호 표기 오류 등 판단이 필요한 대응은 `notes`에 기록합니다.
+
+#### 고객 통보 코드 미리보기 (핸드폰 목업)
+- Description의 `고객 통보 : MSG-###` 코드를 누르면 드로어 왼쪽에 핸드폰 목업(`.message-preview`)을 띄워 해당 코드로 발송되는 문자·메일을 보여 줍니다. 개발·검수용 표현이며 실제 발송 기능이 아닙니다.
+- 문구는 `[참고]자동발송 메일, 메세지 내용 정리.xlsx`의 셀 원문 그대로입니다(메일 제목·메일 내용·SMS(MLS) 내용·발송대상). `python3 tools/build_message_catalog.py`로 `assets/scripts/message-catalog.js`를 생성하며 직접 수정하지 않습니다.
+- Description 원문 파일은 바꾸지 않습니다. `initMessagePreview`가 실행 시 카탈로그에 있는 코드 글자만 같은 글자의 버튼(`.description-message-code`)으로 감쌉니다.
+- 목업은 `문자(SMS/LMS)`·`메일` 두 보기로 나뉩니다. 문자 종류는 90바이트(한글 2바이트) 초과 시 `LMS`로 표시합니다. `×`·`Esc`로 닫고(`Esc`는 목업 먼저, 다음에 드로어), 드로어가 닫히면 함께 닫힙니다. `z-index: 1150`(드로어와 같은 층, 문서 순서상 위), 출력 시 숨깁니다.
+- 드로어에 `MSG-###`이 있는 화면에는 `tools/build_description_guides.py`가 `dashboard.js` 앞에 `<script src="../../assets/scripts/message-catalog.js"></script>`를 자동으로 넣습니다(현재 16개 화면, 코드 20곳). 직접 추가·삭제하지 않습니다.
 
 #### 표준 마크업
 
 ```html
-<!-- 화면 하단: D 플로팅 버튼 -->
-<button type="button" class="description-floating-button"
-  data-description-guide-toggle="screenDescriptionGuide"
-  aria-controls="screenDescriptionGuide" aria-expanded="false"
-  aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
+<!-- 화면 하단: D 플로팅 버튼 (생성 스크립트가 삽입) -->
+<button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
-<!-- 우측 드로어: 슬라이드 화면명 단위로 섹션을 나누고, 섹션 안에서 번호는 1부터 다시 시작 가능 -->
-<div class="modal-backdrop description-guide-backdrop" id="screenDescriptionGuide"
-  role="dialog" aria-modal="false" aria-labelledby="screenDescriptionGuideTitle" aria-hidden="true">
-  <div class="modal-dialog modal-lg description-modal-dialog">
-    <div class="modal-header">
-      <h2 class="modal-title" id="screenDescriptionGuideTitle">화면설계 Description</h2>
-      <button type="button" class="modal-close" aria-label="닫기">&times;</button>
-    </div>
-    <div class="modal-body description-modal-body">
-      <section class="description-source-section" aria-labelledby="descriptionSearchTitle">
-        <h3 id="descriptionSearchTitle">검색/조회</h3>
-        <div class="description-mapping-list">
-          <div class="description-mapping-item">
-            <span class="description-mapping-number" aria-hidden="true">1</span>
-            <pre class="description-source-text">PPTX 원문을 문자 단위로 그대로 옮깁니다.</pre>
-          </div>
-        </div>
-      </section>
+<!-- popups/{화면}/screenDescriptionGuide.html (자동 생성, 직접 수정 금지) -->
+<section class="description-source-section" aria-labelledby="descriptionSection1">
+  <h3 id="descriptionSection1">거래처 관리</h3>
+  <p class="description-source-meta">화면설계 00 · 슬라이드 15</p>
+  <div class="description-mapping-list">
+    <div class="description-mapping-item" data-description-ref="00-15:1">
+      <span class="description-mapping-number" aria-hidden="true">1</span>
+      <pre class="description-source-text">PPTX 원문 그대로</pre>
     </div>
   </div>
-</div>
+</section>
 
-<!-- 목적지 번호: 실제 대상 요소를 감싸 상대 배치. 인라인 요소는 span, 블록·컨테이너는 marker-top-left로 좌상단에 둡니다 -->
-<span class="description-marker-anchor">
-  <span class="description-target-marker" aria-hidden="true">1</span>
-  <button type="button" class="btn-secondary">검색</button>
-</span>
+<!-- 목적지 번호: 숫자 없이 ref만 둡니다 -->
+<span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="00-15:1" aria-hidden="true"></span><select class="filter-select">…</select></span>
 
 <div class="description-marker-container">
-  <span class="description-target-marker marker-top-left" aria-hidden="true">2</span>
+  <span class="description-target-marker marker-top-left" data-description-ref="00-15:2" aria-hidden="true"></span>
   <!-- 표·카드처럼 감싸는 대상 -->
 </div>
 ```
 
 #### 필수 검증
-1. PPTX Description의 각 문단과 HTML의 `.description-source-text`를 Unicode 문자열로 비교하여 길이와 내용이 모두 동일한지 확인합니다.
-2. 슬라이드별 Description 번호 집합과 목적지 번호 집합이 일치하는지 확인합니다. 원문만 있거나 목적지만 있는 번호를 허용하지 않습니다.
-3. `D` 닫힘/열림, 드로어 상단 정렬, 우측 슬라이드 진입, `×`·`Esc` 닫기, 숨겨진 모달·탭 목적지 표시를 확인합니다.
-4. 1920·1440·1280px에서 번호가 목적지와 겹쳐 조작을 가리거나 드로어 밖으로 잘리지 않는지 확인합니다.
-5. 개발자 UI가 해당 화면에만 한 번 존재하고, 중복 `id`, 인라인 스타일·이벤트, 끊어진 모달 대상이 없는지 검사합니다.
+1. `python3 tools/check_description_guides.py`: 드로어 원문이 PPTX와 문자 단위로 같고, 번호 있는 항목마다 화면 또는 그 화면이 여는 팝업에 목적지가 있으며(`no_target` 제외), 모든 표식이 해당 화면 드로어에 속하고, Description이 없는 화면에는 `D`·드로어·표식이 없으며, Description이 있는 모든 슬라이드가 매핑 또는 제외되었는지 확인합니다.
+2. `node tools/test_description_guides.cjs`: 페이지 스크립트 실행 후에도 표식이 남아 드로어 번호를 받는지, 드로어 번호가 1부터 빈틈없이 이어지는지, `D` 열기·`Esc` 닫기를 확인합니다.
+3. 1920·1440·1280px에서 번호가 목적지와 겹쳐 조작을 가리거나 잘리지 않는지 확인합니다.
 
 전체 화면 적용 순서와 화면별 산출물은 `docs/DESCRIPTION_OVERLAY_ROLLOUT_PLAN.md`를 따릅니다.
 
@@ -1054,7 +1049,7 @@ font-family: 'Pretendard';
 - [ ] **단계 표시**: 순차 단계를 보여주는 화면이 표준 위저드 스텝바(번호 원·연결선, 현재=오렌지, 완료=블루 체크)를 쓰고 화면 전용 단계 표시를 새로 만들지 않았는가?
 - [ ] **탭·스텝퍼**: 탭은 `role="tablist"/"tab"`과 `aria-selected`를 제공하고 선택 상태가 오렌지(탭·위저드 스텝)로 표시되는가?
 - [ ] **모달**: 표준 3단 구조(`.modal-header/.modal-body/.modal-footer`)와 크기 클래스를 쓰고, 어떤 화면 높이에서도 뷰포트 안에 들어오며(긴 내용은 본문만 스크롤) 닫기(×)·푸터 버튼이 항상 보이는가? 닫기(×/취소)·오버레이 클릭·`Esc`가 모두 동작하고 `role`·`aria-modal`·`aria-labelledby`가 있으며 제목에 `|`·번호 같은 장식이 없는가?
-- [ ] **Description 개발자 가이드**: PPTX 원문이 문자 단위로 일치하고, Description의 일반 숫자와 실제 화면의 붉은 원형 목적지 번호가 슬라이드별로 대응하며, 우측 340px 다크 드로어·상단 정렬·`×`/`Esc` 닫기·출력 제외가 지켜지는가? (5.15)
+- [ ] **Description 개발자 가이드**: PPTX 원문이 문자 단위로 일치하고(생성 스크립트로만 작성), Description의 번호와 실제 화면의 붉은 원형 목적지 번호가 대응하며, Description 없는 화면에 `D`가 없고, 우측 340px 다크 드로어·상단 정렬·`×`/`Esc` 닫기·출력 제외가 지켜지는가? (5.15)
 - [ ] **안내 박스**: 화면의 안내 영역이 표준 `.notice-box`(아이콘 원 + 핵심 문장 + 부가 안내, 의미색 옅은 배경, 굵기 400)를 쓰고 인라인 스타일이나 화면 전용 안내 스타일이 없는가?
 - [ ] **알림·빈 상태**: 결과 알림은 토스트, 확인은 모달이며 조회 결과 0건 문구가 표시되는가?
 - [ ] **차트 완결성**: 범례가 있는 오브젝트에 그래프가 함께 렌더링되고 접근성 이름과 폴백이 있는가?
@@ -1120,6 +1115,9 @@ font-family: 'Pretendard';
 ### 11.2 변경 이력
 | 버전 | 날짜 | 요지 |
 |---|---|---|
+| v2.69 | 2026-09-26 | **전 화면 가이드 정합성 재점검**: 145개 화면과 팝업을 Chrome 계산 스타일로 전수 검사해 보정 — 팝업 안 보조 버튼(검색·페이징·기간 칩·파일·삭제)이 700으로 굵어지던 선택자 우선순위 수정(5.4), 첨부파일·업체 목록을 표준 파일 행(`.srm-file-list > .srm-file-item`, 삭제 28px)으로 통일(5.11·5.12), 본문에 직접 쓴 `■`·`·` 블릿을 CSS 블릿으로 교체, 문서형 팝업 날짜를 `YYYY.MM.DD`로 통일(7), 필터 라벨 폭 통일(5.2), `#334155` 본문 사용 제거(2.3), 화면 제목 형식 보정, 핸드폰 목업 13px·레이어 값 보정. **진행상태 전수 표시(5.7.1)**: 입찰공고 현황(17종)·수의계약 현황(8종)·협력업체 입찰공고/입찰 참여/수의계약 요청 현황 목록에 화면설계 정의 상태를 모두 제공하고 진행상태 검색 동작 추가. |
+| v2.68 | 2026-09-26 | **고객 통보 코드 미리보기(5.15)**: Description의 `MSG-###`을 누르면 참고 xlsx 원문의 문자(SMS/LMS)·메일을 핸드폰 목업으로 표시. 카탈로그 생성 스크립트(`tools/build_message_catalog.py`) 추가, 코드가 있는 16개 화면(코드 20곳)에 생성 스크립트로 적용. |
+| v2.67 | 2026-09-26 | **Description 전 화면 적용(5.15)**: 화면설계 00~10의 Description을 PPTX에서 추출해 117개 화면에 화면별 드로어로 생성(원문 무수정, 연결 팝업 슬라이드 번호 자동 이어 발번, Description 없는 화면은 `D` 없음). 목적지 번호를 `data-description-ref` + CSS 표시 방식으로 전환하고 기존 드로어의 줄바꿈·띄어쓰기 누락과 목적지 위치 오류 보정. 생성·검증 스크립트(`build/check_description_guides.py`, `test_description_guides.cjs`)와 매핑 파일(`docs/DESCRIPTION_MAP.json`) 추가. |
 | v2.66 | 2026-09-24 | 사이드바 펼침 너비 270px 및 메뉴명 한 줄 표시로 통일. 헤더 CI 영역도 동일 너비 적용. |
 | v2.65 | 2026-09-24 | 목록 그리드 초기 열 폭을 내용 기반 자동 배분으로 통일하여 명칭 열 여백 편중을 개선. |
 | v2.64 | 2026-09-24 | 일반 표와 데이터 그리드 모두 컬럼 구분선을 1px #edf0f4로 통일. 그리드 세로선 제외 규칙 폐지. |
@@ -1255,6 +1253,7 @@ font-family: 'Pretendard';
 | | 게시판형 목록·상세·등록(모달 아님) | `.board-view`(`.show`) 형제 전환, 하단 `.srm-detail-actions` > `.srm-list-button` | 6.2.1 |
 | 개발자 가이드 | Description 버튼 · 우측 드로어 · 원문 매핑 | `.description-floating-button` · `.description-modal-dialog` · `.description-modal-body` · `.description-source-section` · `.description-mapping-list/item/number` · `.description-source-text` | 5.15 |
 | | 화면설계 목적지 번호 | `.description-marker-anchor` > `.description-target-marker` | 5.15 |
+| | 고객 통보 코드 미리보기 | `.description-message-code` · `.message-preview` · `.phone-mockup` · `.phone-bubble` · `.phone-mail-*` | 5.15 |
 | 안내 | 안내 박스 | `.notice-box`(`.info/.warning/.danger/.success`) > `.notice-icon` · `.notice-body`(`.notice-lead`, `.notice-note`) | 5.9.1 |
 | 콘텐츠 | 블릿 목록 · 첨부파일 | `.bullet-list` · `.content-bullet-item` · `.srm-file-list` > `.srm-file-item` | 5.11, 5.12 |
 | 안내 | 토스트 알림 | `.toast-stack` > `.toast`(`.info/.success/.warning/.danger`) | 5.9, `showToast()` |
@@ -1281,7 +1280,10 @@ font-family: 'Pretendard';
 | `initModals` | 모달 열기·닫기 3종(× · 오버레이 · `Esc`) | `.modal-backdrop` |
 | `initStepTabs` | 선택형 스텝바: `[data-step-tabs]` 안의 `[data-step-target]` 단계를 누르면 해당 패널만 표시(`active`·`aria-selected` 이동) | 5.7 |
 | `initPageLinks` | 버튼형 페이지 이동: `data-href`(목적지 파일), `data-history-back`(이전 화면). 인라인 `onclick` 대체. 권한 버튼(`.perm-btn`)은 제외 | 6.2.1 |
-| `initDescriptionGuide` | 개발자용 Description 우측 드로어 열기·상태·목적지 번호 동기화 | 5.15 |
+| `initDescriptionGuide` | 개발자용 Description 우측 드로어 열기·상태 동기화, 드로어의 ref별 번호를 목적지 표식 `data-description-number`에 반영(드로어에 없는 표식은 숨김) | 5.15 |
+| `initMessagePreview` | Description의 고객 통보 코드(`MSG-###`)를 버튼으로 감싸고 핸드폰 목업으로 발송 문자·메일 미리보기(카탈로그를 불러온 화면만) | 5.15 |
+| `assignPrototypeStatuses` · `writePrototypeStatus` · `prototypeStatusState` | 목록 진행상태 배정(화면설계 정의 상태 전수)·상태 배지·상세 화면 상태 전달 | 5.7.1 |
+| `removeDuplicateDescriptionMarkers` | 그리드 예시 행 복제 시 같은 ref의 목적지 표식을 첫 행에만 남김 | 5.15 |
 | `renderDonutCharts` · `animateBarCharts` · `animateProgressBars` | 차트·진행 막대 렌더링 | 대시보드·통계 |
 | `init…Page` | 화면 전용 인터랙션: `ProjectRegister`, `SRMLogin`, `ProjectSearch`, `ProjectDetail`, `BusinessSettlement`, `Statistics`, `StepWorkflow`, `PlanPerformance`, `PartnerRegister`, `SrmDetail`, `ProjectPromotion` | 각 화면 |
 | `initDashboardWidgets` | 대시보드 위젯 전환(범위·기간 칩, 캘린더 날짜 선택, 파이프라인 단계 선택)과 권한 버튼 이동(`data-href`). `data-open-modal` 클릭 처리기도 여기에 있으며 대상이 `.board-view`면 게시판형 화면 전환(6.2.1), 아니면 모달 열기(5.8)로 분기 | 6.7, 6.2.1 |

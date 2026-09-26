@@ -19,6 +19,8 @@ async function open(name, state = {}, record = '', fragment = '') {
   const dom = new JSDOM(fs.readFileSync(file, 'utf8'), { url: `file://${file}?ui=${encodeURIComponent(JSON.stringify(state))}&record=${encodeURIComponent(record)}${fragment}`, runScripts: 'outside-only', pretendToBeVisual: true, virtualConsole: vc });
   const w = dom.window; await new Promise(resolve => w.addEventListener('load', resolve));
   const bundle = path.join(path.dirname(file), 'popups/popup-bundle.js'); if (fs.existsSync(bundle)) w.eval(fs.readFileSync(bundle, 'utf8'));
+  // 고객 통보 코드 미리보기를 쓰는 화면은 메일·메시지 카탈로그도 불러옵니다(DESIGN_GUIDE 5.15).
+  if (w.document.querySelector('script[src$="message-catalog.js"]')) w.eval(fs.readFileSync(path.resolve(__dirname, '../assets/scripts/message-catalog.js'), 'utf8'));
   let boot;
   const add = w.document.addEventListener.bind(w.document);
   w.document.addEventListener = (type, fn, ...rest) => type === 'DOMContentLoaded' ? boot = fn : add(type, fn, ...rest);

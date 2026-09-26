@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initDataGrids();
   initAttachmentDisplays();
   initDescriptionGuide();
+  initMessagePreview();
   initPageLinks();
   initStepTabs();
   initModals();
@@ -403,7 +404,7 @@ function initPageManuals() {
   const pageName = window.location.pathname.split('/').pop() || 'Dashboard.html';
   const manualText = manualByPage[pageName] || '현재 화면의 조회 조건과 업무 항목을 확인하고 필요한 기능을 선택해 작업을 진행합니다.';
 
-  pageTitle.querySelectorAll('span').forEach((description) => description.remove());
+  pageTitle.querySelectorAll('span:not(.description-target-marker)').forEach((description) => description.remove());
   pageTitle.parentElement?.querySelectorAll(':scope > .page-subtitle, :scope > .dashboard-subtitle').forEach((description) => description.remove());
 
   const manualId = `pageManual-${pageName.replace(/[^a-z0-9]/gi, '')}`;
@@ -1282,9 +1283,32 @@ function initModals() {
  * - 비차단형 우측 드로어 열기/상태 동기화
  * - 드로어가 열린 동안에만 화면설계 목적지 번호 표시
  */
+// 예시 행을 복제해 목록을 채울 때 화면설계 목적지 번호는 처음 한 곳에만 남깁니다.
+function removeDuplicateDescriptionMarkers(row, container) {
+  const existing = new Set(Array.from(container.querySelectorAll('.description-target-marker[data-description-ref]'), marker => marker.dataset.descriptionRef));
+  row.querySelectorAll('.description-target-marker[data-description-ref]').forEach(marker => {
+    if (existing.has(marker.dataset.descriptionRef)) marker.remove();
+  });
+}
+
 function initDescriptionGuide() {
   const guides = Array.from(document.querySelectorAll('.description-guide-backdrop'));
   const triggers = Array.from(document.querySelectorAll('[data-description-guide-toggle]'));
+
+  // 목적지 번호는 data-description-ref(슬라이드:원본번호)만 갖고, 표시 번호는 현재 화면 드로어의 번호를 따릅니다.
+  // 같은 팝업을 여러 화면이 공유해도 화면마다 이어 붙인 번호가 표시되며, 드로어에 없는 목적지는 숨깁니다.
+  // 번호는 CSS(::before)로만 그려서 표 머리글·버튼 등의 textContent에 섞이지 않게 합니다.
+  const numbers = new Map();
+  guides.forEach(guide => guide.querySelectorAll('.description-mapping-item[data-description-ref]').forEach(item => {
+    numbers.set(item.dataset.descriptionRef, item.querySelector('.description-mapping-number')?.textContent.trim() || '');
+  }));
+  document.querySelectorAll('.description-target-marker[data-description-ref]').forEach(marker => {
+    const [, ref, prime] = marker.dataset.descriptionRef.match(/^(.*?)([’']*)$/);
+    const number = numbers.get(ref);
+    marker.hidden = !number;
+    if (number) marker.dataset.descriptionNumber = number + prime;
+    else delete marker.dataset.descriptionNumber;
+  });
   if (!guides.length || !triggers.length) return;
 
   const sync = () => {
@@ -1315,6 +1339,142 @@ function initDescriptionGuide() {
   });
 
   sync();
+}
+
+/**
+ * 화면설계 Description의 고객 통보 코드(MSG-###) → 핸드폰 목업 미리보기 (DESIGN_GUIDE 5.15)
+ * - message-catalog.js(참고 xlsx 셀 원문)를 불러온 화면에서만 동작합니다.
+ * - Description 원문은 바꾸지 않고, 카탈로그에 있는 코드 글자만 같은 글자의 버튼으로 감쌉니다.
+ */
+function initMessagePreview() {
+  const catalog = window.SRM_MESSAGE_CATALOG;
+  if (!catalog) return;
+  const codes = [];
+  document.querySelectorAll('.description-guide-backdrop .description-source-text').forEach(pre => {
+    const walker = document.createTreeWalker(pre, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(node => {
+      const parts = node.textContent.split(/(MSG-\d{3})/);
+      if (parts.length === 1) return;
+      const fragment = document.createDocumentFragment();
+      parts.forEach(part => {
+        if (!catalog[part]) {
+          if (part) fragment.append(part);
+          return;
+        }
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'description-message-code';
+        button.dataset.messageCode = part;
+        button.title = `${part} 발송 메일·메시지 미리보기`;
+        button.textContent = part;
+        fragment.append(button);
+        codes.push(button);
+      });
+      node.replaceWith(fragment);
+    });
+  });
+  if (!codes.length) return;
+
+  // SMS는 90바이트(한글 2바이트)까지, 넘으면 LMS로 발송됩니다.
+  const smsType = text => (Array.from(text).reduce((sum, ch) => sum + (ch.charCodeAt(0) > 127 ? 2 : 1), 0) > 90 ? 'LMS' : 'SMS');
+  const preview = document.createElement('aside');
+  preview.className = 'message-preview';
+  preview.hidden = true;
+  preview.setAttribute('aria-labelledby', 'messagePreviewTitle');
+  preview.innerHTML = `
+    <div class="message-preview-head">
+      <div>
+        <p class="message-preview-code"></p>
+        <h2 class="message-preview-title" id="messagePreviewTitle"></h2>
+        <p class="message-preview-target"></p>
+      </div>
+      <button type="button" class="message-preview-close" aria-label="미리보기 닫기">&times;</button>
+    </div>
+    <div class="phone-mockup">
+      <div class="phone-screen">
+        <div class="phone-status" aria-hidden="true"><span class="phone-time"></span><span class="phone-island"></span><span class="phone-signal">LTE ▮▮▮</span></div>
+        <div class="phone-tabs" role="tablist" aria-label="발송 방법">
+          <button type="button" role="tab" class="phone-tab" data-message-view="sms"></button>
+          <button type="button" role="tab" class="phone-tab" data-message-view="mail">메일</button>
+        </div>
+        <section class="phone-view phone-view-sms" data-message-panel="sms">
+          <div class="phone-sender"><span class="phone-avatar" aria-hidden="true">K</span>켑코이에스</div>
+          <p class="phone-date"></p>
+          <div class="phone-bubble-row"><pre class="phone-bubble"></pre><span class="phone-bubble-time"></span></div>
+        </section>
+        <section class="phone-view phone-view-mail" data-message-panel="mail">
+          <p class="phone-mail-subject"></p>
+          <div class="phone-mail-from"><span class="phone-avatar" aria-hidden="true">K</span><div><strong>켑코이에스</strong><span class="phone-mail-meta"></span></div></div>
+          <pre class="phone-mail-body"></pre>
+        </section>
+      </div>
+    </div>`;
+  document.body.append(preview);
+  const $ = selector => preview.querySelector(selector);
+  const tabs = Array.from(preview.querySelectorAll('.phone-tab'));
+  const show = view => {
+    tabs.forEach(tab => {
+      const active = tab.dataset.messageView === view;
+      tab.classList.toggle('active', active);
+      tab.setAttribute('aria-selected', String(active));
+    });
+    preview.querySelectorAll('.phone-view').forEach(panel => { panel.hidden = panel.dataset.messagePanel !== view; });
+  };
+  tabs.forEach(tab => tab.addEventListener('click', () => show(tab.dataset.messageView)));
+
+  let opener = null;
+  const close = () => {
+    if (preview.hidden) return;
+    preview.hidden = true;
+    preview.classList.remove('is-sent');
+    codes.forEach(code => code.setAttribute('aria-expanded', 'false'));
+    opener?.focus();
+  };
+  const open = button => {
+    const message = catalog[button.dataset.messageCode];
+    const now = new Date();
+    const pad = value => String(value).padStart(2, '0');
+    const time = `${now.getHours() < 12 ? '오전' : '오후'} ${now.getHours() % 12 || 12}:${pad(now.getMinutes())}`;
+    opener = button;
+    $('.message-preview-code').textContent = `고객 통보 · ${button.dataset.messageCode}`;
+    $('.message-preview-title').textContent = message.situation;
+    $('.message-preview-target').textContent = `발송대상 : ${message.target}`;
+    $('.phone-time').textContent = `${now.getHours()}:${pad(now.getMinutes())}`;
+    $('.phone-date').textContent = `${now.getFullYear()}년 ${now.getMonth() + 1}월 ${now.getDate()}일`;
+    $('.phone-bubble').textContent = message.smsBody;
+    $('.phone-bubble-time').textContent = time;
+    $('.phone-mail-subject').textContent = message.mailSubject;
+    $('.phone-mail-meta').textContent = `받는 사람: ${message.target} · ${time}`;
+    $('.phone-mail-body').textContent = message.mailBody;
+    tabs[0].textContent = `문자(${smsType(message.smsBody)})`;
+    tabs[0].hidden = !message.smsBody;
+    tabs[1].hidden = !message.mailBody;
+    show(message.smsBody ? 'sms' : 'mail');
+    codes.forEach(code => code.setAttribute('aria-expanded', String(code === button)));
+    preview.hidden = false;
+    // 다시 누를 때도 발송 효과가 재생되도록 클래스를 다시 붙입니다.
+    preview.classList.remove('is-sent');
+    void preview.offsetWidth;
+    preview.classList.add('is-sent');
+    $('.message-preview-close').focus();
+  };
+  codes.forEach(code => {
+    code.setAttribute('aria-expanded', 'false');
+    code.addEventListener('click', () => open(code));
+  });
+  $('.message-preview-close').addEventListener('click', close);
+  // Esc는 미리보기만 먼저 닫고, 드로어는 다음 Esc에서 닫습니다.
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape' || preview.hidden) return;
+    event.stopImmediatePropagation();
+    close();
+  }, true);
+  // Description 드로어가 닫히면 미리보기도 함께 닫습니다.
+  new MutationObserver(() => {
+    if (!document.body.classList.contains('description-guide-open')) close();
+  }).observe(document.body, { attributes: true, attributeFilter: ['class'] });
 }
 
 /**
@@ -2163,6 +2323,7 @@ function initDataGrids() {
       for (let index = initialRows.length; index < firstPageTarget; index += 1) {
         const clone = initialRows[index % initialRows.length].cloneNode(true);
         clone.querySelectorAll('[id]').forEach(element => element.removeAttribute('id'));
+        removeDuplicateDescriptionMarkers(clone, tbody);
         if (sequenceHeaderIndex >= 0 && clone.cells[sequenceHeaderIndex]) {
           const baseSequence = Number(initialRows[0].cells[sequenceHeaderIndex]?.textContent.trim());
           clone.cells[sequenceHeaderIndex].textContent = Number.isFinite(baseSequence)
@@ -3188,11 +3349,19 @@ function initPrototypeRecords() {
       });
     });
   }));
+  // 화면설계 목록 예시가 정의한 진행상태를 모두 보여 줄 행이 모자라면 같은 조합의 추가 예시 건을 씁니다.
+  // 추가 건은 기본 목록에는 나오지 않고, 진행상태 목록(data-status-values)이 요구할 때만 쓰입니다.
+  const extraRecord = (base, index) => ({ ...base, id: `${base.id}-${index}`, index, extra: true, state: { ...base.state },
+    title: base.title.replace(/ \d{2} \(/, ` ${String(index).padStart(2, '0')} (`) });
+  const competitive = records.filter(record => record.state.method !== 'sole');
+  const sole = records.filter(record => record.state.method === 'sole');
+  [0, 1].forEach(i => records.push(extraRecord(competitive[i], records.length + 1)));
+  [0, 1, 2, 3, 4, 5].forEach(i => records.push(extraRecord(sole[i % sole.length], records.length + 1)));
   window.srmPrototypeRecords = records;
   const page = decodeURIComponent(location.pathname);
   const soleOnly = /07-1_|SRMPartnerNego/.test(page);
   const competitionOnly = /07-2_|SRMPartnerBid|SRMLogin/.test(page);
-  const candidates = records.filter(record => soleOnly ? record.state.method === 'sole' : competitionOnly ? record.state.method !== 'sole' : true);
+  const candidates = records.filter(record => !record.extra && (soleOnly ? record.state.method === 'sole' : competitionOnly ? record.state.method !== 'sole' : true));
   const normalize = value => value.replace(/\s/g, '');
   const write = (cell, value) => {
     if (!cell) return;
@@ -3213,12 +3382,35 @@ function initPrototypeRecords() {
     const titleIndex = headers.findIndex(text => /^(입찰건명|수의계약건명|발주건명|건명|계약명|발주계획명|품의건명)$/.test(text));
     const numberIndex = headers.findIndex(text => /번호$/.test(text));
     const wrapper = table.closest('.data-grid');
-    const tableRecords = table.classList.contains('widget-table')
-      ? records.filter(record => table.getAttribute('aria-label')?.includes('수의계약') ? record.state.method === 'sole' : record.state.method !== 'sole') : candidates;
+    let tableRecords = table.classList.contains('widget-table')
+      ? records.filter(record => !record.extra && (table.getAttribute('aria-label')?.includes('수의계약') ? record.state.method === 'sole' : record.state.method !== 'sole')) : candidates;
+    const statusColumns = Array.from(table.querySelectorAll('thead th')).map((th, index) => ({ index, values: th.dataset.statusValues?.split('|'), when: th.dataset.statusWhen?.split('|'),
+      fixed: Object.fromEntries((th.dataset.statusFixed || '').split('|').filter(Boolean).map(pair => pair.split('='))) })).filter(column => column.values);
+    const needed = Math.max(0, ...statusColumns.map(column => column.values.length));
+    if (tableRecords.length && tableRecords.length < needed) {
+      const kind = tableRecords[0].state.method === 'sole';
+      tableRecords = tableRecords.concat(records.filter(record => record.extra && (record.state.method === 'sole') === kind).slice(0, needed - tableRecords.length));
+    }
+    // data-status-when이 있는 열(예: 결과)은 첫 상태 열이 그 값인 행에만 채우고 나머지는 '-'입니다.
+    const statuses = [];
+    statusColumns.forEach(column => {
+      // data-status-fixed="선정완료=입찰 참여 완료"처럼 첫 상태 열 값에 따라 정해지는 값은 먼저 고정하고 나머지 행에 상태를 배정합니다.
+      if (!column.when || !statuses.length) {
+        const fixed = statuses.length ? statuses[0].map(value => column.fixed[value] ?? null) : tableRecords.map(() => null);
+        const open = tableRecords.filter((record, i) => fixed[i] === null);
+        const assigned = assignPrototypeStatuses(open, column.values);
+        let n = 0;
+        statuses.push(fixed.map(value => value ?? assigned[n++]));
+        return;
+      }
+      let n = 0;
+      statuses.push(statuses[0].map(value => column.when.includes(value) ? column.values[n++ % column.values.length] : ''));
+    });
     table.dataset.prototypeList = 'true';
     tbody.replaceChildren();
     tableRecords.forEach((record, index) => {
       const row = templates[index % templates.length].cloneNode(true);
+      removeDuplicateDescriptionMarkers(row, tbody);
       row.dataset.prototypeRecord = record.id;
       row.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
       row.querySelectorAll('[data-ui-text], [data-ui-contract-summary]').forEach(el => { delete el.dataset.uiText; delete el.dataset.uiContractSummary; });
@@ -3231,6 +3423,12 @@ function initPrototypeRecords() {
       });
       if (numberIndex >= 0) write(row.cells[numberIndex], prototypeRecordNumber(record, headers[numberIndex]));
       if (headers[0] === 'No') write(row.cells[0], String(index + 1));
+      let rowState = record.state;
+      statusColumns.forEach((column, i) => {
+        const value = statuses[i][index];
+        writePrototypeStatus(row.cells[column.index], value);
+        if (i === 0) rowState = { ...record.state, ...prototypeStatusState(value) };
+      });
       if (table.classList.contains('widget-table')) {
         const partner = page.includes('SRMDashboardPartner');
         const destination = record.state.method === 'sole' ? '../07-1_수의계약관리/SRMSoleSourceStatus.html' : partner ? 'SRMPartnerBidJoinDetail.html' : '../07-2_입찰관리/SRMDetail.html';
@@ -3249,7 +3447,7 @@ function initPrototypeRecords() {
         const url = new URL(source, location.href);
         if (url.origin !== location.origin || !url.pathname.endsWith('.html')) return;
         url.searchParams.set('record', record.id);
-        url.searchParams.set('ui', JSON.stringify(record.state));
+        url.searchParams.set('ui', JSON.stringify(rowState));
         link.setAttribute(attribute, url.href);
       });
       tbody.appendChild(row);
@@ -3283,6 +3481,48 @@ function initPrototypeRecords() {
       });
     }
   }
+}
+
+// 진행상태를 행에 배정합니다. 화면설계 정의 순서대로 모든 상태가 한 번 이상 나오게 하고,
+// 투찰 기간이 별도인 낙찰방법에만 투찰 상태를, 심사가 있는 낙찰방법에만 심사완료를 둡니다.
+function assignPrototypeStatuses(records, values) {
+  const allowed = (record, value) => /^투찰/.test(value) ? ['restricted', 'separate'].includes(record.state.award)
+    : value === '심사완료' ? record.state.award !== 'lowest' : true;
+  const result = new Array(records.length).fill(null);
+  while (result.includes(null)) {
+    let placed = false;
+    values.forEach(value => {
+      const index = records.findIndex((record, i) => result[i] === null && allowed(record, value));
+      if (index >= 0) { result[index] = value; placed = true; }
+    });
+    if (!placed) result.forEach((value, i) => { if (value === null) result[i] = values[0]; });
+  }
+  return result;
+}
+
+// 상태 배지: 대기·마감은 중립, 진행은 정보, 완료는 성공, 결재 진행·재입찰은 주의, 유찰·취소는 위험(5.6).
+function writePrototypeStatus(cell, value) {
+  if (!cell) return;
+  cell.title = value || '-';
+  if (!value) { cell.replaceChildren('-'); return; }
+  const tone = /취소|유찰|탈락|포기/.test(value) ? 'badge-danger'
+    : /전자결재 요청|재입찰/.test(value) ? 'badge-warning'
+    : /완료|선정/.test(value) ? 'badge-success'
+    : /대기|마감|미제출/.test(value) ? 'badge-tag' : 'badge-info';
+  const badge = document.createElement('span');
+  badge.className = tone;
+  badge.textContent = value;
+  cell.replaceChildren(badge);
+}
+
+// 목록에서 고른 건의 상세 화면이 진행상태와 맞도록 개찰·심사·낙찰·수의시담 여부를 함께 넘깁니다.
+function prototypeStatusState(value) {
+  const after = list => list.includes(value) ? 'true' : 'false';
+  const contract = ['계약품의(전자결재 요청)', '계약품의(전자결재 완료)'];
+  const negotiation = ['수의시담(견적요청)', '수의시담(견적제출 완료)', '수의시담 완료'];
+  const winner = ['선정완료', ...negotiation, ...contract];
+  const opened = ['개찰완료', '재입찰', ...winner];
+  return { opened: after(opened), evaluationDone: after(['심사완료', ...opened]), winnerDone: after(winner), negotiationStarted: after(negotiation) };
 }
 
 function prototypeRecordNumber(record, label) {
@@ -3376,11 +3616,19 @@ function initPrototypeRecordSearch() {
       const method = filter.querySelector('[data-ui-field="method"]')?.value || '';
       const award = filter.querySelector('[data-ui-field="award"]')?.value || '';
       const keywords = Array.from(filter.querySelectorAll('input[type="text"], input[type="search"]')).filter(input => !input.disabled && !input.readOnly).map(input => input.value.trim().toLowerCase()).filter(Boolean);
+      // 진행상태·제출상태 같은 상태 선택은 같은 이름의 목록 열 값과 비교합니다('전체'·'… 선택'은 조건 없음).
+      const statusFilters = Array.from(filter.querySelectorAll('.filter-row')).map(row => ({
+        label: row.querySelector('.filter-label, .filter-field-label')?.textContent.replace(/\s/g, '') || '',
+        value: row.querySelector('select')?.selectedOptions[0]?.textContent.trim() || ''
+      })).filter(item => /상태$/.test(item.label) && item.value && !/^(전체|.*선택)$/.test(item.value));
       tables.forEach(table => {
         let count = 0;
+        const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.replace(/\s/g, ''));
+        const statusChecks = statusFilters.map(item => ({ index: headers.indexOf(item.label), value: item.value })).filter(item => item.index >= 0);
         table.querySelectorAll('tbody [data-prototype-record]').forEach(row => {
           const record = window.srmPrototypeRecords.find(item => item.id === row.dataset.prototypeRecord);
-          const visible = (!method || method === record.state.method) && (!award || award === record.state.award) && keywords.every(keyword => row.textContent.toLowerCase().includes(keyword));
+          const visible = (!method || method === record.state.method) && (!award || award === record.state.award) && keywords.every(keyword => row.textContent.toLowerCase().includes(keyword))
+            && statusChecks.every(item => row.cells[item.index]?.textContent.trim() === item.value);
           row.dataset.filteredOut = String(!visible);
           if (visible) count++;
         });

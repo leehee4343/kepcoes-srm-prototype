@@ -99,15 +99,14 @@
           <div class="detail-tab-group" role="tablist" aria-label="입찰 참여 상세 탭">
             <a href="SRMPartnerBidJoinDetail.html" class="detail-tab-btn" role="tab" aria-selected="false">입찰공고 정보</a>
             <a href="SRMPartnerBidDocumentHistory.html" class="detail-tab-btn" role="tab" aria-selected="false">입찰 서류 제출 현황</a>
-            <a href="SRMPartnerBidPrice.html" class="detail-tab-btn active" role="tab" aria-selected="true">가격 투찰</a>
+            <a href="SRMPartnerBidPrice.html" class="detail-tab-btn active description-marker-container" role="tab" aria-selected="true"><span class="description-target-marker marker-top-left" data-description-ref="02-45:1" aria-hidden="true"></span>가격 투찰</a>
             <a href="SRMPartnerBidResult.html" class="detail-tab-btn" role="tab" aria-selected="false">입찰 결과</a>
             <a href="SRMPartnerBidNegoList.html" class="detail-tab-btn" role="tab" aria-selected="false">수의시담</a>
           </div>
         </div>
 
-        <div class="srm-section-heading content-object-gap-top description-marker-container"><span class="description-target-marker marker-top-left" aria-hidden="true">1</span><div><h2>가격투찰 참고정보</h2></div><p>가격투찰에 참고하실 수 있도록 낙찰자 선정방식에 따라 예정가, 복수예비 기초금액을 제공합니다</p></div>
-        <div class="srm-table-wrap description-marker-container">
-          <span class="description-target-marker marker-top-left" aria-hidden="true">2</span>
+        <div class="srm-section-heading content-object-gap-top description-marker-container"><span class="description-target-marker marker-top-left" data-description-ref="02-45:2" aria-hidden="true"></span><div><h2>가격투찰 참고정보</h2></div><p>가격투찰에 참고하실 수 있도록 낙찰자 선정방식에 따라 예정가, 복수예비 기초금액을 제공합니다</p></div>
+        <div class="srm-table-wrap">
           <table class="data-table" aria-label="예정가/복수예비 기초금액"><tbody><tr data-ui-show="price=planned"><th class="w-180">예정가</th><td class="text-left">135,000,000원 (일억삼천오백만원 / VAT 포함)</td></tr><tr data-ui-show="price=reserve"><th>복수예비 기초금액</th><td class="text-left">258,000,000원 (이억오천팔백만원 / VAT 포함)</td></tr></tbody></table>
         </div>
 
@@ -125,7 +124,7 @@
         <div class="srm-kv-grid content-inner-gap-top"><div class="srm-kv-row"><dt>상세견적서</dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div></div>
 
         <div class="notice-box content-object-gap-top description-marker-container" role="note">
-          <span class="description-target-marker marker-top-left" aria-hidden="true">1’</span>
+          <span class="description-target-marker marker-top-left" data-description-ref="02-45:1’" aria-hidden="true"></span>
           <span class="notice-icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></span>
           <div class="notice-body">
             <p class="notice-lead">본 입찰 건의 가격 투찰 기간이 아닌 경우, 입찰 서류 제출 후 '적격' 업체에 한해 가격 투찰 기간을 안내해드립니다.</p>
@@ -134,7 +133,7 @@
         </div></section>
       <div class="page-actions"><button type="button" class="btn-secondary " data-href="SRMPartnerBidJoin.html">목록</button>
         <span class="description-marker-anchor">
-          <span class="description-target-marker" aria-hidden="true">3</span>
+          <span class="description-target-marker" data-description-ref="02-45:3" aria-hidden="true"></span>
           <button type="button" class="btn-critical-primary" data-open-modal="bidPriceDrawModal">가격 투찰하기</button>
         </span></div>
     </main>
@@ -144,6 +143,7 @@
     <div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div>
   </footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
   <!-- 입찰 참여 현황 상세 (입찰공고 정보 탭) -->
 
@@ -197,13 +197,12 @@
   <!-- 수의시담 - 견적 제출 내역 -->
 
 
-  <!-- 화면설계 Description 개발자 가이드 (DESIGN_GUIDE 5.15) -->
-  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
 
 
   <script src="popups/popup-bundle.js"></script>
+  <script src="../../assets/scripts/message-catalog.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMPartnerBidJoin/bidJoinLimitNoticeModal2.html", "popups/SRMPartnerBidJoin/bidPriceLimitNoticeModal2.html", "popups/SRMPartnerBidJoin/bidDocSubmitConfirmModal.html", "popups/SRMPartnerBidJoin/bidDocSubmitDoneModal.html", "popups/SRMPartnerBidJoin/bidDocCancelConfirmModal.html", "popups/SRMPartnerBidJoin/bidGiveUpConfirmModal.html", "popups/SRMPartnerBidJoin/bidPriceDrawModal.html", "popups/SRMPartnerBidJoin/bidPriceSubmitConfirmModal.html", "popups/SRMPartnerBidJoin/negoTalkSubmitConfirmModal.html", "popups/SRMPartnerBidJoin/screenDescriptionGuide.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMPartnerBidPrice/screenDescriptionGuide.html", "popups/SRMPartnerBidJoin/bidJoinLimitNoticeModal2.html", "popups/SRMPartnerBidJoin/bidPriceLimitNoticeModal2.html", "popups/SRMPartnerBidJoin/bidDocSubmitConfirmModal.html", "popups/SRMPartnerBidJoin/bidDocSubmitDoneModal.html", "popups/SRMPartnerBidJoin/bidDocCancelConfirmModal.html", "popups/SRMPartnerBidJoin/bidGiveUpConfirmModal.html", "popups/SRMPartnerBidJoin/bidPriceDrawModal.html", "popups/SRMPartnerBidJoin/bidPriceSubmitConfirmModal.html", "popups/SRMPartnerBidJoin/negoTalkSubmitConfirmModal.html"]</script>
 </body>
 </html>

@@ -134,7 +134,7 @@
           </div>
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-130">키워드 검색</span>
-            <span class="description-marker-anchor"><span class="description-target-marker" aria-hidden="true">2</span><select class="filter-select w-150">
+            <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="02-13:2" aria-hidden="true"></span><select class="filter-select w-150">
               <option value="no" selected>견적요청번호</option>
               <option value="name">견적요청명</option>
             </select></span>
@@ -149,7 +149,7 @@
 
       <div class="table-card">
         <div class="table-header-action-row description-marker-container">
-          <span class="description-target-marker marker-top-left" aria-hidden="true">1</span>
+          <span class="description-target-marker marker-top-left" data-description-ref="02-13:1" aria-hidden="true"></span>
           <div class="table-total-count grid-page-summary">1 / 4 (총 1,523개)</div>
           <div class="table-actions">
             <select class="select-per-page" title="페이지당 표시 건수">
@@ -162,7 +162,7 @@
         <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="사전 견적 요청 현황 목록" data-total-items="1523" data-total-pages="153">
           <table class="data-table data-grid-table" aria-label="사전 견적 요청 현황 목록">
             <thead>
-              <tr><th class="w-55">No</th><th class="w-100">견적요청번호</th><th class="w-90"><span class="description-marker-anchor">진행상태<span class="description-target-marker" aria-hidden="true">3</span></span></th><th class="w-80"><span class="description-marker-anchor">제출상태<span class="description-target-marker" aria-hidden="true">4</span></span></th><th class="minw-250">견적요청명</th><th class="w-70">견적유형</th><th class="w-100">제출일/포기일</th><th class="w-100">견적요청일</th><th class="w-140">견적마감일시</th></tr>
+              <tr><th class="w-55">No</th><th class="w-100">견적요청번호</th><th class="w-90"><span class="description-marker-anchor">진행상태<span class="description-target-marker" data-description-ref="02-13:3" aria-hidden="true"></span></span></th><th class="w-80"><span class="description-marker-anchor">제출상태<span class="description-target-marker" data-description-ref="02-13:4" aria-hidden="true"></span></span></th><th class="minw-250">견적요청명</th><th class="w-70">견적유형</th><th class="w-100">제출일/포기일</th><th class="w-100">견적요청일</th><th class="w-140">견적마감일시</th></tr>
             </thead>
             <tbody>
               <tr><td>1,542</td><td>RFQ2607</td><td><span class="badge-success">견적 요청중</span></td><td><span class="badge-tag">미제출</span></td><td class="text-left"><a href="#" data-open-modal="pqDetailView">태양광 발전기 도입 관련 견적 요청의 건</a></td><td>공사</td><td>-</td><td>2026.07.01</td><td>2026.07.31 18:00</td></tr>
@@ -207,7 +207,7 @@
           </table>
         </div>
 
-        <div class="srm-section-heading content-object-gap-top description-marker-container"><span class="description-target-marker marker-top-left" aria-hidden="true">1</span><div><h2>전달 자료</h2></div><p>등록된 전달자료 : 총 2건</p></div>
+        <div class="srm-section-heading content-object-gap-top description-marker-container"><span class="description-target-marker marker-top-left" data-description-ref="02-15:1" aria-hidden="true"></span><div><h2>전달 자료</h2></div><p>등록된 전달자료 : 총 2건</p></div>
         <div class="srm-table-wrap">
           <table class="data-table" aria-label="전달 자료">
             <thead><tr><th class="col-no">No</th><th>전달자료(파일명)</th><th>전달자료 안내</th><th class="w-140"></th></tr></thead>
@@ -252,6 +252,8 @@
     <div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div>
   </footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
+
   <!-- 견적 포기 확인 -->
 
 
@@ -261,13 +263,11 @@
   <!-- 견적 제출 -->
 
 
-  <!-- 화면설계 Description 개발자 가이드 (DESIGN_GUIDE 5.15) -->
-  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
 
 
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMPartnerPreQuote/pqGiveUpConfirmModal.html", "popups/SRMPartnerPreQuote/pqCancelSubmitConfirmModal.html", "popups/SRMPartnerPreQuote/screenDescriptionGuide.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMPartnerPreQuote/screenDescriptionGuide.html", "popups/SRMPartnerPreQuote/pqGiveUpConfirmModal.html", "popups/SRMPartnerPreQuote/pqCancelSubmitConfirmModal.html"]</script>
 </body>
 </html>

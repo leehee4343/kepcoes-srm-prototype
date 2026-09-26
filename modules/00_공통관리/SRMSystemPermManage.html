@@ -292,13 +292,13 @@
       <section class="app-card srm-detail-section">
         <div class="srm-section-heading">
           <div><h2>권한 부여 현황</h2></div>
-          <span class="description-marker-anchor"><span class="description-target-marker" aria-hidden="true">2</span><button type="button" class="btn-action-new" data-open-modal="sysPermAddModal">관리자(직원) 추가하기</button></span>
+          <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="00-9:2" aria-hidden="true"></span><button type="button" class="btn-action-new" data-open-modal="sysPermAddModal">관리자(직원) 추가하기</button></span>
         </div>
         <div class="srm-table-wrap">
           <table class="data-table" aria-label="시스템 권한 부여 현황">
             <thead><tr><th class="w-40"><input type="checkbox" aria-label="전체 선택"></th><th>사원번호</th><th>아이디</th><th>사원명</th><th>부서</th><th>직급</th><th>이메일</th><th class="w-80">사용 여부</th><th class="w-70">관리</th></tr></thead>
             <tbody>
-              <tr><td><input type="checkbox"></td><td>2110004</td><td>simon</td><td>장시형</td><td>기획지원팀</td><td>과장</td><td>simon@kepcoes.co.kr</td><td><span class="badge-success">사용(Y)</span></td><td><span class="description-marker-anchor"><span class="description-target-marker" aria-hidden="true">1</span><button type="button" class="btn-row-del" data-open-modal="sysPermDeleteModal">삭제</button></span></td></tr>
+              <tr><td><input type="checkbox"></td><td>2110004</td><td>simon</td><td>장시형</td><td>기획지원팀</td><td>과장</td><td>simon@kepcoes.co.kr</td><td><span class="badge-success">사용(Y)</span></td><td><span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="00-9:1" aria-hidden="true"></span><button type="button" class="btn-row-del" data-open-modal="sysPermDeleteModal">삭제</button></span></td></tr>
               <tr><td><input type="checkbox"></td><td>2101002</td><td>gdhong</td><td>홍길동</td><td>경영지원본부</td><td>임원</td><td>gdhong@kepcoes.co.kr</td><td><span class="badge-success">사용(Y)</span></td><td><button type="button" class="btn-row-del" data-open-modal="sysPermDeleteModal">삭제</button></td></tr>
             </tbody>
           </table>
@@ -309,18 +309,19 @@
 
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
+
   <!-- 시스템 권한 삭제 확인 모달 -->
 
 
   <!-- 관리자(직원) 추가하기 모달 -->
 
 
-  <button type="button" class="description-floating-button" data-description-guide-toggle="systemPermDescriptionGuide" aria-controls="systemPermDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
 
 
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMSystemPermManage/sysPermDeleteModal.html", "popups/SRMSystemPermManage/sysPermAddModal.html", "popups/SRMSystemPermManage/systemPermDescriptionGuide.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMSystemPermManage/screenDescriptionGuide.html", "popups/SRMSystemPermManage/sysPermDeleteModal.html", "popups/SRMSystemPermManage/sysPermAddModal.html"]</script>
 </body>
 </html>

@@ -115,7 +115,7 @@
           <p>※ 견적 관련 문의가 가능한 담당자 정보를 '협력업체정보 관리 &gt; 담당자 정보 추가/수정' 기능을 통해 등록 후 사용하세요.</p>
         </div>
         <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>담당자 선택 <span class="required" aria-hidden="true">*</span></dt><dd><span class="description-marker-anchor"><span class="description-target-marker" aria-hidden="true">1</span><select class="filter-select w-200"><option>이희성</option></select></span></dd></div>
+          <div class="srm-kv-row"><dt>담당자 선택 <span class="required" aria-hidden="true">*</span></dt><dd><span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="02-16:1" aria-hidden="true"></span><select class="filter-select w-200"><option>이희성</option></select></span></dd></div>
           <div class="srm-kv-row"><dt>이름</dt><dd>이희성</dd></div>
           <div class="srm-kv-row"><dt>이메일</dt><dd>leehee43@naver.com</dd></div>
           <div class="srm-kv-row"><dt>핸드폰번호</dt><dd>010-6844-2810</dd></div>
@@ -132,7 +132,7 @@
         </div></section>
       <div class="page-actions"><button type="button" class="btn-secondary " data-history-back>취소</button>
         <span class="description-marker-anchor">
-          <span class="description-target-marker" aria-hidden="true">2</span>
+          <span class="description-target-marker" data-description-ref="02-16:2" aria-hidden="true"></span>
           <button type="button" class="btn-critical-primary " data-history-back>견적 제출</button>
         </span></div>
     </main>
@@ -141,6 +141,8 @@
   <footer class="app-footer">
     <div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div>
   </footer>
+
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
   <!-- 견적 포기 확인 -->
 
@@ -151,13 +153,12 @@
   <!-- 견적 제출 -->
 
 
-  <!-- 화면설계 Description 개발자 가이드 (DESIGN_GUIDE 5.15) -->
-  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
 
 
   <script src="popups/popup-bundle.js"></script>
+  <script src="../../assets/scripts/message-catalog.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMPartnerPreQuote/pqGiveUpConfirmModal.html", "popups/SRMPartnerPreQuote/pqCancelSubmitConfirmModal.html", "popups/SRMPartnerPreQuote/screenDescriptionGuide.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMPartnerPreQuoteSubmit/screenDescriptionGuide.html", "popups/SRMPartnerPreQuote/pqGiveUpConfirmModal.html", "popups/SRMPartnerPreQuote/pqCancelSubmitConfirmModal.html"]</script>
 </body>
 </html>

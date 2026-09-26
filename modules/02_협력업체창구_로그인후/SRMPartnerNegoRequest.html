@@ -117,14 +117,14 @@
           </div>
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-200">진행상태</span>
-            <span class="description-marker-anchor"><span class="description-target-marker" aria-hidden="true">1</span><select class="filter-select w-180">
+            <select class="filter-select w-180">
               <option value="all" selected>전체</option>
               <option>공고게시중</option>
               <option>수의계약(견적요청)</option>
               <option>수의계약(견적제출 완료)</option>
               <option>가격협의 완료</option>
               <option>수의계약 취소</option>
-            </select></span>
+            </select>
           </div>
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-200">키워드 검색</span>
@@ -152,7 +152,7 @@
         <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="수의계약 요청 현황 목록" data-total-items="1523" data-total-pages="153">
           <table class="data-table data-grid-table" aria-label="수의계약 요청 현황 목록">
             <thead>
-              <tr><th class="w-100">공고번호</th><th class="w-80">공고 구분</th><th class="w-130">진행상태</th><th class="minw-250">수의계약 건명</th><th class="w-130">견적 마감 일시</th><th class="w-60">구분</th><th class="w-90">계약방법</th><th class="w-90">낙찰자 선정방법</th><th class="w-80">사업담당자</th><th class="w-80">계약 담당자</th></tr>
+              <tr><th class="w-100">공고번호</th><th class="w-80">공고 구분</th><th class="w-130" data-status-values="공고게시중|수의계약(견적요청)|수의계약(견적제출 완료)|가격협의 완료|수의계약 취소"><span class="description-marker-anchor">진행상태<span class="description-target-marker" data-description-ref="02-17:1" aria-hidden="true"></span></span></th><th class="minw-250">수의계약 건명</th><th class="w-130">견적 마감 일시</th><th class="w-60">구분</th><th class="w-90">계약방법</th><th class="w-90">낙찰자 선정방법</th><th class="w-80">사업담당자</th><th class="w-80">계약 담당자</th></tr>
             </thead>
             <tbody>
               <tr><td><a href="SRMPartnerNegoRequestDetail.html">BD2026-0023</a></td><td>본공고</td><td><span class="badge-success">공고게시중</span></td><td class="text-left"><a href="SRMPartnerNegoRequestDetail.html">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>2026.07.31 18:00</td><td>공사</td><td>수의계약</td><td>최저가</td><td>홍길동</td><td>박승길</td></tr>
@@ -172,6 +172,7 @@
     <div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div>
   </footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
   <!-- 수의계약을 위한 견적요청 정보 -->
 
@@ -185,8 +186,6 @@
   <!-- 수의계약을 위한 견적 제출 내역 -->
 
 
-  <!-- 화면설계 Description 개발자 가이드 (DESIGN_GUIDE 5.15) -->
-  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
 
 

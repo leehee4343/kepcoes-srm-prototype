@@ -359,7 +359,7 @@
         <div class="detail-tab-group" role="tablist" aria-label="입찰계획 업무 단계">
           <a href="StepWorkflowOrderPlan.html#workflowDetail" class="detail-tab-btn" role="tab" aria-selected="false">발주계획 정보 확인</a>
           <a href="StepWorkflowBidPlan.html#workflowDetail" class="detail-tab-btn" role="tab" aria-selected="false">입찰계획 상세정보</a>
-          <a href="StepWorkflowEvaluation.html#workflowDetail" class="detail-tab-btn active" role="tab" aria-selected="true" data-ui-unavailable="본 입찰공고는 낙찰자 선정방법이 최저가 방식으로 심사/평가 대상이 아닙니다." data-ui-enable="award=restricted|simultaneous|separate|qualification">심사/평가 계획</a>
+          <a href="StepWorkflowEvaluation.html#workflowDetail" class="detail-tab-btn active description-marker-container" role="tab" aria-selected="true" data-ui-unavailable="본 입찰공고는 낙찰자 선정방법이 최저가 방식으로 심사/평가 대상이 아닙니다." data-ui-enable="award=restricted|simultaneous|separate|qualification"><span class="description-target-marker marker-top-left" data-description-ref="07-2-14:1" aria-hidden="true"></span>심사/평가 계획</a>
           <a href="StepWorkflow.html#workflowDetail" class="detail-tab-btn" role="tab" aria-selected="false">예정가 / 예비가</a>
           <a href="StepWorkflowDocuments.html#workflowDetail" class="detail-tab-btn" role="tab" aria-selected="false">입찰 참여 서류</a>
           <a href="StepWorkflowReview.html#workflowDetail" class="detail-tab-btn" role="tab" aria-selected="false">최종 점검</a>
@@ -411,9 +411,9 @@
       <p class="modal-field-label" data-ui-show="award=restricted|simultaneous|separate|qualification">등록된 심사/평가 항목 : 총 3건</p>
       <div class="srm-table-wrap" data-ui-show="award=restricted|simultaneous|separate|qualification">
         <table class="data-table" aria-label="심사/평가 항목">
-          <thead><tr><th class="col-no">No</th><th>심사/평가 구분</th><th>심사/평가 항목</th><th>배점</th><th>자가심사 여부</th><th class="w-70">순서</th><th class="w-60">수정</th><th class="w-60">삭제</th></tr></thead>
+          <thead><tr><th class="col-no">No</th><th>심사/평가 구분</th><th>심사/평가 항목</th><th>배점</th><th><span class="description-marker-anchor">자가심사 여부<span class="description-target-marker" data-description-ref="07-2-14:2" aria-hidden="true"></span></span></th><th class="w-70"><span class="description-marker-anchor">순서<span class="description-target-marker" data-description-ref="07-2-14:4" aria-hidden="true"></span></span></th><th class="w-60">수정</th><th class="w-60">삭제</th></tr></thead>
           <tbody>
-            <tr><td>1</td><td>계량(정량)</td><td class="col-left">신용평가등급</td><td class="col-num">10.00</td><td><span class="badge-info">필요</span></td><td>▼</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="bidEvalItemModal">수정</button></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
+            <tr><td>1</td><td>계량(정량)</td><td class="col-left">신용평가등급</td><td class="col-num">10.00</td><td><span class="badge-info">필요</span></td><td>▼</td><td><span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-2-14:5’" aria-hidden="true"></span><button type="button" class="btn-secondary" data-close-modal data-open-modal="bidEvalItemModal">수정</button></span></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
             <tr><td>2</td><td>계량(정량)</td><td class="col-left">시공경험(일반공사)</td><td class="col-num">10.00</td><td><span class="badge-info">필요</span></td><td>▲ ▼</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="bidEvalItemModal">수정</button></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
             <tr><td>3</td><td>비계량(정성)</td><td class="col-left">제안 평가</td><td class="col-num">60.00</td><td><span class="badge-tag">불필요</span></td><td>▲</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="bidEvalItemModal">수정</button></td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
           </tbody>
@@ -421,15 +421,15 @@
         </table>
       </div>
       <div class="hstack content-inner-gap-block" data-ui-show="award=restricted|simultaneous|separate|qualification">
-        <button type="button" class="btn-secondary" data-close-modal data-open-modal="bidCommonEvalModal">공통 심사/평가 불러오기</button>
+        <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-2-14:3" aria-hidden="true"></span><button type="button" class="btn-secondary" data-close-modal data-open-modal="bidCommonEvalModal">공통 심사/평가 불러오기</button></span>
         <button type="button" class="btn-secondary">순서 적용</button>
-        <button type="button" class="btn-secondary" data-close-modal data-open-modal="bidEvalItemModal">심사/평가항목 추가</button>
+        <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-2-14:5" aria-hidden="true"></span><button type="button" class="btn-secondary" data-close-modal data-open-modal="bidEvalItemModal">심사/평가항목 추가</button></span>
       </div>
       <div class="srm-kv-grid" data-ui-show="award=restricted|simultaneous|separate|qualification">
         <div class="srm-kv-row"><dt>최저점수(적격여부 판단) <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control w-100" placeholder="숫자로 입력" data-ui-score="minimum"> 점</dd></div>
         <div class="srm-kv-row"><dt>심사기준(배점 및 평가기준 등)</dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
       </div>
-      <div class="hstack content-inner-gap-top" data-ui-show="award=restricted|simultaneous|separate|qualification"><button type="button" class="btn-action-primary">저장</button></div>
+      <div class="hstack content-inner-gap-top" data-ui-show="award=restricted|simultaneous|separate|qualification"><span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-2-14:6" aria-hidden="true"></span><button type="button" class="btn-action-primary">저장</button></span></div>
 
       </section>
 <!-- 하단 목록 바로가기 액션 -->
@@ -448,8 +448,10 @@
     <div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div>
   </footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
+
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/StepWorkflow/bidEvalItemModal.html","popups/StepWorkflow/bidCommonEvalModal.html","popups/StepWorkflow/bidCommonEvalPreview.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/StepWorkflowEvaluation/screenDescriptionGuide.html", "popups/StepWorkflow/bidEvalItemModal.html", "popups/StepWorkflow/bidCommonEvalModal.html", "popups/StepWorkflow/bidCommonEvalPreview.html"]</script>
 </body>
 </html>

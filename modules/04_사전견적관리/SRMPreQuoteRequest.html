@@ -307,7 +307,7 @@
           </div>
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-130">키워드 검색</span>
-            <select class="filter-select w-150"><option>견적요청번호</option><option>견적요청명</option><option>등록자</option></select>
+            <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="04-4:3" aria-hidden="true"></span><select class="filter-select w-150"><option>견적요청번호</option><option>견적요청명</option><option>등록자</option></select></span>
             <input type="text" class="filter-text-input w-380" placeholder="검색어를 입력하세요.">
           </div>
           <div class="filter-action-row">
@@ -332,11 +332,11 @@
         <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="사전 견적 요청 목록(작성 중)" data-total-items="1523" data-total-pages="153">
           <table class="data-table data-grid-table" aria-label="사전 견적 요청 목록(작성 중)">
             <thead>
-              <tr><th class="w-55">No</th><th class="w-90">견적요청번호</th><th class="w-70">진행상태</th><th class="minw-240">견적요청명</th><th class="w-60">견적유형</th><th class="w-100">예산금액</th><th class="w-90">품목구성방법</th><th class="w-60">품목</th><th class="w-70">전달자료</th><th class="w-80">요청 업체 수</th><th class="w-130">견적 마감일시</th><th class="w-90">등록일</th><th class="w-70">등록자</th><th class="w-60">삭제</th></tr>
+              <tr><th class="w-55">No</th><th class="w-90">견적요청번호</th><th class="w-70"><span class="description-marker-anchor">진행상태<span class="description-target-marker" data-description-ref="04-4:1" aria-hidden="true"></span></span></th><th class="minw-240">견적요청명</th><th class="w-60">견적유형</th><th class="w-100">예산금액</th><th class="w-90">품목구성방법</th><th class="w-60">품목</th><th class="w-70">전달자료</th><th class="w-80">요청 업체 수</th><th class="w-130">견적 마감일시</th><th class="w-90">등록일</th><th class="w-70">등록자</th><th class="w-60">삭제</th></tr>
             </thead>
             <tbody>
               <tr><td>1,542</td><td>RFQ2607</td><td><span class="badge-tag">작성 중</span></td><td class="text-left"><a href="SRMPreQuoteRequestManage.html">태양광 발전기 도입 관련 견적 요청의 건</a></td><td>공사</td><td class="col-num">135,400,000</td><td>품목단가</td><td>-</td><td>-</td><td>-</td><td>-</td><td>2026.06.10</td><td>홍길동</td><td><button type="button" class="btn-delete" data-open-modal="pqDeleteConfirmModal">삭제</button></td></tr>
-              <tr><td>1,541</td><td>RFQ2608</td><td><span class="badge-tag">작성 중</span></td><td class="text-left"><a href="SRMPreQuoteRequestManage.html">[재견적(1)] 태양광 발전기 도입 관련...</a></td><td>공사</td><td class="col-num">135,400,000</td><td>지정항목</td><td>2건</td><td>3건</td><td>3개</td><td>2026.07.31 18:00</td><td>2026.06.10</td><td>홍길동</td><td><button type="button" class="btn-delete" data-open-modal="pqDeleteConfirmModal">삭제</button></td></tr>
+              <tr><td>1,541</td><td>RFQ2608</td><td><span class="badge-tag">작성 중</span></td><td class="text-left"><span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="04-4:2" aria-hidden="true"></span><a href="SRMPreQuoteRequestManage.html">[재견적(1)] 태양광 발전기 도입 관련...</a></span></td><td>공사</td><td class="col-num">135,400,000</td><td>지정항목</td><td>2건</td><td>3건</td><td>3개</td><td>2026.07.31 18:00</td><td>2026.06.10</td><td>홍길동</td><td><button type="button" class="btn-delete" data-open-modal="pqDeleteConfirmModal">삭제</button></td></tr>
               <tr><td>1,540</td><td>RFQ2601</td><td><span class="badge-tag">작성 중</span></td><td class="text-left"><a href="SRMPreQuoteRequestManage.html">고효율 압축기 교체 관련 견적 요청의 건</a></td><td>물품</td><td class="col-num">58,000,000</td><td>지정항목</td><td>1건</td><td>-</td><td>-</td><td>-</td><td>2026.06.02</td><td>홍길동</td><td><button type="button" class="btn-delete" data-open-modal="pqDeleteConfirmModal">삭제</button></td></tr>
             </tbody>
           </table>
@@ -350,6 +350,7 @@
 
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
   <!-- 사전 견적 요청 신규 등록 (첫 단계) -->
 
@@ -386,6 +387,6 @@
 
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMPreQuoteRequest/pqDeleteConfirmModal.html", "popups/SRMPreQuoteRequest/pqItemUploadModal.html", "popups/SRMPreQuoteRequest/pqCommonItemModal.html", "popups/SRMPreQuoteRequest/pqItemFormModal.html", "popups/SRMPreQuoteRequest/pqAttachModal.html", "popups/SRMPreQuoteRequest/pqDeadlineModal.html", "popups/SRMPreQuoteRequest/pqVendorAddModal.html", "popups/SRMPreQuoteRequest/pqFinalConfirmModal.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMPreQuoteRequest/screenDescriptionGuide.html", "popups/SRMPreQuoteRequest/pqDeleteConfirmModal.html", "popups/SRMPreQuoteRequest/pqItemUploadModal.html", "popups/SRMPreQuoteRequest/pqCommonItemModal.html", "popups/SRMPreQuoteRequest/pqItemFormModal.html", "popups/SRMPreQuoteRequest/pqAttachModal.html", "popups/SRMPreQuoteRequest/pqDeadlineModal.html", "popups/SRMPreQuoteRequest/pqVendorAddModal.html", "popups/SRMPreQuoteRequest/pqFinalConfirmModal.html"]</script>
 </body>
 </html>

@@ -281,7 +281,7 @@
       <nav class="wizard-stepper" aria-label="사전 견적 요청 단계">
         <a href="SRMPreQuoteRequestManage.html" class="wizard-step-box completed"><span class="wizard-step-dot" aria-hidden="true">1</span><span class="wizard-step-num">STEP 01</span><span class="wizard-step-title">견적 요청 기본정보</span></a>
         <a href="SRMPreQuoteRequestManageItems.html" class="wizard-step-box completed"><span class="wizard-step-dot" aria-hidden="true">2</span><span class="wizard-step-num">STEP 02</span><span class="wizard-step-title">품목 정보</span></a>
-        <a href="SRMPreQuoteRequestManageAttach.html" class="wizard-step-box active" aria-current="step"><span class="wizard-step-dot" aria-hidden="true">3</span><span class="wizard-step-num">STEP 03</span><span class="wizard-step-title">전달자료</span></a>
+        <a href="SRMPreQuoteRequestManageAttach.html" class="wizard-step-box active description-marker-container" aria-current="step"><span class="description-target-marker marker-top-left" data-description-ref="04-10:1" aria-hidden="true"></span><span class="wizard-step-dot" aria-hidden="true">3</span><span class="wizard-step-num">STEP 03</span><span class="wizard-step-title">전달자료</span></a>
         <a href="SRMPreQuoteRequestManageVendor.html" class="wizard-step-box"><span class="wizard-step-dot" aria-hidden="true">4</span><span class="wizard-step-num">STEP 04</span><span class="wizard-step-title">견적 요청 업체 선정</span></a>
         <a href="SRMPreQuoteRequestManageReview.html" class="wizard-step-box"><span class="wizard-step-dot" aria-hidden="true">5</span><span class="wizard-step-num">STEP 05</span><span class="wizard-step-title">최종 점검 및 견적 요청</span></a>
         <a href="SRMPreQuoteRequestComplete.html" class="wizard-step-box"><span class="wizard-step-dot" aria-hidden="true">6</span><span class="wizard-step-num">STEP 06</span><span class="wizard-step-title">견적 요청 완료</span></a>
@@ -306,8 +306,10 @@
 
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
+
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMPreQuoteRequest/pqAttachModal.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMPreQuoteRequestManageAttach/screenDescriptionGuide.html", "popups/SRMPreQuoteRequest/pqAttachModal.html"]</script>
 </body>
 </html>

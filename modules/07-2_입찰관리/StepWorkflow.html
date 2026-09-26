@@ -267,7 +267,7 @@
       <!-- 상단 페이지 헤더 및 브레드크럼 -->
       <div class="page-title-wrap">
         <div class="page-title-left">
-          <h1 class="page-title">입찰계획 현황</h1>
+          <h1 class="page-title description-marker-container"><span class="description-target-marker marker-top-left" data-description-ref="07-2-6:1" aria-hidden="true"></span>입찰계획 현황</h1>
         </div>
         <div class="breadcrumb">
           <a href="../03_대시보드/SRMDashboardContract.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span>
@@ -311,7 +311,7 @@
           </div>
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-130">키워드 검색</span>
-            <select class="filter-select w-160"><option>공고 번호</option><option>입찰 건명</option><option>수주계약번호</option><option>발주계약 요청번호</option><option>발주계약 품의번호</option></select>
+            <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-2-6:3" aria-hidden="true"></span><select class="filter-select w-160"><option>공고 번호</option><option>입찰 건명</option><option>수주계약번호</option><option>발주계약 요청번호</option><option>발주계약 품의번호</option></select></span>
             <input type="text" class="filter-text-input w-380" placeholder="검색어를 입력하세요.">
           </div>
           <div class="filter-action-row">
@@ -337,7 +337,7 @@
         <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="입찰계획 현황 목록" data-total-items="1523" data-total-pages="153">
           <table class="data-table data-grid-table" aria-label="입찰계획 현황 목록">
             <thead>
-              <tr><th class="w-55">No</th><th class="w-90">공고 번호</th><th class="w-70">공고 구분</th><th class="w-70">진행상태</th><th class="minw-240">입찰 건명</th><th class="w-60">구분</th><th class="w-110">계약방법</th><th class="minw-170">낙찰자 선정방법</th><th class="w-90">등록일</th><th class="w-70">사업담당자</th><th class="w-70">계약담당자</th></tr>
+              <tr><th class="w-55">No</th><th class="w-90">공고 번호</th><th class="w-70"><span class="description-marker-anchor">공고 구분<span class="description-target-marker" data-description-ref="07-2-6:4" aria-hidden="true"></span></span></th><th class="w-70"><span class="description-marker-anchor">진행상태<span class="description-target-marker" data-description-ref="07-2-6:2" aria-hidden="true"></span></span></th><th class="minw-240">입찰 건명</th><th class="w-60">구분</th><th class="w-110">계약방법</th><th class="minw-170">낙찰자 선정방법</th><th class="w-90">등록일</th><th class="w-70">사업담당자</th><th class="w-70">계약담당자</th></tr>
             </thead>
             <tbody>
               <tr><td>1,542</td><td>BD2026-0023</td><td>본공고</td><td><span class="badge-tag">작성중</span></td><td class="text-left"><a href="StepWorkflowOrderPlan.html#workflowDetail">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>공사</td><td>경쟁입찰(일반)</td><td>제한적 최저가 입찰</td><td>2026.06.10</td><td>홍길동</td><td>임꺽정</td></tr>
@@ -411,7 +411,7 @@
       <h2 class="card-title content-object-gap-top">예정가 / 예비가 세부 업무 진행</h2>
 
       <div class="wizard-stepper has-actions" id="workflowSubFlow" role="group" aria-label="예정가 / 예비가 세부 업무 진행">
-        <div class="wizard-step-box active" data-step="1" aria-current="step">
+        <div class="description-marker-container wizard-step-box active" data-step="1" aria-current="step"><span class="description-target-marker marker-top-left" data-description-ref="07-2-16:1" data-ui-show="price=reserve" aria-hidden="true"></span><span class="description-target-marker marker-top-left" data-description-ref="07-2-17:1" data-ui-show="price=planned" aria-hidden="true"></span>
           <span class="wizard-step-dot" aria-hidden="true">1</span>
           <div class="wizard-step-num">STEP 01</div>
           <div class="wizard-step-title">예정가격 산출기초조서<br>등록 및 전자결재 요청</div>
@@ -420,7 +420,7 @@
             <button type="button" class="btn-sub-action btn-task-done btn-open-calc-modal">완료/확인</button>
           </div>
         </div>
-        <div class="wizard-step-box" data-step="2">
+        <div class="description-marker-container wizard-step-box" data-step="2"><span class="description-target-marker marker-top-left" data-description-ref="07-2-16:2" data-ui-show="price=reserve" aria-hidden="true"></span><span class="description-target-marker marker-top-left" data-description-ref="07-2-17:2" data-ui-show="price=planned" aria-hidden="true"></span>
           <span class="wizard-step-dot" aria-hidden="true">2</span>
           <div class="wizard-step-num">STEP 02</div>
           <div class="wizard-step-title">예정가격 산출기초조서<br>전자결재</div>
@@ -478,7 +478,7 @@
               <th>사정금액</th>
               <th data-ui-show="price=reserve">복수예비 기초금액</th>
               <th data-ui-show="price=reserve">낙찰하한율</th>
-              <th>예정가격</th>
+              <th><span class="description-marker-anchor">예정가격<span class="description-target-marker" data-description-ref="07-2-16:3" data-ui-show="price=reserve" aria-hidden="true"></span></span></th>
               <th data-ui-show="price=reserve">낙찰하한가</th>
             </tr>
           </thead>
@@ -511,8 +511,10 @@
     <div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div>
   </footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
+
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/StepWorkflow/modalCalcPrice.html", "popups/StepWorkflow/modalApprovalConfirm.html", "popups/StepWorkflow/bidPriceRequestModal.html", "popups/StepWorkflow/bidPriceRegisterModal.html", "popups/StepWorkflow/bidReserveTableModal.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/StepWorkflow/screenDescriptionGuide.html", "popups/StepWorkflow/modalCalcPrice.html", "popups/StepWorkflow/modalApprovalConfirm.html", "popups/StepWorkflow/bidPriceRequestModal.html", "popups/StepWorkflow/bidPriceRegisterModal.html", "popups/StepWorkflow/bidReserveTableModal.html"]</script>
 </body>
 </html>

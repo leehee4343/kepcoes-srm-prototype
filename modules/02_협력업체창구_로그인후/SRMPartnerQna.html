@@ -93,10 +93,10 @@
 
       <div class="board-view show" id="partnerQnaListView">
       <section class="filter-card description-marker-container">
-        <span class="description-target-marker marker-top-left" aria-hidden="true">1</span>
+        <span class="description-target-marker marker-top-left" data-description-ref="02-7:1" aria-hidden="true"></span>
         <form id="partnerQnaSearchForm" data-ui-scope="filter">
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">조회기간(등록일)</span>
+            <span class="filter-label w-130">조회기간(등록일)</span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
             <div class="quick-date-btns hstack gap-6">
               <button type="button" class="btn-quick-date" data-range="1d">하루 전</button>
@@ -108,7 +108,7 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">상태</span>
+            <span class="filter-label w-130">상태</span>
             <div class="form-choice-group" role="radiogroup">
               <label class="form-choice"><input type="radio" name="qnaStatus" checked>전체</label>
               <label class="form-choice"><input type="radio" name="qnaStatus">답변요청</label>
@@ -116,8 +116,8 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-80">키워드 검색</span>
-            <span class="description-marker-anchor"><span class="description-target-marker" aria-hidden="true">2</span><select class="filter-select w-130">
+            <span class="filter-label w-130">키워드 검색</span>
+            <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="02-7:2" aria-hidden="true"></span><select class="filter-select w-130">
               <option value="title" selected>제목</option>
               <option value="body">내용</option>
               <option value="titlebody">제목+내용</option>
@@ -175,7 +175,7 @@
           <div class="srm-file-item"><span>두 번째로 첨부된 파일명.HWP</span><button type="button" class="btn-file-preview">바로보기</button><button type="button" class="btn-file-download">다운로드</button></div>
         </div>
 
-        <div class="srm-section-heading content-object-gap-top description-marker-container"><span class="description-target-marker marker-top-left" aria-hidden="true">2</span><div><h2>답변 내용</h2></div></div>
+        <div class="srm-section-heading content-object-gap-top description-marker-container"><span class="description-target-marker marker-top-left" data-description-ref="02-10:1" aria-hidden="true"></span><div><h2>답변 내용</h2></div></div>
         <div class="srm-kv-grid">
           <div class="srm-kv-row"><dt>답변자</dt><dd>홍길동</dd></div>
           <div class="srm-kv-row"><dt>답변일시</dt><dd>2026.08.12 15:34</dd></div>
@@ -185,7 +185,7 @@
           <div class="srm-file-item"><span>첫 번째로 첨부된 파일명.PDF</span><button type="button" class="btn-file-preview">바로보기</button><button type="button" class="btn-file-download">다운로드</button></div>
         </div>
         <div class="srm-detail-actions content-object-gap-top description-marker-container">
-          <span class="description-target-marker marker-top-left" aria-hidden="true">1</span>
+          <span class="description-target-marker marker-top-left" data-description-ref="02-9:1" aria-hidden="true"></span>
           <button type="button" class="btn-secondary srm-list-button" data-open-modal="partnerQnaListView">목록</button>
         </div>
       </section>
@@ -202,7 +202,7 @@
           <button type="button" class="btn-secondary srm-list-button" data-open-modal="partnerQnaListView">목록</button>
           <div class="hstack">
             <span class="description-marker-anchor">
-              <span class="description-target-marker" aria-hidden="true">1</span>
+              <span class="description-target-marker" data-description-ref="02-8:1" aria-hidden="true"></span>
               <button type="button" class="btn-primary" data-open-modal="partnerQnaListView">등록</button>
             </span>
             <button type="button" class="btn-primary" data-open-modal="partnerQnaListView">수정</button>
@@ -217,12 +217,10 @@
     <div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div>
   </footer>
 
-  <!-- 화면설계 Description 개발자 가이드 (DESIGN_GUIDE 5.15) -->
   <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
-
-
   <script src="popups/popup-bundle.js"></script>
+  <script src="../../assets/scripts/message-catalog.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
   <script type="application/json" class="external-modal-manifest">["popups/SRMPartnerQna/screenDescriptionGuide.html"]</script>
 </body>

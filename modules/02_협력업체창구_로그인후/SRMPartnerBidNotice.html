@@ -94,7 +94,7 @@
       <section class="filter-card">
         <form id="bidNoticeSearchForm" data-ui-scope="filter">
           <div class="filter-row hstack gap-12 description-marker-container">
-            <span class="description-target-marker marker-top-left" aria-hidden="true">1</span>
+            <span class="description-target-marker marker-top-left" data-description-ref="02-25:1" aria-hidden="true"></span>
             <span class="filter-label w-200">조회기간(입찰 마감일)</span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
             <div class="quick-date-btns hstack gap-6">
@@ -116,13 +116,13 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12 description-marker-container">
-            <span class="description-target-marker marker-top-left" aria-hidden="true">2</span>
+            <span class="description-target-marker marker-top-left" data-description-ref="02-25:2" aria-hidden="true"></span>
             <span class="filter-label w-200">계약방법/낙찰자 선정방법</span>
             <select class="filter-select w-180" data-ui-field="method"><option value="">전체</option><option value="sole">수의계약</option><option value="general">경쟁입찰(일반)</option><option value="limited">경쟁입찰(제한)</option><option value="designated">경쟁입찰(지명)</option></select>
             <select class="filter-select w-180" data-ui-field="award"><option value="">전체</option><option value="lowest">최저가</option><option value="restricted">제한적 최저가 입찰</option><option value="simultaneous">2단계 경쟁입찰(규격/가격 동시)</option><option value="separate">2단계 경쟁입찰(규격/가격 분리)</option><option value="qualification">적격심사</option></select>
           </div>
           <div class="filter-row hstack gap-12 description-marker-container">
-            <span class="description-target-marker marker-top-left" aria-hidden="true">3</span>
+            <span class="description-target-marker marker-top-left" data-description-ref="02-25:3" aria-hidden="true"></span>
             <span class="filter-label w-200">공고 구분</span>
             <div class="form-choice-group" role="radiogroup">
               <label class="form-choice"><input type="radio" name="bidNoticeKind" checked>전체</label>
@@ -131,16 +131,16 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12 description-marker-container">
-            <span class="description-target-marker marker-top-left" aria-hidden="true">4</span>
+            <span class="description-target-marker marker-top-left" data-description-ref="02-25:4" aria-hidden="true"></span>
             <span class="filter-label w-200">진행상태</span>
             <select class="filter-select w-180">
               <option value="all" selected>전체</option>
               <option>공고대기</option><option>공고게시중</option><option>입찰진행중</option><option>입찰마감</option>
-              <option>투찰진행중</option><option>투찰마감</option><option>선정완료</option><option>유찰</option>
+              <option>투찰진행중</option><option>투찰마감</option><option>선정완료</option><option>유찰</option><option>공고취소</option>
             </select>
           </div>
           <div class="filter-row hstack gap-12 description-marker-container">
-            <span class="description-target-marker marker-top-left" aria-hidden="true">5</span>
+            <span class="description-target-marker marker-top-left" data-description-ref="02-25:5" aria-hidden="true"></span>
             <span class="filter-label w-200">키워드 검색</span>
             <select class="filter-select w-150"><option>공고번호</option><option>입찰 건명</option></select>
             <input type="text" class="filter-text-input w-380" placeholder="검색어를 입력하세요.">
@@ -167,7 +167,7 @@
         <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="입찰공고 현황 목록" data-total-items="1523" data-total-pages="153">
           <table class="data-table data-grid-table" aria-label="입찰공고 현황 목록">
             <thead>
-              <tr><th class="w-100">공고번호</th><th class="w-80">공고 구분</th><th class="w-90">진행상태</th><th class="minw-250">입찰 건명</th><th class="w-130">입찰 마감일시</th><th class="w-90">참여업체(수)</th><th class="w-60">구분</th><th class="w-100">계약방법</th><th class="w-110">낙찰자 선정방법</th><th class="w-80">사업담당자</th><th class="w-80">계약 담당자</th></tr>
+              <tr><th class="w-100"><span class="description-marker-anchor">공고번호<span class="description-target-marker" data-description-ref="02-25:6" aria-hidden="true"></span></span></th><th class="w-80">공고 구분</th><th class="w-90" data-status-values="공고게시중|입찰진행중|입찰마감|투찰진행중|투찰마감|선정완료|유찰|공고취소">진행상태</th><th class="minw-250">입찰 건명</th><th class="w-130">입찰 마감일시</th><th class="w-90">참여업체(수)</th><th class="w-60">구분</th><th class="w-100">계약방법</th><th class="w-110">낙찰자 선정방법</th><th class="w-80">사업담당자</th><th class="w-80">계약 담당자</th></tr>
             </thead>
             <tbody>
               <tr><td><a href="#" data-open-modal="bidNoticeDocModal">BD2026-0023</a></td><td>본공고</td><td><span class="badge-success">공고게시중</span></td><td class="text-left"><a href="SRMPartnerBidNoticeDetail.html">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>2026.07.31 18:00</td><td class="col-num">15</td><td>공사</td><td>경쟁입찰(일반)</td><td>최저가</td><td>홍길동</td><td>임꺽정</td></tr>
@@ -186,6 +186,7 @@
     <div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div>
   </footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
   <!-- 입찰공고 내역서 -->
 
@@ -199,13 +200,11 @@
   <!-- 가격 투찰 제한 안내 -->
 
 
-  <!-- 화면설계 Description 개발자 가이드 (DESIGN_GUIDE 5.15) -->
-  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
 
 
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMPartnerBidNotice/bidNoticeDocModal.html", "popups/SRMPartnerBidNotice/bidJoinLimitNoticeModal.html", "popups/SRMPartnerBidNotice/bidPriceLimitNoticeModal.html", "popups/SRMPartnerBidNotice/screenDescriptionGuide.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMPartnerBidNotice/screenDescriptionGuide.html", "popups/SRMPartnerBidNotice/bidNoticeDocModal.html", "popups/SRMPartnerBidNotice/bidJoinLimitNoticeModal.html", "popups/SRMPartnerBidNotice/bidPriceLimitNoticeModal.html"]</script>
 </body>
 </html>

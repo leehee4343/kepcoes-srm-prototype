@@ -282,7 +282,7 @@
         <div class="srm-section-heading content-inner-gap-top"><div><h2>업체별 견적 제출 현황</h2></div></div>
         <div class="srm-table-wrap">
           <table class="data-table" aria-label="업체별 견적 제출 현황">
-            <thead><tr><th class="col-no">No</th><th>사업자번호</th><th>업체명</th><th>대표자</th><th>담당자</th><th>핸드폰번호</th><th>이메일</th><th class="w-130">견적 마감일시</th><th class="w-80">제출상태</th><th class="w-100">견적금액</th><th class="w-80">예산대비</th><th class="w-90">제출일/포기일</th></tr></thead>
+            <thead><tr><th class="col-no">No</th><th>사업자번호</th><th>업체명</th><th>대표자</th><th>담당자</th><th>핸드폰번호</th><th>이메일</th><th class="w-130">견적 마감일시</th><th class="w-80"><span class="description-marker-anchor">제출상태<span class="description-target-marker" data-description-ref="04-19:2" aria-hidden="true"></span></span></th><th class="w-100">견적금액</th><th class="w-80">예산대비</th><th class="w-90">제출일/포기일</th></tr></thead>
             <tbody>
               <tr><td>1</td><td>123-45-67891</td><td class="text-left"><a href="SRMPreQuoteSubmissionDetail.html">삼전디에스</a></td><td>홍길동</td><td>한지훈</td><td>010-1234-5678</td><td>leehee43@naver.com</td><td>2026.07.31 18:00</td><td><span class="badge-success">제출완료</span></td><td class="col-num">128,000,000</td><td>94.5%</td><td>2026.07.20</td></tr>
               <tr><td>2</td><td>123-45-67891</td><td class="text-left"><a href="SRMPreQuoteSubmissionDetail.html">넷퍼시</a></td><td>홍길동</td><td>김미라</td><td>-</td><td>-</td><td>2026.07.31 18:00</td><td><span class="badge-tag">미제출</span></td><td>-</td><td>-</td><td>-</td></tr>
@@ -299,6 +299,7 @@
 
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
   <!-- 사전 견적 요청 현황 상세 - 견적 제출 현황 -->
 
@@ -308,6 +309,6 @@
 
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMPreQuoteStatus/pqRebidConfirmModal.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMPreQuoteStatusDetailSubmission/screenDescriptionGuide.html", "popups/SRMPreQuoteStatus/pqRebidConfirmModal.html"]</script>
 </body>
 </html>

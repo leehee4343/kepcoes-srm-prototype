@@ -299,7 +299,7 @@
           </div>
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-200">진행상태</span>
-            <select class="filter-select w-200"><option>진행상태 선택</option></select>
+            <select class="filter-select w-200" aria-label="진행상태"><option>진행상태 선택</option><option>공고대기</option><option>공고게시중</option><option>입찰진행중</option><option>입찰마감</option><option>투찰진행중</option><option>투찰마감</option><option>심사완료</option><option>개찰완료</option><option>선정완료</option><option>수의시담(견적요청)</option><option>수의시담(견적제출 완료)</option><option>수의시담 완료</option><option>계약품의(전자결재 요청)</option><option>계약품의(전자결재 완료)</option><option>유찰</option><option>재입찰</option><option>공고취소</option></select>
           </div>
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-200">키워드 검색</span>
@@ -328,7 +328,7 @@
         <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="입찰공고 현황 목록" data-total-items="1523" data-total-pages="153">
           <table class="data-table data-grid-table" aria-label="입찰공고 현황 목록">
             <thead>
-              <tr><th class="w-90">공고 번호</th><th class="w-80">공고 구분</th><th class="w-100">진행상태</th><th class="minw-240">입찰 건명</th><th class="w-120">입찰 마감일시</th><th class="w-70">참여업체(수)</th><th class="w-60">구분</th><th class="w-110">계약방법</th><th class="minw-170">낙찰자 선정방법</th><th class="w-70">사업담당자</th><th class="w-70">계약담당자</th></tr>
+              <tr><th class="w-90">공고 번호</th><th class="w-80">공고 구분</th><th class="w-100" data-status-values="공고대기|공고게시중|입찰진행중|입찰마감|투찰진행중|투찰마감|심사완료|개찰완료|선정완료|수의시담(견적요청)|수의시담(견적제출 완료)|수의시담 완료|계약품의(전자결재 요청)|계약품의(전자결재 완료)|유찰|재입찰|공고취소">진행상태</th><th class="minw-240">입찰 건명</th><th class="w-120">입찰 마감일시</th><th class="w-70">참여업체(수)</th><th class="w-60">구분</th><th class="w-110">계약방법</th><th class="minw-170">낙찰자 선정방법</th><th class="w-70">사업담당자</th><th class="w-70">계약담당자</th></tr>
             </thead>
             <tbody>
               <tr><td><a href="#" data-open-modal="bidNoticeDocModal">BD2026-0023</a></td><td>본공고</td><td><span class="badge-tag">공고대기</span></td><td class="text-left"><a href="SRMDetailOrderPlan.html#bidDetailAnchor">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>2026.07.31 18:00</td><td>15</td><td>공사</td><td>경쟁입찰(일반)</td><td>최저가</td><td>홍길동</td><td>임꺽정</td></tr>
@@ -396,7 +396,7 @@
 
       <!-- 발주계획 정보 -->
       <section class="app-card srm-detail-section">
-        <div class="srm-section-heading"><div><h2>발주계획 기본정보</h2></div><p>공고가 올라온 다음에도 발주계획 정보는 확인할 수 있습니다.</p></div>
+        <div class="srm-section-heading description-marker-container"><span class="description-target-marker marker-top-left" data-description-ref="07-2-35:1" aria-hidden="true"></span><div><h2>발주계획 기본정보</h2></div><p>공고가 올라온 다음에도 발주계획 정보는 확인할 수 있습니다.</p></div>
         <div class="srm-kv-grid">
           <div class="srm-kv-row"><dt>공고 번호</dt><dd>BD2026-0023</dd></div>
           <div class="srm-kv-row"><dt>발주계약 요청번호</dt><dd>PR2026-0003</dd></div>
@@ -451,8 +451,10 @@
 
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
+
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMDetail/modalReturnBidPlan.html", "popups/SRMDetail/bidNoticeDocModal.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMDetailOrderPlan/screenDescriptionGuide.html", "popups/SRMDetail/modalReturnBidPlan.html", "popups/SRMDetail/bidNoticeDocModal.html"]</script>
 </body>
 </html>

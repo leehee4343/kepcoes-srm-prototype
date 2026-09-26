@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>화면설계 Description</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<!-- 자동 생성 파일: 직접 수정하지 말고 docs/DESCRIPTION_MAP.json 수정 후 python3 tools/build_description_guides.py 실행 -->
+<div class="modal-backdrop description-guide-backdrop" id="screenDescriptionGuide" role="dialog" aria-modal="false" aria-labelledby="screenDescriptionGuideTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg description-modal-dialog">
+      <div class="modal-header">
+        <h2 class="modal-title" id="screenDescriptionGuideTitle">화면설계 Description</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body description-modal-body">
+        <section class="description-source-section" aria-labelledby="descriptionSection1">
+          <h3 id="descriptionSection1">개찰(개찰 전)</h3>
+          <p class="description-source-meta">화면설계 07-2 · 슬라이드 56</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="07-2-56:1">
+              <span class="description-mapping-number" aria-hidden="true">1</span>
+              <pre class="description-source-text">개찰 전의 화면
+
+투찰에 참여한 업체만 노출
+
+낙찰자 선정방법이 ‘제한적 최저가 입찰’, ‘2단계 경쟁입찰(규격/가격 분리)’의 경우 
+‘적격’으로 심사/평가 통과 후 투찰은 안 한 업체가 있을 수 있음</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-56:2">
+              <span class="description-mapping-number" aria-hidden="true">2</span>
+              <pre class="description-source-text">개찰 전에는 ‘입찰견적서’ 호출 불가</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-56:3">
+              <span class="description-mapping-number" aria-hidden="true">3</span>
+              <pre class="description-source-text">개찰 전에는 모든 가격은 ‘마스킹’ 처리</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-56:4">
+              <span class="description-mapping-number" aria-hidden="true">4</span>
+              <pre class="description-source-text">예비가(낙찰자 선정방법이 ‘제한적 최저가’, ‘적격심사’)로 설정된 경우에만 ‘낙찰하한율’과 ‘낙찰하한가’가 표시될 수 있음</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-56:5">
+              <span class="description-mapping-number" aria-hidden="true">5</span>
+              <pre class="description-source-text">개찰 전에는 ‘상세견적서’를 확인할 수 없음
+
+단, 상세견적서의 ‘개수’는 제공함</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-56:6">
+              <span class="description-mapping-number" aria-hidden="true">6</span>
+              <pre class="description-source-text">개찰을 처리하면 진행상태를 ‘개찰완료’ 상태로 변경</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="descriptionSection2">
+          <h3 id="descriptionSection2">개찰(개찰 후)</h3>
+          <p class="description-source-meta">화면설계 07-2 · 슬라이드 57</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="07-2-57:1">
+              <span class="description-mapping-number" aria-hidden="true">7</span>
+              <pre class="description-source-text">개찰 후 화면
+개찰 후에는 ‘입찰견적서(뒤 페이지 팝업)’와 ‘상세견적서’를 확인할 수 있음</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-57:2">
+              <span class="description-mapping-number" aria-hidden="true">8</span>
+              <pre class="description-source-text">개찰 후에는 모든 가격이 조회됨.
+
+낙찰자 선정방법이 ‘제한적 최저가 입찰’, ‘2단계 경쟁입찰(규격/가격 분리)’인 경우 ‘낙찰하한율’과 ‘낙찰하한가’ 제공</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-57:3">
+              <span class="description-mapping-number" aria-hidden="true">9</span>
+              <pre class="description-source-text">예비가로 설정된 입찰의 경우
+(낙찰자 선정방법이 ‘제한적 최저가 입찰’, ‘적격심사’의 경우) 
+본 영역을 노출함
+
+예정가, 낙찰하한금액 도출 과정 확인이 가능함(뒤 페이지 팝업)</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-57:4">
+              <span class="description-mapping-number" aria-hidden="true">10</span>
+              <pre class="description-source-text">개찰 결과 모든 입찰참여업체의 가격이 적합하지 않은 경우 해당 영역 제공
+
+유찰(재공고)을 처리할 수 있음
+‘유찰(재공고) 처리하기’ 팝업 호출(앞 페이지 참고)</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-57:5">
+              <span class="description-mapping-number" aria-hidden="true">11</span>
+              <pre class="description-source-text">개찰결과에 문제(가격 불성립, 담합 의심 등 다양한 이유가 있을 수 있음)가 있는 경우 재입찰 처리가능
+
+재입찰이란?
+본 ‘개찰 목록’의 협력업체를 대상으로 ‘가격 투찰’을 한 번 더 진행
+
+재입찰 처리하기 팝업(뒤 페이지) 호출</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="descriptionSection3">
+          <h3 id="descriptionSection3">개찰(개찰 후) &gt; (예정가·낙찰하한금액 도출 내역 확인)</h3>
+          <p class="description-source-meta">화면설계 07-2 · 슬라이드 59</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="07-2-59:1">
+              <span class="description-mapping-number" aria-hidden="true">12</span>
+              <pre class="description-source-text">입찰참여 업체들이 가격 투찰 시 선택한 가격에 색깔 부여</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-59:2">
+              <span class="description-mapping-number" aria-hidden="true">13</span>
+              <pre class="description-source-text">가격 투찰 첫 번째 업체가 선택한 가격부터 예비금액#1~#4까지 배정됨.
+
+가격 투찰 업체가 5개 이상인 경우 5번째 업체가 선택한 금액은 예정가격 산출 대상이 아님
+
+만약, 가격 투찰 업체가 4개가 안 되는 경우에는 나머지 예비금액을 시스템이 자동 선택함</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-59:3">
+              <span class="description-mapping-number" aria-hidden="true">14</span>
+              <pre class="description-source-text">예정가격 : 예비금액#1~#4의 평균</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-59:4">
+              <span class="description-mapping-number" aria-hidden="true">15</span>
+              <pre class="description-source-text">낙찰하한가 : 예비금액 * 낙찰하한율
+- 낙찰하한가 미만의 금액을 투찰할 경우 ‘부적격’임
+
+투찰가격의 부적격 산정 기준
+- 예정가격 이상으로 투찰한 경우
+- 예비가격 이하로 투찰한 경우</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="descriptionSection4">
+          <h3 id="descriptionSection4">개찰 &gt; (재입찰 처리하기)</h3>
+          <p class="description-source-meta">화면설계 07-2 · 슬라이드 60</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="07-2-60:1">
+              <span class="description-mapping-number" aria-hidden="true">16</span>
+              <pre class="description-source-text">개찰결과에 문제(가격 불성립, 담합 의심 등 다양한 이유가 있을 수 있음)가 있는 경우 재입찰 처리가능
+
+재입찰이란?
+본 ‘개찰 목록’의 협력업체를 대상으로 ‘가격 투찰’을 한 번 더 진행</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-60:2">
+              <span class="description-mapping-number" aria-hidden="true">17</span>
+              <pre class="description-source-text">‘재입찰(가격 투찰) 기간’ 설정
+협력업체에게 재입찰 기간을 안내해줘야 함</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-60:3">
+              <span class="description-mapping-number" aria-hidden="true">18</span>
+              <pre class="description-source-text">본 ‘개찰 목록’의 협력업체를 대상으로 재입찰 진행</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-60:4">
+              <span class="description-mapping-number" aria-hidden="true">19</span>
+              <pre class="description-source-text">발송 제목/내용을 자동 완성해 주지만, 수정해서 보낼 수도 있음
+
+내용 중 ‘재입찰(가격 투찰) 기간’은 위의 설정된 값에 따라서 자동 완성해 줌</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-60:5">
+              <span class="description-mapping-number" aria-hidden="true">20</span>
+              <pre class="description-source-text">재입찰 처리 시
+
+진행상태를 ‘재입찰’로 변경
+
+개찰 대상 업체의 경우 ‘재입찰(가격 투찰) 기간’ 동안 가격 투찰 기능 활성화
+
+기존에 등록한 ‘가격 투찰 정보’는 모두 삭제함(혹시 모르니 임시 테이블에 저장하는 것은 추천)</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="descriptionSection5">
+          <h3 id="descriptionSection5">개찰(개찰 후) - 낙찰자 선정방법이 ‘2단계 경쟁입찰(규격/가격 동시)’인 경우</h3>
+          <p class="description-source-meta">화면설계 07-2 · 슬라이드 61</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="07-2-61:1">
+              <span class="description-mapping-number" aria-hidden="true">21</span>
+              <pre class="description-source-text">낙찰자 선정방법이 ‘2단계 경쟁입찰(규격/가격 동시)’인 경우의
+개찰 후 화면
+
+이 상황에서는 가격점수를 평가자가 반드시 등록해야 개찰이 완료됨</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-61:2">
+              <span class="description-mapping-number" aria-hidden="true">22</span>
+              <pre class="description-source-text">가격점수를 반드시 입력해야만 개찰이 완료됨</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-61:3">
+              <span class="description-mapping-number" aria-hidden="true">23</span>
+              <pre class="description-source-text">‘가격점수 입력하기(개찰완료 처리)’버튼을 클릭하면 
+진행상태를 ‘개찰완료’ 상태로 변경</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-61:4">
+              <span class="description-mapping-number" aria-hidden="true">24</span>
+              <pre class="description-source-text">개찰결과에 문제(가격 불성립, 담합 의심 등 다양한 이유가 있을 수 있음)가 있는 경우 재입찰 처리가능
+
+재입찰이란?
+본 ‘개찰 목록’의 협력업체를 대상으로 ‘가격 투찰’을 한 번 더 진행
+
+재입찰 처리하기 팝업(앞 페이지) 호출</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="descriptionSection6">
+          <h3 id="descriptionSection6">개찰 – 개찰이 완료된 후의 화면</h3>
+          <p class="description-source-meta">화면설계 07-2 · 슬라이드 62</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="07-2-62:1">
+              <span class="description-mapping-number" aria-hidden="true">25</span>
+              <pre class="description-source-text">개찰이 완료된 후의 화면 : 업무 처리 기능을 사용할 수 없음</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="descriptionSection7">
+          <h3 id="descriptionSection7">개찰 – 개찰이 완료된 후의 화면(낙찰자 선정방법이 ‘2단계 경쟁입찰(규격/가격 동시)’인 경우)</h3>
+          <p class="description-source-meta">화면설계 07-2 · 슬라이드 63</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="07-2-63:1">
+              <span class="description-mapping-number" aria-hidden="true">26</span>
+              <pre class="description-source-text">개찰이 완료된 후의 화면 : 업무 처리 기능을 사용할 수 없음
+
+낙찰자 선정방법이 ‘2단계 경쟁입찰(규격/가격 동시)’인 경우의 개찰 현황 조회 화면
+
+입력된 가격점수가 제공됨</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="descriptionSection8">
+          <h3 id="descriptionSection8">유찰(재공고) 처리하기</h3>
+          <p class="description-source-meta">화면설계 07-2 · 슬라이드 46</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="07-2-46:1">
+              <span class="description-mapping-number" aria-hidden="true">27</span>
+              <pre class="description-source-text">유찰 처리 시, 
+
+공고 구분을 ‘재공고(1차)’, ‘재공고(2차)’ 형태로 생성하고
+
+본 입찰계획 당시 등록/설정된 정보를 모두 복사해서 ‘입찰계획 현황’ 메뉴에 새로운 공고 번호로 복사해주는 기능
+
+단, 낙찰자 선정방법이 ‘제한적 최저가 입찰’, ‘적격심사’이면서(예비가) 
++
+유찰 처리 시점이 개찰 후인 경우
+
+‘예비가 등록/설정’을 반드시 다시 해야 함(예비가는 복사하지 않고 넘김)</pre>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

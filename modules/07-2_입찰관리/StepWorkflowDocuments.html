@@ -407,7 +407,7 @@
       <section class="app-card srm-detail-section">
 
             <h2 class="card-title content-object-gap-top">입찰 참여 서류</h2>
-      <p class="modal-field-label">입찰 시 협력업체가 첨부해야 하는 서류 목록을 관리합니다. 등록된 입찰 참여 서류 : 총 5건</p>
+      <p class="modal-field-label description-marker-container"><span class="description-target-marker marker-top-left" data-description-ref="07-2-24:1" aria-hidden="true"></span>입찰 시 협력업체가 첨부해야 하는 서류 목록을 관리합니다. 등록된 입찰 참여 서류 : 총 5건</p>
       <div class="srm-table-wrap">
         <table class="data-table" aria-label="입찰 참여 서류">
           <thead><tr><th class="col-no">No</th><th>입찰 참여 서류</th><th>설명</th><th class="w-70">순서</th><th class="w-60">삭제</th></tr></thead>
@@ -421,9 +421,9 @@
         </table>
       </div>
       <div class="hstack content-inner-gap-block">
-        <button type="button" class="btn-secondary" data-close-modal data-open-modal="bidCommonDocModal">공통 입찰 참여 서류 불러오기</button>
+        <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-2-24:2" aria-hidden="true"></span><button type="button" class="btn-secondary" data-close-modal data-open-modal="bidCommonDocModal">공통 입찰 참여 서류 불러오기</button></span>
         <button type="button" class="btn-secondary">순서 적용</button>
-        <button type="button" class="btn-secondary" data-close-modal data-open-modal="bidDocAddModal">입찰 참여 서류 추가</button>
+        <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-2-24:3" aria-hidden="true"></span><button type="button" class="btn-secondary" data-close-modal data-open-modal="bidDocAddModal">입찰 참여 서류 추가</button></span>
         <button type="button" class="btn-action-primary">저장</button>
       </div>
 
@@ -444,8 +444,10 @@
     <div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div>
   </footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
+
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/StepWorkflow/bidCommonDocModal.html","popups/StepWorkflow/bidDocAddModal.html","popups/StepWorkflow/bidCommonDocPreview.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/StepWorkflowDocuments/screenDescriptionGuide.html", "popups/StepWorkflow/bidCommonDocModal.html", "popups/StepWorkflow/bidDocAddModal.html", "popups/StepWorkflow/bidCommonDocPreview.html"]</script>
 </body>
 </html>

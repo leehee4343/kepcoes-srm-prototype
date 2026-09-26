@@ -277,7 +277,7 @@
       <p class="modal-field-label">메일을 발송하는 상황과 메시지를 모두 정리합니다. (참조: [별첨1] 자동 발송 메일, 메시지 내용 정리.xlsx)</p>
       <section class="filter-card" data-ui-scope="filter">
         <div class="form-lookup">
-          <select class="filter-select w-130"><option>검색 구분</option></select>
+          <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="10-12:1" aria-hidden="true"></span><select class="filter-select w-130"><option>검색 구분</option></select></span>
           <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
         </div>
         <div class="filter-action-row"><button type="button" class="btn-filter-search">검색</button><button type="button" class="btn-filter-reset">초기화</button></div>
@@ -316,6 +316,7 @@
 
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
   <!-- 발송 내용 수정 (일반) -->
 
@@ -325,6 +326,6 @@
 
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">[]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMMailContentManage/screenDescriptionGuide.html"]</script>
 </body>
 </html>

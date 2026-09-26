@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>화면설계 Description</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<!-- 자동 생성 파일: 직접 수정하지 말고 docs/DESCRIPTION_MAP.json 수정 후 python3 tools/build_description_guides.py 실행 -->
+<div class="modal-backdrop description-guide-backdrop" id="screenDescriptionGuide" role="dialog" aria-modal="false" aria-labelledby="screenDescriptionGuideTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg description-modal-dialog">
+      <div class="modal-header">
+        <h2 class="modal-title" id="screenDescriptionGuideTitle">화면설계 Description</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body description-modal-body">
+        <section class="description-source-section" aria-labelledby="descriptionSection1">
+          <h3 id="descriptionSection1">입찰 서류 제출(입찰 서류가 제출된 경우 제공되는 화면)</h3>
+          <p class="description-source-meta">화면설계 02 · 슬라이드 43</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="02-43:1">
+              <span class="description-mapping-number" aria-hidden="true">1</span>
+              <pre class="description-source-text">입찰 서류가 제출된 경우(제출상태가 ‘입찰 서류 제출 완료’) 제공되는 화면
+
+‘입찰 서류 제출’은 ‘가격 투찰’과 다르게 입찰마감일시 전까지는 수정/제출할 수 있음</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="descriptionSection2">
+          <h3 id="descriptionSection2">입찰 서류 제출(입찰 서류가 제출된 경우 제공되는 화면)</h3>
+          <p class="description-source-meta">화면설계 02 · 슬라이드 44</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="02-44:1">
+              <span class="description-mapping-number" aria-hidden="true">2</span>
+              <pre class="description-source-text">‘입찰 서류 제출’은 ‘가격 투찰’과 다르게 입찰마감일시 전까지는 수정/제출할 수 있음
+
+입찰마감일시까지는 제출을 취소하고 재등록 가능하게 구현
+
+고객 통보 : MSG-013</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="02-44:2">
+              <span class="description-mapping-number" aria-hidden="true">3</span>
+              <pre class="description-source-text">입찰 포기 시 안내 후 처리
+
+입찰을 포기하면 제출상태는 ‘입찰 포기’ 상태로 변경되며, 메일/SMS 발송됨
+
+단, 입찰을 포기하게 되면 더 이상 본 입찰공고에 입찰 참여를 할 수 없음
+
+고객 통보 : MSG-014</pre>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

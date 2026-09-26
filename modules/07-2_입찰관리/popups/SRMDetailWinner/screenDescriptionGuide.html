@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>화면설계 Description</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<!-- 자동 생성 파일: 직접 수정하지 말고 docs/DESCRIPTION_MAP.json 수정 후 python3 tools/build_description_guides.py 실행 -->
+<div class="modal-backdrop description-guide-backdrop" id="screenDescriptionGuide" role="dialog" aria-modal="false" aria-labelledby="screenDescriptionGuideTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg description-modal-dialog">
+      <div class="modal-header">
+        <h2 class="modal-title" id="screenDescriptionGuideTitle">화면설계 Description</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body description-modal-body">
+        <section class="description-source-section" aria-labelledby="descriptionSection1">
+          <h3 id="descriptionSection1">최저가</h3>
+          <p class="description-source-meta">화면설계 07-2 · 슬라이드 64</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="07-2-64:1">
+              <span class="description-mapping-number" aria-hidden="true">1</span>
+              <pre class="description-source-text">개찰을 진행하지 않은 경우 노출
+특히, 낙찰자 선정방법이 ‘2단계 경쟁입찰(규격/가격 동시)’인 경우에는  가격점수를 반드시 입력해야만 개찰이 완료됨</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-64:2">
+              <span class="description-mapping-number" aria-hidden="true">2</span>
+              <pre class="description-source-text">낙찰자 선정방법이 ‘최저가’ 인 경우,
+순위 선정 방식
+우선협상대상자 선정기준 : 예정가를 초과하지 않는 범위 내에서 투찰가격이 가장 낮은 업체 (1순위는 무조건 ‘우선협상자’이며, ‘부적격’은 당연히 순위 없음)
+
+동일 가격으로 투찰한 경우 랜덤으로(자동 추첨) 우선협상자 선정</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-64:3">
+              <span class="description-mapping-number" aria-hidden="true">3</span>
+              <pre class="description-source-text">결과는 무조건 ‘수동’으로 처리함
+최초 상태는 ‘낙찰/탈락 처리 전’임</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-64:4">
+              <span class="description-mapping-number" aria-hidden="true">4</span>
+              <pre class="description-source-text">가격의 ‘적합 여부’ 제공
+- 예정가를 초과하면 부적합</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-64:5">
+              <span class="description-mapping-number" aria-hidden="true">5</span>
+              <pre class="description-source-text">우선협상대상자를 변경하는 경우 활용(하나의 업체만 선택 가능)</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-64:6">
+              <span class="description-mapping-number" aria-hidden="true">6</span>
+              <pre class="description-source-text">우선협상대상자에게 통보 : MSG-015</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-64:7">
+              <span class="description-mapping-number" aria-hidden="true">7</span>
+              <pre class="description-source-text">낙찰 업체를 선정 : 계약이 가능한지 확인해야 하기 때문에 ‘낙찰(업체 선정)’은 수동으로 진행함(하나의 업체만 선택 가능하며, 선택되지 않은 업체는 모두 ‘탈락’ 처리)
+
+진행상태를 ‘선정완료’ 상태로 변경</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-64:8">
+              <span class="description-mapping-number" aria-hidden="true">8</span>
+              <pre class="description-source-text">낙찰/탈락 업체에게 통보 : MSG-016, MSG-017</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-64:9">
+              <span class="description-mapping-number" aria-hidden="true">9</span>
+              <pre class="description-source-text">‘공고취소’ 처리 가능 : (뒤 페이지 ‘공고취소 처리하기’ 팝업 호출)</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-64:n1">
+              <span class="description-mapping-number" aria-hidden="true"></span>
+              <pre class="description-source-text">낙찰(업체 선정)이 처리되면,
+낙찰업체의 ‘입찰(견적)금액’이
+‘최종 계약 금액’으로 데이터베이스에 저장되어야 함</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="descriptionSection2">
+          <h3 id="descriptionSection2">공고취소 처리하기</h3>
+          <p class="description-source-meta">화면설계 07-2 · 슬라이드 65</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="07-2-65:1">
+              <span class="description-mapping-number" aria-hidden="true">10</span>
+              <pre class="description-source-text">공고취소 처리 시, 
+
+공고취소로 처리하면 해당 공고 건은 무효가 됨(이후 업무 진행이 불가능)
+
+진행상태가 ‘공고취소’로 변경되어 종료됨.
+
+이후 본 공고가 다시 진행되려면, 발주계약 요청부터 다시 시작해야 함(별도의 건으로 취급함)</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="descriptionSection3">
+          <h3 id="descriptionSection3">제한적 최저가</h3>
+          <p class="description-source-meta">화면설계 07-2 · 슬라이드 66</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="07-2-66:1">
+              <span class="description-mapping-number" aria-hidden="true">11</span>
+              <pre class="description-source-text">낙찰자 선정방법이 ‘제한적 최저가’ 인 경우, 순위 선정 방식
+
+우선협상대상자 선정기준 : 예정가를 초과하지 않는 범위 + 낙찰하한가 미만의 범위 내에서 투찰가격이 가장 낮은 업체
+
+동일 가격으로 투찰한 경우 우선순위는 규격(기술) 평가점수(합)이 높은 업체가 선정됨
+
+1순위는 무조건 ‘우선협상자’임
+‘부적격’은 당연히 순위 없음</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-66:2">
+              <span class="description-mapping-number" aria-hidden="true">12</span>
+              <pre class="description-source-text">규격(기술) 평가점수(합)과 적격여부 제공
+
+동점자가 발생한 경우 직관적으로 순위를 이해해야 하기 때문에 제공</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-66:3">
+              <span class="description-mapping-number" aria-hidden="true">13</span>
+              <pre class="description-source-text">가격 적합 여부 제공</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-66:n1">
+              <span class="description-mapping-number" aria-hidden="true"></span>
+              <pre class="description-source-text">낙찰(업체 선정)이 처리되면,
+낙찰업체의 ‘입찰(견적)금액’이
+‘최종 계약 금액’으로 데이터베이스에 저장되어야 함</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="descriptionSection4">
+          <h3 id="descriptionSection4">2단계 경쟁입찰(규격/가격 동시)</h3>
+          <p class="description-source-meta">화면설계 07-2 · 슬라이드 67</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="07-2-67:1">
+              <span class="description-mapping-number" aria-hidden="true">14</span>
+              <pre class="description-source-text">낙찰자 선정방법이 ‘2단계 경쟁입찰(규격/가격 동시)’ 인 경우, 순위 선정 방식
+
+우선협상대상자 선정기준 : 총점
+
+동점자가 발생했을 경우에는 ‘동점자 처리기준(규격/가격)’에 따라 결정</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-67:2">
+              <span class="description-mapping-number" aria-hidden="true">15</span>
+              <pre class="description-source-text">입찰 참여 시 규격/가격이 동시에 접수되었기 때문에 부적격도 본 화면에 표시될 수 있음</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-67:3">
+              <span class="description-mapping-number" aria-hidden="true">16</span>
+              <pre class="description-source-text">개찰 시 입력한 가격점수를 보여줌</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-67:4">
+              <span class="description-mapping-number" aria-hidden="true">17</span>
+              <pre class="description-source-text">규격(기술) 적격여부, 가격 적합 여부 중 하나라도 정상적이지 않으면 부적격 처리됨</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-67:n1">
+              <span class="description-mapping-number" aria-hidden="true"></span>
+              <pre class="description-source-text">낙찰(업체 선정)이 처리되면,
+낙찰업체의 ‘입찰(견적)금액’이
+‘최종 계약 금액’으로 데이터베이스에 저장되어야 함</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="descriptionSection5">
+          <h3 id="descriptionSection5">2단계 경쟁입찰(규격/가격 분리)</h3>
+          <p class="description-source-meta">화면설계 07-2 · 슬라이드 68</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="07-2-68:1">
+              <span class="description-mapping-number" aria-hidden="true">18</span>
+              <pre class="description-source-text">낙찰자 선정방법이 ‘2단계 경쟁입찰(규격/가격 분리)’ 인 경우, 순위 선정 방식
+
+우선협상대상자 선정기준 : 예정가를 초과하지 않는 범위에서 투찰가격이 가장 낮은 업체
+
+동일 가격으로 투찰한 경우 규격(기술) 점수를 바탕으로 순위/우선협상대상자 선정</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-68:n1">
+              <span class="description-mapping-number" aria-hidden="true"></span>
+              <pre class="description-source-text">낙찰(업체 선정)이 처리되면,
+낙찰업체의 ‘입찰(견적)금액’이
+‘최종 계약 금액’으로 데이터베이스에 저장되어야 함</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="descriptionSection6">
+          <h3 id="descriptionSection6">적격심사</h3>
+          <p class="description-source-meta">화면설계 07-2 · 슬라이드 69</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="07-2-69:1">
+              <span class="description-mapping-number" aria-hidden="true">19</span>
+              <pre class="description-source-text">낙찰자 선정방법이 ‘적격심사’ 인 경우, 순위 선정 방식
+
+우선협상대상자 선정기준 : 낙찰하한가를 초과하는 범위에서 투찰가격이 가장 낮은 업체
+
+동일 가격으로 투찰한 경우 규격(기술) 점수를 바탕으로 순위/우선협상대상자 선정</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-69:n1">
+              <span class="description-mapping-number" aria-hidden="true"></span>
+              <pre class="description-source-text">낙찰(업체 선정)이 처리되면,
+낙찰업체의 ‘입찰(견적)금액’이
+‘최종 계약 금액’으로 데이터베이스에 저장되어야 함</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="descriptionSection7">
+          <h3 id="descriptionSection7">낙찰(업체 선정) – 낙찰(업체 선정) 완료 후 화면</h3>
+          <p class="description-source-meta">화면설계 07-2 · 슬라이드 70</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="07-2-70:1">
+              <span class="description-mapping-number" aria-hidden="true">20</span>
+              <pre class="description-source-text">낙찰(업체 선정) 완료 후 화면 : 업무 처리 기능을 사용할 수 없음</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-70:2">
+              <span class="description-mapping-number" aria-hidden="true">21</span>
+              <pre class="description-source-text">낙찰자 선정방법이 ‘최저가’ 인 경우의 낙찰(업체 선정) 화면</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-70:3">
+              <span class="description-mapping-number" aria-hidden="true">22</span>
+              <pre class="description-source-text">낙찰자 선정방법이 ‘제한적 최저가’ 인 경우의 낙찰(업체 선정) 화면</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="descriptionSection8">
+          <h3 id="descriptionSection8">낙찰(업체 선정) – 낙찰(업체 선정) 완료 후 화면</h3>
+          <p class="description-source-meta">화면설계 07-2 · 슬라이드 71</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="07-2-71:1">
+              <span class="description-mapping-number" aria-hidden="true">23</span>
+              <pre class="description-source-text">낙찰자 선정방법이 ‘2단계 경쟁입찰(규격/가격 동시)’ 인 경우의 낙찰(업체 선정) 화면</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-71:2">
+              <span class="description-mapping-number" aria-hidden="true">24</span>
+              <pre class="description-source-text">낙찰자 선정방법이 ‘2단계 경쟁입찰(규격/가격 분리)’ 인 경우의 낙찰(업체 선정) 화면</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-71:3">
+              <span class="description-mapping-number" aria-hidden="true">25</span>
+              <pre class="description-source-text">낙찰자 선정방법이 ‘적격심사’인 경우의 낙찰(업체 선정) 화면</pre>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

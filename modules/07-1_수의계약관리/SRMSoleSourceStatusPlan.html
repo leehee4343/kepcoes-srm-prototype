@@ -339,7 +339,7 @@
         <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="수의계약 현황 목록" data-total-items="1523" data-total-pages="153">
           <table class="data-table data-grid-table" aria-label="수의계약 현황 목록">
             <thead>
-              <tr><th class="w-55">No</th><th class="w-90">공고 번호</th><th class="w-70">공고 구분</th><th class="w-120">진행상태</th><th class="minw-240">수의계약 건명</th><th class="w-60">구분</th><th class="w-90">계약방법</th><th class="w-90">낙찰자 선정방법</th><th class="w-90">등록일</th><th class="w-70">사업담당자</th><th class="w-70">계약담당자</th></tr>
+              <tr><th class="w-55">No</th><th class="w-90">공고 번호</th><th class="w-70">공고 구분</th><th class="w-120" data-status-values="공고대기|공고게시중|수의계약(견적요청)|수의계약(견적제출 완료)|가격협의 완료|계약품의(전자결재 요청)|계약품의(전자결재 완료)|수의계약 취소">진행상태</th><th class="minw-240">수의계약 건명</th><th class="w-60">구분</th><th class="w-90">계약방법</th><th class="w-90">낙찰자 선정방법</th><th class="w-90">등록일</th><th class="w-70">사업담당자</th><th class="w-70">계약담당자</th></tr>
             </thead>
             <tbody>
               <tr><td>1,542</td><td>BD2026-0023</td><td>본공고</td><td><span class="badge-tag">공고대기</span></td><td class="text-left"><a href="#" data-open-modal="ssDetailView">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>공사</td><td>수의계약</td><td>최저가</td><td>2026.06.10</td><td>홍길동</td><td>임꺽정</td></tr>
@@ -399,7 +399,7 @@
           </table>
         </div>
         <div class="srm-detail-actions">
-          <button type="button" class="btn-secondary" data-open-modal="ssRevertConfirmModal">'수의계약 계획'으로 되돌리기</button>
+          <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-1-25:1" aria-hidden="true"></span><button type="button" class="btn-secondary" data-open-modal="ssRevertConfirmModal">'수의계약 계획'으로 되돌리기</button></span>
         </div>
 
       </section>
@@ -409,8 +409,10 @@
 
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
+
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMSoleSourceStatus/ssRevertConfirmModal.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMSoleSourceStatusPlan/screenDescriptionGuide.html", "popups/SRMSoleSourceStatus/ssRevertConfirmModal.html"]</script>
 </body>
 </html>

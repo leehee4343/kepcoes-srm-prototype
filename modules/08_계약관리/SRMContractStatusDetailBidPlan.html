@@ -268,7 +268,7 @@
     </aside>
 
         <main class="main-content page-detail-content" data-ui-scope="page" data-ui-defaults="{&quot;negotiated&quot;:&quot;yes&quot;,&quot;presentation&quot;:&quot;yes&quot;}">
-      <div class="page-title-wrap">
+      <div class="page-title-wrap description-marker-container"><span class="description-target-marker marker-top-left" data-description-ref="08-20:1" data-ui-show="method=general|limited|designated" aria-hidden="true"></span><span class="description-target-marker marker-top-left" data-description-ref="08-24:1" data-ui-show="method=sole" aria-hidden="true"></span>
         <div class="page-title-left"><h1 class="page-title">입찰계획 정보</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardContract.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">계약관리</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">입찰계획 정보</span></div>
       </div>
@@ -279,7 +279,7 @@
             <a href="SRMContractStatusDetailDocs.html" class="detail-tab-btn" role="tab" aria-selected="false">계약 관련 서류</a>
             <a href="SRMContractStatusDetailRequest.html" class="detail-tab-btn" role="tab" aria-selected="false">발주계약 요청 정보</a>
             <a href="SRMContractStatusDetailOrderPlan.html" class="detail-tab-btn" role="tab" aria-selected="false">발주계획 정보</a>
-            <a href="SRMContractStatusDetailBidPlan.html" class="detail-tab-btn active" role="tab" aria-selected="true">입찰계획 정보</a>
+            <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="08-24:2" data-ui-show="method=sole" aria-hidden="true"></span><a href="SRMContractStatusDetailBidPlan.html" class="detail-tab-btn active" role="tab" aria-selected="true">입찰계획 정보</a></span>
           </div>
         </div>
 
@@ -376,6 +376,10 @@
 
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
+
+  <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMContractStatusDetailBidPlan/screenDescriptionGuide.html"]</script>
 </body>
 </html>

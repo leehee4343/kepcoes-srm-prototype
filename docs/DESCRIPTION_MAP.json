@@ -1,0 +1,712 @@
+{
+  "note": "화면설계 Description 매핑. pages: 페이지별 드로어에 표시할 슬라이드(페이지 자체 + 그 페이지가 여는 팝업, 슬라이드 순서). 번호는 페이지 안에서 이어서 매김. no_target: PPTX에 번호 원이 없거나 가리키는 UI가 없어 목적지를 두지 않는 항목과 사유. excluded_slides: 화면이 아니어서 어느 페이지에도 넣지 않는 Description 슬라이드와 사유. 생성: python3 tools/build_description_guides.py, 검증: python3 tools/check_description_guides.py",
+  "pages": {
+    "00_공통관리/SRMAdminManage.html": [
+      "00-4",
+      "00-5"
+    ],
+    "00_공통관리/SRMClientDetail.html": [
+      "00-16"
+    ],
+    "00_공통관리/SRMClientManage.html": [
+      "00-15"
+    ],
+    "00_공통관리/SRMCodeManage.html": [
+      "00-11",
+      "00-12"
+    ],
+    "00_공통관리/SRMFileRepoManage.html": [
+      "00-20",
+      "00-21",
+      "00-22"
+    ],
+    "00_공통관리/SRMIpManage.html": [
+      "00-10"
+    ],
+    "00_공통관리/SRMLoginStats.html": [
+      "00-13"
+    ],
+    "00_공통관리/SRMMenuAccessStats.html": [
+      "00-14"
+    ],
+    "00_공통관리/SRMNoticeManage.html": [
+      "00-17",
+      "00-18",
+      "00-19"
+    ],
+    "00_공통관리/SRMPermGroupDetail.html": [
+      "00-7",
+      "00-8"
+    ],
+    "00_공통관리/SRMPermGroupManage.html": [
+      "00-6"
+    ],
+    "00_공통관리/SRMSystemPermManage.html": [
+      "00-9"
+    ],
+    "01_협력업체창구_로그인전/PartnerRegister.html": [
+      "01-7",
+      "01-8",
+      "01-9",
+      "01-10",
+      "01-11",
+      "01-12",
+      "01-13"
+    ],
+    "01_협력업체창구_로그인전/SRMLogin.html": [
+      "01-4",
+      "01-5",
+      "01-6",
+      "01-14",
+      "01-15"
+    ],
+    "02_협력업체창구_로그인후/SRMDashboardPartner.html": [
+      "02-4"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerBidDocumentComplete.html": [
+      "02-42"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerBidDocumentHistory.html": [
+      "02-43",
+      "02-44"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerBidDocumentSubmit.html": [
+      "02-37"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerBidDocumentSubmitFiles.html": [
+      "02-38"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerBidDocumentSubmitReview.html": [
+      "02-40",
+      "02-41"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerBidDocumentSubmitSelfEval.html": [
+      "02-39"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerBidJoin.html": [
+      "02-32"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerBidJoinDetail.html": [
+      "02-33",
+      "02-34",
+      "02-35",
+      "02-36"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerBidNegoDetail.html": [
+      "02-52"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerBidNegoHistory.html": [
+      "02-54"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerBidNegoList.html": [
+      "02-51"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerBidNegoSubmit.html": [
+      "02-53"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerBidNotice.html": [
+      "02-25",
+      "02-26",
+      "02-27"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerBidNoticeDetail.html": [
+      "02-28",
+      "02-29",
+      "02-30",
+      "02-31"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerBidPrice.html": [
+      "02-45",
+      "02-46"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerBidPriceComplete.html": [
+      "02-47"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerBidResult.html": [
+      "02-48",
+      "02-49",
+      "02-50"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerContract.html": [
+      "02-55"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerContractDetail.html": [
+      "02-56",
+      "02-57",
+      "02-58"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerContractDocuments.html": [
+      "02-59"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerFileRepo.html": [
+      "02-11",
+      "02-12"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerInfo.html": [
+      "02-60",
+      "02-61"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerInfoContact.html": [
+      "02-64"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerInfoEdit.html": [
+      "02-62",
+      "02-63"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerInfoPassword.html": [
+      "02-65"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerNegoQuoteHistory.html": [
+      "02-24"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerNegoQuoteRequestInfo.html": [
+      "02-21"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerNegoQuoteSubmit.html": [
+      "02-22",
+      "02-23"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerNegoRequest.html": [
+      "02-17"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerNegoRequestDetail.html": [
+      "02-18",
+      "02-19"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerNegoRequestQuote.html": [
+      "02-20"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerNotice.html": [
+      "02-5",
+      "02-6"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerPreQuote.html": [
+      "02-13",
+      "02-14",
+      "02-15"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerPreQuoteSubmit.html": [
+      "02-16"
+    ],
+    "02_협력업체창구_로그인후/SRMPartnerQna.html": [
+      "02-7",
+      "02-8",
+      "02-9",
+      "02-10"
+    ],
+    "03_대시보드/SRMDashFileRepo.html": [
+      "03-7",
+      "03-8"
+    ],
+    "03_대시보드/SRMDashNotice.html": [
+      "03-5",
+      "03-6"
+    ],
+    "03_대시보드/SRMDashboardAdmin.html": [
+      "03-4"
+    ],
+    "03_대시보드/SRMDashboardBiz.html": [
+      "03-4"
+    ],
+    "03_대시보드/SRMDashboardContract.html": [
+      "03-4"
+    ],
+    "04_사전견적관리/SRMPreQuoteRequest.html": [
+      "04-4"
+    ],
+    "04_사전견적관리/SRMPreQuoteRequestComplete.html": [
+      "04-15"
+    ],
+    "04_사전견적관리/SRMPreQuoteRequestManage.html": [
+      "04-6"
+    ],
+    "04_사전견적관리/SRMPreQuoteRequestManageAttach.html": [
+      "04-10"
+    ],
+    "04_사전견적관리/SRMPreQuoteRequestManageItems.html": [
+      "04-7",
+      "04-8",
+      "04-9"
+    ],
+    "04_사전견적관리/SRMPreQuoteRequestManageReview.html": [
+      "04-13",
+      "04-14"
+    ],
+    "04_사전견적관리/SRMPreQuoteRequestManageVendor.html": [
+      "04-11",
+      "04-12"
+    ],
+    "04_사전견적관리/SRMPreQuoteRequestNew.html": [
+      "04-5"
+    ],
+    "04_사전견적관리/SRMPreQuoteStatus.html": [
+      "04-16"
+    ],
+    "04_사전견적관리/SRMPreQuoteStatusDetail.html": [
+      "04-17",
+      "04-18"
+    ],
+    "04_사전견적관리/SRMPreQuoteStatusDetailSubmission.html": [
+      "04-19"
+    ],
+    "04_사전견적관리/SRMPreQuoteSubmissionDetail.html": [
+      "04-20",
+      "04-21"
+    ],
+    "05_발주계약요청/SRMOrderContractRequest.html": [
+      "05-6"
+    ],
+    "05_발주계약요청/SRMOrderContractRequestComplete.html": [
+      "05-19"
+    ],
+    "05_발주계약요청/SRMOrderContractRequestManage.html": [
+      "05-9",
+      "05-8"
+    ],
+    "05_발주계약요청/SRMOrderContractRequestManageChecklist.html": [
+      "05-10",
+      "05-11",
+      "05-12"
+    ],
+    "05_발주계약요청/SRMOrderContractRequestManageItems.html": [
+      "05-13",
+      "05-14",
+      "05-15"
+    ],
+    "05_발주계약요청/SRMOrderContractRequestManageReview.html": [
+      "05-16",
+      "05-17",
+      "05-18"
+    ],
+    "05_발주계약요청/SRMOrderContractRequestNew.html": [
+      "05-7",
+      "05-8"
+    ],
+    "05_발주계약요청/SRMOrderContractStatus.html": [
+      "05-20",
+      "05-21",
+      "05-22",
+      "05-26",
+      "05-27",
+      "05-28",
+      "05-29",
+      "05-30",
+      "05-31",
+      "05-32"
+    ],
+    "05_발주계약요청/SRMOrderContractStatusDetail.html": [
+      "05-23",
+      "05-24",
+      "05-25",
+      "05-21",
+      "05-22"
+    ],
+    "06_발주계획/SRMOrderPlanIntake.html": [
+      "06-6",
+      "06-7",
+      "06-8",
+      "06-9"
+    ],
+    "06_발주계획/SRMOrderPlanIntakeDetail.html": [
+      "06-9",
+      "06-10",
+      "06-11",
+      "06-7",
+      "06-8"
+    ],
+    "06_발주계획/SRMOrderPlanRegister.html": [
+      "06-12"
+    ],
+    "06_발주계획/SRMOrderPlanRegisterComplete.html": [
+      "06-24"
+    ],
+    "06_발주계획/SRMOrderPlanRegisterDetail.html": [
+      "06-25",
+      "06-26",
+      "06-27"
+    ],
+    "06_발주계획/SRMOrderPlanRegisterManage.html": [
+      "06-13",
+      "06-14"
+    ],
+    "06_발주계획/SRMOrderPlanRegisterManageChecklist.html": [
+      "06-15",
+      "06-16",
+      "06-17"
+    ],
+    "06_발주계획/SRMOrderPlanRegisterManageItems.html": [
+      "06-18",
+      "06-19",
+      "06-20"
+    ],
+    "06_발주계획/SRMOrderPlanRegisterManageReview.html": [
+      "06-21",
+      "06-22",
+      "06-23"
+    ],
+    "07-1_수의계약관리/SRMSoleSourceParticipateDocuments.html": [],
+    "07-1_수의계약관리/SRMSoleSourcePlan.html": [
+      "07-1-6"
+    ],
+    "07-1_수의계약관리/SRMSoleSourcePlanComplete.html": [
+      "07-1-19"
+    ],
+    "07-1_수의계약관리/SRMSoleSourcePlanManage.html": [
+      "07-1-7",
+      "07-1-8",
+      "07-1-9"
+    ],
+    "07-1_수의계약관리/SRMSoleSourcePlanManageDetail.html": [
+      "07-1-10"
+    ],
+    "07-1_수의계약관리/SRMSoleSourcePlanManageDocuments.html": [
+      "07-1-15",
+      "07-1-16"
+    ],
+    "07-1_수의계약관리/SRMSoleSourcePlanManagePrice.html": [
+      "07-1-11",
+      "07-1-12",
+      "07-1-13",
+      "07-1-14"
+    ],
+    "07-1_수의계약관리/SRMSoleSourcePlanManageReview.html": [
+      "07-1-17",
+      "07-1-18"
+    ],
+    "07-1_수의계약관리/SRMSoleSourceQuoteRequest.html": [
+      "07-1-26"
+    ],
+    "07-1_수의계약관리/SRMSoleSourceQuoteStatus.html": [
+      "07-1-29"
+    ],
+    "07-1_수의계약관리/SRMSoleSourceStatus.html": [
+      "07-1-20",
+      "07-1-21",
+      "07-1-22",
+      "07-1-23"
+    ],
+    "07-1_수의계약관리/SRMSoleSourceStatusContract.html": [
+      "07-1-30",
+      "07-1-31",
+      "07-1-32",
+      "07-1-33",
+      "07-1-34"
+    ],
+    "07-1_수의계약관리/SRMSoleSourceStatusPlan.html": [
+      "07-1-24",
+      "07-1-25"
+    ],
+    "07-1_수의계약관리/SRMSoleSourceStatusQuote.html": [
+      "07-1-27",
+      "07-1-28"
+    ],
+    "07-2_입찰관리/SRMDetail.html": [
+      "07-2-31",
+      "07-2-32",
+      "07-2-33",
+      "07-2-34",
+      "07-2-36",
+      "07-2-37",
+      "07-2-38",
+      "07-2-39",
+      "07-2-40",
+      "07-2-41"
+    ],
+    "07-2_입찰관리/SRMDetailContract.html": [
+      "07-2-75",
+      "07-2-76",
+      "07-2-77",
+      "07-2-78",
+      "07-2-79"
+    ],
+    "07-2_입찰관리/SRMDetailEvaluation.html": [
+      "07-2-47",
+      "07-2-48",
+      "07-2-49",
+      "07-2-50",
+      "07-2-51",
+      "07-2-52",
+      "07-2-53",
+      "07-2-54",
+      "07-2-55",
+      "07-2-45",
+      "07-2-46"
+    ],
+    "07-2_입찰관리/SRMDetailNegoQuoteInfo.html": [
+      "07-2-74"
+    ],
+    "07-2_입찰관리/SRMDetailNegotiation.html": [
+      "07-2-72",
+      "07-2-73",
+      "07-2-65"
+    ],
+    "07-2_입찰관리/SRMDetailOpening.html": [
+      "07-2-56",
+      "07-2-57",
+      "07-2-58",
+      "07-2-59",
+      "07-2-60",
+      "07-2-61",
+      "07-2-62",
+      "07-2-63",
+      "07-2-46"
+    ],
+    "07-2_입찰관리/SRMDetailOrderPlan.html": [
+      "07-2-35"
+    ],
+    "07-2_입찰관리/SRMDetailParticipation.html": [
+      "07-2-42",
+      "07-2-43",
+      "07-2-44",
+      "07-2-45",
+      "07-2-46"
+    ],
+    "07-2_입찰관리/SRMDetailWinner.html": [
+      "07-2-64",
+      "07-2-65",
+      "07-2-66",
+      "07-2-67",
+      "07-2-68",
+      "07-2-69",
+      "07-2-70",
+      "07-2-71"
+    ],
+    "07-2_입찰관리/StepWorkflow.html": [
+      "07-2-6",
+      "07-2-16",
+      "07-2-17",
+      "07-2-18",
+      "07-2-19",
+      "07-2-20",
+      "07-2-21",
+      "07-2-22",
+      "07-2-23"
+    ],
+    "07-2_입찰관리/StepWorkflowBidPlan.html": [
+      "07-2-10",
+      "07-2-11",
+      "07-2-12",
+      "07-2-13"
+    ],
+    "07-2_입찰관리/StepWorkflowComplete.html": [
+      "07-2-30"
+    ],
+    "07-2_입찰관리/StepWorkflowDocuments.html": [
+      "07-2-24",
+      "07-2-25"
+    ],
+    "07-2_입찰관리/StepWorkflowEvaluation.html": [
+      "07-2-14",
+      "07-2-15"
+    ],
+    "07-2_입찰관리/StepWorkflowOrderPlan.html": [
+      "07-2-7",
+      "07-2-8",
+      "07-2-9"
+    ],
+    "07-2_입찰관리/StepWorkflowReview.html": [
+      "07-2-26",
+      "07-2-27",
+      "07-2-28",
+      "07-2-29"
+    ],
+    "08_계약관리/SRMContractDocumentManage.html": [
+      "08-11",
+      "08-12",
+      "08-13"
+    ],
+    "08_계약관리/SRMContractStatus.html": [
+      "08-4",
+      "08-5"
+    ],
+    "08_계약관리/SRMContractStatusDetail.html": [
+      "08-6",
+      "08-7"
+    ],
+    "08_계약관리/SRMContractStatusDetailBidPlan.html": [
+      "08-20",
+      "08-21",
+      "08-22",
+      "08-23",
+      "08-24",
+      "08-25"
+    ],
+    "08_계약관리/SRMContractStatusDetailDocs.html": [
+      "08-8",
+      "08-9",
+      "08-10"
+    ],
+    "08_계약관리/SRMContractStatusDetailOrderPlan.html": [
+      "08-17",
+      "08-18",
+      "08-19"
+    ],
+    "08_계약관리/SRMContractStatusDetailRequest.html": [
+      "08-14",
+      "08-15",
+      "08-16"
+    ],
+    "09_협력업체관리/SRMPartnerApproval.html": [
+      "09-4",
+      "09-5",
+      "09-6"
+    ],
+    "09_협력업체관리/SRMPartnerManage.html": [
+      "09-7"
+    ],
+    "09_협력업체관리/SRMPartnerManageDetail.html": [
+      "09-8",
+      "09-9",
+      "09-10"
+    ],
+    "09_협력업체관리/SRMPartnerManageEdit.html": [
+      "09-11",
+      "09-12"
+    ],
+    "09_협력업체관리/SRMPartnerQnaAnswer.html": [
+      "09-15"
+    ],
+    "09_협력업체관리/SRMPartnerQnaDetail.html": [
+      "09-14"
+    ],
+    "09_협력업체관리/SRMPartnerQnaManage.html": [
+      "09-13"
+    ],
+    "10_기준정보관리/SRMCommonDocDetail.html": [
+      "10-11"
+    ],
+    "10_기준정보관리/SRMCommonDocForm.html": [],
+    "10_기준정보관리/SRMCommonDocManage.html": [
+      "10-10"
+    ],
+    "10_기준정보관리/SRMCommonEvalDetail.html": [
+      "10-9"
+    ],
+    "10_기준정보관리/SRMCommonEvalForm.html": [],
+    "10_기준정보관리/SRMCommonEvalManage.html": [
+      "10-8"
+    ],
+    "10_기준정보관리/SRMCommonItemDetail.html": [
+      "10-6"
+    ],
+    "10_기준정보관리/SRMCommonItemForm.html": [
+      "10-5"
+    ],
+    "10_기준정보관리/SRMCommonItemManage.html": [
+      "10-4"
+    ],
+    "10_기준정보관리/SRMMailContentDetail.html": [
+      "10-13"
+    ],
+    "10_기준정보관리/SRMMailContentForm.html": [
+      "10-13"
+    ],
+    "10_기준정보관리/SRMMailContentManage.html": [
+      "10-12"
+    ],
+    "10_기준정보관리/SRMMailSend.html": [
+      "10-14",
+      "10-15",
+      "10-16",
+      "10-17",
+      "10-18"
+    ],
+    "10_기준정보관리/SRMMailSendStatus.html": [
+      "10-19"
+    ],
+    "10_기준정보관리/SRMSourcingGroupDetail.html": [],
+    "10_기준정보관리/SRMSourcingGroupManage.html": [
+      "10-7"
+    ]
+  },
+  "no_target": {
+    "00_공통관리/SRMCodeManage.html": {
+      "00-11:1": "번호 원 ①이 가리키는 코드 검색 구분 UI가 현재 화면에 없음(화면 변경 여부 사용자 확인 필요)"
+    },
+    "00_공통관리/SRMClientDetail.html": {
+      "00-16:1": "PPTX 슬라이드에 번호 원이 없음"
+    },
+    "01_협력업체창구_로그인전/SRMLogin.html": {
+      "01-14:1": "PPTX 슬라이드에 번호 원이 없음(아이디 찾기 팝업 전체 설명)"
+    },
+    "02_협력업체창구_로그인후/SRMPartnerBidNotice.html": {
+      "02-25:7": "PPTX에 ⑦ 번호 원이 없음(목록 표가 Description 칸을 덮어 ⑦ 문단이 가려져 있음)"
+    },
+    "02_협력업체창구_로그인후/SRMPartnerContractDetail.html": {
+      "02-56:1": "PPTX 슬라이드에 번호 원이 없음",
+      "02-57:1": "PPTX 슬라이드에 번호 원이 없음"
+    },
+    "05_발주계약요청/SRMOrderContractRequestManageChecklist.html": {
+      "05-10:2": "PPTX 슬라이드에 ② 번호 원이 없음"
+    },
+    "06_발주계획/SRMOrderPlanRegisterDetail.html": {
+      "06-26:1": "PPTX 슬라이드에 번호 원이 없음"
+    },
+    "07-1_수의계약관리/SRMSoleSourcePlanComplete.html": {
+      "07-1-19:1": "PPTX 슬라이드에 번호 원이 없음"
+    },
+    "07-1_수의계약관리/SRMSoleSourceQuoteRequest.html": {
+      "07-1-26:1": "번호 원 ①이 가리키는 '견적 요청 담당자 정보' 영역이 현재 화면에 없음(화면설계와 차이, 확인 필요)"
+    },
+    "07-2_입찰관리/StepWorkflow.html": {
+      "07-2-21:2": "복수예비가격표 팝업에 '+2% 복수예비금액' 표가 없음(화면설계와 차이, 확인 필요)",
+      "07-2-21:3": "복수예비가격표 팝업에 '-2% 복수예비금액' 표가 없음(화면설계와 차이, 확인 필요)",
+      "07-2-21:4": "복수예비가격표 팝업에 '복수예비가격 자동 생성' 버튼이 없음(화면설계와 차이, 확인 필요)",
+      "07-2-22:3": "PPTX 슬라이드에 ③ 번호 원이 없음"
+    },
+    "07-2_입찰관리/StepWorkflowReview.html": {
+      "07-2-28:2": "최종 점검 화면에 예비가(낙찰하한가) 요약 표가 없음(화면설계와 차이, 확인 필요)",
+      "07-2-28:3": "최종 점검 화면에 예정가 요약 표가 없음(화면설계와 차이, 확인 필요)"
+    },
+    "07-2_입찰관리/SRMDetailEvaluation.html": {
+      "07-2-48:1": "심사/평가 상세 팝업에 '자가 심사 정보 확인' 버튼이 없음(화면설계와 차이, 확인 필요)",
+      "07-2-53:1": "PPTX 슬라이드에 번호 원이 없음",
+      "07-2-54:1": "심사/평가 상세 팝업에 '자가 심사 정보 확인' 버튼이 없음(화면설계와 차이, 확인 필요)",
+      "07-2-55:1": "PPTX 슬라이드에 번호 원이 없음"
+    },
+    "08_계약관리/SRMContractStatusDetail.html": {
+      "08-7:3": "PPTX 슬라이드에 ③ 번호 원이 없음(①②가 두 번씩 표기됨, PPTX 표기대로 반영)"
+    },
+    "08_계약관리/SRMContractStatusDetailBidPlan.html": {
+      "08-23:1": "PPTX 슬라이드에 번호 원이 없음"
+    },
+    "09_협력업체관리/SRMPartnerManageDetail.html": {
+      "09-9:3": "상세 화면 하단에 '삭제' 버튼이 없음(화면설계와 차이, 확인 필요)"
+    },
+    "09_협력업체관리/SRMPartnerQnaAnswer.html": {
+      "09-15:2": "질문과 답변 상세 화면에 답변 '삭제' 버튼이 없음(화면설계와 차이, 확인 필요)"
+    }
+  },
+  "excluded_slides": {
+    "05-4": "[참고자료] 계약방법, 낙찰자 선정방법 정리 — 화면이 아닌 참고자료 슬라이드(05·06·07-1·07-2 모듈에 동일하게 반복)",
+    "05-5": "[참고자료] 계약방법, 낙찰자 선정방법 정리 — 화면이 아닌 참고자료 슬라이드(05·06·07-1·07-2 모듈에 동일하게 반복)",
+    "06-4": "[참고자료] 계약방법, 낙찰자 선정방법 정리 — 화면이 아닌 참고자료 슬라이드(05·06·07-1·07-2 모듈에 동일하게 반복)",
+    "06-5": "[참고자료] 계약방법, 낙찰자 선정방법 정리 — 화면이 아닌 참고자료 슬라이드(05·06·07-1·07-2 모듈에 동일하게 반복)",
+    "07-1-4": "[참고자료] 계약방법, 낙찰자 선정방법 정리 — 화면이 아닌 참고자료 슬라이드(05·06·07-1·07-2 모듈에 동일하게 반복)",
+    "07-1-5": "[참고자료] 계약방법, 낙찰자 선정방법 정리 — 화면이 아닌 참고자료 슬라이드(05·06·07-1·07-2 모듈에 동일하게 반복)",
+    "07-2-4": "[참고자료] 계약방법, 낙찰자 선정방법 정리 — 화면이 아닌 참고자료 슬라이드(05·06·07-1·07-2 모듈에 동일하게 반복)",
+    "07-2-5": "[참고자료] 계약방법, 낙찰자 선정방법 정리 — 화면이 아닌 참고자료 슬라이드(05·06·07-1·07-2 모듈에 동일하게 반복)"
+  },
+  "notes": {
+    "02-22": "PPTX 번호 원 ①이 '수의계약 참여 서류' 행에 있으나 Description ①은 예정가 제공 설명임. 설명 내용대로 예정가 안내 영역에 연결",
+    "02-23": "Description은 ①만 있고 번호 원은 ②로 표기됨. 같은 목적지(견적 제출하기 확인 버튼)에 ①로 연결",
+    "02-25": "⑦ 문단은 PPTX에서 목록 표가 Description 칸을 덮어 가려져 있으나 원문에 있으므로 드로어에 포함(번호 원 없음)",
+    "02-48": "PPTX의 '아직 입찰 결과가 도출되지 않았습니다.'·'본 입찰 건은 유찰되었습니다.' 안내 박스가 화면에 없고 각주 문장으로 대체되어 있음(화면 차이). 목적지는 각주 문장에 연결",
+    "02-53": "번호 원 두 개가 모두 ②로 표기됨. 예정가 안내는 ①, 견적 제출하기 버튼은 ②로 연결",
+    "04-6": "번호 원 ②(비고 행)에 대응하는 Description 문단이 없어 목적지를 만들지 않음",
+    "05-26": "① 원문 '기준정보 관리의 공통 품목에 등록된 내용을 호출'은 진행상황 팝업과 맞지 않아 PPTX 복사 오류로 보이나 원문 그대로 둠",
+    "05-31": "번호 원 ②(수의계약 완료 처리)에 대응하는 Description 문단이 없어 목적지를 만들지 않음",
+    "07-1-12": "번호 원 ③④만 있고 Description 문단이 없어 드로어·목적지 없음",
+    "07-1-18": "PPTX에 ①이 두 곳(참여 서류 제목, 최종저장 버튼)에 표기되어 두 곳 모두 연결",
+    "07-1-27": "'재견적 요청하기' 버튼의 번호 원이 ⑥으로 표기되어 있으나 설명은 ⑦('견적요청 화면으로 이동')과 일치하여 ⑦로 연결(⑦은 별도 번호 원 없음)",
+    "07-2-14": "Description ① 문장이 화면에 안내 문구로도 표시되어 있음(화면 구성 확인 필요). 같은 유형: 09·10 모듈 목록·등록 화면의 안내 문구",
+    "07-2-16": "예비가(07-2-16)·예정가(07-2-17) 슬라이드가 같은 단계 박스를 가리켜 목적지 번호에 가격유형 조건(data-ui-show)을 적용. 07-2-19/22, 07-2-20/23 팝업도 동일",
+    "07-2-31": "키워드 검색 행의 ⑤ 번호 원은 번호 없는 말풍선('검색 구분 : …', 연결선이 검색 구분 select에 연결)과 겹쳐 목적지를 만들지 않음. ⑤ 말풍선(입찰계획서 호출)은 연결선대로 공고번호 열에 연결",
+    "07-2-56": "개찰 전(07-2-56)·후(07-2-57)·2단계 동시(07-2-61)·완료(07-2-62/63) 슬라이드가 같은 개찰 결과 표를 가리켜 개찰 상태 조건을 적용",
+    "08-7": "①②가 각각 두 번 표기되고 ③은 번호 원이 없음. 추정하지 않고 PPTX 표기대로 네 곳에 연결",
+    "08-8": "PPTX는 계약 변경 기능을 '계약 정보' 탭에 두었으나 프로토타입은 '계약 관련 서류' 탭 화면에 있음(화면 차이). 요소가 있는 화면에 연결",
+    "10-5": "번호 원 두 개가 모두 ①로 표기됨. 발주단위 select는 ②(단위 목록) 설명과 일치하여 ②로 연결",
+    "00-4": "Description 칸 밖 상단의 '그룹웨어 연동 필요'(00-4·5)·'ERP 연동 필요'(00-15·16) 메모는 Description이 아니어서 포함하지 않음",
+    "07-2-19": "슬라이드 바깥(왼쪽)의 낙찰하한율 참고 메모는 Description 칸이 아니어서 포함하지 않음"
+  }
+}

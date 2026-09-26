@@ -339,7 +339,7 @@
         <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="수의계약 현황 목록" data-total-items="1523" data-total-pages="153">
           <table class="data-table data-grid-table" aria-label="수의계약 현황 목록">
             <thead>
-              <tr><th class="w-55">No</th><th class="w-90">공고 번호</th><th class="w-70">공고 구분</th><th class="w-120">진행상태</th><th class="minw-240">수의계약 건명</th><th class="w-60">구분</th><th class="w-90">계약방법</th><th class="w-90">낙찰자 선정방법</th><th class="w-90">등록일</th><th class="w-70">사업담당자</th><th class="w-70">계약담당자</th></tr>
+              <tr><th class="w-55">No</th><th class="w-90">공고 번호</th><th class="w-70">공고 구분</th><th class="w-120" data-status-values="공고대기|공고게시중|수의계약(견적요청)|수의계약(견적제출 완료)|가격협의 완료|계약품의(전자결재 요청)|계약품의(전자결재 완료)|수의계약 취소">진행상태</th><th class="minw-240">수의계약 건명</th><th class="w-60">구분</th><th class="w-90">계약방법</th><th class="w-90">낙찰자 선정방법</th><th class="w-90">등록일</th><th class="w-70">사업담당자</th><th class="w-70">계약담당자</th></tr>
             </thead>
             <tbody>
               <tr><td>1,542</td><td>BD2026-0023</td><td>본공고</td><td><span class="badge-tag">공고대기</span></td><td class="text-left"><a href="#" data-open-modal="ssDetailView">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>공사</td><td>수의계약</td><td>최저가</td><td>2026.06.10</td><td>홍길동</td><td>임꺽정</td></tr>
@@ -376,7 +376,7 @@
         <p class="modal-field-label content-object-gap-top">견적 요청 현황 (견적 차수 표시)</p>
         <div class="srm-table-wrap">
           <table class="data-table" aria-label="견적 요청 현황">
-            <thead><tr><th class="w-50">차수</th><th class="w-80">제출상태</th><th>견적 번호</th><th>업체명</th><th class="w-120">견적 마감 일시</th><th class="w-120">견적 제출 일시</th><th class="w-110">수의계약 견적 금액</th><th class="w-110">상세견적서</th><th class="w-110">수의계약 참여 서류</th></tr></thead>
+            <thead><tr><th class="w-50"><span class="description-marker-anchor">차수<span class="description-target-marker" data-description-ref="07-1-27:1" aria-hidden="true"></span></span></th><th class="w-80">제출상태</th><th><span class="description-marker-anchor">견적 번호<span class="description-target-marker" data-description-ref="07-1-27:2" aria-hidden="true"></span></span></th><th><span class="description-marker-anchor">업체명<span class="description-target-marker" data-description-ref="07-1-27:3" aria-hidden="true"></span></span></th><th class="w-120">견적 마감 일시</th><th class="w-120">견적 제출 일시</th><th class="w-110">수의계약 견적 금액</th><th class="w-110"><span class="description-marker-anchor">상세견적서<span class="description-target-marker" data-description-ref="07-1-27:4" aria-hidden="true"></span></span></th><th class="w-110"><span class="description-marker-anchor">수의계약 참여 서류<span class="description-target-marker" data-description-ref="07-1-27:5" aria-hidden="true"></span></span></th></tr></thead>
             <tbody>
               <tr><td>3차</td><td><span class="badge-success">제출완료</span></td><td><a href="#" data-open-modal="ssQuoteSheetModal" data-quote-preview>QT2026-0031</a></td><td class="text-left"><a href="SRMSoleSourceQuoteStatus.html?quote=QT2026-0031&round=3%EC%B0%A8&vendor=A%EC%97%85%EC%B2%B4%EB%AA%85&deadline=2026.08.15+18%3A00">A업체명</a></td><td>2026.08.15 18:00</td><td>-</td><td>-</td><td><button type="button" class="btn-secondary" data-open-modal="ssDetailQuoteModal">상세견적서(0개 파일)</button></td><td><button type="button" class="btn-secondary" data-href="SRMSoleSourceParticipateDocuments.html">수의계약 참여 서류</button></td></tr>
               <tr><td>2차</td><td><span class="badge-success">제출완료</span></td><td><a href="#" data-open-modal="ssQuoteSheetModal" data-quote-preview>QT2026-0030</a></td><td class="text-left"><a href="SRMSoleSourceQuoteStatus.html?quote=QT2026-0030&round=2%EC%B0%A8&vendor=A%EC%97%85%EC%B2%B4%EB%AA%85&deadline=2026.07.31+18%3A00">A업체명</a></td><td>2026.07.31 18:00</td><td>2026.07.30 15:40</td><td class="col-num">180,000,000</td><td><button type="button" class="btn-secondary" data-open-modal="ssDetailQuoteModal">상세견적서(1개 파일)</button></td><td><button type="button" class="btn-secondary" data-href="SRMSoleSourceParticipateDocuments.html">수의계약 참여 서류</button></td></tr>
@@ -387,13 +387,13 @@
         <div class="srm-detail-actions content-inner-gap-top">
           <label class="form-choice"><input type="checkbox"> 수의계약을 완료 처리하시겠습니까?</label>
           <div class="hstack gap-12">
-            <button type="button" class="btn-critical-primary" data-open-modal="ssCompleteConfirmModal">수의계약 완료처리</button>
+            <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-1-27:6" aria-hidden="true"></span><button type="button" class="btn-critical-primary" data-open-modal="ssCompleteConfirmModal">수의계약 완료처리</button></span>
             <button type="button" class="btn-caution" data-open-modal="ssCancelConfirmModal">공고취소</button>
           </div>
         </div>
         <div class="srm-detail-actions content-inner-gap-top">
           <label class="form-choice"><input type="checkbox"> 견적 수신 후, 가격이 적합하지 않으면 재견적을 요청할 수 있습니다. 재견적을 요청하시겠습니까?</label>
-          <button type="button" class="btn-secondary" data-href="SRMSoleSourceQuoteRequest.html">재견적 요청하기 →</button>
+          <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-1-27:7" aria-hidden="true"></span><button type="button" class="btn-secondary" data-href="SRMSoleSourceQuoteRequest.html">재견적 요청하기 →</button></span>
         </div>
 
       </section>
@@ -403,8 +403,10 @@
 
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
+
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMSoleSourceStatus/ssQuoteReqManagerModal.html", "popups/SRMSoleSourceStatus/ssDetailQuoteModal.html", "popups/SRMSoleSourceStatus/ssCancelConfirmModal.html", "popups/SRMSoleSourceStatus/ssCompleteConfirmModal.html", "popups/SRMSoleSourceStatus/ssQuoteSheetModal.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMSoleSourceStatusQuote/screenDescriptionGuide.html", "popups/SRMSoleSourceStatus/ssQuoteReqManagerModal.html", "popups/SRMSoleSourceStatus/ssDetailQuoteModal.html", "popups/SRMSoleSourceStatus/ssCancelConfirmModal.html", "popups/SRMSoleSourceStatus/ssCompleteConfirmModal.html", "popups/SRMSoleSourceStatus/ssQuoteSheetModal.html"]</script>
 </body>
 </html>

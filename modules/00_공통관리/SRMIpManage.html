@@ -295,7 +295,7 @@
 
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-130">키워드 검색</span>
-            <span class="description-marker-anchor"><span class="description-target-marker" aria-hidden="true">1</span><select class="filter-select w-150" id="selIpKeywordTarget">
+            <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="00-10:1" aria-hidden="true"></span><select class="filter-select w-150" id="selIpKeywordTarget">
               <option value="all" selected>전체</option>
               <option value="ip">아이피(IP)</option>
               <option value="reason">아이피(IP) 추가 사유</option>
@@ -341,7 +341,7 @@
                 <th class="minw-250">아이피(IP) 추가 사유</th>
                 <th class="w-100">등록일</th>
                 <th class="w-80">등록자</th>
-              <th class="w-70"><span class="description-marker-anchor">삭제<span class="description-target-marker" aria-hidden="true">2</span></span></th>
+              <th class="w-70"><span class="description-marker-anchor">삭제<span class="description-target-marker" data-description-ref="00-10:2" aria-hidden="true"></span></span></th>
               </tr>
             </thead>
             <tbody>
@@ -399,18 +399,19 @@
 
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
+
   <!-- 접속 아이피(IP) 추가하기 모달 -->
 
 
   <!-- 접속 아이피(IP) 삭제 확인 모달 -->
 
 
-  <button type="button" class="description-floating-button" data-description-guide-toggle="ipDescriptionGuide" aria-controls="ipDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
 
 
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMIpManage/ipAddModal.html", "popups/SRMIpManage/ipDeleteModal.html", "popups/SRMIpManage/ipDescriptionGuide.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMIpManage/screenDescriptionGuide.html", "popups/SRMIpManage/ipAddModal.html", "popups/SRMIpManage/ipDeleteModal.html"]</script>
 </body>
 </html>

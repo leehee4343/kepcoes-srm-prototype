@@ -299,7 +299,7 @@
           </div>
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-200">진행상태</span>
-            <select class="filter-select w-200"><option>진행상태 선택</option></select>
+            <select class="filter-select w-200" aria-label="진행상태"><option>진행상태 선택</option><option>공고대기</option><option>공고게시중</option><option>입찰진행중</option><option>입찰마감</option><option>투찰진행중</option><option>투찰마감</option><option>심사완료</option><option>개찰완료</option><option>선정완료</option><option>수의시담(견적요청)</option><option>수의시담(견적제출 완료)</option><option>수의시담 완료</option><option>계약품의(전자결재 요청)</option><option>계약품의(전자결재 완료)</option><option>유찰</option><option>재입찰</option><option>공고취소</option></select>
           </div>
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-200">키워드 검색</span>
@@ -328,7 +328,7 @@
         <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="입찰공고 현황 목록" data-total-items="1523" data-total-pages="153">
           <table class="data-table data-grid-table" aria-label="입찰공고 현황 목록">
             <thead>
-              <tr><th class="w-90">공고 번호</th><th class="w-80">공고 구분</th><th class="w-100">진행상태</th><th class="minw-240">입찰 건명</th><th class="w-120">입찰 마감일시</th><th class="w-70">참여업체(수)</th><th class="w-60">구분</th><th class="w-110">계약방법</th><th class="minw-170">낙찰자 선정방법</th><th class="w-70">사업담당자</th><th class="w-70">계약담당자</th></tr>
+              <tr><th class="w-90">공고 번호</th><th class="w-80">공고 구분</th><th class="w-100" data-status-values="공고대기|공고게시중|입찰진행중|입찰마감|투찰진행중|투찰마감|심사완료|개찰완료|선정완료|수의시담(견적요청)|수의시담(견적제출 완료)|수의시담 완료|계약품의(전자결재 요청)|계약품의(전자결재 완료)|유찰|재입찰|공고취소">진행상태</th><th class="minw-240">입찰 건명</th><th class="w-120">입찰 마감일시</th><th class="w-70">참여업체(수)</th><th class="w-60">구분</th><th class="w-110">계약방법</th><th class="minw-170">낙찰자 선정방법</th><th class="w-70">사업담당자</th><th class="w-70">계약담당자</th></tr>
             </thead>
             <tbody>
               <tr><td><a href="#" data-open-modal="bidNoticeDocModal">BD2026-0023</a></td><td>본공고</td><td><span class="badge-tag">공고대기</span></td><td class="text-left"><a href="SRMDetailOrderPlan.html#bidDetailAnchor">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>2026.07.31 18:00</td><td>15</td><td>공사</td><td>경쟁입찰(일반)</td><td>최저가</td><td>홍길동</td><td>임꺽정</td></tr>
@@ -400,7 +400,7 @@
         <p class="modal-field-label">개찰 후 화면(예시) — 낙찰자 선정방법이 '제한적 최저가 입찰', '2단계 경쟁입찰(규격/가격 분리)'인 경우 낙찰하한율·낙찰하한가가 함께 제공됩니다.</p>
         <div class="srm-table-wrap">
           <table class="data-table" aria-label="개찰 결과">
-            <thead><tr><th class="col-no">No</th><th>업체명</th><th>견적 번호</th><th>가격 투찰 일시</th><th>입찰(견적)금액</th><th>예정가</th><th data-ui-show="price=reserve">낙찰하한율(%)</th><th data-ui-show="price=reserve">낙찰하한가</th><th>상세견적서</th><th>가격 적합 여부</th></tr></thead>
+            <thead><tr><th class="col-no"><span class="description-marker-anchor">No<span class="description-target-marker" data-description-ref="07-2-56:1" data-ui-show="priceOpened=false" aria-hidden="true"></span><span class="description-target-marker" data-description-ref="07-2-61:1" data-ui-show="award=simultaneous;priceOpened=true;opened=false" aria-hidden="true"></span><span class="description-target-marker" data-description-ref="07-2-62:1" data-ui-show="opened=true;award=lowest|restricted|separate|qualification" aria-hidden="true"></span><span class="description-target-marker" data-description-ref="07-2-63:1" data-ui-show="award=simultaneous;opened=true" aria-hidden="true"></span></span></th><th>업체명</th><th><span class="description-marker-anchor">견적 번호<span class="description-target-marker" data-description-ref="07-2-56:2" data-ui-show="priceOpened=false" aria-hidden="true"></span><span class="description-target-marker" data-description-ref="07-2-57:1" data-ui-show="priceOpened=true" aria-hidden="true"></span></span></th><th>가격 투찰 일시</th><th><span class="description-marker-anchor">입찰(견적)금액<span class="description-target-marker" data-description-ref="07-2-56:3" data-ui-show="priceOpened=false" aria-hidden="true"></span><span class="description-target-marker" data-description-ref="07-2-57:2" data-ui-show="priceOpened=true" aria-hidden="true"></span></span></th><th><span class="description-marker-anchor">예정가<span class="description-target-marker" data-description-ref="07-2-57:2’" data-ui-show="priceOpened=true" aria-hidden="true"></span></span></th><th data-ui-show="price=reserve"><span class="description-marker-anchor">낙찰하한율(%)<span class="description-target-marker" data-description-ref="07-2-56:4" data-ui-show="priceOpened=false" aria-hidden="true"></span><span class="description-target-marker" data-description-ref="07-2-57:2’" data-ui-show="priceOpened=true" aria-hidden="true"></span></span></th><th data-ui-show="price=reserve"><span class="description-marker-anchor">낙찰하한가<span class="description-target-marker" data-description-ref="07-2-56:4’" data-ui-show="priceOpened=false" aria-hidden="true"></span><span class="description-target-marker" data-description-ref="07-2-57:2’" data-ui-show="priceOpened=true" aria-hidden="true"></span></span></th><th><span class="description-marker-anchor">상세견적서<span class="description-target-marker" data-description-ref="07-2-56:5" data-ui-show="priceOpened=false" aria-hidden="true"></span><span class="description-target-marker" data-description-ref="07-2-57:1’" data-ui-show="priceOpened=true" aria-hidden="true"></span></span></th><th><span class="description-marker-anchor">가격 적합 여부<span class="description-target-marker" data-description-ref="07-2-61:2" data-ui-show="award=simultaneous;priceOpened=true;opened=false" aria-hidden="true"></span></span></th></tr></thead>
             <tbody>
               <tr><td>1</td><td class="col-left">A업체명</td><td><a href="#" data-open-modal="bidQuoteSheetModal" data-quote-preview>QT2025-0032</a></td><td>2026.07.29 15:34</td><td class="col-num">157,000,000</td><td class="col-num">174,114,038</td><td class="col-num" data-ui-show="price=reserve">87.745</td><td class="col-num" data-ui-show="price=reserve">152,776,363</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="bidDetailQuoteModal">상세견적서(3개 파일)</button></td><td><span class="badge-success">적합</span></td></tr>
               <tr><td>2</td><td class="col-left">B업체명</td><td><a href="#" data-open-modal="bidQuoteSheetModal" data-quote-preview>QT2025-0031</a></td><td>2026.07.30 14:54</td><td class="col-num">170,000,000</td><td class="col-num">174,114,038</td><td class="col-num" data-ui-show="price=reserve">87.745</td><td class="col-num" data-ui-show="price=reserve">152,776,363</td><td><button type="button" class="btn-secondary" data-close-modal data-open-modal="bidDetailQuoteModal">상세견적서(0개 파일)</button></td><td><span class="badge-success">적합</span></td></tr>
@@ -409,17 +409,17 @@
             </tbody>
           </table>
         </div>
-        <div class="srm-detail-actions">
-          <button type="button" class="btn-secondary" data-close-modal data-open-modal="bidOpenConfirmModal">개찰 처리하기</button>
-          <button type="button" class="btn-secondary" data-close-modal data-open-modal="bidPriceDeriveModal">예정가·낙찰하한금액 도출 내역 확인</button>
+        <div class="srm-detail-actions description-marker-container"><span class="description-target-marker marker-top-left" data-description-ref="07-2-61:3" data-ui-show="award=simultaneous;priceOpened=true;opened=false" aria-hidden="true"></span>
+          <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-2-56:6" aria-hidden="true"></span><button type="button" class="btn-secondary" data-close-modal data-open-modal="bidOpenConfirmModal">개찰 처리하기</button></span>
+          <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-2-57:3" aria-hidden="true"></span><button type="button" class="btn-secondary" data-close-modal data-open-modal="bidPriceDeriveModal">예정가·낙찰하한금액 도출 내역 확인</button></span>
         </div>
         <div class="srm-detail-actions">
           <label class="form-choice"><input type="checkbox"> 개찰 결과 모든 입찰참여업체의 가격이 적합하지 않습니다. 유찰(재공고) 처리하시겠습니까?</label>
-          <button type="button" class="btn-caution" data-close-modal data-open-modal="bidWithdrawModal">유찰(재공고) 처리하기</button>
+          <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-2-57:4" aria-hidden="true"></span><button type="button" class="btn-caution" data-close-modal data-open-modal="bidWithdrawModal">유찰(재공고) 처리하기</button></span>
         </div>
         <div class="srm-detail-actions">
           <label class="form-choice"><input type="checkbox"> 개찰결과에 문제(가격 불성립, 담합 의심 등)가 있습니다. 재입찰 처리하시겠습니까?</label>
-          <button type="button" class="btn-caution" data-close-modal data-open-modal="bidRebidModal">재입찰 처리하기</button>
+          <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-2-57:5" data-ui-show="priceOpened=true;award=lowest|restricted|separate|qualification" aria-hidden="true"></span><span class="description-target-marker" data-description-ref="07-2-61:4" data-ui-show="award=simultaneous" aria-hidden="true"></span><button type="button" class="btn-caution" data-close-modal data-open-modal="bidRebidModal">재입찰 처리하기</button></span>
         </div>
         <p class="modal-field-label content-inner-gap-top">※ 낙찰자 선정방법이 '2단계 경쟁입찰(규격/가격 동시)'인 경우, 평가자가 가격점수를 반드시 입력해야만 개찰이 완료됩니다('가격점수 입력하기(개찰완료 처리)' 버튼 제공).</p>
       </section>
@@ -434,8 +434,10 @@
 
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
+
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMDetail/modalReturnBidPlan.html", "popups/SRMDetail/bidNoticeDocModal.html", "popups/SRMDetail/bidDetailQuoteModal.html", "popups/SRMDetail/bidOpenConfirmModal.html", "popups/SRMDetail/bidPriceDeriveModal.html", "popups/SRMDetail/bidRebidModal.html", "popups/SRMDetail/bidRebidConfirmModal.html", "popups/SRMDetail/bidWithdrawModal.html", "popups/SRMDetail/bidQuoteSheetModal.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMDetailOpening/screenDescriptionGuide.html", "popups/SRMDetail/modalReturnBidPlan.html", "popups/SRMDetail/bidNoticeDocModal.html", "popups/SRMDetail/bidDetailQuoteModal.html", "popups/SRMDetail/bidOpenConfirmModal.html", "popups/SRMDetail/bidPriceDeriveModal.html", "popups/SRMDetail/bidRebidModal.html", "popups/SRMDetail/bidRebidConfirmModal.html", "popups/SRMDetail/bidWithdrawModal.html", "popups/SRMDetail/bidQuoteSheetModal.html"]</script>
 </body>
 </html>

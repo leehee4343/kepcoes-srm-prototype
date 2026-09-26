@@ -284,7 +284,7 @@
           <div class="srm-kv-row"><dt>등록일시</dt><dd>2026.06.10 15:42</dd></div>
           <div class="srm-kv-row"><dt>사업담당자</dt><dd>홍길동</dd></div>
           <div class="srm-kv-row"><dt>계약담당자</dt><dd>
-            <div class="srm-detail-actions content-inner-gap-bottom"><button type="button" class="btn-secondary" data-close-modal data-open-modal="opContractMapModal2">계약담당자 매핑</button></div>
+            <div class="srm-detail-actions content-inner-gap-bottom"><span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="06-9:1" aria-hidden="true"></span><button type="button" class="btn-secondary" data-close-modal data-open-modal="opContractMapModal2">계약담당자 매핑</button></span></div>
             임꺽정
           </dd></div>
         </div>
@@ -303,10 +303,10 @@
           <div class="srm-kv-row"><dt>계약이행 보증금률</dt><dd>10%</dd></div>
           <div class="srm-kv-row"><dt>하자이행 보증금률</dt><dd>3%</dd></div>
           <div class="srm-kv-row"><dt>하자이행 기간</dt><dd>2년</dd></div>
-          <div class="srm-kv-row"><dt>계약방법</dt><dd data-ui-contract-summary="false" data-ui-text="method">경쟁입찰(일반)</dd></div>
+          <div class="srm-kv-row description-marker-container"><span class="description-target-marker marker-top-left" data-description-ref="06-10:1" aria-hidden="true"></span><dt>계약방법</dt><dd data-ui-contract-summary="false" data-ui-text="method">경쟁입찰(일반)</dd></div>
           <div class="srm-kv-row"><dt>낙찰자 선정방법</dt><dd data-ui-text="award">제한적 최저가 입찰</dd></div>
-          <div class="srm-kv-row" data-ui-show="method=sole"><dt>근거 / 수의계약 사유</dt><dd>근거 / 수의계약 사유로 입력된 내용</dd></div>
-          <div class="srm-kv-row" data-ui-show="method=sole"><dt>계약상대자(수의계약의 경우)</dt><dd class="content-bullet-item">매핑된 협력업체 : (주)큐비트엑스(135-81-77202)</dd></div>
+          <div class="srm-kv-row description-marker-container" data-ui-show="method=sole"><span class="description-target-marker marker-top-left" data-description-ref="06-10:1’" aria-hidden="true"></span><dt>근거 / 수의계약 사유</dt><dd>근거 / 수의계약 사유로 입력된 내용</dd></div>
+          <div class="srm-kv-row description-marker-container" data-ui-show="method=sole"><span class="description-target-marker marker-top-left" data-description-ref="06-10:1’" aria-hidden="true"></span><dt>계약상대자(수의계약의 경우)</dt><dd class="content-bullet-item">매핑된 협력업체 : (주)큐비트엑스(135-81-77202)</dd></div>
         </div>
 
         <p class="modal-field-label content-object-gap-top">계약업체 면허 설정</p>
@@ -340,12 +340,13 @@
           <button type="button" class="btn-secondary" data-close-modal data-open-modal="opReqDocModal">발주계약 요청서</button>
         </div></section>
       <div class="page-actions"><button type="button" class="btn-secondary " data-href="SRMOrderPlanIntake.html">목록</button>
-        <button type="button" class="btn-critical-primary" data-open-modal="opIntakeConfirmModal">접수 처리</button></div>
+        <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="06-11:1" aria-hidden="true"></span><button type="button" class="btn-critical-primary" data-open-modal="opIntakeConfirmModal">접수 처리</button></span></div>
     </main>
   </div>
 
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
   <!-- 발주계약 요청서 -->
 
@@ -364,6 +365,6 @@
 
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMOrderPlanIntake/opReqDocModal.html", "popups/SRMOrderPlanIntake/opContractMapModal.html", "popups/SRMOrderPlanIntake/opContractMapModal2.html", "popups/SRMOrderPlanIntake/opIntakeConfirmModal.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMOrderPlanIntakeDetail/screenDescriptionGuide.html", "popups/SRMOrderPlanIntake/opReqDocModal.html", "popups/SRMOrderPlanIntake/opContractMapModal.html", "popups/SRMOrderPlanIntake/opContractMapModal2.html", "popups/SRMOrderPlanIntake/opIntakeConfirmModal.html"]</script>
 </body>
 </html>

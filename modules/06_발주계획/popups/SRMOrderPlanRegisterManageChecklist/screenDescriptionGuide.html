@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>화면설계 Description</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<!-- 자동 생성 파일: 직접 수정하지 말고 docs/DESCRIPTION_MAP.json 수정 후 python3 tools/build_description_guides.py 실행 -->
+<div class="modal-backdrop description-guide-backdrop" id="screenDescriptionGuide" role="dialog" aria-modal="false" aria-labelledby="screenDescriptionGuideTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg description-modal-dialog">
+      <div class="modal-header">
+        <h2 class="modal-title" id="screenDescriptionGuideTitle">화면설계 Description</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body description-modal-body">
+        <section class="description-source-section" aria-labelledby="descriptionSection1">
+          <h3 id="descriptionSection1">발주계획 등록(발주계획 체크리스트)</h3>
+          <p class="description-source-meta">화면설계 06 · 슬라이드 15</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="06-15:1">
+              <span class="description-mapping-number" aria-hidden="true">1</span>
+              <pre class="description-source-text">계약방법이 ‘수의계약’인 경우 낙찰자 선정방법은 ‘최저가’만 선택 가능</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="descriptionSection2">
+          <h3 id="descriptionSection2">발주계획 등록(발주계획 체크리스트)</h3>
+          <p class="description-source-meta">화면설계 06 · 슬라이드 16</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="06-16:1">
+              <span class="description-mapping-number" aria-hidden="true">2</span>
+              <pre class="description-source-text">계약방법이 ‘수의계약’인 경우에만 노출됨
+
+‘수의계약’인 경우 ‘근거 / 수의계약 사유’, ‘계약상대자(수의계약의 경우)’는 필수 입력값임</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="06-16:2">
+              <span class="description-mapping-number" aria-hidden="true">3</span>
+              <pre class="description-source-text">계약방법이 ‘경쟁입찰(제한)’일 경우에는 반드시 입력되어야 하는 항목임</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="06-16:3">
+              <span class="description-mapping-number" aria-hidden="true">4</span>
+              <pre class="description-source-text">낙찰자 선정방법에 따라서 선택할 수 있는 항목이 달라짐.
+
+(아래의 내용에 따라 활성화 처리)
+- 최저가 : 예정가만 선택 가능
+- 제한적 최저가 입찰 : 예비가만 선택 가능
+- 2단계 경쟁입찰(규격/가격 동시) : 예정가만 선택 가능
+- 2단계 경쟁입찰(규격/가격 분리) : 예정가만 선택 가능
+- 적격심사 : 예비가만 선택 가능
+
+계약방법이 ‘수의계약’인 경우 ‘예정가’와 ‘추정금액(수의계약 전용)’ 선택 가능</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="06-16:4">
+              <span class="description-mapping-number" aria-hidden="true">5</span>
+              <pre class="description-source-text">‘추정금액(수의계약 전용)’ 선택 시 ‘예정/예비가격 결정자’는 필수 입력값이 아님</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="06-16:5">
+              <span class="description-mapping-number" aria-hidden="true">6</span>
+              <pre class="description-source-text">계약방법이 ‘수의계약’인 경우 ‘입찰 보증금률’은 필수 입력항목이 아님</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="06-16:6">
+              <span class="description-mapping-number" aria-hidden="true">7</span>
+              <pre class="description-source-text">‘발주계약 요청’에서 사업담당자에 의해 등록된 서류 삭제 및 추가 등록 가능</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="descriptionSection3">
+          <h3 id="descriptionSection3">발주계획 등록(발주계획 체크리스트)</h3>
+          <p class="description-source-meta">화면설계 06 · 슬라이드 17</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="06-17:1">
+              <span class="description-mapping-number" aria-hidden="true">8</span>
+              <pre class="description-source-text">‘발주계약 요청’에서 사업담당자에 의해 등록된 서류 삭제 및 추가 등록 가능</pre>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

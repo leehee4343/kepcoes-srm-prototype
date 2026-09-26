@@ -339,7 +339,7 @@
         <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="수의계약 현황 목록" data-total-items="1523" data-total-pages="153">
           <table class="data-table data-grid-table" aria-label="수의계약 현황 목록">
             <thead>
-              <tr><th class="w-55">No</th><th class="w-90">공고 번호</th><th class="w-70">공고 구분</th><th class="w-120">진행상태</th><th class="minw-240">수의계약 건명</th><th class="w-60">구분</th><th class="w-90">계약방법</th><th class="w-90">낙찰자 선정방법</th><th class="w-90">등록일</th><th class="w-70">사업담당자</th><th class="w-70">계약담당자</th></tr>
+              <tr><th class="w-55">No</th><th class="w-90">공고 번호</th><th class="w-70">공고 구분</th><th class="w-120" data-status-values="공고대기|공고게시중|수의계약(견적요청)|수의계약(견적제출 완료)|가격협의 완료|계약품의(전자결재 요청)|계약품의(전자결재 완료)|수의계약 취소">진행상태</th><th class="minw-240">수의계약 건명</th><th class="w-60">구분</th><th class="w-90">계약방법</th><th class="w-90">낙찰자 선정방법</th><th class="w-90">등록일</th><th class="w-70">사업담당자</th><th class="w-70">계약담당자</th></tr>
             </thead>
             <tbody>
               <tr><td>1,542</td><td>BD2026-0023</td><td>본공고</td><td><span class="badge-tag">공고대기</span></td><td class="text-left"><a href="#" data-open-modal="ssDetailView">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>공사</td><td>수의계약</td><td>최저가</td><td>2026.06.10</td><td>홍길동</td><td>임꺽정</td></tr>
@@ -373,22 +373,22 @@
         </div>
       </div>
 
-        <div class="srm-section-heading content-object-gap-top"><div><h2>계약 요청 정보</h2></div></div>
+        <div class="srm-section-heading content-object-gap-top description-marker-container"><span class="description-target-marker marker-top-left" data-description-ref="07-1-33:1" aria-hidden="true"></span><div><h2>계약 요청 정보</h2></div></div>
         <div class="srm-kv-grid">
           <div class="srm-kv-row"><dt>계약명</dt><dd>서초동 1601-9 오피스텔 신축공사 중 승강기설치공사</dd></div>
           <div class="srm-kv-row"><dt>계약방법</dt><dd data-ui-contract-summary="true">수의계약 &gt; 최저가</dd></div>
-          <div class="srm-kv-row"><dt>계약상대자</dt><dd>A 업체명 (거래처 코드 : 매핑 안됨) <button type="button" class="btn-secondary" data-open-modal="ssErpMapModal">ERP의 거래처 정보와 매핑</button></dd></div>
+          <div class="srm-kv-row description-marker-container"><span class="description-target-marker marker-top-left" data-description-ref="07-1-30:4" aria-hidden="true"></span><dt>계약상대자</dt><dd>A 업체명 (거래처 코드 : 매핑 안됨) <button type="button" class="btn-secondary" data-open-modal="ssErpMapModal">ERP의 거래처 정보와 매핑</button></dd></div>
           <div class="srm-kv-row"><dt>추정금액</dt><dd>94,490,000원 (구천사백사십구만원, VAT 포함)</dd></div>
-          <div class="srm-kv-row"><dt>계약금액</dt><dd>48,507,800원 (사천팔백오십만칠천팔백 원정, VAT 포함)</dd></div>
-          <div class="srm-kv-row"><dt>낙찰률</dt><dd>추정금액 대비 90.069%</dd></div>
+          <div class="srm-kv-row description-marker-container"><span class="description-target-marker marker-top-left" data-description-ref="07-1-30:1" aria-hidden="true"></span><dt>계약금액</dt><dd>48,507,800원 (사천팔백오십만칠천팔백 원정, VAT 포함)</dd></div>
+          <div class="srm-kv-row description-marker-container"><span class="description-target-marker marker-top-left" data-description-ref="07-1-30:2" aria-hidden="true"></span><dt>낙찰률</dt><dd>추정금액 대비 90.069%</dd></div>
           <div class="srm-kv-row"><dt>공급가액</dt><dd>금 사천사백구만팔천 원정</dd></div>
-          <div class="srm-kv-row"><dt>대금 지급조건 <span class="required" aria-hidden="true">*</span></dt><dd>
+          <div class="srm-kv-row description-marker-container"><span class="description-target-marker marker-top-left" data-description-ref="07-1-30:3" aria-hidden="true"></span><dt>대금 지급조건 <span class="required" aria-hidden="true">*</span></dt><dd>
             <div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="ssPayCond" checked value="split" data-ui-field="payment">분할</label><label class="form-choice"><input type="radio" name="ssPayCond" value="all" data-ui-field="payment">일괄</label><label class="form-choice"><input type="radio" name="ssPayCond" value="other" data-ui-field="payment">기타</label></div>
             <dl class="srm-kv-grid content-inner-gap-top" data-ui-show="payment=split"><div class="srm-kv-row"><dt>선금</dt><dd><span class="form-unit"><input type="text" class="form-control" placeholder="숫자로 입력"><span>%</span></span></dd></div><div class="srm-kv-row"><dt>기성</dt><dd><span class="form-unit"><input type="text" class="form-control" placeholder="숫자로 입력"><span>%</span></span></dd></div><div class="srm-kv-row"><dt>준공</dt><dd><span class="form-unit"><input type="text" class="form-control" placeholder="숫자로 입력"><span>%</span></span></dd></div></dl>
           <div class="ui-dependent-fields" data-ui-show="payment=all"><div class="form-choice-group" role="radiogroup" aria-label="일괄 지급시점"><label class="form-choice"><input type="radio" name="ssPayCondWhen" value="advance" checked>선금</label><label class="form-choice"><input type="radio" name="ssPayCondWhen" value="completion">준공</label></div></div><div class="ui-dependent-fields" data-ui-show="payment=other"><label>기타 <input type="text" class="form-control" aria-label="기타 대금 지급조건"></label></div></dd></div>
           <div class="srm-kv-row"><dt>용역기한 <span class="required" aria-hidden="true">*</span></dt><dd><input type="date" class="filter-date-input"> ~ <input type="date" class="filter-date-input"></dd></div>
           <div class="srm-kv-row"><dt>계약일 <span class="required" aria-hidden="true">*</span></dt><dd><input type="date" class="filter-date-input"> (계약상대자 날인 시 유효)</dd></div>
-          <div class="srm-kv-row"><dt>계약이행 보증보험 증권 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="ssBond1" checked value="yes" data-ui-field="bond1">발급 필요</label><label class="form-choice"><input type="radio" name="ssBond1" value="no" data-ui-field="bond1">발급 필요 없음</label></div><div class="ui-dependent-fields" data-ui-show="bond1=yes"> 계약이행 보증금률 : <span class="form-unit"><input type="text" class="form-control w-120" placeholder="숫자로 입력"><span>%</span></span></div></dd></div>
+          <div class="srm-kv-row description-marker-container"><span class="description-target-marker marker-top-left" data-description-ref="07-1-31:1" aria-hidden="true"></span><dt>계약이행 보증보험 증권 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="ssBond1" checked value="yes" data-ui-field="bond1">발급 필요</label><label class="form-choice"><input type="radio" name="ssBond1" value="no" data-ui-field="bond1">발급 필요 없음</label></div><div class="ui-dependent-fields" data-ui-show="bond1=yes"> 계약이행 보증금률 : <span class="form-unit"><input type="text" class="form-control w-120" placeholder="숫자로 입력"><span>%</span></span></div></dd></div>
           <div class="srm-kv-row"><dt>선금이행 보증보험 증권 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="ssBond2" checked value="yes" data-ui-field="bond2">발급 필요</label><label class="form-choice"><input type="radio" name="ssBond2" value="no" data-ui-field="bond2">발급 필요 없음</label></div><div class="ui-dependent-fields" data-ui-show="bond2=yes"> 선금이행 보증금률 : <span class="form-unit"><input type="text" class="form-control w-120" placeholder="숫자로 입력"><span>%</span></span></div></dd></div>
           <div class="srm-kv-row"><dt>하자이행 보증보험 증권 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="ssBond3" value="yes" data-ui-field="bond3">발급 필요</label><label class="form-choice"><input type="radio" name="ssBond3" checked value="no" data-ui-field="bond3">발급 필요 없음</label></div><div class="ui-dependent-fields" data-ui-show="bond3=yes">하자이행 보증금률 : <span class="form-unit"><input type="text" class="form-control w-120" aria-label="하자이행 보증금률" placeholder="숫자로 입력"><span>%</span></span></div></dd></div>
           <div class="srm-kv-row"><dt>계약서(비날인본) <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
@@ -411,8 +411,10 @@
 
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
+
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMSoleSourceStatus/ssErpMapModal.html", "popups/SRMSoleSourceStatus/ssContractEsignConfirmModal.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMSoleSourceStatusContract/screenDescriptionGuide.html", "popups/SRMSoleSourceStatus/ssErpMapModal.html", "popups/SRMSoleSourceStatus/ssContractEsignConfirmModal.html"]</script>
 </body>
 </html>

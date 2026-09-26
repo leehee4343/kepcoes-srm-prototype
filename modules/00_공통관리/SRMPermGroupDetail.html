@@ -301,7 +301,7 @@
           <table class="data-table" aria-label="관리자(직원) 매핑 목록">
             <thead><tr><th class="col-no">No</th><th>사원번호</th><th>아이디</th><th>사원명</th><th>부서</th><th>직급</th><th>매핑일</th><th>등록자</th><th class="w-70">삭제</th></tr></thead>
             <tbody>
-              <tr><td>15</td><td>2110004</td><td>simon</td><td>장시형</td><td>기획지원팀</td><td>과장</td><td>2026.06.09</td><td>이희성</td><td><span class="description-marker-anchor"><span class="description-target-marker" aria-hidden="true">1</span><button type="button" class="btn-row-del">삭제</button></span></td></tr>
+              <tr><td>15</td><td>2110004</td><td>simon</td><td>장시형</td><td>기획지원팀</td><td>과장</td><td>2026.06.09</td><td>이희성</td><td><span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="00-7:1" aria-hidden="true"></span><button type="button" class="btn-row-del">삭제</button></span></td></tr>
               <tr><td>14</td><td>2109031</td><td>hansol</td><td>김한솔</td><td>계약관리팀</td><td>대리</td><td>2026.06.05</td><td>이희성</td><td><button type="button" class="btn-row-del">삭제</button></td></tr>
             </tbody>
           </table>
@@ -317,15 +317,16 @@
 
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
+
   <!-- 관리자(직원) 추가하기 모달 -->
 
 
-  <button type="button" class="description-floating-button" data-description-guide-toggle="permGroupDetailDescriptionGuide" aria-controls="permGroupDetailDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
 
 
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMPermGroupDetail/adminMappingAddModal.html", "popups/SRMPermGroupDetail/permGroupDetailDescriptionGuide.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMPermGroupDetail/screenDescriptionGuide.html", "popups/SRMPermGroupDetail/adminMappingAddModal.html"]</script>
 </body>
 </html>

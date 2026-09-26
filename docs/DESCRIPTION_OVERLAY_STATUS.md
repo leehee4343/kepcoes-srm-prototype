@@ -1,150 +1,290 @@
 # 화면설계 Description 적용 현황
 
-> 갱신일: 2026-09-22  
-> 기준: `DESIGN_GUIDE.md` 5.15  
-> 상태값: `완료` · `원문 없음` · `리다이렉트 전용` · `검토 필요`
+> 자동 생성 문서: `python3 tools/build_description_guides.py` 실행 시 `docs/DESCRIPTION_MAP.json`과 PPTX 원문으로 다시 만들어집니다. 직접 수정하지 마십시오.
+> 검증: `python3 tools/check_description_guides.py` (원문 문자 일치·번호 대응·누락 슬라이드), `tools/test_description_guides.cjs` (브라우저 런타임 번호 표시).
 
-## 00. 공통관리
+## 적용 원칙
 
-| HTML | 설계 슬라이드 | Description | 목적지 | 상태 | 비고 |
-|---|---:|---:|---:|---|---|
-| `SRMAdminManage.html` | 4~5 | 4 | 4 | 완료 | 검색/조회 1~3, 상세정보 1 |
-| `SRMPermGroupManage.html` | 6 | 2 | 2 | 완료 | 검색 구분, 매핑 수 |
-| `SRMPermGroupDetail.html` | 7~8 | 2 | 2 | 완료 | 매핑 삭제, 관리자 검색 |
-| `SRMSystemPermManage.html` | 9 | 2 | 2 | 완료 | 권한 삭제, 관리자 추가 |
-| `SRMIpManage.html` | 10 | 2 | 2 | 완료 | 검색 구분, 삭제 |
-| `SRMCodeManage.html` | 11~12 | 4 | 3 | 검토 필요 | 슬라이드 11의 1번 목적지인 검색 UI가 현재 HTML에 없음. 임의 위치 매핑 금지 |
-| `SRMLoginStats.html` | 13 | 1 | 1 | 완료 | Description 도형명이 다른 슬라이드와 달리 `TextBox 1`임 |
-| `SRMMenuAccessStats.html` | 14 | 0 | 0 | 원문 없음 | `D`를 만들지 않음 |
-| `SRMClientManage.html` | 15~16 | 2 | 1 | 완료 | 슬라이드 16 신용등급 Description은 원본에 목적지 번호 없음 |
-| `SRMNoticeManage.html` | 17~19 | 4 | 4 | 완료 | 상세·등록 슬라이드 18~19는 원문 없음 |
-| `SRMFileRepoManage.html` | 20~22 | 4 | 4 | 완료 | 상세·등록 슬라이드 21~22는 원문 없음 |
+- 드로어 문장은 PPTX Description 원문을 스크립트로 옮깁니다(맞춤법·띄어쓰기·오탈자 포함 변경·추가 금지). 문단 끝에 글자 없이 남은 줄바꿈만 표시하지 않습니다.
+- 원문 출처: 오른쪽 Description 칸의 텍스트 상자(번호는 PowerPoint 자동 번호)와 화면 안의 붉은 말풍선(번호는 연결선이 이어진 번호 원).
+- 한 페이지와 그 페이지가 여는 팝업을 한 드로어로 묶고, 슬라이드마다 1부터 다시 시작하는 번호를 이어서 매깁니다(페이지 자체 슬라이드 → 팝업 슬라이드 순서).
+- 목적지 번호는 `data-description-ref="슬라이드:원본번호"`만 가지며 표시 번호는 현재 페이지 드로어를 따릅니다. 공유 팝업의 목적지는 페이지마다 번호가 달라지고, 드로어에 없는 목적지는 숨깁니다.
+- Description 원문이 없는 화면에는 `D`·드로어·목적지를 만들지 않습니다.
 
-### 자동 검증 결과
+## 요약
 
-- Description이 있는 10개 HTML에 `D`와 우측 드로어 적용
-- `SRMMenuAccessStats.html`은 원문이 없어 미적용
-- PPTX 원문 총 27문단을 HTML에 무수정 반영
-- 원문 문단 수·순서·Unicode 문자열 일치
-- 중복 ID, `select`·`div` 태그 불균형 없음
-- 인라인 스타일·이벤트 추가 없음
-- JavaScript 문법, CSS 괄호, `git diff --check` 통과
+- Description 드로어가 있는 화면: **117개**, 드로어 항목(원문 문단): **531개**
+- 매핑된 화면: 145개 (원문 없는 화면 포함), 제외한 슬라이드: 8개
+- 목적지를 둘 수 없는 항목: 24개(아래 목록)
 
-### 검토 후 수정 (2026-09-22)
+## 00_공통관리
 
-- `D` 버튼·Description 드로어 `z-index`가 `900`으로 업무 모달(`1000`)보다 낮아, 업무 모달이 열려 있는 동안 `D` 버튼을 클릭할 수 없던 문제를 발견해 `1150`으로 수정(`DESIGN_GUIDE.md` v2.34, `style.css`의 `.description-floating-button`·`.description-guide-backdrop`).
-- 사용자 지시로 목적지 번호(`.description-target-marker`) `z-index`를 `4`→`1300`으로 상향. 목적지가 드로어가 덮는 화면 오른쪽 영역과 겹쳐도 번호가 항상 드로어보다 위에 보이도록 함(`DESIGN_GUIDE.md` v2.34).
-- 알려진 한계: 목적지 번호가 `.modal-backdrop`(업무 모달, `z-index: 1000~1100`) 안에 있는 경우, 그 모달 자체가 드로어(`1150`)보다 낮아 모달과 드로어의 화면 영역이 겹치면 번호 `z-index`를 아무리 올려도 가려질 수 있음(자식은 부모 스태킹 컨텍스트를 벗어날 수 없음). 현재 00 모듈은 상세 모달이 기본 폭(`max-width: 600px`)이라 1920·1440·1280px 어디서도 드로어(우측 340px)와 겹치지 않아 문제없지만, 이후 `modal-xl`(`960px`)처럼 넓은 모달에 목적지 번호를 넣는 화면에서는 1280px 기준으로 겹칠 수 있어 재검토가 필요함.
-- 사용자 지시로 `.description-guide-backdrop`의 `backdrop-filter: blur(2px)`(공통 `.modal-backdrop`에서 상속)를 `none`으로 제거. 드로어가 열려도 업무 화면이 흐려지지 않고 원래 상태 그대로 보임(`DESIGN_GUIDE.md` v2.34).
+| HTML | 슬라이드 | 번호 항목 | 번호 없는 항목 | 상태 |
+|---|---|---:|---:|---|
+| `SRMAdminManage.html` | 4, 5 | 4 | 0 | 완료 |
+| `SRMClientDetail.html` | 16 | 1 | 0 | 완료(목적지 없음 1) |
+| `SRMClientManage.html` | 15 | 1 | 0 | 완료 |
+| `SRMCodeManage.html` | 11, 12 | 4 | 0 | 완료(목적지 없음 1) |
+| `SRMFileRepoManage.html` | 20, 21, 22 | 4 | 0 | 완료 |
+| `SRMIpManage.html` | 10 | 2 | 0 | 완료 |
+| `SRMLoginStats.html` | 13 | 1 | 0 | 완료 |
+| `SRMMenuAccessStats.html` | 14 | 0 | 0 | 원문 없음 |
+| `SRMNoticeManage.html` | 17, 18, 19 | 4 | 0 | 완료 |
+| `SRMPermGroupDetail.html` | 7, 8 | 2 | 0 | 완료 |
+| `SRMPermGroupManage.html` | 6 | 2 | 0 | 완료 |
+| `SRMSystemPermManage.html` | 9 | 2 | 0 | 완료 |
 
-### 다음 작업자가 확인할 사항 (00 모듈)
+## 01_협력업체창구_로그인전
 
-1. `SRMCodeManage.html`의 검색 UI를 화면설계대로 추가할지 사용자 결정을 받습니다.
-2. 추가 승인 시 슬라이드 11 Description 1번을 새 검색 구분 컨트롤에 연결합니다.
-3. 미추가 결정 시 `미구현 목적지` 승인 예외로 남기고 상태를 `완료(예외)`로 변경합니다.
+| HTML | 슬라이드 | 번호 항목 | 번호 없는 항목 | 상태 |
+|---|---|---:|---:|---|
+| `PartnerRegister.html` | 7, 8, 9, 10, 11, 12, 13 | 9 | 0 | 완료 |
+| `SRMLogin.html` | 4, 5, 6, 14, 15 | 8 | 0 | 완료(목적지 없음 1) |
 
-## 진입 화면 (루트 `index.html` + `01_협력업체창구_로그인전`)
+## 02_협력업체창구_로그인후
 
-| HTML | 설계 슬라이드 | Description | 목적지 | 상태 | 비고 |
-|---|---:|---:|---:|---|---|
-| `index.html` | 4 | 4 | 4 | 완료 | 로그인 화면 본문(브랜드 헤드라인 1, 로그인 문의 박스 2, 로그인 버튼 3, 진행 중인 입찰공고 카드 4) |
-| `index.html` 내 `modalBiddingDetail` | 5~6 | 0 | 0 | 원문 없음 | 입찰공고 내역서 팝업 내용 자체는 Description 없음 |
-| `index.html` 내 `modalIdFind` | 14 | 1 | 0 | 검토 필요 | Description은 있으나 원본에 목적지 번호가 전혀 없음(팝업 전체를 설명하는 문구). 특정 요소에 임의로 번호를 붙이지 않고 드로어에는 번호 없이 반영 |
-| `index.html` 내 `modalPwFind`/`modalPwFindSent` | 15 | 3 | 3 | 완료 | 입력 폼 1, 발송완료 안내(마스킹 이메일) 2, 비밀번호 찾기 제출 버튼 3. 같은 슬라이드의 `modalPwFindMismatch`(정보 불일치) 팝업에는 대응 번호 없음 |
-| `modules/01_협력업체창구_로그인전/SRMLogin.html` | - | - | - | 리다이렉트 전용 | `../../index.html`로 즉시 이동하는 스텁 페이지(모듈 구조 전환 시 하위 호환용). 실제 콘텐츠 없음 |
-| `PartnerRegister.html` STEP01 | 7 | 1 | 2 | 완료 | 이용약관 동의·개인정보 수집 동의 두 섹션이 같은 Description 1번을 공유(원본 번호가 `1`, `1’`로 두 곳을 가리킴) |
-| `PartnerRegister.html` STEP02(기본 정보) | 8 | 4 | 4 | 완료 | 사업자등록번호 중복확인 1, 비밀번호 규칙 2, 전화번호 앞자리 3, 주소검색 API 4 |
-| `PartnerRegister.html` STEP02(증빙서류) | 9 | 2 | 2 | 완료 | 같은 STEP02 패널에서 동시에 보이므로 번호를 5·6으로 이어서 부여(재시작 시 화면에 중복 "1","2"가 동시에 보이는 것을 피함) |
-| `PartnerRegister.html` STEP03 | 10 | 1 | 1 | 완료 | 이메일 도메인 서식 |
-| `PartnerRegister.html` STEP04 | 11~12 | 0 | 0 | 원문 없음 | 신청 정보 확인·최종 제출 화면은 Description 없음 |
-| `PartnerRegister.html` STEP05 | 13 | 1 | 1 | 완료 | 고객 통보(MSG-001) → 신청 완료 안내 문구 |
+| HTML | 슬라이드 | 번호 항목 | 번호 없는 항목 | 상태 |
+|---|---|---:|---:|---|
+| `SRMDashboardPartner.html` | 4 | 0 | 0 | 원문 없음 |
+| `SRMPartnerBidDocumentComplete.html` | 42 | 1 | 0 | 완료 |
+| `SRMPartnerBidDocumentHistory.html` | 43, 44 | 3 | 0 | 완료 |
+| `SRMPartnerBidDocumentSubmit.html` | 37 | 1 | 0 | 완료 |
+| `SRMPartnerBidDocumentSubmitFiles.html` | 38 | 1 | 0 | 완료 |
+| `SRMPartnerBidDocumentSubmitReview.html` | 40, 41 | 2 | 0 | 완료 |
+| `SRMPartnerBidDocumentSubmitSelfEval.html` | 39 | 2 | 0 | 완료 |
+| `SRMPartnerBidJoin.html` | 32 | 2 | 0 | 완료 |
+| `SRMPartnerBidJoinDetail.html` | 33, 34, 35, 36 | 4 | 0 | 완료 |
+| `SRMPartnerBidNegoDetail.html` | 52 | 0 | 0 | 원문 없음 |
+| `SRMPartnerBidNegoHistory.html` | 54 | 0 | 0 | 원문 없음 |
+| `SRMPartnerBidNegoList.html` | 51 | 4 | 0 | 완료 |
+| `SRMPartnerBidNegoSubmit.html` | 53 | 2 | 0 | 완료 |
+| `SRMPartnerBidNotice.html` | 25, 26, 27 | 7 | 0 | 완료(목적지 없음 1) |
+| `SRMPartnerBidNoticeDetail.html` | 28, 29, 30, 31 | 10 | 0 | 완료 |
+| `SRMPartnerBidPrice.html` | 45, 46 | 5 | 0 | 완료 |
+| `SRMPartnerBidPriceComplete.html` | 47 | 2 | 0 | 완료 |
+| `SRMPartnerBidResult.html` | 48, 49, 50 | 3 | 0 | 완료 |
+| `SRMPartnerContract.html` | 55 | 4 | 0 | 완료 |
+| `SRMPartnerContractDetail.html` | 56, 57, 58 | 5 | 0 | 완료(목적지 없음 2) |
+| `SRMPartnerContractDocuments.html` | 59 | 4 | 0 | 완료 |
+| `SRMPartnerFileRepo.html` | 11, 12 | 1 | 0 | 완료 |
+| `SRMPartnerInfo.html` | 60, 61 | 1 | 0 | 완료 |
+| `SRMPartnerInfoContact.html` | 64 | 2 | 0 | 완료 |
+| `SRMPartnerInfoEdit.html` | 62, 63 | 2 | 0 | 완료 |
+| `SRMPartnerInfoPassword.html` | 65 | 1 | 0 | 완료 |
+| `SRMPartnerNegoQuoteHistory.html` | 24 | 0 | 0 | 원문 없음 |
+| `SRMPartnerNegoQuoteRequestInfo.html` | 21 | 0 | 0 | 원문 없음 |
+| `SRMPartnerNegoQuoteSubmit.html` | 22, 23 | 2 | 0 | 완료 |
+| `SRMPartnerNegoRequest.html` | 17 | 1 | 0 | 완료 |
+| `SRMPartnerNegoRequestDetail.html` | 18, 19 | 0 | 0 | 원문 없음 |
+| `SRMPartnerNegoRequestQuote.html` | 20 | 3 | 0 | 완료 |
+| `SRMPartnerNotice.html` | 5, 6 | 1 | 0 | 완료 |
+| `SRMPartnerPreQuote.html` | 13, 14, 15 | 5 | 0 | 완료 |
+| `SRMPartnerPreQuoteSubmit.html` | 16 | 2 | 0 | 완료 |
+| `SRMPartnerQna.html` | 7, 8, 9, 10 | 5 | 0 | 완료 |
 
-### 자동 검증 결과 (진입 화면)
+## 03_대시보드
 
-- `index.html`: Description 7문단(번호 있는 항목 7 + 번호 없는 항목 1) 반영, 목적지 마커 7개, 중복 `id` 없음, 인라인 스타일·이벤트 없음, 태그 균형(`div`/`section`/`span`/`button`) 확인
-- `PartnerRegister.html`: Description 9개 매핑 항목(번호 1~6 + STEP03·STEP05 각 1) 반영, 목적지 마커 10개(STEP01의 `1`/`1’` 중복 매핑 포함), 중복 `id` 없음, 인라인 스타일·이벤트 없음, 태그 균형 확인
-- PPTX 원문(슬라이드 4, 7~10, 13, 15)을 문자 단위로 대조, 줄바꿈(`\x0b`)은 `<pre>` 안에서 실제 줄바꿈으로 보존
+| HTML | 슬라이드 | 번호 항목 | 번호 없는 항목 | 상태 |
+|---|---|---:|---:|---|
+| `SRMDashFileRepo.html` | 7, 8 | 4 | 0 | 완료 |
+| `SRMDashNotice.html` | 5, 6 | 4 | 0 | 완료 |
+| `SRMDashboardAdmin.html` | 4 | 0 | 0 | 원문 없음 |
+| `SRMDashboardBiz.html` | 4 | 0 | 0 | 원문 없음 |
+| `SRMDashboardContract.html` | 4 | 0 | 0 | 원문 없음 |
 
-### 다음 작업자가 확인할 사항 (진입 화면)
+## 04_사전견적관리
 
-1. `modalIdFind`(아이디 찾기 팝업)는 목적지 번호가 없는 상태로 완료 처리했습니다. 화면설계가 갱신되어 번호가 추가되면 그때 목적지를 연결합니다.
+| HTML | 슬라이드 | 번호 항목 | 번호 없는 항목 | 상태 |
+|---|---|---:|---:|---|
+| `SRMPreQuoteRequest.html` | 4 | 3 | 0 | 완료 |
+| `SRMPreQuoteRequestComplete.html` | 15 | 0 | 0 | 원문 없음 |
+| `SRMPreQuoteRequestManage.html` | 6 | 1 | 0 | 완료 |
+| `SRMPreQuoteRequestManageAttach.html` | 10 | 1 | 0 | 완료 |
+| `SRMPreQuoteRequestManageItems.html` | 7, 8, 9 | 7 | 0 | 완료 |
+| `SRMPreQuoteRequestManageReview.html` | 13, 14 | 1 | 0 | 완료 |
+| `SRMPreQuoteRequestManageVendor.html` | 11, 12 | 5 | 0 | 완료 |
+| `SRMPreQuoteRequestNew.html` | 5 | 1 | 0 | 완료 |
+| `SRMPreQuoteStatus.html` | 16 | 2 | 0 | 완료 |
+| `SRMPreQuoteStatusDetail.html` | 17, 18 | 0 | 0 | 원문 없음 |
+| `SRMPreQuoteStatusDetailSubmission.html` | 19 | 2 | 0 | 완료 |
+| `SRMPreQuoteSubmissionDetail.html` | 20, 21 | 1 | 0 | 완료 |
 
-## 02. 협력업체 전용 창구(로그인 후) — 진행 중
+## 05_발주계약요청
 
-| HTML | 설계 슬라이드 | Description | 목적지 | 상태 | 비고 |
-|---|---:|---:|---:|---|---|
-| `SRMDashboardPartner.html` | 4 | 0 | 0 | 원문 없음 | `D` 미적용 |
-| `SRMPartnerNotice.html` | 5~6 | 1 | 1 | 완료 | 검색구분 select. 상세(슬라이드6)는 원문 없음 |
-| `SRMPartnerQna.html` | 7~10 | 5 | 5 | 완료 | 검색범위 2, 질문등록 고객통보 1, 상세보기(수정불가 안내·답변 조건부노출) 2 — 슬라이드9·10은 같은 모달에서 동시에 보여 번호를 1~2로 이어 붙임 |
-| `SRMPartnerFileRepo.html` | 11~12 | 1 | 1 | 완료 | 검색구분 select. 상세(슬라이드12)는 원문 없음 |
-| `SRMPartnerPreQuote.html` | 13~16 | 7 | 7 | 완료 | 검색/조회 4(범위설명·검색구분·진행상태/제출상태 정의), 상세정보 전달자료 1, 견적 제출 담당자선택·고객통보 2. 견적포기·제출취소 확인 팝업(슬라이드15)은 원문 없음 |
-| `SRMPartnerNegoRequest.html` | 17~24 | 6 | 6 | 완료 | 검색/조회 진행상태 select 1, 견적요청현황 표(차수별 확인 안내·견적제출하기 버튼·견적제출 컬럼) 3, 견적 제출 예정가안내 1, 제출확인 팝업 버튼 1(원본 번호 `2` 그대로 유지). 공고정보(18~19)·견적요청정보(21)·제출내역(24)은 원문 없음 |
-| `SRMPartnerBidNotice.html` | 25~31 | 17(번호 없음 1건 포함) | 18 | 완료 | 검색/조회 6(조회기간·계약방법/낙찰자·공고구분·진행상태·검색구분·내역서, +번호없는 보충설명 1건) + 상세정보 모달 10(현장설명회·가격투찰기간·종합평가비율·협상계약여부·제안발표여부·자가심사여부·심사기준·서류제출이동·참여제한안내·투찰제한안내). 상세정보는 한 모달에서 동시에 보이므로 슬라이드 29~31의 번호를 1~10으로 이어붙임(원본은 슬라이드별로 재시작). 투찰제한 안내 팝업은 원본 번호 `10’`가 두 문단에 중복 표기되어 그대로 유지 |
-| `SRMPartnerContract.html` | 55~59 | 10(번호 없음 1건 포함) | 14 | 완료 | 검색/조회 4 + 계약 변경 내역 3(사유·기존/변경 계약금액·기존/변경 납기일, `2`/`2’`·`3`/`3’` 쌍 유지) + 서류제출 4(+번호없는 보충설명 1건, `4`/`4’`는 제출모달·확인모달 각각의 버튼) |
-| `SRMPartnerInfo.html` | 60~65 | 6 | 6 | 완료 | 4개 탭(정보확인/기본정보수정요청/담당자추가수정/비밀번호변경)을 탭별 독립 패널로 표시 |
-| `SRMPartnerBidJoin.html` | 32~54(23슬라이드) | 32 | 37 | 완료 | 02 모듈 최대 규모(목록+19개 모달). 상태별로 동시에 보이는 범위 안에서 연속 번호 부여(아래 참고) |
+| HTML | 슬라이드 | 번호 항목 | 번호 없는 항목 | 상태 |
+|---|---|---:|---:|---|
+| `SRMOrderContractRequest.html` | 6 | 2 | 0 | 완료 |
+| `SRMOrderContractRequestComplete.html` | 19 | 0 | 0 | 원문 없음 |
+| `SRMOrderContractRequestManage.html` | 9, 8 | 3 | 0 | 완료 |
+| `SRMOrderContractRequestManageChecklist.html` | 10, 11, 12 | 5 | 0 | 완료(목적지 없음 1) |
+| `SRMOrderContractRequestManageItems.html` | 13, 14, 15 | 7 | 0 | 완료 |
+| `SRMOrderContractRequestManageReview.html` | 16, 17, 18 | 2 | 0 | 완료 |
+| `SRMOrderContractRequestNew.html` | 7, 8 | 4 | 0 | 완료 |
+| `SRMOrderContractStatus.html` | 20, 21, 22, 26, 27, 28, 29, 30, 31, 32 | 13 | 0 | 완료 |
+| `SRMOrderContractStatusDetail.html` | 23, 24, 25, 21, 22 | 1 | 0 | 완료 |
 
-### `SRMPartnerBidJoin.html` 적용 결과 (2026-09-23)
+## 06_발주계획
 
-이 화면은 상태(탭/모달)마다 별도의 `.modal-backdrop`으로 분리되어 있어(다른 07-2 모듈처럼 한 모달에 5탭을 모두 스택 표시하지 않음) 대부분 슬라이드 로컬 번호를 그대로 유지했고, 한 모달 안에 여러 슬라이드 내용이 동시에 보이는 경우에만 번호를 이어붙였습니다.
+| HTML | 슬라이드 | 번호 항목 | 번호 없는 항목 | 상태 |
+|---|---|---:|---:|---|
+| `SRMOrderPlanIntake.html` | 6, 7, 8, 9 | 5 | 0 | 완료 |
+| `SRMOrderPlanIntakeDetail.html` | 9, 10, 11, 7, 8 | 4 | 0 | 완료 |
+| `SRMOrderPlanRegister.html` | 12 | 4 | 0 | 완료 |
+| `SRMOrderPlanRegisterComplete.html` | 24 | 0 | 0 | 원문 없음 |
+| `SRMOrderPlanRegisterDetail.html` | 25, 26, 27 | 2 | 0 | 완료(목적지 없음 1) |
+| `SRMOrderPlanRegisterManage.html` | 13, 14 | 3 | 0 | 완료 |
+| `SRMOrderPlanRegisterManageChecklist.html` | 15, 16, 17 | 8 | 0 | 완료 |
+| `SRMOrderPlanRegisterManageItems.html` | 18, 19, 20 | 7 | 0 | 완료 |
+| `SRMOrderPlanRegisterManageReview.html` | 21, 22, 23 | 3 | 0 | 완료 |
 
-- 검색/조회(목록): 2 — 범위설명, 제출상태 컬럼
-- 상세 · 입찰공고 정보(`bidJoinDetailModal`): 1 — 수의시담 탭(조건부 노출 안내)
-- 입찰 서류 제출 · 가격 투찰 진입(`bidJoinDetailModal` footer + `bidJoinLimitNoticeModal2`/`bidPriceLimitNoticeModal2`): 1,2,3,3’(2곳) — `SRMPartnerBidNotice.html` 슬라이드31과 동일 패턴 재사용
-- 입찰 서류 제출(`bidDocSubmitWizardModal`+확인모달): 담당자선택·참여서류안내·자가심사(2개 마커)·최종확인·제출버튼을 1~6으로 이어붙임(한 모달에 슬라이드37~41 내용이 동시에 보임), 확인모달 버튼은 `6’`
-- 입찰 서류 제출 완료(`bidDocSubmitDoneModal`): 1
-- 입찰 서류 제출 내역·제출취소·포기(`bidJoinDocSubmittedModal`+확인모달들): 1,2,2’,3로 이어붙임(슬라이드43~44 통합, `bidGiveUpConfirmModal`은 슬라이드47과 공유)
-- 가격 투찰(투찰 전, `bidPriceBeforeModal`): 1,1’,2,3
-- 예비가 추첨·가격투찰 확인(`bidPriceDrawModal`+확인모달): 1,2
-- 가격 투찰(투찰 완료, `bidPriceAfterModal`): 1,2
-- 입찰 결과(`bidResultModal`): 1,2(각주 한 문단에 두 조건을 나눠 표시),3
-- 수의시담 견적요청현황(`negoTalkListModal`): 1,2,3,4 — `SRMPartnerNegoRequest.html`과 동일 패턴
-- 수의시담 견적제출(`negoTalkSubmitModal`+확인모달): 원본 자체가 두 목적지 모두 번호 `2`로 표기되어 있고 `1`이 존재하지 않음 — 원본 그대로 반영(검토 필요 사항으로 기록)
+## 07-1_수의계약관리
 
-슬라이드34·35·40·49·50·52·54는 원문 없음(다른 슬라이드와 동일 화면의 스크롤 연속 구간).
+| HTML | 슬라이드 | 번호 항목 | 번호 없는 항목 | 상태 |
+|---|---|---:|---:|---|
+| `SRMSoleSourceParticipateDocuments.html` |  | 0 | 0 | 원문 없음 |
+| `SRMSoleSourcePlan.html` | 6 | 4 | 0 | 완료 |
+| `SRMSoleSourcePlanComplete.html` | 19 | 1 | 0 | 완료(목적지 없음 1) |
+| `SRMSoleSourcePlanManage.html` | 7, 8, 9 | 3 | 0 | 완료 |
+| `SRMSoleSourcePlanManageDetail.html` | 10 | 3 | 0 | 완료 |
+| `SRMSoleSourcePlanManageDocuments.html` | 15, 16 | 6 | 0 | 완료 |
+| `SRMSoleSourcePlanManagePrice.html` | 11, 12, 13, 14 | 2 | 0 | 완료 |
+| `SRMSoleSourcePlanManageReview.html` | 17, 18 | 2 | 0 | 완료 |
+| `SRMSoleSourceQuoteRequest.html` | 26 | 5 | 0 | 완료(목적지 없음 1) |
+| `SRMSoleSourceQuoteStatus.html` | 29 | 0 | 0 | 원문 없음 |
+| `SRMSoleSourceStatus.html` | 20, 21, 22, 23 | 1 | 0 | 완료 |
+| `SRMSoleSourceStatusContract.html` | 30, 31, 32, 33, 34 | 9 | 0 | 완료 |
+| `SRMSoleSourceStatusPlan.html` | 24, 25 | 1 | 0 | 완료 |
+| `SRMSoleSourceStatusQuote.html` | 27, 28 | 8 | 0 | 완료 |
 
-### 검토 필요
+## 07-2_입찰관리
 
-- `SRMPartnerBidJoin.html` 수의시담 견적제출 섹션: PPTX 원본에서 두 목적지 번호가 모두 `2`이고 `1`이 없습니다. 오탈자로 추정되나 임의로 `1`로 바꾸지 않고 원본 그대로 두었습니다. 화면설계 원본 확인 후 필요하면 번호를 수정하세요.
+| HTML | 슬라이드 | 번호 항목 | 번호 없는 항목 | 상태 |
+|---|---|---:|---:|---|
+| `SRMDetail.html` | 31, 32, 33, 34, 36, 37, 38, 39, 40, 41 | 8 | 1 | 완료 |
+| `SRMDetailContract.html` | 75, 76, 77, 78, 79 | 9 | 0 | 완료 |
+| `SRMDetailEvaluation.html` | 47, 48, 49, 50, 51, 52, 53, 54, 55, 45, 46 | 19 | 0 | 완료(목적지 없음 4) |
+| `SRMDetailNegoQuoteInfo.html` | 74 | 0 | 0 | 원문 없음 |
+| `SRMDetailNegotiation.html` | 72, 73, 65 | 13 | 0 | 완료 |
+| `SRMDetailOpening.html` | 56, 57, 58, 59, 60, 61, 62, 63, 46 | 27 | 0 | 완료 |
+| `SRMDetailOrderPlan.html` | 35 | 1 | 0 | 완료 |
+| `SRMDetailParticipation.html` | 42, 43, 44, 45, 46 | 8 | 0 | 완료 |
+| `SRMDetailWinner.html` | 64, 65, 66, 67, 68, 69, 70, 71 | 25 | 5 | 완료 |
+| `StepWorkflow.html` | 6, 16, 17, 18, 19, 20, 21, 22, 23 | 29 | 0 | 완료(목적지 없음 4) |
+| `StepWorkflowBidPlan.html` | 10, 11, 12, 13 | 11 | 0 | 완료 |
+| `StepWorkflowComplete.html` | 30 | 0 | 0 | 원문 없음 |
+| `StepWorkflowDocuments.html` | 24, 25 | 5 | 0 | 완료 |
+| `StepWorkflowEvaluation.html` | 14, 15 | 8 | 0 | 완료 |
+| `StepWorkflowOrderPlan.html` | 7, 8, 9 | 3 | 0 | 완료 |
+| `StepWorkflowReview.html` | 26, 27, 28, 29 | 8 | 0 | 완료(목적지 없음 2) |
 
-## 03. 대시보드
+## 08_계약관리
 
-| HTML | 설계 슬라이드 | Description | 목적지 | 상태 | 비고 |
-|---|---:|---:|---:|---|---|
-| `SRMDashboardAdmin.html` | 4 | 0 | 0 | 원문 없음 | `D` 미적용 |
-| `SRMDashboardBiz.html` | 4 | 0 | 0 | 원문 없음 | `D` 미적용 |
-| `SRMDashboardContract.html` | 4 | 0 | 0 | 원문 없음 | `D` 미적용 |
-| `SRMDashNotice.html` | 5~6 | 4 | 4 | 완료 | `00_공통관리/SRMNoticeManage.html`와 동일한 검색구분·게시대상·우선노출·게시기간 패턴 재사용. 상세(슬라이드6)는 원문 없음 |
-| `SRMDashFileRepo.html` | 7 | 4 | 4 | 완료 | 위와 동일 패턴, 마지막 문단만 "해당 자료가 보임"으로 표현 차이 |
+| HTML | 슬라이드 | 번호 항목 | 번호 없는 항목 | 상태 |
+|---|---|---:|---:|---|
+| `SRMContractDocumentManage.html` | 11, 12, 13 | 5 | 0 | 완료 |
+| `SRMContractStatus.html` | 4, 5 | 7 | 0 | 완료 |
+| `SRMContractStatusDetail.html` | 6, 7 | 4 | 0 | 완료(목적지 없음 1) |
+| `SRMContractStatusDetailBidPlan.html` | 20, 21, 22, 23, 24, 25 | 4 | 0 | 완료(목적지 없음 1) |
+| `SRMContractStatusDetailDocs.html` | 8, 9, 10 | 10 | 0 | 완료 |
+| `SRMContractStatusDetailOrderPlan.html` | 17, 18, 19 | 0 | 0 | 원문 없음 |
+| `SRMContractStatusDetailRequest.html` | 14, 15, 16 | 0 | 0 | 원문 없음 |
 
-## 04. 사전 견적 관리 — 중단(사용자 요청, 2026-09-23)
+## 09_협력업체관리
 
-사용자 요청으로 이 지점에서 작업을 중단합니다. `SRMPreQuoteRequest.html`은 아직 HTML을 전혀 수정하지 않았고(구조 파악을 위한 조회만 함), `SRMPreQuoteStatus.html`은 원문 추출도 시작하지 않았습니다.
+| HTML | 슬라이드 | 번호 항목 | 번호 없는 항목 | 상태 |
+|---|---|---:|---:|---|
+| `SRMPartnerApproval.html` | 4, 5, 6 | 6 | 0 | 완료 |
+| `SRMPartnerManage.html` | 7 | 2 | 0 | 완료 |
+| `SRMPartnerManageDetail.html` | 8, 9, 10 | 7 | 0 | 완료(목적지 없음 1) |
+| `SRMPartnerManageEdit.html` | 11, 12 | 1 | 0 | 완료 |
+| `SRMPartnerQnaAnswer.html` | 15 | 2 | 0 | 완료(목적지 없음 1) |
+| `SRMPartnerQnaDetail.html` | 14 | 0 | 0 | 원문 없음 |
+| `SRMPartnerQnaManage.html` | 13 | 1 | 0 | 완료 |
 
-| HTML | 설계 슬라이드 | 상태 | 비고 |
-|---|---:|---|---|
-| `SRMPreQuoteRequest.html` | 4~15(12슬라이드) | 대기(원문 추출만 완료, HTML 미적용) | 아래 원문 참고 |
-| `SRMPreQuoteStatus.html` | 16~21(6슬라이드) | 대기(원문 추출 전) | - |
+## 10_기준정보관리
 
-### `SRMPreQuoteRequest.html` 원문 추출 결과(HTML 미적용, 다음 작업자용)
+| HTML | 슬라이드 | 번호 항목 | 번호 없는 항목 | 상태 |
+|---|---|---:|---:|---|
+| `SRMCommonDocDetail.html` | 11 | 0 | 0 | 원문 없음 |
+| `SRMCommonDocForm.html` |  | 0 | 0 | 원문 없음 |
+| `SRMCommonDocManage.html` | 10 | 4 | 0 | 완료 |
+| `SRMCommonEvalDetail.html` | 9 | 0 | 0 | 원문 없음 |
+| `SRMCommonEvalForm.html` |  | 0 | 0 | 원문 없음 |
+| `SRMCommonEvalManage.html` | 8 | 2 | 0 | 완료 |
+| `SRMCommonItemDetail.html` | 6 | 0 | 0 | 원문 없음 |
+| `SRMCommonItemForm.html` | 5 | 2 | 0 | 완료 |
+| `SRMCommonItemManage.html` | 4 | 1 | 0 | 완료 |
+| `SRMMailContentDetail.html` | 13 | 2 | 0 | 완료 |
+| `SRMMailContentForm.html` | 13 | 2 | 0 | 완료 |
+| `SRMMailContentManage.html` | 12 | 1 | 0 | 완료 |
+| `SRMMailSend.html` | 14, 15, 16, 17, 18 | 5 | 0 | 완료 |
+| `SRMMailSendStatus.html` | 19 | 0 | 0 | 원문 없음 |
+| `SRMSourcingGroupDetail.html` |  | 0 | 0 | 원문 없음 |
+| `SRMSourcingGroupManage.html` | 7 | 1 | 0 | 완료 |
 
-- 슬라이드4(목록): "'작성 중' 상태만 노출, 이 상태에서만 수정/삭제 가능"(1, 위치상 목록 스코프 설명) / "재견적 시 요청내용 복사"(2, 삭제 버튼 근처?) / "견적요청번호, 견적요청명, 등록자"(3, 키워드검색 select — 이미 HTML의 `<select class="filter-select w-150">` 옵션과 정확히 일치, line 302)
-- 슬라이드5(신규등록 모달 `pqNewModal`): "등록 시 '견적요청번호' 자동 발번"(1) — 이미 `<p class="modal-field-label">`로 동일 문구가 구현돼 있음(line 356), 마커만 추가하면 됨
-- 슬라이드6(관리 팝업 `pqManageModal` 진입): "각 단계로 안내되어 있지만 각 영역에 바로 접근(클릭) 가능"(1,2 — 위치 2곳, 같은 개념)
-- 슬라이드7(품목정보 관리): "품목단가일 경우 '품목 추가(공통품목)' 버튼 노출"(1), "개별 등록 시 품목추가/수정 팝업 호출"(2,3 — 수정/삭제 버튼), "품목 최소 1개 이상 등록 필요, Alert"(4), 등 5개 마커(1~5) — `pqItemFormModal`/`pqCommonItemModal` 관련
-- 슬라이드8(`pqCommonItemModal`): "기준정보관리 > 공통 품목관리에 등록된 공통 품목 호출"(1)
-- 슬라이드9(`pqItemFormModal`): "품목 정보를 개별로 직접 등록하거나 수정/보완할 때 사용"(1)
-- 슬라이드10(전달자료 `pqAttachModal`): "견적요청 대상 협력업체에게 전달하는 참고자료"(1)
-- 슬라이드11(업체선정 `pqVendorAddModal`+마감일시 `pqDeadlineModal`): "협력업체 풀에서 선택"(1), "기본담당자 아닌 다른 담당자 선택 기능"(2), "견적마감일시는 업체 모두 동일 적용"(3), "저장 시 업체·마감일시 모두 세팅 필요, Alert"(4)
-- 슬라이드12(업체추가 팝업): "승인된 협력업체만 호출함"(1)
-- 슬라이드13: 원문 없음
-- 슬라이드14(최종점검·확인모달 `pqFinalConfirmModal`): "요청되면 '사전 견적 요청 현황'에서 확인 가능, 요청일시 기록, 고객통보 MSG-010"(1)
-- 슬라이드15(완료 `pqDoneModal`): 원문 없음
+## 목적지를 둘 수 없는 항목
 
-재개 시 `docs/reference/[참고] 화면설계(04. 사전 견적관리).pptx`를 이 세션에서 쓴 `extract_desc.py` 패턴으로 다시 열 필요 없이 위 목록을 바로 HTML에 매핑하면 됩니다. `SRMPreQuoteStatus.html`(슬라이드16~21)은 원문 추출부터 다시 시작해야 합니다.
+| HTML | 항목 | 사유 |
+|---|---|---|
+| `00_공통관리/SRMClientDetail.html` | 00-16:1 | PPTX 슬라이드에 번호 원이 없음 |
+| `00_공통관리/SRMCodeManage.html` | 00-11:1 | 번호 원 ①이 가리키는 코드 검색 구분 UI가 현재 화면에 없음(화면 변경 여부 사용자 확인 필요) |
+| `01_협력업체창구_로그인전/SRMLogin.html` | 01-14:1 | PPTX 슬라이드에 번호 원이 없음(아이디 찾기 팝업 전체 설명) |
+| `02_협력업체창구_로그인후/SRMPartnerBidNotice.html` | 02-25:7 | PPTX에 ⑦ 번호 원이 없음(목록 표가 Description 칸을 덮어 ⑦ 문단이 가려져 있음) |
+| `02_협력업체창구_로그인후/SRMPartnerContractDetail.html` | 02-56:1 | PPTX 슬라이드에 번호 원이 없음 |
+| `02_협력업체창구_로그인후/SRMPartnerContractDetail.html` | 02-57:1 | PPTX 슬라이드에 번호 원이 없음 |
+| `05_발주계약요청/SRMOrderContractRequestManageChecklist.html` | 05-10:2 | PPTX 슬라이드에 ② 번호 원이 없음 |
+| `06_발주계획/SRMOrderPlanRegisterDetail.html` | 06-26:1 | PPTX 슬라이드에 번호 원이 없음 |
+| `07-1_수의계약관리/SRMSoleSourcePlanComplete.html` | 07-1-19:1 | PPTX 슬라이드에 번호 원이 없음 |
+| `07-1_수의계약관리/SRMSoleSourceQuoteRequest.html` | 07-1-26:1 | 번호 원 ①이 가리키는 '견적 요청 담당자 정보' 영역이 현재 화면에 없음(화면설계와 차이, 확인 필요) |
+| `07-2_입찰관리/SRMDetailEvaluation.html` | 07-2-48:1 | 심사/평가 상세 팝업에 '자가 심사 정보 확인' 버튼이 없음(화면설계와 차이, 확인 필요) |
+| `07-2_입찰관리/SRMDetailEvaluation.html` | 07-2-53:1 | PPTX 슬라이드에 번호 원이 없음 |
+| `07-2_입찰관리/SRMDetailEvaluation.html` | 07-2-54:1 | 심사/평가 상세 팝업에 '자가 심사 정보 확인' 버튼이 없음(화면설계와 차이, 확인 필요) |
+| `07-2_입찰관리/SRMDetailEvaluation.html` | 07-2-55:1 | PPTX 슬라이드에 번호 원이 없음 |
+| `07-2_입찰관리/StepWorkflow.html` | 07-2-21:2 | 복수예비가격표 팝업에 '+2% 복수예비금액' 표가 없음(화면설계와 차이, 확인 필요) |
+| `07-2_입찰관리/StepWorkflow.html` | 07-2-21:3 | 복수예비가격표 팝업에 '-2% 복수예비금액' 표가 없음(화면설계와 차이, 확인 필요) |
+| `07-2_입찰관리/StepWorkflow.html` | 07-2-21:4 | 복수예비가격표 팝업에 '복수예비가격 자동 생성' 버튼이 없음(화면설계와 차이, 확인 필요) |
+| `07-2_입찰관리/StepWorkflow.html` | 07-2-22:3 | PPTX 슬라이드에 ③ 번호 원이 없음 |
+| `07-2_입찰관리/StepWorkflowReview.html` | 07-2-28:2 | 최종 점검 화면에 예비가(낙찰하한가) 요약 표가 없음(화면설계와 차이, 확인 필요) |
+| `07-2_입찰관리/StepWorkflowReview.html` | 07-2-28:3 | 최종 점검 화면에 예정가 요약 표가 없음(화면설계와 차이, 확인 필요) |
+| `08_계약관리/SRMContractStatusDetail.html` | 08-7:3 | PPTX 슬라이드에 ③ 번호 원이 없음(①②가 두 번씩 표기됨, PPTX 표기대로 반영) |
+| `08_계약관리/SRMContractStatusDetailBidPlan.html` | 08-23:1 | PPTX 슬라이드에 번호 원이 없음 |
+| `09_협력업체관리/SRMPartnerManageDetail.html` | 09-9:3 | 상세 화면 하단에 '삭제' 버튼이 없음(화면설계와 차이, 확인 필요) |
+| `09_협력업체관리/SRMPartnerQnaAnswer.html` | 09-15:2 | 질문과 답변 상세 화면에 답변 '삭제' 버튼이 없음(화면설계와 차이, 확인 필요) |
 
-### 다음 재개 시 절차
-1. 위 슬라이드별 원문을 `SRMPreQuoteRequest.html`의 해당 모달(`pqNewModal`/`pqManageModal`/`pqItemFormModal`/`pqCommonItemModal`/`pqAttachModal`/`pqVendorAddModal`/`pqDeadlineModal`/`pqFinalConfirmModal`)에 이 문서에서 확립한 패턴(`.description-marker-anchor`, `.description-marker-container`, 동시에 보이는 범위 안에서만 번호 연속 부여)으로 반영
-2. `SRMPreQuoteStatus.html`(슬라이드16~21) 원문·목적지 추출 후 동일하게 반영
-3. `docs/DESCRIPTION_OVERLAY_STATUS.md`·`ROLLOUT_PLAN.md`·`docs/작업진행현황.md` 갱신
-4. 이후 `05_발주계약요청`부터 `10_기준정보관리`까지 순차 진행(`DESCRIPTION_OVERLAY_ROLLOUT_PLAN.md`의 6~9단계)
+## 제외한 슬라이드
+
+| 슬라이드 | 사유 |
+|---|---|
+| 05-4 | [참고자료] 계약방법, 낙찰자 선정방법 정리 — 화면이 아닌 참고자료 슬라이드(05·06·07-1·07-2 모듈에 동일하게 반복) |
+| 05-5 | [참고자료] 계약방법, 낙찰자 선정방법 정리 — 화면이 아닌 참고자료 슬라이드(05·06·07-1·07-2 모듈에 동일하게 반복) |
+| 06-4 | [참고자료] 계약방법, 낙찰자 선정방법 정리 — 화면이 아닌 참고자료 슬라이드(05·06·07-1·07-2 모듈에 동일하게 반복) |
+| 06-5 | [참고자료] 계약방법, 낙찰자 선정방법 정리 — 화면이 아닌 참고자료 슬라이드(05·06·07-1·07-2 모듈에 동일하게 반복) |
+| 07-1-4 | [참고자료] 계약방법, 낙찰자 선정방법 정리 — 화면이 아닌 참고자료 슬라이드(05·06·07-1·07-2 모듈에 동일하게 반복) |
+| 07-1-5 | [참고자료] 계약방법, 낙찰자 선정방법 정리 — 화면이 아닌 참고자료 슬라이드(05·06·07-1·07-2 모듈에 동일하게 반복) |
+| 07-2-4 | [참고자료] 계약방법, 낙찰자 선정방법 정리 — 화면이 아닌 참고자료 슬라이드(05·06·07-1·07-2 모듈에 동일하게 반복) |
+| 07-2-5 | [참고자료] 계약방법, 낙찰자 선정방법 정리 — 화면이 아닌 참고자료 슬라이드(05·06·07-1·07-2 모듈에 동일하게 반복) |
+
+## 판단 기록 (PPTX 표기와 화면의 차이·해석)
+
+| 슬라이드 | 내용 |
+|---|---|
+| 02-22 | PPTX 번호 원 ①이 '수의계약 참여 서류' 행에 있으나 Description ①은 예정가 제공 설명임. 설명 내용대로 예정가 안내 영역에 연결 |
+| 02-23 | Description은 ①만 있고 번호 원은 ②로 표기됨. 같은 목적지(견적 제출하기 확인 버튼)에 ①로 연결 |
+| 02-25 | ⑦ 문단은 PPTX에서 목록 표가 Description 칸을 덮어 가려져 있으나 원문에 있으므로 드로어에 포함(번호 원 없음) |
+| 02-48 | PPTX의 '아직 입찰 결과가 도출되지 않았습니다.'·'본 입찰 건은 유찰되었습니다.' 안내 박스가 화면에 없고 각주 문장으로 대체되어 있음(화면 차이). 목적지는 각주 문장에 연결 |
+| 02-53 | 번호 원 두 개가 모두 ②로 표기됨. 예정가 안내는 ①, 견적 제출하기 버튼은 ②로 연결 |
+| 04-6 | 번호 원 ②(비고 행)에 대응하는 Description 문단이 없어 목적지를 만들지 않음 |
+| 05-26 | ① 원문 '기준정보 관리의 공통 품목에 등록된 내용을 호출'은 진행상황 팝업과 맞지 않아 PPTX 복사 오류로 보이나 원문 그대로 둠 |
+| 05-31 | 번호 원 ②(수의계약 완료 처리)에 대응하는 Description 문단이 없어 목적지를 만들지 않음 |
+| 07-1-12 | 번호 원 ③④만 있고 Description 문단이 없어 드로어·목적지 없음 |
+| 07-1-18 | PPTX에 ①이 두 곳(참여 서류 제목, 최종저장 버튼)에 표기되어 두 곳 모두 연결 |
+| 07-1-27 | '재견적 요청하기' 버튼의 번호 원이 ⑥으로 표기되어 있으나 설명은 ⑦('견적요청 화면으로 이동')과 일치하여 ⑦로 연결(⑦은 별도 번호 원 없음) |
+| 07-2-14 | Description ① 문장이 화면에 안내 문구로도 표시되어 있음(화면 구성 확인 필요). 같은 유형: 09·10 모듈 목록·등록 화면의 안내 문구 |
+| 07-2-16 | 예비가(07-2-16)·예정가(07-2-17) 슬라이드가 같은 단계 박스를 가리켜 목적지 번호에 가격유형 조건(data-ui-show)을 적용. 07-2-19/22, 07-2-20/23 팝업도 동일 |
+| 07-2-31 | 키워드 검색 행의 ⑤ 번호 원은 번호 없는 말풍선('검색 구분 : …', 연결선이 검색 구분 select에 연결)과 겹쳐 목적지를 만들지 않음. ⑤ 말풍선(입찰계획서 호출)은 연결선대로 공고번호 열에 연결 |
+| 07-2-56 | 개찰 전(07-2-56)·후(07-2-57)·2단계 동시(07-2-61)·완료(07-2-62/63) 슬라이드가 같은 개찰 결과 표를 가리켜 개찰 상태 조건을 적용 |
+| 08-7 | ①②가 각각 두 번 표기되고 ③은 번호 원이 없음. 추정하지 않고 PPTX 표기대로 네 곳에 연결 |
+| 08-8 | PPTX는 계약 변경 기능을 '계약 정보' 탭에 두었으나 프로토타입은 '계약 관련 서류' 탭 화면에 있음(화면 차이). 요소가 있는 화면에 연결 |
+| 10-5 | 번호 원 두 개가 모두 ①로 표기됨. 발주단위 select는 ②(단위 목록) 설명과 일치하여 ②로 연결 |
+| 00-4 | Description 칸 밖 상단의 '그룹웨어 연동 필요'(00-4·5)·'ERP 연동 필요'(00-15·16) 메모는 Description이 아니어서 포함하지 않음 |
+| 07-2-19 | 슬라이드 바깥(왼쪽)의 낙찰하한율 참고 메모는 Description 칸이 아니어서 포함하지 않음 |

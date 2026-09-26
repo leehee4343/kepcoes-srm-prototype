@@ -305,7 +305,7 @@
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-130">키워드 검색</span>
             <span class="description-marker-anchor">
-              <span class="description-target-marker" aria-hidden="true">1</span>
+              <span class="description-target-marker" data-description-ref="00-4:1" aria-hidden="true"></span>
               <select class="filter-select w-130" id="selAdminKeywordTarget">
                 <option value="all" selected>전체</option>
                 <option value="empno">사원번호</option>
@@ -332,7 +332,7 @@
           <div class="table-total-count grid-page-summary">1 / 4 (총 55개)</div>
           <div class="table-actions">
             <span class="description-marker-anchor">
-              <span class="description-target-marker" aria-hidden="true">2</span>
+              <span class="description-target-marker" data-description-ref="00-4:2" aria-hidden="true"></span>
               <select class="select-per-page" title="페이지당 표시 건수">
                 <option value="10" selected>10개씩</option>
                 <option value="20">20개씩</option>
@@ -340,7 +340,7 @@
               </select>
             </span>
             <span class="description-marker-anchor">
-              <span class="description-target-marker" aria-hidden="true">3</span>
+              <span class="description-target-marker" data-description-ref="00-4:3" aria-hidden="true"></span>
               <button type="button" class="btn-action-excel" title="엑셀 파일로 내려받기">
                 <svg class="icon-excel" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -498,16 +498,13 @@
 
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
-  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionModal" aria-controls="screenDescriptionModal" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
-
-  <!-- 화면설계 Description 모달 -->
-
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
   <!-- 관리자 상세정보 모달 -->
 
 
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMAdminManage/screenDescriptionModal.html", "popups/SRMAdminManage/adminDetailModal.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMAdminManage/screenDescriptionGuide.html", "popups/SRMAdminManage/adminDetailModal.html"]</script>
 </body>
 </html>

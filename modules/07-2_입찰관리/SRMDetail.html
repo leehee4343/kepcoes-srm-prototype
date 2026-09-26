@@ -264,7 +264,7 @@
       <section class="filter-card">
         <form id="bidStatusSearchForm" data-ui-scope="filter">
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-200">조회기간(입찰 마감일)</span>
+            <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-2-31:1" aria-hidden="true"></span><span class="filter-label w-200">조회기간(입찰 마감일)</span></span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
             <div class="quick-date-btns hstack gap-6">
               <button type="button" class="btn-quick-date" data-range="1d">하루 전</button>
@@ -285,12 +285,12 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-200">계약방법/낙찰자 선정방법</span>
+            <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-2-31:2" aria-hidden="true"></span><span class="filter-label w-200">계약방법/낙찰자 선정방법</span></span>
             <select class="filter-select w-160" data-ui-field="method"><option value="">전체</option><option value="sole">수의계약</option><option value="general">경쟁입찰(일반)</option><option value="limited">경쟁입찰(제한)</option><option value="designated">경쟁입찰(지명)</option></select>
             <select class="filter-select w-165" data-ui-field="award"><option value="">전체</option><option value="lowest">최저가</option><option value="restricted">제한적 최저가 입찰</option><option value="simultaneous">2단계 경쟁입찰(규격/가격 동시)</option><option value="separate">2단계 경쟁입찰(규격/가격 분리)</option><option value="qualification">적격심사</option></select>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-200">공고 구분</span>
+            <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-2-31:3" aria-hidden="true"></span><span class="filter-label w-200">공고 구분</span></span>
             <div class="form-choice-group" role="radiogroup">
               <label class="form-choice"><input type="radio" name="bidListGubun" checked>전체</label>
               <label class="form-choice"><input type="radio" name="bidListGubun">본공고</label>
@@ -298,8 +298,8 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12">
-            <span class="filter-label w-200">진행상태</span>
-            <select class="filter-select w-200"><option>진행상태 선택</option></select>
+            <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-2-31:4" aria-hidden="true"></span><span class="filter-label w-200">진행상태</span></span>
+            <select class="filter-select w-200" aria-label="진행상태"><option>진행상태 선택</option><option>공고대기</option><option>공고게시중</option><option>입찰진행중</option><option>입찰마감</option><option>투찰진행중</option><option>투찰마감</option><option>심사완료</option><option>개찰완료</option><option>선정완료</option><option>수의시담(견적요청)</option><option>수의시담(견적제출 완료)</option><option>수의시담 완료</option><option>계약품의(전자결재 요청)</option><option>계약품의(전자결재 완료)</option><option>유찰</option><option>재입찰</option><option>공고취소</option></select>
           </div>
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-200">키워드 검색</span>
@@ -328,7 +328,7 @@
         <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="입찰공고 현황 목록" data-total-items="1523" data-total-pages="153">
           <table class="data-table data-grid-table" aria-label="입찰공고 현황 목록">
             <thead>
-              <tr><th class="w-90">공고 번호</th><th class="w-80">공고 구분</th><th class="w-100">진행상태</th><th class="minw-240">입찰 건명</th><th class="w-120">입찰 마감일시</th><th class="w-70">참여업체(수)</th><th class="w-60">구분</th><th class="w-110">계약방법</th><th class="minw-170">낙찰자 선정방법</th><th class="w-70">사업담당자</th><th class="w-70">계약담당자</th></tr>
+              <tr><th class="w-90"><span class="description-marker-anchor">공고 번호<span class="description-target-marker" data-description-ref="07-2-31:5" aria-hidden="true"></span></span></th><th class="w-80">공고 구분</th><th class="w-100" data-status-values="공고대기|공고게시중|입찰진행중|입찰마감|투찰진행중|투찰마감|심사완료|개찰완료|선정완료|수의시담(견적요청)|수의시담(견적제출 완료)|수의시담 완료|계약품의(전자결재 요청)|계약품의(전자결재 완료)|유찰|재입찰|공고취소">진행상태</th><th class="minw-240">입찰 건명</th><th class="w-120">입찰 마감일시</th><th class="w-70"><span class="description-marker-anchor">참여업체(수)<span class="description-target-marker" data-description-ref="07-2-31:6" aria-hidden="true"></span></span></th><th class="w-60">구분</th><th class="w-110">계약방법</th><th class="minw-170">낙찰자 선정방법</th><th class="w-70">사업담당자</th><th class="w-70">계약담당자</th></tr>
             </thead>
             <tbody>
               <tr><td><a href="#" data-open-modal="bidNoticeDocModal">BD2026-0023</a></td><td>본공고</td><td><span class="badge-tag">공고대기</span></td><td class="text-left"><a href="SRMDetailOrderPlan.html#bidDetailAnchor">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>2026.07.31 18:00</td><td>15</td><td>공사</td><td>경쟁입찰(일반)</td><td>최저가</td><td>홍길동</td><td>임꺽정</td></tr>
@@ -496,7 +496,7 @@
 
       <div class="srm-detail-actions">
         <a href="SRMDetail.html#list" class="btn-secondary srm-list-button">목록</a>
-        <div class="srm-return-wrap"><span>입찰 신청 전 상태에서만 실행할 수 있습니다.</span><button type="button" class="btn-caution srm-return-button" id="btnReturnBidPlan">‘입찰계획’으로 되돌리기 <b>→</b></button></div>
+        <div class="srm-return-wrap"><span>입찰 신청 전 상태에서만 실행할 수 있습니다.</span><span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-2-41:1" aria-hidden="true"></span><button type="button" class="btn-caution srm-return-button" id="btnReturnBidPlan">‘입찰계획’으로 되돌리기 <b>→</b></button></span></div>
       </div>
       </section>
     </main>
@@ -504,8 +504,10 @@
 
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
+
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMDetail/modalReturnBidPlan.html", "popups/SRMDetail/bidNoticeDocModal.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMDetail/screenDescriptionGuide.html", "popups/SRMDetail/modalReturnBidPlan.html", "popups/SRMDetail/bidNoticeDocModal.html"]</script>
 </body>
 </html>

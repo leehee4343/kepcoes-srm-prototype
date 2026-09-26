@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>화면설계 Description</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<!-- 자동 생성 파일: 직접 수정하지 말고 docs/DESCRIPTION_MAP.json 수정 후 python3 tools/build_description_guides.py 실행 -->
+<div class="modal-backdrop description-guide-backdrop" id="screenDescriptionGuide" role="dialog" aria-modal="false" aria-labelledby="screenDescriptionGuideTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg description-modal-dialog">
+      <div class="modal-header">
+        <h2 class="modal-title" id="screenDescriptionGuideTitle">화면설계 Description</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body description-modal-body">
+        <section class="description-source-section" aria-labelledby="descriptionSection1">
+          <h3 id="descriptionSection1">발주계획 등록(검색/조회)</h3>
+          <p class="description-source-meta">화면설계 06 · 슬라이드 12</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="06-12:1">
+              <span class="description-mapping-number" aria-hidden="true">1</span>
+              <pre class="description-source-text">발주계약 품의번호, 품의 건명</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="06-12:2">
+              <span class="description-mapping-number" aria-hidden="true">2</span>
+              <pre class="description-source-text">‘발주계약 요청접수’에서 ‘발주계획’으로 넘어오면서, ‘발주계약 품의번호’는 자동 발번</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="06-12:3">
+              <span class="description-mapping-number" aria-hidden="true">3</span>
+              <pre class="description-source-text">‘발주계획 등록’의 진행상태 정의
+
+작성중 : 발주계획 작성중(최초상태)
+결재요청 : 전자결재 진행중
+결재완료 : 발주계획 결재 완료(입찰계획 단계로 넘어간 상태)</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="06-12:4">
+              <span class="description-mapping-number" aria-hidden="true">4</span>
+              <pre class="description-source-text">진행상태가 ‘작성중’인 상태에서는 단계별로 정보를 입력하는 화면으로 이동
+
+단, ‘결재요청’, ‘결재완료’ 상태에서는 수정이 불가한 상세정보 제공화면으로 이동</pre>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

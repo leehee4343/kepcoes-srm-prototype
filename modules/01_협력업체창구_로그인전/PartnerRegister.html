@@ -70,7 +70,7 @@
            ============================================================== -->
       <div class="wizard-panel active" id="panelStep1">
         <h2 class="partner-panel-title description-marker-container">
-          <span class="description-target-marker marker-top-left" aria-hidden="true">1</span>
+          <span class="description-target-marker marker-top-left" data-description-ref="01-7:1" aria-hidden="true"></span>
           이용약관 동의
         </h2>
         <div class="terms-box">
@@ -88,7 +88,7 @@
         </label>
 
         <h2 class="partner-panel-title description-marker-container">
-          <span class="description-target-marker marker-top-left" aria-hidden="true">1’</span>
+          <span class="description-target-marker marker-top-left" data-description-ref="01-7:1’" aria-hidden="true"></span>
           개인정보 수집 및 이용 동의
         </h2>
         <div class="terms-box">
@@ -119,7 +119,7 @@
         <div class="form-grid-2">
           <!-- 사업자등록번호 -->
           <div class="form-group-full description-marker-container">
-            <span class="description-target-marker marker-top-left" aria-hidden="true">1</span>
+            <span class="description-target-marker marker-top-left" data-description-ref="01-8:1" aria-hidden="true"></span>
             <label class="partner-input-lbl">사업자등록번호<span class="req">*</span> <span class="partner-input-hint">※사업자등록번호는 로그인 시 아이디로 사용됩니다.</span></label>
             <div class="partner-input-row">
               <input type="text" class="partner-input fit-360" id="regBizNo" placeholder="예: 135-82-77202 (숫자만 입력)" value="135-82-77202">
@@ -130,7 +130,7 @@
 
           <!-- 비밀번호 -->
           <div class="description-marker-container">
-            <span class="description-target-marker marker-top-left" aria-hidden="true">2</span>
+            <span class="description-target-marker marker-top-left" data-description-ref="01-8:2" aria-hidden="true"></span>
             <label class="partner-input-lbl">비밀번호<span class="req">*</span> <span class="partner-input-hint">(영문/숫자/특수기호 8~20자)</span></label>
             <input type="password" class="partner-input" id="regpw" value="kepcoes1234!">
           </div>
@@ -155,7 +155,7 @@
 
           <!-- 전화번호 -->
           <div class="form-group-full description-marker-container">
-            <span class="description-target-marker marker-top-left" aria-hidden="true">3</span>
+            <span class="description-target-marker marker-top-left" data-description-ref="01-8:3" aria-hidden="true"></span>
             <label class="partner-input-lbl">전화번호<span class="req">*</span></label>
             <div class="partner-input-row">
               <select class="partner-input w-80" id="regTel1">
@@ -184,7 +184,7 @@
           <div class="form-group-full">
             <label class="partner-input-lbl">주소<span class="req">*</span></label>
             <div class="partner-input-row stacked description-marker-container">
-              <span class="description-target-marker marker-top-left" aria-hidden="true">4</span>
+              <span class="description-target-marker marker-top-left" data-description-ref="01-8:4" aria-hidden="true"></span>
               <input type="text" class="partner-input w-120" id="regPostCode" value="12654" readonly>
               <button type="button" class="btn-secondary btn-address-search">우편번호 검색</button>
             </div>
@@ -201,7 +201,7 @@
         <div class="form-grid-2">
           <!-- 사업자등록증 -->
           <div class="form-group-full description-marker-container">
-            <span class="description-target-marker marker-top-left" aria-hidden="true">5</span>
+            <span class="description-target-marker marker-top-left" data-description-ref="01-9:1" aria-hidden="true"></span>
             <label class="partner-input-lbl">사업자등록증<span class="req">*</span></label>
             <div class="partner-input-row">
               <input type="text" class="partner-input" id="filebizcert" value="사업자등록증_큐비트엑스.pdf" readonly>
@@ -230,7 +230,7 @@
           <!-- 신용평가등급 (짧은 선택값) + 확인서 (긴 파일 첨부): 한 행에 짧은 컨트롤은 내용 폭, 파일 첨부는 남은 폭 -->
           <div class="form-group-full form-row-split">
             <div class="description-marker-container">
-              <span class="description-target-marker marker-top-left" aria-hidden="true">6</span>
+              <span class="description-target-marker marker-top-left" data-description-ref="01-9:2" aria-hidden="true"></span>
               <label class="partner-input-lbl">신용평가등급</label>
               <select class="partner-input" id="regcreditrating">
               <option value="AAA">AAA</option>
@@ -284,14 +284,15 @@
           </div>
 
           <!-- 이메일 -->
-          <div class="form-group-full description-marker-container">
-            <span class="description-target-marker marker-top-left" aria-hidden="true">1</span>
+          <div class="form-group-full">
             <label class="partner-input-lbl">이메일<span class="req">*</span></label>
             <div class="partner-input-row">
               <input type="text" class="partner-input w-160" id="regEmailId" value="leehee43">
               <span>@</span>
               <input type="text" class="partner-input w-160" id="regEmailDomain" value="naver.com">
-              <select class="partner-input w-140" id="selEmailDomain">
+              <span class="description-marker-anchor">
+                <span class="description-target-marker" data-description-ref="01-10:1" aria-hidden="true"></span>
+                <select class="partner-input w-140" id="selEmailDomain">
                 <option value="direct">직접 입력</option>
                 <option value="naver.com" selected>naver.com</option>
                 <option value="google.com">google.com</option>
@@ -299,6 +300,7 @@
                 <option value="daum.net">daum.net</option>
                 <option value="nate.com">nate.com</option>
               </select>
+              </span>
             </div>
           </div>
 
@@ -405,7 +407,7 @@
            ============================================================== -->
       <div class="wizard-panel" id="panelStep5">
         <div class="partner-complete description-marker-container">
-          <span class="description-target-marker marker-top-left" aria-hidden="true">1</span>
+          <span class="description-target-marker marker-top-left" data-description-ref="01-13:1" aria-hidden="true"></span>
           <div class="partner-complete-icon">
             <svg aria-hidden="true" width="38" height="38" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="20 6 9 17 4 12"></polyline>
@@ -429,12 +431,10 @@
     </div>
   </main>
 
-  <!-- 화면설계 Description 개발자 가이드 (DESIGN_GUIDE 5.15) -->
   <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
-
-
   <script src="popups/popup-bundle.js"></script>
+  <script src="../../assets/scripts/message-catalog.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
   <script type="application/json" class="external-modal-manifest">["popups/PartnerRegister/screenDescriptionGuide.html"]</script>
 </body>

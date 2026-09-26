@@ -272,7 +272,7 @@
         <div class="page-title-left"><h1 class="page-title">협력업체 상세정보</h1></div>
         <div class="breadcrumb"><a href="../03_대시보드/SRMDashboardAdmin.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">협력업체 관리</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">협력업체 관리</span></div>
       </div>
-      <section class="page-detail-body"><div class="srm-section-heading"><div><h2>최종 처리 상태</h2></div></div>
+      <section class="page-detail-body"><div class="srm-section-heading description-marker-container"><span class="description-target-marker marker-top-left" data-description-ref="09-8:1" aria-hidden="true"></span><div><h2>최종 처리 상태</h2></div></div>
         <div class="srm-kv-grid">
           <div class="srm-kv-row"><dt>최종 처리 상태</dt><dd><span class="badge-success">승인</span> <span class="badge-tag">신청완료</span> <span class="badge-warning">정보수정 요청</span> <button type="button" class="btn-secondary" data-close-modal data-open-modal="pmStatusManageModal">처리상태 관리</button></dd></div>
           <div class="srm-kv-row"><dt>신청일시</dt><dd>2026.06.10 15:56</dd></div>
@@ -293,7 +293,7 @@
 
         <div class="srm-section-heading content-object-gap-top"><div><h2>협력업체 기본 정보</h2></div></div>
         <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>사용 여부</dt><dd>사용(Y) | 중지(N)</dd></div>
+          <div class="srm-kv-row description-marker-container"><span class="description-target-marker marker-top-left" data-description-ref="09-8:3" aria-hidden="true"></span><dt>사용 여부</dt><dd>사용(Y) | 중지(N)</dd></div>
           <div class="srm-kv-row"><dt>사업자 번호</dt><dd>135-82-77202</dd></div>
           <div class="srm-kv-row"><dt>회사명</dt><dd>(주)큐비트엑스</dd></div>
           <div class="srm-kv-row"><dt>대표자명</dt><dd>이홍태, 윤지병</dd></div>
@@ -323,8 +323,8 @@
             <thead><tr><th class="col-no">No</th><th>담당자 구분</th><th>이름</th><th>직책</th><th>이메일</th><th>핸드폰번호</th><th>전화번호</th><th>담당업무</th><th class="w-160">관리</th></tr></thead>
             <tbody>
               <tr><td>1</td><td>기본 담당자</td><td class="text-left">이희성</td><td>이사</td><td>leehee43@naver.com</td><td>010-6844-2810</td><td>02-6959-9856</td><td class="text-left">사내 입찰/계약 담당자</td><td>
-                <button type="button" class="btn-secondary" data-close-modal data-open-modal="pmPwSendConfirmModal">임시 비밀번호 발송</button>
-                <button type="button" class="btn-secondary" data-close-modal data-open-modal="pmManagerFormModal">수정</button>
+                <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="09-9:2" aria-hidden="true"></span><button type="button" class="btn-secondary" data-close-modal data-open-modal="pmPwSendConfirmModal">임시 비밀번호 발송</button></span>
+                <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="09-9:1" aria-hidden="true"></span><button type="button" class="btn-secondary" data-close-modal data-open-modal="pmManagerFormModal">수정</button></span>
                 <button type="button" class="btn-row-del">삭제</button>
               </td></tr>
               <tr><td>2</td><td>추가 담당자</td><td class="text-left">박일용</td><td>부장</td><td>-</td><td>-</td><td>-</td><td class="text-left">견적 등 업무 관련 담당자</td><td>
@@ -347,13 +347,14 @@
             </tbody>
           </table>
         </div>
-        <div class="srm-detail-actions"><button type="button" class="btn-secondary" data-close-modal data-open-modal="pmSourcingAddModal">소싱 그룹 추가하기</button></div></section>
+        <div class="srm-detail-actions"><span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="09-10:1" aria-hidden="true"></span><button type="button" class="btn-secondary" data-close-modal data-open-modal="pmSourcingAddModal">소싱 그룹 추가하기</button></span></div></section>
       <div class="page-actions"><button type="button" class="btn-secondary " data-href="SRMPartnerManage.html">목록</button></div>
     </main>
   </div>
 
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
   <!-- 협력업체 상세정보 및 각종 처리 -->
 
@@ -374,7 +375,8 @@
 
 
   <script src="popups/popup-bundle.js"></script>
+  <script src="../../assets/scripts/message-catalog.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMPartnerManage/pmStatusManageModal.html", "popups/SRMPartnerManage/pmManagerFormModal.html", "popups/SRMPartnerManage/pmPwSendConfirmModal.html", "popups/SRMPartnerManage/pmSourcingAddModal.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMPartnerManageDetail/screenDescriptionGuide.html", "popups/SRMPartnerManage/pmStatusManageModal.html", "popups/SRMPartnerManage/pmManagerFormModal.html", "popups/SRMPartnerManage/pmPwSendConfirmModal.html", "popups/SRMPartnerManage/pmSourcingAddModal.html"]</script>
 </body>
 </html>

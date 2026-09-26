@@ -7,10 +7,10 @@ const check = (value, message) => { checks++; assert.ok(value, message); };
   const lists = {
     'SRMOrderContractRequest.html': 17, 'SRMOrderContractStatus.html': 17,
     'SRMOrderPlanIntake.html': 17, 'SRMOrderPlanRegister.html': 17,
-    'SRMSoleSourcePlan.html': 2, 'SRMSoleSourceStatus.html': 2,
-    'StepWorkflow.html': 15, 'SRMDetail.html': 15,
+    'SRMSoleSourcePlan.html': 2, 'SRMSoleSourceStatus.html': 8,
+    'StepWorkflow.html': 15, 'SRMDetail.html': 17,
     'SRMContractStatus.html': 17, 'SRMPartnerBidNotice.html': 15,
-    'SRMPartnerBidJoin.html': 15, 'SRMPartnerNegoRequest.html': 2,
+    'SRMPartnerBidJoin.html': 15, 'SRMPartnerNegoRequest.html': 5,
     'SRMPartnerContract.html': 17
   };
   for (const [name, count] of Object.entries(lists)) {
@@ -23,10 +23,16 @@ const check = (value, message) => { checks++; assert.ok(value, message); };
       const url = new URL(a.href);
       check(url.searchParams.get('record') === row.dataset.prototypeRecord, `${name}: link carries row record`);
     }
+    // 화면설계 목록 예시가 정의한 진행상태(th[data-status-values])는 목록에 모두 나와야 합니다.
+    for (const th of app.w.document.querySelectorAll('table[data-prototype-list] th[data-status-values]')) {
+      const index = [...th.parentElement.children].indexOf(th);
+      const shown = new Set(rows.map(row => row.cells[index].textContent.trim()));
+      for (const value of th.dataset.statusValues.split('|')) check(shown.has(value), `${name}: status ${value} listed`);
+    }
     const filter = app.q('[data-ui-scope="filter"]');
     const method = filter?.querySelector('[data-ui-field="method"]');
     const award = filter?.querySelector('[data-ui-field="award"]');
-    if (method && award && count !== 2) {
+    if (method && award && !/SoleSource|Nego/.test(name)) {
       method.value = 'designated'; method.dispatchEvent(new app.w.Event('change', { bubbles: true }));
       award.value = 'qualification'; award.dispatchEvent(new app.w.Event('change', { bubbles: true }));
       filter.dispatchEvent(new app.w.Event('submit', { bubbles: true, cancelable: true }));

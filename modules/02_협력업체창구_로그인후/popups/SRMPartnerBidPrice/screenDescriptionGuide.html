@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>화면설계 Description</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<!-- 자동 생성 파일: 직접 수정하지 말고 docs/DESCRIPTION_MAP.json 수정 후 python3 tools/build_description_guides.py 실행 -->
+<div class="modal-backdrop description-guide-backdrop" id="screenDescriptionGuide" role="dialog" aria-modal="false" aria-labelledby="screenDescriptionGuideTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg description-modal-dialog">
+      <div class="modal-header">
+        <h2 class="modal-title" id="screenDescriptionGuideTitle">화면설계 Description</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body description-modal-body">
+        <section class="description-source-section" aria-labelledby="descriptionSection1">
+          <h3 id="descriptionSection1">가격 투찰 &gt; (가격 투찰 전)</h3>
+          <p class="description-source-meta">화면설계 02 · 슬라이드 45</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="02-45:1">
+              <span class="description-mapping-number" aria-hidden="true">1</span>
+              <pre class="description-source-text">가격 투찰 기간이 별도로 있는 경우 (낙찰자 선정방법이 ‘제한적 최저가 입찰’, 2단계 경쟁입찰(규격/가격 분리)의 경우) 에는 
+본 화면에 접근할 수 없음
+
+가격 투찰 기간에만 접근 가능</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="02-45:2">
+              <span class="description-mapping-number" aria-hidden="true">2</span>
+              <pre class="description-source-text">협력업체가 적정선(합리적인 가격)에서 가격 투찰을 할 수 있도록, 제공하는 정보
+예정가/예비가 설정 상태에 따라 정보를 제공함
+- 최저가 : 예정가 제공
+- 제한적 최저가 : 복수예비 기초금액
+- 규격/가격 동시 : 예정가 제공
+- 규격/가격 분리 : 예정가 제공
+- 적격 : 복수예비 기초금액</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="02-45:3">
+              <span class="description-mapping-number" aria-hidden="true">3</span>
+              <pre class="description-source-text">예비가(낙찰하한가)가 설정된 경우에는 반드시 예비가 추첨을 진행함
+
+예비가는 낙찰자 선정방법이 ‘제한적 최저가 입찰’, ‘적격심사’에 적용되어 있음 
+
+‘예비가 추첨하기’ 팝업 호출</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="descriptionSection2">
+          <h3 id="descriptionSection2">예비가 추첨 처리 관련 팝업</h3>
+          <p class="description-source-meta">화면설계 02 · 슬라이드 46</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="02-46:1">
+              <span class="description-mapping-number" aria-hidden="true">4</span>
+              <pre class="description-source-text">예비가(낙찰하한가)가 설정된 경우에는 반드시 예비가 추첨을 진행함
+
+예비가는 낙찰자 선정방법이 ‘제한적 최저가 입찰’, ‘적격심사’에 적용되어 있음 
+
+‘예비가 추첨하기’ 팝업 호출</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="02-46:2">
+              <span class="description-mapping-number" aria-hidden="true">5</span>
+              <pre class="description-source-text">가격투찰이 완료되면 
+
+제출상태는 ‘가격 투찰 완료’로 변경
+
+만약 입찰서류와 가격투찰이 모두 완료된 경우에는 제출상태가 ‘입찰 참여 완료’로 변경
+
+고객 통보 : MSG-015</pre>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

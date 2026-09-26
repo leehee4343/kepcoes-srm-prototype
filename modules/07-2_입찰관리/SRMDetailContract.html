@@ -299,7 +299,7 @@
           </div>
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-200">진행상태</span>
-            <select class="filter-select w-200"><option>진행상태 선택</option></select>
+            <select class="filter-select w-200" aria-label="진행상태"><option>진행상태 선택</option><option>공고대기</option><option>공고게시중</option><option>입찰진행중</option><option>입찰마감</option><option>투찰진행중</option><option>투찰마감</option><option>심사완료</option><option>개찰완료</option><option>선정완료</option><option>수의시담(견적요청)</option><option>수의시담(견적제출 완료)</option><option>수의시담 완료</option><option>계약품의(전자결재 요청)</option><option>계약품의(전자결재 완료)</option><option>유찰</option><option>재입찰</option><option>공고취소</option></select>
           </div>
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-200">키워드 검색</span>
@@ -328,7 +328,7 @@
         <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="입찰공고 현황 목록" data-total-items="1523" data-total-pages="153">
           <table class="data-table data-grid-table" aria-label="입찰공고 현황 목록">
             <thead>
-              <tr><th class="w-90">공고 번호</th><th class="w-80">공고 구분</th><th class="w-100">진행상태</th><th class="minw-240">입찰 건명</th><th class="w-120">입찰 마감일시</th><th class="w-70">참여업체(수)</th><th class="w-60">구분</th><th class="w-110">계약방법</th><th class="minw-170">낙찰자 선정방법</th><th class="w-70">사업담당자</th><th class="w-70">계약담당자</th></tr>
+              <tr><th class="w-90">공고 번호</th><th class="w-80">공고 구분</th><th class="w-100" data-status-values="공고대기|공고게시중|입찰진행중|입찰마감|투찰진행중|투찰마감|심사완료|개찰완료|선정완료|수의시담(견적요청)|수의시담(견적제출 완료)|수의시담 완료|계약품의(전자결재 요청)|계약품의(전자결재 완료)|유찰|재입찰|공고취소">진행상태</th><th class="minw-240">입찰 건명</th><th class="w-120">입찰 마감일시</th><th class="w-70">참여업체(수)</th><th class="w-60">구분</th><th class="w-110">계약방법</th><th class="minw-170">낙찰자 선정방법</th><th class="w-70">사업담당자</th><th class="w-70">계약담당자</th></tr>
             </thead>
             <tbody>
               <tr><td><a href="#" data-open-modal="bidNoticeDocModal">BD2026-0023</a></td><td>본공고</td><td><span class="badge-tag">공고대기</span></td><td class="text-left"><a href="SRMDetailOrderPlan.html#bidDetailAnchor">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>2026.07.31 18:00</td><td>15</td><td>공사</td><td>경쟁입찰(일반)</td><td>최저가</td><td>홍길동</td><td>임꺽정</td></tr>
@@ -396,22 +396,22 @@
 
       <!-- 계약 요청(전자결재) -->
       <section class="app-card srm-detail-section">
-        <div class="srm-section-heading"><div><h2>계약 요청(전자결재)</h2></div></div>
+        <div class="srm-section-heading description-marker-container"><span class="description-target-marker marker-top-left" data-description-ref="07-2-78:1" aria-hidden="true"></span><div><h2>계약 요청(전자결재)</h2></div></div>
         <div class="srm-kv-grid">
           <div class="srm-kv-row"><dt>계약명</dt><dd>서초동 1601-9 오피스텔 신축공사 중 승강기설치공사</dd></div>
           <div class="srm-kv-row"><dt>계약방법</dt><dd data-ui-contract-summary="true">경쟁입찰(일반) &gt; 제한적 최저가 입찰</dd></div>
-          <div class="srm-kv-row"><dt>계약상대자</dt><dd>A 업체명 (거래처 코드 : 매핑 안됨) <button type="button" class="btn-secondary" data-close-modal data-open-modal="bidErpMapModal">ERP의 거래처 정보와 매핑</button></dd></div>
+          <div class="srm-kv-row description-marker-container"><span class="description-target-marker marker-top-left" data-description-ref="07-2-75:4" aria-hidden="true"></span><dt>계약상대자</dt><dd>A 업체명 (거래처 코드 : 매핑 안됨) <button type="button" class="btn-secondary" data-close-modal data-open-modal="bidErpMapModal">ERP의 거래처 정보와 매핑</button></dd></div>
           <div class="srm-kv-row"><dt>추정금액</dt><dd>94,490,000원 (구천사백사십구만원, VAT 포함)</dd></div>
-          <div class="srm-kv-row"><dt>계약금액</dt><dd>48,507,800원 (사천팔백오십만칠천팔백 원정, VAT 포함)</dd></div>
-          <div class="srm-kv-row"><dt>낙찰률</dt><dd>추정금액 대비 90.069%</dd></div>
+          <div class="srm-kv-row description-marker-container"><span class="description-target-marker marker-top-left" data-description-ref="07-2-75:1" aria-hidden="true"></span><dt>계약금액</dt><dd>48,507,800원 (사천팔백오십만칠천팔백 원정, VAT 포함)</dd></div>
+          <div class="srm-kv-row description-marker-container"><span class="description-target-marker marker-top-left" data-description-ref="07-2-75:2" aria-hidden="true"></span><dt>낙찰률</dt><dd>추정금액 대비 90.069%</dd></div>
           <div class="srm-kv-row"><dt>공급가액</dt><dd>금 사천사백구만팔천 원정</dd></div>
-          <div class="srm-kv-row"><dt>대금 지급조건 <span class="required" aria-hidden="true">*</span></dt><dd>
+          <div class="srm-kv-row description-marker-container"><span class="description-target-marker marker-top-left" data-description-ref="07-2-75:3" aria-hidden="true"></span><dt>대금 지급조건 <span class="required" aria-hidden="true">*</span></dt><dd>
             <div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="bidPayCond" checked value="split" data-ui-field="payment">분할</label><label class="form-choice"><input type="radio" name="bidPayCond" value="all" data-ui-field="payment">일괄</label><label class="form-choice"><input type="radio" name="bidPayCond" value="other" data-ui-field="payment">기타</label></div>
             <dl class="srm-kv-grid content-inner-gap-top" data-ui-show="payment=split"><div class="srm-kv-row"><dt>선금</dt><dd><span class="form-unit"><input type="text" class="form-control" placeholder="숫자로 입력"><span>%</span></span></dd></div><div class="srm-kv-row"><dt>기성</dt><dd><span class="form-unit"><input type="text" class="form-control" placeholder="숫자로 입력"><span>%</span></span></dd></div><div class="srm-kv-row"><dt>준공</dt><dd><span class="form-unit"><input type="text" class="form-control" placeholder="숫자로 입력"><span>%</span></span></dd></div></dl>
           <div class="ui-dependent-fields" data-ui-show="payment=all"><div class="form-choice-group" role="radiogroup" aria-label="일괄 지급시점"><label class="form-choice"><input type="radio" name="bidPayCondWhen" value="advance" checked>선금</label><label class="form-choice"><input type="radio" name="bidPayCondWhen" value="completion">준공</label></div></div><div class="ui-dependent-fields" data-ui-show="payment=other"><label>기타 <input type="text" class="form-control" aria-label="기타 대금 지급조건"></label></div></dd></div>
           <div class="srm-kv-row"><dt>용역기한 <span class="required" aria-hidden="true">*</span></dt><dd><input type="date" class="filter-date-input"> ~ <input type="date" class="filter-date-input"></dd></div>
           <div class="srm-kv-row"><dt>계약일 <span class="required" aria-hidden="true">*</span></dt><dd><input type="date" class="filter-date-input"> (계약상대자 날인 시 유효)</dd></div>
-          <div class="srm-kv-row"><dt>계약이행 보증보험 증권 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="bidBond1" checked value="yes" data-ui-field="bond1">발급 필요</label><label class="form-choice"><input type="radio" name="bidBond1" value="no" data-ui-field="bond1">발급 필요 없음</label></div><div class="ui-dependent-fields" data-ui-show="bond1=yes"> 계약이행 보증금률 : <span class="form-unit"><input type="text" class="form-control w-120" placeholder="숫자로 입력"><span>%</span></span></div></dd></div>
+          <div class="srm-kv-row description-marker-container"><span class="description-target-marker marker-top-left" data-description-ref="07-2-76:1" aria-hidden="true"></span><dt>계약이행 보증보험 증권 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="bidBond1" checked value="yes" data-ui-field="bond1">발급 필요</label><label class="form-choice"><input type="radio" name="bidBond1" value="no" data-ui-field="bond1">발급 필요 없음</label></div><div class="ui-dependent-fields" data-ui-show="bond1=yes"> 계약이행 보증금률 : <span class="form-unit"><input type="text" class="form-control w-120" placeholder="숫자로 입력"><span>%</span></span></div></dd></div>
           <div class="srm-kv-row"><dt>선금이행 보증보험 증권 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="bidBond2" checked value="yes" data-ui-field="bond2">발급 필요</label><label class="form-choice"><input type="radio" name="bidBond2" value="no" data-ui-field="bond2">발급 필요 없음</label></div><div class="ui-dependent-fields" data-ui-show="bond2=yes"> 선금이행 보증금률 : <span class="form-unit"><input type="text" class="form-control w-120" placeholder="숫자로 입력"><span>%</span></span></div></dd></div>
           <div class="srm-kv-row"><dt>하자이행 보증보험 증권 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="bidBond3" value="yes" data-ui-field="bond3">발급 필요</label><label class="form-choice"><input type="radio" name="bidBond3" checked value="no" data-ui-field="bond3">발급 필요 없음</label></div><div class="ui-dependent-fields" data-ui-show="bond3=yes">하자이행 보증금률 : <span class="form-unit"><input type="text" class="form-control w-120" aria-label="하자이행 보증금률" placeholder="숫자로 입력"><span>%</span></span></div></dd></div>
           <div class="srm-kv-row"><dt>계약서(비날인본) <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
@@ -423,7 +423,7 @@
           <div class="srm-kv-row"><dt>참조 문서</dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
         </div>
         <div class="srm-detail-actions">
-          <button type="button" class="btn-critical-primary" data-close-modal data-open-modal="bidContractEsignConfirmModal">계약요청(전자결재)</button>
+          <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-2-76:2" aria-hidden="true"></span><button type="button" class="btn-critical-primary" data-close-modal data-open-modal="bidContractEsignConfirmModal">계약요청(전자결재)</button></span>
         </div>
       </section>
 
@@ -437,8 +437,10 @@
 
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
+
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMDetail/modalReturnBidPlan.html", "popups/SRMDetail/bidNoticeDocModal.html", "popups/SRMDetail/bidErpMapModal.html", "popups/SRMDetail/bidContractEsignConfirmModal.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMDetailContract/screenDescriptionGuide.html", "popups/SRMDetail/modalReturnBidPlan.html", "popups/SRMDetail/bidNoticeDocModal.html", "popups/SRMDetail/bidErpMapModal.html", "popups/SRMDetail/bidContractEsignConfirmModal.html"]</script>
 </body>
 </html>

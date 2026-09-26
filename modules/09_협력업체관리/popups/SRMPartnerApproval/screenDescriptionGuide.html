@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>화면설계 Description</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<!-- 자동 생성 파일: 직접 수정하지 말고 docs/DESCRIPTION_MAP.json 수정 후 python3 tools/build_description_guides.py 실행 -->
+<div class="modal-backdrop description-guide-backdrop" id="screenDescriptionGuide" role="dialog" aria-modal="false" aria-labelledby="screenDescriptionGuideTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg description-modal-dialog">
+      <div class="modal-header">
+        <h2 class="modal-title" id="screenDescriptionGuideTitle">화면설계 Description</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body description-modal-body">
+        <section class="description-source-section" aria-labelledby="descriptionSection1">
+          <h3 id="descriptionSection1">신청/변경 요청 처리</h3>
+          <p class="description-source-meta">화면설계 09 · 슬라이드 4</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="09-4:1">
+              <span class="description-mapping-number" aria-hidden="true">1</span>
+              <pre class="description-source-text"> 관리자가 협력업체 정보의 승인/거절 관련 업무를 처리해야 하는 경우에만 해당 목록에 표시됨.
+
+해당 상황 : 신청완료, 정보수정 요청</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="09-4:2">
+              <span class="description-mapping-number" aria-hidden="true">2</span>
+              <pre class="description-source-text">사업자번호, 업체명, 대표자, 담당자, 핸드폰번호, 이메일</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="descriptionSection2">
+          <h3 id="descriptionSection2">신청/변경 요청 처리(신청내역 확인 및 처리)</h3>
+          <p class="description-source-meta">화면설계 09 · 슬라이드 6</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="09-6:1">
+              <span class="description-mapping-number" aria-hidden="true">3</span>
+              <pre class="description-source-text">승인 처리되면 본 메뉴의 목록에는 보이지 않고, 협력업체 관리로 승인 처리되어 넘어감
+
+Confirm Box
+“협력업체로 승인 처리하시겠습니까?”
+
+승인 시 고객 통보 : MSG-003</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="09-6:2">
+              <span class="description-mapping-number" aria-hidden="true">4</span>
+              <pre class="description-source-text">신규 신청과 협력업체 기본 정보 수정 요청 시의 거절 처리 방법이 다름.
+
+신규 신청: 거절 시 정보 삭제(재신청 가능)
+
+협력업체 기본 정보 수정 요청: 거절 시 수정되기 이전의 정보로 복원(재신청 가능)</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="09-6:3">
+              <span class="description-mapping-number" aria-hidden="true">5</span>
+              <pre class="description-source-text">협력업체 신청 건에 대한 거절 처리 시 고객 통보 : MSG-004</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="09-6:4">
+              <span class="description-mapping-number" aria-hidden="true">6</span>
+              <pre class="description-source-text">협력업체 기본 정보 수정 요청 건에 대한 거절 처리 시 고객 통보 : MSG-005</pre>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

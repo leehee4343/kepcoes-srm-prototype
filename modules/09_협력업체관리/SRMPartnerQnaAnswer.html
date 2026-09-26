@@ -277,12 +277,14 @@
           <div class="srm-kv-row"><dt>답변자</dt><dd>홍길동</dd></div>
           <div class="srm-kv-row"><dt>답변내용</dt><dd><textarea class="form-control" rows="6" placeholder="Editor"></textarea></dd></div>
           <div class="srm-kv-row"><dt>등록된 첨부파일</dt><dd>
-            첫 번째로 첨부된 파일명.PDF <button type="button" class="btn-file-preview">바로보기</button><button type="button" class="btn-file-download">다운로드</button><button type="button" class="btn-row-del">삭제</button><br>
-            두 번째로 첨부된 파일명.HWP <button type="button" class="btn-file-preview">바로보기</button><button type="button" class="btn-file-download">다운로드</button><button type="button" class="btn-row-del">삭제</button>
+            <div class="srm-file-list">
+              <div class="srm-file-item"><span>첫 번째로 첨부된 파일명.PDF</span><button type="button" class="btn-file-preview">바로보기</button><button type="button" class="btn-file-download">다운로드</button><button type="button" class="btn-row-del">삭제</button></div>
+              <div class="srm-file-item"><span>두 번째로 첨부된 파일명.HWP</span><button type="button" class="btn-file-preview">바로보기</button><button type="button" class="btn-file-download">다운로드</button><button type="button" class="btn-row-del">삭제</button></div>
+            </div>
           </dd></div>
           <div class="srm-kv-row"><dt>첨부파일</dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
         </div></section>
-      <div class="page-actions"><button type="button" class="btn-primary" data-href="SRMPartnerQnaDetail.html">등록</button>
+      <div class="page-actions"><span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="09-15:1" aria-hidden="true"></span><button type="button" class="btn-primary" data-href="SRMPartnerQnaDetail.html">등록</button></span>
         <button type="button" class="btn-primary" data-href="SRMPartnerQnaDetail.html">수정</button>
         <button type="button" class="btn-secondary" data-href="SRMPartnerQnaDetail.html">취소</button></div>
     </main>
@@ -290,6 +292,7 @@
 
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
   <!-- 질문/답변 상세 -->
 
@@ -298,7 +301,8 @@
 
 
   <script src="popups/popup-bundle.js"></script>
+  <script src="../../assets/scripts/message-catalog.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">[]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMPartnerQnaAnswer/screenDescriptionGuide.html"]</script>
 </body>
 </html>

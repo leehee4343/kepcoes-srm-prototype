@@ -18,15 +18,18 @@
           <form data-ui-scope="filter">
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-100">키워드 검색</span>
-            <select class="filter-select w-130">
-              <option value="all" selected>전체</option>
-              <option value="empno">사원번호</option>
-              <option value="id">아이디</option>
-              <option value="name">사원명</option>
-              <option value="dept">부서</option>
-              <option value="rank">직급</option>
-              <option value="email">이메일</option>
-            </select>
+            <span class="description-marker-anchor">
+              <span class="description-target-marker" data-description-ref="00-8:1" aria-hidden="true"></span>
+              <select class="filter-select w-130">
+                <option value="all" selected>전체</option>
+                <option value="empno">사원번호</option>
+                <option value="id">아이디</option>
+                <option value="name">사원명</option>
+                <option value="dept">부서</option>
+                <option value="rank">직급</option>
+                <option value="email">이메일</option>
+              </select>
+            </span>
             <input type="text" class="filter-text-input w-380" placeholder="검색어를 입력하세요." aria-label="검색어">
           </div>
             <div class="filter-action-row">

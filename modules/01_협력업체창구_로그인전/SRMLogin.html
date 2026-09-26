@@ -17,7 +17,7 @@
            좌측 컬럼: 브랜드 소개 및 진행 중인 입찰공고 슬라이더
            ================================================================ -->
       <div class="login-left-col description-marker-container">
-        <span class="description-target-marker marker-top-left" aria-hidden="true">1</span>
+        <span class="description-target-marker marker-top-left" data-description-ref="01-4:1" aria-hidden="true"></span>
         <!-- 브랜드 로고 및 플랫폼 뱃지 -->
         <div class="login-brand-header">
           <div class="login-logo-pill" title="켑코이에스(주)">
@@ -43,8 +43,7 @@
             진행 중인 입찰공고
           </h2>
 
-          <div class="bidding-notice-card description-marker-container">
-          <span class="description-target-marker marker-top-left" aria-hidden="true">4</span>
+          <div class="bidding-notice-card">
           <div class="bidding-card-header">
             <!-- 입찰 구분 탭 -->
             <div class="bidding-tabs">
@@ -69,7 +68,8 @@
             </button>
 
             <!-- 공고 1: 청주 오송 공장 (참고 이미지) -->
-            <div class="bidding-slide" data-category="공사">
+            <div class="bidding-slide description-marker-container" data-category="공사">
+              <span class="description-target-marker marker-top-left" data-description-ref="01-4:4" aria-hidden="true"></span>
               <button type="button" class="bidding-project-name" title="입찰공고 내역서 열기">청주 오송 공장 수변전설비 증설공사</button>
               <ul class="bidding-info-list">
                 <li class="content-bullet-item">입찰 마감일시 : <span class="val">2026.09.26 18:00</span></li>
@@ -79,7 +79,8 @@
             </div>
 
             <!-- 공고 2: 서초동 오피스텔 (설계서 pdf 명세) -->
-            <div class="bidding-slide" data-category="공사">
+            <div class="bidding-slide description-marker-container" data-category="공사">
+              <span class="description-target-marker marker-top-left" data-description-ref="01-4:4" aria-hidden="true"></span>
               <button type="button" class="bidding-project-name" title="입찰공고 내역서 열기">서초동 1601-9 오피스텔 신축공사 중 기계식주차설비공사</button>
               <ul class="bidding-info-list">
                 <li class="content-bullet-item">입찰 마감일시 : <span class="val">2026.08.18 16:00</span></li>
@@ -89,7 +90,8 @@
             </div>
 
             <!-- 공고 3: 용역 공고 -->
-            <div class="bidding-slide active" data-category="용역">
+            <div class="bidding-slide active description-marker-container" data-category="용역">
+              <span class="description-target-marker marker-top-left" data-description-ref="01-4:4" aria-hidden="true"></span>
               <button type="button" class="bidding-project-name" title="입찰공고 내역서 열기">2026년도 에너지 절감 효과 모니터링 시스템 기술지원 용역</button>
               <ul class="bidding-info-list">
                 <li class="content-bullet-item">입찰 마감일시 : <span class="val">2026.10.15 17:00</span></li>
@@ -99,7 +101,8 @@
             </div>
 
             <!-- 공고 4: 물품 구매 공고 -->
-            <div class="bidding-slide" data-category="물품">
+            <div class="bidding-slide description-marker-container" data-category="물품">
+              <span class="description-target-marker marker-top-left" data-description-ref="01-4:4" aria-hidden="true"></span>
               <button type="button" class="bidding-project-name" title="입찰공고 내역서 열기">구미 사업장 고효율 인버터 및 고효율 터빈 물품 구매 입찰</button>
               <ul class="bidding-info-list">
                 <li class="content-bullet-item">입찰 마감일시 : <span class="val">2026.10.30 15:00</span></li>
@@ -153,15 +156,14 @@
               </div>
             </div>
 
-            <button type="submit" class="btn-submit-login description-marker-container">
-              <span class="description-target-marker marker-top-left" aria-hidden="true">3</span>
+            <button type="submit" class="btn-submit-login">
               로그인
             </button>
           </form>
 
           <!-- 로그인 문의 (운영담당 - 설계서 및 이미지 반영) -->
           <div class="login-support-box description-marker-container">
-            <span class="description-target-marker marker-top-left" aria-hidden="true">2</span>
+            <span class="description-target-marker marker-top-left" data-description-ref="01-4:2" aria-hidden="true"></span>
             <svg aria-hidden="true" width="15" height="15" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10"></circle>
               <line x1="12" y1="16" x2="12" y2="12"></line>
@@ -174,7 +176,8 @@
 
           <!-- 하단 협력업체 버튼군 -->
           <div class="login-bottom-actions">
-            <a href="PartnerRegister.html" class="btn-partner-register" id="btnPartnerRegister">
+            <a href="PartnerRegister.html" class="btn-partner-register description-marker-container" id="btnPartnerRegister">
+              <span class="description-target-marker marker-top-left" data-description-ref="01-4:3" aria-hidden="true"></span>
               협력업체 신청 →
             </a>
             <button type="button" class="btn-partner-manual" id="btnpartnermanual">
@@ -194,11 +197,11 @@
     <div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div>
   </footer>
 
-  <!-- 화면설계 Description 개발자 가이드 (DESIGN_GUIDE 5.15) -->
   <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
   <script src="popups/popup-bundle.js"></script>
+  <script src="../../assets/scripts/message-catalog.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMLogin/modalBiddingDetail.html", "popups/SRMLogin/modalIdFind.html", "popups/SRMLogin/modalPwFind.html", "popups/SRMLogin/modalPwFindMismatch.html", "popups/SRMLogin/modalPwFindSent.html", "popups/SRMLogin/screenDescriptionGuide.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMLogin/screenDescriptionGuide.html", "popups/SRMLogin/modalBiddingDetail.html", "popups/SRMLogin/modalIdFind.html", "popups/SRMLogin/modalPwFind.html", "popups/SRMLogin/modalPwFindMismatch.html", "popups/SRMLogin/modalPwFindSent.html"]</script>
 </body>
 </html>

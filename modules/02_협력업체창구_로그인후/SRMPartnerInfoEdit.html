@@ -120,21 +120,18 @@
         </div>
         <div class="srm-section-heading content-object-gap-top"><div><h2>관련 증빙서류 제출</h2></div></div>
         <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>사업자등록증 <span class="required" aria-hidden="true">*</span></dt><dd class="content-bullet-item">이미 등록된 파일명.PDF <button type="button" class="btn-row-del">삭제</button><div class="form-lookup content-inner-gap-top"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div><span class="text-muted">※첨부파일은 되도록 PDF로 업로드해주세요.</span></dd></div>
-          <div class="srm-kv-row"><dt>법인인감증명서 <span class="required" aria-hidden="true">*</span></dt><dd class="content-bullet-item">이미 등록된 파일명.PDF <button type="button" class="btn-row-del">삭제</button><div class="form-lookup content-inner-gap-top"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
-          <div class="srm-kv-row"><dt>면허 등 <span class="required" aria-hidden="true">*</span></dt><dd class="content-bullet-item">이미 등록된 파일명.PDF <button type="button" class="btn-row-del">삭제</button><div class="form-lookup content-inner-gap-top"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
+          <div class="srm-kv-row"><dt>사업자등록증 <span class="required" aria-hidden="true">*</span></dt><dd><div class="srm-file-list"><div class="srm-file-item"><span>이미 등록된 파일명.PDF</span><button type="button" class="btn-row-del">삭제</button></div></div><div class="form-lookup content-inner-gap-top"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div><span class="text-muted">※첨부파일은 되도록 PDF로 업로드해주세요.</span></dd></div>
+          <div class="srm-kv-row"><dt>법인인감증명서 <span class="required" aria-hidden="true">*</span></dt><dd><div class="srm-file-list"><div class="srm-file-item"><span>이미 등록된 파일명.PDF</span><button type="button" class="btn-row-del">삭제</button></div></div><div class="form-lookup content-inner-gap-top"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
+          <div class="srm-kv-row"><dt>면허 등 <span class="required" aria-hidden="true">*</span></dt><dd><div class="srm-file-list"><div class="srm-file-item"><span>이미 등록된 파일명.PDF</span><button type="button" class="btn-row-del">삭제</button></div></div><div class="form-lookup content-inner-gap-top"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
         </div>
         <div class="srm-section-heading content-object-gap-top"><div><h2>신용평가등급 관련 정보</h2></div></div>
         <div class="srm-kv-grid">
           <div class="srm-kv-row"><dt>신용평가등급</dt><dd><select class="filter-select w-200"><option>신용평가 등급을 선택해주세요.</option><option>AAA</option><option>AA+</option><option>BB0</option></select></dd></div>
-          <div class="srm-kv-row"><dt>신용평가등급 확인서</dt><dd class="content-bullet-item">이미 등록된 파일명.PDF <button type="button" class="btn-row-del">삭제</button><div class="form-lookup content-inner-gap-top"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
+          <div class="srm-kv-row"><dt>신용평가등급 확인서</dt><dd><div class="srm-file-list"><div class="srm-file-item"><span>이미 등록된 파일명.PDF</span><button type="button" class="btn-row-del">삭제</button></div></div><div class="form-lookup content-inner-gap-top"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
         </div>
         <div class="srm-detail-actions">
           <a href="#" class="btn-secondary srm-list-button">취소</a>
-          <span class="description-marker-anchor">
-            <span class="description-target-marker" aria-hidden="true">2</span>
-            <button type="button" class="btn-critical-primary" data-open-modal="infoUpdateConfirmModal">기본정보 수정 요청</button>
-          </span>
+          <button type="button" class="btn-critical-primary" data-open-modal="infoUpdateConfirmModal">기본정보 수정 요청</button>
         </div>
       </section>
 
@@ -145,11 +142,11 @@
     <div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div>
   </footer>
 
-  <!-- 화면설계 Description 개발자 가이드 (DESIGN_GUIDE 5.15) -->
   <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
   <script src="popups/popup-bundle.js"></script>
+  <script src="../../assets/scripts/message-catalog.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMPartnerInfo/infoUpdateConfirmModal.html", "popups/SRMPartnerInfo/screenDescriptionGuide.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMPartnerInfoEdit/screenDescriptionGuide.html", "popups/SRMPartnerInfo/infoUpdateConfirmModal.html"]</script>
 </body>
 </html>

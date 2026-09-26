@@ -289,8 +289,8 @@
         </table>
       </section>
       <section class="page-detail-body" aria-label="수의계약 참여 서류">
-        <div class="inline-action-bar"><label class="form-choice"><input type="checkbox" data-ui-field="documents">본 수의계약은 수의계약 시 제출해야 할 참여 서류가 있습니다.</label><button type="button" class="btn-primary" data-ui-set="documents=true">수의계약 참여 서류 등록</button></div>
-        <div class="srm-section-heading content-object-gap-top" data-ui-show="documents=true"><div><h2>수의계약 참여 서류</h2><p class="form-hint text-primary">※ 수의계약 참여 시 협력업체가 첨부해야 하는 서류 목록 관리</p></div></div>
+        <div class="inline-action-bar"><label class="form-choice"><input type="checkbox" data-ui-field="documents">본 수의계약은 수의계약 시 제출해야 할 참여 서류가 있습니다.</label><span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-1-15:1" aria-hidden="true"></span><button type="button" class="btn-primary" data-ui-set="documents=true">수의계약 참여 서류 등록</button></span></div>
+        <div class="srm-section-heading content-object-gap-top description-marker-container" data-ui-show="documents=true"><span class="description-target-marker marker-top-left" data-description-ref="07-1-15:2" aria-hidden="true"></span><div><h2>수의계약 참여 서류</h2><p class="form-hint text-primary">※ 수의계약 참여 시 협력업체가 첨부해야 하는 서류 목록 관리</p></div></div>
         <p class="modal-field-label" data-ui-show="documents=true">등록된 수의계약 참여 서류 : 총 5건</p>
         <div class="srm-table-wrap" data-ui-show="documents=true">
           <table class="data-table" aria-label="수의계약 참여 서류">
@@ -304,17 +304,19 @@
         </div>
       </section>
       <div class="page-actions"><button type="button" class="btn-secondary" data-href="SRMSoleSourcePlan.html">목록</button>
-        <button type="button" class="btn-secondary" data-open-modal="ssCommonDocModal">공통 수의계약 참여 서류 불러오기</button>
+        <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-1-15:3" aria-hidden="true"></span><button type="button" class="btn-secondary" data-open-modal="ssCommonDocModal">공통 수의계약 참여 서류 불러오기</button></span>
         <button type="button" class="btn-secondary">순서 적용</button>
-        <button type="button" class="btn-secondary" data-open-modal="ssDocAddModal">수의계약 참여 서류 추가</button>
+        <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-1-15:4" aria-hidden="true"></span><button type="button" class="btn-secondary" data-open-modal="ssDocAddModal">수의계약 참여 서류 추가</button></span>
         <button type="button" class="btn-critical-primary">저장</button></div>
     </main>
   </div>
 
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
+
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMSoleSourcePlan/ssCommonDocModal.html","popups/SRMSoleSourcePlan/ssDocAddModal.html","popups/SRMSoleSourcePlan/ssCommonDocPreview.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMSoleSourcePlanManageDocuments/screenDescriptionGuide.html", "popups/SRMSoleSourcePlan/ssCommonDocModal.html", "popups/SRMSoleSourcePlan/ssDocAddModal.html", "popups/SRMSoleSourcePlan/ssCommonDocPreview.html"]</script>
 </body>
 </html>

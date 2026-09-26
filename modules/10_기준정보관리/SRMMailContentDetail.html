@@ -276,14 +276,14 @@
           <div class="srm-kv-row"><dt>발송 상황</dt><dd>입찰 참여 신청 완료</dd></div>
           <div class="srm-kv-row"><dt>발송 방법 <span class="required" aria-hidden="true">*</span></dt><dd><div class="form-choice-group" role="radiogroup"><label class="form-choice"><input type="radio" name="mcMethod2" checked value="both" data-ui-field="channel">이메일 + 메시지</label><label class="form-choice"><input type="radio" name="mcMethod2" value="email" data-ui-field="channel">이메일</label><label class="form-choice"><input type="radio" name="mcMethod2" value="sms" data-ui-field="channel">메시지</label></div></dd></div>
           <div class="srm-kv-row" data-ui-show="channel=both|email"><dt>이메일 제목 <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control fit-360" value="안녕하세요. 켑코이에스입니다. (입찰 참여 신청이 완료되었습니다.)"></dd></div>
-          <div class="srm-kv-row" data-ui-show="channel=both|email"><dt>이메일 내용 <span class="required" aria-hidden="true">*</span></dt><dd><textarea class="form-control" rows="7">안녕하세요. 켑코이에스입니다.
+          <div class="srm-kv-row description-marker-container" data-ui-show="channel=both|email"><span class="description-target-marker marker-top-left" data-description-ref="10-13:1" aria-hidden="true"></span><dt>이메일 내용 <span class="required" aria-hidden="true">*</span></dt><dd><textarea class="form-control" rows="7">안녕하세요. 켑코이에스입니다.
 
 입찰 참여 신청이 완료되었습니다.
 입찰 참여 이후에는 입찰 관련 정보를 수정하실 수 없습니다.
 문의 사항은 02-6959-4561로 연락 부탁드립니다.
 
 켑코이에스의 발주 사업에 관심을 가져 주셔서 감사드립니다.</textarea></dd></div>
-          <div class="srm-kv-row" data-ui-show="channel=both|sms"><dt>메시지(SMS) <span class="required" aria-hidden="true">*</span></dt><dd><textarea class="form-control" rows="7">안녕하세요. 켑코이에스입니다.
+          <div class="srm-kv-row description-marker-container" data-ui-show="channel=both|sms"><span class="description-target-marker marker-top-left" data-description-ref="10-13:2" aria-hidden="true"></span><dt>메시지(SMS) <span class="required" aria-hidden="true">*</span></dt><dd><textarea class="form-control" rows="7">안녕하세요. 켑코이에스입니다.
 
 입찰 참여 신청이 완료되었습니다.
 입찰 참여 이후에는 입찰 관련 정보를 수정하실 수 없습니다.
@@ -298,6 +298,7 @@
 
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
   <!-- 발송 내용 수정 (일반) -->
 
@@ -307,6 +308,6 @@
 
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">[]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMMailContentDetail/screenDescriptionGuide.html"]</script>
 </body>
 </html>

@@ -4,6 +4,13 @@
 > 기준 규격: `DESIGN_GUIDE.md` v2.33, 5.15  
 > 기준 구현: `modules/00_공통관리/SRMAdminManage.html`
 
+> **완료 (2026-09-26, DESIGN_GUIDE v2.67)**: 화면설계 00~10 전 모듈 적용을 마쳤습니다. 이 문서는 최초 계획 기록으로 남기며, 현재 방식은 다음과 같습니다.
+> - 규격: `DESIGN_GUIDE.md` 5.15 (화면별 드로어, 연결 팝업 슬라이드 번호 이어 발번, `data-description-ref` 목적지, Description 없는 화면은 `D` 없음)
+> - 화면-슬라이드 대응·목적지 없음 사유·판단 기록: `docs/DESCRIPTION_MAP.json`
+> - 생성: `python3 tools/build_description_guides.py` / 검증: `python3 tools/check_description_guides.py`, `node tools/test_description_guides.cjs`
+> - 화면별 현황: `docs/DESCRIPTION_OVERLAY_STATUS.md` (자동 생성)
+> - 아래 본문의 "섹션마다 1부터 다시 시작", 숫자를 직접 적은 목적지 표식, 화면에 직접 작성한 드로어 방식은 더 이상 쓰지 않습니다.
+
 ## 1. 목표
 
 본 프로젝트의 모든 실행 화면에서 원본 화면설계 PPTX의 Description과 붉은 번호 목적지를 구현 화면 위에서 직접 대조할 수 있도록 개발자 전용 가이드를 제공합니다.

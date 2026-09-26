@@ -93,7 +93,7 @@
 
       <section class="filter-card">
         <form id="contractSearchForm" class="description-marker-container" data-ui-scope="filter">
-          <span class="description-target-marker marker-top-left" aria-hidden="true">1</span>
+          <span class="description-target-marker marker-top-left" data-description-ref="02-55:1" aria-hidden="true"></span>
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-200">조회기간(계약 체결일)</span>
             <div class="date-range-wrap hstack gap-6"><input type="date" class="filter-date-input"><span>~</span><input type="date" class="filter-date-input"></div>
@@ -116,7 +116,7 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12 description-marker-container">
-            <span class="description-target-marker marker-top-left" aria-hidden="true">2</span>
+            <span class="description-target-marker marker-top-left" data-description-ref="02-55:2" aria-hidden="true"></span>
             <span class="filter-label w-200">계약방법/낙찰자 선정방법</span>
             <select class="filter-select w-180" data-ui-field="method"><option value="">전체</option><option value="sole">수의계약</option><option value="general">경쟁입찰(일반)</option><option value="limited">경쟁입찰(제한)</option><option value="designated">경쟁입찰(지명)</option></select>
             <select class="filter-select w-180" data-ui-field="award"><option value="">전체</option><option value="lowest">최저가</option><option value="restricted">제한적 최저가 입찰</option><option value="simultaneous">2단계 경쟁입찰(규격/가격 동시)</option><option value="separate">2단계 경쟁입찰(규격/가격 분리)</option><option value="qualification">적격심사</option></select>
@@ -130,7 +130,7 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12 description-marker-container">
-            <span class="description-target-marker marker-top-left" aria-hidden="true">3</span>
+            <span class="description-target-marker marker-top-left" data-description-ref="02-55:3" aria-hidden="true"></span>
             <span class="filter-label w-200">진행상태</span>
             <div class="form-choice-group" role="radiogroup">
               <label class="form-choice"><input type="radio" name="contractStatus" checked>전체</label>
@@ -139,7 +139,7 @@
             </div>
           </div>
           <div class="filter-row hstack gap-12 description-marker-container">
-            <span class="description-target-marker marker-top-left" aria-hidden="true">4</span>
+            <span class="description-target-marker marker-top-left" data-description-ref="02-55:4" aria-hidden="true"></span>
             <span class="filter-label w-200">키워드 검색</span>
             <select class="filter-select w-150"><option>계약번호</option><option>계약명</option></select>
             <input type="text" class="filter-text-input w-380" placeholder="검색어를 입력하세요.">
@@ -184,6 +184,7 @@
     <div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div>
   </footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
   <!-- 계약 정보 상세 (계약완료 건) -->
 
@@ -196,13 +197,11 @@
 
 
 
-  <!-- 화면설계 Description 개발자 가이드 (DESIGN_GUIDE 5.15) -->
-  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
 
 
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMPartnerContract/contractChangeDetailModal.html", "popups/SRMPartnerContract/contractDocSubmitConfirmModal.html", "popups/SRMPartnerContract/screenDescriptionGuide.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMPartnerContract/screenDescriptionGuide.html", "popups/SRMPartnerContract/contractChangeDetailModal.html", "popups/SRMPartnerContract/contractDocSubmitConfirmModal.html"]</script>
 </body>
 </html>

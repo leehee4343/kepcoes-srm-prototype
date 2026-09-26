@@ -307,7 +307,7 @@
           </div>
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-130">키워드 검색</span>
-            <select class="filter-select w-160"><option>발주계약 요청번호</option><option>건명</option></select>
+            <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="06-6:3" aria-hidden="true"></span><select class="filter-select w-160"><option>발주계약 요청번호</option><option>건명</option></select></span>
             <input type="text" class="filter-text-input w-380" placeholder="검색어를 입력하세요.">
           </div>
           <div class="filter-action-row">
@@ -333,17 +333,17 @@
         <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="발주계약 요청접수 목록" data-total-items="1523" data-total-pages="153">
           <table class="data-table data-grid-table" aria-label="발주계약 요청접수 목록">
             <thead>
-              <tr><th class="w-40"><input type="checkbox" aria-label="전체선택"></th><th class="w-90">발주계약 요청번호</th><th class="w-70">진행상태</th><th class="minw-240">건명</th><th class="w-90">요청일</th><th class="w-90">계약예정일</th><th class="w-60">구분</th><th class="w-90">등록일</th><th class="w-70">사업담당자</th><th class="w-70">계약담당자</th></tr>
+              <tr><th class="w-40"><input type="checkbox" aria-label="전체선택"></th><th class="w-90"><span class="description-marker-anchor">발주계약 요청번호<span class="description-target-marker" data-description-ref="06-6:1" aria-hidden="true"></span></span></th><th class="w-70">진행상태</th><th class="minw-240">건명</th><th class="w-90">요청일</th><th class="w-90">계약예정일</th><th class="w-60">구분</th><th class="w-90">등록일</th><th class="w-70">사업담당자</th><th class="w-70">계약담당자</th></tr>
             </thead>
             <tbody>
-              <tr><td><input type="checkbox"></td><td><a href="#" data-open-modal="opReqDocModal">PR2026-0003</a></td><td><span class="badge-info">요청</span></td><td class="text-left"><a href="SRMOrderPlanIntakeDetail.html">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>2026.07.22</td><td>2026.07.31</td><td>공사</td><td>2026.06.10</td><td>홍길동</td><td>-</td></tr>
+              <tr><td><input type="checkbox"></td><td><span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="06-6:2" aria-hidden="true"></span><a href="#" data-open-modal="opReqDocModal">PR2026-0003</a></span></td><td><span class="badge-info">요청</span></td><td class="text-left"><a href="SRMOrderPlanIntakeDetail.html">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>2026.07.22</td><td>2026.07.31</td><td>공사</td><td>2026.06.10</td><td>홍길동</td><td>-</td></tr>
               <tr><td><input type="checkbox"></td><td><a href="#" data-open-modal="opReqDocModal">PR2026-0004</a></td><td><span class="badge-success">접수</span></td><td class="text-left"><a href="SRMOrderPlanIntakeDetail.html">금호동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>-</td><td>-</td><td>용역</td><td>-</td><td>-</td><td>-</td></tr>
               <tr><td><input type="checkbox"></td><td><a href="#" data-open-modal="opReqDocModal">PR2026-0005</a></td><td><span class="badge-success">접수</span></td><td class="text-left"><a href="SRMOrderPlanIntakeDetail.html">금호동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>-</td><td>-</td><td>물품</td><td>-</td><td>-</td><td>임꺽정</td></tr>
             </tbody>
           </table>
         </div>
         <div class="srm-detail-actions">
-          <button type="button" class="btn-secondary" data-open-modal="opContractMapModal">계약담당자 매핑</button>
+          <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="06-9:1" aria-hidden="true"></span><button type="button" class="btn-secondary" data-open-modal="opContractMapModal">계약담당자 매핑</button></span>
         </div>
         <div class="table-pagination-row"><nav class="pagination-controls" aria-label="표 페이지 이동"></nav></div>
       </div>
@@ -353,6 +353,7 @@
 
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
   <!-- 발주계약 요청서 -->
 
@@ -371,6 +372,6 @@
 
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMOrderPlanIntake/opReqDocModal.html", "popups/SRMOrderPlanIntake/opContractMapModal.html", "popups/SRMOrderPlanIntake/opContractMapModal2.html", "popups/SRMOrderPlanIntake/opIntakeConfirmModal.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMOrderPlanIntake/screenDescriptionGuide.html", "popups/SRMOrderPlanIntake/opReqDocModal.html", "popups/SRMOrderPlanIntake/opContractMapModal.html", "popups/SRMOrderPlanIntake/opContractMapModal2.html", "popups/SRMOrderPlanIntake/opIntakeConfirmModal.html"]</script>
 </body>
 </html>

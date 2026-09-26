@@ -307,7 +307,7 @@
           </div>
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-130">키워드 검색</span>
-            <select class="filter-select w-160"><option>발주계약 요청번호</option><option>건명</option></select>
+            <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="05-20:1" aria-hidden="true"></span><select class="filter-select w-160"><option>발주계약 요청번호</option><option>건명</option></select></span>
             <input type="text" class="filter-text-input w-380" placeholder="검색어를 입력하세요.">
           </div>
           <div class="filter-action-row">
@@ -333,7 +333,7 @@
         <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="발주계약 요청현황" data-total-items="1523" data-total-pages="153">
           <table class="data-table data-grid-table" aria-label="발주계약 요청현황">
             <thead>
-              <tr><th class="w-55">No</th><th class="w-90">발주계약 요청번호</th><th class="w-70">진행상태</th><th class="minw-240">건명</th><th class="w-90">요청일</th><th class="w-90">계약예정일</th><th class="w-60">구분</th><th class="w-100">진행상황 확인</th><th class="w-90">등록일</th><th class="w-70">사업담당자</th></tr>
+              <tr><th class="w-55">No</th><th class="w-90"><span class="description-marker-anchor">발주계약 요청번호<span class="description-target-marker" data-description-ref="05-20:3" aria-hidden="true"></span></span></th><th class="w-70"><span class="description-marker-anchor">진행상태<span class="description-target-marker" data-description-ref="05-20:2" aria-hidden="true"></span></span></th><th class="minw-240">건명</th><th class="w-90">요청일</th><th class="w-90">계약예정일</th><th class="w-60">구분</th><th class="w-100"><span class="description-marker-anchor">진행상황 확인<span class="description-target-marker" data-description-ref="05-20:4" aria-hidden="true"></span></span></th><th class="w-90">등록일</th><th class="w-70">사업담당자</th></tr>
             </thead>
             <tbody>
               <tr><td>1,542</td><td><a href="#" data-open-modal="ocReqDocModal">PR2026-0003</a></td><td><span class="badge-info">결재요청</span></td><td class="text-left"><a href="SRMOrderContractStatusDetail.html">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>2026.07.22</td><td>2026.07.31</td><td>공사</td><td><button type="button" class="btn-secondary" data-open-modal="ocProgressModal">진행상황 확인</button></td><td>2026.06.10</td><td>홍길동</td></tr>
@@ -350,6 +350,7 @@
 
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
   <!-- 발주계약 요청현황 상세 -->
 
@@ -362,6 +363,6 @@
 
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMOrderContractStatus/ocReqDocModal.html", "popups/SRMOrderContractStatus/ocProgressModal.html", "popups/SRMOrderContractStatus/ocProgressSoleModal.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMOrderContractStatus/screenDescriptionGuide.html", "popups/SRMOrderContractStatus/ocReqDocModal.html", "popups/SRMOrderContractStatus/ocProgressModal.html", "popups/SRMOrderContractStatus/ocProgressSoleModal.html"]</script>
 </body>
 </html>

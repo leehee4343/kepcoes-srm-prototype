@@ -27,9 +27,9 @@
         <!-- 항목 테이블 툴바 -->
         <div class="calc-toolbar">
           <h3 class="modal-section-title">산출기초조서 내역서</h3>
-          <button type="button" class="btn-add-calc-row" id="btnAddCalcRow">
+          <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-2-18:1" aria-hidden="true"></span><button type="button" class="btn-add-calc-row" id="btnAddCalcRow">
             <span>행 추가 +</span>
-          </button>
+          </button></span>
         </div>
 
         <table class="data-table" aria-label="예정가격 산출기초조서">
@@ -71,7 +71,7 @@
         </tbody>
         <tfoot>
           <tr class="calc-summary-row">
-            <td>합계(공급가액) *</td>
+            <td class="description-marker-container"><span class="description-target-marker marker-top-left" data-description-ref="07-2-18:2" aria-hidden="true"></span>합계(공급가액) *</td>
             <td id="calcSupplyEstimated" class="calc-num">86,100,000 원</td>
             <td id="calcSupplyAssessed" class="calc-num">86,100,000 원</td>
             <td>0원</td>
@@ -109,8 +109,8 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn-action-primary">저장</button>
-        <button type="button" class="btn-critical-primary" id="btnRequestApproval">전자결재 요청 →</button>
+        <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-2-18:3" aria-hidden="true"></span><button type="button" class="btn-action-primary">저장</button></span>
+        <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-2-18:4" aria-hidden="true"></span><button type="button" class="btn-critical-primary" id="btnRequestApproval">전자결재 요청 →</button></span>
         <button type="button" class="btn-filter-reset" id="btnCancelCalc">취소</button>
       </div>
     </div>

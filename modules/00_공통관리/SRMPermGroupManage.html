@@ -295,7 +295,7 @@
 
           <div class="filter-row hstack gap-12">
             <span class="filter-label w-130">키워드 검색</span>
-            <span class="description-marker-anchor"><span class="description-target-marker" aria-hidden="true">1</span><select class="filter-select w-130" id="selPermKeywordTarget">
+            <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="00-6:1" aria-hidden="true"></span><select class="filter-select w-130" id="selPermKeywordTarget">
               <option value="all" selected>전체</option>
               <option value="name">권한그룹명</option>
               <option value="desc">권한그룹 설명</option>
@@ -342,7 +342,7 @@
                 <th class="w-100">등록일</th>
                 <th class="w-80">등록자</th>
                 <th class="w-140">최종수정</th>
-                <th class="w-90"><span class="description-marker-anchor">매핑(수)<span class="description-target-marker" aria-hidden="true">2</span></span></th>
+                <th class="w-90"><span class="description-marker-anchor">매핑(수)<span class="description-target-marker" data-description-ref="00-6:2" aria-hidden="true"></span></span></th>
                 <th class="w-70">삭제</th>
               </tr>
             </thead>
@@ -417,15 +417,16 @@
 
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
+
   <!-- 권한그룹 삭제 유의사항(확인) 모달 -->
 
 
-  <button type="button" class="description-floating-button" data-description-guide-toggle="permGroupDescriptionGuide" aria-controls="permGroupDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
 
 
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMPermGroupManage/permGroupDeleteModal.html", "popups/SRMPermGroupManage/permGroupDescriptionGuide.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMPermGroupManage/screenDescriptionGuide.html", "popups/SRMPermGroupManage/permGroupDeleteModal.html"]</script>
 </body>
 </html>

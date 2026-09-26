@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>화면설계 Description</title>
+  <link rel="stylesheet" href="../../../../assets/styles/style.css">
+</head>
+<body class="popup-document">
+<!-- 자동 생성 파일: 직접 수정하지 말고 docs/DESCRIPTION_MAP.json 수정 후 python3 tools/build_description_guides.py 실행 -->
+<div class="modal-backdrop description-guide-backdrop" id="screenDescriptionGuide" role="dialog" aria-modal="false" aria-labelledby="screenDescriptionGuideTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg description-modal-dialog">
+      <div class="modal-header">
+        <h2 class="modal-title" id="screenDescriptionGuideTitle">화면설계 Description</h2>
+        <button type="button" class="modal-close" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body description-modal-body">
+        <section class="description-source-section" aria-labelledby="descriptionSection1">
+          <h3 id="descriptionSection1">심사/평가</h3>
+          <p class="description-source-meta">화면설계 07-2 · 슬라이드 47</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="07-2-47:1">
+              <span class="description-mapping-number" aria-hidden="true">1</span>
+              <pre class="description-source-text">심사/평가가 없는 경우(낙찰자 선정방법이 ‘최저가’인 경우) 해당 탭 클릭 시 Alert 제공
+
+Alert
+‘본 입찰공고는 낙찰자 선정방법이 ‘최저가’ 방식으로 심사/평가 대상이 아닙니다.’</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-47:2">
+              <span class="description-mapping-number" aria-hidden="true">2</span>
+              <pre class="description-source-text">진행상태가 ‘입찰 참여 완료’ 건만 보임(그 외에는 평가 대상이 아님)</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-47:3">
+              <span class="description-mapping-number" aria-hidden="true">3</span>
+              <pre class="description-source-text">심사완료 처리 후에는 더 이상 평가 점수가 수정되지 않음
+
+진행상태를 ‘심사완료’ 상태로 변경</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-47:4">
+              <span class="description-mapping-number" aria-hidden="true">4</span>
+              <pre class="description-source-text">심사완료 처리 후,
+낙찰자 선정방법이 ‘제한적 최저가 입찰’, ‘2단계 경쟁입찰(규격/가격 분리)’인 입찰 건의 경우 가격투찰 안내하기 버튼 제공
+
+뒤 페이지 ‘가격투찰 안내하기’ 팝업 호출</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-47:5">
+              <span class="description-mapping-number" aria-hidden="true">5</span>
+              <pre class="description-source-text">낙찰자 선정방법이 ‘제한적 최저가 입찰’, ‘2단계 경쟁입찰(규격/가격 분리)’인 경우 심사/평가 후 적격 판정을 받은 업체가 2개 미만일 경우 해당 영역 제공
+
+유찰(재공고)을 처리할 수 있음
+‘유찰(재공고) 처리하기’ 팝업 호출(앞 페이지 참고)</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="descriptionSection2">
+          <h3 id="descriptionSection2">심사/평가</h3>
+          <p class="description-source-meta">화면설계 07-2 · 슬라이드 48</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="07-2-48:1">
+              <span class="description-mapping-number" aria-hidden="true">6</span>
+              <pre class="description-source-text">자가심사가 있는 경우만 노출 </pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="descriptionSection3">
+          <h3 id="descriptionSection3">심사/평가</h3>
+          <p class="description-source-meta">화면설계 07-2 · 슬라이드 49</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="07-2-49:1">
+              <span class="description-mapping-number" aria-hidden="true">7</span>
+              <pre class="description-source-text">심사/평가를 진행하기 전에는 당연히 평가점수는 노출될 수 없음
+
+‘심사/평가전’으로 표시</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-49:2">
+              <span class="description-mapping-number" aria-hidden="true">8</span>
+              <pre class="description-source-text">뒤 페이지 심사/평가하기 팝업창 호출 
+
+당연히,
+심사완료 처리 후(진행상태 ‘심사완료’)에는 더 이상 평가 점수를 등록/수정할 수 없음</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="descriptionSection4">
+          <h3 id="descriptionSection4">심사/평가 &gt; (가격투찰 안내하기)</h3>
+          <p class="description-source-meta">화면설계 07-2 · 슬라이드 51</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="07-2-51:1">
+              <span class="description-mapping-number" aria-hidden="true">9</span>
+              <pre class="description-source-text">낙찰자 선정방법이 ‘제한적 최저가 입찰’, ‘2단계 경쟁입찰(규격/가격 분리)’인 입찰 건의 경우(서류와 가격을 분리 제출하지 않음)
+
+규격(기술) 평가 후 ‘적격’인 업체를 대상으로 가격투찰 일정을 안내해야 함 
+
+물론, 투찰일정은 ‘입찰계획 등록’ 시 설정되어 있지만 변경의 여지가 있을 수 있기 때문에 해당 기능을 제공함</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-51:2">
+              <span class="description-mapping-number" aria-hidden="true">10</span>
+              <pre class="description-source-text">입찰계획 당시의 ‘가격 투찰 기간’ 정보 제공</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-51:3">
+              <span class="description-mapping-number" aria-hidden="true">11</span>
+              <pre class="description-source-text">가격 투찰 기간의 변경이 필요한 경우 활용함(아래의 기간 선택 활성화)
+
+변경 값이 저장(업데이트)되어야 함</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-51:4">
+              <span class="description-mapping-number" aria-hidden="true">12</span>
+              <pre class="description-source-text">규격(기술) 심사/평가 결과 적격인 협력업체만 ‘가격 투찰’ 대상이 됨</pre>
+            </div>
+            <div class="description-mapping-item" data-description-ref="07-2-51:5">
+              <span class="description-mapping-number" aria-hidden="true">13</span>
+              <pre class="description-source-text">발송 제목/내용을 자동 완성해 주지만, 수정해서 보낼 수도 있음
+
+내용 중 ‘가격 투찰 기간’은 위의 설정된 값에 따라서 자동 완성해 줌</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="descriptionSection5">
+          <h3 id="descriptionSection5">심사/평가 &gt; (가격 투찰 안내하기)</h3>
+          <p class="description-source-meta">화면설계 07-2 · 슬라이드 52</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="07-2-52:1">
+              <span class="description-mapping-number" aria-hidden="true">14</span>
+              <pre class="description-source-text">발송 제목/내용을 자동 완성해 주지만, 수정해서 보낼 수도 있음
+
+내용 중 ‘가격 투찰 기간’은 위의 설정된 값에 따라서 자동 완성해 줌</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="descriptionSection6">
+          <h3 id="descriptionSection6">심사/평가(심사완료 처리 후의 화면 – 조회만 할 뿐 업무를 처리할 수 없음)</h3>
+          <p class="description-source-meta">화면설계 07-2 · 슬라이드 53</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="07-2-53:1">
+              <span class="description-mapping-number" aria-hidden="true">15</span>
+              <pre class="description-source-text">심사완료 처리 후의 화면 
+
+조회만 할 뿐 업무를 처리할 수 없음</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="descriptionSection7">
+          <h3 id="descriptionSection7">심사/평가(심사완료 처리 후의 화면 – 조회만 할 뿐 업무를 처리할 수 없음)</h3>
+          <p class="description-source-meta">화면설계 07-2 · 슬라이드 54</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="07-2-54:1">
+              <span class="description-mapping-number" aria-hidden="true">16</span>
+              <pre class="description-source-text">심사완료 처리 후의 화면 
+(조회만 할 뿐 업무를 처리할 수 없음)</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="descriptionSection8">
+          <h3 id="descriptionSection8">심사/평가(심사완료 처리 후의 화면 – 조회만 할 뿐 업무를 처리할 수 없음)</h3>
+          <p class="description-source-meta">화면설계 07-2 · 슬라이드 55</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="07-2-55:1">
+              <span class="description-mapping-number" aria-hidden="true">17</span>
+              <pre class="description-source-text">심사완료 처리 후의 화면 
+(조회만 할 뿐 업무를 처리할 수 없음)</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="descriptionSection9">
+          <h3 id="descriptionSection9">입찰 참여현황(수동 메일/메시지 발송)</h3>
+          <p class="description-source-meta">화면설계 07-2 · 슬라이드 45</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="07-2-45:1">
+              <span class="description-mapping-number" aria-hidden="true">18</span>
+              <pre class="description-source-text">메일/메시지가 발송되면,  ‘기준 정보 관리 &gt; 메일/메시지 발송현황 조회’에서 반드시 확인할 수 있어야 함.
+
+모든 자동/수동 메일/메시지 발송은 발송 전에 우리 데이터로 관리되어야 함</pre>
+            </div>
+          </div>
+        </section>
+        <section class="description-source-section" aria-labelledby="descriptionSection10">
+          <h3 id="descriptionSection10">유찰(재공고) 처리하기</h3>
+          <p class="description-source-meta">화면설계 07-2 · 슬라이드 46</p>
+          <div class="description-mapping-list">
+            <div class="description-mapping-item" data-description-ref="07-2-46:1">
+              <span class="description-mapping-number" aria-hidden="true">19</span>
+              <pre class="description-source-text">유찰 처리 시, 
+
+공고 구분을 ‘재공고(1차)’, ‘재공고(2차)’ 형태로 생성하고
+
+본 입찰계획 당시 등록/설정된 정보를 모두 복사해서 ‘입찰계획 현황’ 메뉴에 새로운 공고 번호로 복사해주는 기능
+
+단, 낙찰자 선정방법이 ‘제한적 최저가 입찰’, ‘적격심사’이면서(예비가) 
++
+유찰 처리 시점이 개찰 후인 경우
+
+‘예비가 등록/설정’을 반드시 다시 해야 함(예비가는 복사하지 않고 넘김)</pre>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <script src="../../../../assets/scripts/dashboard.js"></script>
+</body>
+</html>

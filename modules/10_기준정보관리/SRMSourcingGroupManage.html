@@ -277,7 +277,7 @@
       <p class="modal-field-label">'코드 관리'와 유사하게 대/중/소분류 3단으로 관리합니다.</p>
       <div class="filter-card" data-ui-scope="filter">
         <div class="form-lookup">
-          <select class="filter-select w-130"><option>검색 구분</option></select>
+          <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="10-7:1" aria-hidden="true"></span><select class="filter-select w-130"><option>검색 구분</option></select></span>
           <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
         </div>
         <div class="filter-action-row"><button type="button" class="btn-filter-search">검색</button><button type="button" class="btn-filter-reset">초기화</button></div>
@@ -338,12 +338,13 @@
 
   <footer class="app-footer"><div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div></footer>
 
+  <button type="button" class="description-floating-button" data-description-guide-toggle="screenDescriptionGuide" aria-controls="screenDescriptionGuide" aria-expanded="false" aria-label="화면설계 Description 보기" title="화면설계 Description 보기">D</button>
 
   <!-- 코드 관리(소싱그룹 등록/수정) -->
 
 
   <script src="popups/popup-bundle.js"></script>
   <script src="../../assets/scripts/dashboard.js"></script>
-  <script type="application/json" class="external-modal-manifest">["popups/SRMSourcingGroupManage/sgManageModal.html"]</script>
+  <script type="application/json" class="external-modal-manifest">["popups/SRMSourcingGroupManage/screenDescriptionGuide.html", "popups/SRMSourcingGroupManage/sgManageModal.html"]</script>
 </body>
 </html>
