@@ -2056,8 +2056,10 @@ img {
   color: #475569;
 }
 
+/* 필수 입력 표시(*)는 어느 라벨(dt·th·label·p 등)에 있든 레드로 표시합니다(5.5). */
+.required,
 .form-label .required {
-  color: var(--accent-red);
+  color: var(--point-red);
   margin-left: 2px;
 }
 
@@ -6705,7 +6707,7 @@ img {
 .btn-secondary:hover { background: #f8fafc; border-color: #7c8ca0; }
 .switch-icon { display: inline-flex; align-items: center; justify-content: center; }
 .srm-return-reason { display: block; margin-top: 16px; }
-.srm-return-reason span { display: block; margin-bottom: 6px; color: #475569; font-size: 13px; font-weight: 400; }
+.srm-return-reason > span { display: block; margin-bottom: 6px; color: #475569; font-size: 13px; font-weight: 400; }
 .srm-return-reason b { color: #ef4444; }
 .srm-return-reason textarea { width: 100%; padding: 10px 12px; resize: vertical; border: 1px solid #cbd5e1; border-radius: 6px; color: #475569; font: 13px/1.5 inherit; outline: none; }
 .srm-return-reason textarea:focus { border-color: var(--primary-blue); box-shadow: 0 0 0 3px rgba(25, 118, 210, .1); }
@@ -7929,12 +7931,21 @@ body table tbody tr:last-child > td {
   border-bottom-color: transparent !important;
 }
 
+/* 합계 행(tfoot)은 본문과 #cbd5e1 상단선으로 구분하고(5.3), 여러 tbody로 나눈 표(대메뉴 병합 등)는 묶음 사이에도 가로선을 둡니다. */
+body table > tfoot > tr:first-child > :is(td, th),
+body table > tfoot > tr[hidden]:first-child + tr > :is(td, th) {
+  border-top: 1px solid #cbd5e1 !important;
+}
+body table > tbody:not(:last-of-type) > tr:last-child > td {
+  border-bottom-color: #eaedf3 !important;
+}
+
 body table a[href]:not([class*="btn-"]):not([role="button"]) {
   color: #1976d2 !important;
 }
 
 .srm-file-item > span,
-.srm-return-reason span,
+.srm-return-reason > span,
 .srm-return-reason textarea,
 .btn-secondary {
   color: #475569 !important;
@@ -8494,6 +8505,8 @@ body.popup-document > .modal-backdrop {
 .modal-dialog.modal-sm { max-width: 480px; }
 .modal-dialog.modal-lg { max-width: 750px; }
 .modal-dialog.modal-xl { max-width: 960px; }
+/* 기간(날짜+시+분 ~ 날짜+시+분)처럼 한 줄 입력이 960px에 들어가지 않는 모달 (5.8) */
+.modal-dialog.modal-xxl { max-width: 1160px; }
 
 .modal-header {
   display: flex;
@@ -10074,6 +10087,7 @@ body a:not(.nav-link):not(.submenu-item > a):not([class*="btn-"]):not(.detail-ta
 .srm-detail-actions { flex-wrap: wrap; row-gap: 12px; }
 .srm-detail-actions > :is(.hstack, .form-actions-right) { flex-wrap: wrap; margin-left: auto; }
 .srm-detail-actions > button:last-child:not(:first-child) { margin-left: auto; }
+
 /* 첨부파일 목록은 세로 흐름을 유지: 줄바꿈이 열 방향으로 번지지 않도록 합니다. */
 .srm-kv-row > dd:has(> .srm-file-list) { flex-wrap: nowrap; }
 .srm-kv-row > dd:has(> .srm-file-list) > .content-inner-gap-top { flex: 0 0 auto; margin-top: 0; }
@@ -10154,3 +10168,10 @@ body table :is(th, td) :is(.text-left, .text-right, .col-left, .col-num, .cell-m
 @media print {
   .permission-menu-card > .perm-menu-scroll { flex: none; contain: none; max-height: none; overflow: visible; }
 }
+
+/* 표 아래 오른쪽에 붙는 버튼 줄(화면설계에서 표 오른쪽 아래에 그려진 추가·순서 적용 등).
+   버튼 묶음 전체를 오른쪽 끝에 두며, 마지막 버튼만 밀어내는 기본 규칙보다 우선합니다. */
+.srm-detail-actions.actions-end { justify-content: flex-end; }
+.srm-detail-actions.actions-end > :is(button, span, a, div):first-child { margin-left: auto; }
+.srm-detail-actions.actions-end > :is(button, span, a, div):not(:first-child) { margin-left: 0; }
+.three-col-panels.equal-height-panels > .app-card > .srm-detail-actions.actions-end > :not(:first-child) { margin-left: 0; }

@@ -670,11 +670,8 @@
     "08_계약관리/SRMContractStatusDetailBidPlan.html": {
       "08-23:1": "PPTX 슬라이드에 번호 원이 없음"
     },
-    "09_협력업체관리/SRMPartnerManageDetail.html": {
-      "09-9:3": "상세 화면 하단에 '삭제' 버튼이 없음(화면설계와 차이, 확인 필요)"
-    },
     "09_협력업체관리/SRMPartnerQnaAnswer.html": {
-      "09-15:2": "질문과 답변 상세 화면에 답변 '삭제' 버튼이 없음(화면설계와 차이, 확인 필요)"
+      "09-15:2": "답변 '삭제' 버튼은 질문 상세 화면(SRMPartnerQnaDetail.html) 하단 목록 줄에 있음(이 화면은 답변 등록/수정 화면)"
     }
   },
   "excluded_slides": {

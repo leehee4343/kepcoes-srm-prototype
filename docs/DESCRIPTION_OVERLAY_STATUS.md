@@ -15,7 +15,7 @@
 
 - Description 드로어가 있는 화면: **117개**, 드로어 항목(원문 문단): **531개**
 - 매핑된 화면: 145개 (원문 없는 화면 포함), 제외한 슬라이드: 8개
-- 목적지를 둘 수 없는 항목: 24개(아래 목록)
+- 목적지를 둘 수 없는 항목: 23개(아래 목록)
 
 ## 00_공통관리
 
@@ -195,7 +195,7 @@
 |---|---|---:|---:|---|
 | `SRMPartnerApproval.html` | 4, 5, 6 | 6 | 0 | 완료 |
 | `SRMPartnerManage.html` | 7 | 2 | 0 | 완료 |
-| `SRMPartnerManageDetail.html` | 8, 9, 10 | 7 | 0 | 완료(목적지 없음 1) |
+| `SRMPartnerManageDetail.html` | 8, 9, 10 | 7 | 0 | 완료 |
 | `SRMPartnerManageEdit.html` | 11, 12 | 1 | 0 | 완료 |
 | `SRMPartnerQnaAnswer.html` | 15 | 2 | 0 | 완료(목적지 없음 1) |
 | `SRMPartnerQnaDetail.html` | 14 | 0 | 0 | 원문 없음 |
@@ -248,8 +248,7 @@
 | `07-2_입찰관리/StepWorkflowReview.html` | 07-2-28:3 | 최종 점검 화면에 예정가 요약 표가 없음(화면설계와 차이, 확인 필요) |
 | `08_계약관리/SRMContractStatusDetail.html` | 08-7:3 | PPTX 슬라이드에 ③ 번호 원이 없음(①②가 두 번씩 표기됨, PPTX 표기대로 반영) |
 | `08_계약관리/SRMContractStatusDetailBidPlan.html` | 08-23:1 | PPTX 슬라이드에 번호 원이 없음 |
-| `09_협력업체관리/SRMPartnerManageDetail.html` | 09-9:3 | 상세 화면 하단에 '삭제' 버튼이 없음(화면설계와 차이, 확인 필요) |
-| `09_협력업체관리/SRMPartnerQnaAnswer.html` | 09-15:2 | 질문과 답변 상세 화면에 답변 '삭제' 버튼이 없음(화면설계와 차이, 확인 필요) |
+| `09_협력업체관리/SRMPartnerQnaAnswer.html` | 09-15:2 | 답변 '삭제' 버튼은 질문 상세 화면(SRMPartnerQnaDetail.html) 하단 목록 줄에 있음(이 화면은 답변 등록/수정 화면) |
 
 ## 제외한 슬라이드
 

@@ -291,12 +291,13 @@
           <ul class="perm-menu-tree perm-menu-scroll" tabindex="0" aria-label="메뉴별 권한 선택 목록"><li><label class="form-choice"><input type="checkbox" checked="">대시보드</label><ul><li><label class="form-choice"><input type="checkbox" checked="">대시보드</label></li><li><label class="form-choice"><input type="checkbox" checked="">공지사항</label></li><li><label class="form-choice"><input type="checkbox" checked="">양식 등 자료실</label></li></ul></li><li><label class="form-choice"><input type="checkbox" checked="">사전 견적 관리</label><ul><li><label class="form-choice"><input type="checkbox" checked="">사전 견적 요청</label></li><li><label class="form-choice"><input type="checkbox" checked="">사전 견적 요청 현황</label></li></ul></li><li><label class="form-choice"><input type="checkbox" checked="">발주계약 요청</label><ul><li><label class="form-choice"><input type="checkbox" checked="">발주계약 요청</label></li><li><label class="form-choice"><input type="checkbox" checked="">발주계약 요청현황</label></li></ul></li><li><label class="form-choice"><input type="checkbox" checked="">발주계획</label><ul><li><label class="form-choice"><input type="checkbox" checked="">발주계약 요청 접수</label></li><li><label class="form-choice"><input type="checkbox" checked="">발주계획 등록</label></li></ul></li><li><label class="form-choice"><input type="checkbox" checked="">수의계약 관리</label><ul><li><label class="form-choice"><input type="checkbox" checked="">수의계약 계획 현황</label></li><li><label class="form-choice"><input type="checkbox" checked="">수의계약 현황</label></li></ul></li><li><label class="form-choice"><input type="checkbox" checked="">입찰관리</label><ul><li><label class="form-choice"><input type="checkbox" checked="">입찰계획 현황</label></li><li><label class="form-choice"><input type="checkbox" checked="">입찰공고 현황</label></li></ul></li><li><label class="form-choice"><input type="checkbox" checked="">계약관리</label><ul><li><label class="form-choice"><input type="checkbox" checked="">발주계약 현황</label></li></ul></li><li><label class="form-choice"><input type="checkbox" checked="">협력업체 관리</label><ul><li><label class="form-choice"><input type="checkbox" checked="">신청/변경 요청 처리</label></li><li><label class="form-choice"><input type="checkbox" checked="">협력업체 관리</label></li><li><label class="form-choice"><input type="checkbox" checked="">질문과 답변</label></li></ul></li><li><label class="form-choice"><input type="checkbox" checked="">기준정보 관리</label><ul><li><label class="form-choice"><input type="checkbox" checked="">공통 품목관리</label></li><li><label class="form-choice"><input type="checkbox" checked="">소싱그룹 관리</label></li><li><label class="form-choice"><input type="checkbox" checked="">공통 심사/평가 관리</label></li><li><label class="form-choice"><input type="checkbox" checked="">공통 서류 관리</label></li><li><label class="form-choice"><input type="checkbox" checked="">메일/메시지 발송 내용 관리</label></li><li><label class="form-choice"><input type="checkbox" checked="">메일/메시지 발송</label></li><li><label class="form-choice"><input type="checkbox" checked="">메일/메시지 발송 현황 조회</label></li></ul></li><li><label class="form-choice"><input type="checkbox" checked="">공통관리</label><ul><li><label class="form-choice"><input type="checkbox" checked="">관리자 관리</label></li><li><label class="form-choice"><input type="checkbox" checked="">권한그룹 및 메뉴별 권한 관리</label></li><li><label class="form-choice"><input type="checkbox" checked="">시스템 권한 관리</label></li><li><label class="form-choice"><input type="checkbox" checked="">접속 아이피(IP) 관리</label></li><li><label class="form-choice"><input type="checkbox" checked="">코드관리</label></li><li><label class="form-choice"><input type="checkbox" checked="">로그인 현황</label></li><li><label class="form-choice"><input type="checkbox" checked="">메뉴별 접속현황</label></li><li><label class="form-choice"><input type="checkbox" checked="">거래처 관리</label></li><li><label class="form-choice"><input type="checkbox" checked="">공지사항 관리</label></li><li><label class="form-choice"><input type="checkbox" checked="">양식 등 자료실 관리</label></li></ul></li></ul>
         </section>
       </div>
+      <div class="srm-detail-actions">
+        <a href="SRMPermGroupManage.html" class="btn-secondary srm-list-button">목록</a>
+        <button type="button" class="btn-critical-primary">등록</button>
+      </div>
 
       <section class="app-card srm-detail-section">
-        <div class="srm-section-heading">
-          <div><h2>관리자(직원) 매핑</h2></div>
-          <button type="button" class="btn-action-new" data-open-modal="adminMappingAddModal">관리자(직원) 추가하기</button>
-        </div>
+        <div class="srm-section-heading"><div><h2>관리자(직원) 매핑</h2></div></div>
         <div class="srm-table-wrap">
           <table class="data-table" aria-label="관리자(직원) 매핑 목록">
             <thead><tr><th class="col-no">No</th><th>사원번호</th><th>아이디</th><th>사원명</th><th>부서</th><th>직급</th><th>매핑일</th><th>등록자</th><th class="w-70">삭제</th></tr></thead>
@@ -306,12 +307,9 @@
             </tbody>
           </table>
         </div>
+        <div class="srm-detail-actions actions-end"><button type="button" class="btn-action-new" data-open-modal="adminMappingAddModal">관리자(직원) 추가하기</button></div>
       </section>
 
-      <div class="srm-detail-actions">
-        <a href="SRMPermGroupManage.html" class="btn-secondary srm-list-button">목록</a>
-        <button type="button" class="btn-critical-primary">등록</button>
-      </div>
     </main>
   </div>
 

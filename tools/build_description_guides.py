@@ -37,6 +37,8 @@ BUTTON_RE = re.compile(r'\n*[ \t]*<button[^>]*class="description-floating-button
 COMMENT_RE = re.compile(r'[ \t]*<!-- 화면설계 Description[^>]*-->\n?')
 # 고객 통보 코드(MSG-###)가 있는 드로어의 화면은 핸드폰 목업용 메일·메시지 카탈로그를 불러옵니다(DESIGN_GUIDE 5.15).
 MESSAGE_CODE_RE = re.compile(r'MSG-\d{3}')
+# 메일/메시지 발송 내용 관리 화면은 카탈로그(참고 xlsx의 상황별 발송 데이터)로 목록·상세·수정을 채웁니다.
+MESSAGE_CONTENT_PAGES = {'SRMMailContentManage', 'SRMMailContentDetail', 'SRMMailContentForm'}
 CATALOG_TAG = '<script src="../../assets/scripts/message-catalog.js"></script>'
 CATALOG_RE = re.compile(r'[ \t]*<script src="\.\./\.\./assets/scripts/message-catalog\.js"></script>\n')
 MANIFEST_RE = re.compile(r'(<script type="application/json" class="external-modal-manifest">)(.*?)(</script>)', re.S)
@@ -222,6 +224,7 @@ def main() -> None:
                 guide_file.write_text(content, encoding='utf-8')
             wanted_guides.add(guide_file)
         codes = any(MESSAGE_CODE_RE.search(it['text']) for sec in sections for it in sec['items'])
+        codes = codes or page.stem in MESSAGE_CONTENT_PAGES
         changed += update_page(page, guide_rel, codes)
     removed = 0
     for guide in MODULES.glob('*/popups/*/*.html'):

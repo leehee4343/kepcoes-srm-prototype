@@ -274,7 +274,7 @@
       </div>
       <section class="page-detail-body"><div class="srm-section-heading description-marker-container"><span class="description-target-marker marker-top-left" data-description-ref="09-8:1" aria-hidden="true"></span><div><h2>최종 처리 상태</h2></div></div>
         <div class="srm-kv-grid">
-          <div class="srm-kv-row"><dt>최종 처리 상태</dt><dd><span class="badge-success">승인</span> <span class="badge-tag">신청완료</span> <span class="badge-warning">정보수정 요청</span> <button type="button" class="btn-secondary" data-close-modal data-open-modal="pmStatusManageModal">처리상태 관리</button></dd></div>
+          <div class="srm-kv-row"><dt>최종 처리 상태</dt><dd><span class="badge-success">승인</span> <span class="badge-tag">신청완료</span> <span class="badge-warning">정보수정 요청</span></dd></div>
           <div class="srm-kv-row"><dt>신청일시</dt><dd>2026.06.10 15:56</dd></div>
         </div>
 
@@ -290,6 +290,7 @@
             </tbody>
           </table>
         </div>
+        <div class="srm-detail-actions actions-end"><button type="button" class="btn-secondary" data-close-modal data-open-modal="pmStatusManageModal">처리상태 관리</button></div>
 
         <div class="srm-section-heading content-object-gap-top"><div><h2>협력업체 기본 정보</h2></div></div>
         <div class="srm-kv-grid">
@@ -302,7 +303,6 @@
           <div class="srm-kv-row"><dt>업태</dt><dd>소프트웨어개발</dd></div>
           <div class="srm-kv-row"><dt>주소</dt><dd>(12654) 경기도 고양시 일산서구 강선로 118 강선마을아파트 제208동 1202호</dd></div>
         </div>
-        <div class="srm-detail-actions"><button type="button" class="btn-secondary" data-close-modal data-href="SRMPartnerManageEdit.html">협력업체 정보 수정</button></div>
 
         <p class="modal-field-label content-inner-gap-top">관련 증빙서류 제출</p>
         <div class="srm-kv-grid">
@@ -320,21 +320,26 @@
         <div class="srm-section-heading content-object-gap-top"><div><h2>담당자 정보</h2></div></div>
         <div class="srm-table-wrap">
           <table class="data-table" aria-label="담당자 정보">
-            <thead><tr><th class="col-no">No</th><th>담당자 구분</th><th>이름</th><th>직책</th><th>이메일</th><th>핸드폰번호</th><th>전화번호</th><th>담당업무</th><th class="w-160">관리</th></tr></thead>
+            <thead><tr><th class="col-no">No</th><th>담당자 구분</th><th>이름</th><th>직책</th><th>이메일</th><th>핸드폰번호</th><th>전화번호</th><th>담당업무</th><th class="w-60">관리</th></tr></thead>
             <tbody>
               <tr><td>1</td><td>기본 담당자</td><td class="text-left">이희성</td><td>이사</td><td>leehee43@naver.com</td><td>010-6844-2810</td><td>02-6959-9856</td><td class="text-left">사내 입찰/계약 담당자</td><td>
-                <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="09-9:2" aria-hidden="true"></span><button type="button" class="btn-secondary" data-close-modal data-open-modal="pmPwSendConfirmModal">임시 비밀번호 발송</button></span>
                 <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="09-9:1" aria-hidden="true"></span><button type="button" class="btn-secondary" data-close-modal data-open-modal="pmManagerFormModal">수정</button></span>
-                <button type="button" class="btn-row-del">삭제</button>
               </td></tr>
               <tr><td>2</td><td>추가 담당자</td><td class="text-left">박일용</td><td>부장</td><td>-</td><td>-</td><td>-</td><td class="text-left">견적 등 업무 관련 담당자</td><td>
                 <button type="button" class="btn-secondary" data-close-modal data-open-modal="pmManagerFormModal">수정</button>
-                <button type="button" class="btn-row-del">삭제</button>
               </td></tr>
             </tbody>
           </table>
         </div>
         <div class="srm-detail-actions"><button type="button" class="btn-secondary" data-close-modal data-open-modal="pmManagerFormModal">담당자 정보 추가</button></div>
+        <div class="srm-detail-actions content-inner-gap-top">
+          <button type="button" class="btn-secondary" data-href="SRMPartnerManage.html">목록</button>
+          <div class="form-actions-right">
+            <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="09-9:2" aria-hidden="true"></span><button type="button" class="btn-secondary" data-close-modal data-open-modal="pmPwSendConfirmModal">임시 비밀번호 발송</button></span>
+            <button type="button" class="btn-primary" data-href="SRMPartnerManageEdit.html">수정</button>
+            <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="09-9:3" aria-hidden="true"></span><button type="button" class="btn-delete">삭제</button></span>
+          </div>
+        </div>
 
         <div class="srm-section-heading content-object-gap-top"><div><h2>소싱 그룹 설정</h2></div></div>
         <p class="modal-field-label">'기준 정보 관리 &gt; 소싱 그룹 관리'에 적용된 대/중/소 분류 매핑입니다.</p>
@@ -347,8 +352,7 @@
             </tbody>
           </table>
         </div>
-        <div class="srm-detail-actions"><span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="09-10:1" aria-hidden="true"></span><button type="button" class="btn-secondary" data-close-modal data-open-modal="pmSourcingAddModal">소싱 그룹 추가하기</button></span></div></section>
-      <div class="page-actions"><button type="button" class="btn-secondary " data-href="SRMPartnerManage.html">목록</button></div>
+        <div class="srm-detail-actions actions-end"><span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="09-10:1" aria-hidden="true"></span><button type="button" class="btn-secondary" data-close-modal data-open-modal="pmSourcingAddModal">소싱 그룹 추가하기</button></span></div></section>
     </main>
   </div>
 

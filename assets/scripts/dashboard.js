@@ -5,6 +5,8 @@
 document.addEventListener('DOMContentLoaded', async () => {
   await loadExternalModals();
   initPrototypeRecords();
+  initMessageContentPages();
+  initItemMethodLinks();
   initPrototypeReadViews();
   initListDetailViews();
   initHeaderCleanup();
@@ -2325,9 +2327,10 @@ function initDataGrids() {
         clone.querySelectorAll('[id]').forEach(element => element.removeAttribute('id'));
         removeDuplicateDescriptionMarkers(clone, tbody);
         if (sequenceHeaderIndex >= 0 && clone.cells[sequenceHeaderIndex]) {
-          const baseSequence = Number(initialRows[0].cells[sequenceHeaderIndex]?.textContent.trim());
-          clone.cells[sequenceHeaderIndex].textContent = Number.isFinite(baseSequence)
-            ? String(Math.max(1, baseSequence - index))
+          // 예시 행의 번호(1,524처럼 천 단위 쉼표 포함)에 이어서 1씩 줄여 채웁니다.
+          const baseSequence = Number(initialRows[0].cells[sequenceHeaderIndex]?.textContent.trim().replace(/,/g, ''));
+          clone.cells[sequenceHeaderIndex].textContent = Number.isFinite(baseSequence) && baseSequence > 0
+            ? Math.max(1, baseSequence - index).toLocaleString('ko-KR')
             : String(index + 1);
         }
         tbody.appendChild(clone);
@@ -3109,7 +3112,7 @@ function initPrototypeBidStates({ main, pageState, stateOf, refresh }) {
       const step = el.dataset.uiPriceStep;
       el.textContent = step === '5' ? (reserve ? '복수예비 기초금액 등록(사장님, 본부장님)' : '예정가격 등록(사장님, 본부장님)') : `${reserve ? '예비가격' : '예정가격'} 등록 요청 / ${step === '3' ? '전자결재 요청' : '전자결재'}`;
     });
-    document.querySelectorAll('[data-ui-price-label]').forEach(el => { el.textContent = `${reserve ? '복수예비 기초금액' : '예정가격'} *`; });
+    document.querySelectorAll('[data-ui-price-label]').forEach(el => { el.innerHTML = `${reserve ? '복수예비 기초금액' : '예정가격'} <span class="required" aria-hidden="true">*</span>`; });
     const requestTitle = document.getElementById('bidPriceRequestTitle'); if (requestTitle) requestTitle.textContent = `${reserve ? '예비가격' : '예정가격'} 등록 요청`;
     const registerTitle = document.getElementById('bidPriceRegisterTitle'); if (registerTitle) registerTitle.textContent = reserve ? '복수예비 기초금액 등록' : '예정가격 등록';
   });
@@ -3523,6 +3526,77 @@ function prototypeStatusState(value) {
   const winner = ['선정완료', ...negotiation, ...contract];
   const opened = ['개찰완료', '재입찰', ...winner];
   return { opened: after(opened), evaluationDone: after(['심사완료', ...opened]), winnerDone: after(winner), negotiationStarted: after(negotiation) };
+}
+
+// 품목구성방법(품목단가/지정항목) 열이 있는 목록은 행에서 여는 화면에 그 값을 넘깁니다.
+// 사전 견적 요청의 공통 품목 버튼(04-7 ②)·규격 열이 목록에서 고른 건의 품목구성방법을 따릅니다.
+function initItemMethodLinks() {
+  const values = { 품목단가: 'unit', 지정항목: 'custom' };
+  document.querySelectorAll('main table').forEach(table => {
+    const index = Array.from(table.querySelectorAll('thead th')).findIndex(th => th.textContent.replace(/\s/g, '') === '품목구성방법');
+    if (index < 0) return;
+    Array.from(table.tBodies[0]?.rows || []).forEach(row => {
+      const items = values[row.cells[index]?.textContent.trim()];
+      if (!items) return;
+      row.querySelectorAll('a[href], [data-href]').forEach(link => {
+        const attribute = link.hasAttribute('href') ? 'href' : 'data-href';
+        const source = link.getAttribute(attribute);
+        if (!source || source.startsWith('#') || !/\.html/.test(source)) return;
+        const url = new URL(source, location.href);
+        let ui = {};
+        try { ui = JSON.parse(url.searchParams.get('ui') || '{}'); } catch { ui = {}; }
+        url.searchParams.set('ui', JSON.stringify({ ...ui, items }));
+        link.setAttribute(attribute, url.href);
+      });
+    });
+  });
+}
+
+// 기준정보 관리 > 메일/메시지 발송 내용 관리: 참고 xlsx(자동발송 메일, 메세지 내용 정리)의 상황별 발송 데이터로
+// 목록·상세·수정 화면을 채웁니다(message-catalog.js). 목록 행과 수정 버튼은 ?msg=코드로 해당 건을 엽니다.
+function initMessageContentPages() {
+  const catalog = window.SRM_MESSAGE_CATALOG;
+  if (!catalog) return;
+  const codes = Object.keys(catalog).sort();
+  const method = message => message.mailBody && message.smsBody ? '메일 + 메시지' : message.mailBody ? '메일' : '메시지';
+  const withCode = (href, code) => { const url = new URL(href, location.href); url.searchParams.set('msg', code); return url.href; };
+  const table = document.querySelector('main table[aria-label="메일/메시지 발송 내용 관리 목록"]');
+  if (table && table.tBodies[0]?.rows.length) {
+    const template = table.tBodies[0].rows[0];
+    const rows = codes.map((code, index) => {
+      const message = catalog[code];
+      const row = template.cloneNode(true);
+      row.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
+      row.dataset.messageCode = code;
+      row.cells[0].textContent = String(codes.length - index);
+      row.cells[1].textContent = message.situation;
+      const link = row.cells[2].querySelector('a');
+      link.textContent = message.mailSubject;
+      link.setAttribute('href', withCode('SRMMailContentDetail.html', code));
+      row.cells[3].textContent = method(message);
+      row.cells[row.cells.length - 1].querySelectorAll('[data-href]').forEach(button => button.setAttribute('data-href', withCode('SRMMailContentForm.html', code)));
+      return row;
+    });
+    table.tBodies[0].replaceChildren(...rows);
+    const wrapper = table.closest('.data-grid');
+    if (wrapper) { wrapper.dataset.totalItems = String(rows.length); delete wrapper.dataset.totalPages; }
+  }
+  const form = document.querySelector('main[data-message-content]');
+  if (!form) return;
+  const code = new URLSearchParams(location.search).get('msg');
+  const message = catalog[code] || catalog[codes[0]];
+  const rowOf = label => Array.from(form.querySelectorAll('.srm-kv-row')).find(row => row.querySelector('dt')?.textContent.replace(/[\s*]/g, '') === label);
+  const situation = rowOf('발송상황')?.querySelector('dd');
+  if (situation) situation.textContent = message.situation;
+  const subject = rowOf('이메일제목')?.querySelector('input');
+  if (subject) subject.value = message.mailSubject;
+  [['이메일내용', message.mailBody], ['메시지(SMS)', message.smsBody]].forEach(([label, text]) => {
+    const area = rowOf(label)?.querySelector('textarea');
+    if (area) { area.value = text; area.rows = Math.max(4, text.split('\n').length + 1); }
+  });
+  const channel = message.mailBody && message.smsBody ? 'both' : message.mailBody ? 'email' : 'sms';
+  const radio = form.querySelector(`input[data-ui-field="channel"][value="${channel}"]`);
+  if (radio) radio.checked = true;
 }
 
 function prototypeRecordNumber(record, label) {

@@ -1,8 +1,8 @@
 # 📘 KEPCO ES 통합 디자인 / UI / UX 가이드라인 (Design System)
 
 > **프로젝트**: 켑코이에스(주) 사업관리시스템 (PMS) & 전자입찰시스템 (SRM)  
-> **버전**: v2.69
-> **최종 수정일**: 2026-09-26
+> **버전**: v2.73
+> **최종 수정일**: 2026-09-29
 > **목적**: PMS 및 SRM 전체 화면의 시각적 완성도, 일관성, 접근성 및 사용자 경험(UX) 표준을 정의하고 협업 기준을 제공하는 단일 진실 공급원(Single Source of Truth).
 
 ### 이 문서의 사용법
@@ -473,6 +473,7 @@ font-family: 'Pretendard';
 - **상태**: hover는 한 단계 밝은 톤(`--primary-hover`), 키보드 focus는 2.4의 아웃라인, disabled는 `opacity` 감소와 `cursor: not-allowed`, 진행 중 처리는 문구를 `저장 중…`처럼 바꾸고 중복 클릭을 막습니다.
 - **엑셀 다운로드 아이콘**: 모든 엑셀 다운로드 버튼은 일반 하향 화살표를 사용하지 않고, 접힌 모서리의 문서 윤곽과 `X` 표식으로 구성된 공통 `.icon-excel` SVG를 사용합니다. 아이콘 크기는 `16px`, 색상은 포인트 그린 `#16a34a`, 버튼 문구는 `엑셀 다운로드`로 통일합니다.
 - **하단 액션 바**: `[목록]`(Tertiary)은 좌측, 메인 액션(저장 등)과 상태 전환 액션(되돌리기 등)은 우측에 배치합니다.
+- **버튼 위치는 화면설계 그대로**: 버튼이 놓이는 줄(목록과 같은 줄인지), 좌/우, 어느 표·섹션 아래인지, 표 안(행 액션)인지 밖인지는 화면설계 PPTX의 위치를 따릅니다. 화면설계에서 `목록`과 같은 줄에 그려진 버튼은 하단 액션 바(`.page-actions` 또는 `.srm-detail-actions`, 첫 버튼 `목록` 좌측·나머지 우측) 한 줄에 둡니다. 표 오른쪽 아래에 그려진 추가·순서 적용 등의 버튼 줄은 `.srm-detail-actions.actions-end`(묶음 전체 우측), 목록 없이 버튼만 있는 하단 줄은 `.page-actions.actions-end`를 씁니다. 섹션 제목 오른쪽(헤더 도구 영역)에 둘 수 있는 것은 화면설계가 그렇게 그린 경우와 대시보드 위젯의 `더보기 +` 링크(5.14)뿐입니다.
 
 ### 5.5 폼 컨트롤 (Form Controls)
 - **텍스트 입력·셀렉트 기본**: 높이 `38px`, 패딩 `0 12px`, 테두리 `1px solid #cbd5e1`, 라운드 `6px`, 글자 `13px / 400 / #475569`, 배경 `#ffffff`. 같은 행의 버튼과 높이를 맞춥니다.
@@ -587,7 +588,7 @@ font-family: 'Pretendard';
 - **금지**: 부모 페이지에 팝업 본문을 복사해 중복 보관하거나, 하나의 팝업 파일에 서로 다른 팝업 두 개를 넣거나, 인라인 `<template>`·문자열 HTML로 팝업 내용을 숨겨 두지 않습니다.
 - **구조**: `.modal-backdrop`(오버레이) > `.modal-dialog`(창) > `.modal-header`(제목 + 닫기) · `.modal-body`(본문) · `.modal-footer`(액션)의 3단 구조입니다. 열고 닫는 상태는 `.modal-backdrop`의 `show` 클래스로 표현합니다.
 - **오버레이**: `rgba(15, 23, 42, 0.55)` + `blur(2px)`, `z-index: 1000`, 창을 가운데 정렬하고 바깥 여백 `24px`. 다른 모달 위에 열리는 모달(확인 팝업)은 `.modal-top`(`z-index: 1100`)을 추가합니다.
-- **모달 창**: 배경 `#ffffff`, 라운드 `14px`, 그림자 `0 20px 25px -5px rgba(0,0,0,0.15)`. 장식용 그라데이션·원형 무늬를 쓰지 않습니다. **너비는 내용 크기에 따라 4단계**입니다.
+- **모달 창**: 배경 `#ffffff`, 라운드 `14px`, 그림자 `0 20px 25px -5px rgba(0,0,0,0.15)`. 장식용 그라데이션·원형 무늬를 쓰지 않습니다. **너비는 내용 크기에 따라 5단계**입니다.
 
 | 크기 | 클래스 | 최대 너비 | 용도 |
 |---|---|---|---|
@@ -595,6 +596,9 @@ font-family: 'Pretendard';
 | Medium | (기본) | `600px` | 짧은 입력·되돌리기 사유 등 |
 | Large | `.modal-lg` | `750px` | 입력 폼, 상세 조회 |
 | X-Large | `.modal-xl` | `960px` | 표·계산 입력이 있는 모달 |
+| XX-Large | `.modal-xxl` | `1160px` | 기간(날짜·시·분 ~ 날짜·시·분)처럼 한 줄 입력이 `960px`에 들어가지 않는 모달 |
+
+- **입력 한 줄 유지**: 한 항목의 입력 컨트롤 묶음(이메일 `아이디 @ 도메인 선택 + 직접 입력`, 날짜·시·분, 기간, 선택지 그룹 등)이 모달 안에서 두 줄로 떨어지면 컨트롤을 줄이지 않고 **모달 크기를 다음 단계로 키워** 한 줄로 표시합니다. 1280px·1440px 화면에서 모두 확인합니다.
 
 - **크기와 스크롤 (필수)**: 모달은 **어떤 화면 높이에서도 뷰포트 안에 완전히 들어와야 합니다**(`max-height: calc(100vh - 48px)`). 내용이 길면 모달 전체가 아니라 **본문(`.modal-body`)만 세로 스크롤**하고, 헤더의 닫기(×)와 푸터의 버튼은 항상 화면에 보이게 고정합니다(9장 E13). 모달이 뷰포트를 넘어 위·아래가 잘리거나 닫기·버튼에 접근할 수 없는 상태를 만들지 않습니다.
 - **헤더**: 제목(`.modal-title`, 16px, `#334155`)과 닫기 버튼(`.modal-close`, 32px 원형, `×`, `aria-label="닫기"`)만 둡니다. 제목 앞에 `|`, 번호, 아이콘 같은 장식을 붙이지 않고(2.1), 하단 `1px #e2e8f0` 선으로 구분합니다. 패딩 `16px 24px`.
@@ -814,7 +818,7 @@ font-family: 'Pretendard';
 - 문구는 `[참고]자동발송 메일, 메세지 내용 정리.xlsx`의 셀 원문 그대로입니다(메일 제목·메일 내용·SMS(MLS) 내용·발송대상). `python3 tools/build_message_catalog.py`로 `assets/scripts/message-catalog.js`를 생성하며 직접 수정하지 않습니다.
 - Description 원문 파일은 바꾸지 않습니다. `initMessagePreview`가 실행 시 카탈로그에 있는 코드 글자만 같은 글자의 버튼(`.description-message-code`)으로 감쌉니다.
 - 목업은 `문자(SMS/LMS)`·`메일` 두 보기로 나뉩니다. 문자 종류는 90바이트(한글 2바이트) 초과 시 `LMS`로 표시합니다. `×`·`Esc`로 닫고(`Esc`는 목업 먼저, 다음에 드로어), 드로어가 닫히면 함께 닫힙니다. `z-index: 1150`(드로어와 같은 층, 문서 순서상 위), 출력 시 숨깁니다.
-- 드로어에 `MSG-###`이 있는 화면에는 `tools/build_description_guides.py`가 `dashboard.js` 앞에 `<script src="../../assets/scripts/message-catalog.js"></script>`를 자동으로 넣습니다(현재 16개 화면, 코드 20곳). 직접 추가·삭제하지 않습니다.
+- 드로어에 `MSG-###`이 있는 화면에는 `tools/build_description_guides.py`가 `dashboard.js` 앞에 `<script src="../../assets/scripts/message-catalog.js"></script>`를 자동으로 넣습니다(현재 16개 화면, 코드 20곳). 직접 추가·삭제하지 않습니다. 또한 `기준정보 관리 > 메일/메시지 발송 내용 관리`의 목록·상세·수정 화면(`SRMMailContentManage`·`Detail`·`Form`)은 같은 카탈로그로 상황별 발송 데이터를 표시합니다(`initMessageContentPages`, 목록 행·수정 버튼은 `?msg=코드`로 해당 건을 엶). 참고 xlsx를 바꾸면 `python3 tools/build_message_catalog.py`를 다시 실행합니다.
 
 #### 표준 마크업
 
@@ -1115,6 +1119,10 @@ font-family: 'Pretendard';
 ### 11.2 변경 이력
 | 버전 | 날짜 | 요지 |
 |---|---|---|
+| v2.73 | 2026-09-29 | **필수 표시·표 선 정리**: 필수 입력 `*`(`.required`)가 라벨 색(#475569)을 물려받아 회색으로 보이던 문제 수정 — 어느 라벨에 있든 레드(5.5), 스크립트가 바꾸는 가격 라벨도 `.required` 사용. 표 선 전수 점검(5.3): 합계 행(tfoot) 상단선 `#cbd5e1` 복구(본문 td의 `border-top: 0`에 가려짐), 여러 tbody로 나눈 표의 묶음 사이 가로선, 래퍼 없이 놓인 표 7개에 `.srm-table-wrap` 외곽선, 조건부 열(규격)과 합계 행의 열 수 불일치 보정. |
+| v2.72 | 2026-09-29 | **모달 입력 한 줄 유지(5.8)**: 전 화면 팝업의 입력 컨트롤 줄바꿈을 1280·1440px에서 검사해 7개 팝업의 크기를 한 단계 키움(아이디·비밀번호 찾기의 비밀번호 찾기 lg→xl, 담당자 추가/수정·공통 서류 등록·수의시담 견적 요청 md→lg, 수동 발송 대상 추가 md→xl, 가격 투찰 안내·재입찰 처리 xl→xxl). `.modal-xxl`(1160px) 추가. |
+| v2.71 | 2026-09-29 | **버튼 위치 화면설계 정합(5.4)**: PPTX 버튼 도형(3,084개)의 줄·좌우·표 안팎·위 표를 HTML과 대조해 차이를 보정 — 협력업체 상세(09-8~10) 처리상태 관리·소싱 그룹 추가하기 우측, 담당자 표 아래 `[목록 | 임시 비밀번호 발송·수정·삭제]` 줄(삭제 추가), 입찰계획 상세·심사/평가·참여 서류(07-2-12·14·24)와 공통 서류·심사/평가(10-9·11) 하단 한 줄, 권한그룹·시스템 권한(00-7·9) 관리자 추가 표 아래, 담당자 추가(02-64) 표 아래, 비밀번호 변경·기본정보 수정 요청·협력업체 정보 수정 우측, 코드·소싱 그룹 패널 우측, 품목 정보 버튼 묶음 우측, 질문 상세 삭제·수의계약 견적서 제출·입찰 참여 현황 바로가기 추가, 계약 관련 서류 버튼 순서. `.srm-detail-actions.actions-end` 추가. **목록 No 연속 번호**: 예시 행 번호에 천 단위 쉼표가 있으면 채운 행이 3, 4…로 떨어지던 문제 수정, 입찰 참여 서류 1·2·3·5 번호를 연속 번호로 보정. |
+| v2.70 | 2026-09-29 | **품목구성방법 전달(5.7.1)**: 품목구성방법 열이 있는 목록(사전 견적 요청·사전 견적 요청 현황·사업담당자 대시보드)에서 행을 열면 그 건의 품목단가/지정항목을 상세·단계 화면에 넘기도록 `initItemMethodLinks` 추가. 지정항목 건은 STEP 02 품목 정보에서 `품목 추가(공통 품목)` 버튼이 숨고(04-7 ②) 규격 열이 표시됨. |
 | v2.69 | 2026-09-26 | **전 화면 가이드 정합성 재점검**: 145개 화면과 팝업을 Chrome 계산 스타일로 전수 검사해 보정 — 팝업 안 보조 버튼(검색·페이징·기간 칩·파일·삭제)이 700으로 굵어지던 선택자 우선순위 수정(5.4), 첨부파일·업체 목록을 표준 파일 행(`.srm-file-list > .srm-file-item`, 삭제 28px)으로 통일(5.11·5.12), 본문에 직접 쓴 `■`·`·` 블릿을 CSS 블릿으로 교체, 문서형 팝업 날짜를 `YYYY.MM.DD`로 통일(7), 필터 라벨 폭 통일(5.2), `#334155` 본문 사용 제거(2.3), 화면 제목 형식 보정, 핸드폰 목업 13px·레이어 값 보정. **진행상태 전수 표시(5.7.1)**: 입찰공고 현황(17종)·수의계약 현황(8종)·협력업체 입찰공고/입찰 참여/수의계약 요청 현황 목록에 화면설계 정의 상태를 모두 제공하고 진행상태 검색 동작 추가. |
 | v2.68 | 2026-09-26 | **고객 통보 코드 미리보기(5.15)**: Description의 `MSG-###`을 누르면 참고 xlsx 원문의 문자(SMS/LMS)·메일을 핸드폰 목업으로 표시. 카탈로그 생성 스크립트(`tools/build_message_catalog.py`) 추가, 코드가 있는 16개 화면(코드 20곳)에 생성 스크립트로 적용. |
 | v2.67 | 2026-09-26 | **Description 전 화면 적용(5.15)**: 화면설계 00~10의 Description을 PPTX에서 추출해 117개 화면에 화면별 드로어로 생성(원문 무수정, 연결 팝업 슬라이드 번호 자동 이어 발번, Description 없는 화면은 `D` 없음). 목적지 번호를 `data-description-ref` + CSS 표시 방식으로 전환하고 기존 드로어의 줄바꿈·띄어쓰기 누락과 목적지 위치 오류 보정. 생성·검증 스크립트(`build/check_description_guides.py`, `test_description_guides.cjs`)와 매핑 파일(`docs/DESCRIPTION_MAP.json`) 추가. |
@@ -1253,6 +1261,8 @@ font-family: 'Pretendard';
 | | 게시판형 목록·상세·등록(모달 아님) | `.board-view`(`.show`) 형제 전환, 하단 `.srm-detail-actions` > `.srm-list-button` | 6.2.1 |
 | 개발자 가이드 | Description 버튼 · 우측 드로어 · 원문 매핑 | `.description-floating-button` · `.description-modal-dialog` · `.description-modal-body` · `.description-source-section` · `.description-mapping-list/item/number` · `.description-source-text` | 5.15 |
 | | 화면설계 목적지 번호 | `.description-marker-anchor` > `.description-target-marker` | 5.15 |
+| 액션 줄 | 표 아래 우측 버튼 묶음 · 목록 없는 하단 줄 | `.srm-detail-actions.actions-end` · `.page-actions.actions-end` | 5.4 |
+| 모달 | 모달 너비 5단계 | `.modal-sm` · (기본) · `.modal-lg` · `.modal-xl` · `.modal-xxl` | 5.8 |
 | | 고객 통보 코드 미리보기 | `.description-message-code` · `.message-preview` · `.phone-mockup` · `.phone-bubble` · `.phone-mail-*` | 5.15 |
 | 안내 | 안내 박스 | `.notice-box`(`.info/.warning/.danger/.success`) > `.notice-icon` · `.notice-body`(`.notice-lead`, `.notice-note`) | 5.9.1 |
 | 콘텐츠 | 블릿 목록 · 첨부파일 | `.bullet-list` · `.content-bullet-item` · `.srm-file-list` > `.srm-file-item` | 5.11, 5.12 |
@@ -1281,7 +1291,9 @@ font-family: 'Pretendard';
 | `initStepTabs` | 선택형 스텝바: `[data-step-tabs]` 안의 `[data-step-target]` 단계를 누르면 해당 패널만 표시(`active`·`aria-selected` 이동) | 5.7 |
 | `initPageLinks` | 버튼형 페이지 이동: `data-href`(목적지 파일), `data-history-back`(이전 화면). 인라인 `onclick` 대체. 권한 버튼(`.perm-btn`)은 제외 | 6.2.1 |
 | `initDescriptionGuide` | 개발자용 Description 우측 드로어 열기·상태 동기화, 드로어의 ref별 번호를 목적지 표식 `data-description-number`에 반영(드로어에 없는 표식은 숨김) | 5.15 |
+| `initMessageContentPages` | 메일/메시지 발송 내용 관리 목록·상세·수정을 참고 xlsx의 상황별 발송 데이터(message-catalog.js)로 채움 | 5.15 |
 | `initMessagePreview` | Description의 고객 통보 코드(`MSG-###`)를 버튼으로 감싸고 핸드폰 목업으로 발송 문자·메일 미리보기(카탈로그를 불러온 화면만) | 5.15 |
+| `initItemMethodLinks` | 품목구성방법(품목단가/지정항목) 열이 있는 목록의 행 링크에 해당 값(`ui.items`)을 넘김 | 5.7.1 |
 | `assignPrototypeStatuses` · `writePrototypeStatus` · `prototypeStatusState` | 목록 진행상태 배정(화면설계 정의 상태 전수)·상태 배지·상세 화면 상태 전달 | 5.7.1 |
 | `removeDuplicateDescriptionMarkers` | 그리드 예시 행 복제 시 같은 ref의 목적지 표식을 첫 행에만 남김 | 5.15 |
 | `renderDonutCharts` · `animateBarCharts` · `animateProgressBars` | 차트·진행 막대 렌더링 | 대시보드·통계 |

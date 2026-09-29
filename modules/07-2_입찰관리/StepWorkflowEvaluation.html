@@ -420,7 +420,7 @@
           <tfoot><tr><td colspan="3">총 배점</td><td class="col-num">80.00</td><td colspan="4"></td></tr></tfoot>
         </table>
       </div>
-      <div class="hstack content-inner-gap-block" data-ui-show="award=restricted|simultaneous|separate|qualification">
+      <div class="srm-detail-actions actions-end content-inner-gap-block" data-ui-show="award=restricted|simultaneous|separate|qualification">
         <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-2-14:3" aria-hidden="true"></span><button type="button" class="btn-secondary" data-close-modal data-open-modal="bidCommonEvalModal">공통 심사/평가 불러오기</button></span>
         <button type="button" class="btn-secondary">순서 적용</button>
         <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-2-14:5" aria-hidden="true"></span><button type="button" class="btn-secondary" data-close-modal data-open-modal="bidEvalItemModal">심사/평가항목 추가</button></span>
@@ -429,16 +429,15 @@
         <div class="srm-kv-row"><dt>최저점수(적격여부 판단) <span class="required" aria-hidden="true">*</span></dt><dd><input type="text" class="form-control w-100" placeholder="숫자로 입력" data-ui-score="minimum"> 점</dd></div>
         <div class="srm-kv-row"><dt>심사기준(배점 및 평가기준 등)</dt><dd><div class="form-lookup"><input type="text" class="form-control" readonly placeholder="파일을 첨부해주세요."><button type="button" class="btn-secondary">찾아보기</button></div></dd></div>
       </div>
-      <div class="hstack content-inner-gap-top" data-ui-show="award=restricted|simultaneous|separate|qualification"><span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-2-14:6" aria-hidden="true"></span><button type="button" class="btn-action-primary">저장</button></span></div>
-
-      </section>
-<!-- 하단 목록 바로가기 액션 -->
-      <div class="hstack" data-ui-show="award=restricted|simultaneous|separate|qualification">
+      <div class="srm-detail-actions content-inner-gap-top" data-ui-show="award=restricted|simultaneous|separate|qualification">
         <a href="StepWorkflow.html#list" class="btn-filter-reset">
           <svg aria-hidden="true" width="14" height="14" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
           목록
         </a>
+        <span class="description-marker-anchor"><span class="description-target-marker" data-description-ref="07-2-14:6" aria-hidden="true"></span><button type="button" class="btn-action-primary">저장</button></span>
       </div>
+
+      </section>
 
       </section>
     </main>
