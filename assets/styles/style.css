@@ -10027,9 +10027,9 @@ body a:not(.nav-link):not(.submenu-item > a):not([class*="btn-"]):not(.detail-ta
 .modal-body .table-card { box-shadow: none; }
 .modal-body .filter-card { margin-bottom: 0; }
 .modal-body .filter-card + .table-card { margin-top: var(--content-object-gap); }
-/* 팝업 안 조회 목록은 팝업 폭 안에 모든 열을 보이게 합니다: 긴 텍스트 칸만 줄바꿈(단어 단위)하고 가로 스크롤은 넘칠 때만 생깁니다. */
+/* 팝업 안 조회 목록도 표 칸은 한 줄로 표시합니다(줄바꿈 금지). 팝업 폭을 넘치면 표에만 가로 스크롤이 생깁니다. */
 .modal-body .data-grid-table:not(.is-manually-sized) { width: 100%; }
-.modal-body .data-grid-table:not(.is-manually-sized) tbody td:is(.text-left, .col-left) { white-space: normal; word-break: keep-all; }
+.modal-body .data-grid-table:not(.is-manually-sized) tbody td:is(.text-left, .col-left) { white-space: nowrap; }
 .modal-body .data-grid-table:not(.is-manually-sized) tbody td :is(button, .badge-info, .badge-success, .badge-warning, .badge-danger, .badge-tag) { white-space: nowrap; }
 
 /* 화면에는 보이지 않고 보조기기에만 읽히는 텍스트 */
