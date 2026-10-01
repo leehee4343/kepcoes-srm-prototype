@@ -10175,3 +10175,21 @@ body table :is(th, td) :is(.text-left, .text-right, .col-left, .col-num, .cell-m
 .srm-detail-actions.actions-end > :is(button, span, a, div):first-child { margin-left: auto; }
 .srm-detail-actions.actions-end > :is(button, span, a, div):not(:first-child) { margin-left: 0; }
 .three-col-panels.equal-height-panels > .app-card > .srm-detail-actions.actions-end > :not(:first-child) { margin-left: 0; }
+
+/* ==========================================================================
+   Compact Search Area
+   검색 영역(.filter-card) 높이를 줄입니다: 카드 여백 16/20px, 행 간격 8px,
+   입력·선택·기간 버튼·검색/초기화 버튼 높이 32px, 버튼 줄 위 간격 12px.
+   ========================================================================== */
+.main-content .filter-card,
+.modal-backdrop .filter-card { --control-height: 32px; padding: 16px 20px !important; }
+.filter-card .filter-row + .filter-row { margin-top: 8px; }
+.filter-card .filter-row { row-gap: 6px; }
+.filter-card .form-choice-group { min-height: 32px; }
+.filter-card :is(input[type="text"], input[type="date"], input[type="number"], input[type="search"], select:not([multiple]), .filter-date-input, .filter-text-input, .filter-select, .filter-input) {
+  height: 32px !important;
+  min-height: 32px !important;
+  box-sizing: border-box;
+}
+.filter-card .btn-quick-date { height: 32px; padding: 0 12px; box-sizing: border-box; }
+body .filter-card .filter-action-row { margin: 12px 0 0 !important; padding: 12px 0 0 !important; }

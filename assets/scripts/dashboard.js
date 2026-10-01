@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initPrototypeReadViews();
   initListDetailViews();
   initHeaderCleanup();
+  initRoleMenus();
   initSidebar();
   initPageManuals();
   initNativeFormControls();
@@ -719,6 +720,62 @@ function applySidebarBottomActions() {
 }
 
 /**
+ * 내부 사용자 권한별 메뉴 표시 ([참고] 메뉴구조도 및 기능명세서.xlsx의 사업담당자·계약담당자·관리자 열)
+ * - 현재 권한은 대시보드 화면이면 그 화면의 권한, 아니면 sessionStorage(srmRole)를 쓰고,
+ *   지금 화면에 접근할 수 없는 권한이면 화면에 지정된 권한(.perm-btn.active)으로 맞춥니다.
+ * - 권한이 없는 1Depth 메뉴는 숨기고, 대시보드·로고 링크는 그 권한의 대시보드로 바꿉니다.
+ */
+const SRM_ROLE_MENUS = {
+  '대시보드': ['biz', 'contract', 'admin'],
+  '사전 견적 관리': ['biz', 'admin'],
+  '발주계약 요청': ['biz', 'admin'],
+  '발주계획': ['contract', 'admin'],
+  '수의계약 관리': ['contract', 'admin'],
+  '입찰관리': ['contract', 'admin'],
+  '계약관리': ['biz', 'contract', 'admin'],
+  '협력업체 관리': ['contract', 'admin'],
+  '기준정보 관리': ['contract', 'admin'],
+  '공통관리': ['admin']
+};
+const SRM_ROLE_USERS = {
+  biz: { name: '홍길동 부장', label: '사업담당자', dashboard: 'SRMDashboardBiz.html' },
+  contract: { name: '임꺽정 차장', label: '계약담당자', dashboard: 'SRMDashboardContract.html' },
+  admin: { name: '이희성 부장', label: '관리자', dashboard: 'SRMDashboardAdmin.html' }
+};
+
+function initRoleMenus() {
+  const nav = document.querySelector('#sidebar .sidebar-nav');
+  const permBtns = Array.from(document.querySelectorAll('.perm-btn[data-role]'));
+  if (!nav || !permBtns.length) return;
+  const groups = Array.from(nav.querySelectorAll(':scope > .nav-item')).map(item => ({ item, roles: SRM_ROLE_MENUS[item.querySelector('.nav-text')?.textContent.trim()] }));
+  const pageGroup = groups.find(group => group.item.classList.contains('active'));
+  const allowed = role => SRM_ROLE_USERS[role] && (!pageGroup?.roles || pageGroup.roles.includes(role));
+  const file = decodeURIComponent(location.pathname.split('/').pop());
+  const dashboardRole = Object.keys(SRM_ROLE_USERS).find(role => SRM_ROLE_USERS[role].dashboard === file);
+  const pageRole = permBtns.find(btn => btn.classList.contains('active'))?.dataset.role;
+  let stored = null;
+  try { stored = sessionStorage.getItem('srmRole'); } catch { /* file:// storage may be unavailable */ }
+  const role = [dashboardRole, stored, pageRole, 'admin'].find(value => value && allowed(value)) || 'admin';
+  try { sessionStorage.setItem('srmRole', role); } catch { /* optional */ }
+
+  groups.forEach(group => { group.item.hidden = Boolean(group.roles) && !group.roles.includes(role); });
+  const swapDashboard = link => link.setAttribute('href', link.getAttribute('href').replace(/SRMDashboard(Biz|Contract|Admin)\.html/, SRM_ROLE_USERS[role].dashboard));
+  document.querySelectorAll('.brand-logo-wrap[href], #sidebar a[href*="SRMDashboard"]').forEach(swapDashboard);
+
+  permBtns.forEach(btn => {
+    const current = btn.dataset.role === role;
+    btn.classList.toggle('active', current);
+    btn.setAttribute('aria-pressed', String(current));
+    if (current) btn.setAttribute('aria-current', 'true'); else btn.removeAttribute('aria-current');
+    btn.addEventListener('click', () => { try { sessionStorage.setItem('srmRole', btn.dataset.role); } catch { /* optional */ } });
+  });
+  const name = document.querySelector('.user-profile .user-name');
+  const label = document.querySelector('.user-profile .user-role');
+  if (name) name.textContent = SRM_ROLE_USERS[role].name;
+  if (label) label.textContent = `[${SRM_ROLE_USERS[role].label}]`;
+}
+
+/**
  * 상단 권한 그룹 버튼 활성화 토글
  */
 function initPermissions() {
@@ -1061,7 +1118,7 @@ function initSRMLoginPage() {
   });
 
   // 프로토타입 로그인 분기
-  // 아이디 1: 협력업체, 아이디 2: 내부 관리자
+  // 아이디 1: 협력업체, 2: 관리자, 3: 사업담당자, 4: 계약담당자
   if (loginForm) {
     loginForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -1074,12 +1131,14 @@ function initSRMLoginPage() {
 
       const loginRoutes = {
         '1': loginForm.dataset.partnerUrl,
-        '2': loginForm.dataset.adminUrl
+        '2': loginForm.dataset.adminUrl,
+        '3': loginForm.dataset.bizUrl,
+        '4': loginForm.dataset.contractUrl
       };
       const targetUrl = loginRoutes[enteredId];
 
       if (!targetUrl) {
-        showToast("아이디는 협력업체 '1' 또는 내부 관리자 '2'를 입력해 주세요.");
+        showToast("아이디는 협력업체 '1', 관리자 '2', 사업담당자 '3', 계약담당자 '4'를 입력해 주세요.");
         idInput?.focus();
         idInput?.select();
         return;
@@ -3434,7 +3493,8 @@ function initPrototypeRecords() {
       });
       if (table.classList.contains('widget-table')) {
         const partner = page.includes('SRMDashboardPartner');
-        const destination = record.state.method === 'sole' ? '../07-1_수의계약관리/SRMSoleSourceStatus.html' : partner ? 'SRMPartnerBidJoinDetail.html' : '../07-2_입찰관리/SRMDetail.html';
+        // data-widget-href가 있는 위젯(예: 현재 진행중인 입찰공고)은 그 화면으로 엽니다.
+        const destination = table.dataset.widgetHref || (record.state.method === 'sole' ? '../07-1_수의계약관리/SRMSoleSourceStatus.html' : partner ? 'SRMPartnerBidJoinDetail.html' : '../07-2_입찰관리/SRMDetail.html');
         if (numberIndex >= 0) row.cells[numberIndex].textContent = row.cells[numberIndex].textContent;
         [titleIndex].filter(index => index >= 0).forEach(index => {
           const cell = row.cells[index];
