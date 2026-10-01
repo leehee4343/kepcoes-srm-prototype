@@ -4,7 +4,7 @@
 https://leehee4343.github.io/kepcoes-srm-prototype/
 
 [프로젝트관리시스템(PMS)]
-https://01kepcoes.vercel.app/
+https://02kepcoes.vercel.app/
 
 [전자입찰시스템(SRM) 로그인]
 https://leehee4343.github.io/kepcoes-srm-prototype/modules/01_협력업체창구_로그인전/SRMLogin.html
